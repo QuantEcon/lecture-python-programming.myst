@@ -1,5 +1,5 @@
 name: Build Project [myst_parser]
-on: [pull_request]
+on: [push]
 jobs:
   tests:
     runs-on: ubuntu-latest
