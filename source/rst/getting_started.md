@@ -20,7 +20,7 @@ single: Python
 
 In this lecture, you will learn how to
 
-1. get a Python environment up and runnin
+1. get a Python environment up and running
 1. execute simple Python commands
 1. run a sample program
 1. install the code libraries that underpin these lectures
@@ -139,7 +139,7 @@ If you use the second option, you will see something like this
 The output tells us the notebook is running at `http://localhost:8888/`
 
 * `localhost` is the name of the local machine
-* `8888` refers to [port number](https://en.wikipedia.org/wiki/Port_%28computer_networking%29) 8888 on your compute
+* `8888` refers to [port number](https://en.wikipedia.org/wiki/Port_%28computer_networking%29) 8888 on your computer
 
 Thus, the Jupyter kernel is listening for Python commands on port 8888 of our local machine.
 
@@ -196,10 +196,10 @@ This means that the effect of typing at the keyboard **depends on which mode you
 The two modes are
 
 1. Edit mode
-    * > Indicated by a green border around one cell, plus a blinking curso
+    * > Indicated by a green border around one cell, plus a blinking cursor
     * > Whatever you type appears as is in that cell
 1. Command mode
-    * > The green border is replaced by a grey (or grey and blue) borde
+    * > The green border is replaced by a grey (or grey and blue) border
     * > Keystrokes are interpreted as commands --- for example, typing > b>  adds a new cell below  the current one
 
 To switch to
