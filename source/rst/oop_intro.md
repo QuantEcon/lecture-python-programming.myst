@@ -8,7 +8,9 @@
 
 # OOP I: Introduction to Object Oriented Programming
 
-## Contents
+```{contents} Contents
+:depth: 2
+```
 
 ## Overview
 

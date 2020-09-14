@@ -36,7 +36,7 @@ jobs:
           pwd
           make html
       - name: Preview Deploy to Netlify
-        uses: nwtgck/actions-netlify@v1.0
+        uses: nwtgck/actions-netlify@v1.1
         with:
           publish-dir: '_build/html/'
           production-branch: master

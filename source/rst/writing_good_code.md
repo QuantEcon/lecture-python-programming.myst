@@ -12,7 +12,9 @@
 single: Models; Code style
 ```
 
-## Contents
+```{contents} Contents
+:depth: 2
+```
 
 ## Overview
 
@@ -43,13 +45,13 @@ k_{t+1} = s k_t^{\alpha} + (1 - \delta) k_t,
 
 Here
 
-$$$* $k_t is capital at time $t and
-* $s, \alpha, \delta are parameters (savings, a productivity parameter and depreciation)
+* $k_t$ is capital at time $t$ and
+* $s, \alpha, \delta$ are parameters (savings, a productivity parameter and depreciation)
 
 For each parameterization, the code
 
-$$1. sets $k_0 = 1
-1. iterates using `gc_solmod` to produce a sequence $k_0, k_1, k_2 \ldots , k_T
+1. sets $k_0 = 1$
+1. iterates using `gc_solmod` to produce a sequence $k_0, k_1, k_2 \ldots , k_T$
 1. plots the sequence
 
 The plots will be grouped into three subfigures.
@@ -314,10 +316,10 @@ equilibrium price by $q^* = q_s(p^*)$
 
 The parameter values will be
 
-$$$$- $\alpha = 0.1
-- $\beta = 1
-- $\gamma = 1
-- $\delta = 1
+- $\alpha = 0.1$
+- $\beta = 1$
+- $\gamma = 1$
+- $\delta = 1$
 
 ```{code-block} ipython3
 from scipy.optimize import brentq

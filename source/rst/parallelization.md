@@ -8,7 +8,9 @@
 
 # Parallelization
 
-## Contents
+```{contents} Contents
+:depth: 2
+```
 
 In addition to what's in Anaconda, this lecture will need the following libraries:
 
@@ -262,9 +264,9 @@ $$
 
 Here
 
-$$$* $R is the gross rate of return on assets
-* $s is the savings rate of the household and
-* $y is labor income.
+* $R$ is the gross rate of return on assets
+* $s$ is the savings rate of the household and
+* $y$ is labor income.
 
 We model both $R$ and $y$ as independent draws from a lognormal
 distribution.

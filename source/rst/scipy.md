@@ -12,7 +12,9 @@
 single: Python; SciPy
 ```
 
-## Contents
+```{contents} Contents
+:depth: 2
+```
 
 ## Overview
 

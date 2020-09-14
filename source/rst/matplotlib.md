@@ -14,7 +14,9 @@ Duplicate implicit target name: "matplotlib".
 single: Python; Matplotlib
 ```
 
-## Contents
+```{contents} Contents
+:depth: 2
+```
 
 ## Overview
 

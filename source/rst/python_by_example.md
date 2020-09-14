@@ -12,7 +12,9 @@
 single: Python; Introductory Example
 ```
 
-## Contents
+```{contents} Contents
+:depth: 2
+```
 
 ## Overview
 
@@ -217,10 +219,10 @@ plt.show()
 
 In brief,
 
-$$* The first line sets the desired length of the time series.
-* The next line creates an empty *list* called `ϵ_values` that will store the $\epsilon_t values as we generate them.
+* The first line sets the desired length of the time series.
+* The next line creates an empty *list* called `ϵ_values` that will store the $\epsilon_t$ values as we generate them.
 * The statement `# empty list` is a *comment*, and is ignored by Python's interpreter.
-* The next three lines are the `for` loop, which repeatedly draws a new random number $\epsilon_t and appends it to the end of the list `ϵ_values`.
+* The next three lines are the `for` loop, which repeatedly draws a new random number $\epsilon_t$ and appends it to the end of the list `ϵ_values`.
 * The last two lines generate the plot and display it to the user.
 
 Let's study some parts of this program in more detail.
@@ -526,9 +528,9 @@ import numpy as np
 
 Your hints are as follows:
 
-$$$$$$$$$$$$* If $U is a bivariate uniform random variable on the unit square $(0, 1)^2, then the probability that $U lies in a subset $B of $(0,1)^2 is equal to the area of $B.
-* If $U_1,\ldots,U_n are IID copies of $U, then, as $n gets large, the fraction that falls in $B, converges to the probability of landing in $B.
-* For a circle, $area = \pi * radius^2.
+* If $U$ is a bivariate uniform random variable on the unit square $(0, 1)^2$, then the probability that $U$ lies in a subset $B$ of $(0,1)^2$ is equal to the area of $B$.
+* If $U_1,\ldots,U_n$ are IID copies of $U$, then, as $n$ gets large, the fraction that falls in $B$, converges to the probability of landing in $B$.
+* For a circle, $area = \pi * radius^2$.
 
 ## Solutions
 

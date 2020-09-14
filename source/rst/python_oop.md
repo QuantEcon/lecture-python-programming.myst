@@ -12,7 +12,9 @@
 single: Python; Object-Oriented Programming
 ```
 
-## Contents
+```{contents} Contents
+:depth: 2
+```
 
 ## Overview
 
@@ -360,11 +362,11 @@ k_{t+1} = \frac{s z k_t^{\alpha} + (1 - \delta) k_t}{1 + n}
 
 Here
 
-$$$$$* $s is an exogenously given saving rate
-* $z is a productivity paramete
-* $\alpha is capital's share of income
-* $n is the population growth rate
-* $\delta is the depreciation rate
+* $s$ is an exogenously given saving rate
+* $z$ is a productivity paramete
+* $\alpha$ is capital's share of income
+* $n$ is the population growth rate
+* $\delta$ is the depreciation rate
 
 A **steady state** of the model is a $k$ that solves `solow_lom` when $k_{t+1} = k_t = k$.
 
@@ -455,12 +457,12 @@ Next, let's write a class for competitive market in which buyers and sellers are
 
 The market consists of the following objects:
 
-$$* A linear demand curve $Q = a_d - b_d 
-* A linear supply curve $Q = a_z + b_z (p - t)
+* A linear demand curve $Q = a_d - b_d p$
+* A linear supply curve $Q = a_z + b_z (p - t)$
 
 Here
 
-$$$* $p is price paid by the buyer,  $Q is quantity and $t is a per-unit tax.
+* $p$ is price paid by the buyer,  $Q$ is quantity and $t$ is a per-unit tax.
 * Other symbols are demand and supply parameters.
 
 The class provides methods to compute various values of interest, including competitive equilibrium price and quantity, tax revenue raised, consumer surplus and producer surplus.
@@ -756,8 +758,8 @@ The Glivenko--Cantelli Theorem states that, provided that the sample is IID, the
 
 Implement $F_n$ as a class called `ECDF`, where
 
-$$$* A given sample $\{X_i\}_{i=1}^n are the instance data, stored as `self.observations`.
-* The class implements a `__call__` method that returns $F_n(x) for any $x.
+* A given sample $\{X_i\}_{i=1}^n$ are the instance data, stored as `self.observations`.
+* The class implements a `__call__` method that returns $F_n(x)$ for any $x$.
 
 Your code should work as follows (modulo randomness)
 
@@ -793,8 +795,8 @@ The instance data for the class `Polynomial` will be the coefficients (in the ca
 
 Provide methods that
 
-$$$1. Evaluate the polynomial `polynom`, returning $p(x) for any $x.
-1. Differentiate the polynomial, replacing the original coefficients with those of its derivative $p'.
+1. Evaluate the polynomial `polynom`, returning $p(x)$ for any $x$.
+1. Differentiate the polynomial, replacing the original coefficients with those of its derivative $p'$.
 
 Avoid using any `import` statements.
 

@@ -8,7 +8,9 @@
 
 # Python Essentials
 
-## Contents
+```{contents} Contents
+:depth: 2
+```
 
 ## Overview
 
@@ -740,7 +742,7 @@ We've all heard the saying about consistency and little minds.
 
 In programming, as in mathematics, the opposite is true
 
-$$* A mathematical paper where the symbols $\cup and $\cap were
+* A mathematical paper where the symbols $\cup$ and $\cap$ were
   reversed would be very hard to read, even if the author told you so on the
   first page.
 
@@ -808,7 +810,7 @@ Nevertheless, let's write our own function approximation routine as an exercise.
 
 In particular, without using any imports, write a function `linapprox` that takes as arguments
 
-$$* A function `f` mapping some interval $[a, b] into $\mathbb R.
+* A function `f` mapping some interval $[a, b]$ into $\mathbb R$.
 * Two scalars `a` and `b` providing the limits of this interval.
 * An integer `n` determining the number of grid points.
 * A number `x` satisfying `a <= x <= b`.

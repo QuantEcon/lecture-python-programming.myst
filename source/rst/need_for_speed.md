@@ -8,7 +8,9 @@
 
 # Python for Scientific Computing
 
-## Contents
+```{contents} Contents
+:depth: 2
+```
 
 ```{epigraph}
 "We should forget about small efficiencies, say about 97% of the time:
@@ -213,9 +215,9 @@ is a simple data structure for storing homogeneous data.
 
 Such an array is stored in a single contiguous block of memory
 
-$$* In modern computers, memory addresses are allocated to each byte (one byte = 8 bits).
+* In modern computers, memory addresses are allocated to each byte (one byte = 8 bits).
 * For example, a 64 bit integer is stored in 8 bytes of memory.
-* An array of $n such integers occupies $8n **consecutive** memory slots.
+* An array of $n$ such integers occupies $8n$ **consecutive** memory slots.
 
 Moreover, the compiler is made aware of the data type by the programmer.
 
@@ -392,7 +394,7 @@ plt.show()
 
 To maximize it, we're going to use a naive grid search:
 
-$$1. Evaluate $f for all $(x,y) in a grid on the square.
+1. Evaluate $f$ for all $(x,y)$ in a grid on the square.
 1. Return the maximum of observed values.
 
 The grid will be

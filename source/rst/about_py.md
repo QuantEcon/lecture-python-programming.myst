@@ -12,7 +12,9 @@ single: python
 
 # About Python
 
-## Contents
+```{contents} Contents
+:depth: 2
+```
 
 ```{epigraph}
 "Python has gotten sufficiently weapons grade that we don’t descend into R

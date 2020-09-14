@@ -8,7 +8,9 @@
 
 # More Language Features
 
-## Contents
+```{contents} Contents
+:depth: 2
+```
 
 ## Overview
 
