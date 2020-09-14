@@ -126,7 +126,7 @@ Once you have installed Anaconda, you can start the Jupyter notebook.
 
 Either
 
-* search for Jupyter in your applications menu, o
+* search for Jupyter in your applications menu, or
 * open up a terminal and type `jupyter notebook`
     * > Windows users should substitute "Anaconda command prompt" for "terminal" in the previous line.
 
