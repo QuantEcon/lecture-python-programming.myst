@@ -478,3 +478,8 @@ jupyter_pdf_book_name = "python_programming_for_economics_finance"
 
 # pdf toc file
 jupyter_pdf_book_index = "index_toc"
+
+# tomyst Config
+
+# Set Destination path
+tomyst_static_file_path = ['source/rst/_static']
