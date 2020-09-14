@@ -14,7 +14,9 @@ Duplicate implicit target name: "debugging".
 single: Debugging
 ```
 
-## Contents
+```{contents} Contents
+:depth: 2
+```
 
 ```{epigraph}
 "Debugging is twice as hard as writing the code in the first place.

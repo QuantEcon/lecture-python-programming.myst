@@ -14,7 +14,9 @@ Duplicate implicit target name: "functions".
 single: Python; User-defined functions
 ```
 
-## Contents
+```{contents} Contents
+:depth: 2
+```
 
 ## Overview
 

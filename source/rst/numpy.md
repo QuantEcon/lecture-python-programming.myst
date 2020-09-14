@@ -12,7 +12,9 @@
 single: Python; NumPy
 ```
 
-## Contents
+```{contents} Contents
+:depth: 2
+```
 
 ```{epigraph}
 "Let's be clear: the work of science has nothing whatever to do with consensus.  Consensus is the business of politics. Science, on the contrary, requires only one investigator who happens to be right, which means that he or she has results that are verifiable by reference to the real world. In science consensus is irrelevant. What is relevant is reproducible results." -- Michael Crichton
@@ -736,8 +738,8 @@ In other words, `x` takes values in `range(len(q))` and `x = i` with probability
 
 The standard (inverse transform) algorithm is as follows:
 
-$$$$$$$$$* Divide the unit interval $[0, 1] into $n subintervals $I_0, I_1, \ldots, I_{n-1} such that the length of $I_i is $q_i.
-* Draw a uniform random variable $U on $[0, 1] and return the $i such that $U \in I_i.
+* Divide the unit interval $[0, 1]$ into $n$ subintervals $I_0, I_1, \ldots, I_{n-1}$ such that the length of $I_i$ is $q_i$.
+* Draw a uniform random variable $U$ on $[0, 1]$ and return the $i$ such that $U \in I_i$.
 
 The probability of drawing $i$ is the length of $I_i$, which is equal to $q_i$.
 
@@ -775,8 +777,8 @@ Recall our earlier discussion of the empirical cumulative distribution function.
 
 Your task is to
 
-$$$1. Make the `__call__` method more efficient using NumPy.
-1. Add a method that plots the ECDF over $[a, b], where $a and $b are method parameters.
+1. Make the `__call__` method more efficient using NumPy.
+1. Add a method that plots the ECDF over $[a, b]$, where $a$ and $b$ are method parameters.
 
 ## Solutions
 
