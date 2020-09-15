@@ -64,25 +64,25 @@ Let's learn a bit more about them.
 
 One simple data type is **Boolean values**, which can be either `True` or `False`
 
-```{code-block} python3
+```{code-cell} python3
 x = True
 x
 ```
 
 We can check the type of any object in memory using the `type()` function.
 
-```{code-block} python3
+```{code-cell} python3
 type(x)
 ```
 
 In the next line of code, the interpreter evaluates the expression on the right of = and binds y to this value
 
-```{code-block} python3
+```{code-cell} python3
 y = 100 < 10
 y
 ```
 
-```{code-block} python3
+```{code-cell} python3
 type(y)
 ```
 
@@ -92,19 +92,19 @@ This is called **Boolean arithmetic** and is often useful in programming.
 
 Here are some examples
 
-```{code-block} python3
+```{code-cell} python3
 x + y
 ```
 
-```{code-block} python3
+```{code-cell} python3
 x * y
 ```
 
-```{code-block} python3
+```{code-cell} python3
 True + True
 ```
 
-```{code-block} python3
+```{code-cell} python3
 bools = [True, True, False, True]  # List of Boolean values
 
 sum(bools)
@@ -112,7 +112,7 @@ sum(bools)
 
 Complex numbers are another primitive data type in Python
 
-```{code-block} python3
+```{code-cell} python3
 x = complex(1, 2)
 y = complex(2, 1)
 print(x * y)
@@ -132,13 +132,13 @@ single: Python; Tuples
 
 A related data type is **tuples**, which are "immutable" lists
 
-```{code-block} python3
+```{code-cell} python3
 x = ('a', 'b')  # Parentheses instead of the square brackets
 x = 'a', 'b'    # Or no brackets --- the meaning is identical
 x
 ```
 
-```{code-block} python3
+```{code-cell} python3
 type(x)
 ```
 
@@ -148,7 +148,7 @@ Conversely, an object is **mutable** if it can still be altered after creation.
 
 Python lists are mutable
 
-```{code-block} python3
+```{code-cell} python3
 x = [1, 2]
 x[0] = 10
 x
@@ -156,7 +156,7 @@ x
 
 But tuples are not
 
-```{code-block} python3
+```{code-cell} python3
 x = (1, 2)
 x[0] = 10
 ```
@@ -165,13 +165,13 @@ We'll say more about the role of mutable and immutable data a bit later.
 
 Tuples (and lists) can be "unpacked" as follows
 
-```{code-block} python3
+```{code-cell} python3
 integers = (10, 20, 30)
 x, y, z = integers
 x
 ```
 
-```{code-block} python3
+```{code-cell} python3
 y
 ```
 
@@ -190,12 +190,12 @@ notation.
 
 For example,
 
-```{code-block} python3
+```{code-cell} python3
 a = [2, 4, 6, 8]
 a[1:]
 ```
 
-```{code-block} python3
+```{code-cell} python3
 a[1:3]
 ```
 
@@ -203,13 +203,13 @@ The general rule is that `a[m:n]` returns `n - m` elements, starting at `a[m]`.
 
 Negative numbers are also permissible
 
-```{code-block} python3
+```{code-cell} python3
 a[-2:]  # Last two elements of the list
 ```
 
 The same slice notation works on tuples and strings
 
-```{code-block} python3
+```{code-cell} python3
 s = 'foobar'
 s[-3:]  # Select the last three elements
 ```
@@ -229,12 +229,12 @@ Two other container types we should mention before moving on are [sets](https://
 Dictionaries are much like lists, except that the items are named instead of
 numbered
 
-```{code-block} python3
+```{code-cell} python3
 d = {'name': 'Frodo', 'age': 33}
 type(d)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 d['age']
 ```
 
@@ -245,23 +245,23 @@ The objects that the keys are mapped to (`'Frodo'` and `33`) are called the `val
 Sets are unordered collections without duplicates, and set methods provide the
 usual set-theoretic operations
 
-```{code-block} python3
+```{code-cell} python3
 s1 = {'a', 'b'}
 type(s1)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 s2 = {'b', 'c'}
 s1.issubset(s2)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 s1.intersection(s2)
 ```
 
 The `set()` function creates sets from sequences
 
-```{code-block} python3
+```{code-cell} python3
 s3 = set(('foo', 'bar', 'foo'))
 s3
 ```
@@ -274,7 +274,7 @@ single: Python; IO
 
 Let's briefly review reading and writing to text files, starting with writing
 
-```{code-block} python3
+```{code-cell} python3
 f = open('newfile.txt', 'w')   # Open 'newfile.txt' for writing
 f.write('Testing\n')           # Here '\n' means new line
 f.write('Testing again')
@@ -290,7 +290,7 @@ Where is this file that we've created?
 
 Recall that Python maintains a concept of the present working directory (pwd) that can be located from with Jupyter or IPython via
 
-```{code-block} ipython
+```{code-cell} ipython
 %pwd
 ```
 
@@ -298,13 +298,13 @@ If a path is not specified, then this is where Python writes to.
 
 We can also use Python to read the contents of `newline.txt` as follows
 
-```{code-block} python3
+```{code-cell} python3
 f = open('newfile.txt', 'r')
 out = f.read()
 out
 ```
 
-```{code-block} python3
+```{code-cell} python3
 print(out)
 ```
 
@@ -318,7 +318,7 @@ Note that if `newfile.txt` is not in the present working directory then this cal
 
 In this case, you can shift the file to the pwd or specify the [full path](https://en.wikipedia.org/wiki/Path_%28computing%29) to the file
 
-```{code-block} python3
+```{code-cell} python3
 f = open('insert_full_path_to_file/newfile.txt', 'r')
 ```
 
@@ -340,7 +340,7 @@ Many Python objects are "iterable", in the sense that they can be looped over.
 
 To give an example, let's write the file us_cities.txt, which lists US cities and their population, to the present working directory.
 
-```{code-block} ipython
+```{code-cell} ipython
 %%file us_cities.txt
 new york: 8244910
 los angeles: 3819702
@@ -359,7 +359,7 @@ Suppose that we want to make the information more readable, by capitalizing name
 
 The program below reads the data in and makes the conversion:
 
-```{code-block} python3
+```{code-cell} python3
 data_file = open('us_cities.txt', 'r')
 for line in data_file:
     city, population = line.split(':')         # Tuple unpacking
@@ -389,7 +389,7 @@ One thing you might have noticed is that Python tends to favor looping without e
 
 For example,
 
-```{code-block} python3
+```{code-cell} python3
 x_values = [1, 2, 3]  # Some iterable x
 for x in x_values:
     print(x * x)
@@ -397,7 +397,7 @@ for x in x_values:
 
 is preferred to
 
-```{code-block} python3
+```{code-cell} python3
 for i in range(len(x_values)):
     print(x_values[i] * x_values[i])
 ```
@@ -410,7 +410,7 @@ One is `zip()`, which is used for stepping through pairs from two sequences.
 
 For example, try running the following code
 
-```{code-block} python3
+```{code-cell} python3
 countries = ('Japan', 'Korea', 'China')
 cities = ('Tokyo', 'Seoul', 'Beijing')
 for country, city in zip(countries, cities):
@@ -420,7 +420,7 @@ for country, city in zip(countries, cities):
 The `zip()` function is also useful for creating dictionaries --- for
 example
 
-```{code-block} python3
+```{code-cell} python3
 names = ['Tom', 'John']
 marks = ['E', 'F']
 dict(zip(names, marks))
@@ -430,7 +430,7 @@ If we actually need the index from a list, one option is to use `enumerate()`.
 
 To understand what `enumerate()` does, consider the following example
 
-```{code-block} python3
+```{code-cell} python3
 letter_list = ['a', 'b', 'c']
 for index, letter in enumerate(letter_list):
     print(f"letter_list[{index}] = '{letter}'")
@@ -449,7 +449,7 @@ We can also simplify the code for generating the list of random draws considerab
 Consider the following example, where the list comprehension is on the
 right-hand side of the second line
 
-```{code-block} python3
+```{code-cell} python3
 animals = ['dog', 'cat', 'bird']
 plurals = [animal + 's' for animal in animals]
 plurals
@@ -457,11 +457,11 @@ plurals
 
 Here's another example
 
-```{code-block} python3
+```{code-cell} python3
 range(8)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 doubles = [2 * x for x in range(8)]
 doubles
 ```
@@ -478,46 +478,46 @@ Many different kinds of expressions evaluate to one of the Boolean values (i.e.,
 
 A common type is comparisons, such as
 
-```{code-block} python3
+```{code-cell} python3
 x, y = 1, 2
 x < y
 ```
 
-```{code-block} python3
+```{code-cell} python3
 x > y
 ```
 
 One of the nice features of Python is that we can *chain* inequalities
 
-```{code-block} python3
+```{code-cell} python3
 1 < 2 < 3
 ```
 
-```{code-block} python3
+```{code-cell} python3
 1 <= 2 <= 3
 ```
 
 As we saw earlier, when testing for equality we use `==`
 
-```{code-block} python3
+```{code-cell} python3
 x = 1    # Assignment
 x == 2   # Comparison
 ```
 
 For "not equal" use `!=`
 
-```{code-block} python3
+```{code-cell} python3
 1 != 2
 ```
 
 Note that when testing conditions, we can use **any** valid Python expression
 
-```{code-block} python3
+```{code-cell} python3
 x = 'yes' if 42 else 'no'
 x
 ```
 
-```{code-block} python3
+```{code-cell} python3
 x = 'yes' if [] else 'no'
 x
 ```
@@ -541,23 +541,23 @@ We can combine expressions using `and`, `or` and `not`.
 
 These are the standard logical connectives (conjunction, disjunction and denial)
 
-```{code-block} python3
+```{code-cell} python3
 1 < 2 and 'f' in 'foo'
 ```
 
-```{code-block} python3
+```{code-cell} python3
 1 < 2 and 'g' in 'foo'
 ```
 
-```{code-block} python3
+```{code-cell} python3
 1 < 2 or 'g' in 'foo'
 ```
 
-```{code-block} python3
+```{code-cell} python3
 not True
 ```
 
-```{code-block} python3
+```{code-cell} python3
 not not True
 ```
 
@@ -593,7 +593,7 @@ Note that a function can have arbitrarily many `return` statements (including ze
 Execution of the function terminates when the first return is hit, allowing
 code like the following example
 
-```{code-block} python3
+```{code-cell} python3
 def f(x):
     if x < 0:
         return 'negative'
@@ -614,7 +614,7 @@ The nice thing about docstrings is that they are available at run-time.
 
 Try running this
 
-```{code-block} python3
+```{code-cell} python3
 def f(x):
     """
     This function squares its argument
@@ -624,11 +624,11 @@ def f(x):
 
 After running this code, the docstring is available
 
-```{code-block} ipython
+```{code-cell} ipython
 f?
 ```
 
-```{code-block} ipython
+```{code-cell} ipython
 Type:       function
 String Form:<function f at 0x2223320>
 File:       /home/john/temp/temp.py
@@ -636,11 +636,11 @@ Definition: f(x)
 Docstring:  This function squares its argument
 ```
 
-```{code-block} ipython
+```{code-cell} ipython
 f??
 ```
 
-```{code-block} ipython
+```{code-cell} ipython
 Type:       function
 String Form:<function f at 0x2223320>
 File:       /home/john/temp/temp.py
@@ -665,14 +665,14 @@ The `lambda` keyword is used to create simple functions on one line.
 
 For example, the definitions
 
-```{code-block} python3
+```{code-cell} python3
 def f(x):
     return x**3
 ```
 
 and
 
-```{code-block} python3
+```{code-cell} python3
 f = lambda x: x**3
 ```
 
@@ -686,7 +686,7 @@ The syntax of the `quad` function is `quad(f, a, b)` where `f` is a function and
 
 To create the function $f(x) = x^3$ we can use `lambda` as follows
 
-```{code-block} python3
+```{code-cell} python3
 from scipy.integrate import quad
 
 quad(lambda x: x**3, 0, 2)
@@ -702,7 +702,7 @@ single: Python; keyword arguments
 
 In a previous lecture, you came across the statement
 
-```{code-block} python3
+```{code-cell} python3
 plt.plot(x, 'b-', label="white noise")
 ```
 
@@ -721,20 +721,20 @@ You can adopt keyword arguments in user-defined functions with no difficulty.
 
 The next example illustrates the syntax
 
-```{code-block} python3
+```{code-cell} python3
 def f(x, a=1, b=1):
     return a + b * x
 ```
 
 The keyword argument values we supplied in the definition of `f` become the default values
 
-```{code-block} python3
+```{code-cell} python3
 f(2)
 ```
 
 They can be modified as follows
 
-```{code-block} python3
+```{code-cell} python3
 f(2, a=4, b=5)
 ```
 
@@ -832,7 +832,7 @@ Aim for clarity, not efficiency.
 Using list comprehension syntax, we can simplify the loop in the following
 code.
 
-```{code-block} python3
+```{code-cell} python3
 import numpy as np
 
 n = 100
@@ -850,7 +850,7 @@ for i in range(n):
 
 Here's one possible solution
 
-```{code-block} python3
+```{code-cell} python3
 x_vals = [1, 2, 3]
 y_vals = [1, 1, 1]
 sum([x * y for x, y in zip(x_vals, y_vals)])
@@ -858,7 +858,7 @@ sum([x * y for x, y in zip(x_vals, y_vals)])
 
 This also works
 
-```{code-block} python3
+```{code-cell} python3
 sum(x * y for x, y in zip(x_vals, y_vals))
 ```
 
@@ -866,26 +866,26 @@ sum(x * y for x, y in zip(x_vals, y_vals))
 
 One solution is
 
-```{code-block} python3
+```{code-cell} python3
 sum([x % 2 == 0 for x in range(100)])
 ```
 
 This also works:
 
-```{code-block} python3
+```{code-cell} python3
 sum(x % 2 == 0 for x in range(100))
 ```
 
 Some less natural alternatives that nonetheless help to illustrate the
 flexibility of list comprehensions are
 
-```{code-block} python3
+```{code-cell} python3
 len([x for x in range(100) if x % 2 == 0])
 ```
 
 and
 
-```{code-block} python3
+```{code-cell} python3
 sum([1 for x in range(100) if x % 2 == 0])
 ```
 
@@ -893,19 +893,19 @@ sum([1 for x in range(100) if x % 2 == 0])
 
 Here's one possibility
 
-```{code-block} python3
+```{code-cell} python3
 pairs = ((2, 5), (4, 2), (9, 8), (12, 10))
 sum([x % 2 == 0 and y % 2 == 0 for x, y in pairs])
 ```
 
 ### Exercise 2
 
-```{code-block} python3
+```{code-cell} python3
 def p(x, coeff):
     return sum(a * x**i for i, a in enumerate(coeff))
 ```
 
-```{code-block} python3
+```{code-cell} python3
 p(1, (2, 4))
 ```
 
@@ -913,7 +913,7 @@ p(1, (2, 4))
 
 Here's one solution:
 
-```{code-block} python3
+```{code-cell} python3
 def f(string):
     count = 0
     for letter in string:
@@ -926,7 +926,7 @@ f('The Rain in Spain')
 
 An alternative, more pythonic solution:
 
-```{code-block} python3
+```{code-cell} python3
 def count_uppercase_chars(s):
     return sum([c.isupper() for c in s])
 
@@ -937,7 +937,7 @@ count_uppercase_chars('The Rain in Spain')
 
 Here's a solution:
 
-```{code-block} python3
+```{code-cell} python3
 def f(seq_a, seq_b):
     is_subset = True
     for a in seq_a:
@@ -953,14 +953,14 @@ print(f([1, 2, 3], [1, 2]))
 
 Of course, if we use the `sets` data type then the solution is easier
 
-```{code-block} python3
+```{code-cell} python3
 def f(seq_a, seq_b):
     return set(seq_a).issubset(set(seq_b))
 ```
 
 ### Exercise 5
 
-```{code-block} python3
+```{code-cell} python3
 def linapprox(f, a, b, n, x):
     """
     Evaluates the piecewise linear interpolant of f at x on the interval
@@ -1001,7 +1001,7 @@ def linapprox(f, a, b, n, x):
 
 Here's one solution.
 
-```{code-block} python3
+```{code-cell} python3
 n = 100
 ϵ_values = [np.random.randn() for i in range(n)]
 ```

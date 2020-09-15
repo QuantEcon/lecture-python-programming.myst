@@ -26,7 +26,7 @@ kernelspec:
 
 In addition to what's in Anaconda, this lecture will need the following libraries:
 
-```{code-block} ipython
+```{code-cell} ipython
 !conda install -y quantecon
 ```
 
@@ -35,7 +35,7 @@ versions are a common source of errors.
 
 Let's start with some imports:
 
-```{code-block} ipython
+```{code-cell} ipython
 import numpy as np
 import quantecon as qe
 import matplotlib.pyplot as plt
@@ -94,13 +94,13 @@ $$
 
 In what follows we set
 
-```{code-block} python3
+```{code-cell} python3
 α = 4.0
 ```
 
 Here's the plot of a typical trajectory, starting from $x_0 = 0.1$, with $t$ on the x-axis
 
-```{code-block} python3
+```{code-cell} python3
 def qm(x0, n):
     x = np.empty(n+1)
     x[0] = x0
@@ -118,7 +118,7 @@ plt.show()
 
 To speed the function `qm` up using Numba, our first step is
 
-```{code-block} python3
+```{code-cell} python3
 from numba import jit
 
 qm_numba = jit(qm)
@@ -131,7 +131,7 @@ We will explain what this means momentarily.
 
 Let's time and compare identical function calls across these two versions, starting with the original function `qm`:
 
-```{code-block} python3
+```{code-cell} python3
 n = 10_000_000
 
 qe.tic()
@@ -141,7 +141,7 @@ time1 = qe.toc()
 
 Now let's try qm_numba
 
-```{code-block} python3
+```{code-cell} python3
 qe.tic()
 qm_numba(0.1, int(n))
 time2 = qe.toc()
@@ -151,13 +151,13 @@ This is already a massive speed gain.
 
 In fact, the next time and all subsequent times it runs even faster as the function has been compiled and is in memory:
 
-```{code-block} python3
+```{code-cell} python3
 qe.tic()
 qm_numba(0.1, int(n))
 time3 = qe.toc()
 ```
 
-```{code-block} python3
+```{code-cell} python3
 time1 / time3  # Calculate speed gain
 ```
 
@@ -193,7 +193,7 @@ The compiled code is then cached and recycled as required.
 
 In the code above we created a JIT compiled version of `qm` via the call
 
-```{code-block} python3
+```{code-cell} python3
 qm_numba = jit(qm)
 ```
 
@@ -209,7 +209,7 @@ To target a function for JIT compilation we can put `@jit` before the function d
 
 Here's what this looks like for `qm`
 
-```{code-block} python3
+```{code-cell} python3
 @jit
 def qm(x0, n):
     x = np.empty(n+1)
@@ -223,7 +223,7 @@ This is equivalent to `qm = jit(qm)`.
 
 The following now uses the jitted version:
 
-```{code-block} python3
+```{code-cell} python3
 qm(0.1, 10)
 ```
 
@@ -252,7 +252,7 @@ This is done by using either `@jit(nopython=True)` or, equivalently, `@njit` ins
 
 For example,
 
-```{code-block} python3
+```{code-cell} python3
 from numba import njit
 
 @njit
@@ -280,7 +280,7 @@ created in this lecture.
 
 To compile this class we use the `@jitclass` decorator:
 
-```{code-block} python3
+```{code-cell} python3
 from numba import jitclass, float64
 ```
 
@@ -292,7 +292,7 @@ We are importing it here because Numba needs a bit of extra help with types when
 
 Here's our code:
 
-```{code-block} python3
+```{code-cell} python3
 solow_data = [
     ('n', float64),
     ('s', float64),
@@ -355,7 +355,7 @@ After that, targeting the class for JIT compilation only requires adding
 
 When we call the methods in the class, the methods are compiled just like functions.
 
-```{code-block} python3
+```{code-cell} python3
 s1 = Solow()
 s2 = Solow(k=8.0)
 
@@ -448,7 +448,7 @@ Here's another thing to be careful about when using Numba.
 
 Consider the following example
 
-```{code-block} python3
+```{code-cell} python3
 a = 1
 
 @jit
@@ -458,7 +458,7 @@ def add_a(x):
 print(add_a(10))
 ```
 
-```{code-block} python3
+```{code-cell} python3
 a = 2
 
 print(add_a(10))
@@ -523,7 +523,7 @@ Hints:
 
 Here is one solution:
 
-```{code-block} python3
+```{code-cell} python3
 from random import uniform
 
 @njit
@@ -541,11 +541,11 @@ def calculate_pi(n=1_000_000):
 
 Now let's see how fast it runs:
 
-```{code-block} ipython3
+```{code-cell} ipython3
 %time calculate_pi()
 ```
 
-```{code-block} ipython3
+```{code-cell} ipython3
 %time calculate_pi()
 ```
 
@@ -562,13 +562,13 @@ We let
 - 0 represent "low"
 - 1 represent "high"
 
-```{code-block} python3
+```{code-cell} python3
 p, q = 0.1, 0.2  # Prob of leaving low and high state respectively
 ```
 
 Here's a pure Python version of the function
 
-```{code-block} python3
+```{code-cell} python3
 def compute_series(n):
     x = np.empty(n, dtype=np.int_)
     x[0] = 1  # Start in state 1
@@ -585,7 +585,7 @@ def compute_series(n):
 Let's run this code and check that the fraction of time spent in the low
 state is about 0.666
 
-```{code-block} python3
+```{code-cell} python3
 n = 1_000_000
 x = compute_series(n)
 print(np.mean(x == 0))  # Fraction of time x is in state 0
@@ -595,7 +595,7 @@ This is (approximately) the right output.
 
 Now let's time it:
 
-```{code-block} python3
+```{code-cell} python3
 qe.tic()
 compute_series(n)
 qe.toc()
@@ -603,7 +603,7 @@ qe.toc()
 
 Next let's implement a Numba version, which is easy
 
-```{code-block} python3
+```{code-cell} python3
 from numba import jit
 
 compute_series_numba = jit(compute_series)
@@ -611,14 +611,14 @@ compute_series_numba = jit(compute_series)
 
 Let's check we still get the right numbers
 
-```{code-block} python3
+```{code-cell} python3
 x = compute_series_numba(n)
 print(np.mean(x == 0))
 ```
 
 Let's see the time
 
-```{code-block} python3
+```{code-cell} python3
 qe.tic()
 compute_series_numba(n)
 qe.toc()

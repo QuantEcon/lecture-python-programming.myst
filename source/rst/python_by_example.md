@@ -60,7 +60,7 @@ about Python.
 We run the following command first, which helps ensure that plots appear in the
 notebook if you run it on your own machine.
 
-```{code-block} ipython
+```{code-cell} ipython
 %matplotlib inline
 ```
 
@@ -68,7 +68,7 @@ notebook if you run it on your own machine.
 
 Here are a few lines of code that perform the task we set
 
-```{code-block} ipython
+```{code-cell} ipython
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -95,17 +95,17 @@ After `import numpy as np` we have access to these attributes via the syntax `np
 
 Here's two more examples
 
-```{code-block} python3
+```{code-cell} python3
 np.sqrt(4)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 np.log(4)
 ```
 
 We could also use the following syntax:
 
-```{code-block} python3
+```{code-cell} python3
 import numpy
 
 numpy.sqrt(4)
@@ -143,7 +143,7 @@ easily enough if you look around.
 
 On this machine, it's located in
 
-```{code-block} ipython
+```{code-cell} ipython
 anaconda3/lib/python3.7/site-packages/numpy
 ```
 
@@ -163,7 +163,7 @@ Subpackages are just packages that are subdirectories of another package.
 
 Recall this code that we saw above
 
-```{code-block} python3
+```{code-cell} python3
 import numpy as np
 
 np.sqrt(4)
@@ -171,7 +171,7 @@ np.sqrt(4)
 
 Here's another way to access NumPy's square root function
 
-```{code-block} python3
+```{code-cell} python3
 from numpy import sqrt
 
 sqrt(4)
@@ -191,7 +191,7 @@ Then it's harder for readers to know where `sqrt` came from, should they wish to
 Returning to our program that plots white noise, the remaining three lines
 after the import statements are
 
-```{code-block} ipython
+```{code-cell} ipython
 ϵ_values = np.random.randn(100)
 plt.plot(ϵ_values)
 plt.show()
@@ -217,7 +217,7 @@ But they do help us illustrate some important Python syntax and semantics in a f
 
 Here's a version that illustrates `for` loops and Python lists.
 
-```{code-block} python3
+```{code-cell} python3
 ts_length = 100
 ϵ_values = []   # empty list
 
@@ -251,7 +251,7 @@ Lists are a *native Python data structure* used to group a collection of objects
 
 For example, try
 
-```{code-block} python3
+```{code-cell} python3
 x = [10, 'foo', False]
 type(x)
 ```
@@ -260,11 +260,11 @@ The first element of `x` is an [integer](https://en.wikipedia.org/wiki/Integer_%
 
 When adding a value to a list, we can use the syntax `list_name.append(some_value)`
 
-```{code-block} python3
+```{code-cell} python3
 x
 ```
 
-```{code-block} python3
+```{code-cell} python3
 x.append(2.5)
 x
 ```
@@ -278,25 +278,25 @@ We'll learn all about methods later on, but just to give you some idea,
 
 Another useful list method is `pop()`
 
-```{code-block} python3
+```{code-cell} python3
 x
 ```
 
-```{code-block} python3
+```{code-cell} python3
 x.pop()
 ```
 
-```{code-block} python3
+```{code-cell} python3
 x
 ```
 
 Lists in Python are zero-based (as in C, Java or Go), so the first element is referenced by `x[0]`
 
-```{code-block} python3
+```{code-cell} python3
 x[0]   # first element of x
 ```
 
-```{code-block} python3
+```{code-cell} python3
 x[1]   # second element of x
 ```
 
@@ -308,7 +308,7 @@ single: Python; For loop
 
 Now let's consider the `for` loop from the program above, which was
 
-```{code-block} python3
+```{code-cell} python3
 for i in range(ts_length):
     e = np.random.randn()
     ϵ_values.append(e)
@@ -324,7 +324,7 @@ In our program, indentation decreases after line `ϵ_values.append(e)`, telling 
 
 More on indentation below---for now, let's look at another example of a `for` loop
 
-```{code-block} python3
+```{code-cell} python3
 animals = ['dog', 'cat', 'bird']
 for animal in animals:
     print("The plural of " + animal + " is " + animal + "s")
@@ -333,7 +333,7 @@ for animal in animals:
 This example helps to clarify how the `for` loop works:  When we execute a
 loop of the form
 
-```{code-block} python3
+```{code-cell} python3
 for variable_name in sequence:
     <code block>
 ```
@@ -382,7 +382,7 @@ The `for` loop is the most common technique for iteration in Python.
 
 But, for the purpose of illustration, let's modify the program above to use a `while` loop instead.
 
-```{code-block} python3
+```{code-cell} python3
 ts_length = 100
 ϵ_values = []
 i = 0
@@ -417,7 +417,7 @@ In the code below, we generate and plot the sequence $b_0, b_1, \ldots, b_T$.
 Instead of using a Python list to store this sequence, we will use a NumPy
 array.
 
-```{code-block} python3
+```{code-cell} python3
 r = 0.025         # interest rate
 T = 50            # end date
 b = np.empty(T+1) # an empty NumPy array, to store all b_t
@@ -463,7 +463,7 @@ The sequence of shocks $\{\epsilon_t\}$ is assumed to be IID and standard normal
 
 In your solution, restrict your import statements to
 
-```{code-block} python3
+```{code-cell} python3
 import numpy as np
 import matplotlib.pyplot as plt
 ```
@@ -509,11 +509,11 @@ In Python, conditions are usually implemented with if--else syntax.
 Here's an example, that prints -1 for each negative number in an array and 1
 for each nonnegative number
 
-```{code-block} python3
+```{code-cell} python3
 numbers = [-9, 2.3, -11, 0]
 ```
 
-```{code-block} python3
+```{code-cell} python3
 for x in numbers:
     if x < 0:
         print(-1)
@@ -534,7 +534,7 @@ The task is to compute an approximation to $\pi$ using [Monte Carlo](https://en.
 
 Use no imports besides
 
-```{code-block} python3
+```{code-cell} python3
 import numpy as np
 ```
 
@@ -550,7 +550,7 @@ Your hints are as follows:
 
 Here's one solution.
 
-```{code-block} python3
+```{code-cell} python3
 α = 0.9
 T = 200
 x = np.empty(T+1)
@@ -565,7 +565,7 @@ plt.show()
 
 ### Exercise 2
 
-```{code-block} python3
+```{code-cell} python3
 α_values = [0.0, 0.8, 0.98]
 T = 200
 x = np.empty(T+1)
@@ -584,7 +584,7 @@ plt.show()
 
 Here's one solution:
 
-```{code-block} python3
+```{code-cell} python3
 α = 0.9
 T = 200
 x = np.empty(T+1)
@@ -601,7 +601,7 @@ plt.show()
 
 Here's one way:
 
-```{code-block} python3
+```{code-cell} python3
 α = 0.9
 T = 200
 x = np.empty(T+1)
@@ -620,7 +620,7 @@ plt.show()
 
 Here's a shorter way to write the same thing:
 
-```{code-block} python3
+```{code-cell} python3
 α = 0.9
 T = 200
 x = np.empty(T+1)
@@ -652,7 +652,7 @@ by $r^2 = (1/2)^2 = 1/4$ gives an estimate of $\pi$.
 We estimate the area by sampling bivariate uniforms and looking at the
 fraction that falls into the circle.
 
-```{code-block} python3
+```{code-cell} python3
 n = 100000
 
 count = 0

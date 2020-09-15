@@ -70,7 +70,7 @@ The plots will be grouped into three subfigures.
 
 In each subfigure, two parameters are held fixed while another varies
 
-```{code-block} ipython
+```{code-cell} ipython
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
@@ -248,7 +248,7 @@ What's really important is that you use one or the other or both.
 
 Here's some code that reproduces the plot above with better coding style.
 
-```{code-block} python3
+```{code-cell} python3
 from itertools import product
 
 def plot_path(ax, αs, s_vals, δs, time_series_length=50):
@@ -333,7 +333,7 @@ The parameter values will be
 - $\gamma = 1$
 - $\delta = 1$
 
-```{code-block} ipython3
+```{code-cell} ipython3
 from scipy.optimize import brentq
 
 # Compute equilibrium
@@ -349,7 +349,7 @@ print(f'Equilibrium quantity is {q_star: .2f}')
 
 Let's also plot our results.
 
-```{code-block} ipython3
+```{code-cell} ipython3
 # Now plot
 grid = np.linspace(2, 4, 100)
 fig, ax = plt.subplots()
@@ -372,7 +372,7 @@ We also want to consider supply and demand shifts.
 
 For example, let's see what happens when demand shifts up, with $\gamma$ increasing to $1.25$:
 
-```{code-block} ipython3
+```{code-cell} ipython3
 # Compute equilibrium
 def h(p):
     return 1.25 * p**(-1) - (np.exp(0.1 * p) - 1)
@@ -384,7 +384,7 @@ print(f'Equilibrium price is {p_star: .2f}')
 print(f'Equilibrium quantity is {q_star: .2f}')
 ```
 
-```{code-block} ipython3
+```{code-cell} ipython3
 # Now plot
 p_grid = np.linspace(2, 4, 100)
 fig, ax = plt.subplots()
@@ -415,7 +415,7 @@ in this lecture.
 
 Here's one solution, that uses a class:
 
-```{code-block} ipython3
+```{code-cell} ipython3
 class Equilibrium:
 
     def __init__(self, α=0.1, β=1, γ=1, δ=1):
@@ -453,32 +453,32 @@ class Equilibrium:
 
 Let's create an instance at the default parameter values.
 
-```{code-block} ipython3
+```{code-cell} ipython3
 eq = Equilibrium()
 ```
 
 Now we'll compute the equilibrium and plot it.
 
-```{code-block} ipython3
+```{code-cell} ipython3
 eq.compute_equilibrium()
 ```
 
-```{code-block} ipython3
+```{code-cell} ipython3
 eq.plot_equilibrium()
 ```
 
 One of the nice things about our refactored code is that, when we change
 parameters, we don't need to repeat ourselves:
 
-```{code-block} ipython3
+```{code-cell} ipython3
 eq.γ = 1.25
 ```
 
-```{code-block} ipython3
+```{code-cell} ipython3
 eq.compute_equilibrium()
 ```
 
-```{code-block} ipython3
+```{code-cell} ipython3
 eq.plot_equilibrium()
 ```
 

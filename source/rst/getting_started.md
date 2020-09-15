@@ -235,7 +235,7 @@ Here's an arbitrary program we can use: [http://matplotlib.org/3.1.1/gallery/pie
 
 On that page, you'll see the following code
 
-```{code-block} ipython
+```{code-cell} ipython
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
@@ -401,7 +401,7 @@ By convention, these text files have a `.py` extension.
 
 We can create an example of such a file as follows:
 
-```{code-block} ipython
+```{code-cell} ipython
 %%file foo.py
 
 print("foobar")

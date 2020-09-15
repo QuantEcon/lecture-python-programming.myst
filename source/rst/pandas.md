@@ -30,7 +30,7 @@ single: Python; Pandas
 
 In addition to what’s in Anaconda, this lecture will need the following libraries:
 
-```{code-block} ipython
+```{code-cell} ipython
 !pip install --upgrade pandas-datareader
 ```
 
@@ -65,7 +65,7 @@ This lecture will provide a basic introduction to pandas.
 Throughout the lecture, we will assume that the following imports have taken
 place
 
-```{code-block} ipython
+```{code-cell} ipython
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -87,7 +87,7 @@ A `DataFrame` is an object for storing related columns of data.
 
 Let's start with Series
 
-```{code-block} python3
+```{code-cell} python3
 s = pd.Series(np.random.randn(4), name='daily returns')
 s
 ```
@@ -98,11 +98,11 @@ companies, and the values being daily returns on their shares.
 Pandas `Series` are built on top of NumPy arrays and support many similar
 operations
 
-```{code-block} python3
+```{code-cell} python3
 s * 100
 ```
 
-```{code-block} python3
+```{code-cell} python3
 np.abs(s)
 ```
 
@@ -110,13 +110,13 @@ But `Series` provide more than NumPy arrays.
 
 Not only do they have some additional (statistically oriented) methods
 
-```{code-block} python3
+```{code-cell} python3
 s.describe()
 ```
 
 But their indices are more flexible
 
-```{code-block} python3
+```{code-cell} python3
 s.index = ['AMZN', 'AAPL', 'MSFT', 'GOOG']
 s
 ```
@@ -127,16 +127,16 @@ type---in this case, floats).
 
 In fact, you can use much of the same syntax as Python dictionaries
 
-```{code-block} python3
+```{code-cell} python3
 s['AMZN']
 ```
 
-```{code-block} python3
+```{code-cell} python3
 s['AMZN'] = 0
 s
 ```
 
-```{code-block} python3
+```{code-cell} python3
 'AAPL' in s
 ```
 
@@ -160,7 +160,7 @@ Let's look at an example that reads data from the CSV file `pandas/data/test_pwt
 
 Here's the content of `test_pwt.csv`
 
-```{code-block} none
+```{code-cell} none
 "country","country isocode","year","POP","XRAT","tcgdp","cc","cg"
 "Argentina","ARG","2000","37335.653","0.9995","295072.21869","75.716805379","5.5788042896"
 "Australia","AUS","2000","19053.186","1.72483","541804.6521","67.759025993","6.7200975332"
@@ -174,36 +174,36 @@ Here's the content of `test_pwt.csv`
 
 Supposing you have this data saved as `test_pwt.csv` in the present working directory (type `%pwd` in Jupyter to see what this is), it can be read in as follows:
 
-```{code-block} python3
+```{code-cell} python3
 df = pd.read_csv('https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/pandas/data/test_pwt.csv')
 type(df)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 df
 ```
 
 We can select particular rows using standard Python array slicing notation
 
-```{code-block} python3
+```{code-cell} python3
 df[2:5]
 ```
 
 To select columns, we can pass a list containing the names of the desired columns represented as strings
 
-```{code-block} python3
+```{code-cell} python3
 df[['country', 'tcgdp']]
 ```
 
 To select both rows and columns using integers, the `iloc` attribute should be used with the format `.iloc[rows, columns]`
 
-```{code-block} python3
+```{code-cell} python3
 df.iloc[2:5, 0:4]
 ```
 
 To select rows and columns using a mixture of integers and labels, the `loc` attribute can be used in a similar way
 
-```{code-block} python3
+```{code-cell} python3
 df.loc[df.index[2:5], ['country', 'tcgdp']]
 ```
 
@@ -211,7 +211,7 @@ Let's imagine that we're only interested in population (`POP`) and total GDP (`t
 
 One way to strip the data frame `df` down to only these variables is to overwrite the dataframe using the selection method described above
 
-```{code-block} python3
+```{code-cell} python3
 df = df[['country', 'POP', 'tcgdp']]
 df
 ```
@@ -220,28 +220,28 @@ Here the index `0, 1,..., 7` is redundant because we can use the country names a
 
 To do this, we set the index to be the `country` variable in the dataframe
 
-```{code-block} python3
+```{code-cell} python3
 df = df.set_index('country')
 df
 ```
 
 Let's give the columns slightly better names
 
-```{code-block} python3
+```{code-cell} python3
 df.columns = 'population', 'total GDP'
 df
 ```
 
 Population is in thousands, let's revert to single units
 
-```{code-block} python3
+```{code-cell} python3
 df['population'] = df['population'] * 1e3
 df
 ```
 
 Next, we're going to add a column showing real GDP per capita, multiplying by 1,000,000 as we go because total GDP is in millions
 
-```{code-block} python3
+```{code-cell} python3
 df['GDP percap'] = df['total GDP'] * 1e6 / df['population']
 df
 ```
@@ -250,7 +250,7 @@ One of the nice things about pandas `DataFrame` and `Series` objects is that the
 
 For example, we can easily generate a bar plot of GDP per capita
 
-```{code-block} python3
+```{code-cell} python3
 ax = df['GDP percap'].plot(kind='bar')
 ax.set_xlabel('country', fontsize=12)
 ax.set_ylabel('GDP per capita', fontsize=12)
@@ -259,14 +259,14 @@ plt.show()
 
 At the moment the data frame is ordered alphabetically on the countries---let's change it to GDP per capita
 
-```{code-block} python3
+```{code-cell} python3
 df = df.sort_values(by='GDP percap', ascending=False)
 df
 ```
 
 Plotting as before now yields
 
-```{code-block} python3
+```{code-cell} python3
 ax = df['GDP percap'].plot(kind='bar')
 ax.set_xlabel('country', fontsize=12)
 ax.set_ylabel('GDP per capita', fontsize=12)
@@ -288,7 +288,7 @@ For example, suppose that we are interested in the [unemployment rate](https://r
 Via FRED, the entire series for the US civilian unemployment rate can be downloaded directly by entering
 this URL into your browser (note that this requires an internet connection)
 
-```{code-block} none
+```{code-cell} none
 https://research.stlouisfed.org/fred2/series/UNRATE/downloaddata/UNRATE.csv
 ```
 
@@ -312,7 +312,7 @@ One option is to use [requests](https://requests.readthedocs.io/en/master/), a s
 
 To begin, try the following code on your computer
 
-```{code-block} python3
+```{code-cell} python3
 r = requests.get('http://research.stlouisfed.org/fred2/series/UNRATE/downloaddata/UNRATE.csv')
 ```
 
@@ -330,17 +330,17 @@ In the second case, you can either
 
 Assuming that all is working, you can now proceed to use the `source` object returned by the call `requests.get('http://research.stlouisfed.org/fred2/series/UNRATE/downloaddata/UNRATE.csv')`
 
-```{code-block} python3
+```{code-cell} python3
 url = 'http://research.stlouisfed.org/fred2/series/UNRATE/downloaddata/UNRATE.csv'
 source = requests.get(url).content.decode().split("\n")
 source[0]
 ```
 
-```{code-block} python3
+```{code-cell} python3
 source[1]
 ```
 
-```{code-block} python3
+```{code-cell} python3
 source[2]
 ```
 
@@ -350,28 +350,28 @@ But this is unnecessary --- pandas' `read_csv` function can handle the task for 
 
 We use `parse_dates=True` so that pandas recognizes our dates column, allowing for simple date filtering
 
-```{code-block} python3
+```{code-cell} python3
 data = pd.read_csv(url, index_col=0, parse_dates=True)
 ```
 
 The data has been read into a pandas DataFrame called `data` that we can now manipulate in the usual way
 
-```{code-block} python3
+```{code-cell} python3
 type(data)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 data.head()  # A useful method to get a quick look at a data frame
 ```
 
-```{code-block} python3
+```{code-cell} python3
 pd.set_option('precision', 1)
 data.describe()  # Your output might differ slightly
 ```
 
 We can also plot the unemployment rate from 2006 to 2012 as follows
 
-```{code-block} python3
+```{code-cell} python3
 ax = data['2006':'2012'].plot(title='US Unemployment Rate', legend=False)
 ax.set_xlabel('year', fontsize=12)
 ax.set_ylabel('%', fontsize=12)
@@ -401,7 +401,7 @@ For example, [here's](http://data.worldbank.org/indicator/GC.DOD.TOTL.GD.ZS/coun
 
 The next code example fetches the data for you and plots time series for the US and Australia
 
-```{code-block} python3
+```{code-cell} python3
 from pandas_datareader import wb
 
 govt_debt = wb.download(indicator='GC.DOD.TOTL.GD.ZS', country=['US', 'AU'], start=2005, end=2016).stack().unstack(0)
@@ -421,14 +421,14 @@ The [documentation](https://pandas-datareader.readthedocs.io/en/latest/index.htm
 
 With these imports:
 
-```{code-block} python3
+```{code-cell} python3
 import datetime as dt
 from pandas_datareader import data
 ```
 
 Write a program to calculate the percentage price change over 2019 for the following shares:
 
-```{code-block} python3
+```{code-cell} python3
 ticker_list = {'INTC': 'Intel',
                'MSFT': 'Microsoft',
                'IBM': 'IBM',
@@ -446,7 +446,7 @@ ticker_list = {'INTC': 'Intel',
 
 Here's the first part of the program
 
-```{code-block} python3
+```{code-cell} python3
 def read_data(ticker_list,
           start=dt.datetime(2019, 1, 2),
           end=dt.datetime(2019, 12, 31)):
@@ -476,7 +476,7 @@ Complete the program to plot the result as a bar graph like this one:
 
 Using the method `read_data` introduced in Exercise 1, write a program to obtain year-on-year percentage change for the following indices:
 
-```{code-block} python3
+```{code-cell} python3
 indices_list = {'^GSPC': 'S&P 500',
                '^IXIC': 'NASDAQ',
                '^DJI': 'Dow Jones',
@@ -498,7 +498,7 @@ the percentage change.
 
 First, you can extract the data and perform the calculation such as:
 
-```{code-block} python3
+```{code-cell} python3
 p1 = ticker.iloc[0]    #Get the first set of prices as a Series
 p2 = ticker.iloc[-1]   #Get the last set of prices as a Series
 price_change = (p2 - p1) / p1 * 100
@@ -508,7 +508,7 @@ price_change
 Alternatively you can use an inbuilt method `pct_change` and configure it to
 perform the correct calculation using `periods` argument.
 
-```{code-block} python3
+```{code-cell} python3
 change = ticker.pct_change(periods=len(ticker)-1, axis='rows')*100
 price_change = change.iloc[-1]
 price_change
@@ -516,7 +516,7 @@ price_change
 
 Then to plot the chart
 
-```{code-block} python3
+```{code-cell} python3
 price_change.sort_values(inplace=True)
 price_change = price_change.rename(index=ticker_list)
 fig, ax = plt.subplots(figsize=(10,8))
@@ -530,7 +530,7 @@ plt.show()
 
 Following the work you did in Exercise 1, you can query the data using `read_data` by updating the start and end dates accordingly.
 
-```{code-block} python3
+```{code-cell} python3
 indices_data = read_data(
         indices_list,
         start=dt.datetime(1928, 1, 2),
@@ -540,7 +540,7 @@ indices_data = read_data(
 
 Then, extract the first and last set of prices per year as DataFrames and calculate the yearly returns such as:
 
-```{code-block} python3
+```{code-cell} python3
 yearly_returns = pd.DataFrame()
 
 for index, name in indices_list.items():
@@ -554,13 +554,13 @@ yearly_returns
 
 Next, you can obtain summary statistics by using the method `describe`.
 
-```{code-block} python3
+```{code-cell} python3
 yearly_returns.describe()
 ```
 
 Then, to plot the chart
 
-```{code-block} python3
+```{code-cell} python3
 fig, axes = plt.subplots(2, 2, figsize=(10, 6))
 
 for iter_, ax in enumerate(axes.flatten()):            # Flatten 2-D array to 1-D array

@@ -26,7 +26,7 @@ kernelspec:
 
 In addition to what's in Anaconda, this lecture will need the following libraries:
 
-```{code-block} ipython
+```{code-cell} ipython
 !conda install -y quantecon
 ```
 
@@ -57,7 +57,7 @@ In this lecture we discuss parallelization for scientific computing, with a focu
 
 Let's start with some imports:
 
-```{code-block} ipython
+```{code-cell} ipython
 import numpy as np
 import quantecon as qe
 import matplotlib.pyplot as plt
@@ -133,7 +133,7 @@ generated matrices.
 
 It takes a few seconds to run.
 
-```{code-block} python3
+```{code-cell} python3
 n = 20
 m = 1000
 for i in range(n):
@@ -160,7 +160,7 @@ out to more and more operations.
 
 For example, let's return to a maximization problem discussed previously:
 
-```{code-block} python3
+```{code-cell} python3
 def f(x, y):
     return np.cos(x**2 + y**2) / (1 + x**2 + y**2)
 
@@ -168,7 +168,7 @@ grid = np.linspace(-3, 3, 5000)
 x, y = np.meshgrid(grid, grid)
 ```
 
-```{code-block} ipython3
+```{code-cell} ipython3
 %timeit np.max(f(x, y))
 ```
 
@@ -190,7 +190,7 @@ thing with Numba.
 In fact there is an easy way to do this, since Numba can also be used to
 create custom ufuncs with the [@vectorize](http://numba.pydata.org/numba-doc/dev/user/vectorize.html) decorator.
 
-```{code-block} python3
+```{code-cell} python3
 from numba import vectorize
 
 @vectorize
@@ -200,7 +200,7 @@ def f_vec(x, y):
 np.max(f_vec(x, y))  # Run once to compile
 ```
 
-```{code-block} ipython3
+```{code-cell} ipython3
 %timeit np.max(f_vec(x, y))
 ```
 
@@ -242,7 +242,7 @@ In other words, can we pair
 
 It turns out that we can, by adding some type information plus `target='parallel'`.
 
-```{code-block} python3
+```{code-cell} python3
 @vectorize('float64(float64, float64)', target='parallel')
 def f_vec(x, y):
     return np.cos(x**2 + y**2) / (1 + x**2 + y**2)
@@ -250,7 +250,7 @@ def f_vec(x, y):
 np.max(f_vec(x, y))  # Run once to compile
 ```
 
-```{code-block} ipython3
+```{code-cell} ipython3
 %timeit np.max(f_vec(x, y))
 ```
 
@@ -285,7 +285,7 @@ distribution.
 
 Here's the code:
 
-```{code-block} ipython
+```{code-cell} ipython
 from numpy.random import randn
 from numba import njit
 
@@ -306,7 +306,7 @@ def h(w, r=0.1, s=0.3, v1=0.1, v2=1.0):
 
 Let's have a look at how wealth evolves under this rule.
 
-```{code-block} ipython
+```{code-cell} ipython
 fig, ax = plt.subplots()
 
 T = 100
@@ -350,7 +350,7 @@ Then we'll calculate median wealth at the end period.
 
 Here's the code:
 
-```{code-block} ipython
+```{code-cell} ipython
 @njit
 def compute_long_run_median(w0=1, T=1000, num_reps=50_000):
 
@@ -366,7 +366,7 @@ def compute_long_run_median(w0=1, T=1000, num_reps=50_000):
 
 Let's see how fast this runs:
 
-```{code-block} ipython
+```{code-cell} ipython
 %%time
 compute_long_run_median()
 ```
@@ -375,7 +375,7 @@ To speed this up, we're going to parallelize it via multithreading.
 
 To do so, we add the `parallel=True` flag and change `range` to `prange`:
 
-```{code-block} ipython
+```{code-cell} ipython
 from numba import prange
 
 @njit(parallel=True)
@@ -393,7 +393,7 @@ def compute_long_run_median_parallel(w0=1, T=1000, num_reps=50_000):
 
 Let's look at the timing:
 
-```{code-block} ipython
+```{code-cell} ipython
 %%time
 compute_long_run_median_parallel()
 ```
@@ -443,7 +443,7 @@ For the size of the Monte Carlo simulation, use something substantial, such as
 
 Here is one solution:
 
-```{code-block} python3
+```{code-cell} python3
 from random import uniform
 
 @njit(parallel=True)
@@ -461,11 +461,11 @@ def calculate_pi(n=1_000_000):
 
 Now let's see how fast it runs:
 
-```{code-block} ipython3
+```{code-cell} ipython3
 %time calculate_pi()
 ```
 
-```{code-block} ipython3
+```{code-cell} ipython3
 %time calculate_pi()
 ```
 

@@ -64,18 +64,18 @@ NumPy arrays power a large proportion of the scientific Python ecosystem.
 
 Let's first import the library.
 
-```{code-block} python3
+```{code-cell} python3
 import numpy as np
 ```
 
 To create a NumPy array containing only zeros we use  [np.zeros](http://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros)
 
-```{code-block} python3
+```{code-cell} python3
 a = np.zeros(3)
 a
 ```
 
-```{code-block} python3
+```{code-cell} python3
 type(a)
 ```
 
@@ -94,14 +94,14 @@ There are also dtypes to represent complex numbers, unsigned integers, etc.
 
 On modern machines, the default dtype for arrays is `float64`
 
-```{code-block} python3
+```{code-cell} python3
 a = np.zeros(3)
 type(a[0])
 ```
 
 If we want to use integers we can specify as follows:
 
-```{code-block} python3
+```{code-cell} python3
 a = np.zeros(3, dtype=int)
 type(a[0])
 ```
@@ -114,7 +114,7 @@ single: NumPy; Arrays (Shape and Dimension)
 
 Consider the following assignment
 
-```{code-block} python3
+```{code-cell} python3
 z = np.zeros(10)
 ```
 
@@ -122,7 +122,7 @@ Here `z` is a *flat* array with no dimension --- neither row nor column vector.
 
 The dimension is recorded in the `shape` attribute, which is a tuple
 
-```{code-block} python3
+```{code-cell} python3
 z.shape
 ```
 
@@ -130,12 +130,12 @@ Here the shape tuple has only one element, which is the length of the array (tup
 
 To give it dimension, we can change the `shape` attribute
 
-```{code-block} python3
+```{code-cell} python3
 z.shape = (10, 1)
 z
 ```
 
-```{code-block} python3
+```{code-cell} python3
 z = np.zeros(4)
 z.shape = (2, 2)
 z
@@ -156,7 +156,7 @@ You can probably guess what `np.ones` creates.
 
 Related is `np.empty`, which creates arrays in memory that can later be populated with data
 
-```{code-block} python3
+```{code-cell} python3
 z = np.empty(3)
 z
 ```
@@ -167,34 +167,34 @@ The numbers you see here are garbage values.
 
 To set up a grid of evenly spaced numbers use `np.linspace`
 
-```{code-block} python3
+```{code-cell} python3
 z = np.linspace(2, 4, 5)  # From 2 to 4, with 5 elements
 ```
 
 To create an identity matrix use either `np.identity` or `np.eye`
 
-```{code-block} python3
+```{code-cell} python3
 z = np.identity(2)
 z
 ```
 
 In addition, NumPy arrays can be created from Python lists, tuples, etc. using `np.array`
 
-```{code-block} python3
+```{code-cell} python3
 z = np.array([10, 20])                 # ndarray from Python list
 z
 ```
 
-```{code-block} python3
+```{code-cell} python3
 type(z)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 z = np.array((10, 20), dtype=float)    # Here 'float' is equivalent to 'np.float64'
 z
 ```
 
-```{code-block} python3
+```{code-cell} python3
 z = np.array([[1, 2], [3, 4]])         # 2D array from a list of lists
 z
 ```
@@ -202,12 +202,12 @@ z
 See also `np.asarray`, which performs a similar function, but does not make
 a distinct copy of data already in a NumPy array.
 
-```{code-block} python3
+```{code-cell} python3
 na = np.linspace(10, 20, 2)
 na is np.asarray(na)   # Does not copy NumPy arrays
 ```
 
-```{code-block} python3
+```{code-cell} python3
 na is np.array(na)     # Does make a new copy --- perhaps unnecessarily
 ```
 
@@ -222,35 +222,35 @@ single: NumPy; Arrays (Indexing)
 
 For a flat array, indexing is the same as Python sequences:
 
-```{code-block} python3
+```{code-cell} python3
 z = np.linspace(1, 2, 5)
 z
 ```
 
-```{code-block} python3
+```{code-cell} python3
 z[0]
 ```
 
-```{code-block} python3
+```{code-cell} python3
 z[0:2]  # Two elements, starting at element 0
 ```
 
-```{code-block} python3
+```{code-cell} python3
 z[-1]
 ```
 
 For 2D arrays the index syntax is as follows:
 
-```{code-block} python3
+```{code-cell} python3
 z = np.array([[1, 2], [3, 4]])
 z
 ```
 
-```{code-block} python3
+```{code-cell} python3
 z[0, 0]
 ```
 
-```{code-block} python3
+```{code-cell} python3
 z[0, 1]
 ```
 
@@ -260,38 +260,38 @@ Note that indices are still zero-based, to maintain compatibility with Python se
 
 Columns and rows can be extracted as follows
 
-```{code-block} python3
+```{code-cell} python3
 z[0, :]
 ```
 
-```{code-block} python3
+```{code-cell} python3
 z[:, 1]
 ```
 
 NumPy arrays of integers can also be used to extract elements
 
-```{code-block} python3
+```{code-cell} python3
 z = np.linspace(2, 4, 5)
 z
 ```
 
-```{code-block} python3
+```{code-cell} python3
 indices = np.array((0, 2, 3))
 z[indices]
 ```
 
 Finally, an array of `dtype bool` can be used to extract elements
 
-```{code-block} python3
+```{code-cell} python3
 z
 ```
 
-```{code-block} python3
+```{code-cell} python3
 d = np.array([0, 1, 1, 0, 0], dtype=bool)
 d
 ```
 
-```{code-block} python3
+```{code-cell} python3
 z[d]
 ```
 
@@ -299,12 +299,12 @@ We'll see why this is useful below.
 
 An aside: all elements of an array can be set equal to one number using slice notation
 
-```{code-block} python3
+```{code-cell} python3
 z = np.empty(3)
 z
 ```
 
-```{code-block} python3
+```{code-cell} python3
 z[:] = 42
 z
 ```
@@ -317,49 +317,49 @@ single: NumPy; Arrays (Methods)
 
 Arrays have useful methods, all of which are carefully optimized
 
-```{code-block} python3
+```{code-cell} python3
 a = np.array((4, 3, 2, 1))
 a
 ```
 
-```{code-block} python3
+```{code-cell} python3
 a.sort()              # Sorts a in place
 a
 ```
 
-```{code-block} python3
+```{code-cell} python3
 a.sum()               # Sum
 ```
 
-```{code-block} python3
+```{code-cell} python3
 a.mean()              # Mean
 ```
 
-```{code-block} python3
+```{code-cell} python3
 a.max()               # Max
 ```
 
-```{code-block} python3
+```{code-cell} python3
 a.argmax()            # Returns the index of the maximal element
 ```
 
-```{code-block} python3
+```{code-cell} python3
 a.cumsum()            # Cumulative sum of the elements of a
 ```
 
-```{code-block} python3
+```{code-cell} python3
 a.cumprod()           # Cumulative product of the elements of a
 ```
 
-```{code-block} python3
+```{code-cell} python3
 a.var()               # Variance
 ```
 
-```{code-block} python3
+```{code-cell} python3
 a.std()               # Standard deviation
 ```
 
-```{code-block} python3
+```{code-cell} python3
 a.shape = (2, 2)
 a.T                   # Equivalent to a.transpose()
 ```
@@ -368,26 +368,26 @@ Another method worth knowing is `searchsorted()`.
 
 If `z` is a nondecreasing array, then `z.searchsorted(a)` returns the index of the first element of `z` that is `>= a`
 
-```{code-block} python3
+```{code-cell} python3
 z = np.linspace(2, 4, 5)
 z
 ```
 
-```{code-block} python3
+```{code-cell} python3
 z.searchsorted(2.2)
 ```
 
 Many of the methods discussed above have equivalent functions in the NumPy namespace
 
-```{code-block} python3
+```{code-cell} python3
 a = np.array((4, 3, 2, 1))
 ```
 
-```{code-block} python3
+```{code-cell} python3
 np.sum(a)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 np.mean(a)
 ```
 
@@ -401,41 +401,41 @@ single: NumPy; Arrays (Operations)
 
 The operators `+`, `-`, `*`, `/` and `**` all act *elementwise* on arrays
 
-```{code-block} python3
+```{code-cell} python3
 a = np.array([1, 2, 3, 4])
 b = np.array([5, 6, 7, 8])
 a + b
 ```
 
-```{code-block} python3
+```{code-cell} python3
 a * b
 ```
 
 We can add a scalar to each element as follows
 
-```{code-block} python3
+```{code-cell} python3
 a + 10
 ```
 
 Scalar multiplication is similar
 
-```{code-block} python3
+```{code-cell} python3
 a * 10
 ```
 
 The two-dimensional arrays follow the same general rules
 
-```{code-block} python3
+```{code-cell} python3
 A = np.ones((2, 2))
 B = np.ones((2, 2))
 A + B
 ```
 
-```{code-block} python3
+```{code-cell} python3
 A + 10
 ```
 
-```{code-block} python3
+```{code-cell} python3
 A * B
 ```
 
@@ -450,7 +450,7 @@ single: NumPy; Matrix Multiplication
 With Anaconda's scientific Python package based around Python 3.5 and above,
 one can use the `@` symbol for matrix multiplication, as follows:
 
-```{code-block} python3
+```{code-cell} python3
 A = np.ones((2, 2))
 B = np.ones((2, 2))
 A @ B
@@ -460,7 +460,7 @@ A @ B
 
 We can also use `@` to take the inner product of two flat arrays
 
-```{code-block} python3
+```{code-cell} python3
 A = np.array((1, 2))
 B = np.array((10, 20))
 A @ B
@@ -468,12 +468,12 @@ A @ B
 
 In fact, we can use `@` when one element is a Python list or tuple
 
-```{code-block} python3
+```{code-cell} python3
 A = np.array(((1, 2), (3, 4)))
 A
 ```
 
-```{code-block} python3
+```{code-cell} python3
 A @ (0, 1)
 ```
 
@@ -489,24 +489,24 @@ We already saw examples above.
 
 Here's another example:
 
-```{code-block} python3
+```{code-cell} python3
 a = np.array([42, 44])
 a
 ```
 
-```{code-block} python3
+```{code-cell} python3
 a[-1] = 0  # Change last element to 0
 a
 ```
 
 Mutability leads to the following behavior (which can be shocking to MATLAB programmers...)
 
-```{code-block} python3
+```{code-cell} python3
 a = np.random.randn(3)
 a
 ```
 
-```{code-block} python3
+```{code-cell} python3
 b = a
 b[0] = 0.0
 a
@@ -531,24 +531,24 @@ It is of course possible to make `b` an independent copy of `a` when required.
 
 This can be done using `np.copy`
 
-```{code-block} python3
+```{code-cell} python3
 a = np.random.randn(3)
 a
 ```
 
-```{code-block} python3
+```{code-cell} python3
 b = np.copy(a)
 b
 ```
 
 Now `b` is an independent copy (called a *deep copy*)
 
-```{code-block} python3
+```{code-cell} python3
 b[:] = 1
 b
 ```
 
-```{code-block} python3
+```{code-cell} python3
 a
 ```
 
@@ -566,14 +566,14 @@ single: NumPy; Vectorized Functions
 
 NumPy provides versions of the standard functions `log`, `exp`, `sin`, etc. that act *element-wise* on arrays
 
-```{code-block} python3
+```{code-cell} python3
 z = np.array([1, 2, 3])
 np.sin(z)
 ```
 
 This eliminates the need for explicit element-by-element loops such as
 
-```{code-block} python3
+```{code-cell} python3
 n = len(z)
 y = np.empty(n)
 for i in range(n):
@@ -587,11 +587,11 @@ In NumPy-speak, they are also called *ufuncs*, which stands for "universal funct
 As we saw above, the usual arithmetic operations (`+`, `*`, etc.) also
 work element-wise, and combining these with the ufuncs gives a very large set of fast element-wise functions.
 
-```{code-block} python3
+```{code-cell} python3
 z
 ```
 
-```{code-block} python3
+```{code-cell} python3
 (1 / np.sqrt(2 * np.pi)) * np.exp(- 0.5 * z**2)
 ```
 
@@ -599,25 +599,25 @@ Not all user-defined functions will act element-wise.
 
 For example, passing the function `f` defined below a NumPy array causes a `ValueError`
 
-```{code-block} python3
+```{code-cell} python3
 def f(x):
     return 1 if x > 0 else 0
 ```
 
 The NumPy function `np.where` provides a vectorized alternative:
 
-```{code-block} python3
+```{code-cell} python3
 x = np.random.randn(4)
 x
 ```
 
-```{code-block} python3
+```{code-cell} python3
 np.where(x > 0, 1, 0)  # Insert 1 if x > 0 true, otherwise 0
 ```
 
 You can also use `np.vectorize` to vectorize a given function
 
-```{code-block} python3
+```{code-cell} python3
 f = np.vectorize(f)
 f(x)                # Passing the same vector x as in the previous example
 ```
@@ -632,18 +632,18 @@ single: NumPy; Comparisons
 
 As a rule, comparisons on arrays are done element-wise
 
-```{code-block} python3
+```{code-cell} python3
 z = np.array([2, 3])
 y = np.array([2, 3])
 z == y
 ```
 
-```{code-block} python3
+```{code-cell} python3
 y[0] = 5
 z == y
 ```
 
-```{code-block} python3
+```{code-cell} python3
 z != y
 ```
 
@@ -651,29 +651,29 @@ The situation is similar for `>`, `<`, `>=` and `<=`.
 
 We can also do comparisons against scalars
 
-```{code-block} python3
+```{code-cell} python3
 z = np.linspace(0, 10, 5)
 z
 ```
 
-```{code-block} python3
+```{code-cell} python3
 z > 3
 ```
 
 This is particularly useful for *conditional extraction*
 
-```{code-block} python3
+```{code-cell} python3
 b = z > 3
 b
 ```
 
-```{code-block} python3
+```{code-cell} python3
 z[b]
 ```
 
 Of course we can---and frequently do---perform this in one step
 
-```{code-block} python3
+```{code-cell} python3
 z[z > 3]
 ```
 
@@ -684,7 +684,7 @@ through its sub-packages.
 
 We've already seen how we can generate random variables using np.random
 
-```{code-block} python3
+```{code-cell} python3
 z = np.random.randn(10000)  # Generate standard normals
 y = np.random.binomial(10, 0.5, size=1000)    # 1,000 draws from Bin(10, 0.5)
 y.mean()
@@ -692,13 +692,13 @@ y.mean()
 
 Another commonly used subpackage is np.linalg
 
-```{code-block} python3
+```{code-cell} python3
 A = np.array([[1, 2], [3, 4]])
 
 np.linalg.det(A)           # Compute the determinant
 ```
 
-```{code-block} python3
+```{code-cell} python3
 np.linalg.inv(A)           # Compute the inverse
 ```
 
@@ -755,7 +755,7 @@ The probability of drawing $i$ is the length of $I_i$, which is equal to $q_i$.
 
 We can implement the algorithm as follows
 
-```{code-block} python3
+```{code-cell} python3
 from random import uniform
 
 def sample(q):
@@ -792,7 +792,7 @@ Your task is to
 
 ## Solutions
 
-```{code-block} ipython
+```{code-cell} ipython
 import matplotlib.pyplot as plt
 %matplotlib inline
 ```
@@ -801,7 +801,7 @@ import matplotlib.pyplot as plt
 
 This code does the job
 
-```{code-block} python3
+```{code-cell} python3
 def p(x, coef):
     X = np.ones_like(coef)
     X[1:] = x
@@ -811,7 +811,7 @@ def p(x, coef):
 
 Let's test it
 
-```{code-block} python3
+```{code-cell} python3
 x = 2
 coef = np.linspace(2, 4, 3)
 print(coef)
@@ -825,7 +825,7 @@ print(q(x))
 
 Here's our first pass at a solution:
 
-```{code-block} python3
+```{code-cell} python3
 from numpy import cumsum
 from numpy.random import uniform
 
@@ -859,7 +859,7 @@ There is a problem here, however.
 Suppose that `q` is altered after an instance of `discreteRV` is
 created, for example by
 
-```{code-block} python3
+```{code-cell} python3
 q = (0.1, 0.9)
 d = DiscreteRV(q)
 d.q = (0.5, 0.5)
@@ -888,7 +888,7 @@ In essence, we've just taken [this
 code](https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/ecdf.py)
 from QuantEcon and added in a plot method
 
-```{code-block} python3
+```{code-cell} python3
 """
 Modifies ecdf.py from QuantEcon to add in a plot method
 
@@ -959,7 +959,7 @@ class ECDF:
 
 Here's an example of usage
 
-```{code-block} python3
+```{code-cell} python3
 fig, ax = plt.subplots()
 X = np.random.randn(1000)
 F = ECDF(X)
