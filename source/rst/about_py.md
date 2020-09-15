@@ -302,13 +302,9 @@ the last few years.
 
 #### Pandas
 
-Duplicate implicit target name: "pandas".
-
 ```{index}
 single: Pandas
 ```
-
-Duplicate explicit target name: "pandas".
 
 One of the most popular libraries for working with data is [pandas](http://pandas.pydata.org/).
 

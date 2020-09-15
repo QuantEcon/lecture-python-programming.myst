@@ -429,8 +429,6 @@ For the size of the Monte Carlo simulation, use something substantial, such as
 
 ### Exercise 1
 
-Duplicate implicit target name: "exercise 1".
-
 Here is one solution:
 
 ```{code-block} python3

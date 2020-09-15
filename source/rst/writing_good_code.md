@@ -401,8 +401,6 @@ in this lecture.
 
 ### Exercise 1
 
-Duplicate implicit target name: "exercise 1".
-
 Here's one solution, that uses a class:
 
 ```{code-block} ipython3
