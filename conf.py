@@ -39,8 +39,8 @@ extensions = [
 	'sphinxcontrib.bibtex', 
 	'IPython.sphinxext.ipython_console_highlighting',
     # Custom Sphinx Extensions
-    'sphinxcontrib.jupyter', 
-    'myst_parser',
+    # 'sphinxcontrib.jupyter', 
+    'myst_nb',
 ]
 
 # Retired Extensions but may be useful in Future
@@ -368,118 +368,122 @@ linkcheck_ignore = [r'https:\/\/github\.com\/.*?#.*'] #Anchors on Github seem to
 
 linkcheck_timeout = 30 
 
-# --------------------------------------------
-# jupyter Sphinx Extension conversion settings
-# --------------------------------------------
+# # --------------------------------------------
+# # jupyter Sphinx Extension conversion settings
+# # --------------------------------------------
 
-# Conversion Mode Settings
-# If "all", convert codes and texts into notebook
-# If "code", convert codes only
-jupyter_conversion_mode = "all"
+# # Conversion Mode Settings
+# # If "all", convert codes and texts into notebook
+# # If "code", convert codes only
+# jupyter_conversion_mode = "all"
 
-jupyter_write_metadata = False
+# jupyter_write_metadata = False
 
-# Location for _static folder
-jupyter_static_file_path = ["source/_static", "_static"]
+# # Location for _static folder
+# jupyter_static_file_path = ["source/_static", "_static"]
 
-# Configure Jupyter Kernels
-jupyter_kernels = {
-    "python3": {
-        "kernelspec": {
-            "display_name": "Python",
-            "language": "python3",
-            "name": "python3"
-            },
-        "file_extension": ".py",
-    },
-}
+# # Configure Jupyter Kernels
+# jupyter_kernels = {
+#     "python3": {
+#         "kernelspec": {
+#             "display_name": "Python",
+#             "language": "python3",
+#             "name": "python3"
+#             },
+#         "file_extension": ".py",
+#     },
+# }
 
-# Configure jupyter headers
-jupyter_headers = {
-    "python3": [
-        # nbformat.v4.new_code_cell("%autosave 0")      #@mmcky please make this an option
-        ],
-    "julia": [
-        ],
-}
+# # Configure jupyter headers
+# jupyter_headers = {
+#     "python3": [
+#         # nbformat.v4.new_code_cell("%autosave 0")      #@mmcky please make this an option
+#         ],
+#     "julia": [
+#         ],
+# }
 
-# Filename for the file containing the welcome block
-jupyter_welcome_block = ""
+# # Filename for the file containing the welcome block
+# jupyter_welcome_block = ""
 
-#Adjust links to target html (rather than ipynb)
-jupyter_target_html = False
+# #Adjust links to target html (rather than ipynb)
+# jupyter_target_html = False
 
-#path to download notebooks from 
-jupyter_download_nb_urlpath = None
+# #path to download notebooks from 
+# jupyter_download_nb_urlpath = None
 
-#allow downloading of notebooks
-jupyter_download_nb = False
+# #allow downloading of notebooks
+# jupyter_download_nb = False
 
-#Use urlprefix images
-jupyter_download_nb_image_urlpath = None
+# #Use urlprefix images
+# jupyter_download_nb_image_urlpath = None
 
-#Allow ipython as a language synonym for blocks to be ipython highlighted
-jupyter_lang_synonyms = ["ipython", "ipython3"]
+# #Allow ipython as a language synonym for blocks to be ipython highlighted
+# jupyter_lang_synonyms = ["ipython", "ipython3"]
 
-#Execute skip-test code blocks for rendering of website (this will need to be ignored in coverage testing)
-jupyter_ignore_skip_test = True
+# #Execute skip-test code blocks for rendering of website (this will need to be ignored in coverage testing)
+# jupyter_ignore_skip_test = True
 
-#allow execution of notebooks
-jupyter_execute_notebooks = False
+# #allow execution of notebooks
+# jupyter_execute_notebooks = False
 
-# Location of template folder for coverage reports
-jupyter_template_coverage_file_path = False
+# # Location of template folder for coverage reports
+# jupyter_template_coverage_file_path = False
 
-# generate html from IPYNB files
-jupyter_generate_html = False
+# # generate html from IPYNB files
+# jupyter_generate_html = False
 
-# html template specific to your website needs
-jupyter_html_template = ""
+# # html template specific to your website needs
+# jupyter_html_template = ""
 
-# latex template specific to your website needs
-jupyter_latex_template = ""
+# # latex template specific to your website needs
+# jupyter_latex_template = ""
 
-#make website
-jupyter_make_site = False
+# #make website
+# jupyter_make_site = False
 
-#force markdown image inclusion
-jupyter_images_markdown = True
+# #force markdown image inclusion
+# jupyter_images_markdown = True
 
-#This is set true by default to pass html to the notebooks
-jupyter_allow_html_only=True
+# #This is set true by default to pass html to the notebooks
+# jupyter_allow_html_only=True
 
-## Theme specific variables
-# jupyter_theme_path = 'theme/minimal'    #Specified in Makefile
-# jupyter_template_path = 'theme/minimal/templates'   #Specified in Makefile
+# ## Theme specific variables
+# # jupyter_theme_path = 'theme/minimal'    #Specified in Makefile
+# # jupyter_template_path = 'theme/minimal/templates'   #Specified in Makefile
 
-jupyter_nextprev_ignore = ['404', "search", "status", "troubleshooting"]
+# jupyter_nextprev_ignore = ['404', "search", "status", "troubleshooting"]
 
-### pdf options
-jupyter_pdf_logo = "_static/img/qe-menubar-logo.png"
+# ### pdf options
+# jupyter_pdf_logo = "_static/img/qe-menubar-logo.png"
 
-jupyter_bib_file = "_static/quant-econ"
+# jupyter_bib_file = "_static/quant-econ"
 
-jupyter_pdf_author = "Thomas J. Sargent and John Stachurski"
+# jupyter_pdf_author = "Thomas J. Sargent and John Stachurski"
 
-# Exclude Document Patterns for PDF Construction
-jupyter_pdf_excludepatterns = ["404", "index", "references"]
+# # Exclude Document Patterns for PDF Construction
+# jupyter_pdf_excludepatterns = ["404", "index", "references"]
 
-# Set urlpath for html links in documents
-jupyter_pdf_urlpath = "https://python-programming.quantecon.org/"
+# # Set urlpath for html links in documents
+# jupyter_pdf_urlpath = "https://python-programming.quantecon.org/"
 
-# make book
-jupyter_pdf_book = False
+# # make book
+# jupyter_pdf_book = False
 
-# book title
-jupyter_pdf_book_title = "Python Programming for Economics and Finance"
+# # book title
+# jupyter_pdf_book_title = "Python Programming for Economics and Finance"
 
-# pdf book name
-jupyter_pdf_book_name = "python_programming_for_economics_finance"
+# # pdf book name
+# jupyter_pdf_book_name = "python_programming_for_economics_finance"
 
-# pdf toc file
-jupyter_pdf_book_index = "index_toc"
+# # pdf toc file
+# jupyter_pdf_book_index = "index_toc"
 
 # tomyst Config
 
 # Set Destination path
 tomyst_static_file_path = ['source/rst/_static']
+
+# myst-nb Config
+
+jupyter_execute_notebooks = "cache"
