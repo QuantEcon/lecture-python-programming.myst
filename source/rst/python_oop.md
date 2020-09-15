@@ -804,8 +804,6 @@ Avoid using any `import` statements.
 
 ### Exercise 1
 
-Duplicate implicit target name: "exercise 1".
-
 ```{code-block} python3
 class ECDF:
 
@@ -836,8 +834,6 @@ print(F(0.5))
 ```
 
 ### Exercise 2
-
-Duplicate implicit target name: "exercise 2".
 
 ```{code-block} python3
 class Polynomial:

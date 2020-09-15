@@ -22,8 +22,6 @@ single: Python; NumPy
 
 ## Overview
 
-Duplicate implicit target name: "numpy".
-
 [NumPy](https://en.wikipedia.org/wiki/NumPy) is a first-rate library for numerical programming
 
 * Widely used in academia, finance and industry.
@@ -789,8 +787,6 @@ import matplotlib.pyplot as plt
 
 ### Exercise 1
 
-Duplicate implicit target name: "exercise 1".
-
 This code does the job
 
 ```{code-block} python3
@@ -814,8 +810,6 @@ print(q(x))
 ```
 
 ### Exercise 2
-
-Duplicate implicit target name: "exercise 2".
 
 Here's our first pass at a solution:
 
@@ -875,8 +869,6 @@ using descriptors that behaves as we desire can be found
 [here](https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/discrete_rv.py).
 
 ### Exercise 3
-
-Duplicate implicit target name: "exercise 3".
 
 An example solution is given below.
 

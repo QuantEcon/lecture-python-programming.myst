@@ -8,8 +8,6 @@
 
 # Debugging
 
-Duplicate implicit target name: "debugging".
-
 ```{index}
 single: Debugging
 ```
@@ -47,8 +45,6 @@ import matplotlib.pyplot as plt
 ```
 
 ## Debugging
-
-Duplicate implicit target name: "debugging".
 
 ```{index}
 single: Debugging

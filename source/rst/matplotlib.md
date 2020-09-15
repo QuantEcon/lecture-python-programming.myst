@@ -8,8 +8,6 @@
 
 # Matplotlib
 
-Duplicate implicit target name: "matplotlib".
-
 ```{index}
 single: Python; Matplotlib
 ```
@@ -293,8 +291,6 @@ The output should look like this
 ## Solutions
 
 ### Exercise 1
-
-Duplicate implicit target name: "exercise 1".
 
 Here's one solution
 

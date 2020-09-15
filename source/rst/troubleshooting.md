@@ -8,8 +8,6 @@
 
 # Troubleshooting
 
-Duplicate implicit target name: "troubleshooting".
-
 ```{contents} Contents
 :depth: 2
 ```

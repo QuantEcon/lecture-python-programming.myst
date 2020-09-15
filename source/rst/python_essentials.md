@@ -432,8 +432,6 @@ single: Python; List comprehension
 
 We can also simplify the code for generating the list of random draws considerably by using something called a *list comprehension*.
 
-Duplicate implicit target name: "list comprehensions".
-
 [List comprehensions](https://en.wikipedia.org/wiki/List_comprehension) are an elegant Python tool for creating lists.
 
 Consider the following example, where the list comprehension is on the
@@ -797,9 +795,7 @@ returns `True` if every element in `seq_a` is also an element of `seq_b`, else
 `False`.
 
 * By "sequence" we mean a list, a tuple or a string.
-* Duplicate explicit target name: "sets".
-  
-  Do the exercise without using [sets](https://docs.python.org/3/tutorial/datastructures.html#sets) and set methods.
+* Do the exercise without using [sets](https://docs.python.org/3/tutorial/datastructures.html#sets) and set methods.
 
 ### Exercise 5
 
@@ -837,8 +833,6 @@ for i in range(n):
 ## Solutions
 
 ### Exercise 1
-
-Duplicate implicit target name: "exercise 1".
 
 #### Part 1 Solution:
 
@@ -894,8 +888,6 @@ sum([x % 2 == 0 and y % 2 == 0 for x, y in pairs])
 
 ### Exercise 2
 
-Duplicate implicit target name: "exercise 2".
-
 ```{code-block} python3
 def p(x, coeff):
     return sum(a * x**i for i, a in enumerate(coeff))
@@ -906,8 +898,6 @@ p(1, (2, 4))
 ```
 
 ### Exercise 3
-
-Duplicate implicit target name: "exercise 3".
 
 Here's one solution:
 
@@ -933,8 +923,6 @@ count_uppercase_chars('The Rain in Spain')
 
 ### Exercise 4
 
-Duplicate implicit target name: "exercise 4".
-
 Here's a solution:
 
 ```{code-block} python3
@@ -959,8 +947,6 @@ def f(seq_a, seq_b):
 ```
 
 ### Exercise 5
-
-Duplicate implicit target name: "exercise 5".
 
 ```{code-block} python3
 def linapprox(f, a, b, n, x):
@@ -1000,8 +986,6 @@ def linapprox(f, a, b, n, x):
 ```
 
 ### Exercise 6
-
-Duplicate implicit target name: "exercise 6".
 
 Here's one solution.
 
