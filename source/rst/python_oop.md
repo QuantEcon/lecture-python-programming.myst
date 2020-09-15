@@ -1,3 +1,9 @@
+---
+kernelspec:
+  display_name: Python 3
+  name: python3
+---
+
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -804,8 +810,6 @@ Avoid using any `import` statements.
 
 ### Exercise 1
 
-Duplicate implicit target name: "exercise 1".
-
 ```{code-block} python3
 class ECDF:
 
@@ -836,8 +840,6 @@ print(F(0.5))
 ```
 
 ### Exercise 2
-
-Duplicate implicit target name: "exercise 2".
 
 ```{code-block} python3
 class Polynomial:

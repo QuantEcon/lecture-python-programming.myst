@@ -1,3 +1,9 @@
+---
+kernelspec:
+  display_name: Python 3
+  name: python3
+---
+
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -7,8 +13,6 @@
 ```
 
 # Debugging
-
-Duplicate implicit target name: "debugging".
 
 ```{index}
 single: Debugging
@@ -47,8 +51,6 @@ import matplotlib.pyplot as plt
 ```
 
 ## Debugging
-
-Duplicate implicit target name: "debugging".
 
 ```{index}
 single: Debugging

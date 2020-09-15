@@ -1,3 +1,9 @@
+---
+kernelspec:
+  display_name: Python 3
+  name: python3
+---
+
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -21,8 +27,6 @@ single: Python; NumPy
 ```
 
 ## Overview
-
-Duplicate implicit target name: "numpy".
 
 [NumPy](https://en.wikipedia.org/wiki/NumPy) is a first-rate library for numerical programming
 
@@ -789,8 +793,6 @@ import matplotlib.pyplot as plt
 
 ### Exercise 1
 
-Duplicate implicit target name: "exercise 1".
-
 This code does the job
 
 ```{code-block} python3
@@ -814,8 +816,6 @@ print(q(x))
 ```
 
 ### Exercise 2
-
-Duplicate implicit target name: "exercise 2".
 
 Here's our first pass at a solution:
 
@@ -875,8 +875,6 @@ using descriptors that behaves as we desire can be found
 [here](https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/discrete_rv.py).
 
 ### Exercise 3
-
-Duplicate implicit target name: "exercise 3".
 
 An example solution is given below.
 

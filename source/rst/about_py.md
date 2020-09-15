@@ -1,3 +1,9 @@
+---
+kernelspec:
+  display_name: Python 3
+  name: python3
+---
+
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -302,13 +308,9 @@ the last few years.
 
 #### Pandas
 
-Duplicate implicit target name: "pandas".
-
 ```{index}
 single: Pandas
 ```
-
-Duplicate explicit target name: "pandas".
 
 One of the most popular libraries for working with data is [pandas](http://pandas.pydata.org/).
 

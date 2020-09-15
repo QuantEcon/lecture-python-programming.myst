@@ -1,6 +1,10 @@
-# Search
+---
+kernelspec:
+  display_name: Python 3
+  name: python3
+---
 
-Duplicate implicit target name: "search".
+# Search
 
 ```{raw} html
 <style type="text/css">.lecture-options{display:none;}</style>

@@ -1,3 +1,9 @@
+---
+kernelspec:
+  display_name: Python 3
+  name: python3
+---
+
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -23,8 +29,6 @@ In addition to what’s in Anaconda, this lecture will need the following librar
 ```
 
 ## Overview
-
-Duplicate implicit target name: "pandas".
 
 [Pandas](http://pandas.pydata.org/) is a package of fast, efficient data analysis tools for Python.
 
@@ -483,8 +487,6 @@ Complete the program to show summary statistics and plot the result as a time se
 
 ### Exercise 1
 
-Duplicate implicit target name: "exercise 1".
-
 There are a few ways to approach this problem using Pandas to calculate
 the percentage change.
 
@@ -519,8 +521,6 @@ plt.show()
 ```
 
 ### Exercise 2
-
-Duplicate implicit target name: "exercise 2".
 
 Following the work you did in Exercise 1, you can query the data using `read_data` by updating the start and end dates accordingly.
 

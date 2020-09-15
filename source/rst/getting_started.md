@@ -1,3 +1,9 @@
+---
+kernelspec:
+  display_name: Python 3
+  name: python3
+---
+
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -335,8 +341,6 @@ Save it somewhere, navigate to it from the Jupyter dashboard and then run as dis
 
 ### QuantEcon Notes
 
-Duplicate implicit target name: "quantecon notes".
-
 QuantEcon has its own site for sharing Jupyter notebooks related
 to economics -- [QuantEcon Notes](http://notes.quantecon.org/).
 
@@ -509,9 +513,7 @@ For example, if you've installed the command line version, open up a terminal an
 
 As the 2nd task,
 
-1. Duplicate explicit target name: "github".
-   
-   Sign up to [GitHub](https://github.com/).
+1. Sign up to [GitHub](https://github.com/).
 1. Look into 'forking' GitHub repositories (forking means making your own copy of a GitHub repository, stored on GitHub).
 1. Fork [QuantEcon.py](https://github.com/QuantEcon/QuantEcon.py).
 1. Clone your fork to some local directory, make edits, commit them, and push them back up to your forked GitHub repo.
@@ -520,9 +522,7 @@ As the 2nd task,
 For reading on these and other topics, try
 
 * [The official Git documentation](http://git-scm.com/doc).
-* Duplicate explicit target name: "github".
-  
-  Reading through the docs on [GitHub](https://github.com/).
+* Reading through the docs on [GitHub](https://github.com/).
 * [Pro Git Book](http://git-scm.com/book) by Scott Chacon and Ben Straub.
 * One of the thousands of Git tutorials on the Net.
 

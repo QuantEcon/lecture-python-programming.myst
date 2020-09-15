@@ -1,3 +1,9 @@
+---
+kernelspec:
+  display_name: Python 3
+  name: python3
+---
+
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -7,8 +13,6 @@
 ```
 
 # Functions
-
-Duplicate implicit target name: "functions".
 
 ```{index}
 single: Python; User-defined functions
@@ -339,8 +343,6 @@ Use no import besides `from numpy.random import uniform`.
 
 ### Exercise 1
 
-Duplicate implicit target name: "exercise 1".
-
 Here's one solution.
 
 ```{code-block} python3
@@ -354,8 +356,6 @@ factorial(4)
 ```
 
 ### Exercise 2
-
-Duplicate implicit target name: "exercise 2".
 
 ```{code-block} python3
 from numpy.random import uniform
@@ -372,8 +372,6 @@ binomial_rv(10, 0.5)
 ```
 
 ### Exercise 3
-
-Duplicate implicit target name: "exercise 3".
 
 Here's a function for the first random device.
 

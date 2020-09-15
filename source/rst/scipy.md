@@ -1,3 +1,9 @@
+---
+kernelspec:
+  display_name: Python 3
+  name: python3
+---
+
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -17,8 +23,6 @@ single: Python; SciPy
 ```
 
 ## Overview
-
-Duplicate implicit target name: "scipy".
 
 [SciPy](http://www.scipy.org) builds on top of NumPy to provide common tools for scientific programming such as
 
@@ -355,8 +359,6 @@ the fixed point of a function $f$ is the root of $g(x) := x - f(x)$.
 
 ## Optimization
 
-Duplicate implicit target name: "optimization".
-
 ```{index}
 single: SciPy; Optimization
 ```
@@ -425,8 +427,6 @@ See the [documentation](http://docs.scipy.org/doc/scipy/reference/integrate.html
 
 ## Linear Algebra
 
-Duplicate implicit target name: "linear algebra".
-
 ```{index}
 single: SciPy; Linear Algebra
 ```
@@ -452,8 +452,6 @@ Test it on the function `root_f`.
 ## Solutions
 
 ### Exercise 1
-
-Duplicate implicit target name: "exercise 1".
 
 Here's a reasonable solution:
 

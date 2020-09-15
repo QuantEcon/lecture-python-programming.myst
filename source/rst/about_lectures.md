@@ -1,3 +1,9 @@
+---
+kernelspec:
+  display_name: Python 3
+  name: python3
+---
+
 # About Lectures
 
 This is one of a series of online texts on modern quantitative

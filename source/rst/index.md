@@ -1,3 +1,9 @@
+---
+kernelspec:
+  display_name: Python 3
+  name: python3
+---
+
 # Python Programming for Economics and Finance
 
 ```{toctree}

@@ -1,3 +1,9 @@
+---
+kernelspec:
+  display_name: Python 3
+  name: python3
+---
+
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -428,8 +434,6 @@ For the size of the Monte Carlo simulation, use something substantial, such as
 ## Solutions
 
 ### Exercise 1
-
-Duplicate implicit target name: "exercise 1".
 
 Here is one solution:
 

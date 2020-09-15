@@ -1,3 +1,9 @@
+---
+kernelspec:
+  display_name: Python 3
+  name: python3
+---
+
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -509,8 +515,6 @@ Hints:
 
 ### Exercise 1
 
-Duplicate implicit target name: "exercise 1".
-
 Here is one solution:
 
 ```{code-block} python3
@@ -546,8 +550,6 @@ So we get a speed gain of 2 orders of magnitude--which is huge--by adding four
 characters.
 
 ### Exercise 2
-
-Duplicate implicit target name: "exercise 2".
 
 We let
 

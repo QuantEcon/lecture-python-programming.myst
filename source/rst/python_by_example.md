@@ -1,3 +1,9 @@
+---
+kernelspec:
+  display_name: Python 3
+  name: python3
+---
+
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -536,8 +542,6 @@ Your hints are as follows:
 
 ### Exercise 1
 
-Duplicate implicit target name: "exercise 1".
-
 Here's one solution.
 
 ```{code-block} python3
@@ -554,8 +558,6 @@ plt.show()
 ```
 
 ### Exercise 2
-
-Duplicate implicit target name: "exercise 2".
 
 ```{code-block} python3
 α_values = [0.0, 0.8, 0.98]
@@ -574,8 +576,6 @@ plt.show()
 
 ### Exercise 3
 
-Duplicate implicit target name: "exercise 3".
-
 Here's one solution:
 
 ```{code-block} python3
@@ -592,8 +592,6 @@ plt.show()
 ```
 
 ### Exercise 4
-
-Duplicate implicit target name: "exercise 4".
 
 Here's one way:
 
@@ -631,8 +629,6 @@ plt.show()
 ```
 
 ### Exercise 5
-
-Duplicate implicit target name: "exercise 5".
 
 Consider the circle of diameter 1 embedded in the unit square.
 

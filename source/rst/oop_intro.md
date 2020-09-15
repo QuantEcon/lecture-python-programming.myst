@@ -1,3 +1,9 @@
+---
+kernelspec:
+  display_name: Python 3
+  name: python3
+---
+
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -57,8 +63,6 @@ These concepts are defined and discussed sequentially below.
 
 ### Type
 
-Duplicate implicit target name: "type".
-
 ```{index}
 single: Python; Type
 ```
@@ -116,8 +120,6 @@ int('300') + 400   # To add as numbers, change the string to an integer
 ```
 
 ### Identity
-
-Duplicate implicit target name: "identity".
 
 ```{index}
 single: Python; Identity
@@ -178,8 +180,6 @@ They also have attributes that act like functions, called *methods*.
 These attributes are important, so let's discuss them in-depth.
 
 ### Methods
-
-Duplicate implicit target name: "methods".
 
 ```{index}
 single: Python; Methods

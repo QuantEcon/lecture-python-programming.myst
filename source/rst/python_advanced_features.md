@@ -1,3 +1,9 @@
+---
+kernelspec:
+  display_name: Python 3
+  name: python3
+---
+
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -1136,8 +1142,6 @@ In the opinion of many people, this makes the decorator syntax a significant imp
 
 ### Descriptors
 
-Duplicate implicit target name: "descriptors".
-
 ```{index}
 single: Python; Descriptors
 ```
@@ -1664,8 +1668,6 @@ Using `try` -- `except`, write a program to read in the contents of the file and
 
 ### Exercise 1
 
-Duplicate implicit target name: "exercise 1".
-
 Here's the standard solution
 
 ```{code-block} python3
@@ -1685,8 +1687,6 @@ print([x(i) for i in range(10)])
 ```
 
 ### Exercise 2
-
-Duplicate implicit target name: "exercise 2".
 
 One solution is as follows
 
@@ -1714,8 +1714,6 @@ for date in dates:
 ```
 
 ### Exercise 3
-
-Duplicate implicit target name: "exercise 3".
 
 Let's save the data first
 
