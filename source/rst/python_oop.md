@@ -291,9 +291,9 @@ self throughout the code.
 The rules for using `self` in creating a Class are that
 
 * Any instance data should be prepended with `self`
-    * > e.g., the `> earn`>  method uses `> self.wealth`>  rather than just `> wealth`
+    * e.g., the `earn` method uses `self.wealth` rather than just `wealth`
 * A method defined within the code that defines the  class should have `self` as its first argument
-    * > e.g., `> def earn(self, y)`>  rather than just `> def earn(y)`
+    * e.g., `def earn(self, y)` rather than just `def earn(y)`
 * Any method referenced within the class should be called as  `self.method_name`
 
 There are no examples of the last rule in the preceding code but we will see some shortly.
@@ -377,7 +377,7 @@ Some points of interest in the code are
 * An instance maintains a record of its current capital stock in the variable `self.k`.
 * The `h` method implements the right-hand side of `solow_lom`.
 * The `update` method uses `h` to update capital as per `solow_lom`.
-    * > Notice how inside `> update`>  the reference to the local method `> h`>  is `> self.h`> .
+    * Notice how inside `update` the reference to the local method `h` is `self.h`.
 
 The methods `steady_state` and `generate_sequence` are fairly self-explanatory
 

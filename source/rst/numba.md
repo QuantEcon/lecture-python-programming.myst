@@ -163,7 +163,7 @@ The basic idea is this:
 
 * Python is very flexible and hence we could call the function qm with many
   types.
-    * > e.g., `> x0`>  could be a NumPy array or a list, `> n`>  could be an integer or a float, etc.
+    * e.g., `x0` could be a NumPy array or a list, `n` could be an integer or a float, etc.
 * This makes it hard to *pre*-compile the function.
 * However, when we do actually call the function, say by executing `qm(0.5, 10)`,
   the types of `x0` and `n` become clear.
