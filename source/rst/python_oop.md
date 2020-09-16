@@ -302,7 +302,7 @@ There are no examples of the last rule in the preceding code but we will see som
 
 In this section, we look at some more formal details related to classes and `self`
 
-{ref}`the next section <oop_solow_growth>`* You might wish to skip to  the first time you read this lecture.
+`* You might wish to skip to {ref}`the next section <oop_solow_growth> the first time you read this lecture.
 * You can return to these details after you've familiarized yourself with more examples.
 
 Methods actually live inside a class object formed when the interpreter reads
@@ -374,9 +374,9 @@ Here's a class that implements this model.
 
 Some points of interest in the code are
 
-{eq}`solow_lom <solow_lom>`{eq}`solow_lom <solow_lom>`* An instance maintains a record of its current capital stock in the variable `self.k`.
-* The `h` method implements the right-hand side of .
-* The `update` method uses `h` to update capital as per .
+``* An instance maintains a record of its current capital stock in the variable `self.k`.
+* The `h` method implements the right-hand side of {eq}`solow_lom <solow_lom>.
+* The `update` method uses `h` to update capital as per {eq}`solow_lom <solow_lom>.
     * Notice how inside `update` the reference to the local method `h` is `self.h`.
 
 The methods `steady_state` and `generate_sequence` are fairly self-explanatory
@@ -795,7 +795,7 @@ The instance data for the class `Polynomial` will be the coefficients (in the ca
 
 Provide methods that
 
-{eq}`polynom <polynom>`1. Evaluate the polynomial , returning $p(x)$ for any $x$.
+`1. Evaluate the polynomial {eq}`polynom <polynom>, returning $p(x)$ for any $x$.
 1. Differentiate the polynomial, replacing the original coefficients with those of its derivative $p'$.
 
 Avoid using any `import` statements.
