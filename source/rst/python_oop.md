@@ -1,14 +1,3 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -29,11 +18,11 @@ single: Python; Object-Oriented Programming
 
 ## Overview
 
-In an earlier lecture, we learned some foundations of object-oriented programming.
+In an {doc}`earlier lecture <oop_intro>`, we learned some foundations of object-oriented programming.
 
 The objectives of this lecture are
 
-* cover OOP in more dept
+* cover OOP in more depth
 * learn how to build our own objects, specialized to our needs
 
 For example, you already know how to
@@ -43,14 +32,14 @@ For example, you already know how to
 
 So imagine now you want to write a program with consumers, who can
 
-* hold and spend cas
+* hold and spend cash
 * consume goods
-* work and earn cas
+* work and earn cash
 
 A natural solution in Python would be to create consumers as objects with
 
 * data, such as cash on hand
-* methods, such as `buy` or `work` that affect this dat
+* methods, such as `buy` or `work` that affect this data
 
 Python makes it easy to do this, by providing you with **class definitions**.
 
@@ -60,7 +49,7 @@ It takes a little while to get used to the syntax so we'll provide plenty of exa
 
 We'll use the following imports:
 
-```{code-cell} ipython
+```{code-block} ipython
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
@@ -83,11 +72,11 @@ Let's cover general OOP concepts before we specialize to Python.
 single: Object-Oriented Programming; Key Concepts
 ```
 
-As discussed an earlier lecture, in the OOP paradigm, data and functions are **bundled together** into "objects".
+As discussed an {doc}`earlier lecture <oop_intro>`, in the OOP paradigm, data and functions are **bundled together** into "objects".
 
 An example is a Python list, which not only stores data but also knows how to sort itself, etc.
 
-```{code-cell} python3
+```{code-block} python3
 x = [1, 5, 4]
 x.sort()
 x
@@ -102,7 +91,7 @@ A *class definition* is a blueprint for a particular class of objects (e.g., lis
 It describes
 
 * What kind of data the class stores
-* What methods it has for acting on these dat
+* What methods it has for acting on these data
 
 An  *object* or *instance* is a realization of the class, created from the blueprint
 
@@ -118,7 +107,7 @@ Attributes are accessed via "dotted attribute notation"
 
 In the example
 
-```{code-cell} python3
+```{code-block} python3
 x = [1, 5, 4]
 x.sort()
 x.__class__
@@ -158,7 +147,7 @@ Let's build some simple classes to start off.
 
 Before we do so, in order to indicate some of the power of Classes, we'll define two functions that we'll call `earn` and `spend`.
 
-```{code-cell} python3
+```{code-block} python3
 def earn(w,y):
     "Consumer with inital wealth w earns y"
     return w+y
@@ -180,7 +169,7 @@ We can use these two functions to keep track of a consumer's wealth as she earns
 
 For example
 
-```{code-cell} python3
+```{code-block} python3
 w0=100
 w1=earn(w0,10)
 w2=spend(w1,20)
@@ -213,7 +202,7 @@ Admittedly a little contrived, this example of a class helps us internalize some
 
 Here how we set up our Consumer class.
 
-```{code-cell} python3
+```{code-block} python3
 class Consumer:
 
     def __init__(self, w):
@@ -257,37 +246,37 @@ Here's an example in which we use the class `Consumer` to crdate an instance of 
 
 After we create consumer $c1$ and endow it with initial wealth $10$, we'll apply the `spend` method.
 
-```{code-cell} python3
+```{code-block} python3
 c1 = Consumer(10)  # Create instance with initial wealth 10
 c1.spend(5)
 c1.wealth
 ```
 
-```{code-cell} python3
+```{code-block} python3
 c1.earn(15)
 c1.spend(100)
 ```
 
 We can of course create multiple instances, i.e., multiple consumers,  each with its own name and  data
 
-```{code-cell} python3
+```{code-block} python3
 c1 = Consumer(10)
 c2 = Consumer(12)
 c2.spend(4)
 c2.wealth
 ```
 
-```{code-cell} python3
+```{code-block} python3
 c1.wealth
 ```
 
 Each instance, i.e., each consumer,  stores its data in a separate namespace dictionary
 
-```{code-cell} python3
+```{code-block} python3
 c1.__dict__
 ```
 
-```{code-cell} python3
+```{code-block} python3
 c2.__dict__
 ```
 
@@ -313,13 +302,13 @@ There are no examples of the last rule in the preceding code but we will see som
 
 In this section, we look at some more formal details related to classes and `self`
 
-* You might wish to skip to the next section the first time you read this lecture.
+`* You might wish to skip to {ref}`the next section <oop_solow_growth> the first time you read this lecture.
 * You can return to these details after you've familiarized yourself with more examples.
 
 Methods actually live inside a class object formed when the interpreter reads
 the class definition
 
-```{code-cell} python3
+```{code-block} python3
 print(Consumer.__dict__)  # Show __dict__ attribute of class object
 ```
 
@@ -327,7 +316,7 @@ Note how the three methods `__init__`, `earn` and `spend` are stored in the clas
 
 Consider the following code
 
-```{code-cell} python3
+```{code-block} python3
 c1 = Consumer(10)
 c1.earn(10)
 c1.wealth
@@ -344,7 +333,7 @@ In the function call `Consumer.earn(c1, 10)` note that `c1` is the first argumen
 
 Recall that in the definition of the `earn` method, `self` is the first parameter
 
-```{code-cell} python3
+```{code-block} python3
 def earn(self, y):
      "The consumer earns y dollars"
      self.wealth += y
@@ -374,25 +363,25 @@ k_{t+1} = \frac{s z k_t^{\alpha} + (1 - \delta) k_t}{1 + n}
 Here
 
 * $s$ is an exogenously given saving rate
-* $z$ is a productivity paramete
+* $z$ is a productivity parameter
 * $\alpha$ is capital's share of income
 * $n$ is the population growth rate
 * $\delta$ is the depreciation rate
 
-A **steady state** of the model is a $k$ that solves `solow_lom` when $k_{t+1} = k_t = k$.
+A **steady state** of the model is a $k$ that solves {eq}`solow_lom <solow_lom>` when $k_{t+1} = k_t = k$.
 
 Here's a class that implements this model.
 
 Some points of interest in the code are
 
-* An instance maintains a record of its current capital stock in the variable `self.k`.
-* The `h` method implements the right-hand side of `solow_lom`.
-* The `update` method uses `h` to update capital as per `solow_lom`.
+``* An instance maintains a record of its current capital stock in the variable `self.k`.
+* The `h` method implements the right-hand side of {eq}`solow_lom <solow_lom>.
+* The `update` method uses `h` to update capital as per {eq}`solow_lom <solow_lom>.
     * Notice how inside `update` the reference to the local method `h` is `self.h`.
 
 The methods `steady_state` and `generate_sequence` are fairly self-explanatory
 
-```{code-cell} python3
+```{code-block} python3
 class Solow:
     r"""
     Implements the Solow growth model with the update rule
@@ -441,7 +430,7 @@ Here's a little program that uses the class to compute  time series from two dif
 
 The common steady state is also plotted for comparison
 
-```{code-cell} ipython
+```{code-block} ipython
 s1 = Solow()
 s2 = Solow(k=8.0)
 
@@ -482,7 +471,7 @@ Here's our implementation.
 
 (It uses a function from SciPy called quad for numerical integration---a topic we will say more about later on.)
 
-```{code-cell} python3
+```{code-block} python3
 from scipy.integrate import quad
 
 class Market:
@@ -538,20 +527,20 @@ class Market:
 
 Here's a sample of usage
 
-```{code-cell} python3
+```{code-block} python3
 baseline_params = 15, .5, -2, .5, 3
 m = Market(*baseline_params)
 print("equilibrium price = ", m.price())
 ```
 
-```{code-cell} python3
+```{code-block} python3
 print("consumer surplus = ", m.consumer_surp())
 ```
 
 Here's a short program that uses this class to plot an inverse demand curve together with inverse
 supply curves  with and without taxes
 
-```{code-cell} python3
+```{code-block} python3
 # Baseline ad, bd, az, bz, tax
 baseline_params = 15, .5, -2, .5, 3
 m = Market(*baseline_params)
@@ -575,10 +564,10 @@ plt.show()
 
 The next program provides a function that
 
-* takes an instance of `Market` as a paramete
+* takes an instance of `Market` as a parameter
 * computes dead weight loss from the imposition of the tax
 
-```{code-cell} python3
+```{code-block} python3
 def deadw(m):
     "Computes deadweight loss for market m."
     # == Create analogous market with no tax == #
@@ -591,7 +580,7 @@ def deadw(m):
 
 Here's an example of usage
 
-```{code-cell} python3
+```{code-block} python3
 baseline_params = 15, .5, -2, .5, 3
 m = Market(*baseline_params)
 deadw(m)  # Show deadweight loss
@@ -615,7 +604,7 @@ Let's write a class for generating time series from this model.
 
 Here's one implementation
 
-```{code-cell} python3
+```{code-block} python3
 class Chaos:
   """
   Models the dynamical system :math:`x_{t+1} = r x_t (1 - x_t)`
@@ -641,14 +630,14 @@ class Chaos:
 
 Here's an example of usage
 
-```{code-cell} python3
+```{code-block} python3
 ch = Chaos(0.1, 4.0)     # x0 = 0.1 and r = 0.4
 ch.generate_sequence(5)  # First 5 iterates
 ```
 
 This piece of code plots a longer trajectory
 
-```{code-cell} python3
+```{code-block} python3
 ch = Chaos(0.1, 4.0)
 ts_length = 250
 
@@ -662,7 +651,7 @@ plt.show()
 
 The next piece of code provides a bifurcation diagram
 
-```{code-cell} python3
+```{code-block} python3
 fig, ax = plt.subplots()
 ch = Chaos(0.1, 4)
 r = 2.5
@@ -677,7 +666,7 @@ ax.set_ylabel('$x_t$', fontsize=16)
 plt.show()
 ```
 
-On the horizontal axis is the parameter $r$ in `quadmap2`.
+On the horizontal axis is the parameter $r$ in {eq}`quadmap2 <quadmap2>`.
 
 The vertical axis is the state space $[0, 1]$.
 
@@ -707,7 +696,7 @@ Python provides special methods that come in handy.
 
 For example, recall that lists and tuples have a notion of length and that this length can be queried via the `len` function
 
-```{code-cell} python3
+```{code-block} python3
 x = (10, 20)
 len(x)
 ```
@@ -715,7 +704,7 @@ len(x)
 If you want to provide a return value for the `len` function when applied to
 your user-defined object, use the `__len__` special method
 
-```{code-cell} python3
+```{code-block} python3
 class Foo:
 
     def __len__(self):
@@ -724,7 +713,7 @@ class Foo:
 
 Now we get
 
-```{code-cell} python3
+```{code-block} python3
 f = Foo()
 len(f)
 ```
@@ -733,7 +722,7 @@ A special method we will use regularly is the `__call__` method.
 
 This method can be used to make your instances callable, just like functions
 
-```{code-cell} python3
+```{code-block} python3
 class Foo:
 
     def __call__(self, x):
@@ -742,7 +731,7 @@ class Foo:
 
 After running we get
 
-```{code-cell} python3
+```{code-block} python3
 f = Foo()
 f(8)  # Exactly equivalent to f.__call__(8)
 ```
@@ -774,7 +763,7 @@ Implement $F_n$ as a class called `ECDF`, where
 
 Your code should work as follows (modulo randomness)
 
-```{code-cell} python3
+```{code-block} python3
 from random import uniform
 
 samples = [uniform(0, 1) for i in range(10)]
@@ -782,7 +771,7 @@ F = ECDF(samples)
 F(0.5)  # Evaluate ecdf at x = 0.5
 ```
 
-```{code-cell} python3
+```{code-block} python3
 F.observations = [uniform(0, 1) for i in range(1000)]
 F(0.5)
 ```
@@ -791,7 +780,7 @@ Aim for clarity, not efficiency.
 
 ### Exercise 2
 
-In an earlier exercise, you wrote a function for evaluating polynomials.
+In an {ref}`earlier exercise <pyess_ex2>`, you wrote a function for evaluating polynomials.
 
 This exercise is an extension, where the task is to build a simple class called `Polynomial` for representing and manipulating polynomial functions such as
 
@@ -802,11 +791,11 @@ p(x) = a_0 + a_1 x + a_2 x^2 + \cdots a_N x^N = \sum_{n=0}^N a_n x^n
     \qquad (x \in \mathbb{R})
 ```
 
-The instance data for the class `Polynomial` will be the coefficients (in the case of `polynom`, the numbers $a_0, \ldots, a_N$).
+The instance data for the class `Polynomial` will be the coefficients (in the case of {eq}`polynom <polynom>`, the numbers $a_0, \ldots, a_N$).
 
 Provide methods that
 
-1. Evaluate the polynomial `polynom`, returning $p(x)$ for any $x$.
+`1. Evaluate the polynomial {eq}`polynom <polynom>, returning $p(x)$ for any $x$.
 1. Differentiate the polynomial, replacing the original coefficients with those of its derivative $p'$.
 
 Avoid using any `import` statements.
@@ -815,7 +804,7 @@ Avoid using any `import` statements.
 
 ### Exercise 1
 
-```{code-cell} python3
+```{code-block} python3
 class ECDF:
 
     def __init__(self, observations):
@@ -829,7 +818,7 @@ class ECDF:
         return counter / len(self.observations)
 ```
 
-```{code-cell} python3
+```{code-block} python3
 # == test == #
 
 from random import uniform
@@ -846,7 +835,7 @@ print(F(0.5))
 
 ### Exercise 2
 
-```{code-cell} python3
+```{code-block} python3
 class Polynomial:
 
     def __init__(self, coefficients):

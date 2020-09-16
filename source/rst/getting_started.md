@@ -1,14 +1,3 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -31,7 +20,7 @@ single: Python
 
 In this lecture, you will learn how to
 
-1. get a Python environment up and runnin
+1. get a Python environment up and running
 1. execute simple Python commands
 1. run a sample program
 1. install the code libraries that underpin these lectures
@@ -54,7 +43,7 @@ The best such distribution is [Anaconda](https://www.anaconda.com/what-is-anacon
 
 Anaconda is
 
-* very popul
+* very popular
 * cross-platform
 * comprehensive
 * completely unrelated to the Nicki Minaj song of the same name
@@ -137,7 +126,7 @@ Once you have installed Anaconda, you can start the Jupyter notebook.
 
 Either
 
-* search for Jupyter in your applications menu, o
+* search for Jupyter in your applications menu, or
 * open up a terminal and type `jupyter notebook`
     * Windows users should substitute "Anaconda command prompt" for "terminal" in the previous line.
 
@@ -150,7 +139,7 @@ If you use the second option, you will see something like this
 The output tells us the notebook is running at `http://localhost:8888/`
 
 * `localhost` is the name of the local machine
-* `8888` refers to [port number](https://en.wikipedia.org/wiki/Port_%28computer_networking%29) 8888 on your compute
+* `8888` refers to [port number](https://en.wikipedia.org/wiki/Port_%28computer_networking%29) 8888 on your computer
 
 Thus, the Jupyter kernel is listening for Python commands on port 8888 of our local machine.
 
@@ -207,10 +196,10 @@ This means that the effect of typing at the keyboard **depends on which mode you
 The two modes are
 
 1. Edit mode
-    * Indicated by a green border around one cell, plus a blinking curso
+    * Indicated by a green border around one cell, plus a blinking cursor
     * Whatever you type appears as is in that cell
 1. Command mode
-    * The green border is replaced by a grey (or grey and blue) borde
+    * The green border is replaced by a grey (or grey and blue) border
     * Keystrokes are interpreted as commands --- for example, typing b adds a new cell below  the current one
 
 To switch to
@@ -234,7 +223,7 @@ Here's an arbitrary program we can use: [http://matplotlib.org/3.1.1/gallery/pie
 
 On that page, you'll see the following code
 
-```{code-cell} ipython
+```{code-block} ipython
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
@@ -400,7 +389,7 @@ By convention, these text files have a `.py` extension.
 
 We can create an example of such a file as follows:
 
-```{code-cell} ipython
+```{code-block} ipython
 %%file foo.py
 
 print("foobar")

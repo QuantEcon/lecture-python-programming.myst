@@ -1,14 +1,3 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -32,7 +21,7 @@ The basic assumption of the lectures is that code in a lecture should execute wh
 1. it is executed in a Jupyter notebook and
 1. the notebook is running on a machine with the latest version of Anaconda Python.
 
-You have installed Anaconda, haven't you, following the instructions in this lecture?
+You have installed Anaconda, haven't you, following the instructions in {doc}`this lecture <getting_started>`?
 
 Assuming that you have, the most common source of problems for our readers is that their Anaconda distribution is not up to date.
 
@@ -45,7 +34,7 @@ You also need to keep the external code libraries, such as [QuantEcon.py](https:
 
 For this task you can either
 
-* use conda upgrade quantecon on the command line, o
+* use conda upgrade quantecon on the command line, or
 * execute !conda upgrade quantecon within a Jupyter notebook.
 
 If your local environment is still not working you can do two things.

@@ -1,14 +1,3 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -49,7 +38,7 @@ addressing the following questions:
 
 In addition to what's in Anaconda, this lecture will need
 
-```{code-cell} ipython
+```{code-block} ipython
 !conda install -y quantecon
 ```
 
@@ -90,7 +79,7 @@ libraries are
 For us, there's another (relatively new) library that will also be essential for
 numerical computing:
 
-* Numb
+* Numba
 
 Over the next few lectures we'll see how to use these libraries.
 
@@ -154,7 +143,7 @@ single: Dynamic Typing
 
 Consider this Python operation
 
-```{code-cell} python3
+```{code-block} python3
 a, b = 10, 10
 a + b
 ```
@@ -166,14 +155,14 @@ operation to invoke.
 
 If `a` and `b` are strings, then `a + b` requires string concatenation
 
-```{code-cell} python3
+```{code-block} python3
 a, b = 'foo', 'bar'
 a + b
 ```
 
 If `a` and `b` are lists, then `a + b` requires list concatenation
 
-```{code-cell} python3
+```{code-block} python3
 a, b = ['foo'], ['bar']
 a + b
 ```
@@ -195,7 +184,7 @@ Compiled languages avoid these overheads with explicit, static types.
 
 For example, consider the following C code, which sums the integers from 1 to 10
 
-```{code-cell} c
+```{code-block} c
 #include <stdio.h>
 
 int main(void) {
@@ -286,7 +275,7 @@ single: Vectorization; Operations on Arrays
 
 First, let's run some imports
 
-```{code-cell} python3
+```{code-block} python3
 import random
 import numpy as np
 import quantecon as qe
@@ -295,11 +284,11 @@ import quantecon as qe
 Next let's try some non-vectorized code, which uses a native Python loop to generate,
 square and then sum a large number of random variables:
 
-```{code-cell} python3
+```{code-block} python3
 n = 1_000_000
 ```
 
-```{code-cell} python3
+```{code-block} python3
 %%time
 
 y = 0      # Will accumulate and store sum
@@ -310,7 +299,7 @@ for i in range(n):
 
 The following vectorized code achieves the same thing.
 
-```{code-cell} ipython
+```{code-block} ipython
 %%time
 
 x = np.random.uniform(0, 1, n)
@@ -352,11 +341,11 @@ This means that they
 
 For example, `np.cos` is a ufunc:
 
-```{code-cell} python3
+```{code-block} python3
 np.cos(1.0)
 ```
 
-```{code-cell} python3
+```{code-block} python3
 np.cos(np.linspace(0, 1, 3))
 ```
 
@@ -375,7 +364,7 @@ $$
 
 Here's a plot of $f$
 
-```{code-cell} ipython
+```{code-block} ipython
 import matplotlib.pyplot as plt
 %matplotlib inline
 from mpl_toolkits.mplot3d.axes3d import Axes3D
@@ -410,13 +399,13 @@ To maximize it, we're going to use a naive grid search:
 
 The grid will be
 
-```{code-cell} python3
+```{code-block} python3
 grid = np.linspace(-3, 3, 1000)
 ```
 
 Here's a non-vectorized version that uses Python loops.
 
-```{code-cell} python3
+```{code-block} python3
 %%time
 
 m = -np.inf
@@ -430,7 +419,7 @@ for x in grid:
 
 And here's a vectorized version
 
-```{code-cell} python3
+```{code-block} python3
 %%time
 
 x, y = np.meshgrid(grid, grid)
@@ -470,5 +459,5 @@ with vectorization listed above.
 It does so through something called **just in time (JIT) compilation**,
 which can generate extremely fast and efficient code.
 
-We'll learn how to use Numba soon.
+We'll learn how to use Numba {doc}`soon <numba>`.
 

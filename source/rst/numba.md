@@ -1,14 +1,3 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -25,16 +14,16 @@ kernelspec:
 
 In addition to what's in Anaconda, this lecture will need the following libraries:
 
-```{code-cell} ipython
+```{code-block} ipython
 !conda install -y quantecon
 ```
 
 Please also make sure that you have the latest version of Anaconda, since old
-versions are a common source of errors.
+versions are a {doc}`common source of errors <troubleshooting>`.
 
 Let's start with some imports:
 
-```{code-cell} ipython
+```{code-block} ipython
 import numpy as np
 import quantecon as qe
 import matplotlib.pyplot as plt
@@ -44,12 +33,12 @@ import matplotlib.pyplot as plt
 
 ## Overview
 
-In an earlier lecture we learned about vectorization, which is one method to improve speed and efficiency in numerical work.
+In an {doc}`earlier lecture <need_for_speed>` we learned about vectorization, which is one method to improve speed and efficiency in numerical work.
 
 Vectorization involves sending array processing
 operations in batch to efficient low-level code.
 
-However, as discussed previously, vectorization has several weaknesses.
+However, as {ref}`discussed previously <numba-p_c_vectorization>`, vectorization has several weaknesses.
 
 One is that it is highly memory-intensive when working with large amounts of data.
 
@@ -93,13 +82,13 @@ $$
 
 In what follows we set
 
-```{code-cell} python3
+```{code-block} python3
 α = 4.0
 ```
 
 Here's the plot of a typical trajectory, starting from $x_0 = 0.1$, with $t$ on the x-axis
 
-```{code-cell} python3
+```{code-block} python3
 def qm(x0, n):
     x = np.empty(n+1)
     x[0] = x0
@@ -117,7 +106,7 @@ plt.show()
 
 To speed the function `qm` up using Numba, our first step is
 
-```{code-cell} python3
+```{code-block} python3
 from numba import jit
 
 qm_numba = jit(qm)
@@ -130,7 +119,7 @@ We will explain what this means momentarily.
 
 Let's time and compare identical function calls across these two versions, starting with the original function `qm`:
 
-```{code-cell} python3
+```{code-block} python3
 n = 10_000_000
 
 qe.tic()
@@ -140,7 +129,7 @@ time1 = qe.toc()
 
 Now let's try qm_numba
 
-```{code-cell} python3
+```{code-block} python3
 qe.tic()
 qm_numba(0.1, int(n))
 time2 = qe.toc()
@@ -150,13 +139,13 @@ This is already a massive speed gain.
 
 In fact, the next time and all subsequent times it runs even faster as the function has been compiled and is in memory:
 
-```{code-cell} python3
+```{code-block} python3
 qe.tic()
 qm_numba(0.1, int(n))
 time3 = qe.toc()
 ```
 
-```{code-cell} python3
+```{code-block} python3
 time1 / time3  # Calculate speed gain
 ```
 
@@ -168,7 +157,7 @@ Numba attempts to generate fast machine code using the infrastructure provided b
 
 It does this by inferring type information on the fly.
 
-(See our earlier lecture on scientific computing for a discussion of types.)
+(See our {doc}`earlier lecture <need_for_speed>` on scientific computing for a discussion of types.)
 
 The basic idea is this:
 
@@ -192,13 +181,13 @@ The compiled code is then cached and recycled as required.
 
 In the code above we created a JIT compiled version of `qm` via the call
 
-```{code-cell} python3
+```{code-block} python3
 qm_numba = jit(qm)
 ```
 
 In practice this would typically be done using an alternative *decorator* syntax.
 
-(We will explain all about decorators in a later lecture but you can skip the details at this stage.)
+(We will explain all about decorators in a {doc}`later lecture <python_advanced_features>` but you can skip the details at this stage.)
 
 Let's see how this is done.
 
@@ -208,7 +197,7 @@ To target a function for JIT compilation we can put `@jit` before the function d
 
 Here's what this looks like for `qm`
 
-```{code-cell} python3
+```{code-block} python3
 @jit
 def qm(x0, n):
     x = np.empty(n+1)
@@ -222,7 +211,7 @@ This is equivalent to `qm = jit(qm)`.
 
 The following now uses the jitted version:
 
-```{code-cell} python3
+```{code-block} python3
 qm(0.1, 10)
 ```
 
@@ -251,7 +240,7 @@ This is done by using either `@jit(nopython=True)` or, equivalently, `@njit` ins
 
 For example,
 
-```{code-cell} python3
+```{code-block} python3
 from numba import njit
 
 @njit
@@ -275,11 +264,11 @@ If a class is successfully compiled, then its methods act as JIT-compiled
 functions.
 
 To give one example, let's consider the class for analyzing the Solow growth model we
-created in this lecture.
+created in {doc}`this lecture <python_oop>`.
 
 To compile this class we use the `@jitclass` decorator:
 
-```{code-cell} python3
+```{code-block} python3
 from numba import jitclass, float64
 ```
 
@@ -291,7 +280,7 @@ We are importing it here because Numba needs a bit of extra help with types when
 
 Here's our code:
 
-```{code-cell} python3
+```{code-block} python3
 solow_data = [
     ('n', float64),
     ('s', float64),
@@ -354,7 +343,7 @@ After that, targeting the class for JIT compilation only requires adding
 
 When we call the methods in the class, the methods are compiled just like functions.
 
-```{code-cell} python3
+```{code-block} python3
 s1 = Solow()
 s2 = Solow(k=8.0)
 
@@ -390,7 +379,7 @@ If you prefer, you can safely skip this section.
 
 ### Cython
 
-Like Numba,  [Cython](http://cython.org/) provides an approach to generating fast compiled code that can be used from Python.
+Like {doc}`Numba <numba>`,  [Cython](http://cython.org/) provides an approach to generating fast compiled code that can be used from Python.
 
 As was the case with Numba, a key problem is the fact that Python is dynamically typed.
 
@@ -447,7 +436,7 @@ Here's another thing to be careful about when using Numba.
 
 Consider the following example
 
-```{code-cell} python3
+```{code-block} python3
 a = 1
 
 @jit
@@ -457,7 +446,7 @@ def add_a(x):
 print(add_a(10))
 ```
 
-```{code-cell} python3
+```{code-block} python3
 a = 2
 
 print(add_a(10))
@@ -472,7 +461,7 @@ When Numba compiles machine code for functions, it treats global variables as co
 
 ### Exercise 1
 
-Previously we considered how to approximate $\pi$ by
+{ref}`Previously <pbe_ex3>` we considered how to approximate $\pi$ by
 Monte Carlo.
 
 Use the same idea here, but make the code efficient using Numba.
@@ -522,7 +511,7 @@ Hints:
 
 Here is one solution:
 
-```{code-cell} python3
+```{code-block} python3
 from random import uniform
 
 @njit
@@ -540,11 +529,11 @@ def calculate_pi(n=1_000_000):
 
 Now let's see how fast it runs:
 
-```{code-cell} ipython3
+```{code-block} ipython3
 %time calculate_pi()
 ```
 
-```{code-cell} ipython3
+```{code-block} ipython3
 %time calculate_pi()
 ```
 
@@ -561,13 +550,13 @@ We let
 - 0 represent "low"
 - 1 represent "high"
 
-```{code-cell} python3
+```{code-block} python3
 p, q = 0.1, 0.2  # Prob of leaving low and high state respectively
 ```
 
 Here's a pure Python version of the function
 
-```{code-cell} python3
+```{code-block} python3
 def compute_series(n):
     x = np.empty(n, dtype=np.int_)
     x[0] = 1  # Start in state 1
@@ -584,7 +573,7 @@ def compute_series(n):
 Let's run this code and check that the fraction of time spent in the low
 state is about 0.666
 
-```{code-cell} python3
+```{code-block} python3
 n = 1_000_000
 x = compute_series(n)
 print(np.mean(x == 0))  # Fraction of time x is in state 0
@@ -594,7 +583,7 @@ This is (approximately) the right output.
 
 Now let's time it:
 
-```{code-cell} python3
+```{code-block} python3
 qe.tic()
 compute_series(n)
 qe.toc()
@@ -602,7 +591,7 @@ qe.toc()
 
 Next let's implement a Numba version, which is easy
 
-```{code-cell} python3
+```{code-block} python3
 from numba import jit
 
 compute_series_numba = jit(compute_series)
@@ -610,14 +599,14 @@ compute_series_numba = jit(compute_series)
 
 Let's check we still get the right numbers
 
-```{code-cell} python3
+```{code-block} python3
 x = compute_series_numba(n)
 print(np.mean(x == 0))
 ```
 
 Let's see the time
 
-```{code-cell} python3
+```{code-block} python3
 qe.tic()
 compute_series_numba(n)
 qe.toc()

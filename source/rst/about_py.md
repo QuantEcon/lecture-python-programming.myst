@@ -1,14 +1,3 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -172,7 +161,7 @@ NumPy provides the basic array data type plus some simple processing operations.
 
 For example, let's build some arrays
 
-```{code-cell} python3
+```{code-block} python3
 import numpy as np                     # Load the library
 
 a = np.linspace(-np.pi, np.pi, 100)    # Create even grid from -π to π
@@ -182,7 +171,7 @@ c = np.sin(a)                          # Apply sin to each element of a
 
 Now let's take the inner product
 
-```{code-cell} python3
+```{code-block} python3
 b @ c
 ```
 
@@ -194,7 +183,7 @@ The [SciPy](http://www.scipy.org) library is built on top of NumPy and provides 
 
 For example, let's calculate $\int_{-2}^2 \phi(z) dz$ where $\phi$ is the standard normal density.
 
-```{code-cell} python3
+```{code-block} python3
 from scipy.stats import norm
 from scipy.integrate import quad
 
@@ -262,7 +251,7 @@ single: SymPy
 
 The [SymPy](http://www.sympy.org/) library provides this functionality from within the Python shell.
 
-```{code-cell} python3
+```{code-block} python3
 from sympy import Symbol
 
 x, y = Symbol('x'), Symbol('y')  # Treat 'x' and 'y' as algebraic symbols
@@ -271,14 +260,14 @@ x + x + x + y
 
 We can manipulate expressions
 
-```{code-cell} python3
+```{code-block} python3
 expression = (x + y)**2
 expression.expand()
 ```
 
 solve polynomials
 
-```{code-cell} python3
+```{code-block} python3
 from sympy import solve
 
 solve(x**2 + x + 2)
@@ -286,17 +275,17 @@ solve(x**2 + x + 2)
 
 and calculate limits, derivatives and integrals
 
-```{code-cell} python3
+```{code-block} python3
 from sympy import limit, sin, diff
 
 limit(1 / x, x, 0)
 ```
 
-```{code-cell} python3
+```{code-block} python3
 limit(sin(x) / x, x, 0)
 ```
 
-```{code-cell} python3
+```{code-block} python3
 diff(sin(x), x)
 ```
 
@@ -324,7 +313,7 @@ Pandas is fast, efficient, flexible and well designed.
 Here's a simple example, using some dummy data generated with Numpy's excellent
 `random` functionality.
 
-```{code-cell} python3
+```{code-block} python3
 import pandas as pd
 np.random.seed(1234)
 
@@ -335,7 +324,7 @@ df = pd.DataFrame(data, columns=('price', 'weight'), index=dates)
 print(df)
 ```
 
-```{code-cell} python3
+```{code-block} python3
 df.mean()
 ```
 
@@ -381,7 +370,7 @@ Its features include, among many other things:
 
 Here's some example code that generates and plots a random graph, with node color determined by shortest path length from a central node.
 
-```{code-cell} ipython
+```{code-block} ipython
 import networkx as nx
 import matplotlib.pyplot as plt
 %matplotlib inline

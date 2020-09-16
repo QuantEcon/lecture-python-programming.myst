@@ -1,14 +1,3 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -61,15 +50,15 @@ Here
 
 For each parameterization, the code
 
-1. sets $k_0 = 1$
-1. iterates using `gc_solmod` to produce a sequence $k_0, k_1, k_2 \ldots , k_T$
+`1. sets $k_0 = 1$
+1. iterates using {eq}`gc_solmod <gc_solmod> to produce a sequence $k_0, k_1, k_2 \ldots , k_T$
 1. plots the sequence
 
 The plots will be grouped into three subfigures.
 
 In each subfigure, two parameters are held fixed while another varies
 
-```{code-cell} ipython
+```{code-block} ipython
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
@@ -216,7 +205,7 @@ While the odd global in small scripts is no big deal, we recommend that you teac
 
 For scientific computing, there is another good reason to avoid global variables.
 
-As we've seen in previous lectures, JIT compilation can generate excellent performance for scripting languages like Python.
+As {doc}`we've seen in previous lectures <numba>`, JIT compilation can generate excellent performance for scripting languages like Python.
 
 But the task of the compiler used for JIT compilation becomes harder when global variables are present.
 
@@ -247,7 +236,7 @@ What's really important is that you use one or the other or both.
 
 Here's some code that reproduces the plot above with better coding style.
 
-```{code-cell} python3
+```{code-block} python3
 from itertools import product
 
 def plot_path(ax, αs, s_vals, δs, time_series_length=50):
@@ -332,7 +321,7 @@ The parameter values will be
 - $\gamma = 1$
 - $\delta = 1$
 
-```{code-cell} ipython3
+```{code-block} ipython3
 from scipy.optimize import brentq
 
 # Compute equilibrium
@@ -348,7 +337,7 @@ print(f'Equilibrium quantity is {q_star: .2f}')
 
 Let's also plot our results.
 
-```{code-cell} ipython3
+```{code-block} ipython3
 # Now plot
 grid = np.linspace(2, 4, 100)
 fig, ax = plt.subplots()
@@ -371,7 +360,7 @@ We also want to consider supply and demand shifts.
 
 For example, let's see what happens when demand shifts up, with $\gamma$ increasing to $1.25$:
 
-```{code-cell} ipython3
+```{code-block} ipython3
 # Compute equilibrium
 def h(p):
     return 1.25 * p**(-1) - (np.exp(0.1 * p) - 1)
@@ -383,7 +372,7 @@ print(f'Equilibrium price is {p_star: .2f}')
 print(f'Equilibrium quantity is {q_star: .2f}')
 ```
 
-```{code-cell} ipython3
+```{code-block} ipython3
 # Now plot
 p_grid = np.linspace(2, 4, 100)
 fig, ax = plt.subplots()
@@ -414,7 +403,7 @@ in this lecture.
 
 Here's one solution, that uses a class:
 
-```{code-cell} ipython3
+```{code-block} ipython3
 class Equilibrium:
 
     def __init__(self, α=0.1, β=1, γ=1, δ=1):
@@ -452,32 +441,32 @@ class Equilibrium:
 
 Let's create an instance at the default parameter values.
 
-```{code-cell} ipython3
+```{code-block} ipython3
 eq = Equilibrium()
 ```
 
 Now we'll compute the equilibrium and plot it.
 
-```{code-cell} ipython3
+```{code-block} ipython3
 eq.compute_equilibrium()
 ```
 
-```{code-cell} ipython3
+```{code-block} ipython3
 eq.plot_equilibrium()
 ```
 
 One of the nice things about our refactored code is that, when we change
 parameters, we don't need to repeat ourselves:
 
-```{code-cell} ipython3
+```{code-block} ipython3
 eq.γ = 1.25
 ```
 
-```{code-cell} ipython3
+```{code-block} ipython3
 eq.compute_equilibrium()
 ```
 
-```{code-cell} ipython3
+```{code-block} ipython3
 eq.plot_equilibrium()
 ```
 
