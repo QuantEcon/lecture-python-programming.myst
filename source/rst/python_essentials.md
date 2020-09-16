@@ -778,7 +778,7 @@ p(x)
 = \sum_{i=0}^n a_i x^i
 ```
 
-Write a function `p` such that `p(x, coeff)` that computes the value in {eq}`polynom0 <polynom0>` given a point `x` and a list of coefficients `coeff`.
+Write a function `p` such that `p(x, coeff)` that computes the value in {eq}`polynom0` given a point `x` and a list of coefficients `coeff`.
 
 Try to use `enumerate()` in your loop.
 
