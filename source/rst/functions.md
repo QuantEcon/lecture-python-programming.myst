@@ -88,7 +88,7 @@ If the built-in functions don't cover what we need, we either need to import
 functions or create our own.
 
 Examples of importing and using functions
-were given in the previous lecture
+were given in the {doc}`previous lecture <python_by_example>`
 
 Here's another one, which tests whether a given year is a leap year:
 
@@ -168,13 +168,13 @@ User-defined functions are important for improving the clarity of your code by
 
 (Writing the same thing twice is [almost always a bad idea](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself))
 
-We will say more about this later.
+We will say more about this {doc}`later <writing_good_code>`.
 
 ## Applications
 
 ### Random Draws
 
-Consider again this code from the previous lecture
+Consider again this code from the {doc}`previous lecture <python_by_example>`
 
 ```{code-block} python3
 ts_length = 100

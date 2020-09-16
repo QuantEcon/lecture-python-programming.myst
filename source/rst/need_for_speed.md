@@ -459,5 +459,5 @@ with vectorization listed above.
 It does so through something called **just in time (JIT) compilation**,
 which can generate extremely fast and efficient code.
 
-We'll learn how to use Numba soon.
+We'll learn how to use Numba {doc}`soon <numba>`.
 

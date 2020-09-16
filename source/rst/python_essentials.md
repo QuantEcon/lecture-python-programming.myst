@@ -112,7 +112,7 @@ type(x)
 
 Python has several basic types for storing collections of (possibly heterogeneous) data.
 
-We've already discussed lists.
+We've {doc}`already discussed lists <lists_ref>`.
 
 ```{index}
 single: Python; Tuples
@@ -163,7 +163,7 @@ x
 y
 ```
 
-You've actually seen an example of this already.
+You've actually {doc}`seen an example of this <tuple_unpacking_example>` already.
 
 Tuple unpacking is convenient and we'll use it often.
 
@@ -564,7 +564,7 @@ Let's talk a bit more about functions, which are all important for good programm
 
 ### The Flexibility of Python Functions
 
-As we discussed in the previous lecture, Python functions are very flexible.
+As we discussed in the {doc}`previous lecture <python_by_example>`, Python functions are very flexible.
 
 In particular
 
@@ -573,7 +573,7 @@ In particular
 * Any object can be passed to a function as an argument, including other functions.
 * A function can return any kind of object, including functions.
 
-We already gave an example of how straightforward it is to pass a function to
+We already {doc}`gave an example <test_program_6>` of how straightforward it is to pass a function to
 a function.
 
 Note that a function can have arbitrarily many `return` statements (including zero).
@@ -688,7 +688,7 @@ Here the function created by `lambda` is said to be *anonymous* because it was n
 single: Python; keyword arguments
 ```
 
-In a previous lecture, you came across the statement
+In a {doc}`previous lecture <python_by_example>`, you came across the statement
 
 ```{code-block} python3
 plt.plot(x, 'b-', label="white noise")
@@ -778,7 +778,7 @@ p(x)
 = \sum_{i=0}^n a_i x^i
 ```
 
-Write a function `p` such that `p(x, coeff)` that computes the value in `polynom0` given a point `x` and a list of coefficients `coeff`.
+Write a function `p` such that `p(x, coeff)` that computes the value in {doc}`polynom0 <polynom0>` given a point `x` and a list of coefficients `coeff`.
 
 Try to use `enumerate()` in your loop.
 
