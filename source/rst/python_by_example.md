@@ -194,7 +194,7 @@ We can and will look at various ways to configure and improve this plot below.
 
 ## Alternative Implementations
 
-Let's try writing some alternative versions of {doc}`our first program <ourfirstprog>`, which plotted IID draws from the normal distribution.
+Let's try writing some alternative versions of {ref}`our first program <ourfirstprog>`, which plotted IID draws from the normal distribution.
 
 The programs below are less efficient than the original one, and hence
 somewhat artificial.
@@ -294,7 +294,7 @@ x[1]   # second element of x
 single: Python; For loop
 ```
 
-Now let's consider the `for` loop from {doc}`the program above <firstloopprog>`, which was
+Now let's consider the `for` loop from {ref}`the program above <firstloopprog>`, which was
 
 ```{code-block} python3
 for i in range(ts_length):
@@ -368,7 +368,7 @@ single: Python; While loop
 
 The `for` loop is the most common technique for iteration in Python.
 
-But, for the purpose of illustration, let's modify {doc}`the program above <firstloopprog>` to use a `while` loop instead.
+But, for the purpose of illustration, let's modify {ref}`the program above <firstloopprog>` to use a `while` loop instead.
 
 ```{code-block} python3
 ts_length = 100

@@ -462,7 +462,7 @@ Complete the program to plot the result as a bar graph like this one:
 
 ### Exercise 2
 
-Using the method `read_data` introduced in {doc}`Exercise 1 <pd_ex1>`, write a program to obtain year-on-year percentage change for the following indices:
+Using the method `read_data` introduced in {ref}`Exercise 1 <pd_ex1>`, write a program to obtain year-on-year percentage change for the following indices:
 
 ```{code-block} python3
 indices_list = {'^GSPC': 'S&P 500',
@@ -516,7 +516,7 @@ plt.show()
 
 ### Exercise 2
 
-Following the work you did in {doc}`Exercise 1 <pd_ex1>`, you can query the data using `read_data` by updating the start and end dates accordingly.
+Following the work you did in {ref}`Exercise 1 <pd_ex1>`, you can query the data using `read_data` by updating the start and end dates accordingly.
 
 ```{code-block} python3
 indices_data = read_data(

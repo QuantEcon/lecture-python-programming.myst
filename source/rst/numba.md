@@ -38,7 +38,7 @@ In an {doc}`earlier lecture <need_for_speed>` we learned about vectorization, wh
 Vectorization involves sending array processing
 operations in batch to efficient low-level code.
 
-However, as {doc}`discussed previously <numba-p_c_vectorization>`, vectorization has several weaknesses.
+However, as {ref}`discussed previously <numba-p_c_vectorization>`, vectorization has several weaknesses.
 
 One is that it is highly memory-intensive when working with large amounts of data.
 
@@ -461,7 +461,7 @@ When Numba compiles machine code for functions, it treats global variables as co
 
 ### Exercise 1
 
-{doc}`Previously <pbe_ex3>` we considered how to approximate $\pi$ by
+{ref}`Previously <pbe_ex3>` we considered how to approximate $\pi$ by
 Monte Carlo.
 
 Use the same idea here, but make the code efficient using Numba.

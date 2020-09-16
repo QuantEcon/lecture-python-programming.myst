@@ -146,7 +146,7 @@ distributes them to different threads.
 Over the last few years, NumPy has managed to push this kind of multithreading
 out to more and more operations.
 
-For example, let's return to a maximization problem {doc}`discussed previously <ufuncs>`:
+For example, let's return to a maximization problem {ref}`discussed previously <ufuncs>`:
 
 ```{code-block} python3
 def f(x, y):
@@ -176,7 +176,7 @@ To get some basis for comparison for the last example, let's try the same
 thing with Numba.
 
 In fact there is an easy way to do this, since Numba can also be used to
-create custom {doc}`ufuncs <ufuncs>` with the [@vectorize](http://numba.pydata.org/numba-doc/dev/user/vectorize.html) decorator.
+create custom {ref}`ufuncs <ufuncs>` with the [@vectorize](http://numba.pydata.org/numba-doc/dev/user/vectorize.html) decorator.
 
 ```{code-block} python3
 from numba import vectorize
@@ -406,7 +406,7 @@ When you see us using ordinary `range` in a jitted function, it is either becaus
 
 ### Exercise 1
 
-In {doc}`an earlier exercise <speed_ex1>`, we used Numba to accelerate an
+In {ref}`an earlier exercise <speed_ex1>`, we used Numba to accelerate an
 effort to compute the constant $\pi$ by Monte Carlo.
 
 Now try adding parallelization and see if you get further speed gains.

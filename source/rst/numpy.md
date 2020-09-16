@@ -716,7 +716,7 @@ Consider the polynomial expression
 p(x) = a_0 + a_1 x + a_2 x^2 + \cdots a_N x^N = \sum_{n=0}^N a_n x^n
 ```
 
-{doc}`Earlier <pyess_ex2>`, you wrote a simple function `p(x, coeff)` to evaluate {doc}`np_polynom <np_polynom>` without considering efficiency.
+{ref}`Earlier <pyess_ex2>`, you wrote a simple function `p(x, coeff)` to evaluate {eq}`np_polynom <np_polynom>` without considering efficiency.
 
 Now write a new function that does the same job, but uses NumPy arrays and array operations for its computations, rather than any form of Python loop.
 
@@ -771,7 +771,7 @@ If you can, write the method so that `draw(k)` returns `k` draws from `q`.
 
 ### Exercise 3
 
-Recall our {doc}`earlier discussion <oop_ex1>` of the empirical cumulative distribution function.
+Recall our {ref}`earlier discussion <oop_ex1>` of the empirical cumulative distribution function.
 
 Your task is to
 

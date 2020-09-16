@@ -245,7 +245,7 @@ def bisect(f, a, b, tol=10e-5):
     return 0.5 * (upper + lower)
 ```
 
-Let's test it using the function $f$ defined in {doc}`root_f <root_f>`
+Let's test it using the function $f$ defined in {eq}`root_f <root_f>`
 
 ```{code-block} python3
 bisect(f, 0, 1)
@@ -253,7 +253,7 @@ bisect(f, 0, 1)
 
 Not surprisingly, SciPy provides its own bisection function.
 
-Let's test it using the same function $f$ defined in {doc}`root_f <root_f>`
+Let's test it using the same function $f$ defined in {eq}`root_f <root_f>`
 
 ```{code-block} python3
 from scipy.optimize import bisect
@@ -437,11 +437,11 @@ We leave you to investigate the [set of available routines](http://docs.scipy.or
 
 ### Exercise 1
 
-Previously we discussed the concept of {doc}`recursive function calls <recursive_functions>`.
+Previously we discussed the concept of {ref}`recursive function calls <recursive_functions>`.
 
-Try to write a recursive implementation of homemade bisection function {doc}`described above <bisect_func>`.
+Try to write a recursive implementation of homemade bisection function {ref}`described above <bisect_func>`.
 
-Test it on the function {doc}`root_f <root_f>`.
+Test it on the function {eq}`root_f <root_f>`.
 
 ## Solutions
 
