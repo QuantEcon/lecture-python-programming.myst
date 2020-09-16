@@ -733,11 +733,11 @@ Here's what happens
 * `f` is registered as a function in the global namespace
 * `x` bound to `[1]` in the global namespace
 * The call `f(x)`
-    * > Creates a local namespace
-    * > Adds `> x`>  to local namespace, bound to `> [1]`
-    * > The list `> [1]`>  is modified to `> [2]`
-    * > Returns the list `> [2]`
-    * > The local namespace is deallocated, and local `> x`>  is lost
+    * Creates a local namespace
+    * Adds `x` to local namespace, bound to `[1]`
+    * The list `[1]` is modified to `[2]`
+    * Returns the list `[2]`
+    * The local namespace is deallocated, and local `x` is lost
 * Global `x` has been modified
 
 ## Handling Errors

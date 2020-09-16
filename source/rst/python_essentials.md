@@ -515,9 +515,9 @@ What's going on here?
 The rule is:
 
 * Expressions that evaluate to zero, empty sequences or containers (strings, lists, etc.) and `None` are all equivalent to `False`.
-    * > for example, `> []`>  and `> ()`>  are equivalent to `> False`>  in an `> if`>  clause
+    * for example, `[]` and `()` are equivalent to `False` in an `if` clause
 * All other values are equivalent to `True`.
-    * > for example, `> 42`>  is equivalent to `> True`>  in an `> if`>  clause
+    * for example, `42` is equivalent to `True` in an `if` clause
 
 ### Combining Expressions
 

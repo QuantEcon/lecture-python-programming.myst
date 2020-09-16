@@ -192,8 +192,8 @@ We will break this program into two parts:
 
 1. A user-defined function that generates a list of random variables.
 1. The main part of the program that
-    1. > calls this function to get dat
-    1. > plots the dat
+    1. calls this function to get dat
+    1. plots the dat
 
 This is accomplished in the next program
 
@@ -248,8 +248,8 @@ Notes
 
 * We are passing the argument `U` as a string, which is why we write it as `'U'`.
 * Notice that equality is tested with the `==` syntax, not `=`.
-    * > For example, the statement `> a = 10`>  assigns the name `> a`>  to the value `> 10`> .
-    * > The expression `> a == 10`>  evaluates to either `> True`>  or `> False`> , depending on the value of `> a`> .
+    * For example, the statement `a = 10` assigns the name `a` to the value `10`.
+    * The expression `a == 10` evaluates to either `True` or `False`, depending on the value of `a`.
 
 Now, there are several ways that we can simplify the code above.
 
