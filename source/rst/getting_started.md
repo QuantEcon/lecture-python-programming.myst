@@ -139,7 +139,7 @@ Either
 
 * search for Jupyter in your applications menu, o
 * open up a terminal and type `jupyter notebook`
-    * > Windows users should substitute "Anaconda command prompt" for "terminal" in the previous line.
+    * Windows users should substitute "Anaconda command prompt" for "terminal" in the previous line.
 
 If you use the second option, you will see something like this
 
@@ -207,11 +207,11 @@ This means that the effect of typing at the keyboard **depends on which mode you
 The two modes are
 
 1. Edit mode
-    * > Indicated by a green border around one cell, plus a blinking curso
-    * > Whatever you type appears as is in that cell
+    * Indicated by a green border around one cell, plus a blinking curso
+    * Whatever you type appears as is in that cell
 1. Command mode
-    * > The green border is replaced by a grey (or grey and blue) borde
-    * > Keystrokes are interpreted as commands --- for example, typing > b>  adds a new cell below  the current one
+    * The green border is replaced by a grey (or grey and blue) borde
+    * Keystrokes are interpreted as commands --- for example, typing b adds a new cell below  the current one
 
 To switch to
 
@@ -445,8 +445,8 @@ Nothing beats the power and efficiency of a good text editor for working with pr
 
 A good text editor will provide
 
-* > efficient text editing commands (e.g., copy, paste, search and replace)
-* > syntax highlighting, etc.
+* efficient text editing commands (e.g., copy, paste, search and replace)
+* syntax highlighting, etc.
 
 Right now, an extremely popular text editor for coding is [VS Code](https://code.visualstudio.com/).
 
@@ -503,7 +503,7 @@ There are two main flavors of Git
 
 1. the plain vanilla [command line Git](http://git-scm.com/downloads) version
 1. the various point-and-click GUI versions
-    * > See, for example, the [> GitHub version](https://desktop.github.com/)
+    * See, for example, the [GitHub version](https://desktop.github.com/)
 
 As the 1st task, try
 

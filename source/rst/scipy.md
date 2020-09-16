@@ -227,8 +227,8 @@ To understand the idea, recall the well-known game where
 
 * Player A thinks of a secret number between 1 and 100
 * Player B asks if it's less than 50
-    * > If yes, B asks if it's less than 25
-    * > If no, B asks if it's less than 75
+    * If yes, B asks if it's less than 25
+    * If no, B asks if it's less than 75
 
 And so on.
 
