@@ -302,7 +302,7 @@ There are no examples of the last rule in the preceding code but we will see som
 
 In this section, we look at some more formal details related to classes and `self`
 
-`* You might wish to skip to {ref}`the next section <oop_solow_growth> the first time you read this lecture.
+* You might wish to skip to {ref}`the next section <oop_solow_growth>` the first time you read this lecture.
 * You can return to these details after you've familiarized yourself with more examples.
 
 Methods actually live inside a class object formed when the interpreter reads
@@ -368,15 +368,15 @@ Here
 * $n$ is the population growth rate
 * $\delta$ is the depreciation rate
 
-A **steady state** of the model is a $k$ that solves {eq}`solow_lom <solow_lom>` when $k_{t+1} = k_t = k$.
+A **steady state** of the model is a $k$ that solves {eq}`solow_lom` when $k_{t+1} = k_t = k$.
 
 Here's a class that implements this model.
 
 Some points of interest in the code are
 
-``* An instance maintains a record of its current capital stock in the variable `self.k`.
-* The `h` method implements the right-hand side of {eq}`solow_lom <solow_lom>.
-* The `update` method uses `h` to update capital as per {eq}`solow_lom <solow_lom>.
+* An instance maintains a record of its current capital stock in the variable `self.k`.
+* The `h` method implements the right-hand side of {eq}`solow_lom`.
+* The `update` method uses `h` to update capital as per {eq}`solow_lom`.
     * Notice how inside `update` the reference to the local method `h` is `self.h`.
 
 The methods `steady_state` and `generate_sequence` are fairly self-explanatory
@@ -666,7 +666,7 @@ ax.set_ylabel('$x_t$', fontsize=16)
 plt.show()
 ```
 
-On the horizontal axis is the parameter $r$ in {eq}`quadmap2 <quadmap2>`.
+On the horizontal axis is the parameter $r$ in {eq}`quadmap2`.
 
 The vertical axis is the state space $[0, 1]$.
 
@@ -791,11 +791,11 @@ p(x) = a_0 + a_1 x + a_2 x^2 + \cdots a_N x^N = \sum_{n=0}^N a_n x^n
     \qquad (x \in \mathbb{R})
 ```
 
-The instance data for the class `Polynomial` will be the coefficients (in the case of {eq}`polynom <polynom>`, the numbers $a_0, \ldots, a_N$).
+The instance data for the class `Polynomial` will be the coefficients (in the case of {eq}`polynom`, the numbers $a_0, \ldots, a_N$).
 
 Provide methods that
 
-`1. Evaluate the polynomial {eq}`polynom <polynom>, returning $p(x)$ for any $x$.
+1. Evaluate the polynomial {eq}`polynom`, returning $p(x)$ for any $x$.
 1. Differentiate the polynomial, replacing the original coefficients with those of its derivative $p'$.
 
 Avoid using any `import` statements.
