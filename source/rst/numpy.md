@@ -74,8 +74,8 @@ NumPy arrays are somewhat like native Python lists, except that
 
 The most important of these dtypes are:
 
-* float64: 64 bit floating-point numbe
-* int64: 64 bit intege
+* float64: 64 bit floating-point number
+* int64: 64 bit integer
 * bool:  8 bit True or False
 
 There are also dtypes to represent complex numbers, unsigned integers, etc.

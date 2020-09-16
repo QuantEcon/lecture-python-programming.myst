@@ -22,7 +22,7 @@ In an earlier lecture, we learned some foundations of object-oriented programmin
 
 The objectives of this lecture are
 
-* cover OOP in more dept
+* cover OOP in more depth
 * learn how to build our own objects, specialized to our needs
 
 For example, you already know how to
@@ -32,14 +32,14 @@ For example, you already know how to
 
 So imagine now you want to write a program with consumers, who can
 
-* hold and spend cas
+* hold and spend cash
 * consume goods
-* work and earn cas
+* work and earn cash
 
 A natural solution in Python would be to create consumers as objects with
 
 * data, such as cash on hand
-* methods, such as `buy` or `work` that affect this dat
+* methods, such as `buy` or `work` that affect this data
 
 Python makes it easy to do this, by providing you with **class definitions**.
 
@@ -91,7 +91,7 @@ A *class definition* is a blueprint for a particular class of objects (e.g., lis
 It describes
 
 * What kind of data the class stores
-* What methods it has for acting on these dat
+* What methods it has for acting on these data
 
 An  *object* or *instance* is a realization of the class, created from the blueprint
 
@@ -363,7 +363,7 @@ k_{t+1} = \frac{s z k_t^{\alpha} + (1 - \delta) k_t}{1 + n}
 Here
 
 * $s$ is an exogenously given saving rate
-* $z$ is a productivity paramete
+* $z$ is a productivity parameter
 * $\alpha$ is capital's share of income
 * $n$ is the population growth rate
 * $\delta$ is the depreciation rate
@@ -564,7 +564,7 @@ plt.show()
 
 The next program provides a function that
 
-* takes an instance of `Market` as a paramete
+* takes an instance of `Market` as a parameter
 * computes dead weight loss from the imposition of the tax
 
 ```{code-block} python3

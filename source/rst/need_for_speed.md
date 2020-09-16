@@ -79,7 +79,7 @@ libraries are
 For us, there's another (relatively new) library that will also be essential for
 numerical computing:
 
-* Numb
+* Numba
 
 Over the next few lectures we'll see how to use these libraries.
 
