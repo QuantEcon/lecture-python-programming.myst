@@ -50,8 +50,8 @@ Here
 
 For each parameterization, the code
 
-1. sets $k_0 = 1$
-1. iterates using `gc_solmod` to produce a sequence $k_0, k_1, k_2 \ldots , k_T$
+{eq}`gc_solmod <gc_solmod>`1. sets $k_0 = 1$
+1. iterates using  to produce a sequence $k_0, k_1, k_2 \ldots , k_T$
 1. plots the sequence
 
 The plots will be grouped into three subfigures.
@@ -205,7 +205,7 @@ While the odd global in small scripts is no big deal, we recommend that you teac
 
 For scientific computing, there is another good reason to avoid global variables.
 
-As we've seen in previous lectures, JIT compilation can generate excellent performance for scripting languages like Python.
+As {doc}`we've seen in previous lectures <numba>`, JIT compilation can generate excellent performance for scripting languages like Python.
 
 But the task of the compiler used for JIT compilation becomes harder when global variables are present.
 

@@ -26,7 +26,7 @@ The objective is to introduce you to basic Python syntax and data structures.
 
 Deeper concepts will be covered in later lectures.
 
-You should have read the lecture on getting started with Python before beginning this one.
+You should have read the {doc}`lecture <getting_started>` on getting started with Python before beginning this one.
 
 ## The Task: Plotting a White Noise Process
 
@@ -72,7 +72,7 @@ Let's break this program down and see how it works.
 The first two lines of the program import functionality from external code
 libraries.
 
-The first line imports NumPy, a favorite Python package for tasks like
+The first line imports {doc}`NumPy <numpy>`, a favorite Python package for tasks like
 
 * working with arrays (vectors and matrices)
 * common mathematical functions like `cos` and `sqrt`
@@ -194,7 +194,7 @@ We can and will look at various ways to configure and improve this plot below.
 
 ## Alternative Implementations
 
-Let's try writing some alternative versions of our first program, which plotted IID draws from the normal distribution.
+Let's try writing some alternative versions of {ref}`our first program <ourfirstprog>`, which plotted IID draws from the normal distribution.
 
 The programs below are less efficient than the original one, and hence
 somewhat artificial.
@@ -294,7 +294,7 @@ x[1]   # second element of x
 single: Python; For loop
 ```
 
-Now let's consider the `for` loop from the program above, which was
+Now let's consider the `for` loop from {ref}`the program above <firstloopprog>`, which was
 
 ```{code-block} python3
 for i in range(ts_length):
@@ -368,7 +368,7 @@ single: Python; While loop
 
 The `for` loop is the most common technique for iteration in Python.
 
-But, for the purpose of illustration, let's modify the program above to use a `while` loop instead.
+But, for the purpose of illustration, let's modify {ref}`the program above <firstloopprog>` to use a `while` loop instead.
 
 ```{code-block} python3
 ts_length = 100

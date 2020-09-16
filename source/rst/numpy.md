@@ -503,7 +503,7 @@ a
 What's happened is that we have changed `a` by changing `b`.
 
 The name `b` is bound to `a` and becomes just another reference to the
-array (the Python assignment model is described in more detail later in the course).
+array (the Python assignment model is described in more detail {doc}`later in the course <python_advanced_features>`).
 
 Hence, it has equal rights to make changes to that array.
 
@@ -700,7 +700,7 @@ single: Python; SciPy
 
 Much of this functionality is also available in [SciPy](http://www.scipy.org/), a collection of modules that are built on top of NumPy.
 
-We'll cover the SciPy versions in more detail soon.
+We'll cover the SciPy versions in more detail {doc}`soon <scipy>`.
 
 For a comprehensive list of what's available in NumPy see [this documentation](https://docs.scipy.org/doc/numpy/reference/routines.html).
 
@@ -716,7 +716,7 @@ Consider the polynomial expression
 p(x) = a_0 + a_1 x + a_2 x^2 + \cdots a_N x^N = \sum_{n=0}^N a_n x^n
 ```
 
-Earlier, you wrote a simple function `p(x, coeff)` to evaluate `np_polynom` without considering efficiency.
+{ref}`Earlier <pyess_ex2>`, you wrote a simple function `p(x, coeff)` to evaluate {eq}`np_polynom <np_polynom>` without considering efficiency.
 
 Now write a new function that does the same job, but uses NumPy arrays and array operations for its computations, rather than any form of Python loop.
 
@@ -771,7 +771,7 @@ If you can, write the method so that `draw(k)` returns `k` draws from `q`.
 
 ### Exercise 3
 
-Recall our earlier discussion of the empirical cumulative distribution function.
+Recall our {ref}`earlier discussion <oop_ex1>` of the empirical cumulative distribution function.
 
 Your task is to
 

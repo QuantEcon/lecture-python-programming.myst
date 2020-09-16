@@ -19,7 +19,7 @@ In addition to what's in Anaconda, this lecture will need the following librarie
 ```
 
 Please also make sure that you have the latest version of Anaconda, since old
-versions are a common source of errors.
+versions are a {doc}`common source of errors <troubleshooting>`.
 
 Let's start with some imports:
 
@@ -33,12 +33,12 @@ import matplotlib.pyplot as plt
 
 ## Overview
 
-In an earlier lecture we learned about vectorization, which is one method to improve speed and efficiency in numerical work.
+In an {doc}`earlier lecture <need_for_speed>` we learned about vectorization, which is one method to improve speed and efficiency in numerical work.
 
 Vectorization involves sending array processing
 operations in batch to efficient low-level code.
 
-However, as discussed previously, vectorization has several weaknesses.
+However, as {ref}`discussed previously <numba-p_c_vectorization>`, vectorization has several weaknesses.
 
 One is that it is highly memory-intensive when working with large amounts of data.
 
@@ -157,7 +157,7 @@ Numba attempts to generate fast machine code using the infrastructure provided b
 
 It does this by inferring type information on the fly.
 
-(See our earlier lecture on scientific computing for a discussion of types.)
+(See our {doc}`earlier lecture <need_for_speed>` on scientific computing for a discussion of types.)
 
 The basic idea is this:
 
@@ -187,7 +187,7 @@ qm_numba = jit(qm)
 
 In practice this would typically be done using an alternative *decorator* syntax.
 
-(We will explain all about decorators in a later lecture but you can skip the details at this stage.)
+(We will explain all about decorators in a {doc}`later lecture <python_advanced_features>` but you can skip the details at this stage.)
 
 Let's see how this is done.
 
@@ -264,7 +264,7 @@ If a class is successfully compiled, then its methods act as JIT-compiled
 functions.
 
 To give one example, let's consider the class for analyzing the Solow growth model we
-created in this lecture.
+created in {doc}`this lecture <python_oop>`.
 
 To compile this class we use the `@jitclass` decorator:
 
@@ -379,7 +379,7 @@ If you prefer, you can safely skip this section.
 
 ### Cython
 
-Like Numba,  [Cython](http://cython.org/) provides an approach to generating fast compiled code that can be used from Python.
+Like {doc}`Numba <numba>`,  [Cython](http://cython.org/) provides an approach to generating fast compiled code that can be used from Python.
 
 As was the case with Numba, a key problem is the fact that Python is dynamically typed.
 
@@ -461,7 +461,7 @@ When Numba compiles machine code for functions, it treats global variables as co
 
 ### Exercise 1
 
-Previously we considered how to approximate $\pi$ by
+{ref}`Previously <pbe_ex3>` we considered how to approximate $\pi$ by
 Monte Carlo.
 
 Use the same idea here, but make the code efficient using Numba.

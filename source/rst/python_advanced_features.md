@@ -29,7 +29,7 @@ A variety of topics are treated in the lecture, including generators, exceptions
 single: Python; Iteration
 ```
 
-We've already said something about iterating in Python.
+We've {ref}`already said something <iterating_version_1>` about iterating in Python.
 
 Now let's look more closely at how it all works, focusing in Python's implementation of the `for` loop.
 
@@ -47,7 +47,7 @@ Formally, an *iterator* is an object with a `__next__` method.
 
 For example, file objects are iterators .
 
-To see this, let's have another look at the US cities data,
+To see this, let's have another look at the {ref}`US cities data <us_cities_data>`,
 which is written to the present working directory in the following cell
 
 ```{code-block} ipython
