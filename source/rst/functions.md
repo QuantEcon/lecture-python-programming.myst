@@ -192,8 +192,8 @@ We will break this program into two parts:
 
 1. A user-defined function that generates a list of random variables.
 1. The main part of the program that
-    1. calls this function to get dat
-    1. plots the dat
+    1. calls this function to get data
+    1. plots the data
 
 This is accomplished in the next program
 

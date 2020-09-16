@@ -155,7 +155,7 @@ for line in f:
 The interpreter just keeps
 
 1. calling `f.__next__()` and binding `line` to the result
-1. executing the body of the loo
+1. executing the body of the loop
 
 This continues until a `StopIteration` error occurs.
 
@@ -800,7 +800,7 @@ var([1])
 The advantage is that we can
 
 * fail early, as soon as we know there will be a problem
-* supply specific information on why a program is failin
+* supply specific information on why a program is failing
 
 ### Handling Errors During Runtime
 

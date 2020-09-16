@@ -39,7 +39,7 @@ Just as [NumPy](http://www.numpy.org/) provides the basic array data type plus c
 
 1. defines fundamental structures for working with data and
 1. endows them with methods that facilitate operations such as
-    * reading in dat
+    * reading in data
     * adjusting indices
     * working with dates and time series
     * sorting, grouping, re-ordering and general data munging 

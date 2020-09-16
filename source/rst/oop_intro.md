@@ -97,7 +97,7 @@ Consider the following expression
 
 Here we are mixing types, and it's unclear to Python whether the user wants to
 
-* convert `'300'` to an integer and then add it to `400`, o
+* convert `'300'` to an integer and then add it to `400`, or
 * convert `400` to string and then concatenate it with `'300'`
 
 Some languages might try to guess but Python is *strongly typed*
@@ -239,7 +239,7 @@ This includes not just lists, strings, etc., but also less obvious things, such 
 
 * functions (once they have been read into memory)
 * modules  (ditto)
-* files opened for reading or writin
+* files opened for reading or writing
 * integers, etc.
 
 Consider, for example, functions.
