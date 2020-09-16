@@ -50,8 +50,8 @@ Here
 
 For each parameterization, the code
 
-{eq}`gc_solmod <gc_solmod>`1. sets $k_0 = 1$
-1. iterates using  to produce a sequence $k_0, k_1, k_2 \ldots , k_T$
+`1. sets $k_0 = 1$
+1. iterates using {eq}`gc_solmod <gc_solmod> to produce a sequence $k_0, k_1, k_2 \ldots , k_T$
 1. plots the sequence
 
 The plots will be grouped into three subfigures.
