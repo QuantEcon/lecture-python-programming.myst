@@ -1,3 +1,14 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -50,7 +61,7 @@ For example, file objects are iterators .
 To see this, let's have another look at the {ref}`US cities data <us_cities_data>`,
 which is written to the present working directory in the following cell
 
-```{code-block} ipython
+```{code-cell} ipython
 %%file us_cities.txt
 new york: 8244910
 los angeles: 3819702
@@ -63,12 +74,12 @@ san diego: 1326179
 dallas: 1223229
 ```
 
-```{code-block} python3
+```{code-cell} python3
 f = open('us_cities.txt')
 f.__next__()
 ```
 
-```{code-block} python3
+```{code-cell} python3
 f.__next__()
 ```
 
@@ -77,18 +88,18 @@ We see that file objects do indeed have a `__next__` method, and that calling th
 The next method can also be accessed via the builtin function `next()`,
 which directly calls this method
 
-```{code-block} python3
+```{code-cell} python3
 next(f)
 ```
 
 The objects returned by `enumerate()` are also iterators
 
-```{code-block} python3
+```{code-cell} python3
 e = enumerate(['foo', 'bar'])
 next(e)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 next(e)
 ```
 
@@ -96,7 +107,7 @@ as are the reader objects from the `csv` module .
 
 Let's create a small csv file that contains data from the NIKKEI index
 
-```{code-block} ipython
+```{code-cell} ipython
 %%file test_table.csv
 Date,Open,High,Low,Close,Volume,Adj Close
 2009-05-21,9280.35,9286.35,9189.92,9264.15,133200,9264.15
@@ -111,7 +122,7 @@ Date,Open,High,Low,Close,Volume,Adj Close
 2009-05-08,9351.40,9464.43,9349.57,9432.83,220200,9432.83
 ```
 
-```{code-block} python3
+```{code-cell} python3
 from csv import reader
 
 f = open('test_table.csv', 'r')
@@ -119,7 +130,7 @@ nikkei_data = reader(f)
 next(nikkei_data)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 next(nikkei_data)
 ```
 
@@ -133,7 +144,7 @@ All iterators can be placed to the right of the `in` keyword in `for` loop state
 
 In fact this is how the `for` loop works:  If we write
 
-```{code-block} python3
+```{code-cell} python3
 for x in iterator:
     <code block>
 ```
@@ -146,7 +157,7 @@ then the interpreter
 
 So now you know how this magical looking syntax works
 
-```{code-block} python3
+```{code-cell} python3
 f = open('somefile.txt', 'r')
 for line in f:
     # do something
@@ -167,7 +178,7 @@ single: Python; Iterables
 
 You already know that we can put a Python list to the right of `in` in a `for` loop
 
-```{code-block} python3
+```{code-cell} python3
 for i in ['spam', 'eggs']:
     print(i)
 ```
@@ -176,12 +187,12 @@ So does that mean that a list is an iterator?
 
 The answer is no
 
-```{code-block} python3
+```{code-cell} python3
 x = ['foo', 'bar']
 type(x)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 next(x)
 ```
 
@@ -193,25 +204,25 @@ Formally, an object is iterable if it can be converted to an iterator using the 
 
 Lists are one such object
 
-```{code-block} python3
+```{code-cell} python3
 x = ['foo', 'bar']
 type(x)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 y = iter(x)
 type(y)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 next(y)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 next(y)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 next(y)
 ```
 
@@ -219,7 +230,7 @@ Many other objects are iterable, such as dictionaries and tuples.
 
 Of course, not all objects are iterable
 
-```{code-block} python3
+```{code-cell} python3
 iter(42)
 ```
 
@@ -240,29 +251,29 @@ Some built-in functions that act on sequences also work with iterables
 
 For example
 
-```{code-block} python3
+```{code-cell} python3
 x = [10, -10]
 max(x)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 y = iter(x)
 type(y)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 max(y)
 ```
 
 One thing to remember about iterators is that they are depleted by use
 
-```{code-block} python3
+```{code-cell} python3
 x = [10, -10]
 y = iter(x)
 max(y)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 max(y)
 ```
 
@@ -276,7 +287,7 @@ single: Python; Variable Names
 
 Consider the Python statement
 
-```{code-block} python3
+```{code-cell} python3
 x = 42
 ```
 
@@ -294,7 +305,7 @@ Under the hood, this process of binding names to objects is implemented as a dic
 
 There is no problem binding two or more names to the one object, regardless of what that object is
 
-```{code-block} python3
+```{code-cell} python3
 def f(string):      # Create a function called f
     print(string)   # that prints any string it's passed
 
@@ -302,7 +313,7 @@ g = f
 id(g) == id(f)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 g('test')
 ```
 
@@ -314,12 +325,12 @@ What happens when the number of names bound to an object goes to zero?
 
 Here's an example of this situation, where the name `x` is first bound to one object and then rebound to another
 
-```{code-block} python3
+```{code-cell} python3
 x = 'foo'
 id(x)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 x = 'bar'  # No names bound to the first object
 ```
 
@@ -335,7 +346,7 @@ single: Python; Namespaces
 
 Recall from the preceding discussion that the statement
 
-```{code-block} python3
+```{code-cell} python3
 x = 42
 ```
 
@@ -353,30 +364,30 @@ For example, every time we import a module, Python creates a namespace for that 
 
 To see this in action, suppose we write a script `math2.py` with a single line
 
-```{code-block} python3
+```{code-cell} python3
 %%file math2.py
 pi = 'foobar'
 ```
 
 Now we start the Python interpreter and import it
 
-```{code-block} python3
+```{code-cell} python3
 import math2
 ```
 
 Next let's import the `math` module from the standard library
 
-```{code-block} python3
+```{code-cell} python3
 import math
 ```
 
 Both of these modules have an attribute called `pi`
 
-```{code-block} python3
+```{code-cell} python3
 math.pi
 ```
 
-```{code-block} python3
+```{code-cell} python3
 math2.pi
 ```
 
@@ -384,13 +395,13 @@ These two different bindings of `pi` exist in different namespaces, each one imp
 
 We can look at the dictionary directly, using `module_name.__dict__`
 
-```{code-block} python3
+```{code-cell} python3
 import math
 
 math.__dict__.items()
 ```
 
-```{code-block} python3
+```{code-cell} python3
 import math2
 
 math2.__dict__.items()
@@ -398,13 +409,13 @@ math2.__dict__.items()
 
 As you know, we access elements of the namespace using the dotted attribute notation
 
-```{code-block} python3
+```{code-cell} python3
 math.pi
 ```
 
 In fact this is entirely equivalent to `math.__dict__['pi']`
 
-```{code-block} python3
+```{code-cell} python3
 math.__dict__['pi'] == math.pi
 ```
 
@@ -414,13 +425,13 @@ As we saw above, the `math` namespace can be printed by typing `math.__dict__`.
 
 Another way to see its contents is to type `vars(math)`
 
-```{code-block} python3
+```{code-cell} python3
 vars(math).items()
 ```
 
 If you just want to see the names, you can type
 
-```{code-block} python3
+```{code-cell} python3
 dir(math)[0:10]
 ```
 
@@ -431,11 +442,11 @@ These are initialized in the namespace when any module is imported
 * `__doc__` is the doc string of the module
 * `__name__` is the name of the module
 
-```{code-block} python3
+```{code-cell} python3
 print(math.__doc__)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 math.__name__
 ```
 
@@ -453,7 +464,7 @@ These are also regarded as being executed within a module --- in this case, a mo
 
 To check this, we can look at the current module name via the value of `__name__` given at the prompt
 
-```{code-block} python3
+```{code-cell} python3
 print(__name__)
 ```
 
@@ -461,18 +472,18 @@ When we run a script using IPython's `run` command, the contents of the file are
 
 To see this, let's create a file `mod.py` that prints its own `__name__` attribute
 
-```{code-block} ipython
+```{code-cell} ipython
 %%file mod.py
 print(__name__)
 ```
 
 Now let's look at two different ways of running it in IPython
 
-```{code-block} python3
+```{code-cell} python3
 import mod  # Standard import
 ```
 
-```{code-block} ipython
+```{code-cell} ipython
 %run mod.py  # Run interactively
 ```
 
@@ -485,7 +496,7 @@ needs, and has initialized when you started up your session.
 
 If you prefer to see only the variables you have initialized, use `whos`
 
-```{code-block} ipython
+```{code-cell} ipython
 x = 2
 y = 3
 
@@ -510,7 +521,7 @@ We are now working in the module `__main__`, and hence the namespace for `__main
 
 Next, we import a module called `amodule`
 
-```{code-block} python3
+```{code-cell} python3
 import amodule
 ```
 
@@ -540,7 +551,7 @@ While the function is executing, we can view the contents of the local namespace
 
 For example, consider
 
-```{code-block} python3
+```{code-cell} python3
 def f(x):
     a = 2
     print(locals())
@@ -549,7 +560,7 @@ def f(x):
 
 Now let's call the function
 
-```{code-block} python3
+```{code-cell} python3
 f(1)
 ```
 
@@ -568,27 +579,27 @@ How does access to these names work?
 * These definitions are stored in a module called `__builtin__`.
 * They have there own namespace called `__builtins__`.
 
-```{code-block} python3
+```{code-cell} python3
 dir()[0:10]
 ```
 
-```{code-block} python3
+```{code-cell} python3
 dir(__builtins__)[0:10]
 ```
 
 We can access elements of the namespace as follows
 
-```{code-block} python3
+```{code-cell} python3
 __builtins__.max
 ```
 
 But `__builtins__` is special, because we can always access them directly as well
 
-```{code-block} python3
+```{code-cell} python3
 max
 ```
 
-```{code-block} python3
+```{code-cell} python3
 __builtins__.max == max
 ```
 
@@ -623,7 +634,7 @@ If the interpreter is executing a function, then the directly accessible namespa
 
 Sometimes functions are defined within other functions, like so
 
-```{code-block} python3
+```{code-cell} python3
 def f():
     a = 2
     def g():
@@ -652,7 +663,7 @@ Here's an example that helps to illustrate .
 
 Consider a script `test.py` that looks as follows
 
-```{code-block} python3
+```{code-cell} python3
 %%file test.py
 def g(x):
     a = 1
@@ -666,11 +677,11 @@ print("a = ", a, "y = ", y)
 
 What happens when we run this script?
 
-```{code-block} ipython
+```{code-cell} ipython
 %run test.py
 ```
 
-```{code-block} python3
+```{code-cell} python3
 x
 ```
 
@@ -696,7 +707,7 @@ This is a good time to say a little more about mutable vs immutable objects.
 
 Consider the code segment
 
-```{code-block} python3
+```{code-cell} python3
 def f(x):
     x = x + 1
     return x
@@ -717,7 +728,7 @@ None of this affects the global `x`.
 
 However, it's a different story when we use a **mutable** data type such as a list
 
-```{code-block} python3
+```{code-cell} python3
 def f(x):
     x[0] = x[0] + 1
     return x
@@ -783,7 +794,7 @@ A relatively easy way to handle checks is with the `assert` keyword.
 For example, pretend for a moment that the `np.var` function doesn't
 exist and we need to write our own
 
-```{code-block} python3
+```{code-cell} python3
 def var(y):
     n = len(y)
     assert n > 1, 'Sample size must be greater than one.'
@@ -793,7 +804,7 @@ def var(y):
 If we run this with an array of length one, the program will terminate and
 print our error message
 
-```{code-block} python3
+```{code-cell} python3
 var([1])
 ```
 
@@ -823,7 +834,7 @@ single: Python; Exceptions
 
 Here's an example of a common error type
 
-```{code-block} python3
+```{code-cell} python3
 def f:
 ```
 
@@ -831,25 +842,25 @@ Since illegal syntax cannot be executed, a syntax error terminates execution of 
 
 Here's a different kind of error, unrelated to syntax
 
-```{code-block} python3
+```{code-cell} python3
 1 / 0
 ```
 
 Here's another
 
-```{code-block} python3
+```{code-cell} python3
 x1 = y1
 ```
 
 And another
 
-```{code-block} python3
+```{code-cell} python3
 'foo' + 6
 ```
 
 And another
 
-```{code-block} python3
+```{code-cell} python3
 X = []
 x = X[0]
 ```
@@ -866,7 +877,7 @@ We can catch and deal with exceptions using `try` -- `except` blocks.
 
 Here's a simple example
 
-```{code-block} python3
+```{code-cell} python3
 def f(x):
     try:
         return 1.0 / x
@@ -877,15 +888,15 @@ def f(x):
 
 When we call `f` we get the following output
 
-```{code-block} python3
+```{code-cell} python3
 f(2)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 f(0)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 f(0.0)
 ```
 
@@ -895,7 +906,7 @@ Note that other error types are not caught.
 
 If we are worried the user might pass in a string, we can catch that error too
 
-```{code-block} python3
+```{code-cell} python3
 def f(x):
     try:
         return 1.0 / x
@@ -908,21 +919,21 @@ def f(x):
 
 Here's what happens
 
-```{code-block} python3
+```{code-cell} python3
 f(2)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 f(0)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 f('foo')
 ```
 
 If we feel lazy we can catch these errors together
 
-```{code-block} python3
+```{code-cell} python3
 def f(x):
     try:
         return 1.0 / x
@@ -933,21 +944,21 @@ def f(x):
 
 Here's what happens
 
-```{code-block} python3
+```{code-cell} python3
 f(2)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 f(0)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 f('foo')
 ```
 
 If we feel extra lazy we can catch all error types as follows
 
-```{code-block} python3
+```{code-cell} python3
 def f(x):
     try:
         return 1.0 / x
@@ -991,7 +1002,7 @@ On the other hand it takes a bit of effort to explain *why* you might use them.
 
 Suppose we are working on a program that looks something like this
 
-```{code-block} python3
+```{code-cell} python3
 import numpy as np
 
 def f(x):
@@ -1016,7 +1027,7 @@ Suppose that instead we want the program to terminate whenever this happens, wit
 
 This change is easy enough to implement
 
-```{code-block} python3
+```{code-cell} python3
 import numpy as np
 
 def f(x):
@@ -1043,7 +1054,7 @@ The situation is still worse if the test logic is longer and more complicated.
 
 In this kind of scenario the following approach would be neater
 
-```{code-block} python3
+```{code-cell} python3
 import numpy as np
 
 def check_nonneg(func):
@@ -1089,7 +1100,7 @@ The last version of our code is still not ideal.
 For example, if someone is reading our code and wants to know how
 `f` works, they will be looking for the function definition, which is
 
-```{code-block} python3
+```{code-cell} python3
 def f(x):
     return np.log(np.log(x))
 ```
@@ -1100,7 +1111,7 @@ For this and other reasons, decorators were introduced to Python.
 
 With decorators, we can replace the lines
 
-```{code-block} python3
+```{code-cell} python3
 def f(x):
     return np.log(np.log(x))
 
@@ -1113,7 +1124,7 @@ g = check_nonneg(g)
 
 with
 
-```{code-block} python3
+```{code-cell} python3
 @check_nonneg
 def f(x):
     return np.log(np.log(x))
@@ -1149,7 +1160,7 @@ and kilometers respectively.
 
 A highly simplified version of the class might look as follows
 
-```{code-block} python3
+```{code-cell} python3
 class Car:
 
     def __init__(self, miles=1000):
@@ -1162,16 +1173,16 @@ class Car:
 One potential problem we might have here is that a user alters one of these
 variables but not the other
 
-```{code-block} python3
+```{code-cell} python3
 car = Car()
 car.miles
 ```
 
-```{code-block} python3
+```{code-cell} python3
 car.kms
 ```
 
-```{code-block} python3
+```{code-cell} python3
 car.miles = 6000
 car.kms
 ```
@@ -1192,7 +1203,7 @@ The best way to understand this is to see it in action.
 
 Consider this alternative version of the `Car` class
 
-```{code-block} python3
+```{code-cell} python3
 class Car:
 
     def __init__(self, miles=1000):
@@ -1219,12 +1230,12 @@ class Car:
 
 First let's check that we get the desired behavior
 
-```{code-block} python3
+```{code-cell} python3
 car = Car()
 car.miles
 ```
 
-```{code-block} python3
+```{code-cell} python3
 car.miles = 6000
 car.kms
 ```
@@ -1264,7 +1275,7 @@ These days its very common to see the `property` function used via a decorator.
 Here's another version of our `Car` class that works as before but now uses
 decorators to set up the properties
 
-```{code-block} python3
+```{code-cell} python3
 class Car:
 
     def __init__(self, miles=1000):
@@ -1312,43 +1323,43 @@ Just like a list comprehension, but with round brackets.
 
 Here is the list comprehension:
 
-```{code-block} python3
+```{code-cell} python3
 singular = ('dog', 'cat', 'bird')
 type(singular)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 plural = [string + 's' for string in singular]
 plural
 ```
 
-```{code-block} python3
+```{code-cell} python3
 type(plural)
 ```
 
 And here is the generator expression
 
-```{code-block} python3
+```{code-cell} python3
 singular = ('dog', 'cat', 'bird')
 plural = (string + 's' for string in singular)
 type(plural)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 next(plural)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 next(plural)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 next(plural)
 ```
 
 Since `sum()` can be called on iterators, we can do this
 
-```{code-block} python3
+```{code-cell} python3
 sum((x * x for x in range(10)))
 ```
 
@@ -1356,7 +1367,7 @@ The function `sum()` calls `next()` to get the items, adds successive terms.
 
 In fact, we can omit the outer brackets in this case
 
-```{code-block} python3
+```{code-cell} python3
 sum(x * x for x in range(10))
 ```
 
@@ -1374,7 +1385,7 @@ Let's look at some examples.
 
 Here's a very simple example of a generator function
 
-```{code-block} python3
+```{code-cell} python3
 def f():
     yield 'start'
     yield 'middle'
@@ -1385,28 +1396,28 @@ It looks like a function, but uses a keyword `yield` that we haven't met before.
 
 Let's see how it works after running this code
 
-```{code-block} python3
+```{code-cell} python3
 type(f)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 gen = f()
 gen
 ```
 
-```{code-block} python3
+```{code-cell} python3
 next(gen)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 next(gen)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 next(gen)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 next(gen)
 ```
 
@@ -1421,7 +1432,7 @@ The first call to `next(gen)`
 
 The second call to `next(gen)` starts executing *from the next line*
 
-```{code-block} python3
+```{code-cell} python3
 def f():
     yield 'start'
     yield 'middle'  # This line!
@@ -1438,7 +1449,7 @@ When the code block ends, the generator throws a `StopIteration` error.
 
 Our next example receives an argument `x` from the caller
 
-```{code-block} python3
+```{code-cell} python3
 def g(x):
     while x < 100:
         yield x
@@ -1447,28 +1458,28 @@ def g(x):
 
 Let's see how it works
 
-```{code-block} python3
+```{code-cell} python3
 g
 ```
 
-```{code-block} python3
+```{code-cell} python3
 gen = g(2)
 type(gen)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 next(gen)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 next(gen)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 next(gen)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 next(gen)
 ```
 
@@ -1484,7 +1495,7 @@ Note that value of `x` is retained inside the generator.
 
 When we call `next(gen)` again, execution continues *from where it left off*
 
-```{code-block} python3
+```{code-cell} python3
 def g(x):
     while x < 100:
         yield x
@@ -1495,7 +1506,7 @@ When `x < 100` fails, the generator throws a `StopIteration` error.
 
 Incidentally, the loop inside the generator can be infinite
 
-```{code-block} python3
+```{code-cell} python3
 def g(x):
     while 1:
         yield x
@@ -1510,7 +1521,7 @@ Suppose we want to sample a binomial(n,0.5).
 
 One way to do it is as follows
 
-```{code-block} python3
+```{code-cell} python3
 import random
 n = 10000000
 draws = [random.uniform(0, 1) < 0.5 for i in range(n)]
@@ -1523,7 +1534,7 @@ This uses lots of memory and is very slow.
 
 If we make `n` even bigger then this happens
 
-```{code-block} python3
+```{code-cell} python3
 n = 100000000
 draws = [random.uniform(0, 1) < 0.5 for i in range(n)]
 ```
@@ -1532,7 +1543,7 @@ We can avoid these problems using iterators.
 
 Here is the generator function
 
-```{code-block} python3
+```{code-cell} python3
 def f(n):
     i = 1
     while i <= n:
@@ -1542,13 +1553,13 @@ def f(n):
 
 Now let's do the sum
 
-```{code-block} python3
+```{code-cell} python3
 n = 10000000
 draws = f(n)
 draws
 ```
 
-```{code-block} python3
+```{code-cell} python3
 sum(draws)
 ```
 
@@ -1579,7 +1590,7 @@ Obviously the answer is $2^t$.
 
 We can compute this easily enough with a loop
 
-```{code-block} python3
+```{code-cell} python3
 def x_loop(t):
     x = 1
     for i in range(t):
@@ -1589,7 +1600,7 @@ def x_loop(t):
 
 We can also use a recursive solution, as follows
 
-```{code-block} python3
+```{code-cell} python3
 def x(t):
     if t == 0:
         return 1
@@ -1627,7 +1638,7 @@ Write a function to recursively compute the $t$-th Fibonacci number for any $t$.
 
 Complete the following code, and test it using [this csv file](https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/python_advanced_features/test_table.csv), which we assume that you've put in your current working directory
 
-```{code-block} python3
+```{code-cell} python3
 def column_iterator(target_file, column_number):
     """A generator function for CSV files.
     When called with a file name target_file (string) and column number
@@ -1647,7 +1658,7 @@ for date in dates:
 
 Suppose we have a text file `numbers.txt` containing the following lines
 
-```{code-block} none
+```{code-cell} none
 prices
 3
 8
@@ -1664,7 +1675,7 @@ Using `try` -- `except`, write a program to read in the contents of the file and
 
 Here's the standard solution
 
-```{code-block} python3
+```{code-cell} python3
 def x(t):
     if t == 0:
         return 0
@@ -1676,7 +1687,7 @@ def x(t):
 
 Let's test it
 
-```{code-block} python3
+```{code-cell} python3
 print([x(i) for i in range(10)])
 ```
 
@@ -1684,7 +1695,7 @@ print([x(i) for i in range(10)])
 
 One solution is as follows
 
-```{code-block} python3
+```{code-cell} python3
 def column_iterator(target_file, column_number):
     """A generator function for CSV files.
     When called with a file name target_file (string) and column number
@@ -1711,7 +1722,7 @@ for date in dates:
 
 Let's save the data first
 
-```{code-block} python3
+```{code-cell} python3
 %%file numbers.txt
 prices
 3
@@ -1721,7 +1732,7 @@ prices
 21
 ```
 
-```{code-block} python3
+```{code-cell} python3
 f = open('numbers.txt')
 
 total = 0.0

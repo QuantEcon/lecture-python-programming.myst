@@ -1,3 +1,14 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -50,7 +61,7 @@ single: Matplotlib; Simple API
 
 Here's the kind of easy example you might find in introductory treatments
 
-```{code-block} ipython
+```{code-cell} ipython
 import matplotlib.pyplot as plt
 %matplotlib inline
 import numpy as np
@@ -74,7 +85,7 @@ This leads us to the alternative, object-oriented Matplotlib API.
 
 Here's the code corresponding to the preceding figure using the object-oriented API
 
-```{code-block} python3
+```{code-cell} python3
 fig, ax = plt.subplots()
 ax.plot(x, y, 'b-', linewidth=2)
 plt.show()
@@ -95,7 +106,7 @@ This will become more clear as we go along.
 
 Here we've changed the line to red and added a legend
 
-```{code-block} python3
+```{code-cell} python3
 fig, ax = plt.subplots()
 ax.plot(x, y, 'r-', linewidth=2, label='sine function', alpha=0.6)
 ax.legend()
@@ -106,7 +117,7 @@ We've also used `alpha` to make the line slightly transparent---which makes it l
 
 The location of the legend can be changed by replacing `ax.legend()` with `ax.legend(loc='upper center')`.
 
-```{code-block} python3
+```{code-cell} python3
 fig, ax = plt.subplots()
 ax.plot(x, y, 'r-', linewidth=2, label='sine function', alpha=0.6)
 ax.legend(loc='upper center')
@@ -115,7 +126,7 @@ plt.show()
 
 If everything is properly configured, then adding LaTeX is trivial
 
-```{code-block} python3
+```{code-cell} python3
 fig, ax = plt.subplots()
 ax.plot(x, y, 'r-', linewidth=2, label='$y=\sin(x)$', alpha=0.6)
 ax.legend(loc='upper center')
@@ -124,7 +135,7 @@ plt.show()
 
 Controlling the ticks, adding titles and so on is also straightforward
 
-```{code-block} python3
+```{code-cell} python3
 fig, ax = plt.subplots()
 ax.plot(x, y, 'r-', linewidth=2, label='$y=\sin(x)$', alpha=0.6)
 ax.legend(loc='upper center')
@@ -150,7 +161,7 @@ It's straightforward to generate multiple plots on the same axes.
 
 Here's an example that randomly generates three normal densities and adds a label with their mean
 
-```{code-block} python3
+```{code-cell} python3
 from scipy.stats import norm
 from random import uniform
 
@@ -175,7 +186,7 @@ Sometimes we want multiple subplots in one figure.
 
 Here's an example that generates 6 histograms
 
-```{code-block} python3
+```{code-cell} python3
 num_rows, num_cols = 3, 2
 fig, axes = plt.subplots(num_rows, num_cols, figsize=(10, 12))
 for i in range(num_rows):
@@ -196,7 +207,7 @@ single: Matplotlib; 3D Plots
 
 Matplotlib does a nice job of 3D plots --- here is one example
 
-```{code-block} python3
+```{code-cell} python3
 from mpl_toolkits.mplot3d.axes3d import Axes3D
 from matplotlib import cm
 
@@ -231,7 +242,7 @@ Here's a nice example from [Matthew Doty](https://github.com/xcthulhu) of how th
 
 Read carefully through the code and see if you can follow what's going on
 
-```{code-block} python3
+```{code-cell} python3
 def subplots():
     "Custom subplots with axes through the origin"
     fig, ax = plt.subplots()
@@ -294,7 +305,7 @@ The output should look like this
 
 Here's one solution
 
-```{code-block} ipython3
+```{code-cell} ipython3
 def f(x, θ):
     return np.cos(np.pi * θ * x ) * np.exp(- x)
 

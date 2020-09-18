@@ -1,3 +1,14 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -33,7 +44,7 @@ One of the things we will learn to do is build our own user-defined functions
 
 We will use the following imports.
 
-```{code-block} ipython
+```{code-cell} ipython
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
@@ -53,30 +64,30 @@ Python has a number of *built-in* functions that are available without `import`.
 
 We have already met some
 
-```{code-block} python3
+```{code-cell} python3
 max(19, 20)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 print('foobar')
 ```
 
-```{code-block} python3
+```{code-cell} python3
 str(22)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 type(22)
 ```
 
 Two more useful built-in functions are `any()` and `all()`
 
-```{code-block} python3
+```{code-cell} python3
 bools = False, True, True
 all(bools)  # True if all are True and False otherwise
 ```
 
-```{code-block} python3
+```{code-cell} python3
 any(bools)  # False if all are False and True otherwise
 ```
 
@@ -92,7 +103,7 @@ were given in the {doc}`previous lecture <python_by_example>`
 
 Here's another one, which tests whether a given year is a leap year:
 
-```{code-block} python3
+```{code-cell} python3
 import calendar
 
 calendar.isleap(2020)
@@ -111,7 +122,7 @@ Let's start by discussing how it's done.
 Here's a very simple Python function, that implements the mathematical function
 $f(x) = 2 x + 1$
 
-```{code-block} python3
+```{code-cell} python3
 def f(x):
     return 2 * x + 1
 ```
@@ -119,11 +130,11 @@ def f(x):
 Now that we've *defined* this function, let's *call* it and check whether it
 does what we expect:
 
-```{code-block} python3
+```{code-cell} python3
 f(1)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 f(10)
 ```
 
@@ -132,7 +143,7 @@ Here's a longer function, that computes the absolute value of a given number.
 (Such a function already exists as a built-in, but let's write our own for the
 exercise.)
 
-```{code-block} python3
+```{code-cell} python3
 def new_abs_function(x):
 
     if x < 0:
@@ -154,7 +165,7 @@ This whole function definition is read by the Python interpreter and stored in m
 
 Let's call it to check that it works:
 
-```{code-block} python3
+```{code-cell} python3
 print(new_abs_function(3))
 print(new_abs_function(-3))
 ```
@@ -176,7 +187,7 @@ We will say more about this {doc}`later <writing_good_code>`.
 
 Consider again this code from the {doc}`previous lecture <python_by_example>`
 
-```{code-block} python3
+```{code-cell} python3
 ts_length = 100
 ϵ_values = []   # empty list
 
@@ -197,7 +208,7 @@ We will break this program into two parts:
 
 This is accomplished in the next program
 
-```{code-block} python3
+```{code-cell} python3
 def generate_data(n):
     ϵ_values = []
     for i in range(n):
@@ -226,7 +237,7 @@ Let's make it slightly more useful by giving it the ability to return either sta
 
 This is achieved in the next piece of code.
 
-```{code-block} python3
+```{code-cell} python3
 def generate_data(n, generator_type):
     ϵ_values = []
     for i in range(n):
@@ -257,7 +268,7 @@ For example, we can get rid of the conditionals all together by just passing the
 
 To understand this, consider the following version.
 
-```{code-block} python3
+```{code-cell} python3
 def generate_data(n, generator_type):
     ϵ_values = []
     for i in range(n):
@@ -281,11 +292,11 @@ When the function call  `generate_data(100, np.random.uniform)` is executed, Pyt
 
 This principle works more generally---for example, consider the following piece of code
 
-```{code-block} python3
+```{code-cell} python3
 max(7, 2, 4)   # max() is a built-in Python function
 ```
 
-```{code-block} python3
+```{code-cell} python3
 m = max
 m(7, 2, 4)
 ```
@@ -339,7 +350,7 @@ Use no import besides `from numpy.random import uniform`.
 
 Here's one solution.
 
-```{code-block} python3
+```{code-cell} python3
 def factorial(n):
     k = 1
     for i in range(n):
@@ -351,7 +362,7 @@ factorial(4)
 
 ### Exercise 2
 
-```{code-block} python3
+```{code-cell} python3
 from numpy.random import uniform
 
 def binomial_rv(n, p):
@@ -369,7 +380,7 @@ binomial_rv(10, 0.5)
 
 Here's a function for the first random device.
 
-```{code-block} python3
+```{code-cell} python3
 from numpy.random import uniform
 
 def draw(k):  # pays if k consecutive successes in a sequence
@@ -391,7 +402,7 @@ draw(3)
 
 Here's another function for the second random device.
 
-```{code-block} python3
+```{code-cell} python3
 def draw_new(k):  # pays if k successes in a sequence
 
     payoff = 0
