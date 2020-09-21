@@ -144,7 +144,7 @@ All iterators can be placed to the right of the `in` keyword in `for` loop state
 
 In fact this is how the `for` loop works:  If we write
 
-```{code-cell} python3
+```{code-block} python3
 for x in iterator:
     <code block>
 ```
@@ -157,7 +157,7 @@ then the interpreter
 
 So now you know how this magical looking syntax works
 
-```{code-cell} python3
+```{code-block} python3
 f = open('somefile.txt', 'r')
 for line in f:
     # do something
@@ -193,6 +193,9 @@ type(x)
 ```
 
 ```{code-cell} python3
+---
+tags: [raises-exception]
+---
 next(x)
 ```
 
@@ -223,6 +226,9 @@ next(y)
 ```
 
 ```{code-cell} python3
+---
+tags: [raises-exception]
+---
 next(y)
 ```
 
@@ -231,6 +237,9 @@ Many other objects are iterable, such as dictionaries and tuples.
 Of course, not all objects are iterable
 
 ```{code-cell} python3
+---
+tags: [raises-exception]
+---
 iter(42)
 ```
 
@@ -274,6 +283,9 @@ max(y)
 ```
 
 ```{code-cell} python3
+---
+tags: [raises-exception]
+---
 max(y)
 ```
 
@@ -521,7 +533,7 @@ We are now working in the module `__main__`, and hence the namespace for `__main
 
 Next, we import a module called `amodule`
 
-```{code-cell} python3
+```{code-block} python3
 import amodule
 ```
 
@@ -682,6 +694,9 @@ What happens when we run this script?
 ```
 
 ```{code-cell} python3
+---
+tags: [raises-exception]
+---
 x
 ```
 
@@ -805,6 +820,9 @@ If we run this with an array of length one, the program will terminate and
 print our error message
 
 ```{code-cell} python3
+---
+tags: [raises-exception]
+---
 var([1])
 ```
 
@@ -835,6 +853,9 @@ single: Python; Exceptions
 Here's an example of a common error type
 
 ```{code-cell} python3
+---
+tags: [raises-exception]
+---
 def f:
 ```
 
@@ -843,24 +864,36 @@ Since illegal syntax cannot be executed, a syntax error terminates execution of 
 Here's a different kind of error, unrelated to syntax
 
 ```{code-cell} python3
+---
+tags: [raises-exception]
+---
 1 / 0
 ```
 
 Here's another
 
 ```{code-cell} python3
+---
+tags: [raises-exception]
+---
 x1 = y1
 ```
 
 And another
 
 ```{code-cell} python3
+---
+tags: [raises-exception]
+---
 'foo' + 6
 ```
 
 And another
 
 ```{code-cell} python3
+---
+tags: [raises-exception]
+---
 X = []
 x = X[0]
 ```
@@ -1418,6 +1451,9 @@ next(gen)
 ```
 
 ```{code-cell} python3
+---
+tags: [raises-exception]
+---
 next(gen)
 ```
 
@@ -1480,6 +1516,9 @@ next(gen)
 ```
 
 ```{code-cell} python3
+---
+tags: [raises-exception]
+---
 next(gen)
 ```
 
@@ -1535,6 +1574,9 @@ This uses lots of memory and is very slow.
 If we make `n` even bigger then this happens
 
 ```{code-cell} python3
+---
+tags: [raises-exception]
+---
 n = 100000000
 draws = [random.uniform(0, 1) < 0.5 for i in range(n)]
 ```
@@ -1638,7 +1680,7 @@ Write a function to recursively compute the $t$-th Fibonacci number for any $t$.
 
 Complete the following code, and test it using [this csv file](https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/python_advanced_features/test_table.csv), which we assume that you've put in your current working directory
 
-```{code-cell} python3
+```{code-block} python3
 def column_iterator(target_file, column_number):
     """A generator function for CSV files.
     When called with a file name target_file (string) and column number

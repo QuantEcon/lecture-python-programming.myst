@@ -27,11 +27,11 @@ Next we cover the third party libraries most useful for scientific work in Pytho
 :maxdepth: 2
 
 need_for_speed
-numpy
-matplotlib
-scipy
-numba
+lect_numpy
+lect_matplotlib
+lect_scipy
+lect_numba
 parallelization
-pandas
+lect_pandas
 ```
 

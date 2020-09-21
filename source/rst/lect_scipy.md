@@ -144,7 +144,7 @@ q.mean()
 
 The general syntax for creating these objects that represent distributions (of type `rv_frozen`) is
 
-`> name = scipy.stats.distribution_name(shape_parameters, loc=c, scale=d)`
+> `name = scipy.stats.distribution_name(shape_parameters, loc=c, scale=d)`
 
 Here `distribution_name` is one of the distribution names in [scipy.stats](http://docs.scipy.org/doc/scipy/reference/stats.html).
 

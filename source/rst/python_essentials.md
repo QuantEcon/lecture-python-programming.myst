@@ -156,6 +156,9 @@ x
 But tuples are not
 
 ```{code-cell} python3
+---
+tags: [raises-exception]
+---
 x = (1, 2)
 x[0] = 10
 ```
@@ -317,7 +320,7 @@ Note that if `newfile.txt` is not in the present working directory then this cal
 
 In this case, you can shift the file to the pwd or specify the [full path](https://en.wikipedia.org/wiki/Path_%28computing%29) to the file
 
-```{code-cell} python3
+```{code-block} python3
 f = open('insert_full_path_to_file/newfile.txt', 'r')
 ```
 
@@ -627,7 +630,7 @@ After running this code, the docstring is available
 f?
 ```
 
-```{code-cell} ipython
+```{code-block} ipython
 Type:       function
 String Form:<function f at 0x2223320>
 File:       /home/john/temp/temp.py
@@ -639,7 +642,7 @@ Docstring:  This function squares its argument
 f??
 ```
 
-```{code-cell} ipython
+```{code-block} ipython
 Type:       function
 String Form:<function f at 0x2223320>
 File:       /home/john/temp/temp.py
@@ -701,7 +704,7 @@ single: Python; keyword arguments
 
 In a {ref}`previous lecture <python_by_example>`, you came across the statement
 
-```{code-cell} python3
+```{code-block} python3
 plt.plot(x, 'b-', label="white noise")
 ```
 

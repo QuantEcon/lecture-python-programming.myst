@@ -103,6 +103,9 @@ On the other hand, between two numbers it means ordinary addition
 Consider the following expression
 
 ```{code-cell} python3
+---
+tags: [raises-exception]
+---
 '300' + 400
 ```
 
