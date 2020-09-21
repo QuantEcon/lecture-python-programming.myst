@@ -1658,7 +1658,7 @@ for date in dates:
 
 Suppose we have a text file `numbers.txt` containing the following lines
 
-```{code-cell} none
+```{code-block} none
 prices
 3
 8
