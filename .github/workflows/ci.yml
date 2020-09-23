@@ -1,4 +1,4 @@
-name: Build Project [myst_parser]
+name: Build Project [myst]
 on: [push]
 jobs:
   tests:
