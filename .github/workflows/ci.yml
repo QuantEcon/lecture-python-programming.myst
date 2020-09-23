@@ -24,7 +24,9 @@ jobs:
         shell: bash -l {0}
         run: |
           git clone https://github.com/QuantEcon/quantecon-book-theme
-          cd quantecon-book-theme && python setup.py install
+          cd quantecon-book-theme
+          git checkout qe-theme
+          python setup.py install
       - name: Install Dependencies
         shell: bash -l {0}
         run: |
