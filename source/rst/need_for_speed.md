@@ -50,6 +50,9 @@ addressing the following questions:
 In addition to what's in Anaconda, this lecture will need
 
 ```{code-cell} ipython
+---
+tags: [hide-output]
+---
 !conda install -y quantecon
 ```
 
