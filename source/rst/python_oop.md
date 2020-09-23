@@ -1,3 +1,14 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -49,7 +60,7 @@ It takes a little while to get used to the syntax so we'll provide plenty of exa
 
 We'll use the following imports:
 
-```{code-block} ipython
+```{code-cell} ipython
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
@@ -76,7 +87,7 @@ As discussed an {doc}`earlier lecture <oop_intro>`, in the OOP paradigm, data an
 
 An example is a Python list, which not only stores data but also knows how to sort itself, etc.
 
-```{code-block} python3
+```{code-cell} python3
 x = [1, 5, 4]
 x.sort()
 x
@@ -107,7 +118,7 @@ Attributes are accessed via "dotted attribute notation"
 
 In the example
 
-```{code-block} python3
+```{code-cell} python3
 x = [1, 5, 4]
 x.sort()
 x.__class__
@@ -147,7 +158,7 @@ Let's build some simple classes to start off.
 
 Before we do so, in order to indicate some of the power of Classes, we'll define two functions that we'll call `earn` and `spend`.
 
-```{code-block} python3
+```{code-cell} python3
 def earn(w,y):
     "Consumer with inital wealth w earns y"
     return w+y
@@ -169,7 +180,7 @@ We can use these two functions to keep track of a consumer's wealth as she earns
 
 For example
 
-```{code-block} python3
+```{code-cell} python3
 w0=100
 w1=earn(w0,10)
 w2=spend(w1,20)
@@ -202,7 +213,7 @@ Admittedly a little contrived, this example of a class helps us internalize some
 
 Here how we set up our Consumer class.
 
-```{code-block} python3
+```{code-cell} python3
 class Consumer:
 
     def __init__(self, w):
@@ -246,37 +257,37 @@ Here's an example in which we use the class `Consumer` to crdate an instance of 
 
 After we create consumer $c1$ and endow it with initial wealth $10$, we'll apply the `spend` method.
 
-```{code-block} python3
+```{code-cell} python3
 c1 = Consumer(10)  # Create instance with initial wealth 10
 c1.spend(5)
 c1.wealth
 ```
 
-```{code-block} python3
+```{code-cell} python3
 c1.earn(15)
 c1.spend(100)
 ```
 
 We can of course create multiple instances, i.e., multiple consumers,  each with its own name and  data
 
-```{code-block} python3
+```{code-cell} python3
 c1 = Consumer(10)
 c2 = Consumer(12)
 c2.spend(4)
 c2.wealth
 ```
 
-```{code-block} python3
+```{code-cell} python3
 c1.wealth
 ```
 
 Each instance, i.e., each consumer,  stores its data in a separate namespace dictionary
 
-```{code-block} python3
+```{code-cell} python3
 c1.__dict__
 ```
 
-```{code-block} python3
+```{code-cell} python3
 c2.__dict__
 ```
 
@@ -308,7 +319,7 @@ In this section, we look at some more formal details related to classes and `sel
 Methods actually live inside a class object formed when the interpreter reads
 the class definition
 
-```{code-block} python3
+```{code-cell} python3
 print(Consumer.__dict__)  # Show __dict__ attribute of class object
 ```
 
@@ -316,7 +327,7 @@ Note how the three methods `__init__`, `earn` and `spend` are stored in the clas
 
 Consider the following code
 
-```{code-block} python3
+```{code-cell} python3
 c1 = Consumer(10)
 c1.earn(10)
 c1.wealth
@@ -333,7 +344,7 @@ In the function call `Consumer.earn(c1, 10)` note that `c1` is the first argumen
 
 Recall that in the definition of the `earn` method, `self` is the first parameter
 
-```{code-block} python3
+```{code-cell} python3
 def earn(self, y):
      "The consumer earns y dollars"
      self.wealth += y
@@ -381,7 +392,7 @@ Some points of interest in the code are
 
 The methods `steady_state` and `generate_sequence` are fairly self-explanatory
 
-```{code-block} python3
+```{code-cell} python3
 class Solow:
     r"""
     Implements the Solow growth model with the update rule
@@ -430,7 +441,7 @@ Here's a little program that uses the class to compute  time series from two dif
 
 The common steady state is also plotted for comparison
 
-```{code-block} ipython
+```{code-cell} ipython
 s1 = Solow()
 s2 = Solow(k=8.0)
 
@@ -471,7 +482,7 @@ Here's our implementation.
 
 (It uses a function from SciPy called quad for numerical integration---a topic we will say more about later on.)
 
-```{code-block} python3
+```{code-cell} python3
 from scipy.integrate import quad
 
 class Market:
@@ -527,20 +538,20 @@ class Market:
 
 Here's a sample of usage
 
-```{code-block} python3
+```{code-cell} python3
 baseline_params = 15, .5, -2, .5, 3
 m = Market(*baseline_params)
 print("equilibrium price = ", m.price())
 ```
 
-```{code-block} python3
+```{code-cell} python3
 print("consumer surplus = ", m.consumer_surp())
 ```
 
 Here's a short program that uses this class to plot an inverse demand curve together with inverse
 supply curves  with and without taxes
 
-```{code-block} python3
+```{code-cell} python3
 # Baseline ad, bd, az, bz, tax
 baseline_params = 15, .5, -2, .5, 3
 m = Market(*baseline_params)
@@ -567,7 +578,7 @@ The next program provides a function that
 * takes an instance of `Market` as a parameter
 * computes dead weight loss from the imposition of the tax
 
-```{code-block} python3
+```{code-cell} python3
 def deadw(m):
     "Computes deadweight loss for market m."
     # == Create analogous market with no tax == #
@@ -580,7 +591,7 @@ def deadw(m):
 
 Here's an example of usage
 
-```{code-block} python3
+```{code-cell} python3
 baseline_params = 15, .5, -2, .5, 3
 m = Market(*baseline_params)
 deadw(m)  # Show deadweight loss
@@ -604,7 +615,7 @@ Let's write a class for generating time series from this model.
 
 Here's one implementation
 
-```{code-block} python3
+```{code-cell} python3
 class Chaos:
   """
   Models the dynamical system :math:`x_{t+1} = r x_t (1 - x_t)`
@@ -630,14 +641,14 @@ class Chaos:
 
 Here's an example of usage
 
-```{code-block} python3
+```{code-cell} python3
 ch = Chaos(0.1, 4.0)     # x0 = 0.1 and r = 0.4
 ch.generate_sequence(5)  # First 5 iterates
 ```
 
 This piece of code plots a longer trajectory
 
-```{code-block} python3
+```{code-cell} python3
 ch = Chaos(0.1, 4.0)
 ts_length = 250
 
@@ -651,7 +662,7 @@ plt.show()
 
 The next piece of code provides a bifurcation diagram
 
-```{code-block} python3
+```{code-cell} python3
 fig, ax = plt.subplots()
 ch = Chaos(0.1, 4)
 r = 2.5
@@ -696,7 +707,7 @@ Python provides special methods that come in handy.
 
 For example, recall that lists and tuples have a notion of length and that this length can be queried via the `len` function
 
-```{code-block} python3
+```{code-cell} python3
 x = (10, 20)
 len(x)
 ```
@@ -704,7 +715,7 @@ len(x)
 If you want to provide a return value for the `len` function when applied to
 your user-defined object, use the `__len__` special method
 
-```{code-block} python3
+```{code-cell} python3
 class Foo:
 
     def __len__(self):
@@ -713,7 +724,7 @@ class Foo:
 
 Now we get
 
-```{code-block} python3
+```{code-cell} python3
 f = Foo()
 len(f)
 ```
@@ -722,7 +733,7 @@ A special method we will use regularly is the `__call__` method.
 
 This method can be used to make your instances callable, just like functions
 
-```{code-block} python3
+```{code-cell} python3
 class Foo:
 
     def __call__(self, x):
@@ -731,7 +742,7 @@ class Foo:
 
 After running we get
 
-```{code-block} python3
+```{code-cell} python3
 f = Foo()
 f(8)  # Exactly equivalent to f.__call__(8)
 ```
@@ -804,7 +815,7 @@ Avoid using any `import` statements.
 
 ### Exercise 1
 
-```{code-block} python3
+```{code-cell} python3
 class ECDF:
 
     def __init__(self, observations):
@@ -818,7 +829,7 @@ class ECDF:
         return counter / len(self.observations)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 # == test == #
 
 from random import uniform
@@ -835,7 +846,7 @@ print(F(0.5))
 
 ### Exercise 2
 
-```{code-block} python3
+```{code-cell} python3
 class Polynomial:
 
     def __init__(self, coefficients):

@@ -1,3 +1,14 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -38,7 +49,7 @@ Here we'll focus on Jupyter and leave you to explore other settings.
 
 We'll need the following imports
 
-```{code-block} ipython
+```{code-cell} ipython
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
@@ -54,7 +65,10 @@ single: Debugging
 
 Let's consider a simple (and rather contrived) example
 
-```{code-block} ipython
+```{code-cell} ipython
+---
+tags: [raises-exception]
+---
 def plot_log():
     fig, ax = plt.subplots(2, 1)
     x = np.linspace(1, 2, 10)
@@ -78,7 +92,10 @@ But let's pretend that we don't understand this for the moment.
 
 We might suspect there's something wrong with `ax` but when we try to investigate this object, we get the following exception:
 
-```{code-block} python3
+```{code-cell} python3
+---
+tags: [raises-exception]
+---
 ax
 ```
 
@@ -89,7 +106,10 @@ Let's try doing it a different way.
 
 We run the first cell block again, generating the same error
 
-```{code-block} python3
+```{code-cell} python3
+---
+tags: [raises-exception]
+---
 def plot_log():
     fig, ax = plt.subplots(2, 1)
     x = np.linspace(1, 2, 10)
@@ -161,7 +181,10 @@ The preceding approach is handy but sometimes insufficient.
 
 Consider the following modified version of our function above
 
-```{code-block} python3
+```{code-cell} python3
+---
+tags: [raises-exception]
+---
 def plot_log():
     fig, ax = plt.subplots()
     x = np.logspace(1, 2, 10)

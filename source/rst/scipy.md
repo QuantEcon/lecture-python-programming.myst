@@ -1,3 +1,14 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -44,7 +55,7 @@ SciPy is a package that contains various tools that are built on top of NumPy, u
 
 In fact, when we import SciPy we also get NumPy, as can be seen from this excerpt the SciPy initialization file:
 
-```{code-block} python3
+```{code-cell} python3
 # Import numpy symbols to scipy namespace
 from numpy import *
 from numpy.random import rand, randn
@@ -54,7 +65,7 @@ from numpy.lib.scimath import *
 
 However, it's more common and better practice to use NumPy functionality explicitly
 
-```{code-block} python3
+```{code-cell} python3
 import numpy as np
 
 a = np.identity(3)
@@ -82,7 +93,7 @@ The `scipy.stats` subpackage supplies
 
 Recall that `numpy.random` provides functions for generating random variables
 
-```{code-block} python3
+```{code-cell} python3
 np.random.beta(5, 5, size=3)
 ```
 
@@ -102,7 +113,7 @@ For this, we can use `scipy.stats`, which provides all of this functionality as 
 
 Here's an example of usage
 
-```{code-block} ipython
+```{code-cell} ipython
 from scipy.stats import beta
 import matplotlib.pyplot as plt
 %matplotlib inline
@@ -119,15 +130,15 @@ plt.show()
 
 The object `q` that represents the distribution has additional useful methods, including
 
-```{code-block} python3
+```{code-cell} python3
 q.cdf(0.4)      # Cumulative distribution function
 ```
 
-```{code-block} python3
+```{code-cell} python3
 q.ppf(0.8)      # Quantile (inverse cdf) function
 ```
 
-```{code-block} python3
+```{code-cell} python3
 q.mean()
 ```
 
@@ -146,7 +157,7 @@ There is an alternative way of calling the methods described above.
 
 For example, the code that generates the figure above can be replaced by
 
-```{code-block} python3
+```{code-cell} python3
 obs = beta.rvs(5, 5, size=2000)
 grid = np.linspace(0.01, 0.99, 100)
 
@@ -162,7 +173,7 @@ There are a variety of statistical functions in `scipy.stats`.
 
 For example, `scipy.stats.linregress` implements simple linear regression
 
-```{code-block} python3
+```{code-cell} python3
 from scipy.stats import linregress
 
 x = np.random.randn(200)
@@ -187,7 +198,7 @@ f(x) = \sin(4 (x - 1/4)) + x + x^{20} - 1
 
 with $x \in [0,1]$ we get
 
-```{code-block} python3
+```{code-cell} python3
 f = lambda x: np.sin(4 * (x - 1/4)) + x + x**20 - 1
 x = np.linspace(0, 1, 100)
 
@@ -227,7 +238,7 @@ Here's a simplistic implementation of the algorithm in Python.
 
 It works for all sufficiently well behaved increasing continuous functions with $f(a) < 0 < f(b)$
 
-```{code-block} python3
+```{code-cell} python3
 def bisect(f, a, b, tol=10e-5):
     """
     Implements the bisection root finding algorithm, assuming that f is a
@@ -247,7 +258,7 @@ def bisect(f, a, b, tol=10e-5):
 
 Let's test it using the function $f$ defined in {eq}`root_f`
 
-```{code-block} python3
+```{code-cell} python3
 bisect(f, 0, 1)
 ```
 
@@ -255,7 +266,7 @@ Not surprisingly, SciPy provides its own bisection function.
 
 Let's test it using the same function $f$ defined in {eq}`root_f`
 
-```{code-block} python3
+```{code-cell} python3
 from scipy.optimize import bisect
 
 bisect(f, 0, 1)
@@ -277,7 +288,7 @@ Let's investigate this using the same function $f$ defined above.
 
 With a suitable initial condition for the search we get convergence:
 
-```{code-block} python3
+```{code-cell} python3
 from scipy.optimize import newton
 
 newton(f, 0.2)   # Start the search at initial condition x = 0.2
@@ -285,7 +296,7 @@ newton(f, 0.2)   # Start the search at initial condition x = 0.2
 
 But other initial conditions lead to failure of convergence:
 
-```{code-block} python3
+```{code-cell} python3
 newton(f, 0.7)   # Start the search at x = 0.7 instead
 ```
 
@@ -306,7 +317,7 @@ These methods typically combine a fast method with a robust method in the follow
 
 In `scipy.optimize`, the function `brentq` is such a hybrid method and a good default
 
-```{code-block} python3
+```{code-cell} python3
 from scipy.optimize import brentq
 
 brentq(f, 0, 1)
@@ -314,11 +325,11 @@ brentq(f, 0, 1)
 
 Here the correct solution is found and the speed is better than bisection:
 
-```{code-block} ipython
+```{code-cell} ipython
 %timeit brentq(f, 0, 1)
 ```
 
-```{code-block} ipython
+```{code-cell} ipython
 %timeit bisect(f, 0, 1)
 ```
 
@@ -342,7 +353,7 @@ single: SciPy; Fixed Points
 
 SciPy has a function for finding (scalar) fixed points too
 
-```{code-block} python3
+```{code-cell} python3
 from scipy.optimize import fixed_point
 
 fixed_point(lambda x: x**2, 10.0)  # 10.0 is an initial guess
@@ -370,7 +381,7 @@ Unless you have some prior information you can exploit, it's usually best to use
 
 For constrained, univariate (i.e., scalar) minimization, a good hybrid option is `fminbound`
 
-```{code-block} python3
+```{code-cell} python3
 from scipy.optimize import fminbound
 
 fminbound(lambda x: x**2, -1, 2)  # Search in [-1, 2]
@@ -402,7 +413,7 @@ In SciPy, the relevant module for numerical integration is `scipy.integrate`.
 
 A good default for univariate integration is `quad`
 
-```{code-block} python3
+```{code-cell} python3
 from scipy.integrate import quad
 
 integral, error = quad(lambda x: x**2, 0, 1)
@@ -449,7 +460,7 @@ Test it on the function {eq}`root_f`.
 
 Here's a reasonable solution:
 
-```{code-block} python3
+```{code-cell} python3
 def bisect(f, a, b, tol=10e-5):
     """
     Implements the bisection root-finding algorithm, assuming that f is a
@@ -469,7 +480,7 @@ def bisect(f, a, b, tol=10e-5):
 
 We can test it as follows
 
-```{code-block} python3
+```{code-cell} python3
 f = lambda x: np.sin(4 * (x - 0.25)) + x + x**20 - 1
 bisect(f, 0, 1)
 ```

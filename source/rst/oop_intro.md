@@ -1,3 +1,14 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -65,12 +76,12 @@ Python provides for different types of objects, to accommodate different categor
 
 For example
 
-```{code-block} python3
+```{code-cell} python3
 s = 'This is a string'
 type(s)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 x = 42   # Now let's create an integer
 type(x)
 ```
@@ -79,19 +90,22 @@ The type of an object matters for many expressions.
 
 For example, the addition operator between two strings means concatenation
 
-```{code-block} python3
+```{code-cell} python3
 '300' + 'cc'
 ```
 
 On the other hand, between two numbers it means ordinary addition
 
-```{code-block} python3
+```{code-cell} python3
 300 + 400
 ```
 
 Consider the following expression
 
-```{code-block} python3
+```{code-cell} python3
+---
+tags: [raises-exception]
+---
 '300' + 400
 ```
 
@@ -109,7 +123,7 @@ To avoid the error, you need to clarify by changing the relevant type.
 
 For example,
 
-```{code-block} python3
+```{code-cell} python3
 int('300') + 400   # To add as numbers, change the string to an integer
 ```
 
@@ -123,13 +137,13 @@ In Python, each object has a unique identifier, which helps Python (and us) keep
 
 The identity of an object can be obtained via the `id()` function
 
-```{code-block} python3
+```{code-cell} python3
 y = 2.5
 z = 2.5
 id(y)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 id(z)
 ```
 
@@ -148,16 +162,16 @@ the data `42`.
 
 In fact, it contains more, as the following example shows
 
-```{code-block} python3
+```{code-cell} python3
 x = 42
 x
 ```
 
-```{code-block} python3
+```{code-cell} python3
 x.imag
 ```
 
-```{code-block} python3
+```{code-cell} python3
 x.__class__
 ```
 
@@ -183,29 +197,29 @@ Methods are *functions that are bundled with objects*.
 
 Formally, methods are attributes of objects that are callable (i.e., can be called as functions)
 
-```{code-block} python3
+```{code-cell} python3
 x = ['foo', 'bar']
 callable(x.append)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 callable(x.__doc__)
 ```
 
 Methods typically act on the data contained in the object they belong to, or combine that data with other data
 
-```{code-block} python3
+```{code-cell} python3
 x = ['a', 'b']
 x.append('c')
 s = 'This is a string'
 s.upper()
 ```
 
-```{code-block} python3
+```{code-cell} python3
 s.lower()
 ```
 
-```{code-block} python3
+```{code-cell} python3
 s.replace('This', 'That')
 ```
 
@@ -213,7 +227,7 @@ A great deal of Python functionality is organized around method calls.
 
 For example, consider the following piece of code
 
-```{code-block} python3
+```{code-cell} python3
 x = ['a', 'b']
 x[0] = 'aa'  # Item assignment using square bracket notation
 x
@@ -223,7 +237,7 @@ It doesn't look like there are any methods used here, but in fact the square bra
 
 What actually happens is that Python calls the `__setitem__` method, as follows
 
-```{code-block} python3
+```{code-cell} python3
 x = ['a', 'b']
 x.__setitem__(0, 'aa')  # Equivalent to x[0] = 'aa'
 x
@@ -248,20 +262,20 @@ When Python reads a function definition, it creates a **function object** and st
 
 The following code illustrates
 
-```{code-block} python3
+```{code-cell} python3
 def f(x): return x**2
 f
 ```
 
-```{code-block} python3
+```{code-cell} python3
 type(f)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 id(f)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 f.__name__
 ```
 
@@ -271,7 +285,7 @@ It also has methods.
 
 One example is the `__call__` method, which just evaluates the function
 
-```{code-block} python3
+```{code-cell} python3
 f.__call__(3)
 ```
 
@@ -279,7 +293,7 @@ Another is the `__dir__` method, which returns a list of attributes.
 
 Modules loaded into memory are also treated as objects
 
-```{code-block} python3
+```{code-cell} python3
 import math
 
 id(math)

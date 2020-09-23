@@ -1,3 +1,14 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -38,7 +49,10 @@ addressing the following questions:
 
 In addition to what's in Anaconda, this lecture will need
 
-```{code-block} ipython
+```{code-cell} ipython
+---
+tags: [hide-output]
+---
 !conda install -y quantecon
 ```
 
@@ -143,7 +157,7 @@ single: Dynamic Typing
 
 Consider this Python operation
 
-```{code-block} python3
+```{code-cell} python3
 a, b = 10, 10
 a + b
 ```
@@ -155,14 +169,14 @@ operation to invoke.
 
 If `a` and `b` are strings, then `a + b` requires string concatenation
 
-```{code-block} python3
+```{code-cell} python3
 a, b = 'foo', 'bar'
 a + b
 ```
 
 If `a` and `b` are lists, then `a + b` requires list concatenation
 
-```{code-block} python3
+```{code-cell} python3
 a, b = ['foo'], ['bar']
 a + b
 ```
@@ -275,7 +289,7 @@ single: Vectorization; Operations on Arrays
 
 First, let's run some imports
 
-```{code-block} python3
+```{code-cell} python3
 import random
 import numpy as np
 import quantecon as qe
@@ -284,11 +298,11 @@ import quantecon as qe
 Next let's try some non-vectorized code, which uses a native Python loop to generate,
 square and then sum a large number of random variables:
 
-```{code-block} python3
+```{code-cell} python3
 n = 1_000_000
 ```
 
-```{code-block} python3
+```{code-cell} python3
 %%time
 
 y = 0      # Will accumulate and store sum
@@ -299,7 +313,7 @@ for i in range(n):
 
 The following vectorized code achieves the same thing.
 
-```{code-block} ipython
+```{code-cell} ipython
 %%time
 
 x = np.random.uniform(0, 1, n)
@@ -341,11 +355,11 @@ This means that they
 
 For example, `np.cos` is a ufunc:
 
-```{code-block} python3
+```{code-cell} python3
 np.cos(1.0)
 ```
 
-```{code-block} python3
+```{code-cell} python3
 np.cos(np.linspace(0, 1, 3))
 ```
 
@@ -364,7 +378,7 @@ $$
 
 Here's a plot of $f$
 
-```{code-block} ipython
+```{code-cell} ipython
 import matplotlib.pyplot as plt
 %matplotlib inline
 from mpl_toolkits.mplot3d.axes3d import Axes3D
@@ -399,13 +413,13 @@ To maximize it, we're going to use a naive grid search:
 
 The grid will be
 
-```{code-block} python3
+```{code-cell} python3
 grid = np.linspace(-3, 3, 1000)
 ```
 
 Here's a non-vectorized version that uses Python loops.
 
-```{code-block} python3
+```{code-cell} python3
 %%time
 
 m = -np.inf
@@ -419,7 +433,7 @@ for x in grid:
 
 And here's a vectorized version
 
-```{code-block} python3
+```{code-cell} python3
 %%time
 
 x, y = np.meshgrid(grid, grid)

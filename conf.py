@@ -40,7 +40,7 @@ extensions = [
 	'IPython.sphinxext.ipython_console_highlighting',
     # Custom Sphinx Extensions
     'sphinxcontrib.jupyter', 
-    'myst_parser',
+    'myst_nb',
 ]
 
 # Retired Extensions but may be useful in Future
@@ -483,3 +483,4 @@ jupyter_pdf_book_index = "index_toc"
 
 # Set Destination path
 tomyst_static_file_path = ['source/rst/_static']
+tomyst_parser = "myst_nb"
