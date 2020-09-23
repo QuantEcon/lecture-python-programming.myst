@@ -356,25 +356,33 @@ One library we'll be using is [QuantEcon.py](http://quantecon.org/quantecon-py).
 You can install [QuantEcon.py](http://quantecon.org/quantecon-py) by
 starting Jupyter and typing
 
-`> !conda install quantecon`
+```{code-block} ipython3
+!conda install quantecon
+```
 
 into a cell.
 
 Alternatively, you can type the following into a terminal
 
-`> conda install quantecon`
+```{code-block} bash
+conda install quantecon
+```
 
 More instructions can be found on the [library page](http://quantecon.org/quantecon-py).
 
 To upgrade to the latest version, which you should do regularly, use
 
-`> conda upgrade quantecon`
+```{code-block} bash
+conda upgrade quantecon
+```
 
 Another library we will be using is [interpolation.py](https://github.com/EconForge/interpolation.py).
 
 This can be installed by typing in Jupyter
 
-`> !conda install -c conda-forge interpolation`
+```{code-block} ipython3
+!conda install -c conda-forge interpolation
+```
 
 ## Working with Python Files
 
@@ -501,7 +509,7 @@ As the 1st task, try
 
 For example, if you've installed the command line version, open up a terminal and enter.
 
-`> git clone https://github.com/QuantEcon/QuantEcon.py`> .
+> `git clone https://github.com/QuantEcon/QuantEcon.py`> .
 
 (This is just `git clone` in front of the URL for the repository)
 
