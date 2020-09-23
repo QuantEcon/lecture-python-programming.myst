@@ -375,15 +375,15 @@ linkcheck_timeout = 30
 # Conversion Mode Settings
 # If "all", convert codes and texts into notebook
 # If "code", convert codes only
-jupyter_conversion_mode = "all"
+# jupyter_conversion_mode = "all"
 
-jupyter_write_metadata = False
+# jupyter_write_metadata = False
 
 # Location for _static folder
-jupyter_static_file_path = ["source/_static", "_static"]
+# jupyter_static_file_path = ["source/_static", "_static"]
 
 # Configure Jupyter Kernels
-jupyter_kernels = {
+# jupyter_kernels = {
     "python3": {
         "kernelspec": {
             "display_name": "Python",
@@ -395,7 +395,7 @@ jupyter_kernels = {
 }
 
 # Configure jupyter headers
-jupyter_headers = {
+# jupyter_headers = {
     "python3": [
         # nbformat.v4.new_code_cell("%autosave 0")      #@mmcky please make this an option
         ],
@@ -404,83 +404,84 @@ jupyter_headers = {
 }
 
 # Filename for the file containing the welcome block
-jupyter_welcome_block = ""
+# jupyter_welcome_block = ""
 
 #Adjust links to target html (rather than ipynb)
-jupyter_target_html = False
+# jupyter_target_html = False
 
 #path to download notebooks from 
-jupyter_download_nb_urlpath = None
+# jupyter_download_nb_urlpath = None
 
 #allow downloading of notebooks
-jupyter_download_nb = False
+# jupyter_download_nb = False
 
 #Use urlprefix images
-jupyter_download_nb_image_urlpath = None
+# jupyter_download_nb_image_urlpath = None
 
 #Allow ipython as a language synonym for blocks to be ipython highlighted
-jupyter_lang_synonyms = ["ipython", "ipython3"]
+# jupyter_lang_synonyms = ["ipython", "ipython3"]
 
 #Execute skip-test code blocks for rendering of website (this will need to be ignored in coverage testing)
-jupyter_ignore_skip_test = True
+# jupyter_ignore_skip_test = True
 
 #allow execution of notebooks
-jupyter_execute_notebooks = False
+# jupyter_execute_notebooks = False
 
 # Location of template folder for coverage reports
-jupyter_template_coverage_file_path = False
+# jupyter_template_coverage_file_path = False
 
 # generate html from IPYNB files
-jupyter_generate_html = False
+# jupyter_generate_html = False
 
 # html template specific to your website needs
-jupyter_html_template = ""
+# jupyter_html_template = ""
 
 # latex template specific to your website needs
-jupyter_latex_template = ""
+# jupyter_latex_template = ""
 
 #make website
-jupyter_make_site = False
+# jupyter_make_site = False
 
 #force markdown image inclusion
-jupyter_images_markdown = True
+# jupyter_images_markdown = True
 
 #This is set true by default to pass html to the notebooks
-jupyter_allow_html_only=True
+# jupyter_allow_html_only=True
 
 ## Theme specific variables
 # jupyter_theme_path = 'theme/minimal'    #Specified in Makefile
 # jupyter_template_path = 'theme/minimal/templates'   #Specified in Makefile
 
-jupyter_nextprev_ignore = ['404', "search", "status", "troubleshooting"]
+# jupyter_nextprev_ignore = ['404', "search", "status", "troubleshooting"]
 
 ### pdf options
-jupyter_pdf_logo = "_static/img/qe-menubar-logo.png"
+# jupyter_pdf_logo = "_static/img/qe-menubar-logo.png"
 
-jupyter_bib_file = "_static/quant-econ"
+# jupyter_bib_file = "_static/quant-econ"
 
-jupyter_pdf_author = "Thomas J. Sargent and John Stachurski"
+# jupyter_pdf_author = "Thomas J. Sargent and John Stachurski"
 
 # Exclude Document Patterns for PDF Construction
-jupyter_pdf_excludepatterns = ["404", "index", "references"]
+# jupyter_pdf_excludepatterns = ["404", "index", "references"]
 
 # Set urlpath for html links in documents
-jupyter_pdf_urlpath = "https://python-programming.quantecon.org/"
+# jupyter_pdf_urlpath = "https://python-programming.quantecon.org/"
 
 # make book
-jupyter_pdf_book = False
+# jupyter_pdf_book = False
 
 # book title
-jupyter_pdf_book_title = "Python Programming for Economics and Finance"
+# jupyter_pdf_book_title = "Python Programming for Economics and Finance"
 
 # pdf book name
-jupyter_pdf_book_name = "python_programming_for_economics_finance"
+# jupyter_pdf_book_name = "python_programming_for_economics_finance"
 
 # pdf toc file
-jupyter_pdf_book_index = "index_toc"
+# jupyter_pdf_book_index = "index_toc"
 
 # tomyst Config
 
 # Set Destination path
 tomyst_static_file_path = ['source/rst/_static']
 tomyst_parser = "myst_nb"
+tomyst_comment_conf = ["^jupyter_"]
