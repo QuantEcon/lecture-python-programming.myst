@@ -39,7 +39,6 @@ extensions = [
 	'sphinxcontrib.bibtex', 
 	'IPython.sphinxext.ipython_console_highlighting',
     # Custom Sphinx Extensions
-    'sphinxcontrib.jupyter', 
     'myst_nb',
 ]
 
