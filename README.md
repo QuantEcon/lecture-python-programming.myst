@@ -4,6 +4,8 @@ Migration to Myst (Source files for https://python-programming.quantecon.org)
 
 Preview builds are available on Pull Requests
 
+The build of the [master branch is available here](https://epic-agnesi-957267.netlify.app)
+
 **WARNING:** These are NOT the source files for the live site. Please do not edit for that purpose.
 
 These are files automatically converted from [lecture-python-programming](https://github.com/QuantEcon/lecture-python-programming) using [sphinxcontrib-tomyst](https://github.com/mmcky/sphinxcontrib-tomyst)for the QuantEcon migration project.
