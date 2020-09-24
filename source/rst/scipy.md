@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 ---
 
+(sp)=
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -238,6 +239,7 @@ Here's a simplistic implementation of the algorithm in Python.
 
 It works for all sufficiently well behaved increasing continuous functions with $f(a) < 0 < f(b)$
 
+(bisect_func)=
 ```{code-cell} python3
 def bisect(f, a, b, tol=10e-5):
     """
@@ -446,6 +448,7 @@ We leave you to investigate the [set of available routines](http://docs.scipy.or
 
 ## Exercises
 
+(sp_ex1)=
 ### Exercise 1
 
 Previously we discussed the concept of {ref}`recursive function calls <recursive_functions>`.

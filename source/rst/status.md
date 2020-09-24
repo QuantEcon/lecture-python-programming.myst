@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 ---
 
+(status)=
 # Lecture Status
 
 ```{raw} html

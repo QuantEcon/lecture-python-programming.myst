@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 ---
 
+(speed)=
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -75,6 +76,7 @@ Numba will be a key part of our lectures --- especially those lectures involving
 
 This lecture introduces the main ideas.
 
+(numba_link)=
 ## Compiling Functions
 
 ```{index}
@@ -84,6 +86,7 @@ single: Python; Numba
 As stated above, Numba's primary use is compiling functions to fast native
 machine code during runtime.
 
+(quad_map_eg)=
 ### An Example
 
 Let's consider a problem that is difficult to vectorize: generating the trajectory of a difference equation given an initial condition.
@@ -153,6 +156,7 @@ This is already a massive speed gain.
 
 In fact, the next time and all subsequent times it runs even faster as the function has been compiled and is in memory:
 
+(qm_numba_result)=
 ```{code-cell} python3
 qe.tic()
 qm_numba(0.1, int(n))
@@ -473,6 +477,7 @@ When Numba compiles machine code for functions, it treats global variables as co
 
 ## Exercises
 
+(speed_ex1)=
 ### Exercise 1
 
 {ref}`Previously <pbe_ex3>` we considered how to approximate $\pi$ by
@@ -482,6 +487,7 @@ Use the same idea here, but make the code efficient using Numba.
 
 Compare speed with and without Numba when the sample size is large.
 
+(speed_ex2)=
 ### Exercise 2
 
 In the [Introduction to Quantitative Economics with Python](https://python-intro.quantecon.org) lecture series you can

@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 ---
 
+(oop_intro)=
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -66,6 +67,7 @@ In Python, an *object* is a collection of data and instructions held in computer
 
 These concepts are defined and discussed sequentially below.
 
+(type)=
 ### Type
 
 ```{index}
@@ -127,6 +129,7 @@ For example,
 int('300') + 400   # To add as numbers, change the string to an integer
 ```
 
+(identity)=
 ### Identity
 
 ```{index}
@@ -187,6 +190,7 @@ They also have attributes that act like functions, called *methods*.
 
 These attributes are important, so let's discuss them in-depth.
 
+(methods)=
 ### Methods
 
 ```{index}

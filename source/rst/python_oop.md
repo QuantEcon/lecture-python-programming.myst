@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 ---
 
+(python_oop)=
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -128,6 +129,7 @@ x.__class__
 * `x.sort()` and `x.__class__` are two attributes of `x`.
 * `dir(x)` can be used to view all the attributes of `x`.
 
+(why_oop)=
 ### Why is OOP Useful?
 
 OOP is useful for the same reason that abstraction is useful: for recognizing and exploiting the common structure.
@@ -156,6 +158,7 @@ single: Object-Oriented Programming; Classes
 
 Let's build some simple classes to start off.
 
+(oop_consumer_class)=
 Before we do so, in order to indicate some of the power of Classes, we'll define two functions that we'll call `earn` and `spend`.
 
 ```{code-cell} python3
@@ -354,6 +357,7 @@ The end result is that `self` is bound to the instance `c1` inside the function 
 
 That's why the statement `self.wealth += y` inside `earn` ends up modifying `c1.wealth`.
 
+(oop_solow_growth)=
 ### Example: The Solow Growth Model
 
 ```{index}
@@ -729,6 +733,7 @@ f = Foo()
 len(f)
 ```
 
+(call_method)=
 A special method we will use regularly is the `__call__` method.
 
 This method can be used to make your instances callable, just like functions
@@ -751,6 +756,7 @@ Exercise 1 provides a more useful example.
 
 ## Exercises
 
+(oop_ex1)=
 ### Exercise 1
 
 The [empirical cumulative distribution function (ecdf)](https://en.wikipedia.org/wiki/Empirical_distribution_function) corresponding to a sample $\{X_i\}_{i=1}^n$ is defined as
@@ -789,6 +795,7 @@ F(0.5)
 
 Aim for clarity, not efficiency.
 
+(oop_ex2)=
 ### Exercise 2
 
 In an {ref}`earlier exercise <pyess_ex2>`, you wrote a function for evaluating polynomials.

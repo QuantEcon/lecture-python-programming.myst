@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 ---
 
+(learning_python)=
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -21,7 +22,9 @@ kernelspec:
 
 Next we cover the third party libraries most useful for scientific work in Python
 
+```{only} html
 ## Lectures
+```
 
 ```{toctree}
 :maxdepth: 2

@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 ---
 
+(index)=
 # Python Programming for Economics and Finance
 
 ```{toctree}

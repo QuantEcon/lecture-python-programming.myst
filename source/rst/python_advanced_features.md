@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 ---
 
+(python_advanced_features)=
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -289,6 +290,7 @@ tags: [raises-exception]
 max(y)
 ```
 
+(name_res)=
 ## Names and Name Resolution
 
 ### Variable Names in Python
@@ -716,6 +718,7 @@ Next `g` is called via `y = g(10)`, leading to the following sequence of actions
 
 Note that the global `a` was not affected by the local `a`.
 
+(mutable_vs_immutable)=
 ### Mutable Versus Immutable Parameters
 
 This is a good time to say a little more about mutable vs immutable objects.
@@ -1178,6 +1181,7 @@ aware that the function is modified.
 
 In the opinion of many people, this makes the decorator syntax a significant improvement to the language.
 
+(descriptors)=
 ### Descriptors
 
 ```{index}
@@ -1338,6 +1342,7 @@ We won't go through all the details here.
 
 For further information you can refer to the [descriptor documentation](https://docs.python.org/3/howto/descriptor.html).
 
+(paf_generators)=
 ## Generators
 
 ```{index}
@@ -1610,6 +1615,7 @@ In summary, iterables
 * avoid the need to create big lists/tuples, and
 * provide a uniform interface to iteration that can be used transparently in `for` loops
 
+(recursive_functions)=
 ## Recursive Function Calls
 
 ```{index}

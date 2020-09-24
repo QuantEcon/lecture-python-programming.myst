@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 ---
 
+(speed)=
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -340,6 +341,7 @@ It is also surprisingly flexible, in the sense that many operations can be vecto
 
 The next section illustrates this point.
 
+(ufuncs)=
 ### Universal Functions
 
 ```{index}
@@ -446,6 +448,7 @@ As you can see, the second version is **much** faster.
 
 (We'll make it even faster again later on, using more scientific programming tricks.)
 
+(numba-p_c_vectorization)=
 ## Beyond Vectorization
 
 At its best, vectorization yields fast, simple code.
