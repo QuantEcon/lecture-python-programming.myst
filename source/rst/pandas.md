@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 ---
 
+(pd)=
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -56,7 +57,7 @@ Just as [NumPy](http://www.numpy.org/) provides the basic array data type plus c
     * reading in data
     * adjusting indices
     * working with dates and time series
-    * sorting, grouping, re-ordering and general data munging 
+    * sorting, grouping, re-ordering and general data munging [^mung]
     * dealing with missing values, etc., etc.
 
 More sophisticated statistical functionality is left to other packages, such
@@ -154,11 +155,15 @@ In essence, a `DataFrame` in pandas is analogous to a (highly optimized) Excel s
 
 Thus, it is a powerful tool for representing and analyzing data that are naturally organized  into rows and columns, often with  descriptive indexes for individual rows and individual columns.
 
+```{only} html
 Let's look at an example that reads data from the CSV file `pandas/data/test_pwt.csv` that can be downloaded
 <a href=_static/lecture_specific/pandas/data/test_pwt.csv download>here</a>.
+```
 
+```{only} latex
 Let's look at an example that reads data from the CSV file `pandas/data/test_pwt.csv` and can be downloaded
 [here](https://lectures.quantecon.org/_downloads/pandas/data/test_pwt.csv).
+```
 
 Here's the content of `test_pwt.csv`
 
@@ -419,6 +424,7 @@ The [documentation](https://pandas-datareader.readthedocs.io/en/latest/index.htm
 
 ## Exercises
 
+(pd_ex1)=
 ### Exercise 1
 
 With these imports:
@@ -474,6 +480,7 @@ Complete the program to plot the result as a bar graph like this one:
 :scale: 50
 ```
 
+(pd_ex2)=
 ### Exercise 2
 
 Using the method `read_data` introduced in {ref}`Exercise 1 <pd_ex1>`, write a program to obtain year-on-year percentage change for the following indices:
@@ -574,7 +581,5 @@ for iter_, ax in enumerate(axes.flatten()):            # Flatten 2-D array to 1-
 plt.tight_layout()
 ```
 
-**Footnotes**
-
-Wikipedia defines munging as cleaning data from one raw form into a structured, purged one.
+[^mung]: Wikipedia defines munging as cleaning data from one raw form into a structured, purged one.
 

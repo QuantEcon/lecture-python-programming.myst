@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 ---
 
+(functions)=
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -208,6 +209,7 @@ We will break this program into two parts:
 
 This is accomplished in the next program
 
+(funcloopprog)=
 ```{code-cell} python3
 def generate_data(n):
     ϵ_values = []
@@ -237,6 +239,7 @@ Let's make it slightly more useful by giving it the ability to return either sta
 
 This is achieved in the next piece of code.
 
+(funcloopprog2)=
 ```{code-cell} python3
 def generate_data(n, generator_type):
     ϵ_values = []
@@ -268,6 +271,7 @@ For example, we can get rid of the conditionals all together by just passing the
 
 To understand this, consider the following version.
 
+(test_program_6)=
 ```{code-cell} python3
 def generate_data(n, generator_type):
     ϵ_values = []

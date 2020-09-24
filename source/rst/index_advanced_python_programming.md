@@ -21,7 +21,9 @@ kernelspec:
 
 This part provides a look at more advanced concepts in Python programming
 
+```{only} html
 ## Lectures
+```
 
 ```{toctree}
 :maxdepth: 2

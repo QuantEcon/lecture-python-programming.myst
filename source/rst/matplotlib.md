@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 ---
 
+(matplotlib)=
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">

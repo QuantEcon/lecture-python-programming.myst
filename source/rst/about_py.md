@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 ---
 
+(about_py)=
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -192,6 +193,7 @@ The number you see here might vary slightly but it's essentially zero.
 
 The [SciPy](http://www.scipy.org) library is built on top of NumPy and provides additional functionality.
 
+(tuple_unpacking_example)=
 For example, let's calculate $\int_{-2}^2 \phi(z) dz$ where $\phi$ is the standard normal density.
 
 ```{code-cell} python3
@@ -480,6 +482,7 @@ single: parallel computing; pycuda
 
 * GPU programming through [PyCuda](https://wiki.tiker.net/PyCuda), [PyOpenCL](https://mathema.tician.de/software/pyopencl/), [Theano](http://deeplearning.net/software/theano/) or similar.
 
+(intfc)=
 ### Other Developments
 
 There are many other interesting developments with scientific programming in Python.

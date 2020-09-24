@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 ---
 
+(learning_python)=
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -21,7 +22,9 @@ kernelspec:
 
 This first part of the course provides a relatively fast-paced introduction to the Python programming language
 
+```{only} html
 ## Lectures
+```
 
 ```{toctree}
 :maxdepth: 2

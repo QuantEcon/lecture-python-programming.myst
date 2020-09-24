@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 ---
 
+(getting_started)=
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -63,6 +64,7 @@ Anaconda also comes with a great package management system to organize your code
 
 **All of what follows assumes that you adopt this recommendation!**
 
+(install_anaconda)=
 ### Installing Anaconda
 
 ```{index}
@@ -89,6 +91,7 @@ As a practice run, please execute the following
 
 For more information on conda,  type conda help in a terminal.
 
+(ipython_notebook)=
 ## Jupyter Notebooks
 
 ```{index}
@@ -226,6 +229,7 @@ Python supports [unicode](https://docs.python.org/3/howto/unicode.html), allowin
 
 In a code cell, try typing `\alpha` and then hitting the tab key on your keyboard.
 
+(a_test_program)=
 #### A Test Program
 
 Let's run a test program.
@@ -287,6 +291,7 @@ Jupyter offers up the two possible completions, `random` and `rank`.
 
 In this way, the Tab key helps remind you of what's available and also saves you typing.
 
+(gs_help)=
 #### On-Line Help
 
 ```{index}
@@ -354,6 +359,7 @@ to comments and votes by the community.
 
 ## Installing Libraries
 
+(gs_qe)=
 ```{index}
 single: QuantEcon
 ```
@@ -364,6 +370,7 @@ Other libraries can be installed with `pip` or `conda`.
 
 One library we'll be using is [QuantEcon.py](http://quantecon.org/quantecon-py).
 
+(gs_install_qe)=
 You can install [QuantEcon.py](http://quantecon.org/quantecon-py) by
 starting Jupyter and typing
 
@@ -484,6 +491,7 @@ You should now be able to run a standard Jupyter notebook session.
 
 This is an alternative way to start the notebook that can also be handy.
 
+(gs_ex2)=
 ### Exercise 2
 
 ```{index}

@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 ---
 
+(python_by_example)=
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -65,6 +66,7 @@ notebook if you run it on your own machine.
 
 ## Version 1
 
+(ourfirstprog)=
 Here are a few lines of code that perform the task we set
 
 ```{code-cell} ipython
@@ -78,6 +80,7 @@ plt.show()
 
 Let's break this program down and see how it works.
 
+(import)=
 ### Imports
 
 The first two lines of the program import functionality from external code
@@ -216,6 +219,7 @@ But they do help us illustrate some important Python syntax and semantics in a f
 
 Here's a version that illustrates `for` loops and Python lists.
 
+(firstloopprog)=
 ```{code-cell} python3
 ts_length = 100
 ϵ_values = []   # empty list
@@ -238,6 +242,7 @@ In brief,
 
 Let's study some parts of this program in more detail.
 
+(lists_ref)=
 ### Lists
 
 ```{index}
@@ -381,6 +386,7 @@ The `for` loop is the most common technique for iteration in Python.
 
 But, for the purpose of illustration, let's modify {ref}`the program above <firstloopprog>` to use a `while` loop instead.
 
+(whileloopprog)=
 ```{code-cell} python3
 ts_length = 100
 ϵ_values = []
@@ -525,6 +531,7 @@ to compute the absolute value.
 
 Replace this existing function with an if--else condition.
 
+(pbe_ex3)=
 ### Exercise 5
 
 Here's a harder exercise, that takes some thought and planning.

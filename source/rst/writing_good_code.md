@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 ---
 
+(writing_good_code)=
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">

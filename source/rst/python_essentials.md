@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 ---
 
+(python_done_right)=
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -324,6 +325,7 @@ In this case, you can shift the file to the pwd or specify the [full path](https
 f = open('insert_full_path_to_file/newfile.txt', 'r')
 ```
 
+(iterating_version_1)=
 ## Iterating
 
 ```{index}
@@ -342,6 +344,7 @@ Many Python objects are "iterable", in the sense that they can be looped over.
 
 To give an example, let's write the file us_cities.txt, which lists US cities and their population, to the present working directory.
 
+(us_cities_data)=
 ```{code-cell} ipython
 %%file us_cities.txt
 new york: 8244910
@@ -768,6 +771,7 @@ Solve the following exercises.
 
 (For some, the built-in function `sum()` comes in handy).
 
+(pyess_ex1)=
 ### Exercise 1
 
 Part 1: Given two numeric lists or tuples `x_vals` and `y_vals` of equal length, compute
@@ -780,6 +784,7 @@ Part 2: In one line, count the number of even numbers in 0,...,99.
 Part 3: Given `pairs = ((2, 5), (4, 2), (9, 8), (12, 10))`, count the number of pairs `(a, b)`
 such that both `a` and `b` are even.
 
+(pyess_ex2)=
 ### Exercise 2
 
 Consider the polynomial
@@ -796,12 +801,14 @@ Write a function `p` such that `p(x, coeff)` that computes the value in {eq}`pol
 
 Try to use `enumerate()` in your loop.
 
+(pyess_ex3)=
 ### Exercise 3
 
 Write a function that takes a string as an argument and returns the number of capital letters in the string.
 
 Hint: `'foo'.upper()` returns `'FOO'`.
 
+(pyess_ex4)=
 ### Exercise 4
 
 Write a function that takes two sequences `seq_a` and `seq_b` as arguments and
@@ -811,6 +818,7 @@ returns `True` if every element in `seq_a` is also an element of `seq_b`, else
 * By "sequence" we mean a list, a tuple or a string.
 * Do the exercise without using [sets](https://docs.python.org/3/tutorial/datastructures.html#sets) and set methods.
 
+(pyess_ex5)=
 ### Exercise 5
 
 When we cover the numerical libraries, we will see they include many

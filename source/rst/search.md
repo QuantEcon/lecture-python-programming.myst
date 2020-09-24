@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 ---
 
+(search)=
 # Search
 
 ```{raw} html

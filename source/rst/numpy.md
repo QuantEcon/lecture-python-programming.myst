@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 ---
 
+(np)=
 ```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -49,6 +50,7 @@ In this lecture, we will start a more systematic discussion of both
 
 * [The official NumPy documentation](http://docs.scipy.org/doc/numpy/reference/).
 
+(numpy_array)=
 ## NumPy Arrays
 
 ```{index}
@@ -105,6 +107,7 @@ a = np.zeros(3, dtype=int)
 type(a[0])
 ```
 
+(numpy_shape_dim)=
 ### Shape and Dimension
 
 ```{index}
@@ -143,6 +146,7 @@ z
 In the last case, to make the 2 by 2 array, we could also pass a tuple to the `zeros()` function, as
 in `z = np.zeros((2, 2))`.
 
+(creating_arrays)=
 ### Creating Arrays
 
 ```{index}
@@ -438,6 +442,7 @@ A + 10
 A * B
 ```
 
+(numpy_matrix_multiplication)=
 In particular, `A * B` is *not* the matrix product, it is an element-wise product.
 
 ### Matrix Multiplication
@@ -717,6 +722,7 @@ For a comprehensive list of what's available in NumPy see [this documentation](h
 
 ## Exercises
 
+(np_ex1)=
 ### Exercise 1
 
 Consider the polynomial expression
@@ -735,6 +741,7 @@ Now write a new function that does the same job, but uses NumPy arrays and array
 
 * Hint: Use `np.cumprod()`
 
+(np_ex2)=
 ### Exercise 2
 
 Let `q` be a NumPy array of length `n` with `q.sum() == 1`.
@@ -780,6 +787,7 @@ If you can, implement the functionality as a class called `DiscreteRV`, where
 
 If you can, write the method so that `draw(k)` returns `k` draws from `q`.
 
+(np_ex3)=
 ### Exercise 3
 
 Recall our {ref}`earlier discussion <oop_ex1>` of the empirical cumulative distribution function.
