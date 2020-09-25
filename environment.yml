@@ -21,4 +21,4 @@ dependencies:
     - sphinxcontrib-jupyter
     - sphinxcontrib-bibtex
     - joblib
-    - git+https://github.com/mmcky/sphinxcontrib-rst2myst.git
+    - git+https://github.com/executablebooks/sphinx-tomyst.git
