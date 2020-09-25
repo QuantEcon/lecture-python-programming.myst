@@ -12,7 +12,7 @@ jobs:
           auto-update-conda: true
           auto-activate-base: true
           miniconda-version: 'latest'
-          python-version: 3.7
+          python-version: 3.8
           environment-file: environment.yml
           activate-environment: qe-lectures
       - name: Install sphinxcontrib-tomyst
