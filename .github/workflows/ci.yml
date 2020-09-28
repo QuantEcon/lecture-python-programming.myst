@@ -23,7 +23,7 @@ jobs:
       - name: Install Dependencies
         shell: bash -l {0}
         run: |
-          pip install sphinx-book-theme myst-nb
+          pip install quantecon-book-theme myst-nb
       - name: Display Conda Environment Versions
         shell: bash -l {0}
         run: conda list
