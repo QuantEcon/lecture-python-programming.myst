@@ -6,3 +6,4 @@ sphinx:
   extra_extensions: [sphinx_multitoc_numbering]
   config:
     html_theme: quantecon_book_theme
+    html_static_path: ['source/_static']
