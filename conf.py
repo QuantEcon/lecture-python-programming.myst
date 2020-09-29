@@ -12,7 +12,6 @@
 #
 import sys
 import os
-import nbformat
 import datetime
 
 now = datetime.datetime.now()
@@ -63,6 +62,17 @@ html_theme = 'quantecon_book_theme'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['source/_static']
+
+jupyter_execute_notebooks = "cache"
+
+html_theme_options = {
+    "repository_url": "https://github.com/QuantEcon/lecture-python-programming.myst",
+    "launch_buttons": {
+        "binderhub_url": "https://mybinder.org",
+        "colab_url": "https://colab.research.google.com/",
+        "notebook_interface": "classic",
+    }
+}
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
