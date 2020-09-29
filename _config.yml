@@ -1,3 +1,7 @@
 title: Python Programming for Economics and Finance
 author: Thomas J. Sargent & John Stachurski
 logo: source/_static/qe-logo-large.png
+
+sphinx:
+  config:
+    html_theme: quantecon_book_theme
