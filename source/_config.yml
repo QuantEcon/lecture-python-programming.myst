@@ -8,5 +8,7 @@ sphinx:
     html_theme: quantecon_book_theme
     html_static_path: ['source/_static']
 
+html_theme: quantecon_book_theme 
+   
 execute:
   run_in_temp: true

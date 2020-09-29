@@ -40,11 +40,12 @@ jobs:
       - name: Build HTML
         shell: bash -l {0}
         run: |
-          jb build source
+          cd source
+          jb build .
       - name: Preview Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
         with:
-          publish-dir: 'source/_build/html/'
+          publish-dir: '_build/html/'
           production-branch: master
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Preview Deploy from GitHub Actions"
