@@ -1,4 +1,4 @@
-name: Build Project [myst]
+name: Build Project [using jupyter-book]
 on: [push]
 jobs:
   tests:
@@ -15,17 +15,11 @@ jobs:
           python-version: 3.8
           environment-file: environment.yml
           activate-environment: qe-lectures
-      - name: Install sphinxcontrib-tomyst
-        shell: bash -l {0}
-        run: |
-          git clone https://github.com/QuantEcon/sphinxcontrib-tomyst
-          cd sphinxcontrib-tomyst && python setup.py install
       - name: Install quantecon-book-theme
         shell: bash -l {0}
         run: |
           git clone https://github.com/QuantEcon/quantecon-book-theme
           cd quantecon-book-theme
-          git checkout qe-theme
           python setup.py install
       - name: Install Dependencies
         shell: bash -l {0}
@@ -40,7 +34,6 @@ jobs:
       - name: Build HTML
         shell: bash -l {0}
         run: |
-          pwd
           jb build ./
       - name: Preview Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
