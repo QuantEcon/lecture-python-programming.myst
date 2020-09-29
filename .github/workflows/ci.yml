@@ -18,12 +18,19 @@ jobs:
       - name: Install sphinxcontrib-tomyst
         shell: bash -l {0}
         run: |
-          git clone https://github.com/mmcky/sphinxcontrib-tomyst
+          git clone https://github.com/QuantEcon/sphinxcontrib-tomyst
           cd sphinxcontrib-tomyst && python setup.py install
+      - name: Install quantecon-book-theme
+        shell: bash -l {0}
+        run: |
+          git clone https://github.com/QuantEcon/quantecon-book-theme
+          cd quantecon-book-theme
+          git checkout qe-theme
+          python setup.py install
       - name: Install Dependencies
         shell: bash -l {0}
         run: |
-          pip install sphinx-book-theme myst-nb
+          pip install myst-nb
       - name: Display Conda Environment Versions
         shell: bash -l {0}
         run: conda list
