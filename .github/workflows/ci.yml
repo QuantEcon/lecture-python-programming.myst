@@ -30,7 +30,7 @@ jobs:
       - name: Install Dependencies
         shell: bash -l {0}
         run: |
-          pip install myst-nb
+          pip install jupyter-book
       - name: Display Conda Environment Versions
         shell: bash -l {0}
         run: conda list
@@ -41,7 +41,7 @@ jobs:
         shell: bash -l {0}
         run: |
           pwd
-          make html
+          jb build ./
       - name: Preview Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
         with:
