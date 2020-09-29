@@ -161,7 +161,15 @@ html_title = "Quantitative Economics with Python"
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['source/rst/_static']
-
+jupyter_execute_notebooks = "cache"
+html_theme_options = {
+    "repository_url": "https://github.com/QuantEcon/lecture-python-programming.myst",
+    "launch_buttons": {
+        "binderhub_url": "https://mybinder.org",
+        "colab_url": "https://colab.research.google.com/",
+        "notebook_interface": "classic",
+    }
+}
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
 # directly to the root of the documentation.
