@@ -21,12 +21,14 @@ jobs:
           git clone https://github.com/QuantEcon/quantecon-book-theme
           cd quantecon-book-theme
           python setup.py install
+          cd ../ && rm -rf quantecon-book-theme
       - name: Install sphinx-multitoc-numbering
         shell: bash -l {0}
         run: |
           git clone https://github.com/executablebooks/sphinx-multitoc-numbering.git
           cd sphinx-multitoc-numbering
           python setup.py install
+          cd ../ && rm -rf sphinx-multitoc-numbering
       - name: Install Dependencies
         shell: bash -l {0}
         run: |
