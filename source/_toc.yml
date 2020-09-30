@@ -1,0 +1,37 @@
+- file: about_lectures
+  numbered: true
+
+- part: Introduction to Python
+  chapters:
+    - file: about_py
+    - file: getting_started
+    - file: python_by_example
+    - file: functions
+    - file: python_essentials
+    - file: oop_intro
+    - file: python_oop
+
+- part: The Scientific Libraries
+  chapters:
+    - file: need_for_speed
+    - file: numpy
+    - file: matplotlib
+    - file: scipy
+    - file: numba
+    - file: parallelization
+    - file: pandas
+
+- part: Advanced Python Programming
+  chapters:
+    - file: writing_good_code
+    - file: python_advanced_features
+    - file: debugging
+
+# Placeholder for other pages
+
+- part: Other
+  chapters:
+    - file: troubleshooting
+    - file: search
+    - file: status
+    - file: '404'
