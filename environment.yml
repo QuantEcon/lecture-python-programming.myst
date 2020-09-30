@@ -18,7 +18,7 @@ dependencies:
   - sympy
   - scipy
   - pip:
-    - sphinxcontrib-jupyter
-    - sphinxcontrib-bibtex
     - joblib
-    - git+https://github.com/executablebooks/sphinx-tomyst.git
+    - jupyter-book
+    - git+https://github.com/QuantEcon/quantecon-book-theme
+    - git+https://github.com/executablebooks/sphinx-multitoc-numbering
