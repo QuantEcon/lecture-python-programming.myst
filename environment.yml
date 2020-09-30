@@ -14,7 +14,7 @@ dependencies:
   - numpy
   - matplotlib
   - networkx
-  - sphinx=2.4.4
+  - sphinx
   - sympy
   - scipy
   - pip:
