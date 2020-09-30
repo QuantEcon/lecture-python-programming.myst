@@ -10,4 +10,3 @@ dependencies:
     - joblib
     - jupyter-book
     - git+https://github.com/QuantEcon/quantecon-book-theme
-    - git+https://github.com/executablebooks/sphinx-multitoc-numbering
