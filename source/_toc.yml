@@ -32,6 +32,3 @@
 - part: Other
   chapters:
     - file: troubleshooting
-    - file: my_search
-    - file: status
-    - file: '404'
