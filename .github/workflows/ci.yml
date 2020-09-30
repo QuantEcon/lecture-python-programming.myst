@@ -18,6 +18,8 @@ jobs:
       - name: Install quantecon-book-theme
         shell: bash -l {0}
         run: |
+          cd ..
+          ls
           git clone https://github.com/QuantEcon/quantecon-book-theme
           cd quantecon-book-theme
           python setup.py install
