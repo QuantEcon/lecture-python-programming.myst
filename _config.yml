@@ -2,6 +2,10 @@ title: Python Programming for Economics and Finance
 author: Thomas J. Sargent & John Stachurski
 logo: source/_static/qe-logo-large.png
 
+execute:
+  execute_notebooks: "cache"
+  run_in_temp: true
+
 sphinx:
   extra_extensions: [sphinx_multitoc_numbering]
   config:
