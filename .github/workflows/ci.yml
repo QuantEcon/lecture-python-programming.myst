@@ -26,6 +26,7 @@ jobs:
         run: |
           git clone https://github.com/executablebooks/sphinx-multitoc-numbering.git
           cd sphinx-multitoc-numbering
+          git checkout testing-numbering
           python setup.py install
       - name: Install Dependencies
         shell: bash -l {0}
