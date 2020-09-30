@@ -8,5 +8,4 @@ dependencies:
   - sphinx
   - pip:
     - joblib
-    - jupyter-book
     - git+https://github.com/QuantEcon/quantecon-book-theme
