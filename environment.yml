@@ -5,18 +5,7 @@ channels:
 dependencies:
   - pip
   - python
-  - jupyter
-  - jupyterlab
-  - nbconvert
-  - pandoc
-  - pandas
-  - numba
-  - numpy
-  - matplotlib
-  - networkx
   - sphinx
-  - sympy
-  - scipy
   - pip:
     - joblib
     - jupyter-book
