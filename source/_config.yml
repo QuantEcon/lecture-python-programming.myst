@@ -4,6 +4,7 @@ logo: _static/qe-logo-large.png
 
 execute:
   execute_notebooks: "cache"
+  timeout: 60
 #   run_in_temp: true
 
 sphinx:
