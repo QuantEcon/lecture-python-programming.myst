@@ -77,7 +77,7 @@ Numba will be a key part of our lectures --- especially those lectures involving
 This lecture introduces the main ideas.
 
 (numba_link)=
-## Compiling Functions
+## {index}`Compiling Functions <single: Compiling Functions>`
 
 ```{index} single: Python; Numba
 ```

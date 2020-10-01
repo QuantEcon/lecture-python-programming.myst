@@ -257,7 +257,7 @@ In fact, it's generally true that memory traffic is a major culprit when it come
 
 Let's look at some ways around these problems.
 
-## Vectorization
+## {index}`Vectorization <single: Vectorization>`
 
 ```{index} single: Python; Vectorization
 ```

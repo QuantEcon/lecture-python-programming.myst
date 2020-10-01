@@ -90,7 +90,7 @@ As a practice run, please execute the following
 For more information on conda,  type conda help in a terminal.
 
 (ipython_notebook)=
-## Jupyter Notebooks
+## {index}`Jupyter Notebooks <single: Jupyter Notebooks>`
 
 ```{index} single: Python; IPython
 ```
@@ -422,7 +422,7 @@ following questions:
 1. how should you execute it?
 1. How should you modify or edit it?
 
-#### Option 1: JupyterLab
+#### Option 1: {index}`JupyterLab <single: JupyterLab>`
 
 ```{index} single: JupyterLab
 ```

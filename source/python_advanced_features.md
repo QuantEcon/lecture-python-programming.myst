@@ -707,7 +707,7 @@ Next `g` is called via `y = g(10)`, leading to the following sequence of actions
 Note that the global `a` was not affected by the local `a`.
 
 (mutable_vs_immutable)=
-### Mutable Versus Immutable Parameters
+### {index}`Mutable <single: Mutable>` Versus {index}`Immutable <single: Immutable>` Parameters
 
 This is a good time to say a little more about mutable vs immutable objects.
 

@@ -57,7 +57,7 @@ Python has experienced rapid adoption in the last decade and is now one of the m
 
 ### Common Uses
 
-Python is a general-purpose language used in almost all application domains such as
+{index}`Python <single: Python; common uses>` is a general-purpose language used in almost all application domains such as
 
 * communications
 * web development

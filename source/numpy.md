@@ -18,7 +18,7 @@ kernelspec:
 </div>
 ```
 
-# NumPy
+# {index}`NumPy <single: NumPy>`
 
 ```{index} single: Python; NumPy
 ```

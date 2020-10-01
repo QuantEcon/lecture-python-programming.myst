@@ -18,7 +18,7 @@ kernelspec:
 </div>
 ```
 
-# OOP II: Building Classes
+# {index}`OOP II: Building Classes <single: OOP II: Building Classes>`
 
 ```{index} single: Python; Object-Oriented Programming
 ```
