@@ -20,8 +20,7 @@ kernelspec:
 
 # Pandas
 
-```{index}
-single: Python; Pandas
+```{index} single: Python; Pandas
 ```
 
 ```{contents} Contents
@@ -78,8 +77,7 @@ import requests
 
 ## Series
 
-```{index}
-single: Pandas; Series
+```{index} single: Pandas; Series
 ```
 
 Two important data types defined by pandas are  `Series` and `DataFrame`.
@@ -145,8 +143,7 @@ s
 
 ## DataFrames
 
-```{index}
-single: Pandas; DataFrames
+```{index} single: Pandas; DataFrames
 ```
 
 While a `Series` is a single column of data, a `DataFrame` is several columns, one for each variable.
@@ -282,8 +279,7 @@ plt.show()
 
 ## On-Line Data Sources
 
-```{index}
-single: Data Sources
+```{index} single: Data Sources
 ```
 
 Python makes it straightforward to query online databases programmatically.
@@ -311,8 +307,7 @@ We start with a relatively low-level method and then return to pandas.
 
 ### Accessing Data with requests
 
-```{index}
-single: Python; requests
+```{index} single: Python; requests
 ```
 
 One option is to use [requests](https://requests.readthedocs.io/en/master/), a standard Python library for requesting data over the Internet.
@@ -391,8 +386,7 @@ Pandas has [a wide variety](https://pandas.pydata.org/pandas-docs/stable/user_gu
 
 ### Using pandas_datareader to Access Data
 
-```{index}
-single: Python; pandas-datareader
+```{index} single: Python; pandas-datareader
 ```
 
 The maker of pandas has also authored a library called pandas_datareader that gives programmatic access to many data sources straight from the Jupyter notebook.

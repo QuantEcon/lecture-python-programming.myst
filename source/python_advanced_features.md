@@ -37,8 +37,7 @@ A variety of topics are treated in the lecture, including generators, exceptions
 
 ## Iterables and Iterators
 
-```{index}
-single: Python; Iteration
+```{index} single: Python; Iteration
 ```
 
 We've {ref}`already said something <iterating_version_1>` about iterating in Python.
@@ -47,8 +46,7 @@ Now let's look more closely at how it all works, focusing in Python's implementa
 
 ### Iterators
 
-```{index}
-single: Python; Iterators
+```{index} single: Python; Iterators
 ```
 
 Iterators are a uniform interface to stepping through elements in a collection.
@@ -137,8 +135,7 @@ next(nikkei_data)
 
 ### Iterators in For Loops
 
-```{index}
-single: Python; Iterators
+```{index} single: Python; Iterators
 ```
 
 All iterators can be placed to the right of the `in` keyword in `for` loop statements.
@@ -173,8 +170,7 @@ This continues until a `StopIteration` error occurs.
 
 ### Iterables
 
-```{index}
-single: Python; Iterables
+```{index} single: Python; Iterables
 ```
 
 You already know that we can put a Python list to the right of `in` in a `for` loop
@@ -251,8 +247,7 @@ To conclude our discussion of `for` loops
 
 ### Iterators and built-ins
 
-```{index}
-single: Python; Iterators
+```{index} single: Python; Iterators
 ```
 
 Some built-in functions that act on sequences also work with iterables
@@ -295,8 +290,7 @@ max(y)
 
 ### Variable Names in Python
 
-```{index}
-single: Python; Variable Names
+```{index} single: Python; Variable Names
 ```
 
 Consider the Python statement
@@ -354,8 +348,7 @@ In other words, the memory slot that stores that object is deallocated, and retu
 
 ### Namespaces
 
-```{index}
-single: Python; Namespaces
+```{index} single: Python; Namespaces
 ```
 
 Recall from the preceding discussion that the statement
@@ -466,8 +459,7 @@ math.__name__
 
 ### Interactive Sessions
 
-```{index}
-single: Python; Interpreter
+```{index} single: Python; Interpreter
 ```
 
 In Python, **all** code executed by the interpreter runs in some module.
@@ -521,8 +513,7 @@ import numpy as np
 
 ### The Global Namespace
 
-```{index}
-single: Python; Namespace (Global)
+```{index} single: Python; Namespace (Global)
 ```
 
 Python documentation often makes reference to the "global namespace".
@@ -549,8 +540,7 @@ In this case it's `__main__`, so the namespace of `__main__` again becomes the g
 
 ### Local Namespaces
 
-```{index}
-single: Python; Namespace (Local)
+```{index} single: Python; Namespace (Local)
 ```
 
 Important fact: When we call a function, the interpreter creates a *local namespace* for that function, and registers the variables in that namespace.
@@ -582,8 +572,7 @@ You can see the local namespace of `f` before it is destroyed.
 
 ### The `__builtins__` Namespace
 
-```{index}
-single: Python; Namespace (__builtins__)
+```{index} single: Python; Namespace (__builtins__)
 ```
 
 We have been using various built-in functions, such as `max(), dir(), str(), list(), len(), range(), type()`, etc.
@@ -621,8 +610,7 @@ The next section explains how this works ...
 
 ### Name Resolution
 
-```{index}
-single: Python; Namespace (Resolution)
+```{index} single: Python; Namespace (Resolution)
 ```
 
 Namespaces are great because they help us organize variable names.
@@ -771,8 +759,7 @@ Here's what happens
 
 ## Handling Errors
 
-```{index}
-single: Python; Handling Errors
+```{index} single: Python; Handling Errors
 ```
 
 Sometimes it's possible to anticipate errors as we're writing code.
@@ -803,8 +790,7 @@ Why?
 
 ### Assertions
 
-```{index}
-single: Python; Assertions
+```{index} single: Python; Assertions
 ```
 
 A relatively easy way to handle checks is with the `assert` keyword.
@@ -836,8 +822,7 @@ The advantage is that we can
 
 ### Handling Errors During Runtime
 
-```{index}
-single: Python; Runtime Errors
+```{index} single: Python; Runtime Errors
 ```
 
 The approach used above is a bit limited, because it always leads to
@@ -849,8 +834,7 @@ Let's look at how this is done.
 
 #### Exceptions
 
-```{index}
-single: Python; Exceptions
+```{index} single: Python; Exceptions
 ```
 
 Here's an example of a common error type
@@ -1007,12 +991,10 @@ In general it's better to be specific.
 
 ## Decorators and Descriptors
 
-```{index}
-single: Python; Decorators
+```{index} single: Python; Decorators
 ```
 
-```{index}
-single: Python; Descriptors
+```{index} single: Python; Descriptors
 ```
 
 Let's look at some special syntax elements that are routinely used by Python developers.
@@ -1024,8 +1006,7 @@ Hence you need to understand them at some stage of your Python education.
 
 ### Decorators
 
-```{index}
-single: Python; Decorators
+```{index} single: Python; Decorators
 ```
 
 Decorators are a bit of syntactic sugar that, while easily avoided, have turned out to be popular.
@@ -1127,8 +1108,7 @@ At the same time, the test logic is written only once.
 
 #### Enter Decorators
 
-```{index}
-single: Python; Decorators
+```{index} single: Python; Decorators
 ```
 
 The last version of our code is still not ideal.
@@ -1184,8 +1164,7 @@ In the opinion of many people, this makes the decorator syntax a significant imp
 (descriptors)=
 ### Descriptors
 
-```{index}
-single: Python; Descriptors
+```{index} single: Python; Descriptors
 ```
 
 Descriptors solve a common problem regarding management of variables.
@@ -1299,12 +1278,10 @@ method is triggered --- in this case `set_miles`.
 
 #### Decorators and Properties
 
-```{index}
-single: Python; Decorators
+```{index} single: Python; Decorators
 ```
 
-```{index}
-single: Python; Properties
+```{index} single: Python; Properties
 ```
 
 These days its very common to see the `property` function used via a decorator.
@@ -1345,8 +1322,7 @@ For further information you can refer to the [descriptor documentation](https://
 (paf_generators)=
 ## Generators
 
-```{index}
-single: Python; Generators
+```{index} single: Python; Generators
 ```
 
 A generator is a kind of iterator (i.e., it works with a `next` function).
@@ -1411,8 +1387,7 @@ sum(x * x for x in range(10))
 
 ### Generator Functions
 
-```{index}
-single: Python; Generator Functions
+```{index} single: Python; Generator Functions
 ```
 
 The most flexible way to create generator objects is to use generator functions.
@@ -1618,8 +1593,7 @@ In summary, iterables
 (recursive_functions)=
 ## Recursive Function Calls
 
-```{index}
-single: Python; Recursion
+```{index} single: Python; Recursion
 ```
 
 This is not something that you will use every day, but it is still useful --- you should learn it at some stage.

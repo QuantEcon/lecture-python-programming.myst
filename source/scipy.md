@@ -20,8 +20,7 @@ kernelspec:
 
 # SciPy
 
-```{index}
-single: Python; SciPy
+```{index} single: Python; SciPy
 ```
 
 ```{contents} Contents
@@ -80,8 +79,7 @@ Let's explore some of the major sub-packages.
 
 ## Statistics
 
-```{index}
-single: SciPy; Statistics
+```{index} single: SciPy; Statistics
 ```
 
 The `scipy.stats` subpackage supplies
@@ -218,8 +216,7 @@ Let's consider some numerical techniques for finding roots.
 
 ### Bisection
 
-```{index}
-single: SciPy; Bisection
+```{index} single: SciPy; Bisection
 ```
 
 One of the most common algorithms for numerical root-finding is *bisection*.
@@ -276,8 +273,7 @@ bisect(f, 0, 1)
 
 ### The Newton-Raphson Method
 
-```{index}
-single: SciPy; Newton-Raphson Method
+```{index} single: SciPy; Newton-Raphson Method
 ```
 
 Another very common root-finding algorithm is the [Newton-Raphson method](https://en.wikipedia.org/wiki/Newton%27s_method).
@@ -337,8 +333,7 @@ Here the correct solution is found and the speed is better than bisection:
 
 ### Multivariate Root-Finding
 
-```{index}
-single: SciPy; Multivariate Root-Finding
+```{index} single: SciPy; Multivariate Root-Finding
 ```
 
 Use `scipy.optimize.fsolve`, a wrapper for a hybrid method in MINPACK.
@@ -349,8 +344,7 @@ See the [documentation](http://docs.scipy.org/doc/scipy/reference/generated/scip
 
 A **fixed point** of a real function $f$ on $[a,b]$ is an $x \in [a, b]$ such that $f(x)=x$.
 
-```{index}
-single: SciPy; Fixed Points
+```{index} single: SciPy; Fixed Points
 ```
 
 SciPy has a function for finding (scalar) fixed points too
@@ -366,8 +360,7 @@ the fixed point of a function $f$ is the root of $g(x) := x - f(x)$.
 
 ## Optimization
 
-```{index}
-single: SciPy; Optimization
+```{index} single: SciPy; Optimization
 ```
 
 Most numerical packages provide only functions for *minimization*.
@@ -391,8 +384,7 @@ fminbound(lambda x: x**2, -1, 2)  # Search in [-1, 2]
 
 ### Multivariate Optimization
 
-```{index}
-single: Optimization; Multivariate
+```{index} single: Optimization; Multivariate
 ```
 
 Multivariate local optimizers include `minimize`, `fmin`, `fmin_powell`, `fmin_cg`, `fmin_bfgs`, and `fmin_ncg`.
@@ -403,8 +395,7 @@ See the [documentation](http://docs.scipy.org/doc/scipy/reference/optimize.html)
 
 ## Integration
 
-```{index}
-single: SciPy; Integration
+```{index} single: SciPy; Integration
 ```
 
 Most numerical integration methods work by computing the integral of an approximating polynomial.
@@ -434,8 +425,7 @@ See the [documentation](http://docs.scipy.org/doc/scipy/reference/integrate.html
 
 ## Linear Algebra
 
-```{index}
-single: SciPy; Linear Algebra
+```{index} single: SciPy; Linear Algebra
 ```
 
 We saw that NumPy provides a module for linear algebra called `linalg`.
