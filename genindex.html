@@ -1,0 +1,686 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Index &#8212; Quantitative Economics with Python</title>
+    
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Quantitative Economics with Python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index_toc.html">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_lectures.html">
+   About Lectures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="index_learning_python.html">
+   Introduction to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="index_python_scientific_libraries.html">
+   The Scientific Libraries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="index_advanced_python_programming.html">
+   Advanced Python Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="404.html">
+   Page Not Found
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="search.html">
+   Search
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="status.html">
+   Lecture Status
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   Troubleshooting
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#J"><strong>J</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#Q"><strong>Q</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ 
+</div>
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="scipy.html#index-5">Bisection</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="about_py.html#index-13">cloud computing</a>
+
+      <ul>
+        <li><a href="about_py.html#index-15">amazon ec2</a>
+</li>
+        <li><a href="about_py.html#index-14">anaconda enterprise</a>
+</li>
+        <li><a href="about_py.html#index-16">google app engine</a>
+</li>
+        <li><a href="about_py.html#index-17">pythonanywhere</a>
+</li>
+        <li><a href="about_py.html#index-18">sagemath cloud</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="numba.html#index-0">Compiling Functions</a>, <a href="numba.html#index-0">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pandas.html#index-4">Data Sources</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="debugging.html#index-0">Debugging</a>, <a href="debugging.html#index-1">[1]</a>
+</li>
+      <li><a href="need_for_speed.html#index-0">Dynamic Typing</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="getting_started.html#index-14">Git</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_advanced_features.html#index-13">Immutable</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="scipy.html#index-14">Integration</a>, <a href="scipy.html#index-14">[1]</a>
+</li>
+      <li><a href="getting_started.html#index-4">IPython</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="J">J</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="getting_started.html#index-5">Jupyter</a>
+</li>
+      <li>
+    Jupyter Notebook
+
+      <ul>
+        <li><a href="getting_started.html#index-7">Basics</a>
+</li>
+        <li><a href="getting_started.html#index-8">Help</a>
+</li>
+        <li><a href="getting_started.html#index-10">nbviewer</a>
+</li>
+        <li><a href="getting_started.html#index-6">Setup</a>
+</li>
+        <li><a href="getting_started.html#index-9">Sharing</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="getting_started.html#index-2">Jupyter Notebooks</a>, <a href="getting_started.html#index-2">[1]</a>
+</li>
+      <li><a href="getting_started.html#index-12">JupyterLab</a>, <a href="getting_started.html#index-13">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="scipy.html#index-16">Linear Algebra</a>, <a href="scipy.html#index-16">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="about_py.html#index-5">Matplotlib</a>, <a href="matplotlib.html#index-0">[1]</a>, <a href="matplotlib.html#index-0">[2]</a>
+
+      <ul>
+        <li><a href="matplotlib.html#index-5">3D Plots</a>
+</li>
+        <li><a href="matplotlib.html#index-3">Multiple Plots on One Axis</a>
+</li>
+        <li><a href="matplotlib.html#index-2">Simple API</a>
+</li>
+        <li><a href="matplotlib.html#index-4">Subplots</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    Models
+
+      <ul>
+        <li><a href="writing_good_code.html#index-0">Code style</a>
+</li>
+      </ul></li>
+      <li><a href="python_advanced_features.html#index-12">Mutable</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="about_py.html#index-12">NetworkX</a>
+</li>
+      <li><a href="scipy.html#index-7">Newton-Raphson Method</a>
+</li>
+      <li><a href="numpy.html#index-0">NumPy</a>, <a href="numpy.html#index-0">[1]</a>, <a href="scipy.html#index-3">[2]</a>, <a href="scipy.html#index-3">[3]</a>
+
+      <ul>
+        <li><a href="numpy.html#index-2">Arrays</a>
+</li>
+        <li><a href="numpy.html#index-4">Arrays (Creating)</a>
+</li>
+        <li><a href="numpy.html#index-5">Arrays (Indexing)</a>
+</li>
+        <li><a href="numpy.html#index-6">Arrays (Methods)</a>
+</li>
+        <li><a href="numpy.html#index-7">Arrays (Operations)</a>
+</li>
+        <li><a href="numpy.html#index-3">Arrays (Shape and Dimension)</a>
+</li>
+        <li><a href="numpy.html#index-10">Comparisons</a>
+</li>
+        <li><a href="numpy.html#index-8">Matrix Multiplication</a>
+</li>
+        <li><a href="need_for_speed.html#index-5">Universal Functions</a>
+</li>
+        <li><a href="numpy.html#index-9">Vectorized Functions</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    Object-Oriented Programming
+
+      <ul>
+        <li><a href="python_oop.html#index-3">Classes</a>
+</li>
+        <li><a href="python_oop.html#index-2">Key Concepts</a>
+</li>
+        <li><a href="python_oop.html#index-4">Methods</a>
+</li>
+        <li><a href="python_oop.html#index-5">Special Methods</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_oop.html#index-0">OOP II: Building Classes</a>, <a href="python_oop.html#index-0">[1]</a>
+</li>
+      <li><a href="scipy.html#index-11">Optimization</a>, <a href="scipy.html#index-11">[1]</a>
+
+      <ul>
+        <li><a href="scipy.html#index-13">Multivariate</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="about_py.html#index-7">Pandas</a>, <a href="pandas.html#index-0">[1]</a>, <a href="pandas.html#index-0">[2]</a>
+
+      <ul>
+        <li><a href="pandas.html#index-3">DataFrames</a>
+</li>
+        <li><a href="pandas.html#index-2">Series</a>
+</li>
+      </ul></li>
+      <li><a href="pandas.html#index-7">pandas_datareader</a>
+</li>
+      <li><a href="about_py.html#index-19">parallel computing</a>
+
+      <ul>
+        <li><a href="about_py.html#index-22">copperhead</a>
+</li>
+        <li><a href="about_py.html#index-20">ipython</a>
+</li>
+        <li><a href="about_py.html#index-23">pycuda</a>
+</li>
+        <li><a href="about_py.html#index-21">starcluster</a>
+</li>
+      </ul></li>
+      <li><a href="about_py.html#index-10">pyMC</a>
+</li>
+      <li><a href="about_py.html#index-11">pystan</a>
+</li>
+      <li><a href="getting_started.html#index-0">Python</a>
+
+      <ul>
+        <li><a href="getting_started.html#index-1">Anaconda</a>
+</li>
+        <li><a href="python_advanced_features.html#index-15">Assertions</a>
+</li>
+        <li><a href="about_py.html#index-1">common uses</a>
+</li>
+        <li><a href="python_essentials.html#index-9">Comparison</a>
+</li>
+        <li><a href="functions.html#index-1">Conditions</a>
+</li>
+        <li><a href="oop_intro.html#index-3">Content</a>
+</li>
+        <li><a href="numba.html#index-2">Cython</a>
+</li>
+        <li><a href="python_essentials.html#index-0">Data Types</a>
+</li>
+        <li><a href="python_advanced_features.html#index-18">Decorators</a>, <a href="python_advanced_features.html#index-20">[1]</a>, <a href="python_advanced_features.html#index-21">[2]</a>, <a href="python_advanced_features.html#index-23">[3]</a>
+</li>
+        <li><a href="python_advanced_features.html#index-19">Descriptors</a>, <a href="python_advanced_features.html#index-22">[1]</a>
+</li>
+        <li><a href="python_essentials.html#index-4">Dictionaries</a>
+</li>
+        <li><a href="python_essentials.html#index-12">Docstrings</a>
+</li>
+        <li><a href="python_advanced_features.html#index-17">Exceptions</a>
+</li>
+        <li><a href="python_by_example.html#index-4">For loop</a>
+</li>
+        <li><a href="python_essentials.html#index-11">Functions</a>
+</li>
+        <li><a href="python_advanced_features.html#index-26">Generator Functions</a>
+</li>
+        <li><a href="python_advanced_features.html#index-25">Generators</a>
+</li>
+        <li><a href="python_advanced_features.html#index-14">Handling Errors</a>
+</li>
+        <li><a href="oop_intro.html#index-2">Identity</a>
+</li>
+        <li><a href="python_by_example.html#index-5">Indentation</a>
+</li>
+        <li><a href="numba.html#index-3">Interfacing with Fortran</a>
+</li>
+        <li><a href="python_advanced_features.html#index-7">Interpreter</a>
+</li>
+        <li><a href="python_by_example.html#index-0">Introductory Example</a>
+</li>
+        <li><a href="python_essentials.html#index-5">IO</a>
+</li>
+        <li><a href="getting_started.html#index-3">IPython</a>
+</li>
+        <li><a href="python_advanced_features.html#index-3">Iterables</a>
+</li>
+        <li><a href="python_advanced_features.html#index-0">Iteration</a>, <a href="python_essentials.html#index-7">[1]</a>
+</li>
+        <li><a href="python_advanced_features.html#index-1">Iterators</a>, <a href="python_advanced_features.html#index-2">[1]</a>, <a href="python_advanced_features.html#index-4">[2]</a>
+</li>
+        <li><a href="python_essentials.html#index-14">keyword arguments</a>
+</li>
+        <li><a href="python_essentials.html#index-13">lambda functions</a>
+</li>
+        <li><a href="python_essentials.html#index-8">List comprehension</a>
+</li>
+        <li><a href="python_by_example.html#index-3">Lists</a>
+</li>
+        <li><a href="python_essentials.html#index-10">Logical Expressions</a>
+</li>
+        <li><a href="matplotlib.html#index-1">Matplotlib</a>
+</li>
+        <li><a href="oop_intro.html#index-4">Methods</a>
+</li>
+        <li><a href="python_advanced_features.html#index-10">Namespace (__builtins__)</a>
+</li>
+        <li><a href="python_advanced_features.html#index-8">Namespace (Global)</a>
+</li>
+        <li><a href="python_advanced_features.html#index-9">Namespace (Local)</a>
+</li>
+        <li><a href="python_advanced_features.html#index-11">Namespace (Resolution)</a>
+</li>
+        <li><a href="python_advanced_features.html#index-6">Namespaces</a>
+</li>
+        <li><a href="numba.html#index-1">Numba</a>
+</li>
+        <li><a href="numpy.html#index-1">NumPy</a>
+</li>
+        <li><a href="python_oop.html#index-1">Object-Oriented Programming</a>
+</li>
+        <li><a href="oop_intro.html#index-0">Objects</a>
+</li>
+        <li><a href="python_by_example.html#index-1">Packages</a>
+</li>
+        <li><a href="pandas.html#index-1">Pandas</a>
+</li>
+        <li><a href="pandas.html#index-8">pandas-datareader</a>
+</li>
+        <li><a href="python_essentials.html#index-6">Paths</a>
+</li>
+        <li><a href="python_essentials.html#index-15">PEP8</a>
+</li>
+        <li><a href="python_advanced_features.html#index-24">Properties</a>
+</li>
+        <li><a href="about_py.html#index-29">PyPI</a>
+</li>
+        <li><a href="python_advanced_features.html#index-27">Recursion</a>
+</li>
+        <li><a href="pandas.html#index-6">requests</a>
+</li>
+        <li><a href="python_advanced_features.html#index-16">Runtime Errors</a>
+</li>
+        <li><a href="numpy.html#index-12">SciPy</a>, <a href="scipy.html#index-1">[1]</a>
+</li>
+        <li><a href="python_essentials.html#index-3">Sets</a>
+</li>
+        <li><a href="python_essentials.html#index-2">Slicing</a>
+</li>
+        <li><a href="python_by_example.html#index-2">Subpackages</a>
+</li>
+        <li><a href="about_py.html#index-2">syntax and design</a>
+</li>
+        <li><a href="python_essentials.html#index-1">Tuples</a>
+</li>
+        <li><a href="oop_intro.html#index-1">Type</a>
+</li>
+        <li><a href="functions.html#index-0">User-defined functions</a>
+</li>
+        <li><a href="python_advanced_features.html#index-5">Variable Names</a>
+</li>
+        <li><a href="need_for_speed.html#index-3">Vectorization</a>
+</li>
+        <li><a href="python_by_example.html#index-6">While loop</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="about_py.html#index-0">python</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Q">Q</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="getting_started.html#index-11">QuantEcon</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pandas.html#index-5">requests</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="about_py.html#index-3">scientific programming</a>
+
+      <ul>
+        <li><a href="about_py.html#index-26">Blaze</a>
+</li>
+        <li><a href="about_py.html#index-28">CVXPY</a>
+</li>
+        <li><a href="about_py.html#index-24">Jupyter</a>
+</li>
+        <li><a href="about_py.html#index-25">Numba</a>
+</li>
+        <li><a href="about_py.html#index-4">numeric</a>
+</li>
+        <li><a href="about_py.html#index-27">PyTables</a>
+</li>
+      </ul></li>
+      <li><a href="about_py.html#index-9">scikit-learn</a>
+</li>
+      <li><a href="numpy.html#index-11">SciPy</a>, <a href="scipy.html#index-0">[1]</a>, <a href="scipy.html#index-0">[2]</a>, <a href="scipy.html#index-2">[3]</a>, <a href="scipy.html#index-2">[4]</a>
+
+      <ul>
+        <li><a href="scipy.html#index-6">Bisection</a>
+</li>
+        <li><a href="scipy.html#index-10">Fixed Points</a>
+</li>
+        <li><a href="scipy.html#index-15">Integration</a>
+</li>
+        <li><a href="scipy.html#index-17">Linear Algebra</a>
+</li>
+        <li><a href="scipy.html#index-9">Multivariate Root-Finding</a>
+</li>
+        <li><a href="scipy.html#index-8">Newton-Raphson Method</a>
+</li>
+        <li><a href="scipy.html#index-12">Optimization</a>
+</li>
+        <li><a href="scipy.html#index-4">Statistics</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="need_for_speed.html#index-1">Static Types</a>
+</li>
+      <li><a href="about_py.html#index-8">statsmodels</a>
+</li>
+      <li><a href="about_py.html#index-6">SymPy</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="need_for_speed.html#index-2">Vectorization</a>, <a href="need_for_speed.html#index-2">[1]</a>
+
+      <ul>
+        <li><a href="need_for_speed.html#index-4">Operations on Arrays</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas J. Sargent and John Stachurski<br/>
+        
+            &copy; Copyright 2019, Thomas J. Sargent and John Stachurski.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
+    
+  </body>
+</html>

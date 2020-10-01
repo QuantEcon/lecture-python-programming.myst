@@ -1,0 +1,949 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Functions &#8212; Quantitative Economics with Python</title>
+    
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Python Essentials" href="python_essentials.html" />
+    <link rel="prev" title="An Introductory Example" href="python_by_example.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Quantitative Economics with Python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index_toc.html">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_lectures.html">
+   About Lectures
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="index_learning_python.html">
+   Introduction to Python
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="about_py.html">
+     About Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="getting_started.html">
+     Setting up Your Python Environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="python_by_example.html">
+     An Introductory Example
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="python_essentials.html">
+     Python Essentials
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="oop_intro.html">
+     OOP I: Introduction to Object Oriented Programming
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="python_oop.html">
+     OOP II: Building Classes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="index_python_scientific_libraries.html">
+   The Scientific Libraries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="index_advanced_python_programming.html">
+   Advanced Python Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="404.html">
+   Page Not Found
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="search.html">
+   Search
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="status.html">
+   Lecture Status
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   Troubleshooting
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/functions.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#function-basics">
+   Function Basics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#built-in-functions">
+     Built-In Functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#third-party-functions">
+     Third Party Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#defining-functions">
+   Defining Functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#syntax">
+     Syntax
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-write-functions">
+     Why Write Functions?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#applications">
+   Applications
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#random-draws">
+     Random Draws
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-conditions">
+     Adding Conditions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-1">
+     Exercise 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-2">
+     Exercise 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-3">
+     Exercise 3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solutions">
+   Solutions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Exercise 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Exercise 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Exercise 3
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div id="qe-notebook-header" align="right" style="text-align:right;">
+        <a href="https://quantecon.org/" title="quantecon.org">
+                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
+        </a>
+</div><div class="section" id="id1">
+<h1><a class="toc-backref" href="#id5">Functions</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<span id="index-0"></span><p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id1" id="id5">Functions</a></p>
+<ul>
+<li><p><a class="reference internal" href="#overview" id="id6">Overview</a></p></li>
+<li><p><a class="reference internal" href="#function-basics" id="id7">Function Basics</a></p></li>
+<li><p><a class="reference internal" href="#defining-functions" id="id8">Defining Functions</a></p></li>
+<li><p><a class="reference internal" href="#applications" id="id9">Applications</a></p></li>
+<li><p><a class="reference internal" href="#exercises" id="id10">Exercises</a></p></li>
+<li><p><a class="reference internal" href="#solutions" id="id11">Solutions</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="overview">
+<h2><a class="toc-backref" href="#id6">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>One construct that’s extremely useful and provided by almost all programming
+languages is <strong>functions</strong>.</p>
+<p>We have already met several functions, such as</p>
+<ul class="simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">sqrt()</span></code> function from NumPy and</p></li>
+<li><p>the built-in <code class="docutils literal notranslate"><span class="pre">print()</span></code> function</p></li>
+</ul>
+<p>In this lecture we’ll treat functions systematically and begin to learn just how
+useful and important they are.</p>
+<p>One of the things we will learn to do is build our own user-defined functions</p>
+<p>We will use the following imports.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="function-basics">
+<h2><a class="toc-backref" href="#id7">Function Basics</a><a class="headerlink" href="#function-basics" title="Permalink to this headline">¶</a></h2>
+<p>A function is a named section of a program that implements a specific task.</p>
+<p>Many functions exist already and we can use them off the shelf.</p>
+<p>First we review these functions and then discuss how we can build our own.</p>
+<div class="section" id="built-in-functions">
+<h3>Built-In Functions<a class="headerlink" href="#built-in-functions" title="Permalink to this headline">¶</a></h3>
+<p>Python has a number of <em>built-in</em> functions that are available without <code class="docutils literal notranslate"><span class="pre">import</span></code>.</p>
+<p>We have already met some</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">max</span><span class="p">(</span><span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;foobar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>foobar
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="p">(</span><span class="mi">22</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;22&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">22</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<p>Two more useful built-in functions are <code class="docutils literal notranslate"><span class="pre">any()</span></code> and <code class="docutils literal notranslate"><span class="pre">all()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bools</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span>
+<span class="nb">all</span><span class="p">(</span><span class="n">bools</span><span class="p">)</span>  <span class="c1"># True if all are True and False otherwise</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">any</span><span class="p">(</span><span class="n">bools</span><span class="p">)</span>  <span class="c1"># False if all are False and True otherwise</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>The full list of Python built-ins is <a class="reference external" href="https://docs.python.org/library/functions.html">here</a>.</p>
+</div>
+<div class="section" id="third-party-functions">
+<h3>Third Party Functions<a class="headerlink" href="#third-party-functions" title="Permalink to this headline">¶</a></h3>
+<p>If the built-in functions don’t cover what we need, we either need to import
+functions or create our own.</p>
+<p>Examples of importing and using functions
+were given in the <a class="reference internal" href="python_by_example.html"><span class="doc">previous lecture</span></a></p>
+<p>Here’s another one, which tests whether a given year is a leap year:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">calendar</span>
+
+<span class="n">calendar</span><span class="o">.</span><span class="n">isleap</span><span class="p">(</span><span class="mi">2020</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="defining-functions">
+<h2><a class="toc-backref" href="#id8">Defining Functions</a><a class="headerlink" href="#defining-functions" title="Permalink to this headline">¶</a></h2>
+<p>In many instances, it is useful to be able to define our own functions.</p>
+<p>This will become clearer as you see more examples.</p>
+<p>Let’s start by discussing how it’s done.</p>
+<div class="section" id="syntax">
+<h3>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h3>
+<p>Here’s a very simple Python function, that implements the mathematical function
+<span class="math notranslate nohighlight">\(f(x) = 2 x + 1\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we’ve <em>defined</em> this function, let’s <em>call</em> it and check whether it
+does what we expect:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s a longer function, that computes the absolute value of a given number.</p>
+<p>(Such a function already exists as a built-in, but let’s write our own for the
+exercise.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">new_abs_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">abs_value</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">abs_value</span> <span class="o">=</span> <span class="n">x</span>
+
+    <span class="k">return</span> <span class="n">abs_value</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s review the syntax here.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">def</span></code> is a Python keyword used to start function definitions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">new_abs_function(x):</span></code> indicates that the function is called <code class="docutils literal notranslate"><span class="pre">new_abs_function</span></code> and that it has a single argument <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+<li><p>The indented code is a code block called the <em>function body</em>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword indicates that <code class="docutils literal notranslate"><span class="pre">abs_value</span></code> is the object that should be returned to the calling code.</p></li>
+</ul>
+<p>This whole function definition is read by the Python interpreter and stored in memory.</p>
+<p>Let’s call it to check that it works:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">new_abs_function</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new_abs_function</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+3
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="why-write-functions">
+<h3>Why Write Functions?<a class="headerlink" href="#why-write-functions" title="Permalink to this headline">¶</a></h3>
+<p>User-defined functions are important for improving the clarity of your code by</p>
+<ul class="simple">
+<li><p>separating different strands of logic</p></li>
+<li><p>facilitating code reuse</p></li>
+</ul>
+<p>(Writing the same thing twice is <a class="reference external" href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">almost always a bad idea</a>)</p>
+<p>We will say more about this <a class="reference internal" href="writing_good_code.html"><span class="doc">later</span></a>.</p>
+</div>
+</div>
+<div class="section" id="applications">
+<h2><a class="toc-backref" href="#id9">Applications</a><a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="random-draws">
+<h3>Random Draws<a class="headerlink" href="#random-draws" title="Permalink to this headline">¶</a></h3>
+<p>Consider again this code from the <a class="reference internal" href="python_by_example.html"><span class="doc">previous lecture</span></a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_length</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">ϵ_values</span> <span class="o">=</span> <span class="p">[]</span>   <span class="c1"># empty list</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ts_length</span><span class="p">):</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
+    <span class="n">ϵ_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ϵ_values</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/functions_22_0.png" src="_images/functions_22_0.png" />
+</div>
+</div>
+<p>We will break this program into two parts:</p>
+<ol class="simple">
+<li><p>A user-defined function that generates a list of random variables.</p></li>
+<li><p>The main part of the program that</p>
+<ol class="simple">
+<li><p>calls this function to get data</p></li>
+<li><p>plots the data</p></li>
+</ol>
+</li>
+</ol>
+<p>This is accomplished in the next program</p>
+<div class="cell docutils container" id="funcloopprog">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_data</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">ϵ_values</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
+        <span class="n">ϵ_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ϵ_values</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">generate_data</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/functions_24_0.png" src="_images/functions_24_0.png" />
+</div>
+</div>
+<p>When the interpreter gets to the expression <code class="docutils literal notranslate"><span class="pre">generate_data(100)</span></code>, it executes the function body with <code class="docutils literal notranslate"><span class="pre">n</span></code> set equal to 100.</p>
+<p>The net result is that the name <code class="docutils literal notranslate"><span class="pre">data</span></code> is <em>bound</em> to the list <code class="docutils literal notranslate"><span class="pre">ϵ_values</span></code> returned by the function.</p>
+</div>
+<div class="section" id="adding-conditions">
+<h3>Adding Conditions<a class="headerlink" href="#adding-conditions" title="Permalink to this headline">¶</a></h3>
+<p id="index-1">Our function <code class="docutils literal notranslate"><span class="pre">generate_data()</span></code> is rather limited.</p>
+<p>Let’s make it slightly more useful by giving it the ability to return either standard normals or uniform random variables on <span class="math notranslate nohighlight">\((0, 1)\)</span> as required.</p>
+<p>This is achieved in the next piece of code.</p>
+<div class="cell docutils container" id="funcloopprog2">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_data</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">generator_type</span><span class="p">):</span>
+    <span class="n">ϵ_values</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">generator_type</span> <span class="o">==</span> <span class="s1">&#39;U&#39;</span><span class="p">:</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
+        <span class="n">ϵ_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ϵ_values</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">generate_data</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/functions_26_0.png" src="_images/functions_26_0.png" />
+</div>
+</div>
+<p>Hopefully, the syntax of the if/else clause is self-explanatory, with indentation again delimiting the extent of the code blocks.</p>
+<p>Notes</p>
+<ul class="simple">
+<li><p>We are passing the argument <code class="docutils literal notranslate"><span class="pre">U</span></code> as a string, which is why we write it as <code class="docutils literal notranslate"><span class="pre">'U'</span></code>.</p></li>
+<li><p>Notice that equality is tested with the <code class="docutils literal notranslate"><span class="pre">==</span></code> syntax, not <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p>
+<ul>
+<li><p>For example, the statement <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">10</span></code> assigns the name <code class="docutils literal notranslate"><span class="pre">a</span></code> to the value <code class="docutils literal notranslate"><span class="pre">10</span></code>.</p></li>
+<li><p>The expression <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">10</span></code> evaluates to either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>, depending on the value of <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<p>Now, there are several ways that we can simplify the code above.</p>
+<p>For example, we can get rid of the conditionals all together by just passing the desired generator type <em>as a function</em>.</p>
+<p>To understand this, consider the following version.</p>
+<div class="cell docutils container" id="test-program-6">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_data</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">generator_type</span><span class="p">):</span>
+    <span class="n">ϵ_values</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="n">generator_type</span><span class="p">()</span>
+        <span class="n">ϵ_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ϵ_values</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">generate_data</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/functions_28_0.png" src="_images/functions_28_0.png" />
+</div>
+</div>
+<p>Now, when we call the function <code class="docutils literal notranslate"><span class="pre">generate_data()</span></code>, we pass <code class="docutils literal notranslate"><span class="pre">np.random.uniform</span></code>
+as the second argument.</p>
+<p>This object is a <em>function</em>.</p>
+<p>When the function call  <code class="docutils literal notranslate"><span class="pre">generate_data(100,</span> <span class="pre">np.random.uniform)</span></code> is executed, Python runs the function code block with <code class="docutils literal notranslate"><span class="pre">n</span></code> equal to 100 and the name <code class="docutils literal notranslate"><span class="pre">generator_type</span></code> “bound” to the function <code class="docutils literal notranslate"><span class="pre">np.random.uniform</span></code>.</p>
+<ul class="simple">
+<li><p>While these lines are executed, the names <code class="docutils literal notranslate"><span class="pre">generator_type</span></code> and <code class="docutils literal notranslate"><span class="pre">np.random.uniform</span></code> are “synonyms”, and can be used in identical ways.</p></li>
+</ul>
+<p>This principle works more generally—for example, consider the following piece of code</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">max</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>   <span class="c1"># max() is a built-in Python function</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="nb">max</span>
+<span class="n">m</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we created another name for the built-in function <code class="docutils literal notranslate"><span class="pre">max()</span></code>, which could
+then be used in identical ways.</p>
+<p>In the context of our program, the ability to bind new names to functions
+means that there is no problem <em>passing a function as an argument to another
+function</em>—as we did above.</p>
+</div>
+</div>
+<div class="section" id="exercises">
+<h2><a class="toc-backref" href="#id10">Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exercise-1">
+<h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
+<p>Recall that <span class="math notranslate nohighlight">\(n!\)</span> is read as “<span class="math notranslate nohighlight">\(n\)</span> factorial” and defined as
+<span class="math notranslate nohighlight">\(n! = n \times (n - 1) \times \cdots \times 2 \times 1\)</span>.</p>
+<p>There are functions to compute this in various modules, but let’s
+write our own version as an exercise.</p>
+<p>In particular, write a function <code class="docutils literal notranslate"><span class="pre">factorial</span></code> such that <code class="docutils literal notranslate"><span class="pre">factorial(n)</span></code> returns <span class="math notranslate nohighlight">\(n!\)</span>
+for any positive integer <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</div>
+<div class="section" id="exercise-2">
+<h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Binomial_distribution">binomial random variable</a> <span class="math notranslate nohighlight">\(Y \sim Bin(n, p)\)</span> represents the number of successes in <span class="math notranslate nohighlight">\(n\)</span> binary trials, where each trial succeeds with probability <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p>Without any import besides <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">numpy.random</span> <span class="pre">import</span> <span class="pre">uniform</span></code>, write a function
+<code class="docutils literal notranslate"><span class="pre">binomial_rv</span></code> such that <code class="docutils literal notranslate"><span class="pre">binomial_rv(n,</span> <span class="pre">p)</span></code> generates one draw of <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<p>Hint: If <span class="math notranslate nohighlight">\(U\)</span> is uniform on <span class="math notranslate nohighlight">\((0, 1)\)</span> and <span class="math notranslate nohighlight">\(p \in (0,1)\)</span>, then the expression <code class="docutils literal notranslate"><span class="pre">U</span> <span class="pre">&lt;</span> <span class="pre">p</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code> with probability <span class="math notranslate nohighlight">\(p\)</span>.</p>
+</div>
+<div class="section" id="exercise-3">
+<h3>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this headline">¶</a></h3>
+<p>First, write a function that returns one realization of the following random device</p>
+<ol class="simple">
+<li><p>Flip an unbiased coin 10 times.</p></li>
+<li><p>If a head occurs <code class="docutils literal notranslate"><span class="pre">k</span></code> or more times consecutively within this sequence at least once, pay one dollar.</p></li>
+<li><p>If not, pay nothing.</p></li>
+</ol>
+<p>Second, write another function that does the same task except that the second rule of the above random device becomes</p>
+<ul class="simple">
+<li><p>If a head occurs <code class="docutils literal notranslate"><span class="pre">k</span></code> or more times within this sequence, pay one dollar.</p></li>
+</ul>
+<p>Use no import besides <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">numpy.random</span> <span class="pre">import</span> <span class="pre">uniform</span></code>.</p>
+</div>
+</div>
+<div class="section" id="solutions">
+<h2><a class="toc-backref" href="#id11">Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>Exercise 1<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Here’s one solution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">k</span>
+
+<span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>Exercise 2<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">uniform</span>
+
+<span class="k">def</span> <span class="nf">binomial_rv</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">U</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">U</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>    <span class="c1"># Or count += 1</span>
+    <span class="k">return</span> <span class="n">count</span>
+
+<span class="n">binomial_rv</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Exercise 3<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Here’s a function for the first random device.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">uniform</span>
+
+<span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>  <span class="c1"># pays if k consecutive successes in a sequence</span>
+
+    <span class="n">payoff</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">U</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">()</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">U</span> <span class="o">&lt;</span> <span class="mf">0.5</span> <span class="k">else</span> <span class="mi">0</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>    <span class="c1"># print counts for clarity</span>
+        <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="n">k</span><span class="p">:</span>
+            <span class="n">payoff</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">payoff</span>
+
+<span class="n">draw</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+0
+1
+2
+3
+4
+0
+0
+0
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s another function for the second random device.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">draw_new</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>  <span class="c1"># pays if k successes in a sequence</span>
+
+    <span class="n">payoff</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">U</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">()</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="p">(</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">U</span> <span class="o">&lt;</span> <span class="mf">0.5</span> <span class="k">else</span> <span class="mi">0</span> <span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="n">k</span><span class="p">:</span>
+            <span class="n">payoff</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">payoff</span>
+
+<span class="n">draw_new</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+1
+1
+1
+1
+1
+2
+2
+3
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="python_by_example.html" title="previous page">An Introductory Example</a>
+    <a class='right-next' id="next-link" href="python_essentials.html" title="next page">Python Essentials</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas J. Sargent and John Stachurski<br/>
+        
+            &copy; Copyright 2019, Thomas J. Sargent and John Stachurski.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
+    
+  </body>
+</html>

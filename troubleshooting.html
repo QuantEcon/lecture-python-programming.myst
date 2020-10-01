@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Troubleshooting &#8212; Quantitative Economics with Python</title>
+    
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Lecture Status" href="status.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Quantitative Economics with Python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index_toc.html">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_lectures.html">
+   About Lectures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="index_learning_python.html">
+   Introduction to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="index_python_scientific_libraries.html">
+   The Scientific Libraries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="index_advanced_python_programming.html">
+   Advanced Python Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="404.html">
+   Page Not Found
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="search.html">
+   Search
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="status.html">
+   Lecture Status
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Troubleshooting
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/troubleshooting.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fixing-your-local-environment">
+   Fixing Your Local Environment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reporting-an-issue">
+   Reporting an Issue
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div id="qe-notebook-header" align="right" style="text-align:right;">
+        <a href="https://quantecon.org/" title="quantecon.org">
+                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
+        </a>
+</div><div class="section" id="id1">
+<h1><a class="toc-backref" href="#id2">Troubleshooting</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id1" id="id2">Troubleshooting</a></p>
+<ul>
+<li><p><a class="reference internal" href="#fixing-your-local-environment" id="id3">Fixing Your Local Environment</a></p></li>
+<li><p><a class="reference internal" href="#reporting-an-issue" id="id4">Reporting an Issue</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>This page is for readers experiencing errors when running the code from the lectures.</p>
+<div class="section" id="fixing-your-local-environment">
+<h2><a class="toc-backref" href="#id3">Fixing Your Local Environment</a><a class="headerlink" href="#fixing-your-local-environment" title="Permalink to this headline">¶</a></h2>
+<p>The basic assumption of the lectures is that code in a lecture should execute whenever</p>
+<ol class="simple">
+<li><p>it is executed in a Jupyter notebook and</p></li>
+<li><p>the notebook is running on a machine with the latest version of Anaconda Python.</p></li>
+</ol>
+<p>You have installed Anaconda, haven’t you, following the instructions in <a class="reference internal" href="getting_started.html"><span class="doc">this lecture</span></a>?</p>
+<p>Assuming that you have, the most common source of problems for our readers is that their Anaconda distribution is not up to date.</p>
+<p><a class="reference external" href="https://www.anaconda.com/keeping-anaconda-date/">Here’s a useful article</a>
+on how to update Anaconda.</p>
+<p>Another option is to simply remove Anaconda and reinstall.</p>
+<p>You also need to keep the external code libraries, such as <a class="reference external" href="https://quantecon.org/quantecon-py">QuantEcon.py</a> up to date.</p>
+<p>For this task you can either</p>
+<ul class="simple">
+<li><p>use conda upgrade quantecon on the command line, or</p></li>
+<li><p>execute !conda upgrade quantecon within a Jupyter notebook.</p></li>
+</ul>
+<p>If your local environment is still not working you can do two things.</p>
+<p>First, you can use a remote machine instead, by clicking on the Launch Notebook icon available for each lecture</p>
+<img alt="_images/launch.png" src="_images/launch.png" />
+<p>Second, you can report an issue, so we can try to fix your local set up.</p>
+<p>We like getting feedback on the lectures so please don’t hesitate to get in
+touch.</p>
+</div>
+<div class="section" id="reporting-an-issue">
+<h2><a class="toc-backref" href="#id4">Reporting an Issue</a><a class="headerlink" href="#reporting-an-issue" title="Permalink to this headline">¶</a></h2>
+<p>One way to give feedback is to raise an issue through our <a class="reference external" href="https://github.com/QuantEcon/lecture-python-programming/issues">issue tracker</a>.</p>
+<p>Please be as specific as possible.  Tell us where the problem is and as much
+detail about your local set up as you can provide.</p>
+<p>Another feedback option is to use our <a class="reference external" href="https://discourse.quantecon.org/">discourse forum</a>.</p>
+<p>Finally, you can provide direct feedback to <a class="reference external" href="mailto:contact&#37;&#52;&#48;quantecon&#46;org">contact<span>&#64;</span>quantecon<span>&#46;</span>org</a></p>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="status.html" title="previous page">Lecture Status</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas J. Sargent and John Stachurski<br/>
+        
+            &copy; Copyright 2019, Thomas J. Sargent and John Stachurski.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
+    
+  </body>
+</html>

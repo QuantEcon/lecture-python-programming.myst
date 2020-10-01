@@ -1,0 +1,758 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>OOP I: Introduction to Object Oriented Programming &#8212; Quantitative Economics with Python</title>
+    
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="OOP II: Building Classes" href="python_oop.html" />
+    <link rel="prev" title="Python Essentials" href="python_essentials.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Quantitative Economics with Python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index_toc.html">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_lectures.html">
+   About Lectures
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="index_learning_python.html">
+   Introduction to Python
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="about_py.html">
+     About Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="getting_started.html">
+     Setting up Your Python Environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="python_by_example.html">
+     An Introductory Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="functions.html">
+     Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="python_essentials.html">
+     Python Essentials
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     OOP I: Introduction to Object Oriented Programming
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="python_oop.html">
+     OOP II: Building Classes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="index_python_scientific_libraries.html">
+   The Scientific Libraries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="index_advanced_python_programming.html">
+   Advanced Python Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="404.html">
+   Page Not Found
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="search.html">
+   Search
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="status.html">
+   Lecture Status
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   Troubleshooting
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/oop_intro.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python-and-oop">
+     Python and OOP
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objects">
+   Objects
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#type">
+     Type
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#identity">
+     Identity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#object-content-data-and-attributes">
+     Object Content: Data and Attributes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methods">
+     Methods
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div id="qe-notebook-header" align="right" style="text-align:right;">
+        <a href="https://quantecon.org/" title="quantecon.org">
+                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
+        </a>
+</div><div class="section" id="oop-i-introduction-to-object-oriented-programming">
+<h1><a class="toc-backref" href="#id4">OOP I: Introduction to Object Oriented Programming</a><a class="headerlink" href="#oop-i-introduction-to-object-oriented-programming" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#oop-i-introduction-to-object-oriented-programming" id="id4">OOP I: Introduction to Object Oriented Programming</a></p>
+<ul>
+<li><p><a class="reference internal" href="#overview" id="id5">Overview</a></p></li>
+<li><p><a class="reference internal" href="#objects" id="id6">Objects</a></p></li>
+<li><p><a class="reference internal" href="#summary" id="id7">Summary</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="overview">
+<h2><a class="toc-backref" href="#id5">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Object-oriented_programming">OOP</a> is one of the major paradigms in programming.</p>
+<p>The traditional programming paradigm (think Fortran, C, MATLAB, etc.) is called <em>procedural</em>.</p>
+<p>It works as follows</p>
+<ul class="simple">
+<li><p>The program has a state corresponding to the values of its variables.</p></li>
+<li><p>Functions are called to act on these data.</p></li>
+<li><p>Data are passed back and forth via function calls.</p></li>
+</ul>
+<p>In contrast, in the OOP paradigm</p>
+<ul class="simple">
+<li><p>data and functions are “bundled together” into “objects”</p></li>
+</ul>
+<p>(Functions in this context are referred to as <strong>methods</strong>)</p>
+<div class="section" id="python-and-oop">
+<h3>Python and OOP<a class="headerlink" href="#python-and-oop" title="Permalink to this headline">¶</a></h3>
+<p>Python is a pragmatic language that blends object-oriented and procedural styles, rather than taking a purist approach.</p>
+<p>However, at a foundational level, Python <em>is</em> object-oriented.</p>
+<p>In particular, in Python, <em>everything is an object</em>.</p>
+<p>In this lecture, we explain what that statement means and why it matters.</p>
+</div>
+</div>
+<div class="section" id="objects">
+<h2><a class="toc-backref" href="#id6">Objects</a><a class="headerlink" href="#objects" title="Permalink to this headline">¶</a></h2>
+<p id="index-0">In Python, an <em>object</em> is a collection of data and instructions held in computer memory that consists of</p>
+<ol class="simple">
+<li><p>a type</p></li>
+<li><p>a unique identity</p></li>
+<li><p>data (i.e., content)</p></li>
+<li><p>methods</p></li>
+</ol>
+<p>These concepts are defined and discussed sequentially below.</p>
+<div class="section" id="type">
+<span id="id1"></span><h3>Type<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h3>
+<p id="index-1">Python provides for different types of objects, to accommodate different categories of data.</p>
+<p>For example</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;This is a string&#39;</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>   <span class="c1"># Now let&#39;s create an integer</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<p>The type of an object matters for many expressions.</p>
+<p>For example, the addition operator between two strings means concatenation</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;300&#39;</span> <span class="o">+</span> <span class="s1">&#39;cc&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;300cc&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>On the other hand, between two numbers it means ordinary addition</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">300</span> <span class="o">+</span> <span class="mi">400</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>700
+</pre></div>
+</div>
+</div>
+</div>
+<p>Consider the following expression</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;300&#39;</span> <span class="o">+</span> <span class="mi">400</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">263</span><span class="n">a89d2d982</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="s1">&#39;300&#39;</span> <span class="o">+</span> <span class="mi">400</span>
+
+<span class="ne">TypeError</span>: can only concatenate str (not &quot;int&quot;) to str
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we are mixing types, and it’s unclear to Python whether the user wants to</p>
+<ul class="simple">
+<li><p>convert <code class="docutils literal notranslate"><span class="pre">'300'</span></code> to an integer and then add it to <code class="docutils literal notranslate"><span class="pre">400</span></code>, or</p></li>
+<li><p>convert <code class="docutils literal notranslate"><span class="pre">400</span></code> to string and then concatenate it with <code class="docutils literal notranslate"><span class="pre">'300'</span></code></p></li>
+</ul>
+<p>Some languages might try to guess but Python is <em>strongly typed</em></p>
+<ul class="simple">
+<li><p>Type is important, and implicit type conversion is rare.</p></li>
+<li><p>Python will respond instead by raising a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>.</p></li>
+</ul>
+<p>To avoid the error, you need to clarify by changing the relevant type.</p>
+<p>For example,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;300&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">400</span>   <span class="c1"># To add as numbers, change the string to an integer</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>700
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="identity">
+<span id="id2"></span><h3>Identity<a class="headerlink" href="#identity" title="Permalink to this headline">¶</a></h3>
+<p id="index-2">In Python, each object has a unique identifier, which helps Python (and us) keep track of the object.</p>
+<p>The identity of an object can be obtained via the <code class="docutils literal notranslate"><span class="pre">id()</span></code> function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="mf">2.5</span>
+<span class="n">z</span> <span class="o">=</span> <span class="mf">2.5</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139631066846768
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139631066846608
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this example, <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">z</span></code> happen to have the same value (i.e., <code class="docutils literal notranslate"><span class="pre">2.5</span></code>), but they are not the same object.</p>
+<p>The identity of an object is in fact just the address of the object in memory.</p>
+</div>
+<div class="section" id="object-content-data-and-attributes">
+<h3>Object Content: Data and Attributes<a class="headerlink" href="#object-content-data-and-attributes" title="Permalink to this headline">¶</a></h3>
+<p id="index-3">If we set <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">42</span></code> then we create an object of type <code class="docutils literal notranslate"><span class="pre">int</span></code> that contains
+the data <code class="docutils literal notranslate"><span class="pre">42</span></code>.</p>
+<p>In fact, it contains more, as the following example shows</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">imag</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="vm">__class__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<p>When Python creates this integer object, it stores with it various auxiliary information, such as the imaginary part, and the type.</p>
+<p>Any name following a dot is called an <em>attribute</em> of the object to the left of the dot.</p>
+<ul class="simple">
+<li><p>e.g.,<code class="docutils literal notranslate"><span class="pre">imag</span></code> and <code class="docutils literal notranslate"><span class="pre">__class__</span></code> are attributes of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+</ul>
+<p>We see from this example that objects have attributes that contain auxiliary information.</p>
+<p>They also have attributes that act like functions, called <em>methods</em>.</p>
+<p>These attributes are important, so let’s discuss them in-depth.</p>
+</div>
+<div class="section" id="methods">
+<span id="id3"></span><h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+<p id="index-4">Methods are <em>functions that are bundled with objects</em>.</p>
+<p>Formally, methods are attributes of objects that are callable (i.e., can be called as functions)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">]</span>
+<span class="n">callable</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callable</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Methods typically act on the data contained in the object they belong to, or combine that data with other data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
+<span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;This is a string&#39;</span>
+<span class="n">s</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;THIS IS A STRING&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;this is a string&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;This&#39;</span><span class="p">,</span> <span class="s1">&#39;That&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;That is a string&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>A great deal of Python functionality is organized around method calls.</p>
+<p>For example, consider the following piece of code</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;aa&#39;</span>  <span class="c1"># Item assignment using square bracket notation</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;aa&#39;, &#39;b&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>It doesn’t look like there are any methods used here, but in fact the square bracket assignment notation is just a convenient interface to a method call.</p>
+<p>What actually happens is that Python calls the <code class="docutils literal notranslate"><span class="pre">__setitem__</span></code> method, as follows</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
+<span class="n">x</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;aa&#39;</span><span class="p">)</span>  <span class="c1"># Equivalent to x[0] = &#39;aa&#39;</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;aa&#39;, &#39;b&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>(If you wanted to you could modify the <code class="docutils literal notranslate"><span class="pre">__setitem__</span></code> method, so that square bracket assignment does something totally different)</p>
+</div>
+</div>
+<div class="section" id="summary">
+<h2><a class="toc-backref" href="#id7">Summary</a><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>In Python, <em>everything in memory is treated as an object</em>.</p>
+<p>This includes not just lists, strings, etc., but also less obvious things, such as</p>
+<ul class="simple">
+<li><p>functions (once they have been read into memory)</p></li>
+<li><p>modules  (ditto)</p></li>
+<li><p>files opened for reading or writing</p></li>
+<li><p>integers, etc.</p></li>
+</ul>
+<p>Consider, for example, functions.</p>
+<p>When Python reads a function definition, it creates a <strong>function object</strong> and stores it in memory.</p>
+<p>The following code illustrates</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">f</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.f(x)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>function
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139631066128608
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;f&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that <code class="docutils literal notranslate"><span class="pre">f</span></code> has type, identity, attributes and so on—just like any other object.</p>
+<p>It also has methods.</p>
+<p>One example is the <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method, which just evaluates the function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="fm">__call__</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+</pre></div>
+</div>
+</div>
+</div>
+<p>Another is the <code class="docutils literal notranslate"><span class="pre">__dir__</span></code> method, which returns a list of attributes.</p>
+<p>Modules loaded into memory are also treated as objects</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="nb">id</span><span class="p">(</span><span class="n">math</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139631136637296
+</pre></div>
+</div>
+</div>
+</div>
+<p>This uniform treatment of data in Python (everything is an object) helps keep the language simple and consistent.</p>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="python_essentials.html" title="previous page">Python Essentials</a>
+    <a class='right-next' id="next-link" href="python_oop.html" title="next page">OOP II: Building Classes</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas J. Sargent and John Stachurski<br/>
+        
+            &copy; Copyright 2019, Thomas J. Sargent and John Stachurski.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
+    
+  </body>
+</html>

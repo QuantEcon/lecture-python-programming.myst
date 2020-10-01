@@ -1,0 +1,1278 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Numba &#8212; Quantitative Economics with Python</title>
+    
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Parallelization" href="parallelization.html" />
+    <link rel="prev" title="SciPy" href="scipy.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Quantitative Economics with Python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index_toc.html">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_lectures.html">
+   About Lectures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="index_learning_python.html">
+   Introduction to Python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="index_python_scientific_libraries.html">
+   The Scientific Libraries
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="need_for_speed.html">
+     Python for Scientific Computing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="numpy.html">
+     NumPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="matplotlib.html">
+     Matplotlib
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="scipy.html">
+     SciPy
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Numba
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="parallelization.html">
+     Parallelization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pandas.html">
+     Pandas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="index_advanced_python_programming.html">
+   Advanced Python Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="404.html">
+   Page Not Found
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="search.html">
+   Search
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="status.html">
+   Lecture Status
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   Troubleshooting
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/numba.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compiling-functions">
+   Compiling Functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#an-example">
+     An Example
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-and-when-it-works">
+     How and When it Works
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decorators-and-nopython-mode">
+   Decorators and “nopython” Mode
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decorator-notation">
+     Decorator Notation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#type-inference-and-nopython-mode">
+     Type Inference and “nopython” Mode
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compiling-classes">
+   Compiling Classes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#alternatives-to-numba">
+   Alternatives to Numba
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cython">
+     Cython
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interfacing-with-fortran-via-f2py">
+     Interfacing with Fortran via F2Py
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary-and-comments">
+   Summary and Comments
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#limitations">
+     Limitations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-gotcha-global-variables">
+     A Gotcha: Global Variables
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-1">
+     Exercise 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-2">
+     Exercise 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solutions">
+   Solutions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Exercise 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Exercise 2
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div id="qe-notebook-header" align="right" style="text-align:right;">
+        <a href="https://quantecon.org/" title="quantecon.org">
+                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
+        </a>
+</div><div class="section" id="numba">
+<h1><a class="toc-backref" href="#id3">Numba</a><a class="headerlink" href="#numba" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#numba" id="id3">Numba</a></p>
+<ul>
+<li><p><a class="reference internal" href="#overview" id="id4">Overview</a></p></li>
+<li><p><a class="reference internal" href="#compiling-functions" id="id5">Compiling Functions</a></p></li>
+<li><p><a class="reference internal" href="#decorators-and-nopython-mode" id="id6">Decorators and “nopython” Mode</a></p></li>
+<li><p><a class="reference internal" href="#compiling-classes" id="id7">Compiling Classes</a></p></li>
+<li><p><a class="reference internal" href="#alternatives-to-numba" id="id8">Alternatives to Numba</a></p></li>
+<li><p><a class="reference internal" href="#summary-and-comments" id="id9">Summary and Comments</a></p></li>
+<li><p><a class="reference internal" href="#exercises" id="id10">Exercises</a></p></li>
+<li><p><a class="reference internal" href="#solutions" id="id11">Solutions</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>In addition to what’s in Anaconda, this lecture will need the following libraries:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>conda install -y quantecon
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting package metadata (current_repodata.json): - 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
+Solving environment: | 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># All requested packages already installed.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Please also make sure that you have the latest version of Anaconda, since old
+versions are a <a class="reference internal" href="troubleshooting.html"><span class="doc">common source of errors</span></a>.</p>
+<p>Let’s start with some imports:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">quantecon</span> <span class="k">as</span> <span class="nn">qe</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/qe-lectures/lib/python3.7/site-packages/numba/np/ufunc/parallel.py:363: NumbaWarning: <span class=" -Color -Color-Bold">The TBB threading layer requires TBB version 2019.5 or later i.e., TBB_INTERFACE_VERSION &gt;= 11005. Found TBB_INTERFACE_VERSION = 9107. The TBB threading layer is disabled.</span>
+  warnings.warn(problem)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="overview">
+<h2><a class="toc-backref" href="#id4">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>In an <a class="reference internal" href="need_for_speed.html"><span class="doc">earlier lecture</span></a> we learned about vectorization, which is one method to improve speed and efficiency in numerical work.</p>
+<p>Vectorization involves sending array processing
+operations in batch to efficient low-level code.</p>
+<p>However, as <a class="reference internal" href="need_for_speed.html#numba-p-c-vectorization"><span class="std std-ref">discussed previously</span></a>, vectorization has several weaknesses.</p>
+<p>One is that it is highly memory-intensive when working with large amounts of data.</p>
+<p>Another is that the set of algorithms that can be entirely vectorized is not universal.</p>
+<p>In fact, for some algorithms, vectorization is ineffective.</p>
+<p>Fortunately, a new Python library called <a class="reference external" href="http://numba.pydata.org/">Numba</a>
+solves many of these problems.</p>
+<p>It does so through something called <strong>just in time (JIT) compilation</strong>.</p>
+<p>The key idea is to compile functions to native machine code instructions on the fly.</p>
+<p>When it succeeds, the compiled code is extremely fast.</p>
+<p>Numba is specifically designed for numerical work and can also do other tricks such as <a class="reference external" href="https://en.wikipedia.org/wiki/Multithreading_%28computer_architecture%29">multithreading</a>.</p>
+<p>Numba will be a key part of our lectures — especially those lectures involving dynamic programming.</p>
+<p>This lecture introduces the main ideas.</p>
+</div>
+<div class="section" id="compiling-functions">
+<span id="numba-link"></span><h2><a class="toc-backref" href="#id5"><span class="target" id="index-0"></span>Compiling Functions</a><a class="headerlink" href="#compiling-functions" title="Permalink to this headline">¶</a></h2>
+<p id="index-1">As stated above, Numba’s primary use is compiling functions to fast native
+machine code during runtime.</p>
+<div class="section" id="an-example">
+<span id="quad-map-eg"></span><h3>An Example<a class="headerlink" href="#an-example" title="Permalink to this headline">¶</a></h3>
+<p>Let’s consider a problem that is difficult to vectorize: generating the trajectory of a difference equation given an initial condition.</p>
+<p>We will take the difference equation to be the quadratic map</p>
+<div class="math notranslate nohighlight">
+\[
+x_{t+1} = \alpha x_t (1 - x_t)
+\]</div>
+<p>In what follows we set</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">α</span> <span class="o">=</span> <span class="mf">4.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s the plot of a typical trajectory, starting from <span class="math notranslate nohighlight">\(x_0 = 0.1\)</span>, with <span class="math notranslate nohighlight">\(t\)</span> on the x-axis</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">qm</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+      <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">α</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">qm</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$t$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$x_</span><span class="si">{t}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/numba_7_0.png" src="_images/numba_7_0.png" />
+</div>
+</div>
+<p>To speed the function <code class="docutils literal notranslate"><span class="pre">qm</span></code> up using Numba, our first step is</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">jit</span>
+
+<span class="n">qm_numba</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">qm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The function <code class="docutils literal notranslate"><span class="pre">qm_numba</span></code> is a version of <code class="docutils literal notranslate"><span class="pre">qm</span></code> that is “targeted” for
+JIT-compilation.</p>
+<p>We will explain what this means momentarily.</p>
+<p>Let’s time and compare identical function calls across these two versions, starting with the original function <code class="docutils literal notranslate"><span class="pre">qm</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">10_000_000</span>
+
+<span class="n">qe</span><span class="o">.</span><span class="n">tic</span><span class="p">()</span>
+<span class="n">qm</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">time1</span> <span class="o">=</span> <span class="n">qe</span><span class="o">.</span><span class="n">toc</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:9.93
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s try qm_numba</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qe</span><span class="o">.</span><span class="n">tic</span><span class="p">()</span>
+<span class="n">qm_numba</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">time2</span> <span class="o">=</span> <span class="n">qe</span><span class="o">.</span><span class="n">toc</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.22
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is already a massive speed gain.</p>
+<p>In fact, the next time and all subsequent times it runs even faster as the function has been compiled and is in memory:</p>
+<div class="cell docutils container" id="qm-numba-result">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qe</span><span class="o">.</span><span class="n">tic</span><span class="p">()</span>
+<span class="n">qm_numba</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">time3</span> <span class="o">=</span> <span class="n">qe</span><span class="o">.</span><span class="n">toc</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.05
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time1</span> <span class="o">/</span> <span class="n">time3</span>  <span class="c1"># Calculate speed gain</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>197.0354011595464
+</pre></div>
+</div>
+</div>
+</div>
+<p>This kind of speed gain is huge relative to how simple and clear the implementation is.</p>
+</div>
+<div class="section" id="how-and-when-it-works">
+<h3>How and When it Works<a class="headerlink" href="#how-and-when-it-works" title="Permalink to this headline">¶</a></h3>
+<p>Numba attempts to generate fast machine code using the infrastructure provided by the <a class="reference external" href="http://llvm.org/">LLVM Project</a>.</p>
+<p>It does this by inferring type information on the fly.</p>
+<p>(See our <a class="reference internal" href="need_for_speed.html"><span class="doc">earlier lecture</span></a> on scientific computing for a discussion of types.)</p>
+<p>The basic idea is this:</p>
+<ul class="simple">
+<li><p>Python is very flexible and hence we could call the function qm with many
+types.</p>
+<ul>
+<li><p>e.g., <code class="docutils literal notranslate"><span class="pre">x0</span></code> could be a NumPy array or a list, <code class="docutils literal notranslate"><span class="pre">n</span></code> could be an integer or a float, etc.</p></li>
+</ul>
+</li>
+<li><p>This makes it hard to <em>pre</em>-compile the function.</p></li>
+<li><p>However, when we do actually call the function, say by executing <code class="docutils literal notranslate"><span class="pre">qm(0.5,</span> <span class="pre">10)</span></code>,
+the types of <code class="docutils literal notranslate"><span class="pre">x0</span></code> and <code class="docutils literal notranslate"><span class="pre">n</span></code> become clear.</p></li>
+<li><p>Moreover, the types of other variables in <code class="docutils literal notranslate"><span class="pre">qm</span></code> can be inferred once the input is known.</p></li>
+<li><p>So the strategy of Numba and other JIT compilers is to wait until this
+moment, and <em>then</em> compile the function.</p></li>
+</ul>
+<p>That’s why it is called “just-in-time” compilation.</p>
+<p>Note that, if you make the call <code class="docutils literal notranslate"><span class="pre">qm(0.5,</span> <span class="pre">10)</span></code> and then follow it with <code class="docutils literal notranslate"><span class="pre">qm(0.9,</span> <span class="pre">20)</span></code>, compilation only takes place on the first call.</p>
+<p>The compiled code is then cached and recycled as required.</p>
+</div>
+</div>
+<div class="section" id="decorators-and-nopython-mode">
+<h2><a class="toc-backref" href="#id6">Decorators and “nopython” Mode</a><a class="headerlink" href="#decorators-and-nopython-mode" title="Permalink to this headline">¶</a></h2>
+<p>In the code above we created a JIT compiled version of <code class="docutils literal notranslate"><span class="pre">qm</span></code> via the call</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qm_numba</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">qm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In practice this would typically be done using an alternative <em>decorator</em> syntax.</p>
+<p>(We will explain all about decorators in a <a class="reference internal" href="python_advanced_features.html"><span class="doc">later lecture</span></a> but you can skip the details at this stage.)</p>
+<p>Let’s see how this is done.</p>
+<div class="section" id="decorator-notation">
+<h3>Decorator Notation<a class="headerlink" href="#decorator-notation" title="Permalink to this headline">¶</a></h3>
+<p>To target a function for JIT compilation we can put <code class="docutils literal notranslate"><span class="pre">&#64;jit</span></code> before the function definition.</p>
+<p>Here’s what this looks like for <code class="docutils literal notranslate"><span class="pre">qm</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jit</span>
+<span class="k">def</span> <span class="nf">qm</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">α</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is equivalent to <code class="docutils literal notranslate"><span class="pre">qm</span> <span class="pre">=</span> <span class="pre">jit(qm)</span></code>.</p>
+<p>The following now uses the jitted version:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qm</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.1       , 0.36      , 0.9216    , 0.28901376, 0.82193923,
+       0.58542054, 0.97081333, 0.11333925, 0.40197385, 0.9615635 ,
+       0.14783656])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="type-inference-and-nopython-mode">
+<h3>Type Inference and “nopython” Mode<a class="headerlink" href="#type-inference-and-nopython-mode" title="Permalink to this headline">¶</a></h3>
+<p>Clearly type inference is a key part of JIT compilation.</p>
+<p>As you can imagine, inferring types is easier for simple Python objects (e.g., simple scalar data types such as floats and integers).</p>
+<p>Numba also plays well with NumPy arrays.</p>
+<p>In an ideal setting, Numba can infer all necessary type information.</p>
+<p>This allows it to generate native machine code, without having to call the Python runtime environment.</p>
+<p>In such a setting, Numba will be on par with machine code from low-level languages.</p>
+<p>When Numba cannot infer all type information, some Python objects are given generic object status and execution falls back to the Python runtime.</p>
+<p>When this happens, Numba provides only minor speed gains or none at all.</p>
+<p>We generally prefer to force an error when this occurs, so we know effective
+compilation is failing.</p>
+<p>This is done by using either <code class="docutils literal notranslate"><span class="pre">&#64;jit(nopython=True)</span></code> or, equivalently, <code class="docutils literal notranslate"><span class="pre">&#64;njit</span></code> instead of <code class="docutils literal notranslate"><span class="pre">&#64;jit</span></code>.</p>
+<p>For example,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">njit</span>
+
+<span class="nd">@njit</span>
+<span class="k">def</span> <span class="nf">qm</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compiling-classes">
+<h2><a class="toc-backref" href="#id7">Compiling Classes</a><a class="headerlink" href="#compiling-classes" title="Permalink to this headline">¶</a></h2>
+<p>As mentioned above, at present Numba can only compile a subset of Python.</p>
+<p>However, that subset is ever expanding.</p>
+<p>For example, Numba is now quite effective at compiling classes.</p>
+<p>If a class is successfully compiled, then its methods act as JIT-compiled
+functions.</p>
+<p>To give one example, let’s consider the class for analyzing the Solow growth model we
+created in <a class="reference internal" href="python_oop.html"><span class="doc">this lecture</span></a>.</p>
+<p>To compile this class we use the <code class="docutils literal notranslate"><span class="pre">&#64;jitclass</span></code> decorator:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">jitclass</span><span class="p">,</span> <span class="n">float64</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that we also imported something called <code class="docutils literal notranslate"><span class="pre">float64</span></code>.</p>
+<p>This is a data type representing standard floating point numbers.</p>
+<p>We are importing it here because Numba needs a bit of extra help with types when it trys to deal with classes.</p>
+<p>Here’s our code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solow_data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="n">float64</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">float64</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;δ&#39;</span><span class="p">,</span> <span class="n">float64</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;α&#39;</span><span class="p">,</span> <span class="n">float64</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">float64</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">float64</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="nd">@jitclass</span><span class="p">(</span><span class="n">solow_data</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">Solow</span><span class="p">:</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implements the Solow growth model with the update rule</span>
+
+<span class="sd">        k_{t+1} = [(s z k^α_t) + (1 - δ)k_t] /(1 + n)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>  <span class="c1"># population growth rate</span>
+                       <span class="n">s</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>  <span class="c1"># savings rate</span>
+                       <span class="n">δ</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>   <span class="c1"># depreciation rate</span>
+                       <span class="n">α</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>   <span class="c1"># share of labor</span>
+                       <span class="n">z</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>   <span class="c1"># productivity</span>
+                       <span class="n">k</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>  <span class="c1"># current capital stock</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">δ</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">α</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">δ</span><span class="p">,</span> <span class="n">α</span><span class="p">,</span> <span class="n">z</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k</span> <span class="o">=</span> <span class="n">k</span>
+
+    <span class="k">def</span> <span class="nf">h</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;Evaluate the h function&quot;</span>
+        <span class="c1"># Unpack parameters (get rid of self to simplify notation)</span>
+        <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">δ</span><span class="p">,</span> <span class="n">α</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">δ</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">α</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span>
+        <span class="c1"># Apply the update rule</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="n">z</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="o">**</span><span class="n">α</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">δ</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">n</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;Update the current state (i.e., the capital stock).&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k</span> <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">steady_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;Compute the steady state value of capital.&quot;</span>
+        <span class="c1"># Unpack parameters (get rid of self to simplify notation)</span>
+        <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">δ</span><span class="p">,</span> <span class="n">α</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">δ</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">α</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span>
+        <span class="c1"># Compute and return steady state</span>
+        <span class="k">return</span> <span class="p">((</span><span class="n">s</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="n">δ</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">α</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">generate_sequence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="s2">&quot;Generate and return a time series of length t&quot;</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+            <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">path</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/qe-lectures/lib/python3.7/site-packages/ipykernel_launcher.py:10: NumbaDeprecationWarning: <span class=" -Color -Color-Bold">The &#39;numba.jitclass&#39; decorator has moved to &#39;numba.experimental.jitclass&#39; to better reflect the experimental nature of the functionality. Please update your imports to accommodate this change and see https://numba.pydata.org/numba-doc/latest/reference/deprecation.html#change-of-jitclass-location for the time frame.</span>
+  # Remove the CWD from sys.path while we load stuff.
+</pre></div>
+</div>
+</div>
+</div>
+<p>First we specified the types of the instance data for the class in
+<code class="docutils literal notranslate"><span class="pre">solow_data</span></code>.</p>
+<p>After that, targeting the class for JIT compilation only requires adding
+<code class="docutils literal notranslate"><span class="pre">&#64;jitclass(solow_data)</span></code> before the class definition.</p>
+<p>When we call the methods in the class, the methods are compiled just like functions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="n">Solow</span><span class="p">()</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">Solow</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mf">8.0</span><span class="p">)</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Plot the common steady state value of capital</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">s1</span><span class="o">.</span><span class="n">steady_state</span><span class="p">()]</span><span class="o">*</span><span class="n">T</span><span class="p">,</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;steady state&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot time series for each economy</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">:</span>
+    <span class="n">lb</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;capital series from initial state </span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">k</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">generate_sequence</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">lb</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$k_</span><span class="si">{t}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$t$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/numba_30_0.png" src="_images/numba_30_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="alternatives-to-numba">
+<h2><a class="toc-backref" href="#id8">Alternatives to Numba</a><a class="headerlink" href="#alternatives-to-numba" title="Permalink to this headline">¶</a></h2>
+<p id="index-2">There are additional options for accelerating Python loops.</p>
+<p>Here we quickly review them.</p>
+<p>However, we do so only for interest and completeness.</p>
+<p>If you prefer, you can safely skip this section.</p>
+<div class="section" id="cython">
+<h3>Cython<a class="headerlink" href="#cython" title="Permalink to this headline">¶</a></h3>
+<p>Like <a class="reference internal" href="#"><span class="doc">Numba</span></a>,  <a class="reference external" href="http://cython.org/">Cython</a> provides an approach to generating fast compiled code that can be used from Python.</p>
+<p>As was the case with Numba, a key problem is the fact that Python is dynamically typed.</p>
+<p>As you’ll recall, Numba solves this problem (where possible) by inferring type.</p>
+<p>Cython’s approach is different — programmers add type definitions directly to their “Python” code.</p>
+<p>As such, the Cython language can be thought of as Python with type definitions.</p>
+<p>In addition to a language specification, Cython is also a language translator, transforming Cython code into optimized C and C++ code.</p>
+<p>Cython also takes care of building language extensions — the wrapper code that interfaces between the resulting compiled code and Python.</p>
+<p>While Cython has certain advantages, we generally find it both slower and more
+cumbersome than Numba.</p>
+</div>
+<div class="section" id="interfacing-with-fortran-via-f2py">
+<h3>Interfacing with Fortran via F2Py<a class="headerlink" href="#interfacing-with-fortran-via-f2py" title="Permalink to this headline">¶</a></h3>
+<p id="index-3">If you are comfortable writing Fortran you will find it very easy to create
+extension modules from Fortran code using <a class="reference external" href="https://docs.scipy.org/doc/numpy/f2py/">F2Py</a>.</p>
+<p>F2Py is a Fortran-to-Python interface generator that is particularly simple to
+use.</p>
+<p>Robert Johansson provides a <a class="reference external" href="http://nbviewer.jupyter.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-6A-Fortran-and-C.ipynb">nice introduction</a>
+to F2Py, among other things.</p>
+<p>Recently, <a class="reference external" href="http://nbviewer.jupyter.org/github/mgaitan/fortran_magic/blob/master/documentation.ipynb">a Jupyter cell magic for Fortran</a> has been developed — you might want to give it a try.</p>
+</div>
+</div>
+<div class="section" id="summary-and-comments">
+<h2><a class="toc-backref" href="#id9">Summary and Comments</a><a class="headerlink" href="#summary-and-comments" title="Permalink to this headline">¶</a></h2>
+<p>Let’s review the above and add some cautionary notes.</p>
+<div class="section" id="limitations">
+<h3>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h3>
+<p>As we’ve seen, Numba needs to infer type information on
+all variables to generate fast machine-level instructions.</p>
+<p>For simple routines, Numba infers types very well.</p>
+<p>For larger ones, or for routines using external libraries, it can easily fail.</p>
+<p>Hence, it’s prudent when using Numba to focus on speeding up small, time-critical snippets of code.</p>
+<p>This will give you much better performance than blanketing your Python programs with <code class="docutils literal notranslate"><span class="pre">&#64;jit</span></code> statements.</p>
+</div>
+<div class="section" id="a-gotcha-global-variables">
+<h3>A Gotcha: Global Variables<a class="headerlink" href="#a-gotcha-global-variables" title="Permalink to this headline">¶</a></h3>
+<p>Here’s another thing to be careful about when using Numba.</p>
+<p>Consider the following example</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="nd">@jit</span>
+<span class="k">def</span> <span class="nf">add_a</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">x</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">add_a</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">add_a</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that changing the global had no effect on the value returned by the
+function.</p>
+<p>When Numba compiles machine code for functions, it treats global variables as constants to ensure type stability.</p>
+</div>
+</div>
+<div class="section" id="exercises">
+<h2><a class="toc-backref" href="#id10">Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exercise-1">
+<span id="speed-ex1"></span><h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="python_by_example.html#pbe-ex3"><span class="std std-ref">Previously</span></a> we considered how to approximate <span class="math notranslate nohighlight">\(\pi\)</span> by
+Monte Carlo.</p>
+<p>Use the same idea here, but make the code efficient using Numba.</p>
+<p>Compare speed with and without Numba when the sample size is large.</p>
+</div>
+<div class="section" id="exercise-2">
+<span id="speed-ex2"></span><h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h3>
+<p>In the <a class="reference external" href="https://python-intro.quantecon.org">Introduction to Quantitative Economics with Python</a> lecture series you can
+learn all about finite-state Markov chains.</p>
+<p>For now, let’s just concentrate on simulating a very simple example of such a chain.</p>
+<p>Suppose that the volatility of returns on an asset can be in one of two regimes — high or low.</p>
+<p>The transition probabilities across states are as follows</p>
+<div class="figure align-default">
+<img alt="_images/nfs_ex1.png" src="_images/nfs_ex1.png" />
+</div>
+<p>For example, let the period length be one day, and suppose the current state is high.</p>
+<p>We see from the graph that the state tomorrow will be</p>
+<ul class="simple">
+<li><p>high with probability 0.8</p></li>
+<li><p>low with probability 0.2</p></li>
+</ul>
+<p>Your task is to simulate a sequence of daily volatility states according to this rule.</p>
+<p>Set the length of the sequence to <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">1_000_000</span></code> and start in the high state.</p>
+<p>Implement a pure Python version and a Numba version, and compare speeds.</p>
+<p>To test your code, evaluate the fraction of time that the chain spends in the low state.</p>
+<p>If your code is correct, it should be about 2/3.</p>
+<p>Hints:</p>
+<ul class="simple">
+<li><p>Represent the low state as 0 and the high state as 1.</p></li>
+<li><p>If you want to store integers in a NumPy array and then apply JIT compilation, use <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">np.empty(n,</span> <span class="pre">dtype=np.int_)</span></code>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="solutions">
+<h2><a class="toc-backref" href="#id11">Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Exercise 1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Here is one solution:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">uniform</span>
+
+<span class="nd">@njit</span>
+<span class="k">def</span> <span class="nf">calculate_pi</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">u</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">area_estimate</span> <span class="o">=</span> <span class="n">count</span> <span class="o">/</span> <span class="n">n</span>
+    <span class="k">return</span> <span class="n">area_estimate</span> <span class="o">*</span> <span class="mi">4</span>  <span class="c1"># dividing by radius**2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s see how fast it runs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span> calculate_pi()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 220 ms, sys: 4.09 ms, total: 224 ms
+Wall time: 223 ms
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.1431
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span> calculate_pi()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 15.5 ms, sys: 0 ns, total: 15.5 ms
+Wall time: 15.4 ms
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.143068
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we switch of JIT compilation by removing <code class="docutils literal notranslate"><span class="pre">&#64;njit</span></code>, the code takes around
+150 times as long on our machine.</p>
+<p>So we get a speed gain of 2 orders of magnitude–which is huge–by adding four
+characters.</p>
+</div>
+<div class="section" id="id2">
+<h3>Exercise 2<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>We let</p>
+<ul class="simple">
+<li><p>0 represent “low”</p></li>
+<li><p>1 represent “high”</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span>  <span class="c1"># Prob of leaving low and high state respectively</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s a pure Python version of the function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_series</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int_</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Start in state 1</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">current_x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">current_x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">p</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">q</span>
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s run this code and check that the fraction of time spent in the low
+state is about 0.666</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1_000_000</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">compute_series</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span>  <span class="c1"># Fraction of time x is in state 0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.667373
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is (approximately) the right output.</p>
+<p>Now let’s time it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qe</span><span class="o">.</span><span class="n">tic</span><span class="p">()</span>
+<span class="n">compute_series</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">qe</span><span class="o">.</span><span class="n">toc</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.94
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9418764114379883
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next let’s implement a Numba version, which is easy</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">jit</span>
+
+<span class="n">compute_series_numba</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">compute_series</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s check we still get the right numbers</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">compute_series_numba</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.669377
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s see the time</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qe</span><span class="o">.</span><span class="n">tic</span><span class="p">()</span>
+<span class="n">compute_series_numba</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">qe</span><span class="o">.</span><span class="n">toc</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.01
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.012180566787719727
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is a nice speed improvement for one line of code!</p>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="scipy.html" title="previous page">SciPy</a>
+    <a class='right-next' id="next-link" href="parallelization.html" title="next page">Parallelization</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas J. Sargent and John Stachurski<br/>
+        
+            &copy; Copyright 2019, Thomas J. Sargent and John Stachurski.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
+    
+  </body>
+</html>

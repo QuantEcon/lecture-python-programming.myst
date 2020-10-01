@@ -1,0 +1,1365 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>OOP II: Building Classes &#8212; Quantitative Economics with Python</title>
+    
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The Scientific Libraries" href="index_python_scientific_libraries.html" />
+    <link rel="prev" title="OOP I: Introduction to Object Oriented Programming" href="oop_intro.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Quantitative Economics with Python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index_toc.html">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_lectures.html">
+   About Lectures
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="index_learning_python.html">
+   Introduction to Python
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="about_py.html">
+     About Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="getting_started.html">
+     Setting up Your Python Environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="python_by_example.html">
+     An Introductory Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="functions.html">
+     Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="python_essentials.html">
+     Python Essentials
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="oop_intro.html">
+     OOP I: Introduction to Object Oriented Programming
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     OOP II: Building Classes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="index_python_scientific_libraries.html">
+   The Scientific Libraries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="index_advanced_python_programming.html">
+   Advanced Python Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="404.html">
+   Page Not Found
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="search.html">
+   Search
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="status.html">
+   Lecture Status
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   Troubleshooting
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/python_oop.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#oop-review">
+   OOP Review
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#key-concepts">
+     Key Concepts
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-is-oop-useful">
+     Why is OOP Useful?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#defining-your-own-classes">
+   Defining Your Own Classes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-a-consumer-class">
+     Example: A Consumer Class
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#usage">
+       Usage
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#self">
+       Self
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#details">
+       Details
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-the-solow-growth-model">
+     Example: The Solow Growth Model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-a-market">
+     Example: A Market
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-chaos">
+     Example: Chaos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#special-methods">
+   Special Methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-1">
+     Exercise 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-2">
+     Exercise 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solutions">
+   Solutions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Exercise 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Exercise 2
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div id="qe-notebook-header" align="right" style="text-align:right;">
+        <a href="https://quantecon.org/" title="quantecon.org">
+                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
+        </a>
+</div><div class="section" id="oop-ii-building-classes">
+<h1><a class="toc-backref" href="#id3"><span class="target" id="index-0"></span>OOP II: Building Classes</a><a class="headerlink" href="#oop-ii-building-classes" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<span id="index-1"></span><p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#oop-ii-building-classes" id="id3">OOP II: Building Classes</a></p>
+<ul>
+<li><p><a class="reference internal" href="#overview" id="id4">Overview</a></p></li>
+<li><p><a class="reference internal" href="#oop-review" id="id5">OOP Review</a></p></li>
+<li><p><a class="reference internal" href="#defining-your-own-classes" id="id6">Defining Your Own Classes</a></p></li>
+<li><p><a class="reference internal" href="#special-methods" id="id7">Special Methods</a></p></li>
+<li><p><a class="reference internal" href="#exercises" id="id8">Exercises</a></p></li>
+<li><p><a class="reference internal" href="#solutions" id="id9">Solutions</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="overview">
+<h2><a class="toc-backref" href="#id4">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>In an <a class="reference internal" href="oop_intro.html"><span class="doc">earlier lecture</span></a>, we learned some foundations of object-oriented programming.</p>
+<p>The objectives of this lecture are</p>
+<ul class="simple">
+<li><p>cover OOP in more depth</p></li>
+<li><p>learn how to build our own objects, specialized to our needs</p></li>
+</ul>
+<p>For example, you already know how to</p>
+<ul class="simple">
+<li><p>create lists, strings and other Python objects</p></li>
+<li><p>use their methods to modify their contents</p></li>
+</ul>
+<p>So imagine now you want to write a program with consumers, who can</p>
+<ul class="simple">
+<li><p>hold and spend cash</p></li>
+<li><p>consume goods</p></li>
+<li><p>work and earn cash</p></li>
+</ul>
+<p>A natural solution in Python would be to create consumers as objects with</p>
+<ul class="simple">
+<li><p>data, such as cash on hand</p></li>
+<li><p>methods, such as <code class="docutils literal notranslate"><span class="pre">buy</span></code> or <code class="docutils literal notranslate"><span class="pre">work</span></code> that affect this data</p></li>
+</ul>
+<p>Python makes it easy to do this, by providing you with <strong>class definitions</strong>.</p>
+<p>Classes are blueprints that help you build objects according to your own specifications.</p>
+<p>It takes a little while to get used to the syntax so we’ll provide plenty of examples.</p>
+<p>We’ll use the following imports:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="oop-review">
+<h2><a class="toc-backref" href="#id5">OOP Review</a><a class="headerlink" href="#oop-review" title="Permalink to this headline">¶</a></h2>
+<p>OOP is supported in many languages:</p>
+<ul class="simple">
+<li><p>JAVA and Ruby are relatively pure OOP.</p></li>
+<li><p>Python supports both procedural and object-oriented programming.</p></li>
+<li><p>Fortran and MATLAB are mainly procedural, some OOP recently tacked on.</p></li>
+<li><p>C is a procedural language, while C++ is C with OOP added on top.</p></li>
+</ul>
+<p>Let’s cover general OOP concepts before we specialize to Python.</p>
+<div class="section" id="key-concepts">
+<h3>Key Concepts<a class="headerlink" href="#key-concepts" title="Permalink to this headline">¶</a></h3>
+<p id="index-2">As discussed an <a class="reference internal" href="oop_intro.html"><span class="doc">earlier lecture</span></a>, in the OOP paradigm, data and functions are <strong>bundled together</strong> into “objects”.</p>
+<p>An example is a Python list, which not only stores data but also knows how to sort itself, etc.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">x</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 4, 5]
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we now know, <code class="docutils literal notranslate"><span class="pre">sort</span></code> is a function that is “part of” the list object — and hence called a <em>method</em>.</p>
+<p>If we want to make our own types of objects we need to use class definitions.</p>
+<p>A <em>class definition</em> is a blueprint for a particular class of objects (e.g., lists, strings or complex numbers).</p>
+<p>It describes</p>
+<ul class="simple">
+<li><p>What kind of data the class stores</p></li>
+<li><p>What methods it has for acting on these data</p></li>
+</ul>
+<p>An  <em>object</em> or <em>instance</em> is a realization of the class, created from the blueprint</p>
+<ul class="simple">
+<li><p>Each instance has its own unique data.</p></li>
+<li><p>Methods set out in the class definition act on this (and other) data.</p></li>
+</ul>
+<p>In Python, the data and methods of an object are collectively referred to as <em>attributes</em>.</p>
+<p>Attributes are accessed via “dotted attribute notation”</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">object_name.data</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">object_name.method_name()</span></code></p></li>
+</ul>
+<p>In the example</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">x</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">x</span><span class="o">.</span><span class="vm">__class__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> is an object or instance, created from the definition for Python lists, but with its own particular data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x.sort()</span></code> and <code class="docutils literal notranslate"><span class="pre">x.__class__</span></code> are two attributes of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dir(x)</span></code> can be used to view all the attributes of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="why-is-oop-useful">
+<span id="why-oop"></span><h3>Why is OOP Useful?<a class="headerlink" href="#why-is-oop-useful" title="Permalink to this headline">¶</a></h3>
+<p>OOP is useful for the same reason that abstraction is useful: for recognizing and exploiting the common structure.</p>
+<p>For example,</p>
+<ul class="simple">
+<li><p><em>a Markov chain</em> consists of a set of states, an initial probability distribution over states,  and a collection of probabilities of moving across states</p></li>
+<li><p><em>a general equilibrium theory</em> consists of a commodity space, preferences, technologies, and an equilibrium definition</p></li>
+<li><p><em>a game</em> consists of a list of players, lists of actions available to each player, each player’s payoffs as functions of all other players’ actions, and a timing protocol</p></li>
+</ul>
+<p>These are all abstractions that collect together “objects” of the same “type”.</p>
+<p>Recognizing common structure allows us to employ common tools.</p>
+<p>In economic theory, this might be a proposition that applies to all games of a certain type.</p>
+<p>In Python, this might be a method that’s useful for all Markov chains (e.g., <code class="docutils literal notranslate"><span class="pre">simulate</span></code>).</p>
+<p>When we use OOP, the <code class="docutils literal notranslate"><span class="pre">simulate</span></code> method is conveniently bundled together with the Markov chain object.</p>
+</div>
+</div>
+<div class="section" id="defining-your-own-classes">
+<h2><a class="toc-backref" href="#id6">Defining Your Own Classes</a><a class="headerlink" href="#defining-your-own-classes" title="Permalink to this headline">¶</a></h2>
+<p id="index-3">Let’s build some simple classes to start off.</p>
+<p id="oop-consumer-class">Before we do so, in order to indicate some of the power of Classes, we’ll define two functions that we’ll call <code class="docutils literal notranslate"><span class="pre">earn</span></code> and <code class="docutils literal notranslate"><span class="pre">spend</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">earn</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="s2">&quot;Consumer with inital wealth w earns y&quot;</span>
+    <span class="k">return</span> <span class="n">w</span><span class="o">+</span><span class="n">y</span>
+
+<span class="k">def</span> <span class="nf">spend</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+    <span class="s2">&quot;consumer with initial wealth w spends x&quot;</span>
+    <span class="n">new_wealth</span> <span class="o">=</span> <span class="n">w</span> <span class="o">-</span><span class="n">x</span>
+    <span class="k">if</span> <span class="n">new_wealth</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Insufficient funds&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">new_wealth</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">earn</span></code> function takes a consumer’s initial wealth <span class="math notranslate nohighlight">\(w\)</span> and  adds to it her current earnings <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">spend</span></code> function takes a consumer’s initial wealth <span class="math notranslate nohighlight">\(w\)</span> and deducts from it  her current spending <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>We can use these two functions to keep track of a consumer’s wealth as she earns and spends.</p>
+<p>For example</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w0</span><span class="o">=</span><span class="mi">100</span>
+<span class="n">w1</span><span class="o">=</span><span class="n">earn</span><span class="p">(</span><span class="n">w0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">w2</span><span class="o">=</span><span class="n">spend</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">w3</span><span class="o">=</span><span class="n">earn</span><span class="p">(</span><span class="n">w2</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">w4</span><span class="o">=</span><span class="n">spend</span><span class="p">(</span><span class="n">w3</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;w0,w1,w2,w3,w4 = &quot;</span><span class="p">,</span> <span class="n">w0</span><span class="p">,</span><span class="n">w1</span><span class="p">,</span><span class="n">w2</span><span class="p">,</span><span class="n">w3</span><span class="p">,</span><span class="n">w4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>w0,w1,w2,w3,w4 =  100 110 90 100 80
+</pre></div>
+</div>
+</div>
+</div>
+<p>A <em>Class</em> bundles a set of data tied to a particular <em>instance</em> together with a collection of functions that operate on the data.</p>
+<p>In our example, an <em>instance</em> will be the name of  particular <em>person</em> whose <em>instance data</em> consist solely of its wealth.</p>
+<p>(In other examples <em>instance data</em> will consist of a vector of data.)</p>
+<p>In our example, two functions <code class="docutils literal notranslate"><span class="pre">earn</span></code> and <code class="docutils literal notranslate"><span class="pre">spend</span></code> can be applied to the current instance data.</p>
+<p>Taken together,  the instance data and functions  are called <em>methods</em>.</p>
+<p>These can be readily accessed in ways that we shall describe now.</p>
+<div class="section" id="example-a-consumer-class">
+<h3>Example: A Consumer Class<a class="headerlink" href="#example-a-consumer-class" title="Permalink to this headline">¶</a></h3>
+<p>We’ll build a <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> class with</p>
+<ul class="simple">
+<li><p>a <code class="docutils literal notranslate"><span class="pre">wealth</span></code> attribute that stores the consumer’s wealth (data)</p></li>
+<li><p>an <code class="docutils literal notranslate"><span class="pre">earn</span></code> method, where <code class="docutils literal notranslate"><span class="pre">earn(y)</span></code> increments the consumer’s wealth by <code class="docutils literal notranslate"><span class="pre">y</span></code></p></li>
+<li><p>a <code class="docutils literal notranslate"><span class="pre">spend</span></code> method, where <code class="docutils literal notranslate"><span class="pre">spend(x)</span></code> either decreases wealth by <code class="docutils literal notranslate"><span class="pre">x</span></code> or returns an error if insufficient funds exist</p></li>
+</ul>
+<p>Admittedly a little contrived, this example of a class helps us internalize some peculiar syntax.</p>
+<p>Here how we set up our Consumer class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Consumer</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+        <span class="s2">&quot;Initialize consumer with w dollars of wealth&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wealth</span> <span class="o">=</span> <span class="n">w</span>
+
+    <span class="k">def</span> <span class="nf">earn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="s2">&quot;The consumer earns y dollars&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wealth</span> <span class="o">+=</span> <span class="n">y</span>
+
+    <span class="k">def</span> <span class="nf">spend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="s2">&quot;The consumer spends x dollars if feasible&quot;</span>
+        <span class="n">new_wealth</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wealth</span> <span class="o">-</span> <span class="n">x</span>
+        <span class="k">if</span> <span class="n">new_wealth</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Insufficent funds&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">wealth</span> <span class="o">=</span> <span class="n">new_wealth</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There’s some special syntax here so let’s step through carefully</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">class</span></code> keyword indicates that we are building a class.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> class defines instance data <code class="docutils literal notranslate"><span class="pre">wealth</span></code> and three methods: <code class="docutils literal notranslate"><span class="pre">__init__</span></code>, <code class="docutils literal notranslate"><span class="pre">earn</span></code> and <code class="docutils literal notranslate"><span class="pre">spend</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">wealth</span></code> is <em>instance data</em> because each consumer we create (each instance of the <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> class) will have its own wealth data.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">earn</span></code> and <code class="docutils literal notranslate"><span class="pre">spend</span></code> methods deploy the functions we described earlier and that can potentially be applied to the <code class="docutils literal notranslate"><span class="pre">wealth</span></code> instance data.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method is a <em>constructor method</em>.</p>
+<p>Whenever we create an instance of the class, the <code class="docutils literal notranslate"><span class="pre">__init_</span></code> method will be called automatically.</p>
+<p>Calling <code class="docutils literal notranslate"><span class="pre">__init__</span></code> sets up a “namespace” to hold the instance data — more on this soon.</p>
+<p>We’ll also discuss the role of the peculiar  <code class="docutils literal notranslate"><span class="pre">self</span></code> bookkeeping device in detail below.</p>
+<div class="section" id="usage">
+<h4>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h4>
+<p>Here’s an example in which we use the class <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> to crdate an instance of a consumer whom we affectionately name <span class="math notranslate nohighlight">\(c1\)</span>.</p>
+<p>After we create consumer <span class="math notranslate nohighlight">\(c1\)</span> and endow it with initial wealth <span class="math notranslate nohighlight">\(10\)</span>, we’ll apply the <code class="docutils literal notranslate"><span class="pre">spend</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c1</span> <span class="o">=</span> <span class="n">Consumer</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># Create instance with initial wealth 10</span>
+<span class="n">c1</span><span class="o">.</span><span class="n">spend</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">c1</span><span class="o">.</span><span class="n">wealth</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c1</span><span class="o">.</span><span class="n">earn</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">c1</span><span class="o">.</span><span class="n">spend</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Insufficent funds
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can of course create multiple instances, i.e., multiple consumers,  each with its own name and  data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c1</span> <span class="o">=</span> <span class="n">Consumer</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="n">Consumer</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">c2</span><span class="o">.</span><span class="n">spend</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">c2</span><span class="o">.</span><span class="n">wealth</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c1</span><span class="o">.</span><span class="n">wealth</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each instance, i.e., each consumer,  stores its data in a separate namespace dictionary</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c1</span><span class="o">.</span><span class="vm">__dict__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;wealth&#39;: 10}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c2</span><span class="o">.</span><span class="vm">__dict__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;wealth&#39;: 8}
+</pre></div>
+</div>
+</div>
+</div>
+<p>When we access or set attributes we’re actually just modifying the dictionary
+maintained by the instance.</p>
+</div>
+<div class="section" id="self">
+<h4>Self<a class="headerlink" href="#self" title="Permalink to this headline">¶</a></h4>
+<p>If you look at the <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> class definition again you’ll see the word
+self throughout the code.</p>
+<p>The rules for using <code class="docutils literal notranslate"><span class="pre">self</span></code> in creating a Class are that</p>
+<ul class="simple">
+<li><p>Any instance data should be prepended with <code class="docutils literal notranslate"><span class="pre">self</span></code></p>
+<ul>
+<li><p>e.g., the <code class="docutils literal notranslate"><span class="pre">earn</span></code> method uses <code class="docutils literal notranslate"><span class="pre">self.wealth</span></code> rather than just <code class="docutils literal notranslate"><span class="pre">wealth</span></code></p></li>
+</ul>
+</li>
+<li><p>A method defined within the code that defines the  class should have <code class="docutils literal notranslate"><span class="pre">self</span></code> as its first argument</p>
+<ul>
+<li><p>e.g., <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">earn(self,</span> <span class="pre">y)</span></code> rather than just <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">earn(y)</span></code></p></li>
+</ul>
+</li>
+<li><p>Any method referenced within the class should be called as  <code class="docutils literal notranslate"><span class="pre">self.method_name</span></code></p></li>
+</ul>
+<p>There are no examples of the last rule in the preceding code but we will see some shortly.</p>
+</div>
+<div class="section" id="details">
+<h4>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h4>
+<p>In this section, we look at some more formal details related to classes and <code class="docutils literal notranslate"><span class="pre">self</span></code></p>
+<ul class="simple">
+<li><p>You might wish to skip to <a class="reference internal" href="#oop-solow-growth"><span class="std std-ref">the next section</span></a> the first time you read this lecture.</p></li>
+<li><p>You can return to these details after you’ve familiarized yourself with more examples.</p></li>
+</ul>
+<p>Methods actually live inside a class object formed when the interpreter reads
+the class definition</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Consumer</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>  <span class="c1"># Show __dict__ attribute of class object</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__module__&#39;: &#39;__main__&#39;, &#39;__init__&#39;: &lt;function Consumer.__init__ at 0x7f4bc8385830&gt;, &#39;earn&#39;: &lt;function Consumer.earn at 0x7f4bc8385a70&gt;, &#39;spend&#39;: &lt;function Consumer.spend at 0x7f4bc8385f80&gt;, &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__doc__&#39;: None}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note how the three methods <code class="docutils literal notranslate"><span class="pre">__init__</span></code>, <code class="docutils literal notranslate"><span class="pre">earn</span></code> and <code class="docutils literal notranslate"><span class="pre">spend</span></code> are stored in the class object.</p>
+<p>Consider the following code</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c1</span> <span class="o">=</span> <span class="n">Consumer</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">c1</span><span class="o">.</span><span class="n">earn</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">c1</span><span class="o">.</span><span class="n">wealth</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20
+</pre></div>
+</div>
+</div>
+</div>
+<p>When you call <code class="docutils literal notranslate"><span class="pre">earn</span></code> via <code class="docutils literal notranslate"><span class="pre">c1.earn(10)</span></code> the interpreter passes the instance <code class="docutils literal notranslate"><span class="pre">c1</span></code> and the argument <code class="docutils literal notranslate"><span class="pre">10</span></code> to <code class="docutils literal notranslate"><span class="pre">Consumer.earn</span></code>.</p>
+<p>In fact, the following are equivalent</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">c1.earn(10)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Consumer.earn(c1,</span> <span class="pre">10)</span></code></p></li>
+</ul>
+<p>In the function call <code class="docutils literal notranslate"><span class="pre">Consumer.earn(c1,</span> <span class="pre">10)</span></code> note that <code class="docutils literal notranslate"><span class="pre">c1</span></code> is the first argument.</p>
+<p>Recall that in the definition of the <code class="docutils literal notranslate"><span class="pre">earn</span></code> method, <code class="docutils literal notranslate"><span class="pre">self</span></code> is the first parameter</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">earn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+     <span class="s2">&quot;The consumer earns y dollars&quot;</span>
+     <span class="bp">self</span><span class="o">.</span><span class="n">wealth</span> <span class="o">+=</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The end result is that <code class="docutils literal notranslate"><span class="pre">self</span></code> is bound to the instance <code class="docutils literal notranslate"><span class="pre">c1</span></code> inside the function call.</p>
+<p>That’s why the statement <code class="docutils literal notranslate"><span class="pre">self.wealth</span> <span class="pre">+=</span> <span class="pre">y</span></code> inside <code class="docutils literal notranslate"><span class="pre">earn</span></code> ends up modifying <code class="docutils literal notranslate"><span class="pre">c1.wealth</span></code>.</p>
+</div>
+</div>
+<div class="section" id="example-the-solow-growth-model">
+<span id="oop-solow-growth"></span><h3>Example: The Solow Growth Model<a class="headerlink" href="#example-the-solow-growth-model" title="Permalink to this headline">¶</a></h3>
+<p id="index-4">For our next example, let’s write a simple class to implement the Solow growth model.</p>
+<p>The Solow growth model is a neoclassical growth model in which the per capita
+capital stock <span class="math notranslate nohighlight">\(k_t\)</span> evolves according to the rule</p>
+<div class="math notranslate nohighlight" id="equation-solow-lom">
+<span class="eqno">(1)<a class="headerlink" href="#equation-solow-lom" title="Permalink to this equation">¶</a></span>\[k_{t+1} = \frac{s z k_t^{\alpha} + (1 - \delta) k_t}{1 + n}\]</div>
+<p>Here</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(s\)</span> is an exogenously given saving rate</p></li>
+<li><p><span class="math notranslate nohighlight">\(z\)</span> is a productivity parameter</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> is capital’s share of income</p></li>
+<li><p><span class="math notranslate nohighlight">\(n\)</span> is the population growth rate</p></li>
+<li><p><span class="math notranslate nohighlight">\(\delta\)</span> is the depreciation rate</p></li>
+</ul>
+<p>A <strong>steady state</strong> of the model is a <span class="math notranslate nohighlight">\(k\)</span> that solves <a class="reference internal" href="#equation-solow-lom">(1)</a> when <span class="math notranslate nohighlight">\(k_{t+1} = k_t = k\)</span>.</p>
+<p>Here’s a class that implements this model.</p>
+<p>Some points of interest in the code are</p>
+<ul class="simple">
+<li><p>An instance maintains a record of its current capital stock in the variable <code class="docutils literal notranslate"><span class="pre">self.k</span></code>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">h</span></code> method implements the right-hand side of <a class="reference internal" href="#equation-solow-lom">(1)</a>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">update</span></code> method uses <code class="docutils literal notranslate"><span class="pre">h</span></code> to update capital as per <a class="reference internal" href="#equation-solow-lom">(1)</a>.</p>
+<ul>
+<li><p>Notice how inside <code class="docutils literal notranslate"><span class="pre">update</span></code> the reference to the local method <code class="docutils literal notranslate"><span class="pre">h</span></code> is <code class="docutils literal notranslate"><span class="pre">self.h</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<p>The methods <code class="docutils literal notranslate"><span class="pre">steady_state</span></code> and <code class="docutils literal notranslate"><span class="pre">generate_sequence</span></code> are fairly self-explanatory</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Solow</span><span class="p">:</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implements the Solow growth model with the update rule</span>
+
+<span class="sd">        k_{t+1} = [(s z k^α_t) + (1 - δ)k_t] /(1 + n)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>  <span class="c1"># population growth rate</span>
+                       <span class="n">s</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>  <span class="c1"># savings rate</span>
+                       <span class="n">δ</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>   <span class="c1"># depreciation rate</span>
+                       <span class="n">α</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>   <span class="c1"># share of labor</span>
+                       <span class="n">z</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>   <span class="c1"># productivity</span>
+                       <span class="n">k</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>  <span class="c1"># current capital stock</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">δ</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">α</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">δ</span><span class="p">,</span> <span class="n">α</span><span class="p">,</span> <span class="n">z</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k</span> <span class="o">=</span> <span class="n">k</span>
+
+    <span class="k">def</span> <span class="nf">h</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;Evaluate the h function&quot;</span>
+        <span class="c1"># Unpack parameters (get rid of self to simplify notation)</span>
+        <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">δ</span><span class="p">,</span> <span class="n">α</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">δ</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">α</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span>
+        <span class="c1"># Apply the update rule</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="n">z</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="o">**</span><span class="n">α</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">δ</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">n</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;Update the current state (i.e., the capital stock).&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k</span> <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">steady_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;Compute the steady state value of capital.&quot;</span>
+        <span class="c1"># Unpack parameters (get rid of self to simplify notation)</span>
+        <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">δ</span><span class="p">,</span> <span class="n">α</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">δ</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">α</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span>
+        <span class="c1"># Compute and return steady state</span>
+        <span class="k">return</span> <span class="p">((</span><span class="n">s</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="n">δ</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">α</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">generate_sequence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="s2">&quot;Generate and return a time series of length t&quot;</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+            <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">path</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s a little program that uses the class to compute  time series from two different initial conditions.</p>
+<p>The common steady state is also plotted for comparison</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="n">Solow</span><span class="p">()</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">Solow</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mf">8.0</span><span class="p">)</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Plot the common steady state value of capital</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">s1</span><span class="o">.</span><span class="n">steady_state</span><span class="p">()]</span><span class="o">*</span><span class="n">T</span><span class="p">,</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;steady state&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot time series for each economy</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">:</span>
+    <span class="n">lb</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;capital series from initial state </span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">k</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">generate_sequence</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">lb</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$t$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$k_t$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/python_oop_30_0.png" src="_images/python_oop_30_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="example-a-market">
+<h3>Example: A Market<a class="headerlink" href="#example-a-market" title="Permalink to this headline">¶</a></h3>
+<p>Next, let’s write a class for competitive market in which buyers and sellers are both price takers.</p>
+<p>The market consists of the following objects:</p>
+<ul class="simple">
+<li><p>A linear demand curve <span class="math notranslate nohighlight">\(Q = a_d - b_d p\)</span></p></li>
+<li><p>A linear supply curve <span class="math notranslate nohighlight">\(Q = a_z + b_z (p - t)\)</span></p></li>
+</ul>
+<p>Here</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(p\)</span> is price paid by the buyer,  <span class="math notranslate nohighlight">\(Q\)</span> is quantity and <span class="math notranslate nohighlight">\(t\)</span> is a per-unit tax.</p></li>
+<li><p>Other symbols are demand and supply parameters.</p></li>
+</ul>
+<p>The class provides methods to compute various values of interest, including competitive equilibrium price and quantity, tax revenue raised, consumer surplus and producer surplus.</p>
+<p>Here’s our implementation.</p>
+<p>(It uses a function from SciPy called quad for numerical integration—a topic we will say more about later on.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quad</span>
+
+<span class="k">class</span> <span class="nc">Market</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ad</span><span class="p">,</span> <span class="n">bd</span><span class="p">,</span> <span class="n">az</span><span class="p">,</span> <span class="n">bz</span><span class="p">,</span> <span class="n">tax</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set up market parameters.  All parameters are scalars.  See</span>
+<span class="sd">        https://lectures.quantecon.org/py/python_oop.html for interpretation.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ad</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bd</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bz</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tax</span> <span class="o">=</span> <span class="n">ad</span><span class="p">,</span> <span class="n">bd</span><span class="p">,</span> <span class="n">az</span><span class="p">,</span> <span class="n">bz</span><span class="p">,</span> <span class="n">tax</span>
+        <span class="k">if</span> <span class="n">ad</span> <span class="o">&lt;</span> <span class="n">az</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Insufficient demand.&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">price</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;Compute equilibrium price&quot;</span>
+        <span class="k">return</span>  <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ad</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">bz</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">tax</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bd</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">bz</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">quantity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;Compute equilibrium quantity&quot;</span>
+        <span class="k">return</span>  <span class="bp">self</span><span class="o">.</span><span class="n">ad</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">bd</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">price</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">consumer_surp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;Compute consumer surplus&quot;</span>
+        <span class="c1"># == Compute area under inverse demand function == #</span>
+        <span class="n">integrand</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ad</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">bd</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">bd</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span>
+        <span class="n">area</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="n">integrand</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantity</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">area</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">price</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantity</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">producer_surp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;Compute producer surplus&quot;</span>
+        <span class="c1">#  == Compute area above inverse supply curve, excluding tax == #</span>
+        <span class="n">integrand</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">az</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">bz</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">bz</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span>
+        <span class="n">area</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="n">integrand</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantity</span><span class="p">())</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">price</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">tax</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantity</span><span class="p">()</span> <span class="o">-</span> <span class="n">area</span>
+
+    <span class="k">def</span> <span class="nf">taxrev</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;Compute tax revenue&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tax</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantity</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">inverse_demand</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="s2">&quot;Compute inverse demand&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ad</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">bd</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">bd</span><span class="p">)</span><span class="o">*</span> <span class="n">x</span>
+
+    <span class="k">def</span> <span class="nf">inverse_supply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="s2">&quot;Compute inverse supply curve&quot;</span>
+        <span class="k">return</span> <span class="o">-</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">az</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">bz</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">bz</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">tax</span>
+
+    <span class="k">def</span> <span class="nf">inverse_supply_no_tax</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="s2">&quot;Compute inverse supply curve without tax&quot;</span>
+        <span class="k">return</span> <span class="o">-</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">az</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">bz</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">bz</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s a sample of usage</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseline_params</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Market</span><span class="p">(</span><span class="o">*</span><span class="n">baseline_params</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;equilibrium price = &quot;</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">price</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>equilibrium price =  18.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;consumer surplus = &quot;</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">consumer_surp</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>consumer surplus =  33.0625
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s a short program that uses this class to plot an inverse demand curve together with inverse
+supply curves  with and without taxes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Baseline ad, bd, az, bz, tax</span>
+<span class="n">baseline_params</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Market</span><span class="p">(</span><span class="o">*</span><span class="n">baseline_params</span><span class="p">)</span>
+
+<span class="n">q_max</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">quantity</span><span class="p">()</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="n">q_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">q_max</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">pd</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">inverse_demand</span><span class="p">(</span><span class="n">q_grid</span><span class="p">)</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">inverse_supply</span><span class="p">(</span><span class="n">q_grid</span><span class="p">)</span>
+<span class="n">psno</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">inverse_supply_no_tax</span><span class="p">(</span><span class="n">q_grid</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">q_grid</span><span class="p">,</span> <span class="n">pd</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;demand&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">q_grid</span><span class="p">,</span> <span class="n">ps</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;supply&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">q_grid</span><span class="p">,</span> <span class="n">psno</span><span class="p">,</span> <span class="s1">&#39;--k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;supply without tax&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;quantity&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">q_max</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/python_oop_37_0.png" src="_images/python_oop_37_0.png" />
+</div>
+</div>
+<p>The next program provides a function that</p>
+<ul class="simple">
+<li><p>takes an instance of <code class="docutils literal notranslate"><span class="pre">Market</span></code> as a parameter</p></li>
+<li><p>computes dead weight loss from the imposition of the tax</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deadw</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="s2">&quot;Computes deadweight loss for market m.&quot;</span>
+    <span class="c1"># == Create analogous market with no tax == #</span>
+    <span class="n">m_no_tax</span> <span class="o">=</span> <span class="n">Market</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">ad</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">bd</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">az</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">bz</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># == Compare surplus, return difference == #</span>
+    <span class="n">surp1</span> <span class="o">=</span> <span class="n">m_no_tax</span><span class="o">.</span><span class="n">consumer_surp</span><span class="p">()</span> <span class="o">+</span> <span class="n">m_no_tax</span><span class="o">.</span><span class="n">producer_surp</span><span class="p">()</span>
+    <span class="n">surp2</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">consumer_surp</span><span class="p">()</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="n">producer_surp</span><span class="p">()</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="n">taxrev</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">surp1</span> <span class="o">-</span> <span class="n">surp2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s an example of usage</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseline_params</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Market</span><span class="p">(</span><span class="o">*</span><span class="n">baseline_params</span><span class="p">)</span>
+<span class="n">deadw</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>  <span class="c1"># Show deadweight loss</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.125
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="example-chaos">
+<h3>Example: Chaos<a class="headerlink" href="#example-chaos" title="Permalink to this headline">¶</a></h3>
+<p>Let’s look at one more example, related to chaotic dynamics in nonlinear systems.</p>
+<p>A simple transition rule that can generate erratic time paths is the logistic map</p>
+<div class="math notranslate nohighlight" id="equation-quadmap2">
+<span class="eqno">(2)<a class="headerlink" href="#equation-quadmap2" title="Permalink to this equation">¶</a></span>\[x_{t+1} = r x_t(1 - x_t) ,
+\quad x_0 \in [0, 1],
+\quad r \in [0, 4]\]</div>
+<p>Let’s write a class for generating time series from this model.</p>
+<p>Here’s one implementation</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Chaos</span><span class="p">:</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Models the dynamical system :math:`x_{t+1} = r x_t (1 - x_t)`</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+      <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">      Initialize with state x0 and parameter r</span>
+<span class="sd">      &quot;&quot;&quot;</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">x0</span><span class="p">,</span> <span class="n">r</span>
+
+  <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="s2">&quot;Apply the map to update state.&quot;</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">generate_sequence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+      <span class="s2">&quot;Generate and return a sequence of length n.&quot;</span>
+      <span class="n">path</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+          <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+      <span class="k">return</span> <span class="n">path</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s an example of usage</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ch</span> <span class="o">=</span> <span class="n">Chaos</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">)</span>     <span class="c1"># x0 = 0.1 and r = 0.4</span>
+<span class="n">ch</span><span class="o">.</span><span class="n">generate_sequence</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># First 5 iterates</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.1, 0.36000000000000004, 0.9216, 0.28901376000000006, 0.8219392261226498]
+</pre></div>
+</div>
+</div>
+</div>
+<p>This piece of code plots a longer trajectory</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ch</span> <span class="o">=</span> <span class="n">Chaos</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">)</span>
+<span class="n">ts_length</span> <span class="o">=</span> <span class="mi">250</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$t$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$x_t$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">generate_sequence</span><span class="p">(</span><span class="n">ts_length</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">ts_length</span><span class="p">),</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;bo-&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$x_t$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/python_oop_47_0.png" src="_images/python_oop_47_0.png" />
+</div>
+</div>
+<p>The next piece of code provides a bifurcation diagram</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ch</span> <span class="o">=</span> <span class="n">Chaos</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">2.5</span>
+<span class="k">while</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+    <span class="n">ch</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">r</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">generate_sequence</span><span class="p">(</span><span class="mi">1000</span><span class="p">)[</span><span class="mi">950</span><span class="p">:]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">r</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">t</span><span class="p">,</span> <span class="s1">&#39;b.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">r</span> <span class="o">+</span> <span class="mf">0.005</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$r$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$x_t$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/python_oop_49_0.png" src="_images/python_oop_49_0.png" />
+</div>
+</div>
+<p>On the horizontal axis is the parameter <span class="math notranslate nohighlight">\(r\)</span> in <a class="reference internal" href="#equation-quadmap2">(2)</a>.</p>
+<p>The vertical axis is the state space <span class="math notranslate nohighlight">\([0, 1]\)</span>.</p>
+<p>For each <span class="math notranslate nohighlight">\(r\)</span> we compute a long time series and then plot the tail (the last 50 points).</p>
+<p>The tail of the sequence shows us where the trajectory concentrates after
+settling down to some kind of steady state, if a steady state exists.</p>
+<p>Whether it settles down, and the character of the steady state to which it does settle down, depend on the value of <span class="math notranslate nohighlight">\(r\)</span>.</p>
+<p>For <span class="math notranslate nohighlight">\(r\)</span> between about 2.5 and 3, the time series settles into a single fixed point plotted on the vertical axis.</p>
+<p>For <span class="math notranslate nohighlight">\(r\)</span> between about 3 and 3.45, the time series settles down to oscillating between the two values plotted on the vertical
+axis.</p>
+<p>For <span class="math notranslate nohighlight">\(r\)</span> a little bit higher than 3.45, the time series settles down to oscillating among the four values plotted on the vertical axis.</p>
+<p>Notice that there is no value of <span class="math notranslate nohighlight">\(r\)</span> that leads to a steady state oscillating among three values.</p>
+</div>
+</div>
+<div class="section" id="special-methods">
+<h2><a class="toc-backref" href="#id7">Special Methods</a><a class="headerlink" href="#special-methods" title="Permalink to this headline">¶</a></h2>
+<p id="index-5">Python provides special methods that come in handy.</p>
+<p>For example, recall that lists and tuples have a notion of length and that this length can be queried via the <code class="docutils literal notranslate"><span class="pre">len</span></code> function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you want to provide a return value for the <code class="docutils literal notranslate"><span class="pre">len</span></code> function when applied to
+your user-defined object, use the <code class="docutils literal notranslate"><span class="pre">__len__</span></code> special method</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">42</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we get</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42
+</pre></div>
+</div>
+</div>
+</div>
+<p id="call-method">A special method we will use regularly is the <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method.</p>
+<p>This method can be used to make your instances callable, just like functions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">42</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>After running we get</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>  <span class="c1"># Exactly equivalent to f.__call__(8)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50
+</pre></div>
+</div>
+</div>
+</div>
+<p>Exercise 1 provides a more useful example.</p>
+</div>
+<div class="section" id="exercises">
+<h2><a class="toc-backref" href="#id8">Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exercise-1">
+<span id="oop-ex1"></span><h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Empirical_distribution_function">empirical cumulative distribution function (ecdf)</a> corresponding to a sample <span class="math notranslate nohighlight">\(\{X_i\}_{i=1}^n\)</span> is defined as</p>
+<div class="math notranslate nohighlight" id="equation-emdist">
+<span class="eqno">(3)<a class="headerlink" href="#equation-emdist" title="Permalink to this equation">¶</a></span>\[F_n(x) := \frac{1}{n}  \sum_{i=1}^n \mathbf{1}\{X_i \leq x\}
+  \qquad (x \in \mathbb{R})\]</div>
+<p>Here <span class="math notranslate nohighlight">\(\mathbf{1}\{X_i \leq x\}\)</span> is an indicator function (one if <span class="math notranslate nohighlight">\(X_i \leq x\)</span> and zero otherwise)
+and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fraction of the sample that falls below <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>The Glivenko–Cantelli Theorem states that, provided that the sample is IID, the ecdf <span class="math notranslate nohighlight">\(F_n\)</span> converges to the true distribution function <span class="math notranslate nohighlight">\(F\)</span>.</p>
+<p>Implement <span class="math notranslate nohighlight">\(F_n\)</span> as a class called <code class="docutils literal notranslate"><span class="pre">ECDF</span></code>, where</p>
+<ul class="simple">
+<li><p>A given sample <span class="math notranslate nohighlight">\(\{X_i\}_{i=1}^n\)</span> are the instance data, stored as <code class="docutils literal notranslate"><span class="pre">self.observations</span></code>.</p></li>
+<li><p>The class implements a <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method that returns <span class="math notranslate nohighlight">\(F_n(x)\)</span> for any <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
+</ul>
+<p>Your code should work as follows (modulo randomness)</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">uniform</span>
+
+<span class="n">samples</span> <span class="o">=</span> <span class="p">[</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="n">F</span> <span class="o">=</span> <span class="n">ECDF</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+<span class="n">F</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># Evaluate ecdf at x = 0.5</span>
+</pre></div>
+</div>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="o">.</span><span class="n">observations</span> <span class="o">=</span> <span class="p">[</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)]</span>
+<span class="n">F</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Aim for clarity, not efficiency.</p>
+</div>
+<div class="section" id="exercise-2">
+<span id="oop-ex2"></span><h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h3>
+<p>In an <a class="reference internal" href="python_essentials.html#pyess-ex2"><span class="std std-ref">earlier exercise</span></a>, you wrote a function for evaluating polynomials.</p>
+<p>This exercise is an extension, where the task is to build a simple class called <code class="docutils literal notranslate"><span class="pre">Polynomial</span></code> for representing and manipulating polynomial functions such as</p>
+<div class="math notranslate nohighlight" id="equation-polynom">
+<span class="eqno">(4)<a class="headerlink" href="#equation-polynom" title="Permalink to this equation">¶</a></span>\[p(x) = a_0 + a_1 x + a_2 x^2 + \cdots a_N x^N = \sum_{n=0}^N a_n x^n
+    \qquad (x \in \mathbb{R})\]</div>
+<p>The instance data for the class <code class="docutils literal notranslate"><span class="pre">Polynomial</span></code> will be the coefficients (in the case of <a class="reference internal" href="#equation-polynom">(4)</a>, the numbers <span class="math notranslate nohighlight">\(a_0, \ldots, a_N\)</span>).</p>
+<p>Provide methods that</p>
+<ol class="simple">
+<li><p>Evaluate the polynomial <a class="reference internal" href="#equation-polynom">(4)</a>, returning <span class="math notranslate nohighlight">\(p(x)\)</span> for any <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
+<li><p>Differentiate the polynomial, replacing the original coefficients with those of its derivative <span class="math notranslate nohighlight">\(p'\)</span>.</p></li>
+</ol>
+<p>Avoid using any <code class="docutils literal notranslate"><span class="pre">import</span></code> statements.</p>
+</div>
+</div>
+<div class="section" id="solutions">
+<h2><a class="toc-backref" href="#id9">Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Exercise 1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ECDF</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observations</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">observations</span> <span class="o">=</span> <span class="n">observations</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">counter</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">obs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">observations</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">obs</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">:</span>
+                <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">counter</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">observations</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># == test == #</span>
+
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">uniform</span>
+
+<span class="n">samples</span> <span class="o">=</span> <span class="p">[</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="n">F</span> <span class="o">=</span> <span class="n">ECDF</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>  <span class="c1"># Evaluate ecdf at x = 0.5</span>
+
+<span class="n">F</span><span class="o">.</span><span class="n">observations</span> <span class="o">=</span> <span class="p">[</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4
+0.496
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Exercise 2<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Polynomial</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coefficients</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an instance of the Polynomial class representing</span>
+
+<span class="sd">            p(x) = a_0 x^0 + ... + a_N x^N,</span>
+
+<span class="sd">        where a_i = coefficients[i].</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span> <span class="o">=</span> <span class="n">coefficients</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="s2">&quot;Evaluate the polynomial at x.&quot;</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">):</span>
+            <span class="n">y</span> <span class="o">+=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="n">i</span>
+        <span class="k">return</span> <span class="n">y</span>
+
+    <span class="k">def</span> <span class="nf">differentiate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;Reset self.coefficients to those of p&#39; instead of p.&quot;</span>
+        <span class="n">new_coefficients</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">):</span>
+            <span class="n">new_coefficients</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+        <span class="c1"># Remove the first element, which is zero</span>
+        <span class="k">del</span> <span class="n">new_coefficients</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># And reset coefficients data to new values</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span> <span class="o">=</span> <span class="n">new_coefficients</span>
+        <span class="k">return</span> <span class="n">new_coefficients</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="oop_intro.html" title="previous page">OOP I: Introduction to Object Oriented Programming</a>
+    <a class='right-next' id="next-link" href="index_python_scientific_libraries.html" title="next page">The Scientific Libraries</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas J. Sargent and John Stachurski<br/>
+        
+            &copy; Copyright 2019, Thomas J. Sargent and John Stachurski.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
+    
+  </body>
+</html>

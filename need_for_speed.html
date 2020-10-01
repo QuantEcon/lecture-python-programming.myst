@@ -1,0 +1,1165 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Python for Scientific Computing &#8212; Quantitative Economics with Python</title>
+    
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="NumPy" href="numpy.html" />
+    <link rel="prev" title="The Scientific Libraries" href="index_python_scientific_libraries.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Quantitative Economics with Python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index_toc.html">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_lectures.html">
+   About Lectures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="index_learning_python.html">
+   Introduction to Python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="index_python_scientific_libraries.html">
+   The Scientific Libraries
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Python for Scientific Computing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="numpy.html">
+     NumPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="matplotlib.html">
+     Matplotlib
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="scipy.html">
+     SciPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="numba.html">
+     Numba
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="parallelization.html">
+     Parallelization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pandas.html">
+     Pandas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="index_advanced_python_programming.html">
+   Advanced Python Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="404.html">
+   Page Not Found
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="search.html">
+   Search
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="status.html">
+   Lecture Status
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   Troubleshooting
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/need_for_speed.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scientific-libraries">
+   Scientific Libraries
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-role-of-scientific-libraries">
+     The Role of Scientific Libraries
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python-s-scientific-ecosystem">
+     Python’s Scientific Ecosystem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-need-for-speed">
+   The Need for Speed
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#where-are-the-bottlenecks">
+     Where are the Bottlenecks?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dynamic-typing">
+       Dynamic Typing
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#static-types">
+       Static Types
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-access">
+     Data Access
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#summing-with-compiled-code">
+       Summing with Compiled Code
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#summing-in-pure-python">
+       Summing in Pure Python
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vectorization">
+   Vectorization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operations-on-arrays">
+     Operations on Arrays
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#universal-functions">
+     Universal Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#beyond-vectorization">
+   Beyond Vectorization
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div id="qe-notebook-header" align="right" style="text-align:right;">
+        <a href="https://quantecon.org/" title="quantecon.org">
+                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
+        </a>
+</div><div class="section" id="python-for-scientific-computing">
+<h1><a class="toc-backref" href="#id1">Python for Scientific Computing</a><a class="headerlink" href="#python-for-scientific-computing" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#python-for-scientific-computing" id="id1">Python for Scientific Computing</a></p>
+<ul>
+<li><p><a class="reference internal" href="#overview" id="id2">Overview</a></p></li>
+<li><p><a class="reference internal" href="#scientific-libraries" id="id3">Scientific Libraries</a></p></li>
+<li><p><a class="reference internal" href="#the-need-for-speed" id="id4">The Need for Speed</a></p></li>
+<li><p><a class="reference internal" href="#vectorization" id="id5">Vectorization</a></p></li>
+<li><p><a class="reference internal" href="#beyond-vectorization" id="id6">Beyond Vectorization</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<blockquote class="epigraph">
+<div><p>“We should forget about small efficiencies, say about 97% of the time:
+premature optimization is the root of all evil.” – Donald Knuth</p>
+</div></blockquote>
+<div class="section" id="overview">
+<h2><a class="toc-backref" href="#id2">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Python is extremely popular for scientific computing, due to such factors as</p>
+<ul class="simple">
+<li><p>the accessible and flexible nature of the language itself,</p></li>
+<li><p>the huge range of high quality scientific libraries now available,</p></li>
+<li><p>the fact that the language and libraries are open source,</p></li>
+<li><p>the popular Anaconda Python distribution, which simplifies installation and
+management of those libraries, and</p></li>
+<li><p>the recent surge of interest in using Python for machine learning and
+artificial intelligence.</p></li>
+</ul>
+<p>In this lecture we give a short overview of scientific computing in Python,
+addressing the following questions:</p>
+<ul class="simple">
+<li><p>What are the relative strengths and weaknesses of Python for these tasks?</p></li>
+<li><p>What are the main elements of the scientific Python ecosystem?</p></li>
+<li><p>How is the situation changing over time?</p></li>
+</ul>
+<p>In addition to what’s in Anaconda, this lecture will need</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>conda install -y quantecon
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting package metadata (current_repodata.json): - 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
+Solving environment: - 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+The environment is inconsistent, please check the package plan carefully
+The following packages are causing the inconsistency:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  - conda-forge/linux-64::notebook==6.1.4=py37hc8dfbb8_0
+  - conda-forge/noarch::jupyterlab==2.2.8=py_0
+  - conda-forge/noarch::jupyterlab_server==1.2.0=py_0
+  - conda-forge/noarch::jupyter==1.0.0=py_2
+  - conda-forge/linux-64::widgetsnbextension==3.5.1=py37hc8dfbb8_1
+  - conda-forge/noarch::ipywidgets==7.5.1=pyh9f0ad1d_1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>## Package Plan ##
+
+  environment location: /usr/share/miniconda3/envs/qe-lectures
+
+  added / updated specs:
+    - quantecon
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    blosc-1.20.1               |       he1b5a44_0         874 KB  conda-forge
+    bzip2-1.0.8                |       h516909a_3         398 KB  conda-forge
+    hdf5-1.10.6                |nompi_h3c11f04_101         3.0 MB  conda-forge
+    lzo-2.10                   |    h516909a_1000         314 KB  conda-forge
+    mock-4.0.2                 |   py37hc8dfbb8_0          51 KB  conda-forge
+    nose-1.3.7                 |py37hc8dfbb8_1004         212 KB  conda-forge
+    numexpr-2.7.1              |   py37h0da4684_1         197 KB  conda-forge
+    pytables-3.6.1             |   py37h56451d4_2         1.4 MB  conda-forge
+    quantecon-0.4.8            |   py37hc8dfbb8_0         326 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:         6.8 MB
+
+The following NEW packages will be INSTALLED:
+
+  blosc              conda-forge/linux-64::blosc-1.20.1-he1b5a44_0
+  bzip2              conda-forge/linux-64::bzip2-1.0.8-h516909a_3
+  hdf5               conda-forge/linux-64::hdf5-1.10.6-nompi_h3c11f04_101
+  lzo                conda-forge/linux-64::lzo-2.10-h516909a_1000
+  mock               conda-forge/linux-64::mock-4.0.2-py37hc8dfbb8_0
+  nbconvert          conda-forge/linux-64::nbconvert-6.0.6-py37hc8dfbb8_0
+  nose               conda-forge/linux-64::nose-1.3.7-py37hc8dfbb8_1004
+  numexpr            conda-forge/linux-64::numexpr-2.7.1-py37h0da4684_1
+  pytables           conda-forge/linux-64::pytables-3.6.1-py37h56451d4_2
+  quantecon          conda-forge/linux-64::quantecon-0.4.8-py37hc8dfbb8_0
+
+
+
+Downloading and Extracting Packages
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mock-4.0.2           | 51 KB     |                                       |   0% 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mock-4.0.2           | 51 KB     | ##################################### | 100% 
+
+quantecon-0.4.8      | 326 KB    |                                       |   0% 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>quantecon-0.4.8      | 326 KB    | ##################################### | 100% 
+quantecon-0.4.8      | 326 KB    | ##################################### | 100% 
+
+bzip2-1.0.8          | 398 KB    |                                       |   0% 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bzip2-1.0.8          | 398 KB    | ##################################### | 100% 
+
+lzo-2.10             | 314 KB    |                                       |   0% 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lzo-2.10             | 314 KB    | ##################################### | 100% 
+
+nose-1.3.7           | 212 KB    |                                       |   0% 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nose-1.3.7           | 212 KB    | ##################################### | 100% 
+
+blosc-1.20.1         | 874 KB    |                                       |   0% 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>blosc-1.20.1         | 874 KB    | ##################################### | 100% 
+blosc-1.20.1         | 874 KB    | ##################################### | 100% 
+
+hdf5-1.10.6          | 3.0 MB    |                                       |   0% 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hdf5-1.10.6          | 3.0 MB    | ##################################### | 100% 
+hdf5-1.10.6          | 3.0 MB    | ##################################### | 100% 
+
+numexpr-2.7.1        | 197 KB    |                                       |   0% 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numexpr-2.7.1        | 197 KB    | ##################################### | 100% 
+
+pytables-3.6.1       | 1.4 MB    |                                       |   0% 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pytables-3.6.1       | 1.4 MB    | ##################################### | 100% 
+pytables-3.6.1       | 1.4 MB    | ##################################### | 100% 
+Preparing transaction: | 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
+Verifying transaction: - 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
+Executing transaction: - 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="scientific-libraries">
+<h2><a class="toc-backref" href="#id3">Scientific Libraries</a><a class="headerlink" href="#scientific-libraries" title="Permalink to this headline">¶</a></h2>
+<p>Let’s briefly review Python’s scientific libraries, starting with why we need
+them.</p>
+<div class="section" id="the-role-of-scientific-libraries">
+<h3>The Role of Scientific Libraries<a class="headerlink" href="#the-role-of-scientific-libraries" title="Permalink to this headline">¶</a></h3>
+<p>One obvious reason we use scientific libraries is because they implement
+routines we want to use.</p>
+<p>For example, it’s almost always better to use an existing routine for root
+finding than to write a new one from scratch.</p>
+<p>(For standard algorithms, efficiency is maximized if the community can coordinate on a
+common set of implementations, written by experts and tuned by users to be as fast and robust as possible.)</p>
+<p>But this is not the only reason that we use Python’s scientific libraries.</p>
+<p>Another is that pure Python, while flexible and elegant, is not fast.</p>
+<p>So we need libraries that are designed to accelerate execution of Python code.</p>
+<p>As we’ll see below, there are now Python libraries that can do this extremely well.</p>
+</div>
+<div class="section" id="python-s-scientific-ecosystem">
+<h3>Python’s Scientific Ecosystem<a class="headerlink" href="#python-s-scientific-ecosystem" title="Permalink to this headline">¶</a></h3>
+<p>In terms of popularity, the big four in the world of scientific Python
+libraries are</p>
+<ul class="simple">
+<li><p>NumPy</p></li>
+<li><p>SciPy</p></li>
+<li><p>Matplotlib</p></li>
+<li><p>Pandas</p></li>
+</ul>
+<p>For us, there’s another (relatively new) library that will also be essential for
+numerical computing:</p>
+<ul class="simple">
+<li><p>Numba</p></li>
+</ul>
+<p>Over the next few lectures we’ll see how to use these libraries.</p>
+<p>But first, let’s quickly review how they fit together.</p>
+<ul class="simple">
+<li><p>NumPy forms the foundations by providing a basic array data type (think of
+vectors and matrices) and functions for acting on these arrays (e.g., matrix
+multiplication).</p></li>
+<li><p>SciPy builds on NumPy by adding the kinds of numerical methods that are
+routinely used in science (interpolation, optimization, root finding, etc.).</p></li>
+<li><p>Matplotlib is used to generate figures, with a focus on plotting data stored in NumPy arrays.</p></li>
+<li><p>Pandas provides types and functions for empirical work (e.g., manipulating data).</p></li>
+<li><p>Numba accelerates execution via JIT compilation — we’ll learn about this
+soon.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="the-need-for-speed">
+<h2><a class="toc-backref" href="#id4">The Need for Speed</a><a class="headerlink" href="#the-need-for-speed" title="Permalink to this headline">¶</a></h2>
+<p>Now let’s discuss execution speed.</p>
+<p>Higher-level languages like Python  are optimized for humans.</p>
+<p>This means that the programmer can leave many details to the runtime environment</p>
+<ul class="simple">
+<li><p>specifying variable types</p></li>
+<li><p>memory allocation/deallocation, etc.</p></li>
+</ul>
+<p>The upside is that, compared to low-level languages, Python is typically faster to write, less error-prone and  easier to debug.</p>
+<p>The downside is that Python is harder to optimize — that is, turn into fast machine code — than languages like C or Fortran.</p>
+<p>Indeed, the standard implementation of Python (called CPython) cannot match the speed of compiled languages such as C or Fortran.</p>
+<p>Does that mean that we should just switch to C or Fortran for everything?</p>
+<p>The answer is: No, no and one hundred times no!</p>
+<p>(This is what you should say to the senior professor insisting that the model
+needs to be rewritten in Fortran or C++.)</p>
+<p>There are two reasons why:</p>
+<p>First, for any given program, relatively few lines are ever going to
+be time-critical.</p>
+<p>Hence it is far more efficient to write most of our code in a high productivity language like Python.</p>
+<p>Second, even for those lines of code that <em>are</em> time-critical, we can now achieve the same speed as C or Fortran using Python’s scientific libraries.</p>
+<div class="section" id="where-are-the-bottlenecks">
+<h3>Where are the Bottlenecks?<a class="headerlink" href="#where-are-the-bottlenecks" title="Permalink to this headline">¶</a></h3>
+<p>Before we learn how to do this, let’s try to understand why plain vanilla
+Python is slower than C or Fortran.</p>
+<p>This will, in turn, help us figure out how to speed things up.</p>
+<div class="section" id="dynamic-typing">
+<h4>Dynamic Typing<a class="headerlink" href="#dynamic-typing" title="Permalink to this headline">¶</a></h4>
+<p id="index-0">Consider this Python operation</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span>
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20
+</pre></div>
+</div>
+</div>
+</div>
+<p>Even for this simple operation, the Python interpreter has a fair bit of work to do.</p>
+<p>For example, in the statement <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>, the interpreter has to know which
+operation to invoke.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> are strings, then <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> requires string concatenation</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span>
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;foobar&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> are lists, then <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> requires list concatenation</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;bar&#39;</span><span class="p">]</span>
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;foo&#39;, &#39;bar&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>(We say that the operator <code class="docutils literal notranslate"><span class="pre">+</span></code> is <em>overloaded</em> — its action depends on the
+type of the objects on which it acts)</p>
+<p>As a result, Python must check the type of the objects and then call the correct operation.</p>
+<p>This involves substantial overheads.</p>
+</div>
+<div class="section" id="static-types">
+<h4>Static Types<a class="headerlink" href="#static-types" title="Permalink to this headline">¶</a></h4>
+<p id="index-1">Compiled languages avoid these overheads with explicit, static types.</p>
+<p>For example, consider the following C code, which sums the integers from 1 to 10</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">sum</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">i</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;sum = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">sum</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The variables <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">sum</span></code> are explicitly declared to be integers.</p>
+<p>Hence, the meaning of addition here is completely unambiguous.</p>
+</div>
+</div>
+<div class="section" id="data-access">
+<h3>Data Access<a class="headerlink" href="#data-access" title="Permalink to this headline">¶</a></h3>
+<p>Another drag on speed for high-level languages is data access.</p>
+<p>To illustrate, let’s consider the problem of summing some data — say, a collection of integers.</p>
+<div class="section" id="summing-with-compiled-code">
+<h4>Summing with Compiled Code<a class="headerlink" href="#summing-with-compiled-code" title="Permalink to this headline">¶</a></h4>
+<p>In C or Fortran, these integers would typically be stored in an array, which
+is a simple data structure for storing homogeneous data.</p>
+<p>Such an array is stored in a single contiguous block of memory</p>
+<ul class="simple">
+<li><p>In modern computers, memory addresses are allocated to each byte (one byte = 8 bits).</p></li>
+<li><p>For example, a 64 bit integer is stored in 8 bytes of memory.</p></li>
+<li><p>An array of <span class="math notranslate nohighlight">\(n\)</span> such integers occupies <span class="math notranslate nohighlight">\(8n\)</span> <strong>consecutive</strong> memory slots.</p></li>
+</ul>
+<p>Moreover, the compiler is made aware of the data type by the programmer.</p>
+<ul class="simple">
+<li><p>In this case 64 bit integers</p></li>
+</ul>
+<p>Hence, each successive data point can be accessed by shifting forward in memory
+space by a known and fixed amount.</p>
+<ul class="simple">
+<li><p>In this case 8 bytes</p></li>
+</ul>
+</div>
+<div class="section" id="summing-in-pure-python">
+<h4>Summing in Pure Python<a class="headerlink" href="#summing-in-pure-python" title="Permalink to this headline">¶</a></h4>
+<p>Python tries to replicate these ideas to some degree.</p>
+<p>For example, in the standard Python implementation (CPython), list elements are placed in memory locations that are in a sense contiguous.</p>
+<p>However, these list elements are more like pointers to data rather than actual data.</p>
+<p>Hence, there is still overhead involved in accessing the data values themselves.</p>
+<p>This is a considerable drag on speed.</p>
+<p>In fact, it’s generally true that memory traffic is a major culprit when it comes to slow execution.</p>
+<p>Let’s look at some ways around these problems.</p>
+</div>
+</div>
+</div>
+<div class="section" id="vectorization">
+<h2><a class="toc-backref" href="#id5"><span class="target" id="index-2"></span>Vectorization</a><a class="headerlink" href="#vectorization" title="Permalink to this headline">¶</a></h2>
+<p id="index-3">There is a clever method called <strong>vectorization</strong> that can be
+used to speed up high level languages in numerical applications.</p>
+<p>The key idea is to send array processing operations in batch to pre-compiled
+and efficient native machine code.</p>
+<p>The machine code itself is typically compiled from carefully optimized C or Fortran.</p>
+<p>For example, when working in a high level language, the operation of inverting a large matrix can be subcontracted to efficient machine code that is pre-compiled for this purpose and supplied to users as part of a package.</p>
+<p>This clever idea dates back to MATLAB, which uses vectorization extensively.</p>
+<p>Vectorization can greatly accelerate many numerical computations (but not all,
+as we shall see).</p>
+<p>Let’s see how vectorization works in Python, using NumPy.</p>
+<div class="section" id="operations-on-arrays">
+<h3>Operations on Arrays<a class="headerlink" href="#operations-on-arrays" title="Permalink to this headline">¶</a></h3>
+<p id="index-4">First, let’s run some imports</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">quantecon</span> <span class="k">as</span> <span class="nn">qe</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/qe-lectures/lib/python3.7/site-packages/numba/np/ufunc/parallel.py:363: NumbaWarning: <span class=" -Color -Color-Bold">The TBB threading layer requires TBB version 2019.5 or later i.e., TBB_INTERFACE_VERSION &gt;= 11005. Found TBB_INTERFACE_VERSION = 9107. The TBB threading layer is disabled.</span>
+  warnings.warn(problem)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next let’s try some non-vectorized code, which uses a native Python loop to generate,
+square and then sum a large number of random variables:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1_000_000</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>      <span class="c1"># Will accumulate and store sum</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">+=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 475 ms, sys: 7.69 ms, total: 482 ms
+Wall time: 482 ms
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following vectorized code achieves the same thing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 17.4 ms, sys: 75 µs, total: 17.4 ms
+Wall time: 17.3 ms
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, the second code block runs much faster.  Why?</p>
+<p>The second code block breaks the loop down into three basic operations</p>
+<ol class="simple">
+<li><p>draw <code class="docutils literal notranslate"><span class="pre">n</span></code> uniforms</p></li>
+<li><p>square them</p></li>
+<li><p>sum them</p></li>
+</ol>
+<p>These are sent as batch operators to optimized machine code.</p>
+<p>Apart from minor overheads associated with sending data back and forth, the result is C or Fortran-like speed.</p>
+<p>When we run batch operations on arrays like this, we say that the code is <em>vectorized</em>.</p>
+<p>Vectorized code is typically fast and efficient.</p>
+<p>It is also surprisingly flexible, in the sense that many operations can be vectorized.</p>
+<p>The next section illustrates this point.</p>
+</div>
+<div class="section" id="universal-functions">
+<span id="ufuncs"></span><h3>Universal Functions<a class="headerlink" href="#universal-functions" title="Permalink to this headline">¶</a></h3>
+<p id="index-5">Many functions provided by NumPy are so-called <em>universal functions</em> — also called <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/ufuncs.html">ufuncs</a>.</p>
+<p>This means that they</p>
+<ul class="simple">
+<li><p>map scalars into scalars, as expected</p></li>
+<li><p>map arrays into arrays, acting element-wise</p></li>
+</ul>
+<p>For example, <code class="docutils literal notranslate"><span class="pre">np.cos</span></code> is a ufunc:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5403023058681398
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.        , 0.87758256, 0.54030231])
+</pre></div>
+</div>
+</div>
+</div>
+<p>By exploiting ufuncs, many operations can be vectorized.</p>
+<p>For example, consider the problem of maximizing a function <span class="math notranslate nohighlight">\(f\)</span> of two
+variables <span class="math notranslate nohighlight">\((x,y)\)</span> over the square <span class="math notranslate nohighlight">\([-a, a] \times [-a, a]\)</span>.</p>
+<p>For <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(a\)</span> let’s choose</p>
+<div class="math notranslate nohighlight">
+\[
+f(x,y) = \frac{\cos(x^2 + y^2)}{1 + x^2 + y^2}
+\quad \text{and} \quad
+a = 3
+\]</div>
+<p>Here’s a plot of <span class="math notranslate nohighlight">\(f\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d.axes3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">xgrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">ygrid</span> <span class="o">=</span> <span class="n">xgrid</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">xgrid</span><span class="p">,</span> <span class="n">ygrid</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>
+                <span class="n">y</span><span class="p">,</span>
+                <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span>
+                <span class="n">rstride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">,</span>
+                <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+                <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$y$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/need_for_speed_19_0.png" src="_images/need_for_speed_19_0.png" />
+</div>
+</div>
+<p>To maximize it, we’re going to use a naive grid search:</p>
+<ol class="simple">
+<li><p>Evaluate <span class="math notranslate nohighlight">\(f\)</span> for all <span class="math notranslate nohighlight">\((x,y)\)</span> in a grid on the square.</p></li>
+<li><p>Return the maximum of observed values.</p></li>
+</ol>
+<p>The grid will be</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s a non-vectorized version that uses Python loops.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">:</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">z</span> <span class="o">&gt;</span> <span class="n">m</span><span class="p">:</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">z</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.15 s, sys: 0 ns, total: 4.15 s
+Wall time: 4.15 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>And here’s a vectorized version</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">grid</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 30.2 ms, sys: 19.6 ms, total: 49.8 ms
+Wall time: 49.6 ms
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9999819641085747
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the vectorized version, all the looping takes place in compiled code.</p>
+<p>As you can see, the second version is <strong>much</strong> faster.</p>
+<p>(We’ll make it even faster again later on, using more scientific programming tricks.)</p>
+</div>
+</div>
+<div class="section" id="beyond-vectorization">
+<span id="numba-p-c-vectorization"></span><h2><a class="toc-backref" href="#id6">Beyond Vectorization</a><a class="headerlink" href="#beyond-vectorization" title="Permalink to this headline">¶</a></h2>
+<p>At its best, vectorization yields fast, simple code.</p>
+<p>However, it’s not without disadvantages.</p>
+<p>One issue is that it can be highly memory-intensive.</p>
+<p>For example, the vectorized maximization routine above is far more memory
+intensive than the non-vectorized version that preceded it.</p>
+<p>This is because vectorization tends to create many intermediate arrays before
+producing the final calculation.</p>
+<p>Another issue is that not all algorithms can be vectorized.</p>
+<p>In these kinds of settings, we need to go back to loops.</p>
+<p>Fortunately, there are alternative ways to speed up Python loops that work in
+almost any setting.</p>
+<p>For example, in the last few years, a new Python library called <a class="reference external" href="http://numba.pydata.org/">Numba</a> has appeared that solves the main problems
+with vectorization listed above.</p>
+<p>It does so through something called <strong>just in time (JIT) compilation</strong>,
+which can generate extremely fast and efficient code.</p>
+<p>We’ll learn how to use Numba <a class="reference internal" href="numba.html"><span class="doc">soon</span></a>.</p>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="index_python_scientific_libraries.html" title="previous page">The Scientific Libraries</a>
+    <a class='right-next' id="next-link" href="numpy.html" title="next page">NumPy</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas J. Sargent and John Stachurski<br/>
+        
+            &copy; Copyright 2019, Thomas J. Sargent and John Stachurski.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
+    
+  </body>
+</html>
