@@ -18,7 +18,7 @@ kernelspec:
 </div>
 ```
 
-# Matplotlib
+# {index}`Matplotlib <single: Matplotlib>`
 
 ```{index} single: Python; Matplotlib
 ```

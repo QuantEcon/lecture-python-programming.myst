@@ -18,7 +18,7 @@ kernelspec:
 </div>
 ```
 
-# SciPy
+# {index}`SciPy <single: SciPy>`
 
 ```{index} single: Python; SciPy
 ```
@@ -49,7 +49,7 @@ A more common approach is to get some idea of what's in the library and then loo
 
 In this lecture, we aim only to highlight some useful parts of the package.
 
-## SciPy versus NumPy
+## {index}`SciPy <single: SciPy>` versus {index}`NumPy <single: NumPy>`
 
 SciPy is a package that contains various tools that are built on top of NumPy, using its array data type and related functionality.
 
@@ -214,7 +214,7 @@ The unique root is approximately 0.408.
 
 Let's consider some numerical techniques for finding roots.
 
-### Bisection
+### {index}`Bisection <single: Bisection>`
 
 ```{index} single: SciPy; Bisection
 ```
@@ -271,7 +271,7 @@ from scipy.optimize import bisect
 bisect(f, 0, 1)
 ```
 
-### The Newton-Raphson Method
+### The {index}`Newton-Raphson Method <single: Newton-Raphson Method>`
 
 ```{index} single: SciPy; Newton-Raphson Method
 ```
@@ -358,7 +358,7 @@ fixed_point(lambda x: x**2, 10.0)  # 10.0 is an initial guess
 If you don't get good results, you can always switch back to the `brentq` root finder, since
 the fixed point of a function $f$ is the root of $g(x) := x - f(x)$.
 
-## Optimization
+## {index}`Optimization <single: Optimization>`
 
 ```{index} single: SciPy; Optimization
 ```
@@ -393,7 +393,7 @@ Constrained multivariate local optimizers include `fmin_l_bfgs_b`, `fmin_tnc`, `
 
 See the [documentation](http://docs.scipy.org/doc/scipy/reference/optimize.html) for details.
 
-## Integration
+## {index}`Integration <single: Integration>`
 
 ```{index} single: SciPy; Integration
 ```
@@ -423,7 +423,7 @@ There are also functions for multivariate integration.
 
 See the [documentation](http://docs.scipy.org/doc/scipy/reference/integrate.html) for more details.
 
-## Linear Algebra
+## {index}`Linear Algebra <single: Linear Algebra>`
 
 ```{index} single: SciPy; Linear Algebra
 ```
