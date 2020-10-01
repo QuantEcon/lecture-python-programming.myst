@@ -20,8 +20,7 @@ kernelspec:
 
 # Writing Good Code
 
-```{index}
-single: Models; Code style
+```{index} single: Models; Code style
 ```
 
 ```{contents} Contents

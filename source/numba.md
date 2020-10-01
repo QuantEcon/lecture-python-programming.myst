@@ -79,8 +79,7 @@ This lecture introduces the main ideas.
 (numba_link)=
 ## Compiling Functions
 
-```{index}
-single: Python; Numba
+```{index} single: Python; Numba
 ```
 
 As stated above, Numba's primary use is compiling functions to fast native
@@ -383,8 +382,7 @@ plt.show()
 
 ## Alternatives to Numba
 
-```{index}
-single: Python; Cython
+```{index} single: Python; Cython
 ```
 
 There are additional options for accelerating Python loops.
@@ -416,8 +414,7 @@ cumbersome than Numba.
 
 ### Interfacing with Fortran via F2Py
 
-```{index}
-single: Python; Interfacing with Fortran
+```{index} single: Python; Interfacing with Fortran
 ```
 
 If you are comfortable writing Fortran you will find it very easy to create

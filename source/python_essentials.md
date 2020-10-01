@@ -34,8 +34,7 @@ This approach is less exciting but helps clear up some details.
 
 ## Data Types
 
-```{index}
-single: Python; Data Types
+```{index} single: Python; Data Types
 ```
 
 Computer programs typically keep track of a range of data types.
@@ -126,8 +125,7 @@ Python has several basic types for storing collections of (possibly heterogeneou
 
 We've {ref}`already discussed lists <lists_ref>`.
 
-```{index}
-single: Python; Tuples
+```{index} single: Python; Tuples
 ```
 
 A related data type is **tuples**, which are "immutable" lists
@@ -184,8 +182,7 @@ Tuple unpacking is convenient and we'll use it often.
 
 #### Slice Notation
 
-```{index}
-single: Python; Slicing
+```{index} single: Python; Slicing
 ```
 
 To access multiple elements of a list or tuple, you can use Python's slice
@@ -219,12 +216,10 @@ s[-3:]  # Select the last three elements
 
 #### Sets and Dictionaries
 
-```{index}
-single: Python; Sets
+```{index} single: Python; Sets
 ```
 
-```{index}
-single: Python; Dictionaries
+```{index} single: Python; Dictionaries
 ```
 
 Two other container types we should mention before moving on are [sets](https://docs.python.org/3/tutorial/datastructures.html#sets) and [dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries).
@@ -271,8 +266,7 @@ s3
 
 ## Input and Output
 
-```{index}
-single: Python; IO
+```{index} single: Python; IO
 ```
 
 Let's briefly review reading and writing to text files, starting with writing
@@ -313,8 +307,7 @@ print(out)
 
 ### Paths
 
-```{index}
-single: Python; Paths
+```{index} single: Python; Paths
 ```
 
 Note that if `newfile.txt` is not in the present working directory then this call to `open()` fails.
@@ -328,8 +321,7 @@ f = open('insert_full_path_to_file/newfile.txt', 'r')
 (iterating_version_1)=
 ## Iterating
 
-```{index}
-single: Python; Iteration
+```{index} single: Python; Iteration
 ```
 
 One of the most important tasks in computing is stepping through a
@@ -443,8 +435,7 @@ for index, letter in enumerate(letter_list):
 
 ### List Comprehensions
 
-```{index}
-single: Python; List comprehension
+```{index} single: Python; List comprehension
 ```
 
 We can also simplify the code for generating the list of random draws considerably by using something called a *list comprehension*.
@@ -475,8 +466,7 @@ doubles
 
 ### Comparisons
 
-```{index}
-single: Python; Comparison
+```{index} single: Python; Comparison
 ```
 
 Many different kinds of expressions evaluate to one of the Boolean values (i.e., `True` or `False`).
@@ -538,8 +528,7 @@ The rule is:
 
 ### Combining Expressions
 
-```{index}
-single: Python; Logical Expressions
+```{index} single: Python; Logical Expressions
 ```
 
 We can combine expressions using `and`, `or` and `not`.
@@ -573,8 +562,7 @@ Remember
 
 ## More Functions
 
-```{index}
-single: Python; Functions
+```{index} single: Python; Functions
 ```
 
 Let's talk a bit more about functions, which are all important for good programming style.
@@ -609,8 +597,7 @@ Functions without a return statement automatically return the special Python obj
 
 ### Docstrings
 
-```{index}
-single: Python; Docstrings
+```{index} single: Python; Docstrings
 ```
 
 Python has a system for adding comments to functions, modules, etc. called *docstrings*.
@@ -662,8 +649,7 @@ With one question mark we bring up the docstring, and with two we get the source
 
 ### One-Line Functions: `lambda`
 
-```{index}
-single: Python; lambda functions
+```{index} single: Python; lambda functions
 ```
 
 The `lambda` keyword is used to create simple functions on one line.
@@ -701,8 +687,7 @@ Here the function created by `lambda` is said to be *anonymous* because it was n
 
 ### Keyword Arguments
 
-```{index}
-single: Python; keyword arguments
+```{index} single: Python; keyword arguments
 ```
 
 In a {ref}`previous lecture <python_by_example>`, you came across the statement
@@ -745,8 +730,7 @@ f(2, a=4, b=5)
 
 ## Coding Style and PEP8
 
-```{index}
-single: Python; PEP8
+```{index} single: Python; PEP8
 ```
 
 To learn more about the Python programming philosophy type `import this` at the prompt.

@@ -20,8 +20,7 @@ kernelspec:
 
 # NumPy
 
-```{index}
-single: Python; NumPy
+```{index} single: Python; NumPy
 ```
 
 ```{contents} Contents
@@ -53,8 +52,7 @@ In this lecture, we will start a more systematic discussion of both
 (numpy_array)=
 ## NumPy Arrays
 
-```{index}
-single: NumPy; Arrays
+```{index} single: NumPy; Arrays
 ```
 
 The essential problem that NumPy solves is fast array processing.
@@ -110,8 +108,7 @@ type(a[0])
 (numpy_shape_dim)=
 ### Shape and Dimension
 
-```{index}
-single: NumPy; Arrays (Shape and Dimension)
+```{index} single: NumPy; Arrays (Shape and Dimension)
 ```
 
 Consider the following assignment
@@ -149,8 +146,7 @@ in `z = np.zeros((2, 2))`.
 (creating_arrays)=
 ### Creating Arrays
 
-```{index}
-single: NumPy; Arrays (Creating)
+```{index} single: NumPy; Arrays (Creating)
 ```
 
 As we've seen, the `np.zeros` function creates an array of zeros.
@@ -219,8 +215,7 @@ or `np.genfromtxt`---see [the documentation](http://docs.scipy.org/doc/numpy/ref
 
 ### Array Indexing
 
-```{index}
-single: NumPy; Arrays (Indexing)
+```{index} single: NumPy; Arrays (Indexing)
 ```
 
 For a flat array, indexing is the same as Python sequences:
@@ -314,8 +309,7 @@ z
 
 ### Array Methods
 
-```{index}
-single: NumPy; Arrays (Methods)
+```{index} single: NumPy; Arrays (Methods)
 ```
 
 Arrays have useful methods, all of which are carefully optimized
@@ -396,8 +390,7 @@ np.mean(a)
 
 ## Operations on Arrays
 
-```{index}
-single: NumPy; Arrays (Operations)
+```{index} single: NumPy; Arrays (Operations)
 ```
 
 ### Arithmetic Operations
@@ -447,8 +440,7 @@ In particular, `A * B` is *not* the matrix product, it is an element-wise produc
 
 ### Matrix Multiplication
 
-```{index}
-single: NumPy; Matrix Multiplication
+```{index} single: NumPy; Matrix Multiplication
 ```
 
 With Anaconda's scientific Python package based around Python 3.5 and above,
@@ -564,8 +556,7 @@ Let's look at some other useful things we can do with NumPy.
 
 ### Vectorized Functions
 
-```{index}
-single: NumPy; Vectorized Functions
+```{index} single: NumPy; Vectorized Functions
 ```
 
 NumPy provides versions of the standard functions `log`, `exp`, `sin`, etc. that act *element-wise* on arrays
@@ -630,8 +621,7 @@ However, this approach doesn't always obtain the same speed as a more carefully 
 
 ### Comparisons
 
-```{index}
-single: NumPy; Comparisons
+```{index} single: NumPy; Comparisons
 ```
 
 As a rule, comparisons on arrays are done element-wise
@@ -706,12 +696,10 @@ np.linalg.det(A)           # Compute the determinant
 np.linalg.inv(A)           # Compute the inverse
 ```
 
-```{index}
-single: SciPy
+```{index} single: SciPy
 ```
 
-```{index}
-single: Python; SciPy
+```{index} single: Python; SciPy
 ```
 
 Much of this functionality is also available in [SciPy](http://www.scipy.org/), a collection of modules that are built on top of NumPy.
