@@ -20,8 +20,7 @@ kernelspec:
 
 # Functions
 
-```{index}
-single: Python; User-defined functions
+```{index} single: Python; User-defined functions
 ```
 
 ```{contents} Contents
@@ -229,8 +228,7 @@ The net result is that the name `data` is *bound* to the list `ϵ_values` return
 
 ### Adding Conditions
 
-```{index}
-single: Python; Conditions
+```{index} single: Python; Conditions
 ```
 
 Our function `generate_data()` is rather limited.

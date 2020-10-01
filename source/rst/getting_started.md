@@ -20,8 +20,7 @@ kernelspec:
 
 # Setting up Your Python Environment
 
-```{index}
-single: Python
+```{index} single: Python
 ```
 
 ```{contents} Contents
@@ -67,8 +66,7 @@ Anaconda also comes with a great package management system to organize your code
 (install_anaconda)=
 ### Installing Anaconda
 
-```{index}
-single: Python; Anaconda
+```{index} single: Python; Anaconda
 ```
 
 To install Anaconda, [download](https://www.anaconda.com/download/) the binary and follow the instructions.
@@ -94,16 +92,13 @@ For more information on conda,  type conda help in a terminal.
 (ipython_notebook)=
 ## Jupyter Notebooks
 
-```{index}
-single: Python; IPython
+```{index} single: Python; IPython
 ```
 
-```{index}
-single: IPython
+```{index} single: IPython
 ```
 
-```{index}
-single: Jupyter
+```{index} single: Jupyter
 ```
 
 [Jupyter](http://jupyter.org/) notebooks are one of the many possible ways to interact with Python and the scientific libraries.
@@ -132,8 +127,7 @@ These lectures are designed for executing in Jupyter notebooks.
 
 ### Starting the Jupyter Notebook
 
-```{index}
-single: Jupyter Notebook; Setup
+```{index} single: Jupyter Notebook; Setup
 ```
 
 Once you have installed Anaconda, you can start the Jupyter notebook.
@@ -179,8 +173,7 @@ The notebook displays an *active cell*, into which you can type Python commands.
 
 ### Notebook Basics
 
-```{index}
-single: Jupyter Notebook; Basics
+```{index} single: Jupyter Notebook; Basics
 ```
 
 Let's start with how to edit code and run simple programs.
@@ -294,8 +287,7 @@ In this way, the Tab key helps remind you of what's available and also saves you
 (gs_help)=
 #### On-Line Help
 
-```{index}
-single: Jupyter Notebook; Help
+```{index} single: Jupyter Notebook; Help
 ```
 
 To get help on `np.rank`, say, we can execute `np.rank?`.
@@ -331,12 +323,10 @@ Now we `Shift+Enter` to produce this
 
 ### Sharing Notebooks
 
-```{index}
-single: Jupyter Notebook; Sharing
+```{index} single: Jupyter Notebook; Sharing
 ```
 
-```{index}
-single: Jupyter Notebook; nbviewer
+```{index} single: Jupyter Notebook; nbviewer
 ```
 
 Notebook files are just text files structured in [JSON](https://en.wikipedia.org/wiki/JSON) and typically ending with `.ipynb`.
@@ -360,8 +350,7 @@ to comments and votes by the community.
 ## Installing Libraries
 
 (gs_qe)=
-```{index}
-single: QuantEcon
+```{index} single: QuantEcon
 ```
 
 Most of the libraries we need come in Anaconda.
@@ -435,8 +424,7 @@ following questions:
 
 #### Option 1: JupyterLab
 
-```{index}
-single: JupyterLab
+```{index} single: JupyterLab
 ```
 
 [JupyterLab](https://github.com/jupyterlab/jupyterlab) is an integrated development environment built on top of Jupyter notebooks.
@@ -494,8 +482,7 @@ This is an alternative way to start the notebook that can also be handy.
 (gs_ex2)=
 ### Exercise 2
 
-```{index}
-single: Git
+```{index} single: Git
 ```
 
 This exercise will familiarize you with git and GitHub.

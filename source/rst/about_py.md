@@ -18,8 +18,7 @@ kernelspec:
 </div>
 ```
 
-```{index}
-single: python
+```{index} single: python
 ```
 
 # About Python
@@ -122,8 +121,7 @@ Other features of Python:
 
 ### Syntax and Design
 
-```{index}
-single: Python; syntax and design
+```{index} single: Python; syntax and design
 ```
 
 One nice feature of Python is its elegant syntax --- we'll see many examples later on.
@@ -140,8 +138,7 @@ Features like iterators, generators, decorators and list comprehensions make Pyt
 
 ## Scientific Programming
 
-```{index}
-single: scientific programming
+```{index} single: scientific programming
 ```
 
 Python has become one of the core languages of scientific computing.
@@ -163,8 +160,7 @@ This section briefly showcases some examples of Python for scientific programmin
 
 ### Numerical Programming
 
-```{index}
-single: scientific programming; numeric
+```{index} single: scientific programming; numeric
 ```
 
 Fundamental matrix and array processing capabilities are provided by the excellent [NumPy](http://www.numpy.org/) library.
@@ -218,8 +214,7 @@ See them all [here](http://docs.scipy.org/doc/scipy/reference/index.html).
 
 ### Graphics
 
-```{index}
-single: Matplotlib
+```{index} single: Matplotlib
 ```
 
 The most popular and comprehensive Python library for creating figures and graphs is [Matplotlib](http://matplotlib.org/), with functionality including
@@ -258,8 +253,7 @@ Other graphics libraries include
 
 It's useful to be able to manipulate symbolic expressions, as in Mathematica or Maple.
 
-```{index}
-single: SymPy
+```{index} single: SymPy
 ```
 
 The [SymPy](http://www.sympy.org/) library provides this functionality from within the Python shell.
@@ -315,8 +309,7 @@ the last few years.
 
 #### Pandas
 
-```{index}
-single: Pandas
+```{index} single: Pandas
 ```
 
 One of the most popular libraries for working with data is [pandas](http://pandas.pydata.org/).
@@ -343,26 +336,22 @@ df.mean()
 
 #### Other Useful Statistics Libraries
 
-```{index}
-single: statsmodels
+```{index} single: statsmodels
 ```
 
 * [statsmodels](http://statsmodels.sourceforge.net/) --- various statistical routines
 
-```{index}
-single: scikit-learn
+```{index} single: scikit-learn
 ```
 
 * [scikit-learn](http://scikit-learn.org/) --- machine learning in Python (sponsored by Google, among others)
 
-```{index}
-single: pyMC
+```{index} single: pyMC
 ```
 
 * [pyMC](http://pymc-devs.github.io/pymc/) --- for Bayesian data analysis
 
-```{index}
-single: pystan
+```{index} single: pystan
 ```
 
 * [pystan](https://pystan.readthedocs.org/en/latest/) Bayesian analysis based on [stan](http://mc-stan.org/)
@@ -371,8 +360,7 @@ single: pystan
 
 Python has many libraries for studying graphs.
 
-```{index}
-single: NetworkX
+```{index} single: NetworkX
 ```
 
 One well-known example is [NetworkX](http://networkx.github.io/).
@@ -414,70 +402,59 @@ plt.show()
 
 ### Cloud Computing
 
-```{index}
-single: cloud computing
+```{index} single: cloud computing
 ```
 
 Running your Python code on massive servers in the cloud is becoming easier and easier.
 
-```{index}
-single: cloud computing; anaconda enterprise
+```{index} single: cloud computing; anaconda enterprise
 ```
 
 A nice example is [Anaconda Enterprise](https://www.anaconda.com/enterprise/).
 
 See also
 
-```{index}
-single: cloud computing; amazon ec2
+```{index} single: cloud computing; amazon ec2
 ```
 
 * [Amazon Elastic Compute Cloud](http://aws.amazon.com/ec2/)
 
-```{index}
-single: cloud computing; google app engine
+```{index} single: cloud computing; google app engine
 ```
 
 * The [Google App Engine](https://cloud.google.com/appengine/) (Python, Java, PHP or Go)
 
-```{index}
-single: cloud computing; pythonanywhere
+```{index} single: cloud computing; pythonanywhere
 ```
 
 * [Pythonanywhere](https://www.pythonanywhere.com/)
 
-```{index}
-single: cloud computing; sagemath cloud
+```{index} single: cloud computing; sagemath cloud
 ```
 
 * [Sagemath Cloud](https://cloud.sagemath.com/)
 
 ### Parallel Processing
 
-```{index}
-single: parallel computing
+```{index} single: parallel computing
 ```
 
 Apart from the cloud computing options listed above, you might like to consider
 
-```{index}
-single: parallel computing; ipython
+```{index} single: parallel computing; ipython
 ```
 
 * [Parallel computing through IPython clusters](http://ipython.org/ipython-doc/stable/parallel/parallel_demos.html).
 
-```{index}
-single: parallel computing; starcluster
+```{index} single: parallel computing; starcluster
 ```
 
 * The [Starcluster](http://star.mit.edu/cluster/) interface to Amazon's EC2.
 
-```{index}
-single: parallel computing; copperhead
+```{index} single: parallel computing; copperhead
 ```
 
-```{index}
-single: parallel computing; pycuda
+```{index} single: parallel computing; pycuda
 ```
 
 * GPU programming through [PyCuda](https://wiki.tiker.net/PyCuda), [PyOpenCL](https://mathema.tician.de/software/pyopencl/), [Theano](http://deeplearning.net/software/theano/) or similar.
@@ -489,32 +466,27 @@ There are many other interesting developments with scientific programming in Pyt
 
 Some representative examples include
 
-```{index}
-single: scientific programming; Jupyter
+```{index} single: scientific programming; Jupyter
 ```
 
 * [Jupyter](http://jupyter.org/) --- Python in your browser with interactive code cells,  embedded images and other useful features.
 
-```{index}
-single: scientific programming; Numba
+```{index} single: scientific programming; Numba
 ```
 
 * [Numba](http://numba.pydata.org/) --- Make Python run at the same speed as native machine code!
 
-```{index}
-single: scientific programming; Blaze
+```{index} single: scientific programming; Blaze
 ```
 
 * [Blaze](http://blaze.pydata.org/) --- a generalization of NumPy.
 
-```{index}
-single: scientific programming; PyTables
+```{index} single: scientific programming; PyTables
 ```
 
 * [PyTables](http://www.pytables.org) --- manage large data sets.
 
-```{index}
-single: scientific programming; CVXPY
+```{index} single: scientific programming; CVXPY
 ```
 
 * [CVXPY](https://github.com/cvxgrp/cvxpy) --- convex optimization in Python.
@@ -525,8 +497,7 @@ single: scientific programming; CVXPY
 * Read more about [Python's history and rise in popularity](https://www.welcometothejungle.com/en/articles/btc-python-popular) .
 * Have a look at [some of the Jupyter notebooks](http://nbviewer.jupyter.org/) people have shared on various scientific topics.
 
-```{index}
-single: Python; PyPI
+```{index} single: Python; PyPI
 ```
 
 * Visit the [Python Package Index](https://pypi.org/).

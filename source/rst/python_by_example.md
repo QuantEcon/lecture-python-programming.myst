@@ -20,8 +20,7 @@ kernelspec:
 
 # An Introductory Example
 
-```{index}
-single: Python; Introductory Example
+```{index} single: Python; Introductory Example
 ```
 
 ```{contents} Contents
@@ -126,8 +125,7 @@ to import additional functionality.
 
 #### Packages
 
-```{index}
-single: Python; Packages
+```{index} single: Python; Packages
 ```
 
 As stated above, NumPy is a Python *package*.
@@ -151,8 +149,7 @@ anaconda3/lib/python3.7/site-packages/numpy
 
 #### Subpackages
 
-```{index}
-single: Python; Subpackages
+```{index} single: Python; Subpackages
 ```
 
 Consider the line `ϵ_values = np.random.randn(100)`.
@@ -245,8 +242,7 @@ Let's study some parts of this program in more detail.
 (lists_ref)=
 ### Lists
 
-```{index}
-single: Python; Lists
+```{index} single: Python; Lists
 ```
 
 Consider the statement `ϵ_values = []`, which creates an empty list.
@@ -306,8 +302,7 @@ x[1]   # second element of x
 
 ### The For Loop
 
-```{index}
-single: Python; For loop
+```{index} single: Python; For loop
 ```
 
 Now let's consider the `for` loop from {ref}`the program above <firstloopprog>`, which was
@@ -351,8 +346,7 @@ soon enough.
 
 ### A Comment on Indentation
 
-```{index}
-single: Python; Indentation
+```{index} single: Python; Indentation
 ```
 
 In discussing the `for` loop, we explained that the code blocks being looped over are delimited by indentation.
@@ -378,8 +372,7 @@ On the other hand, it takes a bit of care to get right, so please remember:
 
 ### While Loops
 
-```{index}
-single: Python; While loop
+```{index} single: Python; While loop
 ```
 
 The `for` loop is the most common technique for iteration in Python.

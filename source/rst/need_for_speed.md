@@ -152,8 +152,7 @@ This will, in turn, help us figure out how to speed things up.
 
 #### Dynamic Typing
 
-```{index}
-single: Dynamic Typing
+```{index} single: Dynamic Typing
 ```
 
 Consider this Python operation
@@ -191,8 +190,7 @@ This involves substantial overheads.
 
 #### Static Types
 
-```{index}
-single: Static Types
+```{index} single: Static Types
 ```
 
 Compiled languages avoid these overheads with explicit, static types.
@@ -261,8 +259,7 @@ Let's look at some ways around these problems.
 
 ## Vectorization
 
-```{index}
-single: Python; Vectorization
+```{index} single: Python; Vectorization
 ```
 
 There is a clever method called **vectorization** that can be
@@ -284,8 +281,7 @@ Let's see how vectorization works in Python, using NumPy.
 
 ### Operations on Arrays
 
-```{index}
-single: Vectorization; Operations on Arrays
+```{index} single: Vectorization; Operations on Arrays
 ```
 
 First, let's run some imports
@@ -344,8 +340,7 @@ The next section illustrates this point.
 (ufuncs)=
 ### Universal Functions
 
-```{index}
-single: NumPy; Universal Functions
+```{index} single: NumPy; Universal Functions
 ```
 
 Many functions provided by NumPy are so-called *universal functions* --- also called [ufuncs](https://docs.scipy.org/doc/numpy/reference/ufuncs.html).

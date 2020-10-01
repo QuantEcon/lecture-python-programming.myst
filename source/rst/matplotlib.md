@@ -20,8 +20,7 @@ kernelspec:
 
 # Matplotlib
 
-```{index}
-single: Python; Matplotlib
+```{index} single: Python; Matplotlib
 ```
 
 ```{contents} Contents
@@ -54,8 +53,7 @@ But first, let's discuss the difference.
 
 ## The APIs
 
-```{index}
-single: Matplotlib; Simple API
+```{index} single: Matplotlib; Simple API
 ```
 
 ### The MATLAB-style API
@@ -154,8 +152,7 @@ We mention just a few.
 
 ### Multiple Plots on One Axis
 
-```{index}
-single: Matplotlib; Multiple Plots on One Axis
+```{index} single: Matplotlib; Multiple Plots on One Axis
 ```
 
 It's straightforward to generate multiple plots on the same axes.
@@ -179,8 +176,7 @@ plt.show()
 
 ### Multiple Subplots
 
-```{index}
-single: Matplotlib; Subplots
+```{index} single: Matplotlib; Subplots
 ```
 
 Sometimes we want multiple subplots in one figure.
@@ -202,8 +198,7 @@ plt.show()
 
 ### 3D Plots
 
-```{index}
-single: Matplotlib; 3D Plots
+```{index} single: Matplotlib; 3D Plots
 ```
 
 Matplotlib does a nice job of 3D plots --- here is one example

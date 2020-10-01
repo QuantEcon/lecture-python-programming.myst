@@ -20,8 +20,7 @@ kernelspec:
 
 # Debugging
 
-```{index}
-single: Debugging
+```{index} single: Debugging
 ```
 
 ```{contents} Contents
@@ -58,8 +57,7 @@ import matplotlib.pyplot as plt
 
 ## Debugging
 
-```{index}
-single: Debugging
+```{index} single: Debugging
 ```
 
 ### The `debug` Magic
