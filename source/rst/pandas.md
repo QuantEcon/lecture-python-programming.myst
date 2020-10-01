@@ -18,7 +18,7 @@ kernelspec:
 </div>
 ```
 
-# Pandas
+# {index}`Pandas <single: Pandas>`
 
 ```{index} single: Python; Pandas
 ```
@@ -305,7 +305,7 @@ This can be done with a variety of methods.
 
 We start with a relatively low-level method and then return to pandas.
 
-### Accessing Data with requests
+### Accessing Data with {index}`requests <single: requests>`
 
 ```{index} single: Python; requests
 ```
@@ -384,7 +384,7 @@ Note that pandas offers many other file type alternatives.
 
 Pandas has [a wide variety](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html) of top-level methods that we can use to read, excel, json, parquet or plug straight into a database server.
 
-### Using pandas_datareader to Access Data
+### Using {index}`pandas_datareader <single: pandas_datareader>` to Access Data
 
 ```{index} single: Python; pandas-datareader
 ```
