@@ -1,24 +1,13 @@
 name: qe-lectures
 channels:
   - default
-  - conda-forge
 dependencies:
+  - python=3.8
+  - anaconda=2020.07
   - pip
-  - python
-  - jupyter
-  - jupyterlab
-  - nbconvert
-  - pandoc
-  - pandas
-  - numba
-  - numpy
-  - matplotlib
-  - networkx
-  - sphinx=2.4.4
-  - sympy
-  - scipy
   - pip:
+    - interpolation
     - sphinxcontrib-jupyter
     - sphinxcontrib-bibtex
     - joblib
-    - git+https://github.com/executablebooks/sphinx-tomyst.git
+    - git+https://github.com/executablebooks/sphinx-tomyst
