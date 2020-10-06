@@ -1,401 +1,228 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>An Introductory Example &#8212; Quantitative Economics with Python</title>
-    
-  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
-
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. An Introductory Example &#8212; Python Programming for Economics and Finance</title>
+    <link rel="stylesheet" href="_static/quantecon-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
-
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/quantecon-book-theme.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/quantecon-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Functions" href="functions.html" />
-    <link rel="prev" title="Setting up Your Python Environment" href="getting_started.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <link rel="next" title="4. Functions" href="functions.html" />
+    <link rel="prev" title="2. Setting up Your Python Environment" href="getting_started.html" />
 
 
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+<body>
+
+
+    <span id="top"></span>
+
+    <div class="wrapper">
+
+        <div class="main">
+
+            <div class="page">
+
+                <div class="page__toc">
+
+                    
+                    <div class="page__toc-header">
+                        On this page
+                    </div>
     
-
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Quantitative Economics with Python</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="index_toc.html">
-   Table of Contents
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="about_lectures.html">
-   About Lectures
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="reference internal" href="index_learning_python.html">
-   Introduction to Python
-  </a>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="about_py.html">
-     About Python
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="getting_started.html">
-     Setting up Your Python Environment
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     An Introductory Example
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="functions.html">
-     Functions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="python_essentials.html">
-     Python Essentials
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="oop_intro.html">
-     OOP I: Introduction to Object Oriented Programming
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="python_oop.html">
-     OOP II: Building Classes
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="index_python_scientific_libraries.html">
-   The Scientific Libraries
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="index_advanced_python_programming.html">
-   Advanced Python Programming
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="404.html">
-   Page Not Found
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="search.html">
-   Search
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="status.html">
-   Lecture Status
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="troubleshooting.html">
-   Troubleshooting
-  </a>
- </li>
-</ul>
-
-</nav>
-
- <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+                    <nav id="bd-toc-nav" class="page__toc-nav">
+                        <ul class="nav section-nav flex-column">
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#overview" class="nav-link">Overview</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#the-task-plotting-a-white-noise-process" class="nav-link">The Task: Plotting a White Noise Process</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#version-1" class="nav-link">Version 1</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#imports" class="nav-link">Imports</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#why-so-many-imports" class="nav-link">Why So Many Imports?</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#packages" class="nav-link">Packages</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#subpackages" class="nav-link">Subpackages</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#importing-names-directly" class="nav-link">Importing Names Directly</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#random-draws" class="nav-link">Random Draws</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#alternative-implementations" class="nav-link">Alternative Implementations</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#a-version-with-a-for-loop" class="nav-link">A Version with a For Loop</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#lists" class="nav-link">Lists</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#the-for-loop" class="nav-link">The For Loop</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#a-comment-on-indentation" class="nav-link">A Comment on Indentation</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#while-loops" class="nav-link">While Loops</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#another-application" class="nav-link">Another Application</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#exercises" class="nav-link">Exercises</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#exercise-1" class="nav-link">Exercise 1</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#exercise-2" class="nav-link">Exercise 2</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#exercise-3" class="nav-link">Exercise 3</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#exercise-4" class="nav-link">Exercise 4</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#exercise-5" class="nav-link">Exercise 5</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#solutions" class="nav-link">Solutions</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#id1" class="nav-link">Exercise 1</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#id2" class="nav-link">Exercise 2</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#id3" class="nav-link">Exercise 3</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#id4" class="nav-link">Exercise 4</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#id5" class="nav-link">Exercise 5</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                        </ul>
+                    </nav>
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
+                    <div class="page__toc-footer">
+                        
+                        
+                        <p><a href="#top"><strong>Back to top</strong></a></p>
+                    </div>
     
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/python_by_example.md.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-    
-</div>
-        <!-- Source interaction buttons -->
+                </div>
+
+                <div class="page__header">
+
+                    <div class="page__header-copy">
+
+                        <p class="page__header-heading"><a href="/">Python Programming for Economics and Finance</a></p>
+
+                        <p class="page__header-subheading">An Introductory Example</p>
+
+                    </div>
+
+                </div> <!-- .page__header -->
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
-
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview">
-   Overview
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-task-plotting-a-white-noise-process">
-   The Task: Plotting a White Noise Process
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#version-1">
-   Version 1
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#imports">
-     Imports
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#why-so-many-imports">
-       Why So Many Imports?
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#packages">
-       Packages
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#subpackages">
-       Subpackages
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#importing-names-directly">
-     Importing Names Directly
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#random-draws">
-     Random Draws
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#alternative-implementations">
-   Alternative Implementations
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-version-with-a-for-loop">
-     A Version with a For Loop
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lists">
-     Lists
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-for-loop">
-     The For Loop
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-comment-on-indentation">
-     A Comment on Indentation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#while-loops">
-     While Loops
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#another-application">
-   Another Application
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-1">
-     Exercise 1
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-2">
-     Exercise 2
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-3">
-     Exercise 3
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-4">
-     Exercise 4
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-5">
-     Exercise 5
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solutions">
-   Solutions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Exercise 1
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Exercise 2
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     Exercise 3
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     Exercise 4
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     Exercise 5
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-        </nav>
-        
-    </div>
-</div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
                 
+                <main class="page__content" role="main">
+                    
+                    <div>
+                        
   <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
                 <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
         </a>
 </div><div class="section" id="an-introductory-example">
-<h1><a class="toc-backref" href="#id6">An Introductory Example</a><a class="headerlink" href="#an-introductory-example" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id6"><span class="section-number">3. </span>An Introductory Example</a><a class="headerlink" href="#an-introductory-example" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <span id="index-0"></span><p class="topic-title">Contents</p>
 <ul class="simple">
@@ -413,7 +240,7 @@
 </ul>
 </div>
 <div class="section" id="overview">
-<h2><a class="toc-backref" href="#id7">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7"><span class="section-number">3.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>We’re now ready to start learning the Python language itself.</p>
 <p>In this lecture, we will write and then pick apart small Python programs.</p>
 <p>The objective is to introduce you to basic Python syntax and data structures.</p>
@@ -421,7 +248,7 @@
 <p>You should have read the <a class="reference internal" href="getting_started.html"><span class="doc">lecture</span></a> on getting started with Python before beginning this one.</p>
 </div>
 <div class="section" id="the-task-plotting-a-white-noise-process">
-<h2><a class="toc-backref" href="#id8">The Task: Plotting a White Noise Process</a><a class="headerlink" href="#the-task-plotting-a-white-noise-process" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8"><span class="section-number">3.2. </span>The Task: Plotting a White Noise Process</a><a class="headerlink" href="#the-task-plotting-a-white-noise-process" title="Permalink to this headline">¶</a></h2>
 <p>Suppose we want to simulate and plot the white noise
 process <span class="math notranslate nohighlight">\(\epsilon_0, \epsilon_1, \ldots, \epsilon_T\)</span>, where each draw <span class="math notranslate nohighlight">\(\epsilon_t\)</span> is independent standard normal.</p>
 <p>In other words, we want to generate figures that look something like this:</p>
@@ -443,7 +270,7 @@ notebook if you run it on your own machine.</p>
 </div>
 </div>
 <div class="section" id="version-1">
-<h2><a class="toc-backref" href="#id9">Version 1</a><a class="headerlink" href="#version-1" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9"><span class="section-number">3.3. </span>Version 1</a><a class="headerlink" href="#version-1" title="Permalink to this headline">¶</a></h2>
 <p id="ourfirstprog">Here are a few lines of code that perform the task we set</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -462,7 +289,7 @@ notebook if you run it on your own machine.</p>
 </div>
 <p>Let’s break this program down and see how it works.</p>
 <div class="section" id="imports">
-<span id="import"></span><h3>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h3>
+<span id="import"></span><h3><span class="section-number">3.3.1. </span>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h3>
 <p>The first two lines of the program import functionality from external code
 libraries.</p>
 <p>The first line imports <a class="reference internal" href="numpy.html"><span class="doc">NumPy</span></a>, a favorite Python package for tasks like</p>
@@ -515,14 +342,14 @@ libraries.</p>
 </div>
 <p>But the former method (using the short name <code class="docutils literal notranslate"><span class="pre">np</span></code>) is convenient and more standard.</p>
 <div class="section" id="why-so-many-imports">
-<h4>Why So Many Imports?<a class="headerlink" href="#why-so-many-imports" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">3.3.1.1. </span>Why So Many Imports?<a class="headerlink" href="#why-so-many-imports" title="Permalink to this headline">¶</a></h4>
 <p>Python programs typically require several import statements.</p>
 <p>The reason is that the core language is deliberately kept small, so that it’s easy to learn and maintain.</p>
 <p>When you want to do something interesting with Python, you almost always need
 to import additional functionality.</p>
 </div>
 <div class="section" id="packages">
-<h4>Packages<a class="headerlink" href="#packages" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">3.3.1.2. </span>Packages<a class="headerlink" href="#packages" title="Permalink to this headline">¶</a></h4>
 <p id="index-1">As stated above, NumPy is a Python <em>package</em>.</p>
 <p>Packages are used by developers to organize code they wish to share.</p>
 <p>In fact, a package is just a directory containing</p>
@@ -539,14 +366,14 @@ easily enough if you look around.</p>
 </div>
 </div>
 <div class="section" id="subpackages">
-<h4>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">3.3.1.3. </span>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h4>
 <p id="index-2">Consider the line <code class="docutils literal notranslate"><span class="pre">ϵ_values</span> <span class="pre">=</span> <span class="pre">np.random.randn(100)</span></code>.</p>
 <p>Here <code class="docutils literal notranslate"><span class="pre">np</span></code> refers to the package NumPy, while <code class="docutils literal notranslate"><span class="pre">random</span></code> is a <strong>subpackage</strong> of NumPy.</p>
 <p>Subpackages are just packages that are subdirectories of another package.</p>
 </div>
 </div>
 <div class="section" id="importing-names-directly">
-<h3>Importing Names Directly<a class="headerlink" href="#importing-names-directly" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.2. </span>Importing Names Directly<a class="headerlink" href="#importing-names-directly" title="Permalink to this headline">¶</a></h3>
 <p>Recall this code that we saw above</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -584,7 +411,7 @@ separated by many other lines.</p>
 <p>Then it’s harder for readers to know where <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> came from, should they wish to.</p>
 </div>
 <div class="section" id="random-draws">
-<h3>Random Draws<a class="headerlink" href="#random-draws" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.3. </span>Random Draws<a class="headerlink" href="#random-draws" title="Permalink to this headline">¶</a></h3>
 <p>Returning to our program that plots white noise, the remaining three lines
 after the import statements are</p>
 <div class="cell docutils container">
@@ -606,13 +433,13 @@ them in <code class="docutils literal notranslate"><span class="pre">ϵ_values</
 </div>
 </div>
 <div class="section" id="alternative-implementations">
-<h2><a class="toc-backref" href="#id10">Alternative Implementations</a><a class="headerlink" href="#alternative-implementations" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id10"><span class="section-number">3.4. </span>Alternative Implementations</a><a class="headerlink" href="#alternative-implementations" title="Permalink to this headline">¶</a></h2>
 <p>Let’s try writing some alternative versions of <a class="reference internal" href="#ourfirstprog"><span class="std std-ref">our first program</span></a>, which plotted IID draws from the normal distribution.</p>
 <p>The programs below are less efficient than the original one, and hence
 somewhat artificial.</p>
 <p>But they do help us illustrate some important Python syntax and semantics in a familiar setting.</p>
 <div class="section" id="a-version-with-a-for-loop">
-<h3>A Version with a For Loop<a class="headerlink" href="#a-version-with-a-for-loop" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.4.1. </span>A Version with a For Loop<a class="headerlink" href="#a-version-with-a-for-loop" title="Permalink to this headline">¶</a></h3>
 <p>Here’s a version that illustrates <code class="docutils literal notranslate"><span class="pre">for</span></code> loops and Python lists.</p>
 <div class="cell docutils container" id="firstloopprog">
 <div class="cell_input docutils container">
@@ -643,7 +470,7 @@ somewhat artificial.</p>
 <p>Let’s study some parts of this program in more detail.</p>
 </div>
 <div class="section" id="lists">
-<span id="lists-ref"></span><h3>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h3>
+<span id="lists-ref"></span><h3><span class="section-number">3.4.2. </span>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h3>
 <p id="index-3">Consider the statement <code class="docutils literal notranslate"><span class="pre">ϵ_values</span> <span class="pre">=</span> <span class="pre">[]</span></code>, which creates an empty list.</p>
 <p>Lists are a <em>native Python data structure</em> used to group a collection of objects.</p>
 <p>For example, try</p>
@@ -757,7 +584,7 @@ somewhat artificial.</p>
 </div>
 </div>
 <div class="section" id="the-for-loop">
-<h3>The For Loop<a class="headerlink" href="#the-for-loop" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.4.3. </span>The For Loop<a class="headerlink" href="#the-for-loop" title="Permalink to this headline">¶</a></h3>
 <p id="index-4">Now let’s consider the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop from <a class="reference internal" href="#firstloopprog"><span class="std std-ref">the program above</span></a>, which was</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -803,7 +630,7 @@ loop of the form</p>
 soon enough.</p>
 </div>
 <div class="section" id="a-comment-on-indentation">
-<h3>A Comment on Indentation<a class="headerlink" href="#a-comment-on-indentation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.4.4. </span>A Comment on Indentation<a class="headerlink" href="#a-comment-on-indentation" title="Permalink to this headline">¶</a></h3>
 <p id="index-5">In discussing the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, we explained that the code blocks being looped over are delimited by indentation.</p>
 <p>In fact, in Python, <strong>all</strong> code blocks (i.e., those occurring inside loops, if clauses, function definitions, etc.) are delimited by indentation.</p>
 <p>Thus, unlike most other languages, whitespace in Python code affects the output of the program.</p>
@@ -827,7 +654,7 @@ soon enough.</p>
 </ul>
 </div>
 <div class="section" id="while-loops">
-<h3>While Loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.4.5. </span>While Loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">¶</a></h3>
 <p id="index-6">The <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is the most common technique for iteration in Python.</p>
 <p>But, for the purpose of illustration, let’s modify <a class="reference internal" href="#firstloopprog"><span class="std std-ref">the program above</span></a> to use a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop instead.</p>
 <div class="cell docutils container" id="whileloopprog">
@@ -856,7 +683,7 @@ soon enough.</p>
 </div>
 </div>
 <div class="section" id="another-application">
-<h2><a class="toc-backref" href="#id11">Another Application</a><a class="headerlink" href="#another-application" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id11"><span class="section-number">3.5. </span>Another Application</a><a class="headerlink" href="#another-application" title="Permalink to this headline">¶</a></h2>
 <p>Let’s do one more application before we turn to exercises.</p>
 <p>In this application, we plot the balance of a bank account over time.</p>
 <p>There are no withdraws over the time period, the last date of which is denoted
@@ -896,11 +723,11 @@ operating system.</p>
 use in the exercises.</p>
 </div>
 <div class="section" id="exercises">
-<h2><a class="toc-backref" href="#id12">Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id12"><span class="section-number">3.6. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <p>Now we turn to exercises.  It is important that you complete them before
 continuing, since they present new concepts we will need.</p>
 <div class="section" id="exercise-1">
-<h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.6.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
 <p>Your first task is to simulate and plot the correlated time series</p>
 <div class="math notranslate nohighlight">
 \[
@@ -922,7 +749,7 @@ x_0 = 0
 <p>Set <span class="math notranslate nohighlight">\(T=200\)</span> and <span class="math notranslate nohighlight">\(\alpha = 0.9\)</span>.</p>
 </div>
 <div class="section" id="exercise-2">
-<h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.6.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h3>
 <p>Starting with your solution to exercise 2, plot three simulated time series,
 one for each of the cases <span class="math notranslate nohighlight">\(\alpha=0\)</span>, <span class="math notranslate nohighlight">\(\alpha=0.8\)</span> and <span class="math notranslate nohighlight">\(\alpha=0.98\)</span>.</p>
 <p>Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to step through the <span class="math notranslate nohighlight">\(\alpha\)</span> values.</p>
@@ -934,7 +761,7 @@ one for each of the cases <span class="math notranslate nohighlight">\(\alpha=0\
 </ul>
 </div>
 <div class="section" id="exercise-3">
-<h3>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.6.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this headline">¶</a></h3>
 <p>Similar to the previous exercises, plot the time series</p>
 <div class="math notranslate nohighlight">
 \[
@@ -947,7 +774,7 @@ x_0 = 0
 <p>Search online for a function that can be used to compute the absolute value <span class="math notranslate nohighlight">\(|x_t|\)</span>.</p>
 </div>
 <div class="section" id="exercise-4">
-<h3>Exercise 4<a class="headerlink" href="#exercise-4" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.6.4. </span>Exercise 4<a class="headerlink" href="#exercise-4" title="Permalink to this headline">¶</a></h3>
 <p>One important aspect of essentially all programming languages is branching and
 conditions.</p>
 <p>In Python, conditions are usually implemented with if–else syntax.</p>
@@ -984,7 +811,7 @@ to compute the absolute value.</p>
 <p>Replace this existing function with an if–else condition.</p>
 </div>
 <div class="section" id="exercise-5">
-<span id="pbe-ex3"></span><h3>Exercise 5<a class="headerlink" href="#exercise-5" title="Permalink to this headline">¶</a></h3>
+<span id="pbe-ex3"></span><h3><span class="section-number">3.6.5. </span>Exercise 5<a class="headerlink" href="#exercise-5" title="Permalink to this headline">¶</a></h3>
 <p>Here’s a harder exercise, that takes some thought and planning.</p>
 <p>The task is to compute an approximation to <span class="math notranslate nohighlight">\(\pi\)</span> using <a class="reference external" href="https://en.wikipedia.org/wiki/Monte_Carlo_method">Monte Carlo</a>.</p>
 <p>Use no imports besides</p>
@@ -1004,9 +831,9 @@ to compute the absolute value.</p>
 </div>
 </div>
 <div class="section" id="solutions">
-<h2><a class="toc-backref" href="#id13">Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id13"><span class="section-number">3.7. </span>Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
-<h3>Exercise 1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.7.1. </span>Exercise 1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Here’s one solution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1029,7 +856,7 @@ to compute the absolute value.</p>
 </div>
 </div>
 <div class="section" id="id2">
-<h3>Exercise 2<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.7.2. </span>Exercise 2<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">α_values</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">]</span>
@@ -1053,7 +880,7 @@ to compute the absolute value.</p>
 </div>
 </div>
 <div class="section" id="id3">
-<h3>Exercise 3<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.7.3. </span>Exercise 3<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>Here’s one solution:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1076,7 +903,7 @@ to compute the absolute value.</p>
 </div>
 </div>
 <div class="section" id="id4">
-<h3>Exercise 4<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.7.4. </span>Exercise 4<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>Here’s one way:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1124,7 +951,7 @@ to compute the absolute value.</p>
 </div>
 </div>
 <div class="section" id="id5">
-<h3>Exercise 5<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.7.5. </span>Exercise 5<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>Consider the circle of diameter 1 embedded in the unit square.</p>
 <p>Let <span class="math notranslate nohighlight">\(A\)</span> be its area and let <span class="math notranslate nohighlight">\(r=1/2\)</span> be its radius.</p>
 <p>If we know <span class="math notranslate nohighlight">\(\pi\)</span> then we can compute <span class="math notranslate nohighlight">\(A\)</span> via
@@ -1153,7 +980,7 @@ fraction that falls into the circle.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.13656
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14956
 </pre></div>
 </div>
 </div>
@@ -1162,39 +989,231 @@ fraction that falls into the circle.</p>
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
-              </div>
-              
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="getting_started.html" title="previous page">Setting up Your Python Environment</a>
-    <a class='right-next' id="next-link" href="functions.html" title="next page">Functions</a>
-
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Thomas J. Sargent and John Stachurski<br/>
-        
-            &copy; Copyright 2019, Thomas J. Sargent and John Stachurski.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
-      </div>
-    </div>
-
-    
-  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+                    </div>
+                    
+                </main> <!-- .page__content -->
+                
 
 
-    
+
+
+            </div> <!-- .page -->
+
+            
+            <div class="sidebar bd-sidebar inactive" id="site-navigation">
+
+                <div class="sidebar__header">
+
+
+                    Contents
+
+                </div>
+
+                <nav class="sidebar__nav" id="sidebar-nav" aria-label="Main navigation">
+                    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Python Programming for Economics and Finance
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_py.html">
+   1. About Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started.html">
+   2. Setting up Your Python Environment
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. An Introductory Example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   4. Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_essentials.html">
+   5. Python Essentials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="oop_intro.html">
+   6. OOP I: Introduction to Object Oriented Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_oop.html">
+   7. OOP II: Building Classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Scientific Libraries
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="need_for_speed.html">
+   8. Python for Scientific Computing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy.html">
+   9. NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matplotlib.html">
+   10. Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scipy.html">
+   11. SciPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numba.html">
+   12. Numba
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parallelization.html">
+   13. Parallelization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   14. Pandas
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Advanced Python Programming
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="writing_good_code.html">
+   15. Writing Good Code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_advanced_features.html">
+   16. More Language Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="debugging.html">
+   17. Debugging
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   18. Troubleshooting
+  </a>
+ </li>
+</ul>
+
+                </nav>
+
+                <div class="sidebar__footer">
+                    <p><img src="https://python-programming.quantecon.org/_static/img/qe-logo.png"></p>
+
+                    Theme by the <a href="https://quantecon.org/">QuantEcon</a>
+                </div>
+
+            </div> <!-- .sidebar -->
+            
+        </div> <!-- .main -->
+
+        <div class="toolbar">
+
+            <div class="toolbar__inner">
+
+
+                <ul class="toolbar__main">
+                    <li data-tippy-content="Toggle sidebar" class="btn__sidebar"><i data-feather="menu"></i></li>
+                    <li class="btn__search">
+                        <form action="search.html" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off">
+                            <i data-feather="search"></i>
+                        </form>
+                    </li>
+                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
+                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
+                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
+                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                </ul>
+
+                <ul class="toolbar__links">
+                    <li data-tippy-content="Home"><a href="/"><i data-feather="home"></i></a></li>
+                    <li data-tippy-content="Download Notebook"><a href="_sources/python_by_example.ipynb" download><i data-feather="download-cloud"></i></a></li>
+                    <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                    <li data-tippy-content="View Source"><a href="_sources/python_by_example.md" download><i data-feather="github"></i></a></li>
+                </ul>
+
+            </div>
+
+
+        </div> <!-- .toolbar -->
+
+    </div> <!-- .wrapper-->
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="/_static/plugins.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+
+<script src="/_static/scripts.js"></script>
+<script>
+    feather.replace()
+    tippy('[data-tippy-content]');
+</script>
+
+
   </body>
 </html>

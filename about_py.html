@@ -1,347 +1,184 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>About Python &#8212; Quantitative Economics with Python</title>
-    
-  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
-
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. About Python &#8212; Python Programming for Economics and Finance</title>
+    <link rel="stylesheet" href="_static/quantecon-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
-
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/quantecon-book-theme.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/quantecon-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Setting up Your Python Environment" href="getting_started.html" />
-    <link rel="prev" title="Introduction to Python" href="index_learning_python.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <link rel="next" title="2. Setting up Your Python Environment" href="getting_started.html" />
+    <link rel="prev" title="Python Programming for Economics and Finance" href="intro.html" />
 
 
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+<body>
+
+
+    <span id="top"></span>
+
+    <div class="wrapper">
+
+        <div class="main">
+
+            <div class="page">
+
+                <div class="page__toc">
+
+                    
+                    <div class="page__toc-header">
+                        On this page
+                    </div>
     
-
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Quantitative Economics with Python</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="index_toc.html">
-   Table of Contents
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="about_lectures.html">
-   About Lectures
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="reference internal" href="index_learning_python.html">
-   Introduction to Python
-  </a>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     About Python
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="getting_started.html">
-     Setting up Your Python Environment
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="python_by_example.html">
-     An Introductory Example
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="functions.html">
-     Functions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="python_essentials.html">
-     Python Essentials
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="oop_intro.html">
-     OOP I: Introduction to Object Oriented Programming
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="python_oop.html">
-     OOP II: Building Classes
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="index_python_scientific_libraries.html">
-   The Scientific Libraries
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="index_advanced_python_programming.html">
-   Advanced Python Programming
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="404.html">
-   Page Not Found
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="search.html">
-   Search
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="status.html">
-   Lecture Status
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="troubleshooting.html">
-   Troubleshooting
-  </a>
- </li>
-</ul>
-
-</nav>
-
- <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+                    <nav id="bd-toc-nav" class="page__toc-nav">
+                        <ul class="nav section-nav flex-column">
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#overview" class="nav-link">Overview</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#what-s-python" class="nav-link">What’s Python?</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#common-uses" class="nav-link">Common Uses</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#relative-popularity" class="nav-link">Relative Popularity</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#features" class="nav-link">Features</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#syntax-and-design" class="nav-link">Syntax and Design</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#scientific-programming" class="nav-link">Scientific Programming</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#numerical-programming" class="nav-link">Numerical Programming</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#graphics" class="nav-link">Graphics</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#symbolic-algebra" class="nav-link">Symbolic Algebra</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#statistics" class="nav-link">Statistics</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#pandas" class="nav-link">Pandas</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#other-useful-statistics-libraries" class="nav-link">Other Useful Statistics Libraries</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#networks-and-graphs" class="nav-link">Networks and Graphs</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#cloud-computing" class="nav-link">Cloud Computing</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#parallel-processing" class="nav-link">Parallel Processing</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#other-developments" class="nav-link">Other Developments</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#learn-more" class="nav-link">Learn More</a>
+                            </li>
+                            
+                        </ul>
+                    </nav>
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
+                    <div class="page__toc-footer">
+                        
+                        
+                        <p><a href="#top"><strong>Back to top</strong></a></p>
+                    </div>
     
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/about_py.md.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-    
-</div>
-        <!-- Source interaction buttons -->
+                </div>
+
+                <div class="page__header">
+
+                    <div class="page__header-copy">
+
+                        <p class="page__header-heading"><a href="/">Python Programming for Economics and Finance</a></p>
+
+                        <p class="page__header-subheading">About Python</p>
+
+                    </div>
+
+                </div> <!-- .page__header -->
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
-
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview">
-   Overview
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-s-python">
-   What’s Python?
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#common-uses">
-     Common Uses
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#relative-popularity">
-     Relative Popularity
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#features">
-     Features
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#syntax-and-design">
-     Syntax and Design
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scientific-programming">
-   Scientific Programming
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#numerical-programming">
-     Numerical Programming
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#graphics">
-     Graphics
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#symbolic-algebra">
-     Symbolic Algebra
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#statistics">
-     Statistics
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#pandas">
-       Pandas
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#other-useful-statistics-libraries">
-       Other Useful Statistics Libraries
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#networks-and-graphs">
-     Networks and Graphs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cloud-computing">
-     Cloud Computing
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#parallel-processing">
-     Parallel Processing
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#other-developments">
-     Other Developments
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learn-more">
-   Learn More
-  </a>
- </li>
-</ul>
-
-        </nav>
-        
-    </div>
-</div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
                 
+                <main class="page__content" role="main">
+                    
+                    <div>
+                        
   <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
                 <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
         </a>
 </div><div class="section" id="about-python">
-<span id="index-0"></span><h1><a class="toc-backref" href="#id1">About Python</a><a class="headerlink" href="#about-python" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><a class="toc-backref" href="#id1"><span class="section-number">1. </span>About Python</a><a class="headerlink" href="#about-python" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -361,7 +198,7 @@ anymore. Sorry, R people. I used to be one of you but we no longer descend
 into R.” – Chris Wiggins</p>
 </div></blockquote>
 <div class="section" id="overview">
-<h2><a class="toc-backref" href="#id2">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2"><span class="section-number">1.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>In this lecture we will</p>
 <ul class="simple">
 <li><p>outline what Python is</p></li>
@@ -373,12 +210,12 @@ into R.” – Chris Wiggins</p>
 <p>Our only objective for this lecture is to give you some feel of what Python is, and what it can do.</p>
 </div>
 <div class="section" id="what-s-python">
-<h2><a class="toc-backref" href="#id3">What’s Python?</a><a class="headerlink" href="#what-s-python" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3"><span class="section-number">1.2. </span>What’s Python?</a><a class="headerlink" href="#what-s-python" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://www.python.org">Python</a> is a general-purpose programming language conceived in 1989 by Dutch programmer <a class="reference external" href="https://en.wikipedia.org/wiki/Guido_van_Rossum">Guido van Rossum</a>.</p>
 <p>Python is free and open source, with development coordinated through the <a class="reference external" href="https://www.python.org/psf/">Python Software Foundation</a>.</p>
 <p>Python has experienced rapid adoption in the last decade and is now one of the most popular programming languages.</p>
 <div class="section" id="common-uses">
-<h3>Common Uses<a class="headerlink" href="#common-uses" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.2.1. </span>Common Uses<a class="headerlink" href="#common-uses" title="Permalink to this headline">¶</a></h3>
 <p><span class="target" id="index-1"></span>Python is a general-purpose language used in almost all application domains such as</p>
 <ul class="simple">
 <li><p>communications</p></li>
@@ -400,7 +237,7 @@ into R.” – Chris Wiggins</p>
 <p>It is also <a class="reference external" href="https://news.efinancialcareers.com/us-en/3002556/python-replaced-excel-banking">replacing familiar tools like Excel</a> in the fields of finance and banking.</p>
 </div>
 <div class="section" id="relative-popularity">
-<h3>Relative Popularity<a class="headerlink" href="#relative-popularity" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.2.2. </span>Relative Popularity<a class="headerlink" href="#relative-popularity" title="Permalink to this headline">¶</a></h3>
 <p>The following chart, produced using Stack Overflow Trends, shows one measure of the relative popularity of Python</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="_images/python_vs_matlab.png"><img alt="_images/python_vs_matlab.png" src="_images/python_vs_matlab.png" style="width: 363.00000000000006px; height: 220.00000000000003px;" /></a>
@@ -422,7 +259,7 @@ Python’s popularity begin to spike in the first figure.</p>
 </ul>
 </div>
 <div class="section" id="features">
-<h3>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.2.3. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
 <p>Python is a <a class="reference external" href="https://en.wikipedia.org/wiki/High-level_programming_language">high-level language</a> suitable for rapid development.</p>
 <p>It has a relatively small core language supported by many libraries.</p>
 <p>Other features of Python:</p>
@@ -432,7 +269,7 @@ Python’s popularity begin to spike in the first figure.</p>
 </ul>
 </div>
 <div class="section" id="syntax-and-design">
-<h3>Syntax and Design<a class="headerlink" href="#syntax-and-design" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.2.4. </span>Syntax and Design<a class="headerlink" href="#syntax-and-design" title="Permalink to this headline">¶</a></h3>
 <p id="index-2">One nice feature of Python is its elegant syntax — we’ll see many examples later on.</p>
 <p>Elegant code might sound superfluous but in fact it’s highly beneficial because it makes the syntax easy to read and easy to remember.</p>
 <p>Remembering how to read from files, sort dictionaries and other such routine tasks means that you don’t need to break your flow in order to hunt down correct syntax.</p>
@@ -442,7 +279,7 @@ Python’s popularity begin to spike in the first figure.</p>
 </div>
 </div>
 <div class="section" id="scientific-programming">
-<h2><a class="toc-backref" href="#id4">Scientific Programming</a><a class="headerlink" href="#scientific-programming" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4"><span class="section-number">1.3. </span>Scientific Programming</a><a class="headerlink" href="#scientific-programming" title="Permalink to this headline">¶</a></h2>
 <p id="index-3">Python has become one of the core languages of scientific computing.</p>
 <p>It’s either the dominant player or a major player in</p>
 <ul class="simple">
@@ -459,7 +296,7 @@ Python’s popularity begin to spike in the first figure.</p>
 <li><p>All of these topics will be covered in detail later on.</p></li>
 </ul>
 <div class="section" id="numerical-programming">
-<h3>Numerical Programming<a class="headerlink" href="#numerical-programming" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.1. </span>Numerical Programming<a class="headerlink" href="#numerical-programming" title="Permalink to this headline">¶</a></h3>
 <p id="index-4">Fundamental matrix and array processing capabilities are provided by the excellent <a class="reference external" href="http://www.numpy.org/">NumPy</a> library.</p>
 <p>NumPy provides the basic array data type plus some simple processing operations.</p>
 <p>For example, let’s build some arrays</p>
@@ -482,7 +319,7 @@ Python’s popularity begin to spike in the first figure.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.04891256782214e-16
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.5265566588595902e-16
 </pre></div>
 </div>
 </div>
@@ -520,7 +357,7 @@ Python’s popularity begin to spike in the first figure.</p>
 <p>See them all <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/index.html">here</a>.</p>
 </div>
 <div class="section" id="graphics">
-<h3>Graphics<a class="headerlink" href="#graphics" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.2. </span>Graphics<a class="headerlink" href="#graphics" title="Permalink to this headline">¶</a></h3>
 <p id="index-5">The most popular and comprehensive Python library for creating figures and graphs is <a class="reference external" href="http://matplotlib.org/">Matplotlib</a>, with functionality including</p>
 <ul class="simple">
 <li><p>plots, histograms, contour images, 3D graphs, bar charts etc.</p></li>
@@ -548,7 +385,7 @@ Python’s popularity begin to spike in the first figure.</p>
 </ul>
 </div>
 <div class="section" id="symbolic-algebra">
-<h3>Symbolic Algebra<a class="headerlink" href="#symbolic-algebra" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.3. </span>Symbolic Algebra<a class="headerlink" href="#symbolic-algebra" title="Permalink to this headline">¶</a></h3>
 <p>It’s useful to be able to manipulate symbolic expressions, as in Mathematica or Maple.</p>
 <p id="index-6">The <a class="reference external" href="http://www.sympy.org/">SymPy</a> library provides this functionality from within the Python shell.</p>
 <div class="cell docutils container">
@@ -635,11 +472,11 @@ a fully fledged programming language.</p>
 to figures and so on.</p>
 </div>
 <div class="section" id="statistics">
-<h3>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.4. </span>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h3>
 <p>Python’s data manipulation and statistics libraries have improved rapidly over
 the last few years.</p>
 <div class="section" id="pandas">
-<h4>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">1.3.4.1. </span>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h4>
 <p id="index-7">One of the most popular libraries for working with data is <a class="reference external" href="http://pandas.pydata.org/">pandas</a>.</p>
 <p>Pandas is fast, efficient, flexible and well designed.</p>
 <p>Here’s a simple example, using some dummy data generated with Numpy’s excellent
@@ -684,7 +521,7 @@ dtype: float64
 </div>
 </div>
 <div class="section" id="other-useful-statistics-libraries">
-<h4>Other Useful Statistics Libraries<a class="headerlink" href="#other-useful-statistics-libraries" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">1.3.4.2. </span>Other Useful Statistics Libraries<a class="headerlink" href="#other-useful-statistics-libraries" title="Permalink to this headline">¶</a></h4>
 <ul class="simple" id="index-8">
 <li><p><a class="reference external" href="http://statsmodels.sourceforge.net/">statsmodels</a> — various statistical routines</p></li>
 </ul>
@@ -700,7 +537,7 @@ dtype: float64
 </div>
 </div>
 <div class="section" id="networks-and-graphs">
-<h3>Networks and Graphs<a class="headerlink" href="#networks-and-graphs" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.5. </span>Networks and Graphs<a class="headerlink" href="#networks-and-graphs" title="Permalink to this headline">¶</a></h3>
 <p>Python has many libraries for studying graphs.</p>
 <p id="index-12">One well-known example is <a class="reference external" href="http://networkx.github.io/">NetworkX</a>.
 Its features include, among many other things:</p>
@@ -746,7 +583,7 @@ Its features include, among many other things:</p>
 </div>
 </div>
 <div class="section" id="cloud-computing">
-<h3>Cloud Computing<a class="headerlink" href="#cloud-computing" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.6. </span>Cloud Computing<a class="headerlink" href="#cloud-computing" title="Permalink to this headline">¶</a></h3>
 <p id="index-13">Running your Python code on massive servers in the cloud is becoming easier and easier.</p>
 <p id="index-14">A nice example is <a class="reference external" href="https://www.anaconda.com/enterprise/">Anaconda Enterprise</a>.</p>
 <p>See also</p>
@@ -764,7 +601,7 @@ Its features include, among many other things:</p>
 </ul>
 </div>
 <div class="section" id="parallel-processing">
-<h3>Parallel Processing<a class="headerlink" href="#parallel-processing" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.7. </span>Parallel Processing<a class="headerlink" href="#parallel-processing" title="Permalink to this headline">¶</a></h3>
 <p id="index-19">Apart from the cloud computing options listed above, you might like to consider</p>
 <ul class="simple" id="index-20">
 <li><p><a class="reference external" href="http://ipython.org/ipython-doc/stable/parallel/parallel_demos.html">Parallel computing through IPython clusters</a>.</p></li>
@@ -777,7 +614,7 @@ Its features include, among many other things:</p>
 </ul>
 </div>
 <div class="section" id="other-developments">
-<span id="intfc"></span><h3>Other Developments<a class="headerlink" href="#other-developments" title="Permalink to this headline">¶</a></h3>
+<span id="intfc"></span><h3><span class="section-number">1.3.8. </span>Other Developments<a class="headerlink" href="#other-developments" title="Permalink to this headline">¶</a></h3>
 <p>There are many other interesting developments with scientific programming in Python.</p>
 <p>Some representative examples include</p>
 <ul class="simple" id="index-24">
@@ -798,7 +635,7 @@ Its features include, among many other things:</p>
 </div>
 </div>
 <div class="section" id="learn-more">
-<h2><a class="toc-backref" href="#id5">Learn More</a><a class="headerlink" href="#learn-more" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5"><span class="section-number">1.4. </span>Learn More</a><a class="headerlink" href="#learn-more" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Browse some Python projects on <a class="reference external" href="https://github.com/trending?l=python">GitHub</a>.</p></li>
 <li><p>Read more about <a class="reference external" href="https://www.welcometothejungle.com/en/articles/btc-python-popular">Python’s history and rise in popularity</a> .</p></li>
@@ -812,39 +649,231 @@ Its features include, among many other things:</p>
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
-              </div>
-              
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="index_learning_python.html" title="previous page">Introduction to Python</a>
-    <a class='right-next' id="next-link" href="getting_started.html" title="next page">Setting up Your Python Environment</a>
-
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Thomas J. Sargent and John Stachurski<br/>
-        
-            &copy; Copyright 2019, Thomas J. Sargent and John Stachurski.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
-      </div>
-    </div>
-
-    
-  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+                    </div>
+                    
+                </main> <!-- .page__content -->
+                
 
 
-    
+
+
+            </div> <!-- .page -->
+
+            
+            <div class="sidebar bd-sidebar inactive" id="site-navigation">
+
+                <div class="sidebar__header">
+
+
+                    Contents
+
+                </div>
+
+                <nav class="sidebar__nav" id="sidebar-nav" aria-label="Main navigation">
+                    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Python Programming for Economics and Finance
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. About Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started.html">
+   2. Setting up Your Python Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_by_example.html">
+   3. An Introductory Example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   4. Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_essentials.html">
+   5. Python Essentials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="oop_intro.html">
+   6. OOP I: Introduction to Object Oriented Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_oop.html">
+   7. OOP II: Building Classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Scientific Libraries
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="need_for_speed.html">
+   8. Python for Scientific Computing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy.html">
+   9. NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matplotlib.html">
+   10. Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scipy.html">
+   11. SciPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numba.html">
+   12. Numba
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parallelization.html">
+   13. Parallelization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   14. Pandas
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Advanced Python Programming
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="writing_good_code.html">
+   15. Writing Good Code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_advanced_features.html">
+   16. More Language Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="debugging.html">
+   17. Debugging
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   18. Troubleshooting
+  </a>
+ </li>
+</ul>
+
+                </nav>
+
+                <div class="sidebar__footer">
+                    <p><img src="https://python-programming.quantecon.org/_static/img/qe-logo.png"></p>
+
+                    Theme by the <a href="https://quantecon.org/">QuantEcon</a>
+                </div>
+
+            </div> <!-- .sidebar -->
+            
+        </div> <!-- .main -->
+
+        <div class="toolbar">
+
+            <div class="toolbar__inner">
+
+
+                <ul class="toolbar__main">
+                    <li data-tippy-content="Toggle sidebar" class="btn__sidebar"><i data-feather="menu"></i></li>
+                    <li class="btn__search">
+                        <form action="search.html" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off">
+                            <i data-feather="search"></i>
+                        </form>
+                    </li>
+                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
+                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
+                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
+                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                </ul>
+
+                <ul class="toolbar__links">
+                    <li data-tippy-content="Home"><a href="/"><i data-feather="home"></i></a></li>
+                    <li data-tippy-content="Download Notebook"><a href="_sources/about_py.ipynb" download><i data-feather="download-cloud"></i></a></li>
+                    <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                    <li data-tippy-content="View Source"><a href="_sources/about_py.md" download><i data-feather="github"></i></a></li>
+                </ul>
+
+            </div>
+
+
+        </div> <!-- .toolbar -->
+
+    </div> <!-- .wrapper-->
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="/_static/plugins.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+
+<script src="/_static/scripts.js"></script>
+<script>
+    feather.replace()
+    tippy('[data-tippy-content]');
+</script>
+
+
   </body>
 </html>

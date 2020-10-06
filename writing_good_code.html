@@ -1,311 +1,172 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Writing Good Code &#8212; Quantitative Economics with Python</title>
-    
-  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
-
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15. Writing Good Code &#8212; Python Programming for Economics and Finance</title>
+    <link rel="stylesheet" href="_static/quantecon-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
-
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/quantecon-book-theme.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/quantecon-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="More Language Features" href="python_advanced_features.html" />
-    <link rel="prev" title="Advanced Python Programming" href="index_advanced_python_programming.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <link rel="next" title="16. More Language Features" href="python_advanced_features.html" />
+    <link rel="prev" title="14. Pandas" href="pandas.html" />
 
 
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+<body>
+
+
+    <span id="top"></span>
+
+    <div class="wrapper">
+
+        <div class="main">
+
+            <div class="page">
+
+                <div class="page__toc">
+
+                    
+                    <div class="page__toc-header">
+                        On this page
+                    </div>
     
-
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Quantitative Economics with Python</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="index_toc.html">
-   Table of Contents
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="about_lectures.html">
-   About Lectures
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="index_learning_python.html">
-   Introduction to Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="index_python_scientific_libraries.html">
-   The Scientific Libraries
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="reference internal" href="index_advanced_python_programming.html">
-   Advanced Python Programming
-  </a>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Writing Good Code
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="python_advanced_features.html">
-     More Language Features
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="debugging.html">
-     Debugging
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="404.html">
-   Page Not Found
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="search.html">
-   Search
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="status.html">
-   Lecture Status
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="troubleshooting.html">
-   Troubleshooting
-  </a>
- </li>
-</ul>
-
-</nav>
-
- <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+                    <nav id="bd-toc-nav" class="page__toc-nav">
+                        <ul class="nav section-nav flex-column">
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#overview" class="nav-link">Overview</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#an-example-of-poor-code" class="nav-link">An Example of Poor Code</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#good-coding-practice" class="nav-link">Good Coding Practice</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#don-t-use-magic-numbers" class="nav-link">Don’t Use Magic Numbers</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#don-t-repeat-yourself" class="nav-link">Don’t Repeat Yourself</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#minimize-global-variables" class="nav-link">Minimize Global Variables</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#jit-compilation" class="nav-link">JIT Compilation</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#use-functions-or-classes" class="nav-link">Use Functions or Classes</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#which-one-functions-or-classes" class="nav-link">Which One, Functions or Classes?</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#revisiting-the-example" class="nav-link">Revisiting the Example</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#exercises" class="nav-link">Exercises</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#exercise-1" class="nav-link">Exercise 1</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#solutions" class="nav-link">Solutions</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#id2" class="nav-link">Exercise 1</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                        </ul>
+                    </nav>
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
+                    <div class="page__toc-footer">
+                        
+                        
+                        <p><a href="#top"><strong>Back to top</strong></a></p>
+                    </div>
     
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/writing_good_code.md.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-    
-</div>
-        <!-- Source interaction buttons -->
+                </div>
+
+                <div class="page__header">
+
+                    <div class="page__header-copy">
+
+                        <p class="page__header-heading"><a href="/">Python Programming for Economics and Finance</a></p>
+
+                        <p class="page__header-subheading">Writing Good Code</p>
+
+                    </div>
+
+                </div> <!-- .page__header -->
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
-
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview">
-   Overview
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#an-example-of-poor-code">
-   An Example of Poor Code
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#good-coding-practice">
-   Good Coding Practice
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#don-t-use-magic-numbers">
-     Don’t Use Magic Numbers
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#don-t-repeat-yourself">
-     Don’t Repeat Yourself
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#minimize-global-variables">
-     Minimize Global Variables
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#jit-compilation">
-       JIT Compilation
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#use-functions-or-classes">
-     Use Functions or Classes
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#which-one-functions-or-classes">
-       Which One, Functions or Classes?
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#revisiting-the-example">
-   Revisiting the Example
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-1">
-     Exercise 1
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solutions">
-   Solutions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Exercise 1
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-        </nav>
-        
-    </div>
-</div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
                 
+                <main class="page__content" role="main">
+                    
+                    <div>
+                        
   <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
                 <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
         </a>
 </div><div class="section" id="id1">
-<h1><a class="toc-backref" href="#id3">Writing Good Code</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id3"><span class="section-number">15. </span>Writing Good Code</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <span id="index-0"></span><p class="topic-title">Contents</p>
 <ul class="simple">
@@ -322,7 +183,7 @@
 </ul>
 </div>
 <div class="section" id="overview">
-<h2><a class="toc-backref" href="#id4">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4"><span class="section-number">15.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>When computer programs are small, poorly written code is not overly costly.</p>
 <p>But more data, more sophisticated models, and more computer power are enabling us to take on more challenging problems that involve writing longer programs.</p>
 <p>For such programs, investment in good coding practices will pay high returns.</p>
@@ -331,11 +192,11 @@
 <p>We also touch on modern developments in scientific computing — such as just in time compilation — and how they affect good program design.</p>
 </div>
 <div class="section" id="an-example-of-poor-code">
-<h2><a class="toc-backref" href="#id5">An Example of Poor Code</a><a class="headerlink" href="#an-example-of-poor-code" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5"><span class="section-number">15.2. </span>An Example of Poor Code</a><a class="headerlink" href="#an-example-of-poor-code" title="Permalink to this headline">¶</a></h2>
 <p>Let’s have a look at some poorly written code.</p>
 <p>The job of the code is to generate and plot time series of the simplified Solow model</p>
 <div class="math notranslate nohighlight" id="equation-gc-solmod">
-<span class="eqno">(1)<a class="headerlink" href="#equation-gc-solmod" title="Permalink to this equation">¶</a></span>\[k_{t+1} = s k_t^{\alpha} + (1 - \delta) k_t,
+<span class="eqno">(15.1)<a class="headerlink" href="#equation-gc-solmod" title="Permalink to this equation">¶</a></span>\[k_{t+1} = s k_t^{\alpha} + (1 - \delta) k_t,
 \quad t = 0, 1, 2, \ldots\]</div>
 <p>Here</p>
 <ul class="simple">
@@ -345,7 +206,7 @@
 <p>For each parameterization, the code</p>
 <ol class="simple">
 <li><p>sets <span class="math notranslate nohighlight">\(k_0 = 1\)</span></p></li>
-<li><p>iterates using <a class="reference internal" href="#equation-gc-solmod">(1)</a> to produce a sequence <span class="math notranslate nohighlight">\(k_0, k_1, k_2 \ldots , k_T\)</span></p></li>
+<li><p>iterates using <a class="reference internal" href="#equation-gc-solmod">(15.1)</a> to produce a sequence <span class="math notranslate nohighlight">\(k_0, k_1, k_2 \ldots , k_T\)</span></p></li>
 <li><p>plots the sequence</p></li>
 </ol>
 <p>The plots will be grouped into three subfigures.</p>
@@ -425,7 +286,7 @@
 <p>Let’s talk about why that’s the case, and what we can do about it.</p>
 </div>
 <div class="section" id="good-coding-practice">
-<h2><a class="toc-backref" href="#id6">Good Coding Practice</a><a class="headerlink" href="#good-coding-practice" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id6"><span class="section-number">15.3. </span>Good Coding Practice</a><a class="headerlink" href="#good-coding-practice" title="Permalink to this headline">¶</a></h2>
 <p>There are usually many different ways to write a program that accomplishes a given task.</p>
 <p>For small programs, like the one above, the way you write code doesn’t matter too much.</p>
 <p>But if you are ambitious and want to produce useful things, you’ll  write medium to large programs too.</p>
@@ -433,7 +294,7 @@
 <p>Fortunately, lots of smart people have thought about the best way to write code.</p>
 <p>Here are some basic precepts.</p>
 <div class="section" id="don-t-use-magic-numbers">
-<h3>Don’t Use Magic Numbers<a class="headerlink" href="#don-t-use-magic-numbers" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">15.3.1. </span>Don’t Use Magic Numbers<a class="headerlink" href="#don-t-use-magic-numbers" title="Permalink to this headline">¶</a></h3>
 <p>If you look at the code above, you’ll see numbers like <code class="docutils literal notranslate"><span class="pre">50</span></code> and <code class="docutils literal notranslate"><span class="pre">49</span></code> and <code class="docutils literal notranslate"><span class="pre">3</span></code> scattered through the code.</p>
 <p>These kinds of numeric literals in the body of your code are sometimes called “magic numbers”.</p>
 <p>This is not a compliment.</p>
@@ -448,7 +309,7 @@ should certainly be replaced by named constants.</p>
 </ul>
 </div>
 <div class="section" id="don-t-repeat-yourself">
-<h3>Don’t Repeat Yourself<a class="headerlink" href="#don-t-repeat-yourself" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">15.3.2. </span>Don’t Repeat Yourself<a class="headerlink" href="#don-t-repeat-yourself" title="Permalink to this headline">¶</a></h3>
 <p>The other mortal sin in the code snippet above is repetition.</p>
 <p>Blocks of logic (such as the loop to generate time series) are repeated with only minor changes.</p>
 <p>This violates a fundamental tenet of programming: Don’t repeat yourself (DRY).</p>
@@ -462,7 +323,7 @@ should certainly be replaced by named constants.</p>
 <p>We’ll talk about how to avoid repetition below.</p>
 </div>
 <div class="section" id="minimize-global-variables">
-<h3>Minimize Global Variables<a class="headerlink" href="#minimize-global-variables" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">15.3.3. </span>Minimize Global Variables<a class="headerlink" href="#minimize-global-variables" title="Permalink to this headline">¶</a></h3>
 <p>Sure, global variables (i.e., names assigned to values outside of any function or class) are convenient.</p>
 <p>Rookie programmers typically use global variables with abandon — as we once did ourselves.</p>
 <p>But global variables are dangerous, especially in medium to large size programs, since</p>
@@ -475,7 +336,7 @@ should certainly be replaced by named constants.</p>
 <p>While the odd global in small scripts is no big deal, we recommend that you teach yourself to avoid them.</p>
 <p>(We’ll discuss how just below).</p>
 <div class="section" id="jit-compilation">
-<h4>JIT Compilation<a class="headerlink" href="#jit-compilation" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">15.3.3.1. </span>JIT Compilation<a class="headerlink" href="#jit-compilation" title="Permalink to this headline">¶</a></h4>
 <p>For scientific computing, there is another good reason to avoid global variables.</p>
 <p>As <a class="reference internal" href="numba.html"><span class="doc">we’ve seen in previous lectures</span></a>, JIT compilation can generate excellent performance for scripting languages like Python.</p>
 <p>But the task of the compiler used for JIT compilation becomes harder when global variables are present.</p>
@@ -484,7 +345,7 @@ more effective when variables are sandboxed inside a function.</p>
 </div>
 </div>
 <div class="section" id="use-functions-or-classes">
-<h3>Use Functions or Classes<a class="headerlink" href="#use-functions-or-classes" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">15.3.4. </span>Use Functions or Classes<a class="headerlink" href="#use-functions-or-classes" title="Permalink to this headline">¶</a></h3>
 <p>Fortunately, we can easily avoid the evils of global variables and WET code.</p>
 <ul class="simple">
 <li><p>WET stands for “we enjoy typing” and is the opposite of DRY.</p></li>
@@ -492,7 +353,7 @@ more effective when variables are sandboxed inside a function.</p>
 <p>We can do this by making frequent use of functions or classes.</p>
 <p>In fact, functions and classes are designed specifically to help us avoid shaming ourselves by repeating code or excessive use of global variables.</p>
 <div class="section" id="which-one-functions-or-classes">
-<h4>Which One, Functions or Classes?<a class="headerlink" href="#which-one-functions-or-classes" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">15.3.4.1. </span>Which One, Functions or Classes?<a class="headerlink" href="#which-one-functions-or-classes" title="Permalink to this headline">¶</a></h4>
 <p>Both can be useful, and in fact they work well with each other.</p>
 <p>We’ll learn more about these topics over time.</p>
 <p>(Personal preference is part of the story too)</p>
@@ -501,7 +362,7 @@ more effective when variables are sandboxed inside a function.</p>
 </div>
 </div>
 <div class="section" id="revisiting-the-example">
-<h2><a class="toc-backref" href="#id7">Revisiting the Example</a><a class="headerlink" href="#revisiting-the-example" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7"><span class="section-number">15.4. </span>Revisiting the Example</a><a class="headerlink" href="#revisiting-the-example" title="Permalink to this headline">¶</a></h2>
 <p>Here’s some code that reproduces the plot above with better coding style.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -552,9 +413,9 @@ more effective when variables are sandboxed inside a function.</p>
 </ul>
 </div>
 <div class="section" id="exercises">
-<h2><a class="toc-backref" href="#id8">Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8"><span class="section-number">15.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="exercise-1">
-<h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">15.5.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
 <p>Here is some code that needs improving.</p>
 <p>It involves a basic supply and demand problem.</p>
 <p>Supply is given by</p>
@@ -691,9 +552,9 @@ in this lecture.</p>
 </div>
 </div>
 <div class="section" id="solutions">
-<h2><a class="toc-backref" href="#id9">Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9"><span class="section-number">15.6. </span>Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id2">
-<h3>Exercise 1<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">15.6.1. </span>Exercise 1<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>Here’s one solution, that uses a class:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -802,39 +663,231 @@ Equilibrium quantity is  0.38
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
-              </div>
-              
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="index_advanced_python_programming.html" title="previous page">Advanced Python Programming</a>
-    <a class='right-next' id="next-link" href="python_advanced_features.html" title="next page">More Language Features</a>
-
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Thomas J. Sargent and John Stachurski<br/>
-        
-            &copy; Copyright 2019, Thomas J. Sargent and John Stachurski.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
-      </div>
-    </div>
-
-    
-  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+                    </div>
+                    
+                </main> <!-- .page__content -->
+                
 
 
-    
+
+
+            </div> <!-- .page -->
+
+            
+            <div class="sidebar bd-sidebar inactive" id="site-navigation">
+
+                <div class="sidebar__header">
+
+
+                    Contents
+
+                </div>
+
+                <nav class="sidebar__nav" id="sidebar-nav" aria-label="Main navigation">
+                    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Python Programming for Economics and Finance
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_py.html">
+   1. About Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started.html">
+   2. Setting up Your Python Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_by_example.html">
+   3. An Introductory Example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   4. Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_essentials.html">
+   5. Python Essentials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="oop_intro.html">
+   6. OOP I: Introduction to Object Oriented Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_oop.html">
+   7. OOP II: Building Classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Scientific Libraries
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="need_for_speed.html">
+   8. Python for Scientific Computing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy.html">
+   9. NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matplotlib.html">
+   10. Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scipy.html">
+   11. SciPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numba.html">
+   12. Numba
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parallelization.html">
+   13. Parallelization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   14. Pandas
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Advanced Python Programming
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   15. Writing Good Code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_advanced_features.html">
+   16. More Language Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="debugging.html">
+   17. Debugging
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   18. Troubleshooting
+  </a>
+ </li>
+</ul>
+
+                </nav>
+
+                <div class="sidebar__footer">
+                    <p><img src="https://python-programming.quantecon.org/_static/img/qe-logo.png"></p>
+
+                    Theme by the <a href="https://quantecon.org/">QuantEcon</a>
+                </div>
+
+            </div> <!-- .sidebar -->
+            
+        </div> <!-- .main -->
+
+        <div class="toolbar">
+
+            <div class="toolbar__inner">
+
+
+                <ul class="toolbar__main">
+                    <li data-tippy-content="Toggle sidebar" class="btn__sidebar"><i data-feather="menu"></i></li>
+                    <li class="btn__search">
+                        <form action="search.html" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off">
+                            <i data-feather="search"></i>
+                        </form>
+                    </li>
+                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
+                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
+                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
+                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                </ul>
+
+                <ul class="toolbar__links">
+                    <li data-tippy-content="Home"><a href="/"><i data-feather="home"></i></a></li>
+                    <li data-tippy-content="Download Notebook"><a href="_sources/writing_good_code.ipynb" download><i data-feather="download-cloud"></i></a></li>
+                    <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                    <li data-tippy-content="View Source"><a href="_sources/writing_good_code.md" download><i data-feather="github"></i></a></li>
+                </ul>
+
+            </div>
+
+
+        </div> <!-- .toolbar -->
+
+    </div> <!-- .wrapper-->
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="/_static/plugins.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+
+<script src="/_static/scripts.js"></script>
+<script>
+    feather.replace()
+    tippy('[data-tippy-content]');
+</script>
+
+
   </body>
 </html>

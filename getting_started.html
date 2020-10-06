@@ -1,390 +1,220 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Setting up Your Python Environment &#8212; Quantitative Economics with Python</title>
-    
-  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
-
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Setting up Your Python Environment &#8212; Python Programming for Economics and Finance</title>
+    <link rel="stylesheet" href="_static/quantecon-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
-
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/quantecon-book-theme.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/quantecon-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="An Introductory Example" href="python_by_example.html" />
-    <link rel="prev" title="About Python" href="about_py.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <link rel="next" title="3. An Introductory Example" href="python_by_example.html" />
+    <link rel="prev" title="1. About Python" href="about_py.html" />
 
 
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+<body>
+
+
+    <span id="top"></span>
+
+    <div class="wrapper">
+
+        <div class="main">
+
+            <div class="page">
+
+                <div class="page__toc">
+
+                    
+                    <div class="page__toc-header">
+                        On this page
+                    </div>
     
-
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Quantitative Economics with Python</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="index_toc.html">
-   Table of Contents
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="about_lectures.html">
-   About Lectures
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="reference internal" href="index_learning_python.html">
-   Introduction to Python
-  </a>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="about_py.html">
-     About Python
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Setting up Your Python Environment
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="python_by_example.html">
-     An Introductory Example
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="functions.html">
-     Functions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="python_essentials.html">
-     Python Essentials
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="oop_intro.html">
-     OOP I: Introduction to Object Oriented Programming
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="python_oop.html">
-     OOP II: Building Classes
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="index_python_scientific_libraries.html">
-   The Scientific Libraries
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="index_advanced_python_programming.html">
-   Advanced Python Programming
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="404.html">
-   Page Not Found
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="search.html">
-   Search
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="status.html">
-   Lecture Status
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="troubleshooting.html">
-   Troubleshooting
-  </a>
- </li>
-</ul>
-
-</nav>
-
- <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+                    <nav id="bd-toc-nav" class="page__toc-nav">
+                        <ul class="nav section-nav flex-column">
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#overview" class="nav-link">Overview</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#anaconda" class="nav-link">Anaconda</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#installing-anaconda" class="nav-link">Installing Anaconda</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#updating-anaconda" class="nav-link">Updating Anaconda</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#jupyter-notebooks" class="nav-link">Jupyter Notebooks</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#starting-the-jupyter-notebook" class="nav-link">Starting the Jupyter Notebook</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#notebook-basics" class="nav-link">Notebook Basics</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#running-cells" class="nav-link">Running Cells</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#modal-editing" class="nav-link">Modal Editing</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#inserting-unicode-e-g-greek-letters" class="nav-link">Inserting Unicode (e.g., Greek Letters)</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#a-test-program" class="nav-link">A Test Program</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#working-with-the-notebook" class="nav-link">Working with the Notebook</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#tab-completion" class="nav-link">Tab Completion</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#on-line-help" class="nav-link">On-Line Help</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#other-content" class="nav-link">Other Content</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#sharing-notebooks" class="nav-link">Sharing Notebooks</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#quantecon-notes" class="nav-link">QuantEcon Notes</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#installing-libraries" class="nav-link">Installing Libraries</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#working-with-python-files" class="nav-link">Working with Python Files</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#editing-and-execution" class="nav-link">Editing and Execution</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#option-1-jupyterlab" class="nav-link">Option 1: JupyterLab</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#option-2-using-a-text-editor" class="nav-link">Option 2: Using a Text Editor</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#exercises" class="nav-link">Exercises</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#exercise-1" class="nav-link">Exercise 1</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#exercise-2" class="nav-link">Exercise 2</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                        </ul>
+                    </nav>
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
+                    <div class="page__toc-footer">
+                        
+                        
+                        <p><a href="#top"><strong>Back to top</strong></a></p>
+                    </div>
     
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/getting_started.md.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-    
-</div>
-        <!-- Source interaction buttons -->
+                </div>
+
+                <div class="page__header">
+
+                    <div class="page__header-copy">
+
+                        <p class="page__header-heading"><a href="/">Python Programming for Economics and Finance</a></p>
+
+                        <p class="page__header-subheading">Setting up Your Python Environment</p>
+
+                    </div>
+
+                </div> <!-- .page__header -->
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
-
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview">
-   Overview
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#anaconda">
-   Anaconda
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#installing-anaconda">
-     Installing Anaconda
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#updating-anaconda">
-     Updating Anaconda
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jupyter-notebooks">
-   Jupyter Notebooks
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#starting-the-jupyter-notebook">
-     Starting the Jupyter Notebook
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#notebook-basics">
-     Notebook Basics
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#running-cells">
-       Running Cells
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#modal-editing">
-       Modal Editing
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#inserting-unicode-e-g-greek-letters">
-       Inserting Unicode (e.g., Greek Letters)
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#a-test-program">
-       A Test Program
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#working-with-the-notebook">
-     Working with the Notebook
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#tab-completion">
-       Tab Completion
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#on-line-help">
-       On-Line Help
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#other-content">
-       Other Content
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sharing-notebooks">
-     Sharing Notebooks
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quantecon-notes">
-     QuantEcon Notes
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#installing-libraries">
-   Installing Libraries
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#working-with-python-files">
-   Working with Python Files
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#editing-and-execution">
-     Editing and Execution
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#option-1-jupyterlab">
-       Option 1: JupyterLab
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#option-2-using-a-text-editor">
-       Option 2: Using a Text Editor
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-1">
-     Exercise 1
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-2">
-     Exercise 2
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-        </nav>
-        
-    </div>
-</div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
                 
+                <main class="page__content" role="main">
+                    
+                    <div>
+                        
   <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
                 <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
         </a>
 </div><div class="section" id="setting-up-your-python-environment">
-<h1><a class="toc-backref" href="#id2">Setting up Your Python Environment</a><a class="headerlink" href="#setting-up-your-python-environment" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id2"><span class="section-number">2. </span>Setting up Your Python Environment</a><a class="headerlink" href="#setting-up-your-python-environment" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <span id="index-0"></span><p class="topic-title">Contents</p>
 <ul class="simple">
@@ -401,7 +231,7 @@
 </ul>
 </div>
 <div class="section" id="overview">
-<h2><a class="toc-backref" href="#id3">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3"><span class="section-number">2.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>In this lecture, you will learn how to</p>
 <ol class="simple">
 <li><p>get a Python environment up and running</p></li>
@@ -411,7 +241,7 @@
 </ol>
 </div>
 <div class="section" id="anaconda">
-<h2><a class="toc-backref" href="#id4">Anaconda</a><a class="headerlink" href="#anaconda" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4"><span class="section-number">2.2. </span>Anaconda</a><a class="headerlink" href="#anaconda" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="https://www.python.org/downloads/">core Python package</a> is easy to install but <em>not</em> what you should choose for these lectures.</p>
 <p>These lectures require the entire scientific programming ecosystem, which</p>
 <ul class="simple">
@@ -434,7 +264,7 @@
 <p>Anaconda also comes with a great package management system to organize your code libraries.</p>
 <p><strong>All of what follows assumes that you adopt this recommendation!</strong></p>
 <div class="section" id="installing-anaconda">
-<span id="install-anaconda"></span><h3>Installing Anaconda<a class="headerlink" href="#installing-anaconda" title="Permalink to this headline">¶</a></h3>
+<span id="install-anaconda"></span><h3><span class="section-number">2.2.1. </span>Installing Anaconda<a class="headerlink" href="#installing-anaconda" title="Permalink to this headline">¶</a></h3>
 <p id="index-1">To install Anaconda, <a class="reference external" href="https://www.anaconda.com/download/">download</a> the binary and follow the instructions.</p>
 <p>Important points:</p>
 <ul class="simple">
@@ -443,7 +273,7 @@
 </ul>
 </div>
 <div class="section" id="updating-anaconda">
-<h3>Updating Anaconda<a class="headerlink" href="#updating-anaconda" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.2.2. </span>Updating Anaconda<a class="headerlink" href="#updating-anaconda" title="Permalink to this headline">¶</a></h3>
 <p>Anaconda supplies a tool called conda to manage and upgrade your Anaconda packages.</p>
 <p>One conda command you should execute regularly is the one that updates the whole Anaconda distribution.</p>
 <p>As a practice run, please execute the following</p>
@@ -455,7 +285,7 @@
 </div>
 </div>
 <div class="section" id="jupyter-notebooks">
-<span id="ipython-notebook"></span><h2><a class="toc-backref" href="#id5"><span class="target" id="index-2"></span>Jupyter Notebooks</a><a class="headerlink" href="#jupyter-notebooks" title="Permalink to this headline">¶</a></h2>
+<span id="ipython-notebook"></span><h2><a class="toc-backref" href="#id5"><span class="section-number">2.3. </span><span class="target" id="index-2"></span>Jupyter Notebooks</a><a class="headerlink" href="#jupyter-notebooks" title="Permalink to this headline">¶</a></h2>
 <span class="target" id="index-3"></span><span class="target" id="index-4"></span><p id="index-5"><a class="reference external" href="http://jupyter.org/">Jupyter</a> notebooks are one of the many possible ways to interact with Python and the scientific libraries.</p>
 <p>They use  a <em>browser-based</em> interface to Python with</p>
 <ul class="simple">
@@ -476,7 +306,7 @@
 </ul>
 <p>These lectures are designed for executing in Jupyter notebooks.</p>
 <div class="section" id="starting-the-jupyter-notebook">
-<h3>Starting the Jupyter Notebook<a class="headerlink" href="#starting-the-jupyter-notebook" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.3.1. </span>Starting the Jupyter Notebook<a class="headerlink" href="#starting-the-jupyter-notebook" title="Permalink to this headline">¶</a></h3>
 <p id="index-6">Once you have installed Anaconda, you can start the Jupyter notebook.</p>
 <p>Either</p>
 <ul class="simple">
@@ -511,10 +341,10 @@
 <p>The notebook displays an <em>active cell</em>, into which you can type Python commands.</p>
 </div>
 <div class="section" id="notebook-basics">
-<h3>Notebook Basics<a class="headerlink" href="#notebook-basics" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.3.2. </span>Notebook Basics<a class="headerlink" href="#notebook-basics" title="Permalink to this headline">¶</a></h3>
 <p id="index-7">Let’s start with how to edit code and run simple programs.</p>
 <div class="section" id="running-cells">
-<h4>Running Cells<a class="headerlink" href="#running-cells" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">2.3.2.1. </span>Running Cells<a class="headerlink" href="#running-cells" title="Permalink to this headline">¶</a></h4>
 <p>Notice that, in the previous figure, the cell is surrounded by a green border.</p>
 <p>This means that the cell is in <em>edit mode</em>.</p>
 <p>In this mode, whatever you type will appear in the cell with the flashing cursor.</p>
@@ -525,7 +355,7 @@
 <p>(Note: There are also menu and button options for running code in a cell that you can find by exploring)</p>
 </div>
 <div class="section" id="modal-editing">
-<h4>Modal Editing<a class="headerlink" href="#modal-editing" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">2.3.2.2. </span>Modal Editing<a class="headerlink" href="#modal-editing" title="Permalink to this headline">¶</a></h4>
 <p>The next thing to understand about the Jupyter notebook is that it uses a <em>modal</em> editing system.</p>
 <p>This means that the effect of typing at the keyboard <strong>depends on which mode you are in</strong>.</p>
 <p>The two modes are</p>
@@ -551,12 +381,12 @@
 <p>The modal behavior of the Jupyter notebook is very efficient when you get used to it.</p>
 </div>
 <div class="section" id="inserting-unicode-e-g-greek-letters">
-<h4>Inserting Unicode (e.g., Greek Letters)<a class="headerlink" href="#inserting-unicode-e-g-greek-letters" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">2.3.2.3. </span>Inserting Unicode (e.g., Greek Letters)<a class="headerlink" href="#inserting-unicode-e-g-greek-letters" title="Permalink to this headline">¶</a></h4>
 <p>Python supports <a class="reference external" href="https://docs.python.org/3/howto/unicode.html">unicode</a>, allowing the use of characters such as <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> as names in your code.</p>
 <p>In a code cell, try typing <code class="docutils literal notranslate"><span class="pre">\alpha</span></code> and then hitting the tab key on your keyboard.</p>
 </div>
 <div class="section" id="a-test-program">
-<span id="id1"></span><h4>A Test Program<a class="headerlink" href="#a-test-program" title="Permalink to this headline">¶</a></h4>
+<span id="id1"></span><h4><span class="section-number">2.3.2.4. </span>A Test Program<a class="headerlink" href="#a-test-program" title="Permalink to this headline">¶</a></h4>
 <p>Let’s run a test program.</p>
 <p>Here’s an arbitrary program we can use: <a class="reference external" href="http://matplotlib.org/3.1.1/gallery/pie_and_polar_charts/polar_bar.html">http://matplotlib.org/3.1.1/gallery/pie_and_polar_charts/polar_bar.html</a>.</p>
 <p>On that page, you’ll see the following code</p>
@@ -593,10 +423,10 @@
 </div>
 </div>
 <div class="section" id="working-with-the-notebook">
-<h3>Working with the Notebook<a class="headerlink" href="#working-with-the-notebook" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.3.3. </span>Working with the Notebook<a class="headerlink" href="#working-with-the-notebook" title="Permalink to this headline">¶</a></h3>
 <p>Here are a few more tips on working with Jupyter notebooks.</p>
 <div class="section" id="tab-completion">
-<h4>Tab Completion<a class="headerlink" href="#tab-completion" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">2.3.3.1. </span>Tab Completion<a class="headerlink" href="#tab-completion" title="Permalink to this headline">¶</a></h4>
 <p>In the previous program, we executed the line <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code></p>
 <ul class="simple">
 <li><p>NumPy is a numerical library we’ll work with in depth.</p></li>
@@ -614,7 +444,7 @@
 <p>In this way, the Tab key helps remind you of what’s available and also saves you typing.</p>
 </div>
 <div class="section" id="on-line-help">
-<span id="gs-help"></span><h4>On-Line Help<a class="headerlink" href="#on-line-help" title="Permalink to this headline">¶</a></h4>
+<span id="gs-help"></span><h4><span class="section-number">2.3.3.2. </span>On-Line Help<a class="headerlink" href="#on-line-help" title="Permalink to this headline">¶</a></h4>
 <p id="index-8">To get help on <code class="docutils literal notranslate"><span class="pre">np.rank</span></code>, say, we can execute <code class="docutils literal notranslate"><span class="pre">np.rank?</span></code>.</p>
 <p>Documentation appears in a split window of the browser, like so</p>
 <div class="figure align-default">
@@ -623,7 +453,7 @@
 <p>Clicking on the top right of the lower split closes the on-line help.</p>
 </div>
 <div class="section" id="other-content">
-<h4>Other Content<a class="headerlink" href="#other-content" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">2.3.3.3. </span>Other Content<a class="headerlink" href="#other-content" title="Permalink to this headline">¶</a></h4>
 <p>In addition to executing code, the Jupyter notebook allows you to embed text, equations, figures and even videos in the page.</p>
 <p>For example, here we enter a mixture of plain text and LaTeX instead of code</p>
 <div class="figure align-default">
@@ -639,7 +469,7 @@ are writing <a class="reference external" href="http://daringfireball.net/projec
 </div>
 </div>
 <div class="section" id="sharing-notebooks">
-<h3>Sharing Notebooks<a class="headerlink" href="#sharing-notebooks" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.3.4. </span>Sharing Notebooks<a class="headerlink" href="#sharing-notebooks" title="Permalink to this headline">¶</a></h3>
 <span class="target" id="index-9"></span><p id="index-10">Notebook files are just text files structured in <a class="reference external" href="https://en.wikipedia.org/wiki/JSON">JSON</a> and typically ending with <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>.</p>
 <p>You can share them in the usual way that you share files — or by using web services such as <a class="reference external" href="http://nbviewer.jupyter.org/">nbviewer</a>.</p>
 <p>The notebooks you see on that site are <strong>static</strong> html representations.</p>
@@ -647,7 +477,7 @@ are writing <a class="reference external" href="http://daringfireball.net/projec
 <p>Save it somewhere, navigate to it from the Jupyter dashboard and then run as discussed above.</p>
 </div>
 <div class="section" id="quantecon-notes">
-<h3>QuantEcon Notes<a class="headerlink" href="#quantecon-notes" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.3.5. </span>QuantEcon Notes<a class="headerlink" href="#quantecon-notes" title="Permalink to this headline">¶</a></h3>
 <p>QuantEcon has its own site for sharing Jupyter notebooks related
 to economics – <a class="reference external" href="http://notes.quantecon.org/">QuantEcon Notes</a>.</p>
 <p>Notebooks submitted to QuantEcon Notes can be shared with a link, and are open
@@ -655,7 +485,7 @@ to comments and votes by the community.</p>
 </div>
 </div>
 <div class="section" id="installing-libraries">
-<h2><a class="toc-backref" href="#id6">Installing Libraries</a><a class="headerlink" href="#installing-libraries" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id6"><span class="section-number">2.4. </span>Installing Libraries</a><a class="headerlink" href="#installing-libraries" title="Permalink to this headline">¶</a></h2>
 <span class="target" id="gs-qe"></span><p id="index-11">Most of the libraries we need come in Anaconda.</p>
 <p>Other libraries can be installed with <code class="docutils literal notranslate"><span class="pre">pip</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
 <p>One library we’ll be using is <a class="reference external" href="http://quantecon.org/quantecon-py">QuantEcon.py</a>.</p>
@@ -681,7 +511,7 @@ starting Jupyter and typing</p>
 </div>
 </div>
 <div class="section" id="working-with-python-files">
-<h2><a class="toc-backref" href="#id7">Working with Python Files</a><a class="headerlink" href="#working-with-python-files" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7"><span class="section-number">2.5. </span>Working with Python Files</a><a class="headerlink" href="#working-with-python-files" title="Permalink to this headline">¶</a></h2>
 <p>So far we’ve focused on executing Python code entered into a Jupyter notebook
 cell.</p>
 <p>Traditionally most Python code has been run in a different way.</p>
@@ -705,7 +535,7 @@ cell.</p>
 <p>This writes the line <code class="docutils literal notranslate"><span class="pre">print(&quot;foobar&quot;)</span></code> into a file called <code class="docutils literal notranslate"><span class="pre">foo.py</span></code> in the local directory.</p>
 <p>Here <code class="docutils literal notranslate"><span class="pre">%%file</span></code> is an example of a <a class="reference external" href="http://ipython.readthedocs.org/en/stable/interactive/magics.html#cell-magics">cell magic</a>.</p>
 <div class="section" id="editing-and-execution">
-<h3>Editing and Execution<a class="headerlink" href="#editing-and-execution" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.5.1. </span>Editing and Execution<a class="headerlink" href="#editing-and-execution" title="Permalink to this headline">¶</a></h3>
 <p>If you come across code saved in a <code class="docutils literal notranslate"><span class="pre">*.py</span></code> file, you’ll need to consider the
 following questions:</p>
 <ol class="simple">
@@ -713,7 +543,7 @@ following questions:</p>
 <li><p>How should you modify or edit it?</p></li>
 </ol>
 <div class="section" id="option-1-jupyterlab">
-<h4>Option 1: <span class="target" id="index-12"></span>JupyterLab<a class="headerlink" href="#option-1-jupyterlab" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">2.5.1.1. </span>Option 1: <span class="target" id="index-12"></span>JupyterLab<a class="headerlink" href="#option-1-jupyterlab" title="Permalink to this headline">¶</a></h4>
 <p id="index-13"><a class="reference external" href="https://github.com/jupyterlab/jupyterlab">JupyterLab</a> is an integrated development environment built on top of Jupyter notebooks.</p>
 <p>With JupyterLab you can edit and run <code class="docutils literal notranslate"><span class="pre">*.py</span></code> files as well as Jupyter notebooks.</p>
 <p>To start JupyterLab, search for it in the applications menu or type <code class="docutils literal notranslate"><span class="pre">jupyter-lab</span></code> in a terminal.</p>
@@ -721,7 +551,7 @@ following questions:</p>
 <p>Read the docs or search for a recent YouTube video to find more information.</p>
 </div>
 <div class="section" id="option-2-using-a-text-editor">
-<h4>Option 2: Using a Text Editor<a class="headerlink" href="#option-2-using-a-text-editor" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">2.5.1.2. </span>Option 2: Using a Text Editor<a class="headerlink" href="#option-2-using-a-text-editor" title="Permalink to this headline">¶</a></h4>
 <p>One can also edit files using a text editor and then run them from within
 Jupyter notebooks.</p>
 <p>A text editor is an application that is specifically designed to work with text files — such as Python programs.</p>
@@ -738,9 +568,9 @@ Jupyter notebooks.</p>
 </div>
 </div>
 <div class="section" id="exercises">
-<h2><a class="toc-backref" href="#id8">Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8"><span class="section-number">2.6. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="exercise-1">
-<h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.6.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
 <p>If Jupyter is still running, quit by using <code class="docutils literal notranslate"><span class="pre">Ctrl-C</span></code> at the terminal where
 you started it.</p>
 <p>Now launch again, but this time using <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span> <span class="pre">--no-browser</span></code>.</p>
@@ -755,7 +585,7 @@ you started it.</p>
 <p>This is an alternative way to start the notebook that can also be handy.</p>
 </div>
 <div class="section" id="exercise-2">
-<span id="gs-ex2"></span><h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h3>
+<span id="gs-ex2"></span><h3><span class="section-number">2.6.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h3>
 <p id="index-14">This exercise will familiarize you with git and GitHub.</p>
 <p><a class="reference external" href="http://git-scm.com/">Git</a> is a <em>version control system</em> — a piece of software used to manage digital projects such as code libraries.</p>
 <p>In many cases, the associated collections of files — called <em>repositories</em> — are stored on <a class="reference external" href="https://github.com/">GitHub</a>.</p>
@@ -804,39 +634,231 @@ lectures.</p>
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
-              </div>
-              
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="about_py.html" title="previous page">About Python</a>
-    <a class='right-next' id="next-link" href="python_by_example.html" title="next page">An Introductory Example</a>
-
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Thomas J. Sargent and John Stachurski<br/>
-        
-            &copy; Copyright 2019, Thomas J. Sargent and John Stachurski.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
-      </div>
-    </div>
-
-    
-  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+                    </div>
+                    
+                </main> <!-- .page__content -->
+                
 
 
-    
+
+
+            </div> <!-- .page -->
+
+            
+            <div class="sidebar bd-sidebar inactive" id="site-navigation">
+
+                <div class="sidebar__header">
+
+
+                    Contents
+
+                </div>
+
+                <nav class="sidebar__nav" id="sidebar-nav" aria-label="Main navigation">
+                    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Python Programming for Economics and Finance
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_py.html">
+   1. About Python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Setting up Your Python Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_by_example.html">
+   3. An Introductory Example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   4. Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_essentials.html">
+   5. Python Essentials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="oop_intro.html">
+   6. OOP I: Introduction to Object Oriented Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_oop.html">
+   7. OOP II: Building Classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Scientific Libraries
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="need_for_speed.html">
+   8. Python for Scientific Computing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy.html">
+   9. NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matplotlib.html">
+   10. Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scipy.html">
+   11. SciPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numba.html">
+   12. Numba
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parallelization.html">
+   13. Parallelization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   14. Pandas
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Advanced Python Programming
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="writing_good_code.html">
+   15. Writing Good Code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_advanced_features.html">
+   16. More Language Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="debugging.html">
+   17. Debugging
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   18. Troubleshooting
+  </a>
+ </li>
+</ul>
+
+                </nav>
+
+                <div class="sidebar__footer">
+                    <p><img src="https://python-programming.quantecon.org/_static/img/qe-logo.png"></p>
+
+                    Theme by the <a href="https://quantecon.org/">QuantEcon</a>
+                </div>
+
+            </div> <!-- .sidebar -->
+            
+        </div> <!-- .main -->
+
+        <div class="toolbar">
+
+            <div class="toolbar__inner">
+
+
+                <ul class="toolbar__main">
+                    <li data-tippy-content="Toggle sidebar" class="btn__sidebar"><i data-feather="menu"></i></li>
+                    <li class="btn__search">
+                        <form action="search.html" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off">
+                            <i data-feather="search"></i>
+                        </form>
+                    </li>
+                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
+                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
+                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
+                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                </ul>
+
+                <ul class="toolbar__links">
+                    <li data-tippy-content="Home"><a href="/"><i data-feather="home"></i></a></li>
+                    <li data-tippy-content="Download Notebook"><a href="_sources/getting_started.ipynb" download><i data-feather="download-cloud"></i></a></li>
+                    <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                    <li data-tippy-content="View Source"><a href="_sources/getting_started.md" download><i data-feather="github"></i></a></li>
+                </ul>
+
+            </div>
+
+
+        </div> <!-- .toolbar -->
+
+    </div> <!-- .wrapper-->
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="/_static/plugins.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+
+<script src="/_static/scripts.js"></script>
+<script>
+    feather.replace()
+    tippy('[data-tippy-content]');
+</script>
+
+
   </body>
 </html>

@@ -1,341 +1,180 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Parallelization &#8212; Quantitative Economics with Python</title>
-    
-  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
-
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13. Parallelization &#8212; Python Programming for Economics and Finance</title>
+    <link rel="stylesheet" href="_static/quantecon-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
-
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/quantecon-book-theme.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/quantecon-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Pandas" href="pandas.html" />
-    <link rel="prev" title="Numba" href="numba.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <link rel="next" title="14. Pandas" href="pandas.html" />
+    <link rel="prev" title="12. Numba" href="numba.html" />
 
 
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+<body>
+
+
+    <span id="top"></span>
+
+    <div class="wrapper">
+
+        <div class="main">
+
+            <div class="page">
+
+                <div class="page__toc">
+
+                    
+                    <div class="page__toc-header">
+                        On this page
+                    </div>
     
-
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Quantitative Economics with Python</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="index_toc.html">
-   Table of Contents
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="about_lectures.html">
-   About Lectures
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="index_learning_python.html">
-   Introduction to Python
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="reference internal" href="index_python_scientific_libraries.html">
-   The Scientific Libraries
-  </a>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="need_for_speed.html">
-     Python for Scientific Computing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="numpy.html">
-     NumPy
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="matplotlib.html">
-     Matplotlib
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="scipy.html">
-     SciPy
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="numba.html">
-     Numba
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Parallelization
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="pandas.html">
-     Pandas
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="index_advanced_python_programming.html">
-   Advanced Python Programming
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="404.html">
-   Page Not Found
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="search.html">
-   Search
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="status.html">
-   Lecture Status
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="troubleshooting.html">
-   Troubleshooting
-  </a>
- </li>
-</ul>
-
-</nav>
-
- <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+                    <nav id="bd-toc-nav" class="page__toc-nav">
+                        <ul class="nav section-nav flex-column">
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#overview" class="nav-link">Overview</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#types-of-parallelization" class="nav-link">Types of Parallelization</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#multiprocessing" class="nav-link">Multiprocessing</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#multithreading" class="nav-link">Multithreading</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#advantages-and-disadvantages" class="nav-link">Advantages and Disadvantages</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#implicit-multithreading-in-numpy" class="nav-link">Implicit Multithreading in NumPy</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#a-matrix-operation" class="nav-link">A Matrix Operation</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#a-multithreaded-ufunc" class="nav-link">A Multithreaded Ufunc</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#a-comparison-with-numba" class="nav-link">A Comparison with Numba</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#multithreading-a-numba-ufunc" class="nav-link">Multithreading a Numba Ufunc</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#multithreaded-loops-in-numba" class="nav-link">Multithreaded Loops in Numba</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#a-warning" class="nav-link">A Warning</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#exercises" class="nav-link">Exercises</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#exercise-1" class="nav-link">Exercise 1</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#solutions" class="nav-link">Solutions</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#id1" class="nav-link">Exercise 1</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                        </ul>
+                    </nav>
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
+                    <div class="page__toc-footer">
+                        
+                        
+                        <p><a href="#top"><strong>Back to top</strong></a></p>
+                    </div>
     
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/parallelization.md.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-    
-</div>
-        <!-- Source interaction buttons -->
+                </div>
+
+                <div class="page__header">
+
+                    <div class="page__header-copy">
+
+                        <p class="page__header-heading"><a href="/">Python Programming for Economics and Finance</a></p>
+
+                        <p class="page__header-subheading">Parallelization</p>
+
+                    </div>
+
+                </div> <!-- .page__header -->
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
-
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview">
-   Overview
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#types-of-parallelization">
-   Types of Parallelization
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#multiprocessing">
-     Multiprocessing
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#multithreading">
-     Multithreading
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#advantages-and-disadvantages">
-     Advantages and Disadvantages
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#implicit-multithreading-in-numpy">
-   Implicit Multithreading in NumPy
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-matrix-operation">
-     A Matrix Operation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-multithreaded-ufunc">
-     A Multithreaded Ufunc
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-comparison-with-numba">
-     A Comparison with Numba
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#multithreading-a-numba-ufunc">
-     Multithreading a Numba Ufunc
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#multithreaded-loops-in-numba">
-   Multithreaded Loops in Numba
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-warning">
-     A Warning
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-1">
-     Exercise 1
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solutions">
-   Solutions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Exercise 1
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-        </nav>
-        
-    </div>
-</div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
                 
+                <main class="page__content" role="main">
+                    
+                    <div>
+                        
   <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
                 <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
         </a>
 </div><div class="section" id="parallelization">
-<h1><a class="toc-backref" href="#id2">Parallelization</a><a class="headerlink" href="#parallelization" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id2"><span class="section-number">13. </span>Parallelization</a><a class="headerlink" href="#parallelization" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -360,30 +199,6 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting package metadata (current_repodata.json): - 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
@@ -468,51 +283,6 @@ Solving environment: -
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
 </pre></div>
 </div>
@@ -522,7 +292,7 @@ Solving environment: -
 </div>
 </div>
 <div class="section" id="overview">
-<h2><a class="toc-backref" href="#id3">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3"><span class="section-number">13.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>The growth of CPU clock speed (i.e., the speed at which a single chain of logic can
 be run) has slowed dramatically in recent years.</p>
 <p>This is unlikely to change in the near future, due to inherent physical
@@ -552,21 +322,15 @@ seeking a different path to fast execution: parallelization.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/qe-lectures/lib/python3.7/site-packages/numba/np/ufunc/parallel.py:363: NumbaWarning: <span class=" -Color -Color-Bold">The TBB threading layer requires TBB version 2019.5 or later i.e., TBB_INTERFACE_VERSION &gt;= 11005. Found TBB_INTERFACE_VERSION = 9107. The TBB threading layer is disabled.</span>
-  warnings.warn(problem)
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="types-of-parallelization">
-<h2><a class="toc-backref" href="#id4">Types of Parallelization</a><a class="headerlink" href="#types-of-parallelization" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4"><span class="section-number">13.2. </span>Types of Parallelization</a><a class="headerlink" href="#types-of-parallelization" title="Permalink to this headline">¶</a></h2>
 <p>Large textbooks have been written on different approaches to parallelization but we will keep a tight focus on what’s most useful to us.</p>
 <p>We will briefly review the two main kinds of parallelization commonly used in
 scientific computing and discuss their pros and cons.</p>
 <div class="section" id="multiprocessing">
-<h3>Multiprocessing<a class="headerlink" href="#multiprocessing" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.2.1. </span>Multiprocessing<a class="headerlink" href="#multiprocessing" title="Permalink to this headline">¶</a></h3>
 <p>Multiprocessing means concurrent execution of multiple processes using more than one processor.</p>
 <p>In this context, a <strong>process</strong> is a chain of instructions (i.e., a program).</p>
 <p>Multiprocessing can be carried out on one machine with multiple CPUs or on a
@@ -577,7 +341,7 @@ collection of machines connected by a network.</p>
 physical memory chip might be shared.</p>
 </div>
 <div class="section" id="multithreading">
-<h3>Multithreading<a class="headerlink" href="#multithreading" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.2.2. </span>Multithreading<a class="headerlink" href="#multithreading" title="Permalink to this headline">¶</a></h3>
 <p>Multithreading is similar to multiprocessing, except that, during execution, the threads all share the same memory space.</p>
 <p>Native Python struggles to implement multithreading due to some <a class="reference external" href="https://wiki.python.org/moin/GlobalInterpreterLock">legacy design
 features</a>.</p>
@@ -586,7 +350,7 @@ features</a>.</p>
 execution environments where Python’s legacy restrictions don’t apply.</p>
 </div>
 <div class="section" id="advantages-and-disadvantages">
-<h3>Advantages and Disadvantages<a class="headerlink" href="#advantages-and-disadvantages" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.2.3. </span>Advantages and Disadvantages<a class="headerlink" href="#advantages-and-disadvantages" title="Permalink to this headline">¶</a></h3>
 <p>Multithreading is more lightweight because most system and memory resources
 are shared by the threads.</p>
 <p>In addition, the fact that multiple threads all access a shared pool of memory
@@ -598,7 +362,7 @@ suffice.</p>
 </div>
 </div>
 <div class="section" id="implicit-multithreading-in-numpy">
-<h2><a class="toc-backref" href="#id5">Implicit Multithreading in NumPy</a><a class="headerlink" href="#implicit-multithreading-in-numpy" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5"><span class="section-number">13.3. </span>Implicit Multithreading in NumPy</a><a class="headerlink" href="#implicit-multithreading-in-numpy" title="Permalink to this headline">¶</a></h2>
 <p>Actually, you have already been using multithreading in your Python code,
 although you might not have realized it.</p>
 <p>(We are, as usual, assuming that you are running the latest version of
@@ -607,7 +371,7 @@ Anaconda Python.)</p>
 compiled code.</p>
 <p>Let’s look at some examples to see this in action.</p>
 <div class="section" id="a-matrix-operation">
-<h3>A Matrix Operation<a class="headerlink" href="#a-matrix-operation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.3.1. </span>A Matrix Operation<a class="headerlink" href="#a-matrix-operation" title="Permalink to this headline">¶</a></h3>
 <p>The next piece of code computes the eigenvalues of a large number of randomly
 generated matrices.</p>
 <p>It takes a few seconds to run.</p>
@@ -632,7 +396,7 @@ this code is running:</p>
 distributes them to different threads.</p>
 </div>
 <div class="section" id="a-multithreaded-ufunc">
-<h3>A Multithreaded Ufunc<a class="headerlink" href="#a-multithreaded-ufunc" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.3.2. </span>A Multithreaded Ufunc<a class="headerlink" href="#a-multithreaded-ufunc" title="Permalink to this headline">¶</a></h3>
 <p>Over the last few years, NumPy has managed to push this kind of multithreading
 out to more and more operations.</p>
 <p>For example, let’s return to a maximization problem <a class="reference internal" href="need_for_speed.html#ufuncs"><span class="std std-ref">discussed previously</span></a>:</p>
@@ -654,7 +418,7 @@ out to more and more operations.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.04 s ± 25.5 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.01 s ± 15.5 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -667,7 +431,7 @@ distributed across multiple threads.</p>
 <p>This is one of the reasons why the vectorized code above is fast.</p>
 </div>
 <div class="section" id="a-comparison-with-numba">
-<h3>A Comparison with Numba<a class="headerlink" href="#a-comparison-with-numba" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.3.3. </span>A Comparison with Numba<a class="headerlink" href="#a-comparison-with-numba" title="Permalink to this headline">¶</a></h3>
 <p>To get some basis for comparison for the last example, let’s try the same
 thing with Numba.</p>
 <p>In fact there is an easy way to do this, since Numba can also be used to
@@ -697,7 +461,7 @@ create custom <a class="reference internal" href="need_for_speed.html#ufuncs"><s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>623 ms ± 10.2 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>607 ms ± 5.64 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -719,7 +483,7 @@ function that is specialized to the entire operation.</p>
 multithreading, as we’ve just discussed.</p>
 </div>
 <div class="section" id="multithreading-a-numba-ufunc">
-<h3>Multithreading a Numba Ufunc<a class="headerlink" href="#multithreading-a-numba-ufunc" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.3.4. </span>Multithreading a Numba Ufunc<a class="headerlink" href="#multithreading-a-numba-ufunc" title="Permalink to this headline">¶</a></h3>
 <p>Can we get both of these advantages at once?</p>
 <p>In other words, can we pair</p>
 <ul class="simple">
@@ -751,7 +515,7 @@ multithreading?</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>486 ms ± 5.12 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>317 ms ± 3.94 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -760,7 +524,7 @@ multithreading?</p></li>
 </div>
 </div>
 <div class="section" id="multithreaded-loops-in-numba">
-<h2><a class="toc-backref" href="#id6">Multithreaded Loops in Numba</a><a class="headerlink" href="#multithreaded-loops-in-numba" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id6"><span class="section-number">13.4. </span>Multithreaded Loops in Numba</a><a class="headerlink" href="#multithreaded-loops-in-numba" title="Permalink to this headline">¶</a></h2>
 <p>We just saw one approach to parallelization in Numba, using the <code class="docutils literal notranslate"><span class="pre">parallel</span></code>
 flag in <code class="docutils literal notranslate"><span class="pre">&#64;vectorize</span></code>.</p>
 <p>This is neat but, it turns out, not well suited to many problems we consider.</p>
@@ -873,11 +637,11 @@ don’t matter.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 8.07 s, sys: 6.78 ms, total: 8.08 s
-Wall time: 8.06 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 8.17 s, sys: 5.02 ms, total: 8.17 s
+Wall time: 8.16 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8450637847530382
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8396468013196787
 </pre></div>
 </div>
 </div>
@@ -912,18 +676,18 @@ Wall time: 8.06 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 7.51 s, sys: 0 ns, total: 7.51 s
-Wall time: 4.02 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 7.26 s, sys: 6.55 ms, total: 7.26 s
+Wall time: 3.89 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8318624059352606
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8206280704517122
 </pre></div>
 </div>
 </div>
 </div>
 <p>The speed-up is significant.</p>
 <div class="section" id="a-warning">
-<h3>A Warning<a class="headerlink" href="#a-warning" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.4.1. </span>A Warning<a class="headerlink" href="#a-warning" title="Permalink to this headline">¶</a></h3>
 <p>Parallelization works well in the outer loop of the last example because the individual tasks inside the loop are independent of each other.</p>
 <p>If this independence fails then parallelization is often problematic.</p>
 <p>For example, each step inside the inner loop depends on the last step, so
@@ -934,9 +698,9 @@ independence of tasks holds true.</p>
 </div>
 </div>
 <div class="section" id="exercises">
-<h2><a class="toc-backref" href="#id7">Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7"><span class="section-number">13.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="exercise-1">
-<h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.5.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
 <p>In <a class="reference internal" href="numba.html#speed-ex1"><span class="std std-ref">an earlier exercise</span></a>, we used Numba to accelerate an
 effort to compute the constant <span class="math notranslate nohighlight">\(\pi\)</span> by Monte Carlo.</p>
 <p>Now try adding parallelization and see if you get further speed gains.</p>
@@ -952,9 +716,9 @@ tasks to be parallelized are very small relative to total execution time.</p>
 </div>
 </div>
 <div class="section" id="solutions">
-<h2><a class="toc-backref" href="#id8">Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8"><span class="section-number">13.6. </span>Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
-<h3>Exercise 1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.6.1. </span>Exercise 1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Here is one solution:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -983,11 +747,11 @@ tasks to be parallelized are very small relative to total execution time.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 400 ms, sys: 589 µs, total: 400 ms
-Wall time: 397 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 376 ms, sys: 0 ns, total: 376 ms
+Wall time: 369 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.145488
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.140272
 </pre></div>
 </div>
 </div>
@@ -999,11 +763,11 @@ Wall time: 397 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 15.2 ms, sys: 0 ns, total: 15.2 ms
-Wall time: 10 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 15.9 ms, sys: 0 ns, total: 15.9 ms
+Wall time: 8.57 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.1398
 </pre></div>
 </div>
 </div>
@@ -1019,39 +783,231 @@ on the number of CPUs on your machine.)</p>
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
-              </div>
-              
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="numba.html" title="previous page">Numba</a>
-    <a class='right-next' id="next-link" href="pandas.html" title="next page">Pandas</a>
-
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Thomas J. Sargent and John Stachurski<br/>
-        
-            &copy; Copyright 2019, Thomas J. Sargent and John Stachurski.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
-      </div>
-    </div>
-
-    
-  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+                    </div>
+                    
+                </main> <!-- .page__content -->
+                
 
 
-    
+
+
+            </div> <!-- .page -->
+
+            
+            <div class="sidebar bd-sidebar inactive" id="site-navigation">
+
+                <div class="sidebar__header">
+
+
+                    Contents
+
+                </div>
+
+                <nav class="sidebar__nav" id="sidebar-nav" aria-label="Main navigation">
+                    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Python Programming for Economics and Finance
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_py.html">
+   1. About Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started.html">
+   2. Setting up Your Python Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_by_example.html">
+   3. An Introductory Example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   4. Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_essentials.html">
+   5. Python Essentials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="oop_intro.html">
+   6. OOP I: Introduction to Object Oriented Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_oop.html">
+   7. OOP II: Building Classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Scientific Libraries
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="need_for_speed.html">
+   8. Python for Scientific Computing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy.html">
+   9. NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matplotlib.html">
+   10. Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scipy.html">
+   11. SciPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numba.html">
+   12. Numba
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   13. Parallelization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   14. Pandas
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Advanced Python Programming
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="writing_good_code.html">
+   15. Writing Good Code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_advanced_features.html">
+   16. More Language Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="debugging.html">
+   17. Debugging
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   18. Troubleshooting
+  </a>
+ </li>
+</ul>
+
+                </nav>
+
+                <div class="sidebar__footer">
+                    <p><img src="https://python-programming.quantecon.org/_static/img/qe-logo.png"></p>
+
+                    Theme by the <a href="https://quantecon.org/">QuantEcon</a>
+                </div>
+
+            </div> <!-- .sidebar -->
+            
+        </div> <!-- .main -->
+
+        <div class="toolbar">
+
+            <div class="toolbar__inner">
+
+
+                <ul class="toolbar__main">
+                    <li data-tippy-content="Toggle sidebar" class="btn__sidebar"><i data-feather="menu"></i></li>
+                    <li class="btn__search">
+                        <form action="search.html" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off">
+                            <i data-feather="search"></i>
+                        </form>
+                    </li>
+                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
+                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
+                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
+                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                </ul>
+
+                <ul class="toolbar__links">
+                    <li data-tippy-content="Home"><a href="/"><i data-feather="home"></i></a></li>
+                    <li data-tippy-content="Download Notebook"><a href="_sources/parallelization.ipynb" download><i data-feather="download-cloud"></i></a></li>
+                    <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                    <li data-tippy-content="View Source"><a href="_sources/parallelization.md" download><i data-feather="github"></i></a></li>
+                </ul>
+
+            </div>
+
+
+        </div> <!-- .toolbar -->
+
+    </div> <!-- .wrapper-->
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="/_static/plugins.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+
+<script src="/_static/scripts.js"></script>
+<script>
+    feather.replace()
+    tippy('[data-tippy-content]');
+</script>
+
+
   </body>
 </html>

@@ -1,356 +1,192 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>OOP II: Building Classes &#8212; Quantitative Economics with Python</title>
-    
-  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
-
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7. OOP II: Building Classes &#8212; Python Programming for Economics and Finance</title>
+    <link rel="stylesheet" href="_static/quantecon-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
-
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/quantecon-book-theme.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/quantecon-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="The Scientific Libraries" href="index_python_scientific_libraries.html" />
-    <link rel="prev" title="OOP I: Introduction to Object Oriented Programming" href="oop_intro.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <link rel="next" title="8. Python for Scientific Computing" href="need_for_speed.html" />
+    <link rel="prev" title="6. OOP I: Introduction to Object Oriented Programming" href="oop_intro.html" />
 
 
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+<body>
+
+
+    <span id="top"></span>
+
+    <div class="wrapper">
+
+        <div class="main">
+
+            <div class="page">
+
+                <div class="page__toc">
+
+                    
+                    <div class="page__toc-header">
+                        On this page
+                    </div>
     
-
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Quantitative Economics with Python</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="index_toc.html">
-   Table of Contents
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="about_lectures.html">
-   About Lectures
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="reference internal" href="index_learning_python.html">
-   Introduction to Python
-  </a>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="about_py.html">
-     About Python
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="getting_started.html">
-     Setting up Your Python Environment
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="python_by_example.html">
-     An Introductory Example
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="functions.html">
-     Functions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="python_essentials.html">
-     Python Essentials
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="oop_intro.html">
-     OOP I: Introduction to Object Oriented Programming
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     OOP II: Building Classes
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="index_python_scientific_libraries.html">
-   The Scientific Libraries
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="index_advanced_python_programming.html">
-   Advanced Python Programming
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="404.html">
-   Page Not Found
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="search.html">
-   Search
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="status.html">
-   Lecture Status
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="troubleshooting.html">
-   Troubleshooting
-  </a>
- </li>
-</ul>
-
-</nav>
-
- <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+                    <nav id="bd-toc-nav" class="page__toc-nav">
+                        <ul class="nav section-nav flex-column">
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#overview" class="nav-link">Overview</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#oop-review" class="nav-link">OOP Review</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#key-concepts" class="nav-link">Key Concepts</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#why-is-oop-useful" class="nav-link">Why is OOP Useful?</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#defining-your-own-classes" class="nav-link">Defining Your Own Classes</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#example-a-consumer-class" class="nav-link">Example: A Consumer Class</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#usage" class="nav-link">Usage</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#self" class="nav-link">Self</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#details" class="nav-link">Details</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#example-the-solow-growth-model" class="nav-link">Example: The Solow Growth Model</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#example-a-market" class="nav-link">Example: A Market</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#example-chaos" class="nav-link">Example: Chaos</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#special-methods" class="nav-link">Special Methods</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#exercises" class="nav-link">Exercises</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#exercise-1" class="nav-link">Exercise 1</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#exercise-2" class="nav-link">Exercise 2</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#solutions" class="nav-link">Solutions</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#id1" class="nav-link">Exercise 1</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#id2" class="nav-link">Exercise 2</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                        </ul>
+                    </nav>
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
+                    <div class="page__toc-footer">
+                        
+                        
+                        <p><a href="#top"><strong>Back to top</strong></a></p>
+                    </div>
     
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/python_oop.md.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-    
-</div>
-        <!-- Source interaction buttons -->
+                </div>
+
+                <div class="page__header">
+
+                    <div class="page__header-copy">
+
+                        <p class="page__header-heading"><a href="/">Python Programming for Economics and Finance</a></p>
+
+                        <p class="page__header-subheading">OOP II: Building Classes</p>
+
+                    </div>
+
+                </div> <!-- .page__header -->
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
-
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview">
-   Overview
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#oop-review">
-   OOP Review
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#key-concepts">
-     Key Concepts
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#why-is-oop-useful">
-     Why is OOP Useful?
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#defining-your-own-classes">
-   Defining Your Own Classes
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-a-consumer-class">
-     Example: A Consumer Class
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#usage">
-       Usage
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#self">
-       Self
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#details">
-       Details
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-the-solow-growth-model">
-     Example: The Solow Growth Model
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-a-market">
-     Example: A Market
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-chaos">
-     Example: Chaos
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#special-methods">
-   Special Methods
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-1">
-     Exercise 1
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-2">
-     Exercise 2
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solutions">
-   Solutions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Exercise 1
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Exercise 2
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-        </nav>
-        
-    </div>
-</div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
                 
+                <main class="page__content" role="main">
+                    
+                    <div>
+                        
   <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
                 <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
         </a>
 </div><div class="section" id="oop-ii-building-classes">
-<h1><a class="toc-backref" href="#id3"><span class="target" id="index-0"></span>OOP II: Building Classes</a><a class="headerlink" href="#oop-ii-building-classes" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id3"><span class="section-number">7. </span><span class="target" id="index-0"></span>OOP II: Building Classes</a><a class="headerlink" href="#oop-ii-building-classes" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <span id="index-1"></span><p class="topic-title">Contents</p>
 <ul class="simple">
@@ -367,7 +203,7 @@
 </ul>
 </div>
 <div class="section" id="overview">
-<h2><a class="toc-backref" href="#id4">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4"><span class="section-number">7.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>In an <a class="reference internal" href="oop_intro.html"><span class="doc">earlier lecture</span></a>, we learned some foundations of object-oriented programming.</p>
 <p>The objectives of this lecture are</p>
 <ul class="simple">
@@ -405,7 +241,7 @@
 </div>
 </div>
 <div class="section" id="oop-review">
-<h2><a class="toc-backref" href="#id5">OOP Review</a><a class="headerlink" href="#oop-review" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5"><span class="section-number">7.2. </span>OOP Review</a><a class="headerlink" href="#oop-review" title="Permalink to this headline">¶</a></h2>
 <p>OOP is supported in many languages:</p>
 <ul class="simple">
 <li><p>JAVA and Ruby are relatively pure OOP.</p></li>
@@ -415,7 +251,7 @@
 </ul>
 <p>Let’s cover general OOP concepts before we specialize to Python.</p>
 <div class="section" id="key-concepts">
-<h3>Key Concepts<a class="headerlink" href="#key-concepts" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.2.1. </span>Key Concepts<a class="headerlink" href="#key-concepts" title="Permalink to this headline">¶</a></h3>
 <p id="index-2">As discussed an <a class="reference internal" href="oop_intro.html"><span class="doc">earlier lecture</span></a>, in the OOP paradigm, data and functions are <strong>bundled together</strong> into “objects”.</p>
 <p>An example is a Python list, which not only stores data but also knows how to sort itself, etc.</p>
 <div class="cell docutils container">
@@ -473,7 +309,7 @@
 </ul>
 </div>
 <div class="section" id="why-is-oop-useful">
-<span id="why-oop"></span><h3>Why is OOP Useful?<a class="headerlink" href="#why-is-oop-useful" title="Permalink to this headline">¶</a></h3>
+<span id="why-oop"></span><h3><span class="section-number">7.2.2. </span>Why is OOP Useful?<a class="headerlink" href="#why-is-oop-useful" title="Permalink to this headline">¶</a></h3>
 <p>OOP is useful for the same reason that abstraction is useful: for recognizing and exploiting the common structure.</p>
 <p>For example,</p>
 <ul class="simple">
@@ -489,7 +325,7 @@
 </div>
 </div>
 <div class="section" id="defining-your-own-classes">
-<h2><a class="toc-backref" href="#id6">Defining Your Own Classes</a><a class="headerlink" href="#defining-your-own-classes" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id6"><span class="section-number">7.3. </span>Defining Your Own Classes</a><a class="headerlink" href="#defining-your-own-classes" title="Permalink to this headline">¶</a></h2>
 <p id="index-3">Let’s build some simple classes to start off.</p>
 <p id="oop-consumer-class">Before we do so, in order to indicate some of the power of Classes, we’ll define two functions that we’ll call <code class="docutils literal notranslate"><span class="pre">earn</span></code> and <code class="docutils literal notranslate"><span class="pre">spend</span></code>.</p>
 <div class="cell docutils container">
@@ -537,7 +373,7 @@
 <p>Taken together,  the instance data and functions  are called <em>methods</em>.</p>
 <p>These can be readily accessed in ways that we shall describe now.</p>
 <div class="section" id="example-a-consumer-class">
-<h3>Example: A Consumer Class<a class="headerlink" href="#example-a-consumer-class" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.3.1. </span>Example: A Consumer Class<a class="headerlink" href="#example-a-consumer-class" title="Permalink to this headline">¶</a></h3>
 <p>We’ll build a <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> class with</p>
 <ul class="simple">
 <li><p>a <code class="docutils literal notranslate"><span class="pre">wealth</span></code> attribute that stores the consumer’s wealth (data)</p></li>
@@ -583,7 +419,7 @@
 <p>Calling <code class="docutils literal notranslate"><span class="pre">__init__</span></code> sets up a “namespace” to hold the instance data — more on this soon.</p>
 <p>We’ll also discuss the role of the peculiar  <code class="docutils literal notranslate"><span class="pre">self</span></code> bookkeeping device in detail below.</p>
 <div class="section" id="usage">
-<h4>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">7.3.1.1. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h4>
 <p>Here’s an example in which we use the class <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> to crdate an instance of a consumer whom we affectionately name <span class="math notranslate nohighlight">\(c1\)</span>.</p>
 <p>After we create consumer <span class="math notranslate nohighlight">\(c1\)</span> and endow it with initial wealth <span class="math notranslate nohighlight">\(10\)</span>, we’ll apply the <code class="docutils literal notranslate"><span class="pre">spend</span></code> method.</p>
 <div class="cell docutils container">
@@ -670,7 +506,7 @@
 maintained by the instance.</p>
 </div>
 <div class="section" id="self">
-<h4>Self<a class="headerlink" href="#self" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">7.3.1.2. </span>Self<a class="headerlink" href="#self" title="Permalink to this headline">¶</a></h4>
 <p>If you look at the <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> class definition again you’ll see the word
 self throughout the code.</p>
 <p>The rules for using <code class="docutils literal notranslate"><span class="pre">self</span></code> in creating a Class are that</p>
@@ -690,7 +526,7 @@ self throughout the code.</p>
 <p>There are no examples of the last rule in the preceding code but we will see some shortly.</p>
 </div>
 <div class="section" id="details">
-<h4>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">7.3.1.3. </span>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h4>
 <p>In this section, we look at some more formal details related to classes and <code class="docutils literal notranslate"><span class="pre">self</span></code></p>
 <ul class="simple">
 <li><p>You might wish to skip to <a class="reference internal" href="#oop-solow-growth"><span class="std std-ref">the next section</span></a> the first time you read this lecture.</p></li>
@@ -705,7 +541,7 @@ the class definition</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__module__&#39;: &#39;__main__&#39;, &#39;__init__&#39;: &lt;function Consumer.__init__ at 0x7fcd79e94e60&gt;, &#39;earn&#39;: &lt;function Consumer.earn at 0x7fcd79e94710&gt;, &#39;spend&#39;: &lt;function Consumer.spend at 0x7fcd79e94f80&gt;, &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__doc__&#39;: None}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__module__&#39;: &#39;__main__&#39;, &#39;__init__&#39;: &lt;function Consumer.__init__ at 0x7f09f241ce50&gt;, &#39;earn&#39;: &lt;function Consumer.earn at 0x7f09f241cdc0&gt;, &#39;spend&#39;: &lt;function Consumer.spend at 0x7f09f241cd30&gt;, &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__doc__&#39;: None}
 </pre></div>
 </div>
 </div>
@@ -748,12 +584,12 @@ the class definition</p>
 </div>
 </div>
 <div class="section" id="example-the-solow-growth-model">
-<span id="oop-solow-growth"></span><h3>Example: The Solow Growth Model<a class="headerlink" href="#example-the-solow-growth-model" title="Permalink to this headline">¶</a></h3>
+<span id="oop-solow-growth"></span><h3><span class="section-number">7.3.2. </span>Example: The Solow Growth Model<a class="headerlink" href="#example-the-solow-growth-model" title="Permalink to this headline">¶</a></h3>
 <p id="index-4">For our next example, let’s write a simple class to implement the Solow growth model.</p>
 <p>The Solow growth model is a neoclassical growth model in which the per capita
 capital stock <span class="math notranslate nohighlight">\(k_t\)</span> evolves according to the rule</p>
 <div class="math notranslate nohighlight" id="equation-solow-lom">
-<span class="eqno">(1)<a class="headerlink" href="#equation-solow-lom" title="Permalink to this equation">¶</a></span>\[k_{t+1} = \frac{s z k_t^{\alpha} + (1 - \delta) k_t}{1 + n}\]</div>
+<span class="eqno">(7.1)<a class="headerlink" href="#equation-solow-lom" title="Permalink to this equation">¶</a></span>\[k_{t+1} = \frac{s z k_t^{\alpha} + (1 - \delta) k_t}{1 + n}\]</div>
 <p>Here</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(s\)</span> is an exogenously given saving rate</p></li>
@@ -762,13 +598,13 @@ capital stock <span class="math notranslate nohighlight">\(k_t\)</span> evolves 
 <li><p><span class="math notranslate nohighlight">\(n\)</span> is the population growth rate</p></li>
 <li><p><span class="math notranslate nohighlight">\(\delta\)</span> is the depreciation rate</p></li>
 </ul>
-<p>A <strong>steady state</strong> of the model is a <span class="math notranslate nohighlight">\(k\)</span> that solves <a class="reference internal" href="#equation-solow-lom">(1)</a> when <span class="math notranslate nohighlight">\(k_{t+1} = k_t = k\)</span>.</p>
+<p>A <strong>steady state</strong> of the model is a <span class="math notranslate nohighlight">\(k\)</span> that solves <a class="reference internal" href="#equation-solow-lom">(7.1)</a> when <span class="math notranslate nohighlight">\(k_{t+1} = k_t = k\)</span>.</p>
 <p>Here’s a class that implements this model.</p>
 <p>Some points of interest in the code are</p>
 <ul class="simple">
 <li><p>An instance maintains a record of its current capital stock in the variable <code class="docutils literal notranslate"><span class="pre">self.k</span></code>.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">h</span></code> method implements the right-hand side of <a class="reference internal" href="#equation-solow-lom">(1)</a>.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">update</span></code> method uses <code class="docutils literal notranslate"><span class="pre">h</span></code> to update capital as per <a class="reference internal" href="#equation-solow-lom">(1)</a>.</p>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">h</span></code> method implements the right-hand side of <a class="reference internal" href="#equation-solow-lom">(7.1)</a>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">update</span></code> method uses <code class="docutils literal notranslate"><span class="pre">h</span></code> to update capital as per <a class="reference internal" href="#equation-solow-lom">(7.1)</a>.</p>
 <ul>
 <li><p>Notice how inside <code class="docutils literal notranslate"><span class="pre">update</span></code> the reference to the local method <code class="docutils literal notranslate"><span class="pre">h</span></code> is <code class="docutils literal notranslate"><span class="pre">self.h</span></code>.</p></li>
 </ul>
@@ -854,7 +690,7 @@ capital stock <span class="math notranslate nohighlight">\(k_t\)</span> evolves 
 </div>
 </div>
 <div class="section" id="example-a-market">
-<h3>Example: A Market<a class="headerlink" href="#example-a-market" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.3.3. </span>Example: A Market<a class="headerlink" href="#example-a-market" title="Permalink to this headline">¶</a></h3>
 <p>Next, let’s write a class for competitive market in which buyers and sellers are both price takers.</p>
 <p>The market consists of the following objects:</p>
 <ul class="simple">
@@ -1019,11 +855,11 @@ supply curves  with and without taxes</p>
 </div>
 </div>
 <div class="section" id="example-chaos">
-<h3>Example: Chaos<a class="headerlink" href="#example-chaos" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.3.4. </span>Example: Chaos<a class="headerlink" href="#example-chaos" title="Permalink to this headline">¶</a></h3>
 <p>Let’s look at one more example, related to chaotic dynamics in nonlinear systems.</p>
 <p>A simple transition rule that can generate erratic time paths is the logistic map</p>
 <div class="math notranslate nohighlight" id="equation-quadmap2">
-<span class="eqno">(2)<a class="headerlink" href="#equation-quadmap2" title="Permalink to this equation">¶</a></span>\[x_{t+1} = r x_t(1 - x_t) ,
+<span class="eqno">(7.2)<a class="headerlink" href="#equation-quadmap2" title="Permalink to this equation">¶</a></span>\[x_{t+1} = r x_t(1 - x_t) ,
 \quad x_0 \in [0, 1],
 \quad r \in [0, 4]\]</div>
 <p>Let’s write a class for generating time series from this model.</p>
@@ -1110,7 +946,7 @@ supply curves  with and without taxes</p>
 <img alt="_images/python_oop_49_0.png" src="_images/python_oop_49_0.png" />
 </div>
 </div>
-<p>On the horizontal axis is the parameter <span class="math notranslate nohighlight">\(r\)</span> in <a class="reference internal" href="#equation-quadmap2">(2)</a>.</p>
+<p>On the horizontal axis is the parameter <span class="math notranslate nohighlight">\(r\)</span> in <a class="reference internal" href="#equation-quadmap2">(7.2)</a>.</p>
 <p>The vertical axis is the state space <span class="math notranslate nohighlight">\([0, 1]\)</span>.</p>
 <p>For each <span class="math notranslate nohighlight">\(r\)</span> we compute a long time series and then plot the tail (the last 50 points).</p>
 <p>The tail of the sequence shows us where the trajectory concentrates after
@@ -1124,7 +960,7 @@ axis.</p>
 </div>
 </div>
 <div class="section" id="special-methods">
-<h2><a class="toc-backref" href="#id7">Special Methods</a><a class="headerlink" href="#special-methods" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7"><span class="section-number">7.4. </span>Special Methods</a><a class="headerlink" href="#special-methods" title="Permalink to this headline">¶</a></h2>
 <p id="index-5">Python provides special methods that come in handy.</p>
 <p>For example, recall that lists and tuples have a notion of length and that this length can be queried via the <code class="docutils literal notranslate"><span class="pre">len</span></code> function</p>
 <div class="cell docutils container">
@@ -1195,12 +1031,12 @@ your user-defined object, use the <code class="docutils literal notranslate"><sp
 <p>Exercise 1 provides a more useful example.</p>
 </div>
 <div class="section" id="exercises">
-<h2><a class="toc-backref" href="#id8">Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8"><span class="section-number">7.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="exercise-1">
-<span id="oop-ex1"></span><h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
+<span id="oop-ex1"></span><h3><span class="section-number">7.5.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Empirical_distribution_function">empirical cumulative distribution function (ecdf)</a> corresponding to a sample <span class="math notranslate nohighlight">\(\{X_i\}_{i=1}^n\)</span> is defined as</p>
 <div class="math notranslate nohighlight" id="equation-emdist">
-<span class="eqno">(3)<a class="headerlink" href="#equation-emdist" title="Permalink to this equation">¶</a></span>\[F_n(x) := \frac{1}{n}  \sum_{i=1}^n \mathbf{1}\{X_i \leq x\}
+<span class="eqno">(7.3)<a class="headerlink" href="#equation-emdist" title="Permalink to this equation">¶</a></span>\[F_n(x) := \frac{1}{n}  \sum_{i=1}^n \mathbf{1}\{X_i \leq x\}
   \qquad (x \in \mathbb{R})\]</div>
 <p>Here <span class="math notranslate nohighlight">\(\mathbf{1}\{X_i \leq x\}\)</span> is an indicator function (one if <span class="math notranslate nohighlight">\(X_i \leq x\)</span> and zero otherwise)
 and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fraction of the sample that falls below <span class="math notranslate nohighlight">\(x\)</span>.</p>
@@ -1225,25 +1061,25 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
 <p>Aim for clarity, not efficiency.</p>
 </div>
 <div class="section" id="exercise-2">
-<span id="oop-ex2"></span><h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h3>
+<span id="oop-ex2"></span><h3><span class="section-number">7.5.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h3>
 <p>In an <a class="reference internal" href="python_essentials.html#pyess-ex2"><span class="std std-ref">earlier exercise</span></a>, you wrote a function for evaluating polynomials.</p>
 <p>This exercise is an extension, where the task is to build a simple class called <code class="docutils literal notranslate"><span class="pre">Polynomial</span></code> for representing and manipulating polynomial functions such as</p>
 <div class="math notranslate nohighlight" id="equation-polynom">
-<span class="eqno">(4)<a class="headerlink" href="#equation-polynom" title="Permalink to this equation">¶</a></span>\[p(x) = a_0 + a_1 x + a_2 x^2 + \cdots a_N x^N = \sum_{n=0}^N a_n x^n
+<span class="eqno">(7.4)<a class="headerlink" href="#equation-polynom" title="Permalink to this equation">¶</a></span>\[p(x) = a_0 + a_1 x + a_2 x^2 + \cdots a_N x^N = \sum_{n=0}^N a_n x^n
     \qquad (x \in \mathbb{R})\]</div>
-<p>The instance data for the class <code class="docutils literal notranslate"><span class="pre">Polynomial</span></code> will be the coefficients (in the case of <a class="reference internal" href="#equation-polynom">(4)</a>, the numbers <span class="math notranslate nohighlight">\(a_0, \ldots, a_N\)</span>).</p>
+<p>The instance data for the class <code class="docutils literal notranslate"><span class="pre">Polynomial</span></code> will be the coefficients (in the case of <a class="reference internal" href="#equation-polynom">(7.4)</a>, the numbers <span class="math notranslate nohighlight">\(a_0, \ldots, a_N\)</span>).</p>
 <p>Provide methods that</p>
 <ol class="simple">
-<li><p>Evaluate the polynomial <a class="reference internal" href="#equation-polynom">(4)</a>, returning <span class="math notranslate nohighlight">\(p(x)\)</span> for any <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
+<li><p>Evaluate the polynomial <a class="reference internal" href="#equation-polynom">(7.4)</a>, returning <span class="math notranslate nohighlight">\(p(x)\)</span> for any <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
 <li><p>Differentiate the polynomial, replacing the original coefficients with those of its derivative <span class="math notranslate nohighlight">\(p'\)</span>.</p></li>
 </ol>
 <p>Avoid using any <code class="docutils literal notranslate"><span class="pre">import</span></code> statements.</p>
 </div>
 </div>
 <div class="section" id="solutions">
-<h2><a class="toc-backref" href="#id9">Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9"><span class="section-number">7.6. </span>Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
-<h3>Exercise 1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.6.1. </span>Exercise 1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ECDF</span><span class="p">:</span>
@@ -1279,15 +1115,15 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6
-0.526
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7
+0.48
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="id2">
-<h3>Exercise 2<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.6.2. </span>Exercise 2<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Polynomial</span><span class="p">:</span>
@@ -1327,39 +1163,231 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
-              </div>
-              
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="oop_intro.html" title="previous page">OOP I: Introduction to Object Oriented Programming</a>
-    <a class='right-next' id="next-link" href="index_python_scientific_libraries.html" title="next page">The Scientific Libraries</a>
-
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Thomas J. Sargent and John Stachurski<br/>
-        
-            &copy; Copyright 2019, Thomas J. Sargent and John Stachurski.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
-      </div>
-    </div>
-
-    
-  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+                    </div>
+                    
+                </main> <!-- .page__content -->
+                
 
 
-    
+
+
+            </div> <!-- .page -->
+
+            
+            <div class="sidebar bd-sidebar inactive" id="site-navigation">
+
+                <div class="sidebar__header">
+
+
+                    Contents
+
+                </div>
+
+                <nav class="sidebar__nav" id="sidebar-nav" aria-label="Main navigation">
+                    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Python Programming for Economics and Finance
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_py.html">
+   1. About Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started.html">
+   2. Setting up Your Python Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_by_example.html">
+   3. An Introductory Example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   4. Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_essentials.html">
+   5. Python Essentials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="oop_intro.html">
+   6. OOP I: Introduction to Object Oriented Programming
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   7. OOP II: Building Classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Scientific Libraries
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="need_for_speed.html">
+   8. Python for Scientific Computing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy.html">
+   9. NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matplotlib.html">
+   10. Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scipy.html">
+   11. SciPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numba.html">
+   12. Numba
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parallelization.html">
+   13. Parallelization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   14. Pandas
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Advanced Python Programming
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="writing_good_code.html">
+   15. Writing Good Code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_advanced_features.html">
+   16. More Language Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="debugging.html">
+   17. Debugging
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   18. Troubleshooting
+  </a>
+ </li>
+</ul>
+
+                </nav>
+
+                <div class="sidebar__footer">
+                    <p><img src="https://python-programming.quantecon.org/_static/img/qe-logo.png"></p>
+
+                    Theme by the <a href="https://quantecon.org/">QuantEcon</a>
+                </div>
+
+            </div> <!-- .sidebar -->
+            
+        </div> <!-- .main -->
+
+        <div class="toolbar">
+
+            <div class="toolbar__inner">
+
+
+                <ul class="toolbar__main">
+                    <li data-tippy-content="Toggle sidebar" class="btn__sidebar"><i data-feather="menu"></i></li>
+                    <li class="btn__search">
+                        <form action="search.html" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off">
+                            <i data-feather="search"></i>
+                        </form>
+                    </li>
+                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
+                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
+                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
+                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                </ul>
+
+                <ul class="toolbar__links">
+                    <li data-tippy-content="Home"><a href="/"><i data-feather="home"></i></a></li>
+                    <li data-tippy-content="Download Notebook"><a href="_sources/python_oop.ipynb" download><i data-feather="download-cloud"></i></a></li>
+                    <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                    <li data-tippy-content="View Source"><a href="_sources/python_oop.md" download><i data-feather="github"></i></a></li>
+                </ul>
+
+            </div>
+
+
+        </div> <!-- .toolbar -->
+
+    </div> <!-- .wrapper-->
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="/_static/plugins.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+
+<script src="/_static/scripts.js"></script>
+<script>
+    feather.replace()
+    tippy('[data-tippy-content]');
+</script>
+
+
   </body>
 </html>

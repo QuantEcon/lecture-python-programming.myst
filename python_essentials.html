@@ -1,464 +1,276 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Python Essentials &#8212; Quantitative Economics with Python</title>
-    
-  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
-
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5. Python Essentials &#8212; Python Programming for Economics and Finance</title>
+    <link rel="stylesheet" href="_static/quantecon-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
-
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/quantecon-book-theme.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/quantecon-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="OOP I: Introduction to Object Oriented Programming" href="oop_intro.html" />
-    <link rel="prev" title="Functions" href="functions.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <link rel="next" title="6. OOP I: Introduction to Object Oriented Programming" href="oop_intro.html" />
+    <link rel="prev" title="4. Functions" href="functions.html" />
 
 
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+<body>
+
+
+    <span id="top"></span>
+
+    <div class="wrapper">
+
+        <div class="main">
+
+            <div class="page">
+
+                <div class="page__toc">
+
+                    
+                    <div class="page__toc-header">
+                        On this page
+                    </div>
     
-
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Quantitative Economics with Python</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="index_toc.html">
-   Table of Contents
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="about_lectures.html">
-   About Lectures
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="reference internal" href="index_learning_python.html">
-   Introduction to Python
-  </a>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="about_py.html">
-     About Python
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="getting_started.html">
-     Setting up Your Python Environment
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="python_by_example.html">
-     An Introductory Example
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="functions.html">
-     Functions
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Python Essentials
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="oop_intro.html">
-     OOP I: Introduction to Object Oriented Programming
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="python_oop.html">
-     OOP II: Building Classes
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="index_python_scientific_libraries.html">
-   The Scientific Libraries
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="index_advanced_python_programming.html">
-   Advanced Python Programming
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="404.html">
-   Page Not Found
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="search.html">
-   Search
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="status.html">
-   Lecture Status
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="troubleshooting.html">
-   Troubleshooting
-  </a>
- </li>
-</ul>
-
-</nav>
-
- <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+                    <nav id="bd-toc-nav" class="page__toc-nav">
+                        <ul class="nav section-nav flex-column">
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#overview" class="nav-link">Overview</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#data-types" class="nav-link">Data Types</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#primitive-data-types" class="nav-link">Primitive Data Types</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#containers" class="nav-link">Containers</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#slice-notation" class="nav-link">Slice Notation</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#sets-and-dictionaries" class="nav-link">Sets and Dictionaries</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#input-and-output" class="nav-link">Input and Output</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#paths" class="nav-link">Paths</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#iterating" class="nav-link">Iterating</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#looping-over-different-objects" class="nav-link">Looping over Different Objects</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#looping-without-indices" class="nav-link">Looping without Indices</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#list-comprehensions" class="nav-link">List Comprehensions</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#comparisons-and-logical-operators" class="nav-link">Comparisons and Logical Operators</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#comparisons" class="nav-link">Comparisons</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#combining-expressions" class="nav-link">Combining Expressions</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#more-functions" class="nav-link">More Functions</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#the-flexibility-of-python-functions" class="nav-link">The Flexibility of Python Functions</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#docstrings" class="nav-link">Docstrings</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#one-line-functions-lambda" class="nav-link">One-Line Functions: lambda</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#keyword-arguments" class="nav-link">Keyword Arguments</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#coding-style-and-pep8" class="nav-link">Coding Style and PEP8</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#exercises" class="nav-link">Exercises</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#exercise-1" class="nav-link">Exercise 1</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#exercise-2" class="nav-link">Exercise 2</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#exercise-3" class="nav-link">Exercise 3</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#exercise-4" class="nav-link">Exercise 4</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#exercise-5" class="nav-link">Exercise 5</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#exercise-6" class="nav-link">Exercise 6</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#solutions" class="nav-link">Solutions</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#id1" class="nav-link">Exercise 1</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#part-1-solution" class="nav-link">Part 1 Solution:</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#part-2-solution" class="nav-link">Part 2 Solution:</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#part-3-solution" class="nav-link">Part 3 Solution</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#id2" class="nav-link">Exercise 2</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#id3" class="nav-link">Exercise 3</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#id4" class="nav-link">Exercise 4</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#id5" class="nav-link">Exercise 5</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#id6" class="nav-link">Exercise 6</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                        </ul>
+                    </nav>
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
+                    <div class="page__toc-footer">
+                        
+                        
+                        <p><a href="#top"><strong>Back to top</strong></a></p>
+                    </div>
     
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/python_essentials.md.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-    
-</div>
-        <!-- Source interaction buttons -->
+                </div>
+
+                <div class="page__header">
+
+                    <div class="page__header-copy">
+
+                        <p class="page__header-heading"><a href="/">Python Programming for Economics and Finance</a></p>
+
+                        <p class="page__header-subheading">Python Essentials</p>
+
+                    </div>
+
+                </div> <!-- .page__header -->
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
-
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview">
-   Overview
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-types">
-   Data Types
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#primitive-data-types">
-     Primitive Data Types
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#containers">
-     Containers
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#slice-notation">
-       Slice Notation
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sets-and-dictionaries">
-       Sets and Dictionaries
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#input-and-output">
-   Input and Output
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#paths">
-     Paths
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#iterating">
-   Iterating
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#looping-over-different-objects">
-     Looping over Different Objects
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#looping-without-indices">
-     Looping without Indices
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#list-comprehensions">
-     List Comprehensions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#comparisons-and-logical-operators">
-   Comparisons and Logical Operators
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#comparisons">
-     Comparisons
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#combining-expressions">
-     Combining Expressions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#more-functions">
-   More Functions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-flexibility-of-python-functions">
-     The Flexibility of Python Functions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#docstrings">
-     Docstrings
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#one-line-functions-lambda">
-     One-Line Functions:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       lambda
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#keyword-arguments">
-     Keyword Arguments
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#coding-style-and-pep8">
-   Coding Style and PEP8
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-1">
-     Exercise 1
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-2">
-     Exercise 2
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-3">
-     Exercise 3
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-4">
-     Exercise 4
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-5">
-     Exercise 5
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-6">
-     Exercise 6
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solutions">
-   Solutions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Exercise 1
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#part-1-solution">
-       Part 1 Solution:
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#part-2-solution">
-       Part 2 Solution:
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#part-3-solution">
-       Part 3 Solution
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Exercise 2
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     Exercise 3
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     Exercise 4
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     Exercise 5
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     Exercise 6
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-        </nav>
-        
-    </div>
-</div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
                 
+                <main class="page__content" role="main">
+                    
+                    <div>
+                        
   <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
                 <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
         </a>
 </div><div class="section" id="python-essentials">
-<h1><a class="toc-backref" href="#id7">Python Essentials</a><a class="headerlink" href="#python-essentials" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id7"><span class="section-number">5. </span>Python Essentials</a><a class="headerlink" href="#python-essentials" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -478,13 +290,13 @@
 </ul>
 </div>
 <div class="section" id="overview">
-<h2><a class="toc-backref" href="#id8">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8"><span class="section-number">5.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>We have covered a lot of material quite quickly, with a focus on examples.</p>
 <p>Now let’s cover some core features of Python in a more systematic way.</p>
 <p>This approach is less exciting but helps clear up some details.</p>
 </div>
 <div class="section" id="data-types">
-<h2><a class="toc-backref" href="#id9">Data Types</a><a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9"><span class="section-number">5.2. </span>Data Types</a><a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
 <p id="index-0">Computer programs typically keep track of a range of data types.</p>
 <p>For example, <code class="docutils literal notranslate"><span class="pre">1.5</span></code> is a floating point number, while <code class="docutils literal notranslate"><span class="pre">1</span></code> is an integer.</p>
 <p>Programs need to distinguish between these two types for various reasons.</p>
@@ -502,7 +314,7 @@ are faster and more accurate.</p>
 </ul>
 <p>Let’s learn a bit more about them.</p>
 <div class="section" id="primitive-data-types">
-<h3>Primitive Data Types<a class="headerlink" href="#primitive-data-types" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.2.1. </span>Primitive Data Types<a class="headerlink" href="#primitive-data-types" title="Permalink to this headline">¶</a></h3>
 <p>One simple data type is <strong>Boolean values</strong>, which can be either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -631,7 +443,7 @@ are faster and more accurate.</p>
 </div>
 </div>
 <div class="section" id="containers">
-<h3>Containers<a class="headerlink" href="#containers" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.2.2. </span>Containers<a class="headerlink" href="#containers" title="Permalink to this headline">¶</a></h3>
 <p>Python has several basic types for storing collections of (possibly heterogeneous) data.</p>
 <p>We’ve <a class="reference internal" href="python_by_example.html#lists-ref"><span class="std std-ref">already discussed lists</span></a>.</p>
 <p id="index-1">A related data type is <strong>tuples</strong>, which are “immutable” lists</p>
@@ -729,7 +541,7 @@ are faster and more accurate.</p>
 <p>You’ve actually <a class="reference internal" href="about_py.html#tuple-unpacking-example"><span class="std std-ref">seen an example of this</span></a> already.</p>
 <p>Tuple unpacking is convenient and we’ll use it often.</p>
 <div class="section" id="slice-notation">
-<h4>Slice Notation<a class="headerlink" href="#slice-notation" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.2.2.1. </span>Slice Notation<a class="headerlink" href="#slice-notation" title="Permalink to this headline">¶</a></h4>
 <p id="index-2">To access multiple elements of a list or tuple, you can use Python’s slice
 notation.</p>
 <p>For example,</p>
@@ -788,7 +600,7 @@ notation.</p>
 </div>
 </div>
 <div class="section" id="sets-and-dictionaries">
-<h4>Sets and Dictionaries<a class="headerlink" href="#sets-and-dictionaries" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.2.2.2. </span>Sets and Dictionaries<a class="headerlink" href="#sets-and-dictionaries" title="Permalink to this headline">¶</a></h4>
 <span class="target" id="index-3"></span><p id="index-4">Two other container types we should mention before moving on are <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#sets">sets</a> and <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">dictionaries</a>.</p>
 <p>Dictionaries are much like lists, except that the items are named instead of
 numbered</p>
@@ -877,7 +689,7 @@ usual set-theoretic operations</p>
 </div>
 </div>
 <div class="section" id="input-and-output">
-<h2><a class="toc-backref" href="#id10">Input and Output</a><a class="headerlink" href="#input-and-output" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id10"><span class="section-number">5.3. </span>Input and Output</a><a class="headerlink" href="#input-and-output" title="Permalink to this headline">¶</a></h2>
 <p id="index-5">Let’s briefly review reading and writing to text files, starting with writing</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -903,7 +715,7 @@ usual set-theoretic operations</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/source/rst&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures&#39;
 </pre></div>
 </div>
 </div>
@@ -938,7 +750,7 @@ Testing again
 </div>
 </div>
 <div class="section" id="paths">
-<h3>Paths<a class="headerlink" href="#paths" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.3.1. </span>Paths<a class="headerlink" href="#paths" title="Permalink to this headline">¶</a></h3>
 <p id="index-6">Note that if <code class="docutils literal notranslate"><span class="pre">newfile.txt</span></code> is not in the present working directory then this call to <code class="docutils literal notranslate"><span class="pre">open()</span></code> fails.</p>
 <p>In this case, you can shift the file to the pwd or specify the <a class="reference external" href="https://en.wikipedia.org/wiki/Path_%28computing%29">full path</a> to the file</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;insert_full_path_to_file/newfile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
@@ -947,13 +759,13 @@ Testing again
 </div>
 </div>
 <div class="section" id="iterating">
-<span id="iterating-version-1"></span><h2><a class="toc-backref" href="#id11">Iterating</a><a class="headerlink" href="#iterating" title="Permalink to this headline">¶</a></h2>
+<span id="iterating-version-1"></span><h2><a class="toc-backref" href="#id11"><span class="section-number">5.4. </span>Iterating</a><a class="headerlink" href="#iterating" title="Permalink to this headline">¶</a></h2>
 <p id="index-7">One of the most important tasks in computing is stepping through a
 sequence of data and performing a given action.</p>
 <p>One of Python’s strengths is its simple, flexible interface to this kind of iteration via
 the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
 <div class="section" id="looping-over-different-objects">
-<h3>Looping over Different Objects<a class="headerlink" href="#looping-over-different-objects" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.1. </span>Looping over Different Objects<a class="headerlink" href="#looping-over-different-objects" title="Permalink to this headline">¶</a></h3>
 <p>Many Python objects are “iterable”, in the sense that they can be looped over.</p>
 <p>To give an example, let’s write the file us_cities.txt, which lists US cities and their population, to the present working directory.</p>
 <div class="cell docutils container" id="us-cities-data">
@@ -1018,7 +830,7 @@ the details of which can be left till later.</p>
 <p>Many other kinds of objects are iterable, and we’ll discuss some of them later on.</p>
 </div>
 <div class="section" id="looping-without-indices">
-<h3>Looping without Indices<a class="headerlink" href="#looping-without-indices" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.2. </span>Looping without Indices<a class="headerlink" href="#looping-without-indices" title="Permalink to this headline">¶</a></h3>
 <p>One thing you might have noticed is that Python tends to favor looping without explicit indexing.</p>
 <p>For example,</p>
 <div class="cell docutils container">
@@ -1110,7 +922,7 @@ letter_list[2] = &#39;c&#39;
 </div>
 </div>
 <div class="section" id="list-comprehensions">
-<h3>List Comprehensions<a class="headerlink" href="#list-comprehensions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.3. </span>List Comprehensions<a class="headerlink" href="#list-comprehensions" title="Permalink to this headline">¶</a></h3>
 <p id="index-8">We can also simplify the code for generating the list of random draws considerably by using something called a <em>list comprehension</em>.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/List_comprehension">List comprehensions</a> are an elegant Python tool for creating lists.</p>
 <p>Consider the following example, where the list comprehension is on the
@@ -1158,9 +970,9 @@ right-hand side of the second line</p>
 </div>
 </div>
 <div class="section" id="comparisons-and-logical-operators">
-<h2><a class="toc-backref" href="#id12">Comparisons and Logical Operators</a><a class="headerlink" href="#comparisons-and-logical-operators" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id12"><span class="section-number">5.5. </span>Comparisons and Logical Operators</a><a class="headerlink" href="#comparisons-and-logical-operators" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="comparisons">
-<h3>Comparisons<a class="headerlink" href="#comparisons" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.5.1. </span>Comparisons<a class="headerlink" href="#comparisons" title="Permalink to this headline">¶</a></h3>
 <p id="index-9">Many different kinds of expressions evaluate to one of the Boolean values (i.e., <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
 <p>A common type is comparisons, such as</p>
 <div class="cell docutils container">
@@ -1283,7 +1095,7 @@ right-hand side of the second line</p>
 </ul>
 </div>
 <div class="section" id="combining-expressions">
-<h3>Combining Expressions<a class="headerlink" href="#combining-expressions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.5.2. </span>Combining Expressions<a class="headerlink" href="#combining-expressions" title="Permalink to this headline">¶</a></h3>
 <p id="index-10">We can combine expressions using <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> and <code class="docutils literal notranslate"><span class="pre">not</span></code>.</p>
 <p>These are the standard logical connectives (conjunction, disjunction and denial)</p>
 <div class="cell docutils container">
@@ -1354,10 +1166,10 @@ right-hand side of the second line</p>
 </div>
 </div>
 <div class="section" id="more-functions">
-<h2><a class="toc-backref" href="#id13">More Functions</a><a class="headerlink" href="#more-functions" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id13"><span class="section-number">5.6. </span>More Functions</a><a class="headerlink" href="#more-functions" title="Permalink to this headline">¶</a></h2>
 <p id="index-11">Let’s talk a bit more about functions, which are all important for good programming style.</p>
 <div class="section" id="the-flexibility-of-python-functions">
-<h3>The Flexibility of Python Functions<a class="headerlink" href="#the-flexibility-of-python-functions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.6.1. </span>The Flexibility of Python Functions<a class="headerlink" href="#the-flexibility-of-python-functions" title="Permalink to this headline">¶</a></h3>
 <p>As we discussed in the <a class="reference internal" href="python_by_example.html#python-by-example"><span class="std std-ref">previous lecture</span></a>, Python functions are very flexible.</p>
 <p>In particular</p>
 <ul class="simple">
@@ -1384,7 +1196,7 @@ code like the following example</p>
 <p>Functions without a return statement automatically return the special Python object <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </div>
 <div class="section" id="docstrings">
-<h3>Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.6.2. </span>Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this headline">¶</a></h3>
 <p id="index-12">Python has a system for adding comments to functions, modules, etc. called <em>docstrings</em>.</p>
 <p>The nice thing about docstrings is that they are available at run-time.</p>
 <p>Try running this</p>
@@ -1436,7 +1248,7 @@ code like the following example</p>
 <p>With one question mark we bring up the docstring, and with two we get the source code as well.</p>
 </div>
 <div class="section" id="one-line-functions-lambda">
-<h3>One-Line Functions: <code class="docutils literal notranslate"><span class="pre">lambda</span></code><a class="headerlink" href="#one-line-functions-lambda" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.6.3. </span>One-Line Functions: <code class="docutils literal notranslate"><span class="pre">lambda</span></code><a class="headerlink" href="#one-line-functions-lambda" title="Permalink to this headline">¶</a></h3>
 <p id="index-13">The <code class="docutils literal notranslate"><span class="pre">lambda</span></code> keyword is used to create simple functions on one line.</p>
 <p>For example, the definitions</p>
 <div class="cell docutils container">
@@ -1477,7 +1289,7 @@ code like the following example</p>
 <p>Here the function created by <code class="docutils literal notranslate"><span class="pre">lambda</span></code> is said to be <em>anonymous</em> because it was never given a name.</p>
 </div>
 <div class="section" id="keyword-arguments">
-<h3>Keyword Arguments<a class="headerlink" href="#keyword-arguments" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.6.4. </span>Keyword Arguments<a class="headerlink" href="#keyword-arguments" title="Permalink to this headline">¶</a></h3>
 <p id="index-14">In a <a class="reference internal" href="python_by_example.html#python-by-example"><span class="std std-ref">previous lecture</span></a>, you came across the statement</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;white noise&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1529,7 +1341,7 @@ is determined by order</p>
 </div>
 </div>
 <div class="section" id="coding-style-and-pep8">
-<h2><a class="toc-backref" href="#id14">Coding Style and PEP8</a><a class="headerlink" href="#coding-style-and-pep8" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id14"><span class="section-number">5.7. </span>Coding Style and PEP8</a><a class="headerlink" href="#coding-style-and-pep8" title="Permalink to this headline">¶</a></h2>
 <p id="index-15">To learn more about the Python programming philosophy type <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">this</span></code> at the prompt.</p>
 <p>Among other things, Python strongly favors consistency in programming style.</p>
 <p>We’ve all heard the saying about consistency and little minds.</p>
@@ -1543,11 +1355,11 @@ first page.</p></li>
 <p>(Occasionally we’ll deviate from PEP8 in these lectures to better match mathematical notation)</p>
 </div>
 <div class="section" id="exercises">
-<h2><a class="toc-backref" href="#id15">Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id15"><span class="section-number">5.8. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <p>Solve the following exercises.</p>
 <p>(For some, the built-in function <code class="docutils literal notranslate"><span class="pre">sum()</span></code> comes in handy).</p>
 <div class="section" id="exercise-1">
-<span id="pyess-ex1"></span><h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
+<span id="pyess-ex1"></span><h3><span class="section-number">5.8.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
 <p>Part 1: Given two numeric lists or tuples <code class="docutils literal notranslate"><span class="pre">x_vals</span></code> and <code class="docutils literal notranslate"><span class="pre">y_vals</span></code> of equal length, compute
 their inner product using <code class="docutils literal notranslate"><span class="pre">zip()</span></code>.</p>
 <p>Part 2: In one line, count the number of even numbers in 0,…,99.</p>
@@ -1558,22 +1370,22 @@ their inner product using <code class="docutils literal notranslate"><span class
 such that both <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> are even.</p>
 </div>
 <div class="section" id="exercise-2">
-<span id="pyess-ex2"></span><h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h3>
+<span id="pyess-ex2"></span><h3><span class="section-number">5.8.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h3>
 <p>Consider the polynomial</p>
 <div class="math notranslate nohighlight" id="equation-polynom0">
-<span class="eqno">(1)<a class="headerlink" href="#equation-polynom0" title="Permalink to this equation">¶</a></span>\[p(x)
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-polynom0" title="Permalink to this equation">¶</a></span>\[p(x)
 = a_0 + a_1 x + a_2 x^2 + \cdots a_n x^n
 = \sum_{i=0}^n a_i x^i\]</div>
-<p>Write a function <code class="docutils literal notranslate"><span class="pre">p</span></code> such that <code class="docutils literal notranslate"><span class="pre">p(x,</span> <span class="pre">coeff)</span></code> that computes the value in <a class="reference internal" href="#equation-polynom0">(1)</a> given a point <code class="docutils literal notranslate"><span class="pre">x</span></code> and a list of coefficients <code class="docutils literal notranslate"><span class="pre">coeff</span></code>.</p>
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">p</span></code> such that <code class="docutils literal notranslate"><span class="pre">p(x,</span> <span class="pre">coeff)</span></code> that computes the value in <a class="reference internal" href="#equation-polynom0">(5.1)</a> given a point <code class="docutils literal notranslate"><span class="pre">x</span></code> and a list of coefficients <code class="docutils literal notranslate"><span class="pre">coeff</span></code>.</p>
 <p>Try to use <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> in your loop.</p>
 </div>
 <div class="section" id="exercise-3">
-<span id="pyess-ex3"></span><h3>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this headline">¶</a></h3>
+<span id="pyess-ex3"></span><h3><span class="section-number">5.8.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this headline">¶</a></h3>
 <p>Write a function that takes a string as an argument and returns the number of capital letters in the string.</p>
 <p>Hint: <code class="docutils literal notranslate"><span class="pre">'foo'.upper()</span></code> returns <code class="docutils literal notranslate"><span class="pre">'FOO'</span></code>.</p>
 </div>
 <div class="section" id="exercise-4">
-<span id="pyess-ex4"></span><h3>Exercise 4<a class="headerlink" href="#exercise-4" title="Permalink to this headline">¶</a></h3>
+<span id="pyess-ex4"></span><h3><span class="section-number">5.8.4. </span>Exercise 4<a class="headerlink" href="#exercise-4" title="Permalink to this headline">¶</a></h3>
 <p>Write a function that takes two sequences <code class="docutils literal notranslate"><span class="pre">seq_a</span></code> and <code class="docutils literal notranslate"><span class="pre">seq_b</span></code> as arguments and
 returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if every element in <code class="docutils literal notranslate"><span class="pre">seq_a</span></code> is also an element of <code class="docutils literal notranslate"><span class="pre">seq_b</span></code>, else
 <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
@@ -1583,7 +1395,7 @@ returns <code class="docutils literal notranslate"><span class="pre">True</span>
 </ul>
 </div>
 <div class="section" id="exercise-5">
-<span id="pyess-ex5"></span><h3>Exercise 5<a class="headerlink" href="#exercise-5" title="Permalink to this headline">¶</a></h3>
+<span id="pyess-ex5"></span><h3><span class="section-number">5.8.5. </span>Exercise 5<a class="headerlink" href="#exercise-5" title="Permalink to this headline">¶</a></h3>
 <p>When we cover the numerical libraries, we will see they include many
 alternatives for interpolation and function approximation.</p>
 <p>Nevertheless, let’s write our own function approximation routine as an exercise.</p>
@@ -1598,7 +1410,7 @@ alternatives for interpolation and function approximation.</p>
 <p>Aim for clarity, not efficiency.</p>
 </div>
 <div class="section" id="exercise-6">
-<h3>Exercise 6<a class="headerlink" href="#exercise-6" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.8.6. </span>Exercise 6<a class="headerlink" href="#exercise-6" title="Permalink to this headline">¶</a></h3>
 <p>Using list comprehension syntax, we can simplify the loop in the following
 code.</p>
 <div class="cell docutils container">
@@ -1617,11 +1429,11 @@ code.</p>
 </div>
 </div>
 <div class="section" id="solutions">
-<h2><a class="toc-backref" href="#id16">Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id16"><span class="section-number">5.9. </span>Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
-<h3>Exercise 1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.9.1. </span>Exercise 1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="part-1-solution">
-<h4>Part 1 Solution:<a class="headerlink" href="#part-1-solution" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.9.1.1. </span>Part 1 Solution:<a class="headerlink" href="#part-1-solution" title="Permalink to this headline">¶</a></h4>
 <p>Here’s one possible solution</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1652,7 +1464,7 @@ code.</p>
 </div>
 </div>
 <div class="section" id="part-2-solution">
-<h4>Part 2 Solution:<a class="headerlink" href="#part-2-solution" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.9.1.2. </span>Part 2 Solution:<a class="headerlink" href="#part-2-solution" title="Permalink to this headline">¶</a></h4>
 <p>One solution is</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1708,7 +1520,7 @@ flexibility of list comprehensions are</p>
 </div>
 </div>
 <div class="section" id="part-3-solution">
-<h4>Part 3 Solution<a class="headerlink" href="#part-3-solution" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.9.1.3. </span>Part 3 Solution<a class="headerlink" href="#part-3-solution" title="Permalink to this headline">¶</a></h4>
 <p>Here’s one possibility</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1726,7 +1538,7 @@ flexibility of list comprehensions are</p>
 </div>
 </div>
 <div class="section" id="id2">
-<h3>Exercise 2<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.9.2. </span>Exercise 2<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">coeff</span><span class="p">):</span>
@@ -1749,7 +1561,7 @@ flexibility of list comprehensions are</p>
 </div>
 </div>
 <div class="section" id="id3">
-<h3>Exercise 3<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.9.3. </span>Exercise 3<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>Here’s one solution:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1788,7 +1600,7 @@ flexibility of list comprehensions are</p>
 </div>
 </div>
 <div class="section" id="id4">
-<h3>Exercise 4<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.9.4. </span>Exercise 4<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>Here’s a solution:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1824,7 +1636,7 @@ False
 </div>
 </div>
 <div class="section" id="id5">
-<h3>Exercise 5<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.9.5. </span>Exercise 5<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">linapprox</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
@@ -1867,7 +1679,7 @@ False
 </div>
 </div>
 <div class="section" id="id6">
-<h3>Exercise 6<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.9.6. </span>Exercise 6<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>Here’s one solution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1881,39 +1693,231 @@ False
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
-              </div>
-              
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="functions.html" title="previous page">Functions</a>
-    <a class='right-next' id="next-link" href="oop_intro.html" title="next page">OOP I: Introduction to Object Oriented Programming</a>
-
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Thomas J. Sargent and John Stachurski<br/>
-        
-            &copy; Copyright 2019, Thomas J. Sargent and John Stachurski.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
-      </div>
-    </div>
-
-    
-  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+                    </div>
+                    
+                </main> <!-- .page__content -->
+                
 
 
-    
+
+
+            </div> <!-- .page -->
+
+            
+            <div class="sidebar bd-sidebar inactive" id="site-navigation">
+
+                <div class="sidebar__header">
+
+
+                    Contents
+
+                </div>
+
+                <nav class="sidebar__nav" id="sidebar-nav" aria-label="Main navigation">
+                    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Python Programming for Economics and Finance
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_py.html">
+   1. About Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started.html">
+   2. Setting up Your Python Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_by_example.html">
+   3. An Introductory Example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   4. Functions
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   5. Python Essentials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="oop_intro.html">
+   6. OOP I: Introduction to Object Oriented Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_oop.html">
+   7. OOP II: Building Classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Scientific Libraries
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="need_for_speed.html">
+   8. Python for Scientific Computing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy.html">
+   9. NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matplotlib.html">
+   10. Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scipy.html">
+   11. SciPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numba.html">
+   12. Numba
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parallelization.html">
+   13. Parallelization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   14. Pandas
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Advanced Python Programming
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="writing_good_code.html">
+   15. Writing Good Code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_advanced_features.html">
+   16. More Language Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="debugging.html">
+   17. Debugging
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   18. Troubleshooting
+  </a>
+ </li>
+</ul>
+
+                </nav>
+
+                <div class="sidebar__footer">
+                    <p><img src="https://python-programming.quantecon.org/_static/img/qe-logo.png"></p>
+
+                    Theme by the <a href="https://quantecon.org/">QuantEcon</a>
+                </div>
+
+            </div> <!-- .sidebar -->
+            
+        </div> <!-- .main -->
+
+        <div class="toolbar">
+
+            <div class="toolbar__inner">
+
+
+                <ul class="toolbar__main">
+                    <li data-tippy-content="Toggle sidebar" class="btn__sidebar"><i data-feather="menu"></i></li>
+                    <li class="btn__search">
+                        <form action="search.html" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off">
+                            <i data-feather="search"></i>
+                        </form>
+                    </li>
+                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
+                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
+                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
+                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                </ul>
+
+                <ul class="toolbar__links">
+                    <li data-tippy-content="Home"><a href="/"><i data-feather="home"></i></a></li>
+                    <li data-tippy-content="Download Notebook"><a href="_sources/python_essentials.ipynb" download><i data-feather="download-cloud"></i></a></li>
+                    <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                    <li data-tippy-content="View Source"><a href="_sources/python_essentials.md" download><i data-feather="github"></i></a></li>
+                </ul>
+
+            </div>
+
+
+        </div> <!-- .toolbar -->
+
+    </div> <!-- .wrapper-->
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="/_static/plugins.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+
+<script src="/_static/scripts.js"></script>
+<script>
+    feather.replace()
+    tippy('[data-tippy-content]');
+</script>
+
+
   </body>
 </html>

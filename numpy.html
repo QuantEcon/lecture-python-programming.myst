@@ -1,385 +1,216 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>NumPy &#8212; Quantitative Economics with Python</title>
-    
-  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
-
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9. NumPy &#8212; Python Programming for Economics and Finance</title>
+    <link rel="stylesheet" href="_static/quantecon-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
-
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/quantecon-book-theme.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/quantecon-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Matplotlib" href="matplotlib.html" />
-    <link rel="prev" title="Python for Scientific Computing" href="need_for_speed.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <link rel="next" title="10. Matplotlib" href="matplotlib.html" />
+    <link rel="prev" title="8. Python for Scientific Computing" href="need_for_speed.html" />
 
 
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+<body>
+
+
+    <span id="top"></span>
+
+    <div class="wrapper">
+
+        <div class="main">
+
+            <div class="page">
+
+                <div class="page__toc">
+
+                    
+                    <div class="page__toc-header">
+                        On this page
+                    </div>
     
-
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Quantitative Economics with Python</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="index_toc.html">
-   Table of Contents
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="about_lectures.html">
-   About Lectures
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="index_learning_python.html">
-   Introduction to Python
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="reference internal" href="index_python_scientific_libraries.html">
-   The Scientific Libraries
-  </a>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="need_for_speed.html">
-     Python for Scientific Computing
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     NumPy
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="matplotlib.html">
-     Matplotlib
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="scipy.html">
-     SciPy
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="numba.html">
-     Numba
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="parallelization.html">
-     Parallelization
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="pandas.html">
-     Pandas
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="index_advanced_python_programming.html">
-   Advanced Python Programming
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="404.html">
-   Page Not Found
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="search.html">
-   Search
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="status.html">
-   Lecture Status
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="troubleshooting.html">
-   Troubleshooting
-  </a>
- </li>
-</ul>
-
-</nav>
-
- <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+                    <nav id="bd-toc-nav" class="page__toc-nav">
+                        <ul class="nav section-nav flex-column">
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#overview" class="nav-link">Overview</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#references" class="nav-link">References</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#numpy-arrays" class="nav-link">NumPy Arrays</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#shape-and-dimension" class="nav-link">Shape and Dimension</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#creating-arrays" class="nav-link">Creating Arrays</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#array-indexing" class="nav-link">Array Indexing</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#array-methods" class="nav-link">Array Methods</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#operations-on-arrays" class="nav-link">Operations on Arrays</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#arithmetic-operations" class="nav-link">Arithmetic Operations</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#matrix-multiplication" class="nav-link">Matrix Multiplication</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#mutability-and-copying-arrays" class="nav-link">Mutability and Copying Arrays</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h4">
+                                <a href="#making-copies" class="nav-link">Making Copies</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#additional-functionality" class="nav-link">Additional Functionality</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#vectorized-functions" class="nav-link">Vectorized Functions</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#comparisons" class="nav-link">Comparisons</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#sub-packages" class="nav-link">Sub-packages</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#exercises" class="nav-link">Exercises</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#exercise-1" class="nav-link">Exercise 1</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#exercise-2" class="nav-link">Exercise 2</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#exercise-3" class="nav-link">Exercise 3</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h2">
+                                <a href="#solutions" class="nav-link">Solutions</a><ul class="nav section-nav flex-column">
+                                    
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#id2" class="nav-link">Exercise 1</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#id3" class="nav-link">Exercise 2</a>
+                            </li>
+                            
+                            <li class="nav-item toc-entry toc-h3">
+                                <a href="#id4" class="nav-link">Exercise 3</a>
+                            </li>
+                            
+                                </ul>
+                            </li>
+                            
+                        </ul>
+                    </nav>
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
+                    <div class="page__toc-footer">
+                        
+                        
+                        <p><a href="#top"><strong>Back to top</strong></a></p>
+                    </div>
     
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/numpy.md.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-    
-</div>
-        <!-- Source interaction buttons -->
+                </div>
+
+                <div class="page__header">
+
+                    <div class="page__header-copy">
+
+                        <p class="page__header-heading"><a href="/">Python Programming for Economics and Finance</a></p>
+
+                        <p class="page__header-subheading">NumPy</p>
+
+                    </div>
+
+                </div> <!-- .page__header -->
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
-
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview">
-   Overview
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#references">
-     References
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#numpy-arrays">
-   NumPy Arrays
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#shape-and-dimension">
-     Shape and Dimension
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#creating-arrays">
-     Creating Arrays
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#array-indexing">
-     Array Indexing
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#array-methods">
-     Array Methods
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#operations-on-arrays">
-   Operations on Arrays
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#arithmetic-operations">
-     Arithmetic Operations
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#matrix-multiplication">
-     Matrix Multiplication
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mutability-and-copying-arrays">
-     Mutability and Copying Arrays
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#making-copies">
-       Making Copies
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#additional-functionality">
-   Additional Functionality
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#vectorized-functions">
-     Vectorized Functions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#comparisons">
-     Comparisons
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sub-packages">
-     Sub-packages
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-1">
-     Exercise 1
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-2">
-     Exercise 2
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-3">
-     Exercise 3
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solutions">
-   Solutions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Exercise 1
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     Exercise 2
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     Exercise 3
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-        </nav>
-        
-    </div>
-</div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
                 
+                <main class="page__content" role="main">
+                    
+                    <div>
+                        
   <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
                 <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
         </a>
 </div><div class="section" id="numpy">
-<h1><a class="toc-backref" href="#id5"><span class="target" id="index-0"></span>NumPy</a><a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id5"><span class="section-number">9. </span><span class="target" id="index-0"></span>NumPy</a><a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <span id="index-1"></span><p class="topic-title">Contents</p>
 <ul class="simple">
@@ -399,7 +230,7 @@
 <div><p>“Let’s be clear: the work of science has nothing whatever to do with consensus.  Consensus is the business of politics. Science, on the contrary, requires only one investigator who happens to be right, which means that he or she has results that are verifiable by reference to the real world. In science consensus is irrelevant. What is relevant is reproducible results.” – Michael Crichton</p>
 </div></blockquote>
 <div class="section" id="overview">
-<h2><a class="toc-backref" href="#id6">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id6"><span class="section-number">9.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/NumPy">NumPy</a> is a first-rate library for numerical programming</p>
 <ul class="simple">
 <li><p>Widely used in academia, finance and industry.</p></li>
@@ -412,14 +243,14 @@
 <li><p>the fundamental array processing operations provided by NumPy.</p></li>
 </ul>
 <div class="section" id="references">
-<h3>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.1.1. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/">The official NumPy documentation</a>.</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="numpy-arrays">
-<span id="numpy-array"></span><h2><a class="toc-backref" href="#id7">NumPy Arrays</a><a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">¶</a></h2>
+<span id="numpy-array"></span><h2><a class="toc-backref" href="#id7"><span class="section-number">9.2. </span>NumPy Arrays</a><a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">¶</a></h2>
 <p id="index-2">The essential problem that NumPy solves is fast array processing.</p>
 <p>The most important structure that NumPy defines is an array data type formally called a <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html">numpy.ndarray</a>.</p>
 <p>NumPy arrays power a large proportion of the scientific Python ecosystem.</p>
@@ -498,7 +329,7 @@
 </div>
 </div>
 <div class="section" id="shape-and-dimension">
-<span id="numpy-shape-dim"></span><h3>Shape and Dimension<a class="headerlink" href="#shape-and-dimension" title="Permalink to this headline">¶</a></h3>
+<span id="numpy-shape-dim"></span><h3><span class="section-number">9.2.1. </span>Shape and Dimension<a class="headerlink" href="#shape-and-dimension" title="Permalink to this headline">¶</a></h3>
 <p id="index-3">Consider the following assignment</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -564,7 +395,7 @@
 in <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">np.zeros((2,</span> <span class="pre">2))</span></code>.</p>
 </div>
 <div class="section" id="creating-arrays">
-<span id="id1"></span><h3>Creating Arrays<a class="headerlink" href="#creating-arrays" title="Permalink to this headline">¶</a></h3>
+<span id="id1"></span><h3><span class="section-number">9.2.2. </span>Creating Arrays<a class="headerlink" href="#creating-arrays" title="Permalink to this headline">¶</a></h3>
 <p id="index-4">As we’ve seen, the <code class="docutils literal notranslate"><span class="pre">np.zeros</span></code> function creates an array of zeros.</p>
 <p>You can probably guess what <code class="docutils literal notranslate"><span class="pre">np.ones</span></code> creates.</p>
 <p>Related is <code class="docutils literal notranslate"><span class="pre">np.empty</span></code>, which creates arrays in memory that can later be populated with data</p>
@@ -690,7 +521,7 @@ a distinct copy of data already in a NumPy array.</p>
 or <code class="docutils literal notranslate"><span class="pre">np.genfromtxt</span></code>—see <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/routines.io.html">the documentation</a> for details.</p>
 </div>
 <div class="section" id="array-indexing">
-<h3>Array Indexing<a class="headerlink" href="#array-indexing" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.2.3. </span>Array Indexing<a class="headerlink" href="#array-indexing" title="Permalink to this headline">¶</a></h3>
 <p id="index-5">For a flat array, indexing is the same as Python sequences:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -902,7 +733,7 @@ or <code class="docutils literal notranslate"><span class="pre">np.genfromtxt</s
 </div>
 </div>
 <div class="section" id="array-methods">
-<h3>Array Methods<a class="headerlink" href="#array-methods" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.2.4. </span>Array Methods<a class="headerlink" href="#array-methods" title="Permalink to this headline">¶</a></h3>
 <p id="index-6">Arrays have useful methods, all of which are carefully optimized</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1102,9 +933,9 @@ or <code class="docutils literal notranslate"><span class="pre">np.genfromtxt</s
 </div>
 </div>
 <div class="section" id="operations-on-arrays">
-<h2><a class="toc-backref" href="#id8">Operations on Arrays</a><a class="headerlink" href="#operations-on-arrays" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8"><span class="section-number">9.3. </span>Operations on Arrays</a><a class="headerlink" href="#operations-on-arrays" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="arithmetic-operations">
-<span id="index-7"></span><h3>Arithmetic Operations<a class="headerlink" href="#arithmetic-operations" title="Permalink to this headline">¶</a></h3>
+<span id="index-7"></span><h3><span class="section-number">9.3.1. </span>Arithmetic Operations<a class="headerlink" href="#arithmetic-operations" title="Permalink to this headline">¶</a></h3>
 <p>The operators <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code> and <code class="docutils literal notranslate"><span class="pre">**</span></code> all act <em>elementwise</em> on arrays</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1203,7 +1034,7 @@ or <code class="docutils literal notranslate"><span class="pre">np.genfromtxt</s
 <p id="numpy-matrix-multiplication">In particular, <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">*</span> <span class="pre">B</span></code> is <em>not</em> the matrix product, it is an element-wise product.</p>
 </div>
 <div class="section" id="matrix-multiplication">
-<h3>Matrix Multiplication<a class="headerlink" href="#matrix-multiplication" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.3.2. </span>Matrix Multiplication<a class="headerlink" href="#matrix-multiplication" title="Permalink to this headline">¶</a></h3>
 <p id="index-8">With Anaconda’s scientific Python package based around Python 3.5 and above,
 one can use the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> symbol for matrix multiplication, as follows:</p>
 <div class="cell docutils container">
@@ -1267,7 +1098,7 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 <p>Since we are post-multiplying, the tuple is treated as a column vector.</p>
 </div>
 <div class="section" id="mutability-and-copying-arrays">
-<h3>Mutability and Copying Arrays<a class="headerlink" href="#mutability-and-copying-arrays" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.3.3. </span>Mutability and Copying Arrays<a class="headerlink" href="#mutability-and-copying-arrays" title="Permalink to this headline">¶</a></h3>
 <p>NumPy arrays are mutable data types, like Python lists.</p>
 <p>In other words, their contents can be altered (mutated) in memory after initialization.</p>
 <p>We already saw examples above.</p>
@@ -1307,7 +1138,7 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.22411671, -1.18480165, -0.45690695])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.87558041,  0.70655565, -0.80062838])
 </pre></div>
 </div>
 </div>
@@ -1321,7 +1152,7 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        , -1.18480165, -0.45690695])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        ,  0.70655565, -0.80062838])
 </pre></div>
 </div>
 </div>
@@ -1334,7 +1165,7 @@ array (the Python assignment model is described in more detail <a class="referen
 <p>It means that we pass around only pointers to data, rather than making copies.</p>
 <p>Making copies is expensive in terms of both speed and memory.</p>
 <div class="section" id="making-copies">
-<h4>Making Copies<a class="headerlink" href="#making-copies" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">9.3.3.1. </span>Making Copies<a class="headerlink" href="#making-copies" title="Permalink to this headline">¶</a></h4>
 <p>It is of course possible to make <code class="docutils literal notranslate"><span class="pre">b</span></code> an independent copy of <code class="docutils literal notranslate"><span class="pre">a</span></code> when required.</p>
 <p>This can be done using <code class="docutils literal notranslate"><span class="pre">np.copy</span></code></p>
 <div class="cell docutils container">
@@ -1345,7 +1176,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.81217123,  0.94168394,  1.38903195])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.79528259, -0.49552263,  0.39216739])
 </pre></div>
 </div>
 </div>
@@ -1358,7 +1189,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.81217123,  0.94168394,  1.38903195])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.79528259, -0.49552263,  0.39216739])
 </pre></div>
 </div>
 </div>
@@ -1384,7 +1215,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.81217123,  0.94168394,  1.38903195])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.79528259, -0.49552263,  0.39216739])
 </pre></div>
 </div>
 </div>
@@ -1394,10 +1225,10 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="section" id="additional-functionality">
-<h2><a class="toc-backref" href="#id9">Additional Functionality</a><a class="headerlink" href="#additional-functionality" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9"><span class="section-number">9.4. </span>Additional Functionality</a><a class="headerlink" href="#additional-functionality" title="Permalink to this headline">¶</a></h2>
 <p>Let’s look at some other useful things we can do with NumPy.</p>
 <div class="section" id="vectorized-functions">
-<h3>Vectorized Functions<a class="headerlink" href="#vectorized-functions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.4.1. </span>Vectorized Functions<a class="headerlink" href="#vectorized-functions" title="Permalink to this headline">¶</a></h3>
 <p id="index-9">NumPy provides versions of the standard functions <code class="docutils literal notranslate"><span class="pre">log</span></code>, <code class="docutils literal notranslate"><span class="pre">exp</span></code>, <code class="docutils literal notranslate"><span class="pre">sin</span></code>, etc. that act <em>element-wise</em> on arrays</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1470,7 +1301,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.39475912, -1.93123279,  0.48620706, -0.5546767 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.16538831, -0.18871014, -0.16732559,  0.61479443])
 </pre></div>
 </div>
 </div>
@@ -1482,7 +1313,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 1, 0])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 1])
 </pre></div>
 </div>
 </div>
@@ -1496,7 +1327,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 1, 0])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 1])
 </pre></div>
 </div>
 </div>
@@ -1504,7 +1335,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 <p>However, this approach doesn’t always obtain the same speed as a more carefully crafted vectorized function.</p>
 </div>
 <div class="section" id="comparisons">
-<h3>Comparisons<a class="headerlink" href="#comparisons" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.4.2. </span>Comparisons<a class="headerlink" href="#comparisons" title="Permalink to this headline">¶</a></h3>
 <p id="index-10">As a rule, comparisons on arrays are done element-wise</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1613,7 +1444,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="section" id="sub-packages">
-<h3>Sub-packages<a class="headerlink" href="#sub-packages" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.4.3. </span>Sub-packages<a class="headerlink" href="#sub-packages" title="Permalink to this headline">¶</a></h3>
 <p>NumPy provides some additional functionality related to scientific programming
 through its sub-packages.</p>
 <p>We’ve already seen how we can generate random variables using np.random</p>
@@ -1626,7 +1457,7 @@ through its sub-packages.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.976
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.06
 </pre></div>
 </div>
 </div>
@@ -1665,13 +1496,13 @@ through its sub-packages.</p>
 </div>
 </div>
 <div class="section" id="exercises">
-<h2><a class="toc-backref" href="#id10">Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id10"><span class="section-number">9.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="exercise-1">
-<span id="np-ex1"></span><h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
+<span id="np-ex1"></span><h3><span class="section-number">9.5.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
 <p>Consider the polynomial expression</p>
 <div class="math notranslate nohighlight" id="equation-np-polynom">
-<span class="eqno">(1)<a class="headerlink" href="#equation-np-polynom" title="Permalink to this equation">¶</a></span>\[p(x) = a_0 + a_1 x + a_2 x^2 + \cdots a_N x^N = \sum_{n=0}^N a_n x^n\]</div>
-<p><a class="reference internal" href="python_essentials.html#pyess-ex2"><span class="std std-ref">Earlier</span></a>, you wrote a simple function <code class="docutils literal notranslate"><span class="pre">p(x,</span> <span class="pre">coeff)</span></code> to evaluate <a class="reference internal" href="#equation-np-polynom">(1)</a> without considering efficiency.</p>
+<span class="eqno">(9.1)<a class="headerlink" href="#equation-np-polynom" title="Permalink to this equation">¶</a></span>\[p(x) = a_0 + a_1 x + a_2 x^2 + \cdots a_N x^N = \sum_{n=0}^N a_n x^n\]</div>
+<p><a class="reference internal" href="python_essentials.html#pyess-ex2"><span class="std std-ref">Earlier</span></a>, you wrote a simple function <code class="docutils literal notranslate"><span class="pre">p(x,</span> <span class="pre">coeff)</span></code> to evaluate <a class="reference internal" href="#equation-np-polynom">(9.1)</a> without considering efficiency.</p>
 <p>Now write a new function that does the same job, but uses NumPy arrays and array operations for its computations, rather than any form of Python loop.</p>
 <p>(Such functionality is already implemented as <code class="docutils literal notranslate"><span class="pre">np.poly1d</span></code>, but for the sake of the exercise don’t use this class)</p>
 <ul class="simple">
@@ -1679,7 +1510,7 @@ through its sub-packages.</p>
 </ul>
 </div>
 <div class="section" id="exercise-2">
-<span id="np-ex2"></span><h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h3>
+<span id="np-ex2"></span><h3><span class="section-number">9.5.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h3>
 <p>Let <code class="docutils literal notranslate"><span class="pre">q</span></code> be a NumPy array of length <code class="docutils literal notranslate"><span class="pre">n</span></code> with <code class="docutils literal notranslate"><span class="pre">q.sum()</span> <span class="pre">==</span> <span class="pre">1</span></code>.</p>
 <p>Suppose that <code class="docutils literal notranslate"><span class="pre">q</span></code> represents a <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_mass_function">probability mass function</a>.</p>
 <p>We wish to generate a discrete random variable <span class="math notranslate nohighlight">\(x\)</span> such that <span class="math notranslate nohighlight">\(\mathbb P\{x = i\} = q_i\)</span>.</p>
@@ -1720,7 +1551,7 @@ It helps to sketch the intervals on paper.</p>
 <p>If you can, write the method so that <code class="docutils literal notranslate"><span class="pre">draw(k)</span></code> returns <code class="docutils literal notranslate"><span class="pre">k</span></code> draws from <code class="docutils literal notranslate"><span class="pre">q</span></code>.</p>
 </div>
 <div class="section" id="exercise-3">
-<span id="np-ex3"></span><h3>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this headline">¶</a></h3>
+<span id="np-ex3"></span><h3><span class="section-number">9.5.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this headline">¶</a></h3>
 <p>Recall our <a class="reference internal" href="python_oop.html#oop-ex1"><span class="std std-ref">earlier discussion</span></a> of the empirical cumulative distribution function.</p>
 <p>Your task is to</p>
 <ol class="simple">
@@ -1730,7 +1561,7 @@ It helps to sketch the intervals on paper.</p>
 </div>
 </div>
 <div class="section" id="solutions">
-<h2><a class="toc-backref" href="#id11">Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id11"><span class="section-number">9.6. </span>Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -1740,7 +1571,7 @@ It helps to sketch the intervals on paper.</p>
 </div>
 </div>
 <div class="section" id="id2">
-<h3>Exercise 1<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.6.1. </span>Exercise 1<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>This code does the job</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1776,7 +1607,7 @@ It helps to sketch the intervals on paper.</p>
 </div>
 </div>
 <div class="section" id="id3">
-<h3>Exercise 2<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.6.2. </span>Exercise 2<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>Here’s our first pass at a solution:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1833,7 +1664,7 @@ using descriptors that behaves as we desire can be found
 <a class="reference external" href="https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/discrete_rv.py">here</a>.</p>
 </div>
 <div class="section" id="id4">
-<h3>Exercise 3<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.6.3. </span>Exercise 3<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>An example solution is given below.</p>
 <p>In essence, we’ve just taken <a class="reference external" href="https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/ecdf.py">this
 code</a>
@@ -1928,39 +1759,231 @@ from QuantEcon and added in a plot method</p>
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
-              </div>
-              
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="need_for_speed.html" title="previous page">Python for Scientific Computing</a>
-    <a class='right-next' id="next-link" href="matplotlib.html" title="next page">Matplotlib</a>
-
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Thomas J. Sargent and John Stachurski<br/>
-        
-            &copy; Copyright 2019, Thomas J. Sargent and John Stachurski.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
-      </div>
-    </div>
-
-    
-  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+                    </div>
+                    
+                </main> <!-- .page__content -->
+                
 
 
-    
+
+
+            </div> <!-- .page -->
+
+            
+            <div class="sidebar bd-sidebar inactive" id="site-navigation">
+
+                <div class="sidebar__header">
+
+
+                    Contents
+
+                </div>
+
+                <nav class="sidebar__nav" id="sidebar-nav" aria-label="Main navigation">
+                    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Python Programming for Economics and Finance
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_py.html">
+   1. About Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started.html">
+   2. Setting up Your Python Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_by_example.html">
+   3. An Introductory Example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   4. Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_essentials.html">
+   5. Python Essentials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="oop_intro.html">
+   6. OOP I: Introduction to Object Oriented Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_oop.html">
+   7. OOP II: Building Classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Scientific Libraries
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="need_for_speed.html">
+   8. Python for Scientific Computing
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   9. NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matplotlib.html">
+   10. Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scipy.html">
+   11. SciPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numba.html">
+   12. Numba
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parallelization.html">
+   13. Parallelization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   14. Pandas
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Advanced Python Programming
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="writing_good_code.html">
+   15. Writing Good Code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_advanced_features.html">
+   16. More Language Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="debugging.html">
+   17. Debugging
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   18. Troubleshooting
+  </a>
+ </li>
+</ul>
+
+                </nav>
+
+                <div class="sidebar__footer">
+                    <p><img src="https://python-programming.quantecon.org/_static/img/qe-logo.png"></p>
+
+                    Theme by the <a href="https://quantecon.org/">QuantEcon</a>
+                </div>
+
+            </div> <!-- .sidebar -->
+            
+        </div> <!-- .main -->
+
+        <div class="toolbar">
+
+            <div class="toolbar__inner">
+
+
+                <ul class="toolbar__main">
+                    <li data-tippy-content="Toggle sidebar" class="btn__sidebar"><i data-feather="menu"></i></li>
+                    <li class="btn__search">
+                        <form action="search.html" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off">
+                            <i data-feather="search"></i>
+                        </form>
+                    </li>
+                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
+                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
+                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
+                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                </ul>
+
+                <ul class="toolbar__links">
+                    <li data-tippy-content="Home"><a href="/"><i data-feather="home"></i></a></li>
+                    <li data-tippy-content="Download Notebook"><a href="_sources/numpy.ipynb" download><i data-feather="download-cloud"></i></a></li>
+                    <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                    <li data-tippy-content="View Source"><a href="_sources/numpy.md" download><i data-feather="github"></i></a></li>
+                </ul>
+
+            </div>
+
+
+        </div> <!-- .toolbar -->
+
+    </div> <!-- .wrapper-->
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="/_static/plugins.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+
+<script src="/_static/scripts.js"></script>
+<script>
+    feather.replace()
+    tippy('[data-tippy-content]');
+</script>
+
+
   </body>
 </html>
