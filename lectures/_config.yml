@@ -12,6 +12,5 @@ sphinx:
   config:
     html_theme: quantecon_book_theme
     html_static_path: ['_static']
-
-html:
-  plugins_list: ['../templates/qe-menubar']
+    html_theme_options:
+      plugins_list: ['../plugins/qe-menubar.js']
