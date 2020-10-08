@@ -29,6 +29,13 @@ jobs:
           cd sphinx-multitoc-numbering
           python setup.py install
           cd ../ && rm -rf sphinx-multitoc-numbering
+      - name: Install sphinx-exercise
+        shell: bash -l {0}
+        run: |
+          git clone https://github.com/executablebooks/sphinx-exercise.git
+          cd sphinx-exercise
+          python setup.py install
+          cd ../ && rm -rf sphinx-exercise
       - name: Install Dependencies
         shell: bash -l {0}
         run: |
