@@ -20,6 +20,7 @@ jobs:
         run: |
           git clone https://github.com/QuantEcon/quantecon-book-theme
           cd quantecon-book-theme
+          git checkout custom-index
           python setup.py install
           cd ../ && rm -rf quantecon-book-theme
       - name: Install sphinx-multitoc-numbering
