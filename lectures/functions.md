@@ -312,7 +312,8 @@ function*---as we did above.
 
 ## Exercises
 
-### Exercise 1
+```{exercise}
+:label: exercise_1
 
 Recall that $n!$ is read as "$n$ factorial" and defined as
 $n! = n \times (n - 1) \times \cdots \times 2 \times 1$.
@@ -322,8 +323,10 @@ write our own version as an exercise.
 
 In particular, write a function `factorial` such that `factorial(n)` returns $n!$
 for any positive integer $n$.
+```
 
-### Exercise 2
+```{exercise}
+:label: exercise_2
 
 The [binomial random variable](https://en.wikipedia.org/wiki/Binomial_distribution) $Y \sim Bin(n, p)$ represents the number of successes in $n$ binary trials, where each trial succeeds with probability $p$.
 
@@ -331,8 +334,10 @@ Without any import besides `from numpy.random import uniform`, write a function
 `binomial_rv` such that `binomial_rv(n, p)` generates one draw of $Y$.
 
 Hint: If $U$ is uniform on $(0, 1)$ and $p \in (0,1)$, then the expression `U < p` evaluates to `True` with probability $p$.
+```
 
-### Exercise 3
+```{exercise}
+:label: exercise_3
 
 First, write a function that returns one realization of the following random device
 
@@ -345,10 +350,12 @@ Second, write another function that does the same task except that the second ru
 - If a head occurs `k` or more times within this sequence, pay one dollar.
 
 Use no import besides `from numpy.random import uniform`.
+```
 
 ## Solutions
 
-### Exercise 1
+````{solution} exercise_1
+:label: solution_1
 
 Here's one solution.
 
@@ -361,8 +368,10 @@ def factorial(n):
 
 factorial(4)
 ```
+````
 
-### Exercise 2
+````{solution} exercise_2
+:label: solution_2
 
 ```{code-cell} python3
 from numpy.random import uniform
@@ -377,8 +386,10 @@ def binomial_rv(n, p):
 
 binomial_rv(10, 0.5)
 ```
+````
 
-### Exercise 3
+````{solution} exercise_3
+:label: solution_3
 
 Here's a function for the first random device.
 
@@ -421,4 +432,4 @@ def draw_new(k):  # pays if k successes in a sequence
 
 draw_new(3)
 ```
-
+````
