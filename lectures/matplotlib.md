@@ -62,7 +62,7 @@ Here's the kind of easy example you might find in introductory treatments
 
 ```{code-cell} ipython
 import matplotlib.pyplot as plt
-plt.rcParams["figure.figsize"] = [10,8] #set default figure size
+plt.rcParams["figure.figsize"] = 10, 8 #set default figure size
 %matplotlib inline
 import numpy as np
 
