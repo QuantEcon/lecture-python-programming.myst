@@ -22,10 +22,6 @@ div.exercise p.admonition-title {
   background-color: var(--note-title-color);
 }
 
-div.exercise div.section {
-	padding: .6rem 1rem;
-}
-
 /* Remove content box */
 div.exercise p.admonition-title::before {
 	content: none;
@@ -45,14 +41,6 @@ div.solution p.admonition-title {
   padding: .6rem .4rem .6rem 1.6rem;
   background-color: transparent;
   text-decoration: none;
-}
-
-div.solution p.admonition-title a {
-  color: #333 !important;
-}
-
-div.solution div.section {
-  padding: .6rem 1rem;
 }
 
 /* Remove content box */
