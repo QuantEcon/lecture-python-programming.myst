@@ -46,7 +46,7 @@ of fields such as data science and machine learning.
 Here's a popularity comparison over time against STATA, SAS, and [dplyr](https://dplyr.tidyverse.org/) courtesy of Stack Overflow Trends
 
 ```{figure} /_static/lecture_specific/pandas/pandas_vs_rest.png
-:scale: 55
+:scale: 30
 ```
 
 Just as [NumPy](http://www.numpy.org/) provides the basic array data type plus core array operations, pandas
@@ -71,6 +71,7 @@ place
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+plt.rcParams["figure.figsize"] = [10,8]  # Set default figure size
 %matplotlib inline
 import requests
 ```

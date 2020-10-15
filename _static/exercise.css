@@ -11,34 +11,28 @@
 * Exercise *
 *********************************************/
 div.exercise {
-	padding-left: 0rem !important;
-	padding-right: 0rem !important;
-  border-left: .2rem solid var(--note-border-color);
+  border-color: var(--note-border-color);
   background-color: var(--note-title-color);
 }
 
 div.exercise p.admonition-title {
-	padding: .6rem .4rem .6rem 1.6rem;
   background-color: var(--note-title-color);
 }
 
 /* Remove content box */
 div.exercise p.admonition-title::before {
-	content: none;
+  content: "\f303";
 }
 
 /*********************************************
 * Solution *
 *********************************************/
 div.solution{
-  padding-left: 0rem !important;
-  padding-right: 0rem !important;
-  border-left: .2rem solid var(--grey-border-color);
+  border-color: var(--grey-border-color);
   background-color: none;
 }
 
 div.solution p.admonition-title {
-  padding: .6rem .4rem .6rem 1.6rem;
   background-color: transparent;
   text-decoration: none;
 }
