@@ -12,4 +12,3 @@ sphinx:
   config:
     html_theme: quantecon_book_theme
     html_static_path: ['_static']
-    html_theme_options:
