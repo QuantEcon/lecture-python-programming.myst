@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>11. SciPy &#8212; Python Programming for Economics and Finance</title>
+    <title>11. SciPy &#8212; QuantEcon</title>
     <link rel="stylesheet" href="_static/quantecon-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
@@ -36,6 +36,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="_static/qe-logo.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="12. Numba" href="numba.html" />
@@ -161,7 +162,13 @@
                                 
                             </ul>
 
-                            <p><img src="https://python-programming.quantecon.org/_static/img/qe-logo.png"></p>
+                            <p>
+                                
+                                    
+                                    <a href=https://quantecon.org><img src="_static/qe-logo.png" class="logo" alt="logo"></a>
+                                    
+                                
+                            </p>
 
                         </nav>
 
@@ -179,7 +186,7 @@
 
                     <div class="page__header-copy">
 
-                        <p class="page__header-heading"><a href="intro.html">Python Programming for Economics and Finance</a></p>
+                        <p class="page__header-heading"><a href="intro.html">QuantEcon</a></p>
 
                         <p class="page__header-subheading">SciPy</p>
 
@@ -287,7 +294,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.56368892, 0.23758316, 0.28202578])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.51865952, 0.56510568, 0.35244421])
 </pre></div>
 </div>
 </div>
@@ -403,7 +410,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.9828211999259497, -0.009898730693871427)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.9906594894265741, 0.002062284580893116)
 </pre></div>
 </div>
 </div>
@@ -579,7 +586,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22.1 µs ± 242 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24.2 µs ± 388 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
 </pre></div>
 </div>
 </div>
@@ -591,7 +598,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>91.1 µs ± 1.28 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>92.5 µs ± 319 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
 </pre></div>
 </div>
 </div>
@@ -798,14 +805,7 @@ Current mid point = 0.40826416015625
                 </div>
 
                 <nav class="sidebar__nav" id="sidebar-nav" aria-label="Main navigation">
-                    <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   Python Programming for Economics and Finance
-  </a>
- </li>
-</ul>
-<p class="caption">
+                    <p class="caption">
  <span class="caption-text">
   Introduction to Python
  </span>
@@ -941,10 +941,10 @@ Current mid point = 0.40826416015625
                 <ul class="toolbar__main">
                     <li data-tippy-content="Table of Contents" class="btn__sidebar"><i data-feather="menu"></i></li>
                     <li data-tippy-content="Home"><a href="intro.html"><i data-feather="home"></i></a></li>
-                    <li class="btn__qelogo"><a href="https://quantecon.org/" title="quantecon.org"><span class="show-for-sr">QuantEcon</span></a></li>
+                    <li class="btn__qelogo"><a href="https://quantecon.org" title=""><span class="show-for-sr">QuantEcon</span></a></li>
                     <!-- <li class="btn__search">
                         <form action="search.html" method="get">
-                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off">
                             <i data-feather="search"></i>
                         </form>
                     </li> -->
@@ -955,8 +955,6 @@ Current mid point = 0.40826416015625
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
-                    
-                    <li data-tippy-content="Download Notebook"><a href="_sources/scipy.ipynb" download><i data-feather="download-cloud"></i></a></li>
                     
                     <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
                     <li data-tippy-content="View Source"><a href="_sources/scipy.md" download><i data-feather="github"></i></a></li>

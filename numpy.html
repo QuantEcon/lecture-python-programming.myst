@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>9. NumPy &#8212; Python Programming for Economics and Finance</title>
+    <title>9. NumPy &#8212; QuantEcon</title>
     <link rel="stylesheet" href="_static/quantecon-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
@@ -36,6 +36,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="_static/qe-logo.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="10. Matplotlib" href="matplotlib.html" />
@@ -181,7 +182,13 @@
                                 
                             </ul>
 
-                            <p><img src="https://python-programming.quantecon.org/_static/img/qe-logo.png"></p>
+                            <p>
+                                
+                                    
+                                    <a href=https://quantecon.org><img src="_static/qe-logo.png" class="logo" alt="logo"></a>
+                                    
+                                
+                            </p>
 
                         </nav>
 
@@ -199,7 +206,7 @@
 
                     <div class="page__header-copy">
 
-                        <p class="page__header-heading"><a href="intro.html">Python Programming for Economics and Finance</a></p>
+                        <p class="page__header-heading"><a href="intro.html">QuantEcon</a></p>
 
                         <p class="page__header-subheading">NumPy</p>
 
@@ -1149,7 +1156,7 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 2.08550919, -0.33175974,  0.83713375])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.52909708, -0.57803398,  1.71369344])
 </pre></div>
 </div>
 </div>
@@ -1163,7 +1170,7 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        , -0.33175974,  0.83713375])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        , -0.57803398,  1.71369344])
 </pre></div>
 </div>
 </div>
@@ -1187,7 +1194,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.06752305, -0.90598338,  1.1061966 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.4486879 , 0.69521713, 1.32553568])
 </pre></div>
 </div>
 </div>
@@ -1200,7 +1207,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.06752305, -0.90598338,  1.1061966 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.4486879 , 0.69521713, 1.32553568])
 </pre></div>
 </div>
 </div>
@@ -1226,7 +1233,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.06752305, -0.90598338,  1.1061966 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.4486879 , 0.69521713, 1.32553568])
 </pre></div>
 </div>
 </div>
@@ -1312,7 +1319,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.75268691, -0.83562335, -0.12069152, -0.53965461])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.70343447,  0.80790164,  0.31661082,  0.56153823])
 </pre></div>
 </div>
 </div>
@@ -1324,7 +1331,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 0])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 1, 1])
 </pre></div>
 </div>
 </div>
@@ -1338,7 +1345,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 0])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 1, 1])
 </pre></div>
 </div>
 </div>
@@ -1468,7 +1475,7 @@ through its sub-packages.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.097
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.0
 </pre></div>
 </div>
 </div>
@@ -1811,14 +1818,7 @@ from QuantEcon and added in a plot method</p>
                 </div>
 
                 <nav class="sidebar__nav" id="sidebar-nav" aria-label="Main navigation">
-                    <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   Python Programming for Economics and Finance
-  </a>
- </li>
-</ul>
-<p class="caption">
+                    <p class="caption">
  <span class="caption-text">
   Introduction to Python
  </span>
@@ -1954,10 +1954,10 @@ from QuantEcon and added in a plot method</p>
                 <ul class="toolbar__main">
                     <li data-tippy-content="Table of Contents" class="btn__sidebar"><i data-feather="menu"></i></li>
                     <li data-tippy-content="Home"><a href="intro.html"><i data-feather="home"></i></a></li>
-                    <li class="btn__qelogo"><a href="https://quantecon.org/" title="quantecon.org"><span class="show-for-sr">QuantEcon</span></a></li>
+                    <li class="btn__qelogo"><a href="https://quantecon.org" title=""><span class="show-for-sr">QuantEcon</span></a></li>
                     <!-- <li class="btn__search">
                         <form action="search.html" method="get">
-                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off">
                             <i data-feather="search"></i>
                         </form>
                     </li> -->
@@ -1968,8 +1968,6 @@ from QuantEcon and added in a plot method</p>
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
-                    
-                    <li data-tippy-content="Download Notebook"><a href="_sources/numpy.ipynb" download><i data-feather="download-cloud"></i></a></li>
                     
                     <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
                     <li data-tippy-content="View Source"><a href="_sources/numpy.md" download><i data-feather="github"></i></a></li>
