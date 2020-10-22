@@ -10,7 +10,10 @@ execute:
 sphinx:
   extra_extensions: [sphinx_multitoc_numbering, sphinx_exercise]
   config:
+    html_logo: _static/qe-logo.png
+    html_favicon: _static/qe-logo.png
     html_theme: quantecon_book_theme
+    html_title: QuantEcon
     html_static_path: ['_static']
     html_theme_options:
-      plugins_list: ['../plugins/qe-menubar.js']
+      logo_url: https://quantecon.org
