@@ -15,32 +15,6 @@ jobs:
           python-version: 3.8
           environment-file: environment.yml
           activate-environment: qe-lectures
-      - name: Install quantecon-book-theme
-        shell: bash -l {0}
-        run: |
-          git clone https://github.com/QuantEcon/quantecon-book-theme
-          cd quantecon-book-theme
-          python setup.py install
-          cd ../ && rm -rf quantecon-book-theme
-      - name: Install sphinx-multitoc-numbering
-        shell: bash -l {0}
-        run: |
-          git clone https://github.com/executablebooks/sphinx-multitoc-numbering.git
-          cd sphinx-multitoc-numbering
-          python setup.py install
-          cd ../ && rm -rf sphinx-multitoc-numbering
-      - name: Install sphinx-exercise
-        shell: bash -l {0}
-        run: |
-          git clone https://github.com/executablebooks/sphinx-exercise.git
-          cd sphinx-exercise
-          git checkout fix-env-attr
-          python setup.py install
-          cd ../ && rm -rf sphinx-exercise
-      - name: Install Dependencies
-        shell: bash -l {0}
-        run: |
-          pip install jupyter-book
       - name: Display Conda Environment Versions
         shell: bash -l {0}
         run: conda list
