@@ -13,7 +13,7 @@ sphinx:
     html_logo: _static/qe-logo.png
     html_favicon: _static/qe-logo.png
     html_theme: quantecon_book_theme
-    html_title: QuantEcon
     html_static_path: ['_static']
     html_theme_options:
-      logo_url: https://quantecon.org
+      header_organisation_url: https://quantecon.org
+      header_organisation: QuantEcon
