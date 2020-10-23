@@ -70,14 +70,15 @@ The plots will be grouped into three subfigures.
 In each subfigure, two parameters are held fixed while another varies
 
 ```{code-cell} ipython
+%matplotlib inline
 import numpy as np
 import matplotlib.pyplot as plt
-%matplotlib inline
+plt.rcParams['figure.figsize'] = (10,6)
 
 # Allocate memory for time series
 k = np.empty(50)
 
-fig, axes = plt.subplots(3, 1, figsize=(6, 14))
+fig, axes = plt.subplots(3, 1, figsize=(8, 16))
 
 # Trajectories with different α
 δ = 0.1
@@ -267,7 +268,7 @@ def plot_path(ax, αs, s_vals, δs, time_series_length=50):
     ax.set_ylim(0, 18)
     ax.legend(loc='upper left', frameon=True)
 
-fig, axes = plt.subplots(3, 1, figsize=(6, 14))
+fig, axes = plt.subplots(3, 1, figsize=(8, 16))
 
 # Parameters (αs, s_vals, δs)
 set_one = ([0.25, 0.33, 0.45], [0.4], [0.1])
