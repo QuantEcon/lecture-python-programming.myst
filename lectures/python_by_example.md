@@ -47,7 +47,7 @@ process $\epsilon_0, \epsilon_1, \ldots, \epsilon_T$, where each draw $\epsilon_
 In other words, we want to generate figures that look something like this:
 
 ```{figure} /_static/lecture_specific/python_by_example/test_program_1_updated.png
-
+:scale: 120
 ```
 
 (Here $t$ is on the horizontal axis and $\epsilon_t$ is on the
@@ -71,6 +71,7 @@ Here are a few lines of code that perform the task we set
 ```{code-cell} ipython
 import numpy as np
 import matplotlib.pyplot as plt
+plt.rcParams['figure.figsize'] = (10,6)
 
 ϵ_values = np.random.randn(100)
 plt.plot(ϵ_values)
