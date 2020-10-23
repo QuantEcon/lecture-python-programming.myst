@@ -216,7 +216,7 @@ xgrid = np.linspace(-3, 3, 50)
 ygrid = xgrid
 x, y = np.meshgrid(xgrid, ygrid)
 
-fig = plt.figure(figsize=(8, 6))
+fig = plt.figure(figsize=(10, 6))
 ax = fig.add_subplot(111, projection='3d')
 ax.plot_surface(x,
                 y,
@@ -293,7 +293,7 @@ Place all the curves in the same figure.
 The output should look like this
 
 ```{figure} /_static/lecture_specific/matplotlib/matplotlib_ex1.png
-
+:scale: 130
 ```
 
 ## Solutions
