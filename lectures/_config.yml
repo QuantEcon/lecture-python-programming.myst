@@ -17,3 +17,4 @@ sphinx:
     html_theme_options:
       header_organisation_url: https://quantecon.org
       header_organisation: QuantEcon
+      repository_url: https://github.com/QuantEcon/lecture-python-programming.myst/tree/master/lectures
