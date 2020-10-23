@@ -61,8 +61,9 @@ But first, let's discuss the difference.
 Here's the kind of easy example you might find in introductory treatments
 
 ```{code-cell} ipython
-import matplotlib.pyplot as plt
 %matplotlib inline
+import matplotlib.pyplot as plt
+plt.rcParams["figure.figsize"] = (10, 6) #set default figure size
 import numpy as np
 
 x = np.linspace(0, 10, 200)
@@ -215,7 +216,7 @@ xgrid = np.linspace(-3, 3, 50)
 ygrid = xgrid
 x, y = np.meshgrid(xgrid, ygrid)
 
-fig = plt.figure(figsize=(8, 6))
+fig = plt.figure(figsize=(10, 6))
 ax = fig.add_subplot(111, projection='3d')
 ax.plot_surface(x,
                 y,
@@ -292,7 +293,7 @@ Place all the curves in the same figure.
 The output should look like this
 
 ```{figure} /_static/lecture_specific/matplotlib/matplotlib_ex1.png
-
+:scale: 130
 ```
 
 ## Solutions
