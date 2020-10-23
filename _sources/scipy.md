@@ -113,9 +113,10 @@ For this, we can use `scipy.stats`, which provides all of this functionality as 
 Here's an example of usage
 
 ```{code-cell} ipython
+%matplotlib inline
 from scipy.stats import beta
 import matplotlib.pyplot as plt
-%matplotlib inline
+plt.rcParams['figure.figsize'] = (10,6)
 
 q = beta(5, 5)      # Beta(a, b), with a = b = 5
 obs = q.rvs(2000)   # 2000 observations
