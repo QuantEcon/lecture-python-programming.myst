@@ -45,10 +45,9 @@ One of the things we will learn to do is build our own user-defined functions
 We will use the following imports.
 
 ```{code-cell} ipython
-%matplotlib inline
 import numpy as np
 import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = (10,6)
+%matplotlib inline
 ```
 
 ## Function Basics
