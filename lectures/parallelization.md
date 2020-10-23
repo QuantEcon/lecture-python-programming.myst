@@ -61,11 +61,11 @@ In this lecture we discuss parallelization for scientific computing, with a focu
 Let's start with some imports:
 
 ```{code-cell} ipython
+%matplotlib inline
 import numpy as np
 import quantecon as qe
 import matplotlib.pyplot as plt
-
-%matplotlib inline
+plt.rcParams['figure.figsize'] = (10,6)
 ```
 
 ## Types of Parallelization
@@ -148,7 +148,7 @@ Now, let's look at the output of the htop system monitor on our machine while
 this code is running:
 
 ```{figure} /_static/lecture_specific/parallelization/htop_parallel_npmat.png
-:scale: 45
+:scale: 80
 ```
 
 We can see that 4 of the 8 CPUs are running at full speed.
