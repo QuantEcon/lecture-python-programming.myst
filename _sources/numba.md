@@ -39,11 +39,11 @@ versions are a {doc}`common source of errors <troubleshooting>`.
 Let's start with some imports:
 
 ```{code-cell} ipython
-%matplotlib inline
 import numpy as np
 import quantecon as qe
 import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = (10,6)
+
+%matplotlib inline
 ```
 
 ## Overview
