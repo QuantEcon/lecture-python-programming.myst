@@ -61,9 +61,10 @@ It takes a little while to get used to the syntax so we'll provide plenty of exa
 We'll use the following imports:
 
 ```{code-cell} ipython
+%matplotlib inline
 import numpy as np
 import matplotlib.pyplot as plt
-%matplotlib inline
+plt.rcParams['figure.figsize'] = (10,6)
 ```
 
 ## OOP Review
