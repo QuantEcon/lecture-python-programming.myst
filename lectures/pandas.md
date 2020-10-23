@@ -46,7 +46,7 @@ of fields such as data science and machine learning.
 Here's a popularity comparison over time against STATA, SAS, and [dplyr](https://dplyr.tidyverse.org/) courtesy of Stack Overflow Trends
 
 ```{figure} /_static/lecture_specific/pandas/pandas_vs_rest.png
-:scale: 30
+:scale: 40
 ```
 
 Just as [NumPy](http://www.numpy.org/) provides the basic array data type plus core array operations, pandas
@@ -68,11 +68,11 @@ Throughout the lecture, we will assume that the following imports have taken
 place
 
 ```{code-cell} ipython
+%matplotlib inline
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 plt.rcParams["figure.figsize"] = [10,8]  # Set default figure size
-%matplotlib inline
 import requests
 ```
 
@@ -472,7 +472,7 @@ ticker = read_data(ticker_list)
 Complete the program to plot the result as a bar graph like this one:
 
 ```{figure} /_static/lecture_specific/pandas/pandas_share_prices.png
-:scale: 50
+:scale: 80
 ```
 
 (pd_ex2)=
@@ -490,7 +490,7 @@ indices_list = {'^GSPC': 'S&P 500',
 Complete the program to show summary statistics and plot the result as a time series graph like this one:
 
 ```{figure} /_static/lecture_specific/pandas/pandas_indices_pctchange.png
-:scale: 53
+:scale: 80
 ```
 
 ## Solutions
@@ -565,7 +565,7 @@ yearly_returns.describe()
 Then, to plot the chart
 
 ```{code-cell} python3
-fig, axes = plt.subplots(2, 2, figsize=(10, 6))
+fig, axes = plt.subplots(2, 2, figsize=(10, 8))
 
 for iter_, ax in enumerate(axes.flatten()):            # Flatten 2-D array to 1-D array
     index_name = yearly_returns.columns[iter_]         # Get index name per iteration
