@@ -372,9 +372,10 @@ Its features include, among many other things:
 Here's some example code that generates and plots a random graph, with node color determined by shortest path length from a central node.
 
 ```{code-cell} ipython
+%matplotlib inline
 import networkx as nx
 import matplotlib.pyplot as plt
-%matplotlib inline
+plt.rcParams['figure.figsize'] = (10,6)
 np.random.seed(1234)
 
 # Generate a random graph
