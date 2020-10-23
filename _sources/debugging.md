@@ -50,9 +50,10 @@ Here we'll focus on Jupyter and leave you to explore other settings.
 We'll need the following imports
 
 ```{code-cell} ipython
+%matplotlib inline
 import numpy as np
 import matplotlib.pyplot as plt
-%matplotlib inline
+plt.rcParams['figure.figsize'] = (10,6)
 ```
 
 ## Debugging
