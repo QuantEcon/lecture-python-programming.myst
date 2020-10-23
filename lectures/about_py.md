@@ -84,7 +84,7 @@ It is also [replacing familiar tools like Excel](https://news.efinancialcareers.
 The following chart, produced using Stack Overflow Trends, shows one measure of the relative popularity of Python
 
 ```{figure} /_static/lecture_specific/about_py/python_vs_matlab.png
-:scale: 55
+:scale: 80
 ```
 
 The figure indicates not only that Python is widely used but also that adoption of Python has accelerated significantly since 2012.
@@ -97,7 +97,7 @@ For example, the popularity of [pandas](http://pandas.pydata.org/), a library fo
 (The corresponding time path for MATLAB is shown for comparison)
 
 ```{figure} /_static/lecture_specific/about_py/pandas_vs_matlab.png
-:scale: 55
+:scale: 80
 ```
 
 Note that pandas takes off in 2012, which is the same year that we see
@@ -226,19 +226,19 @@ The most popular and comprehensive Python library for creating figures and graph
 Example 2D plot with embedded LaTeX annotations
 
 ```{figure} /_static/lecture_specific/about_py/qs.png
-:scale: 55
+:scale: 80
 ```
 
 Example contour plot
 
 ```{figure} /_static/lecture_specific/about_py/bn_density1.png
-:scale: 40
+:scale: 70
 ```
 
 Example 3D plot
 
 ```{figure} /_static/lecture_specific/about_py/career_vf.png
-:scale: 50
+:scale: 80
 ```
 
 More examples can be found in the [Matplotlib thumbnail gallery](http://matplotlib.org/gallery.html).
