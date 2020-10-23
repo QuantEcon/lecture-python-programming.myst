@@ -17,3 +17,4 @@ sphinx:
     html_theme_options:
       header_organisation_url: https://quantecon.org
       header_organisation: QuantEcon
+      google_analytics_id: UA-54984338-9
