@@ -271,7 +271,7 @@
 process <span class="math notranslate nohighlight">\(\epsilon_0, \epsilon_1, \ldots, \epsilon_T\)</span>, where each draw <span class="math notranslate nohighlight">\(\epsilon_t\)</span> is independent standard normal.</p>
 <p>In other words, we want to generate figures that look something like this:</p>
 <div class="figure align-default">
-<img alt="_images/test_program_1_updated.png" src="_images/test_program_1_updated.png" />
+<a class="reference internal image-reference" href="_images/test_program_1_updated.png"><img alt="_images/test_program_1_updated.png" src="_images/test_program_1_updated.png" style="width: 444.0px; height: 297.59999999999997px;" /></a>
 </div>
 <p>(Here <span class="math notranslate nohighlight">\(t\)</span> is on the horizontal axis and <span class="math notranslate nohighlight">\(\epsilon_t\)</span> is on the
 vertical axis.)</p>
@@ -294,6 +294,7 @@ notebook if you run it on your own machine.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 
 <span class="n">ϵ_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ϵ_values</span><span class="p">)</span>
@@ -998,7 +999,7 @@ fraction that falls into the circle.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14848
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14976
 </pre></div>
 </div>
 </div>
