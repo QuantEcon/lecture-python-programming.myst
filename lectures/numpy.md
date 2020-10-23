@@ -788,8 +788,9 @@ Your task is to
 ## Solutions
 
 ```{code-cell} ipython
-import matplotlib.pyplot as plt
 %matplotlib inline
+import matplotlib.pyplot as plt
+plt.rcParams['figure.figsize'] = (10,6)
 ```
 
 ### Exercise 1
