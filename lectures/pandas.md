@@ -46,7 +46,7 @@ of fields such as data science and machine learning.
 Here's a popularity comparison over time against STATA, SAS, and [dplyr](https://dplyr.tidyverse.org/) courtesy of Stack Overflow Trends
 
 ```{figure} /_static/lecture_specific/pandas/pandas_vs_rest.png
-:scale: 50
+:scale: 40
 ```
 
 Just as [NumPy](http://www.numpy.org/) provides the basic array data type plus core array operations, pandas
