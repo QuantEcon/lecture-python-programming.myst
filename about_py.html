@@ -258,7 +258,7 @@ into R.” – Chris Wiggins</p>
 <h3><span class="section-number">1.2.2. </span>Relative Popularity<a class="headerlink" href="#relative-popularity" title="Permalink to this headline">¶</a></h3>
 <p>The following chart, produced using Stack Overflow Trends, shows one measure of the relative popularity of Python</p>
 <div class="figure align-default">
-<a class="reference internal image-reference" href="_images/python_vs_matlab.png"><img alt="_images/python_vs_matlab.png" src="_images/python_vs_matlab.png" style="width: 363.00000000000006px; height: 220.00000000000003px;" /></a>
+<img alt="_images/python_vs_matlab.png" src="_images/python_vs_matlab.png" />
 </div>
 <p>The figure indicates not only that Python is widely used but also that adoption of Python has accelerated significantly since 2012.</p>
 <p>We suspect this is driven at least in part by uptake in the scientific
@@ -266,7 +266,7 @@ domain, particularly in rapidly growing fields like data science.</p>
 <p>For example, the popularity of <a class="reference external" href="http://pandas.pydata.org/">pandas</a>, a library for data analysis with Python has exploded, as seen here.</p>
 <p>(The corresponding time path for MATLAB is shown for comparison)</p>
 <div class="figure align-default">
-<a class="reference internal image-reference" href="_images/pandas_vs_matlab.png"><img alt="_images/pandas_vs_matlab.png" src="_images/pandas_vs_matlab.png" style="width: 363.00000000000006px; height: 220.00000000000003px;" /></a>
+<img alt="_images/pandas_vs_matlab.png" src="_images/pandas_vs_matlab.png" />
 </div>
 <p>Note that pandas takes off in 2012, which is the same year that we see
 Python’s popularity begin to spike in the first figure.</p>
@@ -384,15 +384,15 @@ Python’s popularity begin to spike in the first figure.</p>
 </ul>
 <p>Example 2D plot with embedded LaTeX annotations</p>
 <div class="figure align-default">
-<a class="reference internal image-reference" href="_images/qs.png"><img alt="_images/qs.png" src="_images/qs.png" style="width: 446.6px; height: 336.6px;" /></a>
+<a class="reference internal image-reference" href="_images/qs.png"><img alt="_images/qs.png" src="_images/qs.png" style="width: 609.0px; height: 459.0px;" /></a>
 </div>
 <p>Example contour plot</p>
 <div class="figure align-default">
-<a class="reference internal image-reference" href="_images/bn_density1.png"><img alt="_images/bn_density1.png" src="_images/bn_density1.png" style="width: 238.8px; height: 187.60000000000002px;" /></a>
+<a class="reference internal image-reference" href="_images/bn_density1.png"><img alt="_images/bn_density1.png" src="_images/bn_density1.png" style="width: 417.9px; height: 328.29999999999995px;" /></a>
 </div>
 <p>Example 3D plot</p>
 <div class="figure align-default">
-<a class="reference internal image-reference" href="_images/career_vf.png"><img alt="_images/career_vf.png" src="_images/career_vf.png" style="width: 233.5px; height: 173.5px;" /></a>
+<img alt="_images/career_vf.png" src="_images/career_vf.png" />
 </div>
 <p>More examples can be found in the <a class="reference external" href="http://matplotlib.org/gallery.html">Matplotlib thumbnail gallery</a>.</p>
 <p>Other graphics libraries include</p>
@@ -566,9 +566,10 @@ Its features include, among many other things:</p>
 <p>Here’s some example code that generates and plots a random graph, with node color determined by shortest path length from a central node.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
 
 <span class="c1"># Generate a random graph</span>
