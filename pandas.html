@@ -42,6 +42,23 @@
     <link rel="next" title="15. Writing Good Code" href="writing_good_code.html" />
     <link rel="prev" title="13. Parallelization" href="parallelization.html" />
 
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@quantecon">
+<meta name="twitter:title" content="Table of Contents">
+<meta name="twitter:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.">
+<meta name="twitter:creator" content="@quantecon">
+<meta name="twitter:image" content="https://assets.quantecon.org/img/qe-twitter-logo.png">
+
+<!-- Opengraph tags -->
+<meta property="og:title" content="Table of Contents" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://python.quantecon.org/index_toc.html" />
+<meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
+<meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
+<meta property="og:site_name" content="Python Programming for Economics and Finance" />
+
+<meta name="theme-color" content="#ffffff" />
 
 
   </head>
@@ -201,14 +218,12 @@
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pandas_datareader-0.9.0-py3-none-any.whl (107 kB)
 ?25l
-     |███                             | 10 kB 26.0 MB/s eta 0:00:01
+     |███                             | 10 kB 43.6 MB/s eta 0:00:01
      |██████                          | 20 kB 2.0 MB/s eta 0:00:01
-     |█████████▏                      | 30 kB 2.8 MB/s eta 0:00:01
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████▏                   | 40 kB 2.0 MB/s eta 0:00:01
+     |█████████▏                      | 30 kB 2.7 MB/s eta 0:00:01
+     |████████████▏                   | 40 kB 2.0 MB/s eta 0:00:01
      |███████████████▎                | 51 kB 2.3 MB/s eta 0:00:01
-     |██████████████████▎             | 61 kB 2.6 MB/s eta 0:00:01
+     |██████████████████▎             | 61 kB 2.7 MB/s eta 0:00:01
      |█████████████████████▍          | 71 kB 2.9 MB/s eta 0:00:01
      |████████████████████████▍       | 81 kB 3.2 MB/s eta 0:00:01
      |███████████████████████████▍    | 92 kB 3.3 MB/s eta 0:00:01
@@ -217,16 +232,16 @@
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25hRequirement already satisfied, skipping upgrade: pandas&gt;=0.23 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from pandas-datareader) (1.0.5)
-Requirement already satisfied, skipping upgrade: requests&gt;=2.19.0 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from pandas-datareader) (2.24.0)
-Requirement already satisfied, skipping upgrade: lxml in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from pandas-datareader) (4.5.2)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied, skipping upgrade: numpy&gt;=1.13.3 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (1.18.5)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied, skipping upgrade: requests&gt;=2.19.0 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from pandas-datareader) (2.24.0)
+Requirement already satisfied, skipping upgrade: lxml in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from pandas-datareader) (4.5.2)
 Requirement already satisfied, skipping upgrade: python-dateutil&gt;=2.6.1 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (2.8.1)
+Requirement already satisfied, skipping upgrade: numpy&gt;=1.13.3 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (1.18.5)
 Requirement already satisfied, skipping upgrade: pytz&gt;=2017.2 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (2020.1)
-Requirement already satisfied, skipping upgrade: chardet&lt;4,&gt;=3.0.2 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (3.0.4)
-Requirement already satisfied, skipping upgrade: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (1.25.9)
 Requirement already satisfied, skipping upgrade: idna&lt;3,&gt;=2.5 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2.10)
+Requirement already satisfied, skipping upgrade: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (1.25.9)
+Requirement already satisfied, skipping upgrade: chardet&lt;4,&gt;=3.0.2 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (3.0.4)
 Requirement already satisfied, skipping upgrade: certifi&gt;=2017.4.17 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2020.6.20)
 Requirement already satisfied, skipping upgrade: six&gt;=1.5 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from python-dateutil&gt;=2.6.1-&gt;pandas&gt;=0.23-&gt;pandas-datareader) (1.15.0)
 </pre></div>
@@ -293,10 +308,10 @@ place</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   -0.610443
-1   -0.747592
-2    0.537330
-3   -2.130703
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   -1.222372
+1   -0.894292
+2    0.203331
+3   -0.510899
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -313,10 +328,10 @@ operations</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    -61.044253
-1    -74.759249
-2     53.733007
-3   -213.070261
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   -122.237213
+1    -89.429162
+2     20.333085
+3    -51.089868
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -329,10 +344,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.610443
-1    0.747592
-2    0.537330
-3    2.130703
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1.222372
+1    0.894292
+2    0.203331
+3    0.510899
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -348,13 +363,13 @@ Name: daily returns, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    4.000000
-mean    -0.737852
-std      1.092772
-min     -2.130703
-25%     -1.093370
-50%     -0.679018
-75%     -0.323499
-max      0.537330
+mean    -0.606058
+std      0.612940
+min     -1.222372
+25%     -0.976312
+50%     -0.702595
+75%     -0.332341
+max      0.203331
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -369,10 +384,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN   -0.610443
-AAPL   -0.747592
-MSFT    0.537330
-GOOG   -2.130703
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN   -1.222372
+AAPL   -0.894292
+MSFT    0.203331
+GOOG   -0.510899
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -389,7 +404,7 @@ type—in this case, floats).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.6104425275606153
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.222372133724486
 </pre></div>
 </div>
 </div>
@@ -403,9 +418,9 @@ type—in this case, floats).</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN    0.000000
-AAPL   -0.747592
-MSFT    0.537330
-GOOG   -2.130703
+AAPL   -0.894292
+MSFT    0.203331
+GOOG   -0.510899
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -1950,10 +1965,10 @@ Name: 2019-12-31 00:00:00, dtype: float64
     </tr>
     <tr>
       <th>2020</th>
-      <td>6.0e-02</td>
+      <td>6.4e-02</td>
       <td>2.7e-01</td>
-      <td>-1.7e-02</td>
-      <td>1.2e-02</td>
+      <td>-1.8e-02</td>
+      <td>1.3e-02</td>
     </tr>
   </tbody>
 </table>
