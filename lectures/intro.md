@@ -14,7 +14,7 @@ kernelspec:
 This website presents a set of lectures on Python programming for economics and finance, designed and written by
 [Thomas J. Sargent](http://www.tomsargent.com/) and [John Stachurski](http://johnstachurski.net/). This is the first text in the series, which focuses on programming in Python.
 
-```{note}
+```{admonition} News
 This site is the first of three to get update
 ```
 
