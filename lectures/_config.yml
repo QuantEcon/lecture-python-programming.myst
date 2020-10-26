@@ -21,7 +21,7 @@ sphinx:
       header_organisation_url: https://quantecon.org
       header_organisation: QuantEcon
       repository_url: https://github.com/QuantEcon/lecture-python-programming.myst
-      twitter: 'quantecon'
+      twitter: quantecon
       twitter_logo_url: https://assets.quantecon.org/img/qe-twitter-logo.png
       og_logo_url: https://assets.quantecon.org/img/qe-og-logo.png
       description: This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.
