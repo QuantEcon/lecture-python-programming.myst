@@ -42,20 +42,25 @@
     <link rel="next" title="14. Pandas" href="pandas.html" />
     <link rel="prev" title="12. Numba" href="numba.html" />
 
+<!-- Normal Meta Tags -->
+<meta name="author" context="Thomas J. Sargent &amp; John Stachurski" />
+<meta name="keywords" content="" />
+<meta name="description" content=Parallelization  Contents  Parallelization  Overview  Types of Parallelization  Implicit Multithreading in NumPy  Multithreaded Loops in Numba  Exercises  Solut />
+
 <!-- Twitter tags -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="@quantecon">
-<meta name="twitter:title" content="Table of Contents">
-<meta name="twitter:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.">
-<meta name="twitter:creator" content="@quantecon">
-<meta name="twitter:image" content="https://assets.quantecon.org/img/qe-twitter-logo.png">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:title" content="Parallelization"/>
+<meta name="twitter:description" content="Parallelization  Contents  Parallelization  Overview  Types of Parallelization  Implicit Multithreading in NumPy  Multithreaded Loops in Numba  Exercises  Solut">
+<meta name="twitter:creator" content="@">
+<meta name="twitter:image" content="">
 
 <!-- Opengraph tags -->
-<meta property="og:title" content="Table of Contents" />
+<meta property="og:title" content="Parallelization" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://python.quantecon.org/index_toc.html" />
-<meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
-<meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
+<meta property="og:url" content="None" />
+<meta property="og:image" content="" />
+<meta property="og:description" content="Parallelization  Contents  Parallelization  Overview  Types of Parallelization  Implicit Multithreading in NumPy  Multithreaded Loops in Numba  Exercises  Solut" />
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
 
 <meta name="theme-color" content="#ffffff" />
@@ -263,8 +268,32 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
 Solving environment: / 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
@@ -447,7 +476,7 @@ out to more and more operations.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.02 s ± 39.7 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.09 s ± 14.9 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -490,7 +519,7 @@ create custom <a class="reference internal" href="need_for_speed.html#ufuncs"><s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>618 ms ± 8.79 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>658 ms ± 451 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -544,7 +573,7 @@ multithreading?</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>328 ms ± 8.92 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>352 ms ± 4.56 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -666,11 +695,11 @@ don’t matter.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6.73 s, sys: 4.83 ms, total: 6.74 s
-Wall time: 6.72 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 9.79 s, sys: 21.8 ms, total: 9.81 s
+Wall time: 9.79 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8316207342898445
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8272567148465857
 </pre></div>
 </div>
 </div>
@@ -705,11 +734,11 @@ Wall time: 6.72 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.83 s, sys: 0 ns, total: 5.83 s
-Wall time: 3.12 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 8.65 s, sys: 3.36 ms, total: 8.65 s
+Wall time: 4.59 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8282547566797431
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.837048777012542
 </pre></div>
 </div>
 </div>
@@ -776,11 +805,11 @@ tasks to be parallelized are very small relative to total execution time.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 341 ms, sys: 0 ns, total: 341 ms
-Wall time: 334 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 425 ms, sys: 3.81 ms, total: 429 ms
+Wall time: 419 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.140004
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.142744
 </pre></div>
 </div>
 </div>
@@ -792,11 +821,11 @@ Wall time: 334 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 14.6 ms, sys: 209 µs, total: 14.9 ms
-Wall time: 8.06 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 20.9 ms, sys: 0 ns, total: 20.9 ms
+Wall time: 11.2 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.145304
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.13976
 </pre></div>
 </div>
 </div>
@@ -1033,6 +1062,19 @@ on the number of CPUs on your machine.)</p>
     tippy('[data-tippy-content]');
 </script>
 
+
+<script>
+    window.ga = function () {
+        ga.q.push(arguments);
+    };
+    ga.q = [];
+    ga.l = +new Date();
+    ga("create", "UA-54984338-9", "auto");
+    ga("set", "anonymizeIp", true);
+    ga("set", "transport", "beacon");
+    ga("send", "pageview");
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async></script>
 
   </body>
 </html>
