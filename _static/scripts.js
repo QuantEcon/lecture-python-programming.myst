@@ -30,6 +30,16 @@ $('.btn__contrast').on('click', function (event) {
     }
 });
 
+// Tooltips
+
+tippy('[data-tippy-content]', {
+    touch: false,
+});
+
+// Icons
+
+feather.replace();
+
 // Sidebar toggles
 
 function openSidebar() {
@@ -53,9 +63,10 @@ $sidebarToggle.on('click', function (event) {
     }
     if (window.innerWidth <= 1340) {
         $(document.body).on('click', function (e) {
-            if ($(e.target).closest('.sidebar').length != 0) return false;
-            closeSidebar();
-            $body.off('click');
+            if (!$(event.target).is('.sidebar *')) {
+                closeSidebar();
+                $body.off('click');
+            }
         });
     }
 });
@@ -99,7 +110,6 @@ $('.btn__fullscreen').on('click', function () {
 function setFontSize() {
     // Get font size from local storage
     var toolbarFont = localStorage.toolbarFont;
-    console.log(toolbarFont);
     if (toolbarFont == 1) {
         $('html').addClass('font-plus');
     } else if (toolbarFont == -1) {
