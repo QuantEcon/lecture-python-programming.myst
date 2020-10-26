@@ -15,6 +15,14 @@ jobs:
           python-version: 3.8
           environment-file: environment.yml
           activate-environment: qe-lectures
+      - name: Install quantecon-book-theme
+        shell: bash -l {0}
+        run: |
+          git clone https://github.com/quantecon/quantecon-book-theme
+          cd quantecon-book-theme
+          git checkout launch-tweaks
+          python setup.py install
+          cd ../ && rm -rf quantecon-book-theme
       - name: Display Conda Environment Versions
         shell: bash -l {0}
         run: conda list

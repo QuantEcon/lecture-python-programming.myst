@@ -8,7 +8,7 @@ dependencies:
   - pip:
     - jupyter-book
     - git+https://github.com/executablebooks/sphinx-multitoc-numbering
-    - git+https://github.com/quantecon/quantecon-book-theme
+    # - git+https://github.com/quantecon/quantecon-book-theme
     - git+https://github.com/executablebooks/sphinx-exercise.git
     - joblib
     - interpolation
