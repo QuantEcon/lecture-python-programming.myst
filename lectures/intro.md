@@ -18,7 +18,7 @@ This website presents a set of lectures on Python programming for economics and 
 [QuantEcon](https://quantecon.org) is moving to [Jupyter Book](https://jupyterbook.org/intro.html)
 to build all of its projects. We are a founding member of the
 [Executable Books Project](https://github.com/executablebooks) and this
-is the first in the QuantEcon lecture series to migrate. Please send feedback to <contact@quantecon.org>
+is the first in the QuantEcon lecture series to migrate. Please send feedback to [contact@quantecon.org](mailto:contact@quantecon.org)
 ```
 
 For an overview of the series, see [this page](https://quantecon.org/python-lectures/)
