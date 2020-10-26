@@ -14,7 +14,7 @@ html:
 sphinx:
   extra_extensions: [sphinx_multitoc_numbering, sphinx_exercise]
   config:
-    html_favicon: https://assets.quantecon.org/img/lectures-favicon.ico
+    html_favicon: _static/lectures-favicon.ico
     html_theme: quantecon_book_theme
     html_static_path: ['_static']
     html_theme_options:
