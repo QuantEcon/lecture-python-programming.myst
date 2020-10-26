@@ -36,7 +36,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <link rel="shortcut icon" href="_static/qe-logo.png"/>
+    <link rel="canonical" href="https://python.quantecon.org/pandas.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="15. Writing Good Code" href="writing_good_code.html" />
@@ -44,23 +44,23 @@
 
 <!-- Normal Meta Tags -->
 <meta name="author" context="Thomas J. Sargent &amp; John Stachurski" />
-<meta name="keywords" content="" />
-<meta name="description" content=Pandas        Contents  Pandas  Overview  Series  DataFrames  On-Line Data Sources  Exercises  Solutions  In addition to what’s in Anaconda, this lecture will n />
+<meta name="keywords" content="Python, QuantEcon, Quantitative Economics, Economics, Sloan, Alfred P. Sloan Foundation, Tom J. Sargent, John Stachurski" />
+<meta name="description" content=This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski. />
 
 <!-- Twitter tags -->
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@" />
+<meta name="twitter:site" content="@quantecon" />
 <meta name="twitter:title" content="Pandas"/>
-<meta name="twitter:description" content="Pandas        Contents  Pandas  Overview  Series  DataFrames  On-Line Data Sources  Exercises  Solutions  In addition to what’s in Anaconda, this lecture will n">
-<meta name="twitter:creator" content="@">
-<meta name="twitter:image" content="">
+<meta name="twitter:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.">
+<meta name="twitter:creator" content="@quantecon">
+<meta name="twitter:image" content="https://assets.quantecon.org/img/qe-twitter-logo.png">
 
 <!-- Opengraph tags -->
 <meta property="og:title" content="Pandas" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="None" />
-<meta property="og:image" content="" />
-<meta property="og:description" content="Pandas        Contents  Pandas  Overview  Series  DataFrames  On-Line Data Sources  Exercises  Solutions  In addition to what’s in Anaconda, this lecture will n" />
+<meta property="og:url" content="https://python.quantecon.org/pandas.html" />
+<meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
+<meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
 
 <meta name="theme-color" content="#ffffff" />
@@ -223,31 +223,29 @@
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pandas_datareader-0.9.0-py3-none-any.whl (107 kB)
 ?25l
-     |███                             | 10 kB 10.9 MB/s eta 0:00:01
-     |██████                          | 20 kB 2.0 MB/s eta 0:00:01
-     |█████████▏                      | 30 kB 2.8 MB/s eta 0:00:01
-     |████████████▏                   | 40 kB 2.0 MB/s eta 0:00:01
-     |███████████████▎                | 51 kB 2.3 MB/s eta 0:00:01
-     |██████████████████▎             | 61 kB 2.7 MB/s eta 0:00:01
-     |█████████████████████▍          | 71 kB 3.0 MB/s eta 0:00:01
-     |████████████████████████▍       | 81 kB 3.2 MB/s eta 0:00:01
-     |███████████████████████████▍    | 92 kB 3.4 MB/s eta 0:00:01
-     |██████████████████████████████▌ | 102 kB 3.3 MB/s eta 0:00:01
-     |████████████████████████████████| 107 kB 3.3 MB/s 
+     |███                             | 10 kB 31.0 MB/s eta 0:00:01
+     |██████                          | 20 kB 4.9 MB/s eta 0:00:01
+     |█████████▏                      | 30 kB 6.4 MB/s eta 0:00:01
+     |████████████▏                   | 40 kB 4.6 MB/s eta 0:00:01
+     |███████████████▎                | 51 kB 5.4 MB/s eta 0:00:01
+     |██████████████████▎             | 61 kB 6.1 MB/s eta 0:00:01
+     |█████████████████████▍          | 71 kB 6.5 MB/s eta 0:00:01
+     |████████████████████████▍       | 81 kB 7.0 MB/s eta 0:00:01
+     |███████████████████████████▍    | 92 kB 6.7 MB/s eta 0:00:01
+     |██████████████████████████████▌ | 102 kB 6.8 MB/s eta 0:00:01
+     |████████████████████████████████| 107 kB 6.8 MB/s 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25hRequirement already satisfied, skipping upgrade: requests&gt;=2.19.0 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from pandas-datareader) (2.24.0)
-Requirement already satisfied, skipping upgrade: pandas&gt;=0.23 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from pandas-datareader) (1.0.5)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25hRequirement already satisfied, skipping upgrade: pandas&gt;=0.23 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from pandas-datareader) (1.0.5)
+Requirement already satisfied, skipping upgrade: requests&gt;=2.19.0 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from pandas-datareader) (2.24.0)
 Requirement already satisfied, skipping upgrade: lxml in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from pandas-datareader) (4.5.2)
-Requirement already satisfied, skipping upgrade: idna&lt;3,&gt;=2.5 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2.10)
-Requirement already satisfied, skipping upgrade: chardet&lt;4,&gt;=3.0.2 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (3.0.4)
-Requirement already satisfied, skipping upgrade: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (1.25.9)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied, skipping upgrade: certifi&gt;=2017.4.17 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2020.6.20)
-Requirement already satisfied, skipping upgrade: python-dateutil&gt;=2.6.1 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (2.8.1)
-Requirement already satisfied, skipping upgrade: pytz&gt;=2017.2 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (2020.1)
 Requirement already satisfied, skipping upgrade: numpy&gt;=1.13.3 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (1.18.5)
+Requirement already satisfied, skipping upgrade: pytz&gt;=2017.2 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (2020.1)
+Requirement already satisfied, skipping upgrade: python-dateutil&gt;=2.6.1 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (2.8.1)
+Requirement already satisfied, skipping upgrade: idna&lt;3,&gt;=2.5 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2.10)
+Requirement already satisfied, skipping upgrade: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (1.25.9)
+Requirement already satisfied, skipping upgrade: certifi&gt;=2017.4.17 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2020.6.20)
+Requirement already satisfied, skipping upgrade: chardet&lt;4,&gt;=3.0.2 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (3.0.4)
 Requirement already satisfied, skipping upgrade: six&gt;=1.5 in /usr/share/miniconda3/envs/qe-lectures/lib/python3.8/site-packages (from python-dateutil&gt;=2.6.1-&gt;pandas&gt;=0.23-&gt;pandas-datareader) (1.15.0)
 </pre></div>
 </div>
@@ -313,10 +311,10 @@ place</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.172310
-1    0.307587
-2    0.000372
-3   -0.829785
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   -0.897660
+1   -1.494704
+2    0.807438
+3   -0.309209
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -333,10 +331,10 @@ operations</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    17.230992
-1    30.758657
-2     0.037166
-3   -82.978456
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    -89.766026
+1   -149.470355
+2     80.743774
+3    -30.920931
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -349,10 +347,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.172310
-1    0.307587
-2    0.000372
-3    0.829785
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.897660
+1    1.494704
+2    0.807438
+3    0.309209
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -368,13 +366,13 @@ Name: daily returns, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    4.000000
-mean    -0.087379
-std      0.510654
-min     -0.829785
-25%     -0.207167
-50%      0.086341
-75%      0.206129
-max      0.307587
+mean    -0.473534
+std      0.981591
+min     -1.494704
+25%     -1.046921
+50%     -0.603435
+75%     -0.030048
+max      0.807438
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -389,10 +387,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN    0.172310
-AAPL    0.307587
-MSFT    0.000372
-GOOG   -0.829785
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN   -0.897660
+AAPL   -1.494704
+MSFT    0.807438
+GOOG   -0.309209
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -409,7 +407,7 @@ type—in this case, floats).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.17230992031607628
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.8976602569661934
 </pre></div>
 </div>
 </div>
@@ -423,9 +421,9 @@ type—in this case, floats).</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN    0.000000
-AAPL    0.307587
-MSFT    0.000372
-GOOG   -0.829785
+AAPL   -1.494704
+MSFT    0.807438
+GOOG   -0.309209
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
