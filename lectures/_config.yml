@@ -2,6 +2,7 @@ title: Python Programming for Economics and Finance
 author: Thomas J. Sargent & John Stachurski
 logo: _static/qe-logo.png
 description: This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.
+exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", redirects.txt]
 
 execute:
   execute_notebooks: "cache"
@@ -28,4 +29,3 @@ sphinx:
       keywords: Python, QuantEcon, Quantitative Economics, Economics, Sloan, Alfred P. Sloan Foundation, Tom J. Sargent, John Stachurski
       google_analytics_id: UA-54984338-9
     rediraffe_redirects: "redirects.txt"
-    exclude_patterns: ["redirects.txt"]
