@@ -12,7 +12,7 @@ html:
   baseurl: https://python.quantecon.org/
 
 sphinx:
-  extra_extensions: [sphinx_multitoc_numbering, sphinx_exercise, sphinxext.rediraffe]
+  extra_extensions: [sphinx_multitoc_numbering, sphinx_exercise, sphinxext.rediraffe, sphinx_tojupyter]
   config:
     html_favicon: _static/lectures-favicon.ico
     html_theme: quantecon_book_theme
@@ -29,3 +29,9 @@ sphinx:
       google_analytics_id: UA-54984338-9
     rediraffe_redirects:
       index_toc.md: intro.md
+    tojupyter_static_file_path: ["source/_static", "_static"]
+    tojupyter_target_html: true
+    tojupyter_urlpath: "https://python-programming.quantecon.org/"
+    tojupyter_image_urlpath: "https://python-programming.quantecon.org/_static/"
+    tojupyter_lang_synonyms: ["ipython", "ipython3", "python"]
+    tojupyter_allow_html_only: true
