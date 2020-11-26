@@ -19,8 +19,9 @@ jobs:
         shell: bash -l {0}
         run: |
           git clone https://github.com/quantecon/quantecon-book-theme
-          cd quantecon-book-theme && git checkout download-nb && cd ..
+          cd quantecon-book-theme && git checkout download-nb
           python setup.py install
+          cd .. && rm -r quantecon-book-theme
       - name: Display Conda Environment Versions
         shell: bash -l {0}
         run: conda list
