@@ -25,6 +25,12 @@ jobs:
         shell: bash -l {0}
         run: |
           jb build lectures --path-output ./
+      - name: Build Download Notebooks (sphinx-tojupyter)
+        shell: bash -l {0}
+        run: |
+          jb build lectures --path-output ./ --builder=custom --custom-builder=jupyter
+          mkdir _build/html/_notebooks
+          cp _build/jupyter/*.ipynb _build/html/_notebooks
       - name: Preview Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
         with:
