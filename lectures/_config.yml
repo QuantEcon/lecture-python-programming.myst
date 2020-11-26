@@ -33,7 +33,6 @@ sphinx:
     tojupyter_urlpath: "https://python-programming.quantecon.org/"
     tojupyter_image_urlpath: "https://python-programming.quantecon.org/_static/"
     tojupyter_lang_synonyms: ["ipython", "ipython3", "python"]
-    tojupyter_allow_html_only: true
     tojupyter_kernels:
       python3:
         kernelspec:
