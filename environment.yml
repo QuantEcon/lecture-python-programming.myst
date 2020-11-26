@@ -1,4 +1,4 @@
-name: qe-lectures
+name: lecture-python-programming
 channels:
   - default
 dependencies:
