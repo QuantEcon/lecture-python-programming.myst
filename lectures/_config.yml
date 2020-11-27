@@ -30,6 +30,7 @@ sphinx:
     rediraffe_redirects:
       index_toc.md: intro.md
     tojupyter_static_file_path: ["source/_static", "_static"]
+    tojupyter_target_html: true
     tojupyter_urlpath: "https://python-programming.quantecon.org/"
     tojupyter_image_urlpath: "https://python-programming.quantecon.org/_static/"
     tojupyter_lang_synonyms: ["ipython", "ipython3", "python"]
