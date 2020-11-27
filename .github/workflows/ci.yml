@@ -7,14 +7,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup Anaconda
-        uses: goanpeca/setup-miniconda@v1
+        uses: conda-incubator/setup-miniconda@v2
         with:
           auto-update-conda: true
           auto-activate-base: true
           miniconda-version: 'latest'
           python-version: 3.8
           environment-file: environment.yml
-          activate-environment: qe-lectures
+          activate-environment: lecture-python-programming
+      - name: Install QuantEcon Book Theme
+        shell: bash -l {0}
+        run: |
+          git clone https://github.com/quantecon/quantecon-book-theme
+          cd quantecon-book-theme && git checkout download-nb
+          python setup.py install
+          cd .. && rm -r quantecon-book-theme
       - name: Display Conda Environment Versions
         shell: bash -l {0}
         run: conda list
@@ -25,6 +32,12 @@ jobs:
         shell: bash -l {0}
         run: |
           jb build lectures --path-output ./
+      - name: Build Download Notebooks (sphinx-tojupyter)
+        shell: bash -l {0}
+        run: |
+          jb build lectures --path-output ./ --builder=custom --custom-builder=jupyter
+          mkdir _build/html/_notebooks
+          cp _build/jupyter/*.ipynb _build/html/_notebooks
       - name: Preview Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
         with:
