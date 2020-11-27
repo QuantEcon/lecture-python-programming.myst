@@ -26,7 +26,7 @@
     <script src="_static/copybutton.js"></script>
     <script src="_static/quantecon-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -230,11 +230,7 @@
                     
                     <div>
                         
-  <div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div><div class="section" id="numba">
+  <div class="section" id="numba">
 <h1><a class="toc-backref" href="#id3"><span class="section-number">12. </span>Numba</a><a class="headerlink" href="#numba" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
@@ -291,20 +287,8 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
-Solving environment: \ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+Solving environment: / 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
@@ -604,16 +588,16 @@ Solving environment: \
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The environment is inconsistent, please check the package plan carefully
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+The environment is inconsistent, please check the package plan carefully
 The following packages are causing the inconsistency:
 
-  - defaults/noarch::nltk==3.5=py_0
   - defaults/linux-64::scikit-learn==0.23.1=py38h423224d_0
   - defaults/linux-64::anaconda==2020.07=py38_0
-/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+  - defaults/noarch::nltk==3.5=py_0
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
@@ -830,6 +814,15 @@ The following packages are causing the inconsistency:
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
@@ -837,7 +830,7 @@ The following packages are causing the inconsistency:
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>## Package Plan ##
 
-  environment location: /usr/share/miniconda3/envs/qe-lectures
+  environment location: /usr/share/miniconda3/envs/lecture-python-programming
 
   added / updated specs:
     - quantecon
@@ -863,6 +856,7 @@ The following NEW packages will be INSTALLED:
 The following packages will be UPDATED:
 
   ca-certificates                               2020.6.24-0 --&gt; 2020.10.14-0
+  certifi                                  2020.6.20-py38_0 --&gt; 2020.11.8-py38h06a4308_0
   openssl                                 1.1.1g-h7b6447c_0 --&gt; 1.1.1h-h7b6447c_0
 
 The following packages will be DOWNGRADED:
@@ -878,33 +872,36 @@ anaconda-custom      | 35 KB     |                                       |   0%
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>anaconda-custom      | 35 KB     | ##################################### | 100% 
 
+joblib-0.17.0        | 206 KB    |                                       |   0% 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>joblib-0.17.0        | 206 KB    | ##################################### | 100% 
+
 quantecon-0.4.8      | 285 KB    |                                       |   0% 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>quantecon-0.4.8      | 285 KB    | ##################################### | 100% 
 
-joblib-0.17.0        | 206 KB    |                                       |   0% 
-joblib-0.17.0        | 206 KB    | ##################################### | 100% 
-
 _anaconda_depends-20 | 6 KB      |                                       |   0% 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_anaconda_depends-20 | 6 KB      | ##################################### | 100% 
-Preparing transaction: | 
+_anaconda_depends-20 | 6 KB      | ##################################### | 100% 
+Preparing transaction: \ 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
-Verifying transaction: - 
+Verifying transaction: / 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
+Executing transaction: / 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
-Executing transaction: - 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
@@ -917,9 +914,6 @@ Executing transaction: -
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
@@ -1027,7 +1021,7 @@ JIT-compilation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:9.93
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:10.23
 </pre></div>
 </div>
 </div>
@@ -1042,7 +1036,7 @@ JIT-compilation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.19
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.16
 </pre></div>
 </div>
 </div>
@@ -1058,7 +1052,7 @@ JIT-compilation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.04
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.05
 </pre></div>
 </div>
 </div>
@@ -1070,7 +1064,7 @@ JIT-compilation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>235.88328852412621
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>184.1578947368421
 </pre></div>
 </div>
 </div>
@@ -1443,11 +1437,11 @@ learn all about finite-state Markov chains.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 257 ms, sys: 4.03 ms, total: 261 ms
-Wall time: 261 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 211 ms, sys: 0 ns, total: 211 ms
+Wall time: 211 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14552
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141968
 </pre></div>
 </div>
 </div>
@@ -1459,11 +1453,11 @@ Wall time: 261 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 11.8 ms, sys: 1.2 ms, total: 13 ms
-Wall time: 12.9 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 16.8 ms, sys: 18 µs, total: 16.9 ms
+Wall time: 16.7 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14054
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14114
 </pre></div>
 </div>
 </div>
@@ -1516,7 +1510,7 @@ state is about 0.666</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.664152
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.665792
 </pre></div>
 </div>
 </div>
@@ -1532,10 +1526,10 @@ state is about 0.666</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.97
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:1.08
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9715631008148193
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.088413953781128
 </pre></div>
 </div>
 </div>
@@ -1559,7 +1553,7 @@ state is about 0.666</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.664058
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.665082
 </pre></div>
 </div>
 </div>
@@ -1577,7 +1571,7 @@ state is about 0.666</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.01
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.012087583541870117
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.013855218887329102
 </pre></div>
 </div>
 </div>
@@ -1613,7 +1607,13 @@ state is about 0.666</p>
                 
 
 
+                <footer class="page__footer">
 
+                    <p><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"></a></p>
+
+                    <p>Creative Commons License &ndash; This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International.</p>
+
+                </footer> <!-- .page__footer -->
 
             </div> <!-- .page -->
 
@@ -1778,9 +1778,9 @@ state is about 0.666</p>
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
-                    
+                    <li data-tippy-content="Download Notebook"><a href="_notebooks/numba.ipynb" download><i data-feather="download-cloud"></i></a></li>
                     <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
-                    <li data-tippy-content="View Source"><a href="_sources/numba.md" download><i data-feather="github"></i></a></li>
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/tree/master/lecture-python-programming.myst/lectures/numba.md" download><i data-feather="github"></i></a></li>
                 </ul>
 
             </div>
