@@ -13,4 +13,5 @@ dependencies:
     - joblib
     - interpolation
     - git+https://github.com/QuantEcon/sphinx-tojupyter.git
+    - git+https://github.com/QuantEcon/quantecon-book-theme.git
 
