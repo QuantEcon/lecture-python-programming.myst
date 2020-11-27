@@ -17,7 +17,7 @@ jobs:
           miniconda-version: 'latest'
           python-version: 3.8
           environment-file: environment.yml
-          activate-environment: qe-lectures
+          activate-environment: lecture-python-programming
       - name: Display Conda Environment Versions
         shell: bash -l {0}
         run: conda list
@@ -28,6 +28,12 @@ jobs:
         shell: bash -l {0}
         run: |
           jb build lectures --path-output ./
+      - name: Build Download Notebooks (sphinx-tojupyter)
+        shell: bash -l {0}
+        run: |
+          jb build lectures --path-output ./ --builder=custom --custom-builder=jupyter
+          mkdir _build/html/_notebooks
+          cp _build/jupyter/*.ipynb _build/html/_notebooks
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
