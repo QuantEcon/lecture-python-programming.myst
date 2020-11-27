@@ -42,6 +42,3 @@ sphinx:
           name: python3
         file_extension: ".py"
     tojupyter_images_markdown: true
-    tojupyter_template_path: ../templates/
-    tojupyter_latex_template: latex.tpl
-    tojupyter_latex_template_book: latex_book.tpl
