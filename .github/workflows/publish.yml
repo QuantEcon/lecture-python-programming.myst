@@ -48,10 +48,10 @@ jobs:
         shell: bash -l {0}
         run: |
           cd ../
-          git pull https://github.com/QuantEcon/lecture-python-programming.notebooks
+          git clone https://$USERNAME:$REPO_KEY@github.com/QuantEcon/lecture-python-programming.notebooks
           cd lecture-python-programming.notebooks/
           git checkout -b add-binder
-          cp ../lecture-python-programming.myst/_build/jupyter/*.ipynb ./
+          cp ../_build/jupyter/*.ipynb ./
           git config --local user.email "services@quantecon.org"
           git config --local user.name "QuantEcon"
           git add .
