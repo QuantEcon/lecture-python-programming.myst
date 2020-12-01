@@ -47,15 +47,16 @@ jobs:
       - name: Commit latest notebooks to lecture-python-programming.notebooks
         shell: bash -l {0}
         run: |
-          git pull https://$USERNAME:$REPO_KEY@github.com/QuantEcon/lecture-python-programming.notebooks
+          cd ../
+          git pull https://github.com/QuantEcon/lecture-python-programming.notebooks
           cd lecture-python-programming.notebooks/
           git checkout -b add-binder
-          cp ../_build/jupyter/*.ipynb ./
+          cp ../lecture-python-programming.myst/_build/jupyter/*.ipynb ./
           git config --local user.email "services@quantecon.org"
           git config --local user.name "QuantEcon"
           git add .
           git commit -m "auto publishing updates to notebooks"
           git push https://$USERNAME:$REPO_KEY@github.com/QuantEcon/lecture-python-programming.notebooks add-binder
         env:
-          REPO_KEY: ${{ secrets.QUANTECON_SERVICES_PAT }}
+          REPO_KEY: ${{ secrets.QUANTECON_SERVICES }}
           USERNAME: quantecon-services
