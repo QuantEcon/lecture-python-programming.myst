@@ -5,7 +5,7 @@ on:
       - master
       - add-binder
 jobs:
-  tests:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -44,7 +44,7 @@ jobs:
       - name: Checkout lecture-python-programming.notebooks
         uses: actions/checkout@v2
         with:
-          repository: quantecon/lecture-python-programming.notebooks
+          repository: QuantEcon/lecture-python-programming.notebooks
           token: ${{ secrets.QUANTECON_SERVICES }}
       - name: Commit latest notebooks to lecture-python-programming.notebooks
         run: |
