@@ -48,7 +48,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: QuantEcon/lecture-python-programming.notebooks
-          token: ${{ secrets.QUANTECON_SERVICES }}
+          token: ${{ secrets.QUANTECON_SERVICES_PAT }}
       - name: Commit latest notebooks to lecture-python-programming.notebooks
         shell: bash -l {0}
         run: |
@@ -62,5 +62,5 @@ jobs:
           # git commit -m "auto publishing updates to notebooks"
           # git push https://$USERNAME:$REPO_KEY@github.com/QuantEcon/lecture-python-programming.notebooks add-binder
         env:
-          REPO_KEY: ${{ secrets.QUANTECON_SERVICES }}
+          REPO_KEY: ${{ secrets.QUANTECON_SERVICES_PAT }}
           USERNAME: quantecon-services
