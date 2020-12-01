@@ -46,9 +46,9 @@ jobs:
       #     cname: python-programming.quantecon.org
       - name: Checkout lecture-python-programming.notebooks
         uses: actions/checkout@v2
-        path: ./
         with:
           repository: QuantEcon/lecture-python-programming.notebooks
+          path: ./
           token: ${{ secrets.QUANTECON_SERVICES_PAT }}
       - name: Commit latest notebooks to lecture-python-programming.notebooks
         shell: bash -l {0}
