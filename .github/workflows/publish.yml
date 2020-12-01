@@ -25,33 +25,33 @@ jobs:
       - name: Display Pip Versions
         shell: bash -l {0}
         run: pip list
-      - name: Build HTML
-        shell: bash -l {0}
-        run: |
-          jb build lectures --path-output ./
+      # - name: Build HTML
+      #   shell: bash -l {0}
+      #   run: |
+      #     jb build lectures --path-output ./
       - name: Build Download Notebooks (sphinx-tojupyter)
         shell: bash -l {0}
         run: |
           jb build lectures --path-output ./ --builder=custom --custom-builder=jupyter
-          mkdir _build/html/_notebooks
-          cp _build/jupyter/*.ipynb _build/html/_notebooks
+      # - name: Copy Download Notebooks for GH-PAGES
+      #   shell: bash -l {0}
+      #   run: |
+      #     mkdir _build/html/_notebooks
+      #     cp _build/jupyter/*.ipynb _build/html/_notebooks
       # - name: Deploy to gh-pages
       #   uses: peaceiris/actions-gh-pages@v3
       #   with:
       #     github_token: ${{ secrets.GITHUB_TOKEN }}
       #     publish_dir: _build/html/
       #     cname: python-programming.quantecon.org
-      - name: Checkout lecture-python-programming.notebooks
-        uses: actions/checkout@v2
-        with:
-          repository: QuantEcon/lecture-python-programming.notebooks
-      - name: Copy Download Notebooks
+      - name: Commit latest notebooks to lecture-python-programming.notebooks
         shell: bash -l {0}
         run: |
-          pwd
-          cp ../_build/jupyter/*.ipynb ./
-      - name: Commit latest notebooks to lecture-python-programming.notebooks
-        run: |
+          # Fetch
+          git clone https://github.com/QuantEcon/lecture-python-programming.notebooks
+          cp _build/jupyter/*.ipynb lecture-python-programming.notebooks/
+          # Commit and Save
+          cd lecture-python-programming.notebooks/
           git config --local user.email "admin@quantecon.org"
           git config --local user.name "QuantEcon"
           echo $GITHUB_REF
