@@ -44,19 +44,22 @@ jobs:
       #     github_token: ${{ secrets.GITHUB_TOKEN }}
       #     publish_dir: _build/html/
       #     cname: python-programming.quantecon.org
+      - name: Checkout lecture-python-programming.ntoebooks
+        uses: actions/checkout@v2
+        repository: QuantEcon/lecture-python-programming.notebooks
+        token: ${{ secrets.QUANTECON_SERVICES }}
       - name: Commit latest notebooks to lecture-python-programming.notebooks
         shell: bash -l {0}
         run: |
-          # Fetch
-          git clone https://$USERNAME:$REPO_KEY@github.com/QuantEcon/lecture-python-programming.notebooks
-          cd lecture-python-programming.notebooks/
-          git checkout -b add-binder
-          cp ../_build/jupyter/*.ipynb ./
-          git config --local user.email "services@quantecon.org"
-          git config --local user.name "QuantEcon"
-          git add .
-          git commit -m "auto publishing updates to notebooks"
-          git push https://$USERNAME:$REPO_KEY@github.com/QuantEcon/lecture-python-programming.notebooks add-binder
+          pwd
+          # cd lecture-python-programming.notebooks/
+          # git checkout -b add-binder
+          # cp ../_build/jupyter/*.ipynb ./
+          # git config --local user.email "services@quantecon.org"
+          # git config --local user.name "QuantEcon"
+          # git add .
+          # git commit -m "auto publishing updates to notebooks"
+          # git push https://$USERNAME:$REPO_KEY@github.com/QuantEcon/lecture-python-programming.notebooks add-binder
         env:
           REPO_KEY: ${{ secrets.QUANTECON_SERVICES }}
           USERNAME: quantecon-services
