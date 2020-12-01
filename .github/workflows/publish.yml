@@ -54,6 +54,7 @@ jobs:
           cp ../_build/jupyter/*.ipynb ./
           git config --local user.email "admin@quantecon.org"
           git config --local user.name "QuantEcon"
+          git add .
           git commit -m "auto publishing updates to notebooks"
           git push https://$USERNAME:$REPO_KEY@github.com/quantecon/lecture-python-programming.notebooks add-binder
         env:
