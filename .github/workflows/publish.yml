@@ -49,14 +49,13 @@ jobs:
         run: |
           # Fetch
           git clone https://github.com/QuantEcon/lecture-python-programming.notebooks
-          cp _build/jupyter/*.ipynb lecture-python-programming.notebooks/
-          # Commit and Save
           cd lecture-python-programming.notebooks/
+          git checkout add-binder
+          cp ../_build/jupyter/*.ipynb ./
           git config --local user.email "admin@quantecon.org"
           git config --local user.name "QuantEcon"
-          echo $GITHUB_REF
-          # git commit -m "auto publishing updates to notebooks"
-          # git push https://$USERNAME:$REPO_KEY@github.com/quantecon/lecture-python-programming.notebooks $GITHUB_REF
+          git commit -m "auto publishing updates to notebooks"
+          git push https://$USERNAME:$REPO_KEY@github.com/quantecon/lecture-python-programming.notebooks add-binder
         env:
           REPO_KEY: ${{ secrets.QUANTECON_SERVICES }}
           USERNAME: quantecon-services
