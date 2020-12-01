@@ -54,7 +54,8 @@ jobs:
         run: |
           pwd
           ls -a
-          cd lecture-python-programming.notebooks/
+          ls -a ../
+          cd ../lecture-python-programming.notebooks/
           # git checkout -b add-binder
           # cp ../_build/jupyter/*.ipynb ./
           # git config --local user.email "services@quantecon.org"
