@@ -48,7 +48,7 @@ jobs:
         shell: bash -l {0}
         run: |
           cd ../
-          git clone https://$USERNAME:$REPO_KEY@github.com/QuantEcon/lecture-python-programming.notebooks
+          git clone https://github.com/QuantEcon/lecture-python-programming.notebooks
           cd lecture-python-programming.notebooks/
           git checkout -b add-binder
           cp ../_build/jupyter/*.ipynb ./
