@@ -50,7 +50,7 @@ jobs:
           # Fetch
           git clone https://github.com/QuantEcon/lecture-python-programming.notebooks
           cd lecture-python-programming.notebooks/
-          git checkout add-binder
+          git checkout -b add-binder
           cp ../_build/jupyter/*.ipynb ./
           git config --local user.email "admin@quantecon.org"
           git config --local user.name "QuantEcon"
