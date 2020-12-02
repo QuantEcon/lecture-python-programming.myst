@@ -51,13 +51,12 @@ jobs:
           git clone https://github.com/QuantEcon/lecture-python-programming.notebooks
           cd lecture-python-programming.notebooks/
           git checkout -b add-binder
-          ls -a
           cp ../lecture-python-programming.myst/_build/jupyter/*.ipynb ./
           git config --local user.email "services@quantecon.org"
           git config --local user.name "QuantEcon"
           git add .
           git commit -m "auto publishing updates to notebooks"
-          git push https://$USERNAME:$REPO_KEY@github.com/QuantEcon/lecture-python-programming.notebooks add-binder
+          # git push https://$USERNAME:$REPO_KEY@github.com/QuantEcon/lecture-python-programming.notebooks add-binder
         env:
           REPO_KEY: ${{ secrets.QUANTECON_SERVICES }}
           USERNAME: quantecon-services
