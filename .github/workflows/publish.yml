@@ -48,7 +48,7 @@ jobs:
         shell: bash -l {0}
         run: |
           mkdir -p _build/lecture-python-programming.notebooks
-          cp -a _notebook-repo/. _build/lecture-python-programming.notebooks
+          cp -a _notebook_repo/. _build/lecture-python-programming.notebooks
           cp _build/jupyter/*.ipynb _build/lecture-python-programming.notebooks
           ls -a _build/lecture-python-programming.notebooks
       - name: Commit latest notebooks to lecture-python-programming.notebooks
