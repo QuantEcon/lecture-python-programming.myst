@@ -44,12 +44,17 @@ jobs:
       #     github_token: ${{ secrets.GITHUB_TOKEN }}
       #     publish_dir: _build/html/
       #     cname: python-programming.quantecon.org
+      - name: Prepare lecture-python-programming.notebooks sync
+        shell: bash -l {0}
+        run: |
+          mkdir -p _build/lecture-python-programming.notebooks
+          cp _build/jupyter/*.ipynb _build/lecture-python-programming.notebooks
       - name: Commit latest notebooks to lecture-python-programming.notebooks
         uses: cpina/github-action-push-to-another-repository@master
         env:
           API_TOKEN_GITHUB: ${{ secrets.QUANTECON_SERVICES_PAT }}
         with:
-          source-directory: '_build/jupyter/'
+          source-directory: '_build/lecture-python-programming.notebooks/'
           destination-repository-username: 'QuantEcon'
           destination-repository-name: 'lecture-python-programming.notebooks'
           target-branch: 'update-notebooks'
