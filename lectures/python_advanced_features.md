@@ -142,7 +142,7 @@ All iterators can be placed to the right of the `in` keyword in `for` loop state
 
 In fact this is how the `for` loop works:  If we write
 
-```{code-block} python3
+```python3
 for x in iterator:
     <code block>
 ```
@@ -155,7 +155,7 @@ then the interpreter
 
 So now you know how this magical looking syntax works
 
-```{code-block} python3
+```python3
 f = open('somefile.txt', 'r')
 for line in f:
     # do something
@@ -526,7 +526,7 @@ We are now working in the module `__main__`, and hence the namespace for `__main
 
 Next, we import a module called `amodule`
 
-```{code-block} python3
+```python3
 import amodule
 ```
 
@@ -1660,7 +1660,7 @@ Write a function to recursively compute the $t$-th Fibonacci number for any $t$.
 
 Complete the following code, and test it using [this csv file](https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/python_advanced_features/test_table.csv), which we assume that you've put in your current working directory
 
-```{code-block} python3
+```python3
 def column_iterator(target_file, column_number):
     """A generator function for CSV files.
     When called with a file name target_file (string) and column number
@@ -1680,7 +1680,7 @@ for date in dates:
 
 Suppose we have a text file `numbers.txt` containing the following lines
 
-```{code-block} none
+```
 prices
 3
 8

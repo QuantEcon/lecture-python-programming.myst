@@ -165,7 +165,7 @@ Let's look at an example that reads data from the CSV file `pandas/data/test_pwt
 
 Here's the content of `test_pwt.csv`
 
-```{code-block} none
+```
 "country","country isocode","year","POP","XRAT","tcgdp","cc","cg"
 "Argentina","ARG","2000","37335.653","0.9995","295072.21869","75.716805379","5.5788042896"
 "Australia","AUS","2000","19053.186","1.72483","541804.6521","67.759025993","6.7200975332"
@@ -292,7 +292,7 @@ For example, suppose that we are interested in the [unemployment rate](https://r
 Via FRED, the entire series for the US civilian unemployment rate can be downloaded directly by entering
 this URL into your browser (note that this requires an internet connection)
 
-```{code-block} none
+```
 https://research.stlouisfed.org/fred2/series/UNRATE/downloaddata/UNRATE.csv
 ```
 

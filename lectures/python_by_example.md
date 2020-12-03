@@ -144,7 +144,7 @@ easily enough if you look around.
 
 On this machine, it's located in
 
-```{code-block} ipython
+```ipython
 anaconda3/lib/python3.7/site-packages/numpy
 ```
 
@@ -333,7 +333,7 @@ for animal in animals:
 This example helps to clarify how the `for` loop works:  When we execute a
 loop of the form
 
-```{code-block} python3
+```python3
 for variable_name in sequence:
     <code block>
 ```

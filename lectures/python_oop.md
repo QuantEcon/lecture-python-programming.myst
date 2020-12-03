@@ -776,7 +776,7 @@ Implement $F_n$ as a class called `ECDF`, where
 
 Your code should work as follows (modulo randomness)
 
-```{code-block} python3
+```python3
 from random import uniform
 
 samples = [uniform(0, 1) for i in range(10)]
@@ -784,7 +784,7 @@ F = ECDF(samples)
 F(0.5)  # Evaluate ecdf at x = 0.5
 ```
 
-```{code-block} python3
+```python3
 F.observations = [uniform(0, 1) for i in range(1000)]
 F(0.5)
 ```

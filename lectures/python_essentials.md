@@ -314,7 +314,7 @@ Note that if `newfile.txt` is not in the present working directory then this cal
 
 In this case, you can shift the file to the pwd or specify the [full path](https://en.wikipedia.org/wiki/Path_%28computing%29) to the file
 
-```{code-block} python3
+```python3
 f = open('insert_full_path_to_file/newfile.txt', 'r')
 ```
 
@@ -620,7 +620,7 @@ After running this code, the docstring is available
 f?
 ```
 
-```{code-block} ipython
+```ipython
 Type:       function
 String Form:<function f at 0x2223320>
 File:       /home/john/temp/temp.py
@@ -632,7 +632,7 @@ Docstring:  This function squares its argument
 f??
 ```
 
-```{code-block} ipython
+```ipython
 Type:       function
 String Form:<function f at 0x2223320>
 File:       /home/john/temp/temp.py
@@ -692,7 +692,7 @@ Here the function created by `lambda` is said to be *anonymous* because it was n
 
 In a {ref}`previous lecture <python_by_example>`, you came across the statement
 
-```{code-block} python3
+```python3
 plt.plot(x, 'b-', label="white noise")
 ```
 
