@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - master
-      - add-binder
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -25,25 +24,25 @@ jobs:
       - name: Display Pip Versions
         shell: bash -l {0}
         run: pip list
-      # - name: Build HTML
-      #   shell: bash -l {0}
-      #   run: |
-      #     jb build lectures --path-output ./
+      - name: Build HTML
+        shell: bash -l {0}
+        run: |
+          jb build lectures --path-output ./
       - name: Build Download Notebooks (sphinx-tojupyter)
         shell: bash -l {0}
         run: |
           jb build lectures --path-output ./ --builder=custom --custom-builder=jupyter
-      # - name: Copy Download Notebooks for GH-PAGES
-      #   shell: bash -l {0}
-      #   run: |
-      #     mkdir _build/html/_notebooks
-      #     cp _build/jupyter/*.ipynb _build/html/_notebooks
-      # - name: Deploy to gh-pages
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     publish_dir: _build/html/
-      #     cname: python-programming.quantecon.org
+      - name: Copy Download Notebooks for GH-PAGES
+        shell: bash -l {0}
+        run: |
+          mkdir _build/html/_notebooks
+          cp _build/jupyter/*.ipynb _build/html/_notebooks
+      - name: Deploy website to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: _build/html/
+          cname: python-programming.quantecon.org
       - name: Prepare lecture-python-programming.notebooks sync
         shell: bash -l {0}
         run: |
@@ -59,7 +58,6 @@ jobs:
           source-directory: '_build/lecture-python-programming.notebooks/'
           destination-repository-username: 'QuantEcon'
           destination-repository-name: 'lecture-python-programming.notebooks'
-          target-branch: 'update-notebooks'
           commit-message: 'auto publishing updates to notebooks'
           destination-github-username: 'quantecon-services'
           user-email: services@quantecon.org
