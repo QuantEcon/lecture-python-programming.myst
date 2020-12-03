@@ -1,0 +1,17 @@
+name: lecture-python-programming
+channels:
+  - default
+dependencies:
+  - python=3.8
+  - anaconda
+  - pip
+  - pip:
+    - git+https://github.com/executablebooks/jupyter-book.git
+    - sphinxext-rediraffe
+    - git+https://github.com/executablebooks/sphinx-multitoc-numbering
+    - git+https://github.com/executablebooks/sphinx-exercise.git
+    - joblib
+    - interpolation
+    - git+https://github.com/QuantEcon/sphinx-tojupyter.git
+    - git+https://github.com/QuantEcon/quantecon-book-theme.git
+
