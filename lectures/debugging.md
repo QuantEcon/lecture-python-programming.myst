@@ -121,13 +121,15 @@ plot_log()  # Call the function, generate plot
 
 But this time we type in the following cell block
 
-```ipython
+```{code-block} ipython
+:class: no-execute
 %debug
 ```
 
 You should be dropped into a new prompt that looks something like this
 
-```ipython
+```{code-block} ipython
+:class: no-execute
 ipdb>
 ```
 
@@ -138,7 +140,8 @@ Now we can investigate the value of our variables at this point in the program, 
 For example, here we simply type the name `ax` to see what's happening with
 this object:
 
-```ipython
+```{code-block} ipython
+:class: no-execute
 ipdb> ax
 array([<matplotlib.axes.AxesSubplot object at 0x290f5d0>,
        <matplotlib.axes.AxesSubplot object at 0x2930810>], dtype=object)
@@ -150,7 +153,8 @@ problem.
 To find out what else you can do from inside `ipdb` (or `pdb`), use the
 online help
 
-```ipython
+```{code-block} ipython
+:class: no-execute
 ipdb> h
 
 Documented commands (type help <topic>):
@@ -203,7 +207,8 @@ To investigate, it would be helpful if we could inspect variables like `x` durin
 
 To this end, we add a "break point" by inserting  `breakpoint()` inside the function code block
 
-```python3
+```{code-block} python3
+:class: no-execute
 def plot_log():
     breakpoint()
     fig, ax = plt.subplots()
@@ -216,7 +221,8 @@ plot_log()
 
 Now let's run the script, and investigate via the debugger
 
-```ipython
+```{code-block} ipython
+:class: no-execute
 > <ipython-input-6-a188074383b7>(6)plot_log()
 -> fig, ax = plt.subplots()
 (Pdb) n
