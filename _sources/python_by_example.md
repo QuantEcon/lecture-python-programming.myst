@@ -145,6 +145,8 @@ easily enough if you look around.
 On this machine, it's located in
 
 ```{code-block} ipython
+:class: no-execute
+
 anaconda3/lib/python3.7/site-packages/numpy
 ```
 
@@ -334,6 +336,8 @@ This example helps to clarify how the `for` loop works:  When we execute a
 loop of the form
 
 ```{code-block} python3
+:class: no-execute
+
 for variable_name in sequence:
     <code block>
 ```

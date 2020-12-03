@@ -581,7 +581,7 @@ the class definition</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__module__&#39;: &#39;__main__&#39;, &#39;__init__&#39;: &lt;function Consumer.__init__ at 0x7f590473f9d0&gt;, &#39;earn&#39;: &lt;function Consumer.earn at 0x7f590473f940&gt;, &#39;spend&#39;: &lt;function Consumer.spend at 0x7f590473f8b0&gt;, &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__doc__&#39;: None}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__module__&#39;: &#39;__main__&#39;, &#39;__init__&#39;: &lt;function Consumer.__init__ at 0x7f45861c6ca0&gt;, &#39;earn&#39;: &lt;function Consumer.earn at 0x7f45861c6c10&gt;, &#39;spend&#39;: &lt;function Consumer.spend at 0x7f45861c6b80&gt;, &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__doc__&#39;: None}
 </pre></div>
 </div>
 </div>
@@ -1087,14 +1087,14 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
 <li><p>The class implements a <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method that returns <span class="math notranslate nohighlight">\(F_n(x)\)</span> for any <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
 </ul>
 <p>Your code should work as follows (modulo randomness)</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">uniform</span>
+<div class="no-execute highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">uniform</span>
 
 <span class="n">samples</span> <span class="o">=</span> <span class="p">[</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
 <span class="n">F</span> <span class="o">=</span> <span class="n">ECDF</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
 <span class="n">F</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># Evaluate ecdf at x = 0.5</span>
 </pre></div>
 </div>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="o">.</span><span class="n">observations</span> <span class="o">=</span> <span class="p">[</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)]</span>
+<div class="no-execute highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="o">.</span><span class="n">observations</span> <span class="o">=</span> <span class="p">[</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)]</span>
 <span class="n">F</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1155,8 +1155,8 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7
-0.54
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6
+0.495
 </pre></div>
 </div>
 </div>
