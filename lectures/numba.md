@@ -286,8 +286,7 @@ created in {doc}`this lecture <python_oop>`.
 To compile this class we use the `@jitclass` decorator:
 
 ```{code-cell} python3
-from numba import float64
-from numba.experimental import jitclass
+from numba import float64, jitclass
 ```
 
 Notice that we also imported something called `float64`.
