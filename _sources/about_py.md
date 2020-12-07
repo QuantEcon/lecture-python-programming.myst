@@ -455,7 +455,7 @@ Apart from the cloud computing options listed above, you might like to consider
 ```{index} single: parallel computing; pycuda
 ```
 
-* GPU programming through [PyCuda](https://wiki.tiker.net/PyCuda), [PyOpenCL](https://mathema.tician.de/software/pyopencl/), [Theano](http://deeplearning.net/software/theano/) or similar.
+* GPU programming through [PyCuda](https://wiki.tiker.net/PyCuda), [PyOpenCL](https://mathema.tician.de/software/pyopencl/), [Theano](https://en.wikipedia.org/wiki/Theano_(software)) or similar.
 
 (intfc)=
 ### Other Developments
