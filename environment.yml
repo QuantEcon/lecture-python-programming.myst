@@ -9,7 +9,6 @@ dependencies:
     - jupyter-book
     - sphinxext-rediraffe
     - sphinx-multitoc-numbering
-    - sphinx-exercise
     - joblib
     - interpolation
     - sphinx-tojupyter
