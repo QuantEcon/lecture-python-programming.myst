@@ -6,12 +6,11 @@ dependencies:
   - anaconda=2020.07
   - pip
   - pip:
-    - git+https://github.com/executablebooks/jupyter-book.git
+    - jupyter-book
     - sphinxext-rediraffe
-    - git+https://github.com/executablebooks/sphinx-multitoc-numbering
-    - git+https://github.com/executablebooks/sphinx-exercise.git
+    - sphinx-multitoc-numbering
     - joblib
     - interpolation
-    - git+https://github.com/QuantEcon/sphinx-tojupyter.git
-    - git+https://github.com/QuantEcon/quantecon-book-theme.git
+    - sphinx-tojupyter
+    - quantecon-book-theme
 

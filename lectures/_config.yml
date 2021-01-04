@@ -12,7 +12,7 @@ html:
   baseurl: https://python.quantecon.org/
 
 sphinx:
-  extra_extensions: [sphinx_multitoc_numbering, sphinx_exercise, sphinxext.rediraffe, sphinx_tojupyter]
+  extra_extensions: [sphinx_multitoc_numbering, sphinxext.rediraffe, sphinx_tojupyter]
   config:
     html_favicon: _static/lectures-favicon.ico
     html_theme: quantecon_book_theme
