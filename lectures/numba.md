@@ -555,7 +555,7 @@ Now let's see how fast it runs:
 %time calculate_pi()
 ```
 
-If we switch of JIT compilation by removing `@njit`, the code takes around
+If we switch offf JIT compilation by removing `@njit`, the code takes around
 150 times as long on our machine.
 
 So we get a speed gain of 2 orders of magnitude--which is huge--by adding four
