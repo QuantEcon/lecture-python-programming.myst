@@ -254,7 +254,7 @@ We'll also discuss the role of the peculiar  `self` bookkeeping device in detail
 
 #### Usage
 
-Here's an example in which we use the class `Consumer` to crdate an instance of a consumer whom we affectionately name $c1$.
+Here's an example in which we use the class `Consumer` to create an instance of a consumer whom we affectionately name $c1$.
 
 After we create consumer $c1$ and endow it with initial wealth $10$, we'll apply the `spend` method.
 
