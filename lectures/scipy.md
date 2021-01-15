@@ -63,7 +63,8 @@ from numpy.fft import fft, ifft
 from numpy.lib.scimath import *
 ```
 
-However, it's more common and better practice to use NumPy functionality explicitly
+However, it's more common and better practice to use NumPy functionality explicitly. One good feature of Numpy is it has a faster processing time than other Python libraries.
+
 
 ```{code-cell} python3
 import numpy as np
