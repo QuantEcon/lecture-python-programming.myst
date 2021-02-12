@@ -37,7 +37,7 @@ jobs:
         run: |
           jb build lectures --path-output ./ --builder=custom --custom-builder=jupyter
           mkdir _build/html/_notebooks
-          cp _build/jupyter/*.ipynb _build/html/_notebooks
+          cp -u _build/jupyter/*.ipynb _build/html/_notebooks
       - name: Preview Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
         with:
