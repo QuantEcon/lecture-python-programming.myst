@@ -21,6 +21,13 @@ jobs:
       - name: Display Pip Versions
         shell: bash -l {0}
         run: pip list
+      - name: Download "build" folder (cache)
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: publish.yml
+          branch: master
+          name: build-cache
+          path: _build
       - name: Build HTML
         shell: bash -l {0}
         run: |
@@ -29,8 +36,8 @@ jobs:
         shell: bash -l {0}
         run: |
           jb build lectures --path-output ./ --builder=custom --custom-builder=jupyter
-          mkdir _build/html/_notebooks
-          cp _build/jupyter/*.ipynb _build/html/_notebooks
+          mkdir -p _build/html/_notebooks
+          cp -u _build/jupyter/*.ipynb _build/html/_notebooks
       - name: Preview Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
         with:
