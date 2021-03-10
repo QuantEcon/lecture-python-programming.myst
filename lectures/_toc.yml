@@ -32,3 +32,4 @@
 - part: Other
   chapters:
     - file: troubleshooting
+    - file: status
