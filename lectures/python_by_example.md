@@ -475,8 +475,8 @@ Set $T=200$ and $\alpha = 0.9$.
 
 ### Exercise 2
 
-Starting with your solution to exercise 2, plot three simulated time series,
-one for each of the cases $\alpha=0$, $\alpha=0.8$ and $\alpha=0.98$.
+Starting with your solution to exercise 1, plot three simulated time series,
+one for each of the cases: $\alpha=0$, $\alpha=0.8$ and $\alpha=0.98$.
 
 Use a `for` loop to step through the $\alpha$ values.
 
@@ -484,8 +484,8 @@ If you can, add a legend, to help distinguish between the three time series.
 
 Hints:
 
-* If you call the `plot()` function multiple times before calling `show()`, all of the lines you produce will end up on the same figure.
-* For the legend, noted that the expression `'foo' + str(42)` evaluates to `'foo42'`.
+* If you call a `plot()` function multiple times before calling a `show()`, all of the lines you produce will end up on the same figure.
+* For the legend, note that the expression `'foo' + str(42)` evaluates to `'foo42'`.
 
 ### Exercise 3
 
@@ -578,7 +578,7 @@ for α in α_values:
     x[0] = 0
     for t in range(T):
         x[t+1] = α * x[t] + np.random.randn()
-    plt.plot(x, label=f'$\\alpha = {α}$')
+    plt.plot((x, label = 'α = ' + str(α)) or we can also use plt.plot(x, label=f'$\\alpha = {α}$')
 
 plt.legend()
 plt.show()
