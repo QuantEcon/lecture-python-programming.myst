@@ -476,7 +476,7 @@ Set $T=200 \,$ and $\alpha = 0.9$.
 ### Exercise 2
 
 Starting with your solution to exercise 1, plot three simulated time series,
-one for each of the cases: $\alpha=0$, $\alpha=0.8$ and $\alpha=0.98$.
+one for each of the cases: $\alpha=0$, $\alpha=0.8 \,$ and $\alpha=0.98$.
 
 Use a `for` loop to step through the $\alpha$ values.
 
