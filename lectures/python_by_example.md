@@ -498,7 +498,7 @@ x_0 = 0
 \quad \text{and} \quad t = 0,\ldots,T
 $$
 
-Use $T=200$, $\alpha = 0.9 \,$ and $\{\epsilon_t\}$ as before.
+Use $T=200$, $\alpha = 0.9 \, $ and $\{\epsilon_t\}$ as before.
 
 Search online for a function that can be used to compute the absolute value $|x_t|$.
 
