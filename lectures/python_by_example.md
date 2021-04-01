@@ -471,7 +471,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 ```
 
-Set $T=200$ and $\alpha = 0.9$.
+Set $T=200 \,$ and $\alpha = 0.9$.
 
 ### Exercise 2
 
