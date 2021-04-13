@@ -473,7 +473,8 @@ def read_data(ticker_list,
     ticker = pd.DataFrame()
 
     for tick in ticker_list:
-        prices = data.DataReader(tick, 'yahoo', start, end)
+        stock = yf.Ticker(tick)
+        prices = stock.history(start=start, end=end)
         closing_prices = prices['Close']
         ticker[tick] = closing_prices
 
