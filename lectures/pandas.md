@@ -34,6 +34,7 @@ In addition to what’s in Anaconda, this lecture will need the following librar
 tags: [hide-output]
 ---
 !pip install --upgrade pandas-datareader
+!pip install --upgrade yfinance
 ```
 
 ## Overview
@@ -385,17 +386,29 @@ Note that pandas offers many other file type alternatives.
 
 Pandas has [a wide variety](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html) of top-level methods that we can use to read, excel, json, parquet or plug straight into a database server.
 
-### Using {index}`pandas_datareader <single: pandas_datareader>` to Access Data
+### Using {index}`pandas_datareader <single: pandas_datareader>` and {index}`yfinance <single: yfinance>`to Access Data
 
 ```{index} single: Python; pandas-datareader
 ```
 
-The maker of pandas has also authored a library called pandas_datareader that gives programmatic access to many data sources straight from the Jupyter notebook.
+The maker of pandas has also authored a library called
+[pandas_datareader](https://pandas-datareader.readthedocs.io/en/latest/) that
+gives programmatic access to many data sources straight from the Jupyter notebook.
 
 While some sources require an access key, many of the most important (e.g., FRED, [OECD](https://data.oecd.org/), [EUROSTAT](https://ec.europa.eu/eurostat/data/database) and the World Bank) are free to use.
 
+We will also use [yfinance](https://pypi.org/project/yfinance/) to fetch data from Yahoo finance
+in the exercises.
+
 For now let's work through one example of downloading and plotting data --- this
 time from the World Bank.
+
+:::{margin}
+```{note}
+There are also other [python libraries](https://data.worldbank.org/products/third-party-apps)
+available for working with world bank data such as [wbgapi](https://pypi.org/project/wbgapi/)
+```
+:::
 
 The World Bank [collects and organizes data](http://data.worldbank.org/indicator) on a huge range of indicators.
 
@@ -426,7 +439,7 @@ With these imports:
 
 ```{code-cell} python3
 import datetime as dt
-from pandas_datareader import data
+import yfinance as yf
 ```
 
 Write a program to calculate the percentage price change over 2019 for the following shares:
