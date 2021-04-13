@@ -386,7 +386,7 @@ Note that pandas offers many other file type alternatives.
 
 Pandas has [a wide variety](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html) of top-level methods that we can use to read, excel, json, parquet or plug straight into a database server.
 
-### Using {index}`pandas_datareader <single: pandas_datareader>` and {index}`yfinance <single: yfinance>`to Access Data
+### Using {index}`pandas_datareader <single: pandas_datareader>` and {index}`yfinance <single: yfinance>` to Access Data
 
 ```{index} single: Python; pandas-datareader
 ```
