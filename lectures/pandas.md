@@ -403,12 +403,10 @@ in the exercises.
 For now let's work through one example of downloading and plotting data --- this
 time from the World Bank.
 
-:::{margin}
 ```{note}
 There are also other [python libraries](https://data.worldbank.org/products/third-party-apps)
 available for working with world bank data such as [wbgapi](https://pypi.org/project/wbgapi/)
 ```
-:::
 
 The World Bank [collects and organizes data](http://data.worldbank.org/indicator) on a huge range of indicators.
 
