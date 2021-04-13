@@ -1,10 +1,11 @@
 name: Build & Publish to GH Pages
 on:
   push:
-    branches:
-      - master
+    tags:
+      - 'publish*'
 jobs:
   publish:
+    if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -17,7 +18,7 @@ jobs:
           miniconda-version: 'latest'
           python-version: 3.8
           environment-file: environment.yml
-          activate-environment: lecture-python-programming
+          activate-environment: quantecon
       - name: Display Conda Environment Versions
         shell: bash -l {0}
         run: conda list
@@ -32,6 +33,11 @@ jobs:
         shell: bash -l {0}
         run: |
           jb build lectures --path-output ./ --builder=custom --custom-builder=jupyter
+          zip -r download-notebooks.zip _build/jupyter
+      - uses: actions/upload-artifact@v2
+        with:
+          name: download-notebooks
+          path: download-notebooks.zip
       - name: Copy Download Notebooks for GH-PAGES
         shell: bash -l {0}
         run: |

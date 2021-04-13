@@ -1,4 +1,4 @@
-name: lecture-python-programming
+name: quantecon
 channels:
   - default
 dependencies:
@@ -7,10 +7,12 @@ dependencies:
   - pip
   - pip:
     - jupyter-book
-    - sphinxext-rediraffe
     - sphinx-multitoc-numbering
-    - joblib
-    - interpolation
-    - sphinx-tojupyter
     - quantecon-book-theme
+    - sphinx-tojupyter
+    - sphinxext-rediraffe
+    - sphinx-exercise
+    - jupytext
+    - ghp-import
+    - jupinx
 
