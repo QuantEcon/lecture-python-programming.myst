@@ -63,7 +63,8 @@ from numpy.fft import fft, ifft
 from numpy.lib.scimath import *
 ```
 
-However, it's more common and better practice to use NumPy functionality explicitly
+However, it's more common and better practice to use NumPy functionality explicitly. As it has a faster processing time rather than implicitly via SciPy.
+
 
 ```{code-cell} python3
 import numpy as np
@@ -442,7 +443,7 @@ We leave you to investigate the [set of available routines](http://docs.scipy.or
 (sp_ex1)=
 ### Exercise 1
 
-Previously we discussed the concept of {ref}`recursive function calls <recursive_functions>`.
+In Chapter 16, we will discuss the concept of {ref}`recursive function calls <recursive_functions>`.
 
 Try to write a recursive implementation of homemade bisection function {ref}`described above <bisect_func>`.
 
