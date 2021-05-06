@@ -39,12 +39,7 @@ jobs:
           branch: master
           name: build-cache
           path: _build
-      # Initial Build of HTML
-      - name: Build HTML
-        shell: bash -l {0}
-        run: |
-          jb build lectures --path-output ./
-      # Build Assets
+      # Build Assets (Download Notebooks and PDF via LaTeX)
       - name: Build Download Notebooks (sphinx-tojupyter)
         shell: bash -l {0}
         run: |
