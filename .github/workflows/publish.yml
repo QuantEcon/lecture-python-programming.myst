@@ -36,12 +36,7 @@ jobs:
       - name: Display Pip Versions
         shell: bash -l {0}
         run: pip list
-      # Initial Build of HTML
-      - name: Build HTML
-        shell: bash -l {0}
-        run: |
-          jb build lectures --path-output ./
-      # Build Assets
+      # Build Assets (Download Notebooks, PDF via LaTeX)
       - name: Build Download Notebooks (sphinx-tojupyter)
         shell: bash -l {0}
         run: |
@@ -54,7 +49,7 @@ jobs:
       - name: Copy Download Notebooks for GH-PAGES
         shell: bash -l {0}
         run: |
-          mkdir _build/html/_notebooks
+          mkdir -p _build/html/_notebooks
           cp -u _build/jupyter/*.ipynb _build/html/_notebooks
       - name: Build PDF from LaTeX
         shell: bash -l {0}
@@ -63,7 +58,7 @@ jobs:
       - name: Copy LaTeX PDF for GH-PAGES
         shell: bash -l {0}
         run: |
-          mkdir _build/html/_pdf
+          mkdir -p _build/html/_pdf
           cp -u _build/latex/*.pdf _build/html/_pdf
       # Final Build of HTML (with assets)
       - name: Build HTML
