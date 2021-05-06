@@ -11,6 +11,10 @@ execute:
 html:
   baseurl: https://python.quantecon.org/
 
+latex:
+  latex_documents:
+     targetname: quantecon-python-programming.tex
+
 sphinx:
   extra_extensions: [sphinx_multitoc_numbering, sphinxext.rediraffe, sphinx_tojupyter]
   config:
@@ -31,9 +35,7 @@ sphinx:
       launch_buttons:
         notebook_interface        : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
         binderhub_url             : https://mybinder.org  # The URL of the BinderHub (e.g., https://mybinder.org)
-        jupyterhub_url            : https://datahub.berkeley.edu  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
         thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
-        colab_url                 : https://colab.research.google.com # The URL of Google Colab (https://colab.research.google.com)
     rediraffe_redirects:
       index_toc.md: intro.md
     tojupyter_static_file_path: ["source/_static", "_static"]
