@@ -6,7 +6,27 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>13. Parallelization &#8212; Python Programming for Economics and Finance</title>
-    <link rel="stylesheet" href="_static/quantecon-book-theme.css" type="text/css" />
+    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/quantecon-book-theme.83e99f0f97a6febd5964ce423257dbec.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -14,8 +34,11 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/quantecon-book-theme.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -23,9 +46,11 @@
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/quantecon-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="_static/plugins.js"></script>
+    <script src="_static/quantecon-book-theme.39dd8269e054ea3ab4e9463b37d610fa.js"></script>
+    <script src="_static/scripts.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -62,9 +87,7 @@
 <meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
 <meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
-
 <meta name="theme-color" content="#ffffff" />
-
 
   </head>
 <body>
@@ -76,7 +99,7 @@
 
         <div class="main">
 
-            <div class="page">
+            <div class="page" id=parallelization>
 
                 <div class="page__toc">
 
@@ -89,84 +112,98 @@
 
 
                         <nav id="bd-toc-nav" class="page__toc-nav">
-
-                            <ul class="nav section-nav flex-column">
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#overview" class="nav-link">Overview</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#types-of-parallelization" class="nav-link">Types of Parallelization</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#multiprocessing" class="nav-link">Multiprocessing</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#multithreading" class="nav-link">Multithreading</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#advantages-and-disadvantages" class="nav-link">Advantages and Disadvantages</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#implicit-multithreading-in-numpy" class="nav-link">Implicit Multithreading in NumPy</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#a-matrix-operation" class="nav-link">A Matrix Operation</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#a-multithreaded-ufunc" class="nav-link">A Multithreaded Ufunc</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#a-comparison-with-numba" class="nav-link">A Comparison with Numba</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#multithreading-a-numba-ufunc" class="nav-link">Multithreading a Numba Ufunc</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#multithreaded-loops-in-numba" class="nav-link">Multithreaded Loops in Numba</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#a-warning" class="nav-link">A Warning</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#exercises" class="nav-link">Exercises</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#exercise-1" class="nav-link">Exercise 1</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#solutions" class="nav-link">Solutions</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#id1" class="nav-link">Exercise 1</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                            </ul>
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   13.1. Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-parallelization">
+   13.2. Types of Parallelization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiprocessing">
+     13.2.1. Multiprocessing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multithreading">
+     13.2.2. Multithreading
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#advantages-and-disadvantages">
+     13.2.3. Advantages and Disadvantages
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#implicit-multithreading-in-numpy">
+   13.3. Implicit Multithreading in NumPy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-matrix-operation">
+     13.3.1. A Matrix Operation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-multithreaded-ufunc">
+     13.3.2. A Multithreaded Ufunc
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-comparison-with-numba">
+     13.3.3. A Comparison with Numba
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multithreading-a-numba-ufunc">
+     13.3.4. Multithreading a Numba Ufunc
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multithreaded-loops-in-numba">
+   13.4. Multithreaded Loops in Numba
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-warning">
+     13.4.1. A Warning
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   13.5. Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-1">
+     13.5.1. Exercise 1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solutions">
+   13.6. Solutions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     13.6.1. Exercise 1
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
 
                             <p class="logo">
                                 
@@ -281,93 +318,8 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
-Solving environment: | 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The environment is inconsistent, please check the package plan carefully
-The following packages are causing the inconsistency:
-
-  - defaults/linux-64::spyder==4.1.5=py38_0
-  - defaults/noarch::ipywidgets==7.5.1=py_1
-  - defaults/noarch::jupyterlab==2.2.6=py_0
-  - defaults/linux-64::anaconda==2020.11=py38_0
-  - defaults/linux-64::widgetsnbextension==3.5.1=py38_0
-  - defaults/linux-64::notebook==6.1.4=py38_0
-  - defaults/noarch::jupyterlab_server==1.2.0=py_0
-  - defaults/linux-64::jupyter==1.0.0=py38_7
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+Solving environment: - 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
@@ -437,300 +389,12 @@ The following packages are causing the inconsistency:
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>## Package Plan ##
-
-  environment location: /usr/share/miniconda3/envs/quantecon
-
-  added / updated specs:
-    - quantecon
-
-
-The following packages will be downloaded:
-
-    package                    |            build
-    ---------------------------|-----------------
-    _anaconda_depends-2020.07  |           py38_0           6 KB
-    anaconda-custom            |           py38_1          35 KB
-    ca-certificates-2021.1.19  |       h06a4308_1         118 KB
-    certifi-2020.12.5          |   py38h06a4308_0         141 KB
-    libllvm9-9.0.1             |       h4a3c616_1        21.0 MB
-    openssl-1.1.1k             |       h27cfd23_0         2.5 MB
-    quantecon-0.4.8            |           py38_0         285 KB
-    snappy-1.1.8               |       he6710b0_0          40 KB
-    ------------------------------------------------------------
-                                           Total:        24.2 MB
-
-The following NEW packages will be INSTALLED:
-
-  _anaconda_depends  pkgs/main/linux-64::_anaconda_depends-2020.07-py38_0
-  libllvm9           pkgs/main/linux-64::libllvm9-9.0.1-h4a3c616_1
-  nbconvert          pkgs/main/linux-64::nbconvert-6.0.7-py38_0
-  quantecon          pkgs/main/linux-64::quantecon-0.4.8-py38_0
-  snappy             pkgs/main/linux-64::snappy-1.1.8-he6710b0_0
-
-The following packages will be UPDATED:
-
-  ca-certificates                              2020.10.14-0 --&gt; 2021.1.19-h06a4308_1
-  certifi            pkgs/main/noarch::certifi-2020.6.20-p~ --&gt; pkgs/main/linux-64::certifi-2020.12.5-py38h06a4308_0
-  openssl                                 1.1.1h-h7b6447c_0 --&gt; 1.1.1k-h27cfd23_0
-
-The following packages will be DOWNGRADED:
-
-  anaconda                                   2020.11-py38_0 --&gt; custom-py38_1
-
-
-
-Downloading and Extracting Packages
-
-libllvm9-9.0.1       | 21.0 MB   |                                       |   0% 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>libllvm9-9.0.1       | 21.0 MB   |                                       |   0% 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>libllvm9-9.0.1       | 21.0 MB   | ##########3                           |  28% 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>libllvm9-9.0.1       | 21.0 MB   | ###################################2  |  95% 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>libllvm9-9.0.1       | 21.0 MB   | ##################################### | 100% 
-
-quantecon-0.4.8      | 285 KB    |                                       |   0% 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>quantecon-0.4.8      | 285 KB    | ##################################### | 100% 
-
-openssl-1.1.1k       | 2.5 MB    |                                       |   0% 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>openssl-1.1.1k       | 2.5 MB    | ##################################### | 100% 
-openssl-1.1.1k       | 2.5 MB    | ##################################### | 100% 
-
-ca-certificates-2021 | 118 KB    |                                       |   0% 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ca-certificates-2021 | 118 KB    | ##################################### | 100% 
-
-snappy-1.1.8         | 40 KB     |                                       |   0% 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>snappy-1.1.8         | 40 KB     | ##################################### | 100% 
-
-certifi-2020.12.5    | 141 KB    |                                       |   0% 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>certifi-2020.12.5    | 141 KB    | ##################################### | 100% 
-
-_anaconda_depends-20 | 6 KB      |                                       |   0% 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_anaconda_depends-20 | 6 KB      | ##################################### | 100% 
-
-anaconda-custom      | 35 KB     |                                       |   0% 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>anaconda-custom      | 35 KB     | ##################################### | 100% 
-Preparing transaction: / 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
-Verifying transaction: \ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
-Executing transaction: | 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># All requested packages already installed.
 </pre></div>
 </div>
 </div>
@@ -862,7 +526,7 @@ out to more and more operations.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>888 ms ± 10.9 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>900 ms ± 16.9 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -905,7 +569,7 @@ create custom <a class="reference internal" href="need_for_speed.html#ufuncs"><s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>482 ms ± 2.46 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>478 ms ± 1.92 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -959,7 +623,7 @@ multithreading?</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>248 ms ± 1.65 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>246 ms ± 771 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -1081,11 +745,11 @@ don’t matter.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6.95 s, sys: 13.5 ms, total: 6.96 s
-Wall time: 6.95 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6.89 s, sys: 18.1 ms, total: 6.91 s
+Wall time: 6.89 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.821519215365059
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8301662131045018
 </pre></div>
 </div>
 </div>
@@ -1120,11 +784,11 @@ Wall time: 6.95 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6.16 s, sys: 0 ns, total: 6.16 s
-Wall time: 3.35 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6.22 s, sys: 4.22 ms, total: 6.22 s
+Wall time: 3.41 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8358049399106022
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.836171817952024
 </pre></div>
 </div>
 </div>
@@ -1191,11 +855,11 @@ tasks to be parallelized are very small relative to total execution time.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 398 ms, sys: 189 µs, total: 399 ms
-Wall time: 389 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 403 ms, sys: 63 µs, total: 403 ms
+Wall time: 393 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.140468
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14372
 </pre></div>
 </div>
 </div>
@@ -1207,11 +871,11 @@ Wall time: 389 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 15.3 ms, sys: 3.66 ms, total: 19 ms
-Wall time: 10.2 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 18.1 ms, sys: 0 ns, total: 18.1 ms
+Wall time: 9.67 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.140484
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.139768
 </pre></div>
 </div>
 </div>
@@ -1279,7 +943,7 @@ on the number of CPUs on your machine.)</p>
   Introduction to Python
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="about_py.html">
    1. About Python
@@ -1321,7 +985,7 @@ on the number of CPUs on your machine.)</p>
   The Scientific Libraries
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="need_for_speed.html">
    8. Python for Scientific Computing
@@ -1347,7 +1011,7 @@ on the number of CPUs on your machine.)</p>
    12. Numba
   </a>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active active">
   <a class="current reference internal" href="#">
    13. Parallelization
   </a>
@@ -1363,7 +1027,7 @@ on the number of CPUs on your machine.)</p>
   Advanced Python Programming
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
    15. Writing Good Code
@@ -1385,7 +1049,7 @@ on the number of CPUs on your machine.)</p>
   Other
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
    18. Troubleshooting
@@ -1430,48 +1094,81 @@ on the number of CPUs on your machine.)</p>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
                     <li data-tippy-content="Download Notebook"><a href="_notebooks/parallelization.ipynb" download><i data-feather="download-cloud"></i></a></li>
-                    <li data-tippy-content="Launch Notebook"><a href="https://mybinder.org/v2/gh/QuantEcon/lecture-python-programming.notebooks/master?urlpath=tree/parallelization.ipynb" target="_blank"><i data-feather="play-circle"></i></a></li>
-                    <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                    <li data-tippy-content="Launch Notebook" id="launchButton"><a href="https://mybinder.org/v2/gh/QuantEcon/lecture-python-programming.notebooks/master?urlpath=tree/parallelization.ipynb" target="_blank"><i data-feather="play-circle"></i></a></li>
+                        <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/tree/master/lectures/parallelization.md" download><i data-feather="github"></i></a></li>
                 </ul>
 
             </div>
 
-
         </div> <!-- .toolbar -->
+        <div id="downloadPDFModal" style="display: none;">
+            <ul class="pdf-options" style="display: block;">
+                <li class="download-pdf-book" onClick="window.print()">
+                    <p>Lecture (PDF)</p>
+                </li>
+                <li class="download-pdf-file">
+                    <a href="_pdf/quantecon-python-programming.pdf" download><p style="color: white;">Book (PDF)</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="settingsModal" style="display: none;">
+            <p class="modal-title">QuantEcon Notebook Launcher</p>
+            <div class="modal-desc">
+            <p>
+                Choose public or private cloud service for "Launch" button.
+            </p>
+            </div>
+            <p class="modal-subtitle">Select a server</p>
+            <ul class="modal-servers">
+            <li class="active launcher-public">
+                <span class="label">Public</span>
+                <select id="launcher-public-input" onchange="onChangeListener()">
+                
+                    <option value="https://mybinder.org/v2/gh/QuantEcon/lecture-python-programming.notebooks/master?urlpath=tree/parallelization.ipynb">BinderHub</option>
+                
+                </select>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            <!-- <li class="launcher-private">
+                <span class="label">Private</span>
+                <input type="text" id="launcher-private-input" onchange="onChangeListener()">
+                <i class="fas fa-check-circle"></i>
+            </li> -->
+            </ul>
+        </div>
 
     </div> <!-- .wrapper-->
-
-<script src="_static/plugins.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<script src="https://unpkg.com/@popperjs/core@2"></script>
-<script src="https://unpkg.com/tippy.js@6"></script>
-
-
-    <script src=[></script>
-
-    <script src=]></script>
-
-<script src="_static/scripts.js"></script>
-<script>
-    feather.replace()
-    tippy('[data-tippy-content]');
-</script>
-
-
-<script>
-    window.ga = function () {
-        ga.q.push(arguments);
-    };
-    ga.q = [];
-    ga.l = +new Date();
-    ga("create", "UA-54984338-9", "auto");
-    ga("set", "anonymizeIp", true);
-    ga("set", "transport", "beacon");
-    ga("send", "pageview");
-</script>
-<script src="https://www.google-analytics.com/analytics.js" async></script>
-
+    <script>
+        // Tooltips
+        tippy('[data-tippy-content]', {
+            touch: false,
+        });
+        feather.replace();
+        window.MathJax = {
+            tex: {
+                inlineMath: [
+                    ['$', '$'],
+                    ['\\(', '\\)'],
+                ],
+                processEscapes: true
+            },
+            chtml: {
+                scale: 0.92,
+                displayAlign: "center"
+            },
+            svg: {
+                scale: 0.92,
+                displayAlign: "center",
+            },
+            options: {
+                menuOptions: {
+                    settings: {
+                        renderer: 'SVG'
+                    }
+                }
+            },
+        };
+    </script>
   </body>
 </html>

@@ -6,7 +6,27 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>11. SciPy &#8212; Python Programming for Economics and Finance</title>
-    <link rel="stylesheet" href="_static/quantecon-book-theme.css" type="text/css" />
+    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/quantecon-book-theme.83e99f0f97a6febd5964ce423257dbec.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -14,8 +34,11 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/quantecon-book-theme.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -23,9 +46,11 @@
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/quantecon-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="_static/plugins.js"></script>
+    <script src="_static/quantecon-book-theme.39dd8269e054ea3ab4e9463b37d610fa.js"></script>
+    <script src="_static/scripts.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -62,9 +87,7 @@
 <meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
 <meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
-
 <meta name="theme-color" content="#ffffff" />
-
 
   </head>
 <body>
@@ -76,7 +99,7 @@
 
         <div class="main">
 
-            <div class="page">
+            <div class="page" id=scipy>
 
                 <div class="page__toc">
 
@@ -89,100 +112,118 @@
 
 
                         <nav id="bd-toc-nav" class="page__toc-nav">
-
-                            <ul class="nav section-nav flex-column">
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#overview" class="nav-link">Overview</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#scipy-versus-numpy" class="nav-link">SciPy versus NumPy</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#statistics" class="nav-link">Statistics</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#random-variables-and-distributions" class="nav-link">Random Variables and Distributions</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#alternative-syntax" class="nav-link">Alternative Syntax</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#other-goodies-in-scipy-stats" class="nav-link">Other Goodies in scipy.stats</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#roots-and-fixed-points" class="nav-link">Roots and Fixed Points</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#bisection" class="nav-link">Bisection</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#the-newton-raphson-method" class="nav-link">The Newton-Raphson Method</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#hybrid-methods" class="nav-link">Hybrid Methods</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#multivariate-root-finding" class="nav-link">Multivariate Root-Finding</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#fixed-points" class="nav-link">Fixed Points</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#optimization" class="nav-link">Optimization</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#multivariate-optimization" class="nav-link">Multivariate Optimization</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#integration" class="nav-link">Integration</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#linear-algebra" class="nav-link">Linear Algebra</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#exercises" class="nav-link">Exercises</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#exercise-1" class="nav-link">Exercise 1</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#solutions" class="nav-link">Solutions</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#id1" class="nav-link">Exercise 1</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                            </ul>
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   11.1. Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scipy-versus-numpy">
+   11.2. SciPy versus NumPy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statistics">
+   11.3. Statistics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#random-variables-and-distributions">
+     11.3.1. Random Variables and Distributions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#alternative-syntax">
+     11.3.2. Alternative Syntax
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-goodies-in-scipy-stats">
+     11.3.3. Other Goodies in scipy.stats
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#roots-and-fixed-points">
+   11.4. Roots and Fixed Points
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bisection">
+     11.4.1. Bisection
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-newton-raphson-method">
+     11.4.2. The Newton-Raphson Method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hybrid-methods">
+     11.4.3. Hybrid Methods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multivariate-root-finding">
+     11.4.4. Multivariate Root-Finding
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fixed-points">
+     11.4.5. Fixed Points
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optimization">
+   11.5. Optimization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multivariate-optimization">
+     11.5.1. Multivariate Optimization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#integration">
+   11.6. Integration
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-algebra">
+   11.7. Linear Algebra
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   11.8. Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-1">
+     11.8.1. Exercise 1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solutions">
+   11.9. Solutions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     11.9.1. Exercise 1
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
 
                             <p class="logo">
                                 
@@ -314,7 +355,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.45031526, 0.38209233, 0.18604703])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.6530081 , 0.55966305, 0.53943219])
 </pre></div>
 </div>
 </div>
@@ -431,7 +472,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.9979791794493247, -0.0007015091835871901)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2.0082412658494406, 0.0015649413884325503)
 </pre></div>
 </div>
 </div>
@@ -607,7 +648,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22.4 µs ± 38.6 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23.7 µs ± 237 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
 </pre></div>
 </div>
 </div>
@@ -619,7 +660,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>86.9 µs ± 164 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>92.3 µs ± 1.41 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
 </pre></div>
 </div>
 </div>
@@ -837,7 +878,7 @@ Current mid point = 0.40826416015625
   Introduction to Python
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="about_py.html">
    1. About Python
@@ -879,7 +920,7 @@ Current mid point = 0.40826416015625
   The Scientific Libraries
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="need_for_speed.html">
    8. Python for Scientific Computing
@@ -895,7 +936,7 @@ Current mid point = 0.40826416015625
    10. Matplotlib
   </a>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active active">
   <a class="current reference internal" href="#">
    11. SciPy
   </a>
@@ -921,7 +962,7 @@ Current mid point = 0.40826416015625
   Advanced Python Programming
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
    15. Writing Good Code
@@ -943,7 +984,7 @@ Current mid point = 0.40826416015625
   Other
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
    18. Troubleshooting
@@ -988,48 +1029,81 @@ Current mid point = 0.40826416015625
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
                     <li data-tippy-content="Download Notebook"><a href="_notebooks/scipy.ipynb" download><i data-feather="download-cloud"></i></a></li>
-                    <li data-tippy-content="Launch Notebook"><a href="https://mybinder.org/v2/gh/QuantEcon/lecture-python-programming.notebooks/master?urlpath=tree/scipy.ipynb" target="_blank"><i data-feather="play-circle"></i></a></li>
-                    <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                    <li data-tippy-content="Launch Notebook" id="launchButton"><a href="https://mybinder.org/v2/gh/QuantEcon/lecture-python-programming.notebooks/master?urlpath=tree/scipy.ipynb" target="_blank"><i data-feather="play-circle"></i></a></li>
+                        <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/tree/master/lectures/scipy.md" download><i data-feather="github"></i></a></li>
                 </ul>
 
             </div>
 
-
         </div> <!-- .toolbar -->
+        <div id="downloadPDFModal" style="display: none;">
+            <ul class="pdf-options" style="display: block;">
+                <li class="download-pdf-book" onClick="window.print()">
+                    <p>Lecture (PDF)</p>
+                </li>
+                <li class="download-pdf-file">
+                    <a href="_pdf/quantecon-python-programming.pdf" download><p style="color: white;">Book (PDF)</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="settingsModal" style="display: none;">
+            <p class="modal-title">QuantEcon Notebook Launcher</p>
+            <div class="modal-desc">
+            <p>
+                Choose public or private cloud service for "Launch" button.
+            </p>
+            </div>
+            <p class="modal-subtitle">Select a server</p>
+            <ul class="modal-servers">
+            <li class="active launcher-public">
+                <span class="label">Public</span>
+                <select id="launcher-public-input" onchange="onChangeListener()">
+                
+                    <option value="https://mybinder.org/v2/gh/QuantEcon/lecture-python-programming.notebooks/master?urlpath=tree/scipy.ipynb">BinderHub</option>
+                
+                </select>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            <!-- <li class="launcher-private">
+                <span class="label">Private</span>
+                <input type="text" id="launcher-private-input" onchange="onChangeListener()">
+                <i class="fas fa-check-circle"></i>
+            </li> -->
+            </ul>
+        </div>
 
     </div> <!-- .wrapper-->
-
-<script src="_static/plugins.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<script src="https://unpkg.com/@popperjs/core@2"></script>
-<script src="https://unpkg.com/tippy.js@6"></script>
-
-
-    <script src=[></script>
-
-    <script src=]></script>
-
-<script src="_static/scripts.js"></script>
-<script>
-    feather.replace()
-    tippy('[data-tippy-content]');
-</script>
-
-
-<script>
-    window.ga = function () {
-        ga.q.push(arguments);
-    };
-    ga.q = [];
-    ga.l = +new Date();
-    ga("create", "UA-54984338-9", "auto");
-    ga("set", "anonymizeIp", true);
-    ga("set", "transport", "beacon");
-    ga("send", "pageview");
-</script>
-<script src="https://www.google-analytics.com/analytics.js" async></script>
-
+    <script>
+        // Tooltips
+        tippy('[data-tippy-content]', {
+            touch: false,
+        });
+        feather.replace();
+        window.MathJax = {
+            tex: {
+                inlineMath: [
+                    ['$', '$'],
+                    ['\\(', '\\)'],
+                ],
+                processEscapes: true
+            },
+            chtml: {
+                scale: 0.92,
+                displayAlign: "center"
+            },
+            svg: {
+                scale: 0.92,
+                displayAlign: "center",
+            },
+            options: {
+                menuOptions: {
+                    settings: {
+                        renderer: 'SVG'
+                    }
+                }
+            },
+        };
+    </script>
   </body>
 </html>

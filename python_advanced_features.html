@@ -6,7 +6,27 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>16. More Language Features &#8212; Python Programming for Economics and Finance</title>
-    <link rel="stylesheet" href="_static/quantecon-book-theme.css" type="text/css" />
+    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/quantecon-book-theme.83e99f0f97a6febd5964ce423257dbec.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -14,8 +34,11 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/quantecon-book-theme.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -23,9 +46,11 @@
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/quantecon-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="_static/plugins.js"></script>
+    <script src="_static/quantecon-book-theme.39dd8269e054ea3ab4e9463b37d610fa.js"></script>
+    <script src="_static/scripts.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -62,9 +87,7 @@
 <meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
 <meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
-
 <meta name="theme-color" content="#ffffff" />
-
 
   </head>
 <body>
@@ -76,7 +99,7 @@
 
         <div class="main">
 
-            <div class="page">
+            <div class="page" id=python_advanced_features>
 
                 <div class="page__toc">
 
@@ -89,208 +112,256 @@
 
 
                         <nav id="bd-toc-nav" class="page__toc-nav">
-
-                            <ul class="nav section-nav flex-column">
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#overview" class="nav-link">Overview</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#iterables-and-iterators" class="nav-link">Iterables and Iterators</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#iterators" class="nav-link">Iterators</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#iterators-in-for-loops" class="nav-link">Iterators in For Loops</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#iterables" class="nav-link">Iterables</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#iterators-and-built-ins" class="nav-link">Iterators and built-ins</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#names-and-name-resolution" class="nav-link">Names and Name Resolution</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#variable-names-in-python" class="nav-link">Variable Names in Python</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#namespaces" class="nav-link">Namespaces</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#viewing-namespaces" class="nav-link">Viewing Namespaces</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#interactive-sessions" class="nav-link">Interactive Sessions</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#the-global-namespace" class="nav-link">The Global Namespace</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#local-namespaces" class="nav-link">Local Namespaces</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#the-builtins-namespace" class="nav-link">The __builtins__ Namespace</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#name-resolution" class="nav-link">Name Resolution</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#mutable-versus-immutable-parameters" class="nav-link">Mutable Versus Immutable Parameters</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#handling-errors" class="nav-link">Handling Errors</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#assertions" class="nav-link">Assertions</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#handling-errors-during-runtime" class="nav-link">Handling Errors During Runtime</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h4">
-                                    <a href="#exceptions" class="nav-link">Exceptions</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h4">
-                                    <a href="#catching-exceptions" class="nav-link">Catching Exceptions</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#decorators-and-descriptors" class="nav-link">Decorators and Descriptors</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#decorators" class="nav-link">Decorators</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h4">
-                                    <a href="#an-example" class="nav-link">An Example</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h4">
-                                    <a href="#enter-decorators" class="nav-link">Enter Decorators</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#descriptors" class="nav-link">Descriptors</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h4">
-                                    <a href="#a-solution" class="nav-link">A Solution</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h4">
-                                    <a href="#how-it-works" class="nav-link">How it Works</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h4">
-                                    <a href="#decorators-and-properties" class="nav-link">Decorators and Properties</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#generators" class="nav-link">Generators</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#generator-expressions" class="nav-link">Generator Expressions</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#generator-functions" class="nav-link">Generator Functions</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h4">
-                                    <a href="#example-1" class="nav-link">Example 1</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h4">
-                                    <a href="#example-2" class="nav-link">Example 2</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#advantages-of-iterators" class="nav-link">Advantages of Iterators</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#recursive-function-calls" class="nav-link">Recursive Function Calls</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#exercises" class="nav-link">Exercises</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#exercise-1" class="nav-link">Exercise 1</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#exercise-2" class="nav-link">Exercise 2</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#exercise-3" class="nav-link">Exercise 3</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#solutions" class="nav-link">Solutions</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#id2" class="nav-link">Exercise 1</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#id3" class="nav-link">Exercise 2</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#id4" class="nav-link">Exercise 3</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                            </ul>
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   16.1. Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iterables-and-iterators">
+   16.2. Iterables and Iterators
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iterators">
+     16.2.1. Iterators
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iterators-in-for-loops">
+     16.2.2. Iterators in For Loops
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iterables">
+     16.2.3. Iterables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iterators-and-built-ins">
+     16.2.4. Iterators and built-ins
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#names-and-name-resolution">
+   16.3. Names and Name Resolution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variable-names-in-python">
+     16.3.1. Variable Names in Python
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#namespaces">
+     16.3.2. Namespaces
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#viewing-namespaces">
+     16.3.3. Viewing Namespaces
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interactive-sessions">
+     16.3.4. Interactive Sessions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-global-namespace">
+     16.3.5. The Global Namespace
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#local-namespaces">
+     16.3.6. Local Namespaces
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-builtins-namespace">
+     16.3.7. The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       __builtins__
+      </span>
+     </code>
+     Namespace
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#name-resolution">
+     16.3.8. Name Resolution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mutable-versus-immutable-parameters">
+     16.3.9. Mutable Versus Immutable Parameters
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#handling-errors">
+   16.4. Handling Errors
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#assertions">
+     16.4.1. Assertions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#handling-errors-during-runtime">
+     16.4.2. Handling Errors During Runtime
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exceptions">
+       16.4.2.1. Exceptions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#catching-exceptions">
+       16.4.2.2. Catching Exceptions
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decorators-and-descriptors">
+   16.5. Decorators and Descriptors
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decorators">
+     16.5.1. Decorators
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#an-example">
+       16.5.1.1. An Example
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#enter-decorators">
+       16.5.1.2. Enter Decorators
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#descriptors">
+     16.5.2. Descriptors
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-solution">
+       16.5.2.1. A Solution
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#how-it-works">
+       16.5.2.2. How it Works
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#decorators-and-properties">
+       16.5.2.3. Decorators and Properties
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generators">
+   16.6. Generators
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generator-expressions">
+     16.6.1. Generator Expressions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generator-functions">
+     16.6.2. Generator Functions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example-1">
+       16.6.2.1. Example 1
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example-2">
+       16.6.2.2. Example 2
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#advantages-of-iterators">
+     16.6.3. Advantages of Iterators
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recursive-function-calls">
+   16.7. Recursive Function Calls
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   16.8. Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-1">
+     16.8.1. Exercise 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-2">
+     16.8.2. Exercise 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-3">
+     16.8.3. Exercise 3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solutions">
+   16.9. Solutions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     16.9.1. Exercise 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     16.9.2. Exercise 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     16.9.3. Exercise 3
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
 
                             <p class="logo">
                                 
@@ -393,7 +464,7 @@ which is written to the present working directory in the following cell</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing us_cities.txt
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting us_cities.txt
 </pre></div>
 </div>
 </div>
@@ -831,7 +902,7 @@ type <code class="docutils literal notranslate"><span class="pre">int</span></co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139947652985584
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139692390163952
 </pre></div>
 </div>
 </div>
@@ -928,7 +999,7 @@ type <code class="docutils literal notranslate"><span class="pre">int</span></co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math&#39;), (&#39;__doc__&#39;, &#39;This module provides access to the mathematical functions\ndefined by the C standard.&#39;), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7f481a5f3250&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math&#39;, loader=&lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7f481a5f3250&gt;, origin=&#39;/usr/share/miniconda3/envs/quantecon/lib/python3.8/lib-dynload/math.cpython-38-x86_64-linux-gnu.so&#39;)), (&#39;acos&#39;, &lt;built-in function acos&gt;), (&#39;acosh&#39;, &lt;built-in function acosh&gt;), (&#39;asin&#39;, &lt;built-in function asin&gt;), (&#39;asinh&#39;, &lt;built-in function asinh&gt;), (&#39;atan&#39;, &lt;built-in function atan&gt;), (&#39;atan2&#39;, &lt;built-in function atan2&gt;), (&#39;atanh&#39;, &lt;built-in function atanh&gt;), (&#39;ceil&#39;, &lt;built-in function ceil&gt;), (&#39;copysign&#39;, &lt;built-in function copysign&gt;), (&#39;cos&#39;, &lt;built-in function cos&gt;), (&#39;cosh&#39;, &lt;built-in function cosh&gt;), (&#39;degrees&#39;, &lt;built-in function degrees&gt;), (&#39;dist&#39;, &lt;built-in function dist&gt;), (&#39;erf&#39;, &lt;built-in function erf&gt;), (&#39;erfc&#39;, &lt;built-in function erfc&gt;), (&#39;exp&#39;, &lt;built-in function exp&gt;), (&#39;expm1&#39;, &lt;built-in function expm1&gt;), (&#39;fabs&#39;, &lt;built-in function fabs&gt;), (&#39;factorial&#39;, &lt;built-in function factorial&gt;), (&#39;floor&#39;, &lt;built-in function floor&gt;), (&#39;fmod&#39;, &lt;built-in function fmod&gt;), (&#39;frexp&#39;, &lt;built-in function frexp&gt;), (&#39;fsum&#39;, &lt;built-in function fsum&gt;), (&#39;gamma&#39;, &lt;built-in function gamma&gt;), (&#39;gcd&#39;, &lt;built-in function gcd&gt;), (&#39;hypot&#39;, &lt;built-in function hypot&gt;), (&#39;isclose&#39;, &lt;built-in function isclose&gt;), (&#39;isfinite&#39;, &lt;built-in function isfinite&gt;), (&#39;isinf&#39;, &lt;built-in function isinf&gt;), (&#39;isnan&#39;, &lt;built-in function isnan&gt;), (&#39;isqrt&#39;, &lt;built-in function isqrt&gt;), (&#39;ldexp&#39;, &lt;built-in function ldexp&gt;), (&#39;lgamma&#39;, &lt;built-in function lgamma&gt;), (&#39;log&#39;, &lt;built-in function log&gt;), (&#39;log1p&#39;, &lt;built-in function log1p&gt;), (&#39;log10&#39;, &lt;built-in function log10&gt;), (&#39;log2&#39;, &lt;built-in function log2&gt;), (&#39;modf&#39;, &lt;built-in function modf&gt;), (&#39;pow&#39;, &lt;built-in function pow&gt;), (&#39;radians&#39;, &lt;built-in function radians&gt;), (&#39;remainder&#39;, &lt;built-in function remainder&gt;), (&#39;sin&#39;, &lt;built-in function sin&gt;), (&#39;sinh&#39;, &lt;built-in function sinh&gt;), (&#39;sqrt&#39;, &lt;built-in function sqrt&gt;), (&#39;tan&#39;, &lt;built-in function tan&gt;), (&#39;tanh&#39;, &lt;built-in function tanh&gt;), (&#39;trunc&#39;, &lt;built-in function trunc&gt;), (&#39;prod&#39;, &lt;built-in function prod&gt;), (&#39;perm&#39;, &lt;built-in function perm&gt;), (&#39;comb&#39;, &lt;built-in function comb&gt;), (&#39;pi&#39;, 3.141592653589793), (&#39;e&#39;, 2.718281828459045), (&#39;tau&#39;, 6.283185307179586), (&#39;inf&#39;, inf), (&#39;nan&#39;, nan), (&#39;__file__&#39;, &#39;/usr/share/miniconda3/envs/quantecon/lib/python3.8/lib-dynload/math.cpython-38-x86_64-linux-gnu.so&#39;)])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math&#39;), (&#39;__doc__&#39;, &#39;This module provides access to the mathematical functions\ndefined by the C standard.&#39;), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7f0cab861250&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math&#39;, loader=&lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7f0cab861250&gt;, origin=&#39;/usr/share/miniconda3/envs/quantecon/lib/python3.8/lib-dynload/math.cpython-38-x86_64-linux-gnu.so&#39;)), (&#39;acos&#39;, &lt;built-in function acos&gt;), (&#39;acosh&#39;, &lt;built-in function acosh&gt;), (&#39;asin&#39;, &lt;built-in function asin&gt;), (&#39;asinh&#39;, &lt;built-in function asinh&gt;), (&#39;atan&#39;, &lt;built-in function atan&gt;), (&#39;atan2&#39;, &lt;built-in function atan2&gt;), (&#39;atanh&#39;, &lt;built-in function atanh&gt;), (&#39;ceil&#39;, &lt;built-in function ceil&gt;), (&#39;copysign&#39;, &lt;built-in function copysign&gt;), (&#39;cos&#39;, &lt;built-in function cos&gt;), (&#39;cosh&#39;, &lt;built-in function cosh&gt;), (&#39;degrees&#39;, &lt;built-in function degrees&gt;), (&#39;dist&#39;, &lt;built-in function dist&gt;), (&#39;erf&#39;, &lt;built-in function erf&gt;), (&#39;erfc&#39;, &lt;built-in function erfc&gt;), (&#39;exp&#39;, &lt;built-in function exp&gt;), (&#39;expm1&#39;, &lt;built-in function expm1&gt;), (&#39;fabs&#39;, &lt;built-in function fabs&gt;), (&#39;factorial&#39;, &lt;built-in function factorial&gt;), (&#39;floor&#39;, &lt;built-in function floor&gt;), (&#39;fmod&#39;, &lt;built-in function fmod&gt;), (&#39;frexp&#39;, &lt;built-in function frexp&gt;), (&#39;fsum&#39;, &lt;built-in function fsum&gt;), (&#39;gamma&#39;, &lt;built-in function gamma&gt;), (&#39;gcd&#39;, &lt;built-in function gcd&gt;), (&#39;hypot&#39;, &lt;built-in function hypot&gt;), (&#39;isclose&#39;, &lt;built-in function isclose&gt;), (&#39;isfinite&#39;, &lt;built-in function isfinite&gt;), (&#39;isinf&#39;, &lt;built-in function isinf&gt;), (&#39;isnan&#39;, &lt;built-in function isnan&gt;), (&#39;isqrt&#39;, &lt;built-in function isqrt&gt;), (&#39;ldexp&#39;, &lt;built-in function ldexp&gt;), (&#39;lgamma&#39;, &lt;built-in function lgamma&gt;), (&#39;log&#39;, &lt;built-in function log&gt;), (&#39;log1p&#39;, &lt;built-in function log1p&gt;), (&#39;log10&#39;, &lt;built-in function log10&gt;), (&#39;log2&#39;, &lt;built-in function log2&gt;), (&#39;modf&#39;, &lt;built-in function modf&gt;), (&#39;pow&#39;, &lt;built-in function pow&gt;), (&#39;radians&#39;, &lt;built-in function radians&gt;), (&#39;remainder&#39;, &lt;built-in function remainder&gt;), (&#39;sin&#39;, &lt;built-in function sin&gt;), (&#39;sinh&#39;, &lt;built-in function sinh&gt;), (&#39;sqrt&#39;, &lt;built-in function sqrt&gt;), (&#39;tan&#39;, &lt;built-in function tan&gt;), (&#39;tanh&#39;, &lt;built-in function tanh&gt;), (&#39;trunc&#39;, &lt;built-in function trunc&gt;), (&#39;prod&#39;, &lt;built-in function prod&gt;), (&#39;perm&#39;, &lt;built-in function perm&gt;), (&#39;comb&#39;, &lt;built-in function comb&gt;), (&#39;pi&#39;, 3.141592653589793), (&#39;e&#39;, 2.718281828459045), (&#39;tau&#39;, 6.283185307179586), (&#39;inf&#39;, inf), (&#39;nan&#39;, nan), (&#39;__file__&#39;, &#39;/usr/share/miniconda3/envs/quantecon/lib/python3.8/lib-dynload/math.cpython-38-x86_64-linux-gnu.so&#39;)])
 </pre></div>
 </div>
 </div>
@@ -942,7 +1013,7 @@ type <code class="docutils literal notranslate"><span class="pre">int</span></co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math2&#39;), (&#39;__doc__&#39;, None), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.SourceFileLoader object at 0x7f4814cd3ac0&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math2&#39;, loader=&lt;_frozen_importlib_external.SourceFileLoader object at 0x7f4814cd3ac0&gt;, origin=&#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures/math2.py&#39;)), (&#39;__file__&#39;, &#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures/math2.py&#39;), (&#39;__cached__&#39;, &#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures/__pycache__/math2.cpython-38.pyc&#39;), (&#39;__builtins__&#39;, {&#39;__name__&#39;: &#39;builtins&#39;, &#39;__doc__&#39;: &quot;Built-in functions, exceptions, and other objects.\n\nNoteworthy: None is the `nil&#39; object; Ellipsis represents `...&#39; in slices.&quot;, &#39;__package__&#39;: &#39;&#39;, &#39;__loader__&#39;: &lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;, &#39;__spec__&#39;: ModuleSpec(name=&#39;builtins&#39;, loader=&lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;), &#39;__build_class__&#39;: &lt;built-in function __build_class__&gt;, &#39;__import__&#39;: &lt;built-in function __import__&gt;, &#39;abs&#39;: &lt;built-in function abs&gt;, &#39;all&#39;: &lt;built-in function all&gt;, &#39;any&#39;: &lt;built-in function any&gt;, &#39;ascii&#39;: &lt;built-in function ascii&gt;, &#39;bin&#39;: &lt;built-in function bin&gt;, &#39;breakpoint&#39;: &lt;built-in function breakpoint&gt;, &#39;callable&#39;: &lt;built-in function callable&gt;, &#39;chr&#39;: &lt;built-in function chr&gt;, &#39;compile&#39;: &lt;built-in function compile&gt;, &#39;delattr&#39;: &lt;built-in function delattr&gt;, &#39;dir&#39;: &lt;built-in function dir&gt;, &#39;divmod&#39;: &lt;built-in function divmod&gt;, &#39;eval&#39;: &lt;built-in function eval&gt;, &#39;exec&#39;: &lt;built-in function exec&gt;, &#39;format&#39;: &lt;built-in function format&gt;, &#39;getattr&#39;: &lt;built-in function getattr&gt;, &#39;globals&#39;: &lt;built-in function globals&gt;, &#39;hasattr&#39;: &lt;built-in function hasattr&gt;, &#39;hash&#39;: &lt;built-in function hash&gt;, &#39;hex&#39;: &lt;built-in function hex&gt;, &#39;id&#39;: &lt;built-in function id&gt;, &#39;input&#39;: &lt;bound method Kernel.raw_input of &lt;ipykernel.ipkernel.IPythonKernel object at 0x7f48185e3e80&gt;&gt;, &#39;isinstance&#39;: &lt;built-in function isinstance&gt;, &#39;issubclass&#39;: &lt;built-in function issubclass&gt;, &#39;iter&#39;: &lt;built-in function iter&gt;, &#39;len&#39;: &lt;built-in function len&gt;, &#39;locals&#39;: &lt;built-in function locals&gt;, &#39;max&#39;: &lt;built-in function max&gt;, &#39;min&#39;: &lt;built-in function min&gt;, &#39;next&#39;: &lt;built-in function next&gt;, &#39;oct&#39;: &lt;built-in function oct&gt;, &#39;ord&#39;: &lt;built-in function ord&gt;, &#39;pow&#39;: &lt;built-in function pow&gt;, &#39;print&#39;: &lt;built-in function print&gt;, &#39;repr&#39;: &lt;built-in function repr&gt;, &#39;round&#39;: &lt;built-in function round&gt;, &#39;setattr&#39;: &lt;built-in function setattr&gt;, &#39;sorted&#39;: &lt;built-in function sorted&gt;, &#39;sum&#39;: &lt;built-in function sum&gt;, &#39;vars&#39;: &lt;built-in function vars&gt;, &#39;None&#39;: None, &#39;Ellipsis&#39;: Ellipsis, &#39;NotImplemented&#39;: NotImplemented, &#39;False&#39;: False, &#39;True&#39;: True, &#39;bool&#39;: &lt;class &#39;bool&#39;&gt;, &#39;memoryview&#39;: &lt;class &#39;memoryview&#39;&gt;, &#39;bytearray&#39;: &lt;class &#39;bytearray&#39;&gt;, &#39;bytes&#39;: &lt;class &#39;bytes&#39;&gt;, &#39;classmethod&#39;: &lt;class &#39;classmethod&#39;&gt;, &#39;complex&#39;: &lt;class &#39;complex&#39;&gt;, &#39;dict&#39;: &lt;class &#39;dict&#39;&gt;, &#39;enumerate&#39;: &lt;class &#39;enumerate&#39;&gt;, &#39;filter&#39;: &lt;class &#39;filter&#39;&gt;, &#39;float&#39;: &lt;class &#39;float&#39;&gt;, &#39;frozenset&#39;: &lt;class &#39;frozenset&#39;&gt;, &#39;property&#39;: &lt;class &#39;property&#39;&gt;, &#39;int&#39;: &lt;class &#39;int&#39;&gt;, &#39;list&#39;: &lt;class &#39;list&#39;&gt;, &#39;map&#39;: &lt;class &#39;map&#39;&gt;, &#39;object&#39;: &lt;class &#39;object&#39;&gt;, &#39;range&#39;: &lt;class &#39;range&#39;&gt;, &#39;reversed&#39;: &lt;class &#39;reversed&#39;&gt;, &#39;set&#39;: &lt;class &#39;set&#39;&gt;, &#39;slice&#39;: &lt;class &#39;slice&#39;&gt;, &#39;staticmethod&#39;: &lt;class &#39;staticmethod&#39;&gt;, &#39;str&#39;: &lt;class &#39;str&#39;&gt;, &#39;super&#39;: &lt;class &#39;super&#39;&gt;, &#39;tuple&#39;: &lt;class &#39;tuple&#39;&gt;, &#39;type&#39;: &lt;class &#39;type&#39;&gt;, &#39;zip&#39;: &lt;class &#39;zip&#39;&gt;, &#39;__debug__&#39;: True, &#39;BaseException&#39;: &lt;class &#39;BaseException&#39;&gt;, &#39;Exception&#39;: &lt;class &#39;Exception&#39;&gt;, &#39;TypeError&#39;: &lt;class &#39;TypeError&#39;&gt;, &#39;StopAsyncIteration&#39;: &lt;class &#39;StopAsyncIteration&#39;&gt;, &#39;StopIteration&#39;: &lt;class &#39;StopIteration&#39;&gt;, &#39;GeneratorExit&#39;: &lt;class &#39;GeneratorExit&#39;&gt;, &#39;SystemExit&#39;: &lt;class &#39;SystemExit&#39;&gt;, &#39;KeyboardInterrupt&#39;: &lt;class &#39;KeyboardInterrupt&#39;&gt;, &#39;ImportError&#39;: &lt;class &#39;ImportError&#39;&gt;, &#39;ModuleNotFoundError&#39;: &lt;class &#39;ModuleNotFoundError&#39;&gt;, &#39;OSError&#39;: &lt;class &#39;OSError&#39;&gt;, &#39;EnvironmentError&#39;: &lt;class &#39;OSError&#39;&gt;, &#39;IOError&#39;: &lt;class &#39;OSError&#39;&gt;, &#39;EOFError&#39;: &lt;class &#39;EOFError&#39;&gt;, &#39;RuntimeError&#39;: &lt;class &#39;RuntimeError&#39;&gt;, &#39;RecursionError&#39;: &lt;class &#39;RecursionError&#39;&gt;, &#39;NotImplementedError&#39;: &lt;class &#39;NotImplementedError&#39;&gt;, &#39;NameError&#39;: &lt;class &#39;NameError&#39;&gt;, &#39;UnboundLocalError&#39;: &lt;class &#39;UnboundLocalError&#39;&gt;, &#39;AttributeError&#39;: &lt;class &#39;AttributeError&#39;&gt;, &#39;SyntaxError&#39;: &lt;class &#39;SyntaxError&#39;&gt;, &#39;IndentationError&#39;: &lt;class &#39;IndentationError&#39;&gt;, &#39;TabError&#39;: &lt;class &#39;TabError&#39;&gt;, &#39;LookupError&#39;: &lt;class &#39;LookupError&#39;&gt;, &#39;IndexError&#39;: &lt;class &#39;IndexError&#39;&gt;, &#39;KeyError&#39;: &lt;class &#39;KeyError&#39;&gt;, &#39;ValueError&#39;: &lt;class &#39;ValueError&#39;&gt;, &#39;UnicodeError&#39;: &lt;class &#39;UnicodeError&#39;&gt;, &#39;UnicodeEncodeError&#39;: &lt;class &#39;UnicodeEncodeError&#39;&gt;, &#39;UnicodeDecodeError&#39;: &lt;class &#39;UnicodeDecodeError&#39;&gt;, &#39;UnicodeTranslateError&#39;: &lt;class &#39;UnicodeTranslateError&#39;&gt;, &#39;AssertionError&#39;: &lt;class &#39;AssertionError&#39;&gt;, &#39;ArithmeticError&#39;: &lt;class &#39;ArithmeticError&#39;&gt;, &#39;FloatingPointError&#39;: &lt;class &#39;FloatingPointError&#39;&gt;, &#39;OverflowError&#39;: &lt;class &#39;OverflowError&#39;&gt;, &#39;ZeroDivisionError&#39;: &lt;class &#39;ZeroDivisionError&#39;&gt;, &#39;SystemError&#39;: &lt;class &#39;SystemError&#39;&gt;, &#39;ReferenceError&#39;: &lt;class &#39;ReferenceError&#39;&gt;, &#39;MemoryError&#39;: &lt;class &#39;MemoryError&#39;&gt;, &#39;BufferError&#39;: &lt;class &#39;BufferError&#39;&gt;, &#39;Warning&#39;: &lt;class &#39;Warning&#39;&gt;, &#39;UserWarning&#39;: &lt;class &#39;UserWarning&#39;&gt;, &#39;DeprecationWarning&#39;: &lt;class &#39;DeprecationWarning&#39;&gt;, &#39;PendingDeprecationWarning&#39;: &lt;class &#39;PendingDeprecationWarning&#39;&gt;, &#39;SyntaxWarning&#39;: &lt;class &#39;SyntaxWarning&#39;&gt;, &#39;RuntimeWarning&#39;: &lt;class &#39;RuntimeWarning&#39;&gt;, &#39;FutureWarning&#39;: &lt;class &#39;FutureWarning&#39;&gt;, &#39;ImportWarning&#39;: &lt;class &#39;ImportWarning&#39;&gt;, &#39;UnicodeWarning&#39;: &lt;class &#39;UnicodeWarning&#39;&gt;, &#39;BytesWarning&#39;: &lt;class &#39;BytesWarning&#39;&gt;, &#39;ResourceWarning&#39;: &lt;class &#39;ResourceWarning&#39;&gt;, &#39;ConnectionError&#39;: &lt;class &#39;ConnectionError&#39;&gt;, &#39;BlockingIOError&#39;: &lt;class &#39;BlockingIOError&#39;&gt;, &#39;BrokenPipeError&#39;: &lt;class &#39;BrokenPipeError&#39;&gt;, &#39;ChildProcessError&#39;: &lt;class &#39;ChildProcessError&#39;&gt;, &#39;ConnectionAbortedError&#39;: &lt;class &#39;ConnectionAbortedError&#39;&gt;, &#39;ConnectionRefusedError&#39;: &lt;class &#39;ConnectionRefusedError&#39;&gt;, &#39;ConnectionResetError&#39;: &lt;class &#39;ConnectionResetError&#39;&gt;, &#39;FileExistsError&#39;: &lt;class &#39;FileExistsError&#39;&gt;, &#39;FileNotFoundError&#39;: &lt;class &#39;FileNotFoundError&#39;&gt;, &#39;IsADirectoryError&#39;: &lt;class &#39;IsADirectoryError&#39;&gt;, &#39;NotADirectoryError&#39;: &lt;class &#39;NotADirectoryError&#39;&gt;, &#39;InterruptedError&#39;: &lt;class &#39;InterruptedError&#39;&gt;, &#39;PermissionError&#39;: &lt;class &#39;PermissionError&#39;&gt;, &#39;ProcessLookupError&#39;: &lt;class &#39;ProcessLookupError&#39;&gt;, &#39;TimeoutError&#39;: &lt;class &#39;TimeoutError&#39;&gt;, &#39;open&#39;: &lt;built-in function open&gt;, &#39;copyright&#39;: Copyright (c) 2001-2020 Python Software Foundation.
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math2&#39;), (&#39;__doc__&#39;, None), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.SourceFileLoader object at 0x7f0ca876d700&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math2&#39;, loader=&lt;_frozen_importlib_external.SourceFileLoader object at 0x7f0ca876d700&gt;, origin=&#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures/math2.py&#39;)), (&#39;__file__&#39;, &#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures/math2.py&#39;), (&#39;__cached__&#39;, &#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures/__pycache__/math2.cpython-38.pyc&#39;), (&#39;__builtins__&#39;, {&#39;__name__&#39;: &#39;builtins&#39;, &#39;__doc__&#39;: &quot;Built-in functions, exceptions, and other objects.\n\nNoteworthy: None is the `nil&#39; object; Ellipsis represents `...&#39; in slices.&quot;, &#39;__package__&#39;: &#39;&#39;, &#39;__loader__&#39;: &lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;, &#39;__spec__&#39;: ModuleSpec(name=&#39;builtins&#39;, loader=&lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;), &#39;__build_class__&#39;: &lt;built-in function __build_class__&gt;, &#39;__import__&#39;: &lt;built-in function __import__&gt;, &#39;abs&#39;: &lt;built-in function abs&gt;, &#39;all&#39;: &lt;built-in function all&gt;, &#39;any&#39;: &lt;built-in function any&gt;, &#39;ascii&#39;: &lt;built-in function ascii&gt;, &#39;bin&#39;: &lt;built-in function bin&gt;, &#39;breakpoint&#39;: &lt;built-in function breakpoint&gt;, &#39;callable&#39;: &lt;built-in function callable&gt;, &#39;chr&#39;: &lt;built-in function chr&gt;, &#39;compile&#39;: &lt;built-in function compile&gt;, &#39;delattr&#39;: &lt;built-in function delattr&gt;, &#39;dir&#39;: &lt;built-in function dir&gt;, &#39;divmod&#39;: &lt;built-in function divmod&gt;, &#39;eval&#39;: &lt;built-in function eval&gt;, &#39;exec&#39;: &lt;built-in function exec&gt;, &#39;format&#39;: &lt;built-in function format&gt;, &#39;getattr&#39;: &lt;built-in function getattr&gt;, &#39;globals&#39;: &lt;built-in function globals&gt;, &#39;hasattr&#39;: &lt;built-in function hasattr&gt;, &#39;hash&#39;: &lt;built-in function hash&gt;, &#39;hex&#39;: &lt;built-in function hex&gt;, &#39;id&#39;: &lt;built-in function id&gt;, &#39;input&#39;: &lt;bound method Kernel.raw_input of &lt;ipykernel.ipkernel.IPythonKernel object at 0x7f0ca9847dc0&gt;&gt;, &#39;isinstance&#39;: &lt;built-in function isinstance&gt;, &#39;issubclass&#39;: &lt;built-in function issubclass&gt;, &#39;iter&#39;: &lt;built-in function iter&gt;, &#39;len&#39;: &lt;built-in function len&gt;, &#39;locals&#39;: &lt;built-in function locals&gt;, &#39;max&#39;: &lt;built-in function max&gt;, &#39;min&#39;: &lt;built-in function min&gt;, &#39;next&#39;: &lt;built-in function next&gt;, &#39;oct&#39;: &lt;built-in function oct&gt;, &#39;ord&#39;: &lt;built-in function ord&gt;, &#39;pow&#39;: &lt;built-in function pow&gt;, &#39;print&#39;: &lt;built-in function print&gt;, &#39;repr&#39;: &lt;built-in function repr&gt;, &#39;round&#39;: &lt;built-in function round&gt;, &#39;setattr&#39;: &lt;built-in function setattr&gt;, &#39;sorted&#39;: &lt;built-in function sorted&gt;, &#39;sum&#39;: &lt;built-in function sum&gt;, &#39;vars&#39;: &lt;built-in function vars&gt;, &#39;None&#39;: None, &#39;Ellipsis&#39;: Ellipsis, &#39;NotImplemented&#39;: NotImplemented, &#39;False&#39;: False, &#39;True&#39;: True, &#39;bool&#39;: &lt;class &#39;bool&#39;&gt;, &#39;memoryview&#39;: &lt;class &#39;memoryview&#39;&gt;, &#39;bytearray&#39;: &lt;class &#39;bytearray&#39;&gt;, &#39;bytes&#39;: &lt;class &#39;bytes&#39;&gt;, &#39;classmethod&#39;: &lt;class &#39;classmethod&#39;&gt;, &#39;complex&#39;: &lt;class &#39;complex&#39;&gt;, &#39;dict&#39;: &lt;class &#39;dict&#39;&gt;, &#39;enumerate&#39;: &lt;class &#39;enumerate&#39;&gt;, &#39;filter&#39;: &lt;class &#39;filter&#39;&gt;, &#39;float&#39;: &lt;class &#39;float&#39;&gt;, &#39;frozenset&#39;: &lt;class &#39;frozenset&#39;&gt;, &#39;property&#39;: &lt;class &#39;property&#39;&gt;, &#39;int&#39;: &lt;class &#39;int&#39;&gt;, &#39;list&#39;: &lt;class &#39;list&#39;&gt;, &#39;map&#39;: &lt;class &#39;map&#39;&gt;, &#39;object&#39;: &lt;class &#39;object&#39;&gt;, &#39;range&#39;: &lt;class &#39;range&#39;&gt;, &#39;reversed&#39;: &lt;class &#39;reversed&#39;&gt;, &#39;set&#39;: &lt;class &#39;set&#39;&gt;, &#39;slice&#39;: &lt;class &#39;slice&#39;&gt;, &#39;staticmethod&#39;: &lt;class &#39;staticmethod&#39;&gt;, &#39;str&#39;: &lt;class &#39;str&#39;&gt;, &#39;super&#39;: &lt;class &#39;super&#39;&gt;, &#39;tuple&#39;: &lt;class &#39;tuple&#39;&gt;, &#39;type&#39;: &lt;class &#39;type&#39;&gt;, &#39;zip&#39;: &lt;class &#39;zip&#39;&gt;, &#39;__debug__&#39;: True, &#39;BaseException&#39;: &lt;class &#39;BaseException&#39;&gt;, &#39;Exception&#39;: &lt;class &#39;Exception&#39;&gt;, &#39;TypeError&#39;: &lt;class &#39;TypeError&#39;&gt;, &#39;StopAsyncIteration&#39;: &lt;class &#39;StopAsyncIteration&#39;&gt;, &#39;StopIteration&#39;: &lt;class &#39;StopIteration&#39;&gt;, &#39;GeneratorExit&#39;: &lt;class &#39;GeneratorExit&#39;&gt;, &#39;SystemExit&#39;: &lt;class &#39;SystemExit&#39;&gt;, &#39;KeyboardInterrupt&#39;: &lt;class &#39;KeyboardInterrupt&#39;&gt;, &#39;ImportError&#39;: &lt;class &#39;ImportError&#39;&gt;, &#39;ModuleNotFoundError&#39;: &lt;class &#39;ModuleNotFoundError&#39;&gt;, &#39;OSError&#39;: &lt;class &#39;OSError&#39;&gt;, &#39;EnvironmentError&#39;: &lt;class &#39;OSError&#39;&gt;, &#39;IOError&#39;: &lt;class &#39;OSError&#39;&gt;, &#39;EOFError&#39;: &lt;class &#39;EOFError&#39;&gt;, &#39;RuntimeError&#39;: &lt;class &#39;RuntimeError&#39;&gt;, &#39;RecursionError&#39;: &lt;class &#39;RecursionError&#39;&gt;, &#39;NotImplementedError&#39;: &lt;class &#39;NotImplementedError&#39;&gt;, &#39;NameError&#39;: &lt;class &#39;NameError&#39;&gt;, &#39;UnboundLocalError&#39;: &lt;class &#39;UnboundLocalError&#39;&gt;, &#39;AttributeError&#39;: &lt;class &#39;AttributeError&#39;&gt;, &#39;SyntaxError&#39;: &lt;class &#39;SyntaxError&#39;&gt;, &#39;IndentationError&#39;: &lt;class &#39;IndentationError&#39;&gt;, &#39;TabError&#39;: &lt;class &#39;TabError&#39;&gt;, &#39;LookupError&#39;: &lt;class &#39;LookupError&#39;&gt;, &#39;IndexError&#39;: &lt;class &#39;IndexError&#39;&gt;, &#39;KeyError&#39;: &lt;class &#39;KeyError&#39;&gt;, &#39;ValueError&#39;: &lt;class &#39;ValueError&#39;&gt;, &#39;UnicodeError&#39;: &lt;class &#39;UnicodeError&#39;&gt;, &#39;UnicodeEncodeError&#39;: &lt;class &#39;UnicodeEncodeError&#39;&gt;, &#39;UnicodeDecodeError&#39;: &lt;class &#39;UnicodeDecodeError&#39;&gt;, &#39;UnicodeTranslateError&#39;: &lt;class &#39;UnicodeTranslateError&#39;&gt;, &#39;AssertionError&#39;: &lt;class &#39;AssertionError&#39;&gt;, &#39;ArithmeticError&#39;: &lt;class &#39;ArithmeticError&#39;&gt;, &#39;FloatingPointError&#39;: &lt;class &#39;FloatingPointError&#39;&gt;, &#39;OverflowError&#39;: &lt;class &#39;OverflowError&#39;&gt;, &#39;ZeroDivisionError&#39;: &lt;class &#39;ZeroDivisionError&#39;&gt;, &#39;SystemError&#39;: &lt;class &#39;SystemError&#39;&gt;, &#39;ReferenceError&#39;: &lt;class &#39;ReferenceError&#39;&gt;, &#39;MemoryError&#39;: &lt;class &#39;MemoryError&#39;&gt;, &#39;BufferError&#39;: &lt;class &#39;BufferError&#39;&gt;, &#39;Warning&#39;: &lt;class &#39;Warning&#39;&gt;, &#39;UserWarning&#39;: &lt;class &#39;UserWarning&#39;&gt;, &#39;DeprecationWarning&#39;: &lt;class &#39;DeprecationWarning&#39;&gt;, &#39;PendingDeprecationWarning&#39;: &lt;class &#39;PendingDeprecationWarning&#39;&gt;, &#39;SyntaxWarning&#39;: &lt;class &#39;SyntaxWarning&#39;&gt;, &#39;RuntimeWarning&#39;: &lt;class &#39;RuntimeWarning&#39;&gt;, &#39;FutureWarning&#39;: &lt;class &#39;FutureWarning&#39;&gt;, &#39;ImportWarning&#39;: &lt;class &#39;ImportWarning&#39;&gt;, &#39;UnicodeWarning&#39;: &lt;class &#39;UnicodeWarning&#39;&gt;, &#39;BytesWarning&#39;: &lt;class &#39;BytesWarning&#39;&gt;, &#39;ResourceWarning&#39;: &lt;class &#39;ResourceWarning&#39;&gt;, &#39;ConnectionError&#39;: &lt;class &#39;ConnectionError&#39;&gt;, &#39;BlockingIOError&#39;: &lt;class &#39;BlockingIOError&#39;&gt;, &#39;BrokenPipeError&#39;: &lt;class &#39;BrokenPipeError&#39;&gt;, &#39;ChildProcessError&#39;: &lt;class &#39;ChildProcessError&#39;&gt;, &#39;ConnectionAbortedError&#39;: &lt;class &#39;ConnectionAbortedError&#39;&gt;, &#39;ConnectionRefusedError&#39;: &lt;class &#39;ConnectionRefusedError&#39;&gt;, &#39;ConnectionResetError&#39;: &lt;class &#39;ConnectionResetError&#39;&gt;, &#39;FileExistsError&#39;: &lt;class &#39;FileExistsError&#39;&gt;, &#39;FileNotFoundError&#39;: &lt;class &#39;FileNotFoundError&#39;&gt;, &#39;IsADirectoryError&#39;: &lt;class &#39;IsADirectoryError&#39;&gt;, &#39;NotADirectoryError&#39;: &lt;class &#39;NotADirectoryError&#39;&gt;, &#39;InterruptedError&#39;: &lt;class &#39;InterruptedError&#39;&gt;, &#39;PermissionError&#39;: &lt;class &#39;PermissionError&#39;&gt;, &#39;ProcessLookupError&#39;: &lt;class &#39;ProcessLookupError&#39;&gt;, &#39;TimeoutError&#39;: &lt;class &#39;TimeoutError&#39;&gt;, &#39;open&#39;: &lt;built-in function open&gt;, &#39;copyright&#39;: Copyright (c) 2001-2020 Python Software Foundation.
 All Rights Reserved.
 
 Copyright (c) 2000 BeOpen.com.
@@ -953,7 +1024,7 @@ All Rights Reserved.
 
 Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.
 All Rights Reserved., &#39;credits&#39;:     Thanks to CWI, CNRI, BeOpen.com, Zope Corporation and a cast of thousands
-    for supporting Python development.  See www.python.org for more information., &#39;license&#39;: Type license() to see the full license text, &#39;help&#39;: Type help() for interactive help, or help(object) for help about object., &#39;__IPYTHON__&#39;: True, &#39;display&#39;: &lt;function display at 0x7f4819d38ca0&gt;, &#39;get_ipython&#39;: &lt;bound method InteractiveShell.get_ipython of &lt;ipykernel.zmqshell.ZMQInteractiveShell object at 0x7f48185a1640&gt;&gt;}), (&#39;pi&#39;, &#39;foobar&#39;)])
+    for supporting Python development.  See www.python.org for more information., &#39;license&#39;: Type license() to see the full license text, &#39;help&#39;: Type help() for interactive help, or help(object) for help about object., &#39;__IPYTHON__&#39;: True, &#39;display&#39;: &lt;function display at 0x7f0caaf9fca0&gt;, &#39;get_ipython&#39;: &lt;bound method InteractiveShell.get_ipython of &lt;ipykernel.zmqshell.ZMQInteractiveShell object at 0x7f0ca9847df0&gt;&gt;}), (&#39;pi&#39;, &#39;foobar&#39;)])
 </pre></div>
 </div>
 </div>
@@ -996,7 +1067,7 @@ All Rights Reserved., &#39;credits&#39;:     Thanks to CWI, CNRI, BeOpen.com, Zo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math&#39;), (&#39;__doc__&#39;, &#39;This module provides access to the mathematical functions\ndefined by the C standard.&#39;), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7f481a5f3250&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math&#39;, loader=&lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7f481a5f3250&gt;, origin=&#39;/usr/share/miniconda3/envs/quantecon/lib/python3.8/lib-dynload/math.cpython-38-x86_64-linux-gnu.so&#39;)), (&#39;acos&#39;, &lt;built-in function acos&gt;), (&#39;acosh&#39;, &lt;built-in function acosh&gt;), (&#39;asin&#39;, &lt;built-in function asin&gt;), (&#39;asinh&#39;, &lt;built-in function asinh&gt;), (&#39;atan&#39;, &lt;built-in function atan&gt;), (&#39;atan2&#39;, &lt;built-in function atan2&gt;), (&#39;atanh&#39;, &lt;built-in function atanh&gt;), (&#39;ceil&#39;, &lt;built-in function ceil&gt;), (&#39;copysign&#39;, &lt;built-in function copysign&gt;), (&#39;cos&#39;, &lt;built-in function cos&gt;), (&#39;cosh&#39;, &lt;built-in function cosh&gt;), (&#39;degrees&#39;, &lt;built-in function degrees&gt;), (&#39;dist&#39;, &lt;built-in function dist&gt;), (&#39;erf&#39;, &lt;built-in function erf&gt;), (&#39;erfc&#39;, &lt;built-in function erfc&gt;), (&#39;exp&#39;, &lt;built-in function exp&gt;), (&#39;expm1&#39;, &lt;built-in function expm1&gt;), (&#39;fabs&#39;, &lt;built-in function fabs&gt;), (&#39;factorial&#39;, &lt;built-in function factorial&gt;), (&#39;floor&#39;, &lt;built-in function floor&gt;), (&#39;fmod&#39;, &lt;built-in function fmod&gt;), (&#39;frexp&#39;, &lt;built-in function frexp&gt;), (&#39;fsum&#39;, &lt;built-in function fsum&gt;), (&#39;gamma&#39;, &lt;built-in function gamma&gt;), (&#39;gcd&#39;, &lt;built-in function gcd&gt;), (&#39;hypot&#39;, &lt;built-in function hypot&gt;), (&#39;isclose&#39;, &lt;built-in function isclose&gt;), (&#39;isfinite&#39;, &lt;built-in function isfinite&gt;), (&#39;isinf&#39;, &lt;built-in function isinf&gt;), (&#39;isnan&#39;, &lt;built-in function isnan&gt;), (&#39;isqrt&#39;, &lt;built-in function isqrt&gt;), (&#39;ldexp&#39;, &lt;built-in function ldexp&gt;), (&#39;lgamma&#39;, &lt;built-in function lgamma&gt;), (&#39;log&#39;, &lt;built-in function log&gt;), (&#39;log1p&#39;, &lt;built-in function log1p&gt;), (&#39;log10&#39;, &lt;built-in function log10&gt;), (&#39;log2&#39;, &lt;built-in function log2&gt;), (&#39;modf&#39;, &lt;built-in function modf&gt;), (&#39;pow&#39;, &lt;built-in function pow&gt;), (&#39;radians&#39;, &lt;built-in function radians&gt;), (&#39;remainder&#39;, &lt;built-in function remainder&gt;), (&#39;sin&#39;, &lt;built-in function sin&gt;), (&#39;sinh&#39;, &lt;built-in function sinh&gt;), (&#39;sqrt&#39;, &lt;built-in function sqrt&gt;), (&#39;tan&#39;, &lt;built-in function tan&gt;), (&#39;tanh&#39;, &lt;built-in function tanh&gt;), (&#39;trunc&#39;, &lt;built-in function trunc&gt;), (&#39;prod&#39;, &lt;built-in function prod&gt;), (&#39;perm&#39;, &lt;built-in function perm&gt;), (&#39;comb&#39;, &lt;built-in function comb&gt;), (&#39;pi&#39;, 3.141592653589793), (&#39;e&#39;, 2.718281828459045), (&#39;tau&#39;, 6.283185307179586), (&#39;inf&#39;, inf), (&#39;nan&#39;, nan), (&#39;__file__&#39;, &#39;/usr/share/miniconda3/envs/quantecon/lib/python3.8/lib-dynload/math.cpython-38-x86_64-linux-gnu.so&#39;)])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math&#39;), (&#39;__doc__&#39;, &#39;This module provides access to the mathematical functions\ndefined by the C standard.&#39;), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7f0cab861250&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math&#39;, loader=&lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7f0cab861250&gt;, origin=&#39;/usr/share/miniconda3/envs/quantecon/lib/python3.8/lib-dynload/math.cpython-38-x86_64-linux-gnu.so&#39;)), (&#39;acos&#39;, &lt;built-in function acos&gt;), (&#39;acosh&#39;, &lt;built-in function acosh&gt;), (&#39;asin&#39;, &lt;built-in function asin&gt;), (&#39;asinh&#39;, &lt;built-in function asinh&gt;), (&#39;atan&#39;, &lt;built-in function atan&gt;), (&#39;atan2&#39;, &lt;built-in function atan2&gt;), (&#39;atanh&#39;, &lt;built-in function atanh&gt;), (&#39;ceil&#39;, &lt;built-in function ceil&gt;), (&#39;copysign&#39;, &lt;built-in function copysign&gt;), (&#39;cos&#39;, &lt;built-in function cos&gt;), (&#39;cosh&#39;, &lt;built-in function cosh&gt;), (&#39;degrees&#39;, &lt;built-in function degrees&gt;), (&#39;dist&#39;, &lt;built-in function dist&gt;), (&#39;erf&#39;, &lt;built-in function erf&gt;), (&#39;erfc&#39;, &lt;built-in function erfc&gt;), (&#39;exp&#39;, &lt;built-in function exp&gt;), (&#39;expm1&#39;, &lt;built-in function expm1&gt;), (&#39;fabs&#39;, &lt;built-in function fabs&gt;), (&#39;factorial&#39;, &lt;built-in function factorial&gt;), (&#39;floor&#39;, &lt;built-in function floor&gt;), (&#39;fmod&#39;, &lt;built-in function fmod&gt;), (&#39;frexp&#39;, &lt;built-in function frexp&gt;), (&#39;fsum&#39;, &lt;built-in function fsum&gt;), (&#39;gamma&#39;, &lt;built-in function gamma&gt;), (&#39;gcd&#39;, &lt;built-in function gcd&gt;), (&#39;hypot&#39;, &lt;built-in function hypot&gt;), (&#39;isclose&#39;, &lt;built-in function isclose&gt;), (&#39;isfinite&#39;, &lt;built-in function isfinite&gt;), (&#39;isinf&#39;, &lt;built-in function isinf&gt;), (&#39;isnan&#39;, &lt;built-in function isnan&gt;), (&#39;isqrt&#39;, &lt;built-in function isqrt&gt;), (&#39;ldexp&#39;, &lt;built-in function ldexp&gt;), (&#39;lgamma&#39;, &lt;built-in function lgamma&gt;), (&#39;log&#39;, &lt;built-in function log&gt;), (&#39;log1p&#39;, &lt;built-in function log1p&gt;), (&#39;log10&#39;, &lt;built-in function log10&gt;), (&#39;log2&#39;, &lt;built-in function log2&gt;), (&#39;modf&#39;, &lt;built-in function modf&gt;), (&#39;pow&#39;, &lt;built-in function pow&gt;), (&#39;radians&#39;, &lt;built-in function radians&gt;), (&#39;remainder&#39;, &lt;built-in function remainder&gt;), (&#39;sin&#39;, &lt;built-in function sin&gt;), (&#39;sinh&#39;, &lt;built-in function sinh&gt;), (&#39;sqrt&#39;, &lt;built-in function sqrt&gt;), (&#39;tan&#39;, &lt;built-in function tan&gt;), (&#39;tanh&#39;, &lt;built-in function tanh&gt;), (&#39;trunc&#39;, &lt;built-in function trunc&gt;), (&#39;prod&#39;, &lt;built-in function prod&gt;), (&#39;perm&#39;, &lt;built-in function perm&gt;), (&#39;comb&#39;, &lt;built-in function comb&gt;), (&#39;pi&#39;, 3.141592653589793), (&#39;e&#39;, 2.718281828459045), (&#39;tau&#39;, 6.283185307179586), (&#39;inf&#39;, inf), (&#39;nan&#39;, nan), (&#39;__file__&#39;, &#39;/usr/share/miniconda3/envs/quantecon/lib/python3.8/lib-dynload/math.cpython-38-x86_64-linux-gnu.so&#39;)])
 </pre></div>
 </div>
 </div>
@@ -1132,16 +1203,16 @@ needs, and has initialized when you started up your session.</p>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable      Type                          Data/Info
 -----------------------------------------------------
-e             enumerate                     &lt;enumerate object at 0x7f4814ccb900&gt;
-f             function                      &lt;function f at 0x7f48155221f0&gt;
-g             function                      &lt;function f at 0x7f48155221f0&gt;
+e             enumerate                     &lt;enumerate object at 0x7f0ca873ccc0&gt;
+f             function                      &lt;function f at 0x7f0ca87ebe50&gt;
+g             function                      &lt;function f at 0x7f0ca87ebe50&gt;
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>i             str                           eggs
 math          module                        &lt;module &#39;math&#39; from &#39;/usr&lt;...&gt;-38-x86_64-linux-gnu.so&#39;&gt;
 math2         module                        &lt;module &#39;math2&#39; from &#39;/ho&lt;...&gt;.myst/lectures/math2.py&#39;&gt;
 mod           module                        &lt;module &#39;mod&#39; from &#39;/home&lt;...&gt;ng.myst/lectures/mod.py&#39;&gt;
-nikkei_data   reader                        &lt;_csv.reader object at 0x7f481552b900&gt;
+nikkei_data   reader                        &lt;_csv.reader object at 0x7f0ca879c820&gt;
 np            module                        &lt;module &#39;numpy&#39; from &#39;/us&lt;...&gt;kages/numpy/__init__.py&#39;&gt;
 reader        builtin_function_or_method    &lt;built-in function reader&gt;
 x             int                           2
@@ -2286,7 +2357,7 @@ decorators to set up the properties</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object f at 0x7f47f2505f90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object f at 0x7f0ca0997f20&gt;
 </pre></div>
 </div>
 </div>
@@ -2505,7 +2576,7 @@ decorators to set up the properties</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4999177
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4998882
 </pre></div>
 </div>
 </div>
@@ -2544,7 +2615,7 @@ decorators to set up the properties</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object f at 0x7f47f25104a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object f at 0x7f0ca09aa4a0&gt;
 </pre></div>
 </div>
 </div>
@@ -2556,7 +2627,7 @@ decorators to set up the properties</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4998136
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4998930
 </pre></div>
 </div>
 </div>
@@ -2831,7 +2902,7 @@ decorators to set up the properties</p>
   Introduction to Python
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="about_py.html">
    1. About Python
@@ -2873,7 +2944,7 @@ decorators to set up the properties</p>
   The Scientific Libraries
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="need_for_speed.html">
    8. Python for Scientific Computing
@@ -2915,13 +2986,13 @@ decorators to set up the properties</p>
   Advanced Python Programming
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
    15. Writing Good Code
   </a>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active active">
   <a class="current reference internal" href="#">
    16. More Language Features
   </a>
@@ -2937,7 +3008,7 @@ decorators to set up the properties</p>
   Other
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
    18. Troubleshooting
@@ -2982,48 +3053,81 @@ decorators to set up the properties</p>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
                     <li data-tippy-content="Download Notebook"><a href="_notebooks/python_advanced_features.ipynb" download><i data-feather="download-cloud"></i></a></li>
-                    <li data-tippy-content="Launch Notebook"><a href="https://mybinder.org/v2/gh/QuantEcon/lecture-python-programming.notebooks/master?urlpath=tree/python_advanced_features.ipynb" target="_blank"><i data-feather="play-circle"></i></a></li>
-                    <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                    <li data-tippy-content="Launch Notebook" id="launchButton"><a href="https://mybinder.org/v2/gh/QuantEcon/lecture-python-programming.notebooks/master?urlpath=tree/python_advanced_features.ipynb" target="_blank"><i data-feather="play-circle"></i></a></li>
+                        <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/tree/master/lectures/python_advanced_features.md" download><i data-feather="github"></i></a></li>
                 </ul>
 
             </div>
 
-
         </div> <!-- .toolbar -->
+        <div id="downloadPDFModal" style="display: none;">
+            <ul class="pdf-options" style="display: block;">
+                <li class="download-pdf-book" onClick="window.print()">
+                    <p>Lecture (PDF)</p>
+                </li>
+                <li class="download-pdf-file">
+                    <a href="_pdf/quantecon-python-programming.pdf" download><p style="color: white;">Book (PDF)</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="settingsModal" style="display: none;">
+            <p class="modal-title">QuantEcon Notebook Launcher</p>
+            <div class="modal-desc">
+            <p>
+                Choose public or private cloud service for "Launch" button.
+            </p>
+            </div>
+            <p class="modal-subtitle">Select a server</p>
+            <ul class="modal-servers">
+            <li class="active launcher-public">
+                <span class="label">Public</span>
+                <select id="launcher-public-input" onchange="onChangeListener()">
+                
+                    <option value="https://mybinder.org/v2/gh/QuantEcon/lecture-python-programming.notebooks/master?urlpath=tree/python_advanced_features.ipynb">BinderHub</option>
+                
+                </select>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            <!-- <li class="launcher-private">
+                <span class="label">Private</span>
+                <input type="text" id="launcher-private-input" onchange="onChangeListener()">
+                <i class="fas fa-check-circle"></i>
+            </li> -->
+            </ul>
+        </div>
 
     </div> <!-- .wrapper-->
-
-<script src="_static/plugins.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<script src="https://unpkg.com/@popperjs/core@2"></script>
-<script src="https://unpkg.com/tippy.js@6"></script>
-
-
-    <script src=[></script>
-
-    <script src=]></script>
-
-<script src="_static/scripts.js"></script>
-<script>
-    feather.replace()
-    tippy('[data-tippy-content]');
-</script>
-
-
-<script>
-    window.ga = function () {
-        ga.q.push(arguments);
-    };
-    ga.q = [];
-    ga.l = +new Date();
-    ga("create", "UA-54984338-9", "auto");
-    ga("set", "anonymizeIp", true);
-    ga("set", "transport", "beacon");
-    ga("send", "pageview");
-</script>
-<script src="https://www.google-analytics.com/analytics.js" async></script>
-
+    <script>
+        // Tooltips
+        tippy('[data-tippy-content]', {
+            touch: false,
+        });
+        feather.replace();
+        window.MathJax = {
+            tex: {
+                inlineMath: [
+                    ['$', '$'],
+                    ['\\(', '\\)'],
+                ],
+                processEscapes: true
+            },
+            chtml: {
+                scale: 0.92,
+                displayAlign: "center"
+            },
+            svg: {
+                scale: 0.92,
+                displayAlign: "center",
+            },
+            options: {
+                menuOptions: {
+                    settings: {
+                        renderer: 'SVG'
+                    }
+                }
+            },
+        };
+    </script>
   </body>
 </html>

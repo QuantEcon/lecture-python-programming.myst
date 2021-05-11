@@ -6,7 +6,27 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>2. Setting up Your Python Environment &#8212; Python Programming for Economics and Finance</title>
-    <link rel="stylesheet" href="_static/quantecon-book-theme.css" type="text/css" />
+    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/quantecon-book-theme.83e99f0f97a6febd5964ce423257dbec.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -14,8 +34,11 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/quantecon-book-theme.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -23,9 +46,11 @@
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/quantecon-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="_static/plugins.js"></script>
+    <script src="_static/quantecon-book-theme.39dd8269e054ea3ab4e9463b37d610fa.js"></script>
+    <script src="_static/scripts.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -62,9 +87,7 @@
 <meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
 <meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
-
 <meta name="theme-color" content="#ffffff" />
-
 
   </head>
 <body>
@@ -76,7 +99,7 @@
 
         <div class="main">
 
-            <div class="page">
+            <div class="page" id=getting_started>
 
                 <div class="page__toc">
 
@@ -89,124 +112,147 @@
 
 
                         <nav id="bd-toc-nav" class="page__toc-nav">
-
-                            <ul class="nav section-nav flex-column">
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#overview" class="nav-link">Overview</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#anaconda" class="nav-link">Anaconda</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#installing-anaconda" class="nav-link">Installing Anaconda</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#updating-anaconda" class="nav-link">Updating Anaconda</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#jupyter-notebooks" class="nav-link">Jupyter Notebooks</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#starting-the-jupyter-notebook" class="nav-link">Starting the Jupyter Notebook</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#notebook-basics" class="nav-link">Notebook Basics</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h4">
-                                    <a href="#running-cells" class="nav-link">Running Cells</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h4">
-                                    <a href="#modal-editing" class="nav-link">Modal Editing</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h4">
-                                    <a href="#inserting-unicode-e-g-greek-letters" class="nav-link">Inserting Unicode (e.g., Greek Letters)</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h4">
-                                    <a href="#a-test-program" class="nav-link">A Test Program</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#working-with-the-notebook" class="nav-link">Working with the Notebook</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h4">
-                                    <a href="#tab-completion" class="nav-link">Tab Completion</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h4">
-                                    <a href="#on-line-help" class="nav-link">On-Line Help</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h4">
-                                    <a href="#other-content" class="nav-link">Other Content</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#sharing-notebooks" class="nav-link">Sharing Notebooks</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#quantecon-notes" class="nav-link">QuantEcon Notes</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#installing-libraries" class="nav-link">Installing Libraries</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#working-with-python-files" class="nav-link">Working with Python Files</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#editing-and-execution" class="nav-link">Editing and Execution</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h4">
-                                    <a href="#option-1-jupyterlab" class="nav-link">Option 1: JupyterLab</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h4">
-                                    <a href="#option-2-using-a-text-editor" class="nav-link">Option 2: Using a Text Editor</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h2">
-                                    <a href="#exercises" class="nav-link">Exercises</a><ul class="nav section-nav flex-column">
-                                        
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#exercise-1" class="nav-link">Exercise 1</a>
-                                </li>
-                                
-                                <li class="nav-item toc-entry toc-h3">
-                                    <a href="#exercise-2" class="nav-link">Exercise 2</a>
-                                </li>
-                                
-                                    </ul>
-                                </li>
-                                
-                            </ul>
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   2.1. Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#anaconda">
+   2.2. Anaconda
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installing-anaconda">
+     2.2.1. Installing Anaconda
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#updating-anaconda">
+     2.2.2. Updating Anaconda
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jupyter-notebooks">
+   2.3. Jupyter Notebooks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#starting-the-jupyter-notebook">
+     2.3.1. Starting the Jupyter Notebook
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notebook-basics">
+     2.3.2. Notebook Basics
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#running-cells">
+       2.3.2.1. Running Cells
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#modal-editing">
+       2.3.2.2. Modal Editing
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#inserting-unicode-e-g-greek-letters">
+       2.3.2.3. Inserting Unicode (e.g., Greek Letters)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-test-program">
+       2.3.2.4. A Test Program
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#working-with-the-notebook">
+     2.3.3. Working with the Notebook
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tab-completion">
+       2.3.3.1. Tab Completion
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#on-line-help">
+       2.3.3.2. On-Line Help
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#other-content">
+       2.3.3.3. Other Content
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sharing-notebooks">
+     2.3.4. Sharing Notebooks
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quantecon-notes">
+     2.3.5. QuantEcon Notes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-libraries">
+   2.4. Installing Libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#working-with-python-files">
+   2.5. Working with Python Files
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#editing-and-execution">
+     2.5.1. Editing and Execution
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#option-1-jupyterlab">
+       2.5.1.1. Option 1: JupyterLab
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#option-2-using-a-text-editor">
+       2.5.1.2. Option 2: Using a Text Editor
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   2.6. Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-1">
+     2.6.1. Exercise 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-2">
+     2.6.2. Exercise 2
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
 
                             <p class="logo">
                                 
@@ -725,13 +771,13 @@ lectures.</p>
   Introduction to Python
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="about_py.html">
    1. About Python
   </a>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active active">
   <a class="current reference internal" href="#">
    2. Setting up Your Python Environment
   </a>
@@ -767,7 +813,7 @@ lectures.</p>
   The Scientific Libraries
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="need_for_speed.html">
    8. Python for Scientific Computing
@@ -809,7 +855,7 @@ lectures.</p>
   Advanced Python Programming
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
    15. Writing Good Code
@@ -831,7 +877,7 @@ lectures.</p>
   Other
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
    18. Troubleshooting
@@ -876,48 +922,81 @@ lectures.</p>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
                     <li data-tippy-content="Download Notebook"><a href="_notebooks/getting_started.ipynb" download><i data-feather="download-cloud"></i></a></li>
-                    <li data-tippy-content="Launch Notebook"><a href="https://mybinder.org/v2/gh/QuantEcon/lecture-python-programming.notebooks/master?urlpath=tree/getting_started.ipynb" target="_blank"><i data-feather="play-circle"></i></a></li>
-                    <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                    <li data-tippy-content="Launch Notebook" id="launchButton"><a href="https://mybinder.org/v2/gh/QuantEcon/lecture-python-programming.notebooks/master?urlpath=tree/getting_started.ipynb" target="_blank"><i data-feather="play-circle"></i></a></li>
+                        <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/tree/master/lectures/getting_started.md" download><i data-feather="github"></i></a></li>
                 </ul>
 
             </div>
 
-
         </div> <!-- .toolbar -->
+        <div id="downloadPDFModal" style="display: none;">
+            <ul class="pdf-options" style="display: block;">
+                <li class="download-pdf-book" onClick="window.print()">
+                    <p>Lecture (PDF)</p>
+                </li>
+                <li class="download-pdf-file">
+                    <a href="_pdf/quantecon-python-programming.pdf" download><p style="color: white;">Book (PDF)</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="settingsModal" style="display: none;">
+            <p class="modal-title">QuantEcon Notebook Launcher</p>
+            <div class="modal-desc">
+            <p>
+                Choose public or private cloud service for "Launch" button.
+            </p>
+            </div>
+            <p class="modal-subtitle">Select a server</p>
+            <ul class="modal-servers">
+            <li class="active launcher-public">
+                <span class="label">Public</span>
+                <select id="launcher-public-input" onchange="onChangeListener()">
+                
+                    <option value="https://mybinder.org/v2/gh/QuantEcon/lecture-python-programming.notebooks/master?urlpath=tree/getting_started.ipynb">BinderHub</option>
+                
+                </select>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            <!-- <li class="launcher-private">
+                <span class="label">Private</span>
+                <input type="text" id="launcher-private-input" onchange="onChangeListener()">
+                <i class="fas fa-check-circle"></i>
+            </li> -->
+            </ul>
+        </div>
 
     </div> <!-- .wrapper-->
-
-<script src="_static/plugins.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<script src="https://unpkg.com/@popperjs/core@2"></script>
-<script src="https://unpkg.com/tippy.js@6"></script>
-
-
-    <script src=[></script>
-
-    <script src=]></script>
-
-<script src="_static/scripts.js"></script>
-<script>
-    feather.replace()
-    tippy('[data-tippy-content]');
-</script>
-
-
-<script>
-    window.ga = function () {
-        ga.q.push(arguments);
-    };
-    ga.q = [];
-    ga.l = +new Date();
-    ga("create", "UA-54984338-9", "auto");
-    ga("set", "anonymizeIp", true);
-    ga("set", "transport", "beacon");
-    ga("send", "pageview");
-</script>
-<script src="https://www.google-analytics.com/analytics.js" async></script>
-
+    <script>
+        // Tooltips
+        tippy('[data-tippy-content]', {
+            touch: false,
+        });
+        feather.replace();
+        window.MathJax = {
+            tex: {
+                inlineMath: [
+                    ['$', '$'],
+                    ['\\(', '\\)'],
+                ],
+                processEscapes: true
+            },
+            chtml: {
+                scale: 0.92,
+                displayAlign: "center"
+            },
+            svg: {
+                scale: 0.92,
+                displayAlign: "center",
+            },
+            options: {
+                menuOptions: {
+                    settings: {
+                        renderer: 'SVG'
+                    }
+                }
+            },
+        };
+    </script>
   </body>
 </html>
