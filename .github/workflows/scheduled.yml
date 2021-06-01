@@ -1,7 +1,7 @@
 name: Run Execution Tests [Latest Anaconda]
 on:
   pull_request:
-    types: [opened]
+    types: [push]
   schedule:
     # UTC 22:00 is early morning in Australia
     - cron:  '0 22 * * *'
