@@ -26,7 +26,7 @@ jobs:
           pip install jupyter-book sphinx-multitoc-numbering quantecon-book-theme sphinxext-rediraffe sphinx_tojupyter
       - name: Build Lectures (+ Execution Checks) [Linux, OS X]
         shell: bash -l {0}
-        run: jb build lectures --path-output=./
+        run: jb build lectures --path-output=./ -W --keep-going
   execution-tests-win:
     name: Execution Tests (${{ matrix.python-version }}, ${{ matrix.os }})
     runs-on: ${{ matrix.os }}
@@ -50,4 +50,4 @@ jobs:
           pip install jupyter-book sphinx-multitoc-numbering quantecon-book-theme sphinxext-rediraffe sphinx_tojupyter
       - name: Build Lectures (+ Execution Checks) [Windows]
         shell: powershell
-        run: jb build lectures --path-output=./
+        run: jb build lectures --path-output=./ -W --keep-going
