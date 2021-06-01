@@ -1,0 +1,40 @@
+name: Run Execution Tests [Latest Anaconda]
+on:
+  pull_request:
+    types: [opened]
+  schedule:
+    # UTC 22:00 is early morning in Australia
+    - cron:  '0 22 * * *'
+jobs:
+  execution-tests:
+    name: Execution Tests (${{ matrix.python-version }}, ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ["ubuntu-latest", "macos-latest", "windows-latest"]
+        python-version: ["3.8"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+          python-version: ${{ matrix.python-version }}
+      - name: Install Anaconda + Dependencies [Linux,OS X]
+        shell: bash -l {0}
+        run: |
+          conda install anaconda
+          pip install jupyter-book sphinx-multitoc-numbering quantecon-book-theme sphinxext-rediraffe
+      - name: Install Anaconda + Dependencies [Windows]
+        shell: pwsh
+        run: |
+          conda install anaconda
+          pip install jupyter-book
+          pip install jupyter-book sphinx-multitoc-numbering quantecon-book-theme sphinxext-rediraffe
+      - name: Build Lectures (+ Execution Checks) [Linux, OS X]
+        shell: bash -l {0}
+        run: jb build lectures --path-output=./
+      - name: Build Lectures (+ Execution Checks) [Windows]
+        shell: pwsh
+        run: jb build lectures --path-output=./
