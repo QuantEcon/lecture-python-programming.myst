@@ -549,7 +549,7 @@ Following the work you did in {ref}`Exercise 1 <pd_ex1>`, you can query the data
 ```{code-cell} python3
 indices_data = read_data(
         indices_list,
-        start=dt.datetime(1928, 1, 2),
+        start=dt.datetime(1971, 1, 1),  #Common Start Date
         end=dt.datetime(2020, 12, 31)
 )
 ```
