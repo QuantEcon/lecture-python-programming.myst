@@ -36,7 +36,7 @@ jobs:
         uses: dawidd6/action-download-artifact@v2
         with:
           workflow: cache.yml
-          branch: master
+          branch: main
           name: build-cache
           path: _build
       # Build Assets (Download Notebooks and PDF via LaTeX)
@@ -61,7 +61,7 @@ jobs:
         uses: nwtgck/actions-netlify@v1.1
         with:
           publish-dir: '_build/html/'
-          production-branch: master
+          production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Preview Deploy from GitHub Actions"
         env:

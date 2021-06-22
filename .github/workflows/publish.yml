@@ -40,7 +40,7 @@ jobs:
       #   uses: dawidd6/action-download-artifact@v2
       #   with:
       #     workflow: cache.yml
-      #     branch: master
+      #     branch: main
       #     name: build-cache
       #     path: _build
       # Build Assets (Download Notebooks, PDF via LaTeX)
@@ -86,7 +86,7 @@ jobs:
           cp _build/jupyter/*.ipynb _build/lecture-python-programming.notebooks
           ls -a _build/lecture-python-programming.notebooks
       - name: Commit latest notebooks to lecture-python-programming.notebooks
-        uses: cpina/github-action-push-to-another-repository@master
+        uses: cpina/github-action-push-to-another-repository@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.QUANTECON_SERVICES_PAT }}
         with:

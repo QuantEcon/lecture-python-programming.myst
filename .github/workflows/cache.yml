@@ -2,7 +2,7 @@ name: Build Cache [using jupyter-book]
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   tests:
     runs-on: ubuntu-latest
