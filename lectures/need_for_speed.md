@@ -1,59 +1,48 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 (speed)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
+
+```{eval-rst}
+.. include:: /_static/includes/header.raw
 ```
 
 # Python for Scientific Computing
 
-```{contents} Contents
+```{contents}
 :depth: 2
 ```
 
-```{epigraph}
-"We should forget about small efficiencies, say about 97% of the time:
-premature optimization is the root of all evil." -- Donald Knuth
+```{eval-rst}
+.. epigraph::
+
+    "We should forget about small efficiencies, say about 97% of the time:
+    premature optimization is the root of all evil." -- Donald Knuth
+
+
 ```
 
 ## Overview
 
 Python is extremely popular for scientific computing, due to such factors as
 
-* the accessible and flexible nature of the language itself,
-* the huge range of high quality scientific libraries now available,
-* the fact that the language and libraries are open source,
-* the popular Anaconda Python distribution, which simplifies installation and
+- the accessible and flexible nature of the language itself,
+- the huge range of high quality scientific libraries now available,
+- the fact that the language and libraries are open source,
+- the popular Anaconda Python distribution, which simplifies installation and
   management of those libraries, and
-* the recent surge of interest in using Python for machine learning and
+- the recent surge of interest in using Python for machine learning and
   artificial intelligence.
 
 In this lecture we give a short overview of scientific computing in Python,
 addressing the following questions:
 
-* What are the relative strengths and weaknesses of Python for these tasks?
-* What are the main elements of the scientific Python ecosystem?
-* How is the situation changing over time?
+- What are the relative strengths and weaknesses of Python for these tasks?
+- What are the main elements of the scientific Python ecosystem?
+- How is the situation changing over time?
 
 In addition to what's in Anaconda, this lecture will need
 
-```{code-cell} ipython
----
-tags: [hide-output]
----
+```{code-block} ipython
+:class: hide-output
+
 !conda install -y quantecon
 ```
 
@@ -86,28 +75,28 @@ As we'll see below, there are now Python libraries that can do this extremely we
 In terms of popularity, the big four in the world of scientific Python
 libraries are
 
-* NumPy
-* SciPy
-* Matplotlib
-* Pandas
+- NumPy
+- SciPy
+- Matplotlib
+- Pandas
 
 For us, there's another (relatively new) library that will also be essential for
 numerical computing:
 
-* Numba
+- Numba
 
 Over the next few lectures we'll see how to use these libraries.
 
 But first, let's quickly review how they fit together.
 
-* NumPy forms the foundations by providing a basic array data type (think of
+- NumPy forms the foundations by providing a basic array data type (think of
   vectors and matrices) and functions for acting on these arrays (e.g., matrix
   multiplication).
-* SciPy builds on NumPy by adding the kinds of numerical methods that are
+- SciPy builds on NumPy by adding the kinds of numerical methods that are
   routinely used in science (interpolation, optimization, root finding, etc.).
-* Matplotlib is used to generate figures, with a focus on plotting data stored in NumPy arrays.
-* Pandas provides types and functions for empirical work (e.g., manipulating data).
-* Numba accelerates execution via JIT compilation --- we'll learn about this
+- Matplotlib is used to generate figures, with a focus on plotting data stored in NumPy arrays.
+- Pandas provides types and functions for empirical work (e.g., manipulating data).
+- Numba accelerates execution via JIT compilation --- we'll learn about this
   soon.
 
 ## The Need for Speed
@@ -118,8 +107,8 @@ Higher-level languages like Python  are optimized for humans.
 
 This means that the programmer can leave many details to the runtime environment
 
-* specifying variable types
-* memory allocation/deallocation, etc.
+- specifying variable types
+- memory allocation/deallocation, etc.
 
 The upside is that, compared to low-level languages, Python is typically faster to write, less error-prone and  easier to debug.
 
@@ -157,7 +146,7 @@ This will, in turn, help us figure out how to speed things up.
 
 Consider this Python operation
 
-```{code-cell} python3
+```python3
 a, b = 10, 10
 a + b
 ```
@@ -169,14 +158,14 @@ operation to invoke.
 
 If `a` and `b` are strings, then `a + b` requires string concatenation
 
-```{code-cell} python3
+```python3
 a, b = 'foo', 'bar'
 a + b
 ```
 
 If `a` and `b` are lists, then `a + b` requires list concatenation
 
-```{code-cell} python3
+```python3
 a, b = ['foo'], ['bar']
 a + b
 ```
@@ -230,18 +219,18 @@ is a simple data structure for storing homogeneous data.
 
 Such an array is stored in a single contiguous block of memory
 
-* In modern computers, memory addresses are allocated to each byte (one byte = 8 bits).
-* For example, a 64 bit integer is stored in 8 bytes of memory.
-* An array of $n$ such integers occupies $8n$ **consecutive** memory slots.
+- In modern computers, memory addresses are allocated to each byte (one byte = 8 bits).
+- For example, a 64 bit integer is stored in 8 bytes of memory.
+- An array of $n$ such integers occupies $8n$ **consecutive** memory slots.
 
 Moreover, the compiler is made aware of the data type by the programmer.
 
-* In this case 64 bit integers
+- In this case 64 bit integers
 
 Hence, each successive data point can be accessed by shifting forward in memory
 space by a known and fixed amount.
 
-* In this case 8 bytes
+- In this case 8 bytes
 
 #### Summing in Pure Python
 
@@ -259,7 +248,7 @@ In fact, it's generally true that memory traffic is a major culprit when it come
 
 Let's look at some ways around these problems.
 
-## {index}`Vectorization <single: Vectorization>`
+## {index}`Vectorization`
 
 ```{index} single: Python; Vectorization
 ```
@@ -288,7 +277,7 @@ Let's see how vectorization works in Python, using NumPy.
 
 First, let's run some imports
 
-```{code-cell} python3
+```python3
 import random
 import numpy as np
 import quantecon as qe
@@ -297,11 +286,11 @@ import quantecon as qe
 Next let's try some non-vectorized code, which uses a native Python loop to generate,
 square and then sum a large number of random variables:
 
-```{code-cell} python3
+```python3
 n = 1_000_000
 ```
 
-```{code-cell} python3
+```python3
 %%time
 
 y = 0      # Will accumulate and store sum
@@ -312,7 +301,7 @@ for i in range(n):
 
 The following vectorized code achieves the same thing.
 
-```{code-cell} ipython
+```ipython
 %%time
 
 x = np.random.uniform(0, 1, n)
@@ -324,8 +313,8 @@ As you can see, the second code block runs much faster.  Why?
 The second code block breaks the loop down into three basic operations
 
 1. draw `n` uniforms
-1. square them
-1. sum them
+2. square them
+3. sum them
 
 These are sent as batch operators to optimized machine code.
 
@@ -340,6 +329,7 @@ It is also surprisingly flexible, in the sense that many operations can be vecto
 The next section illustrates this point.
 
 (ufuncs)=
+
 ### Universal Functions
 
 ```{index} single: NumPy; Universal Functions
@@ -349,16 +339,16 @@ Many functions provided by NumPy are so-called *universal functions* --- also ca
 
 This means that they
 
-* map scalars into scalars, as expected
-* map arrays into arrays, acting element-wise
+- map scalars into scalars, as expected
+- map arrays into arrays, acting element-wise
 
 For example, `np.cos` is a ufunc:
 
-```{code-cell} python3
+```python3
 np.cos(1.0)
 ```
 
-```{code-cell} python3
+```python3
 np.cos(np.linspace(0, 1, 3))
 ```
 
@@ -377,7 +367,7 @@ $$
 
 Here's a plot of $f$
 
-```{code-cell} ipython
+```ipython
 import matplotlib.pyplot as plt
 %matplotlib inline
 from mpl_toolkits.mplot3d.axes3d import Axes3D
@@ -390,7 +380,7 @@ xgrid = np.linspace(-3, 3, 50)
 ygrid = xgrid
 x, y = np.meshgrid(xgrid, ygrid)
 
-fig = plt.figure(figsize=(10, 8))
+fig = plt.figure(figsize=(8, 6))
 ax = fig.add_subplot(111, projection='3d')
 ax.plot_surface(x,
                 y,
@@ -408,17 +398,17 @@ plt.show()
 To maximize it, we're going to use a naive grid search:
 
 1. Evaluate $f$ for all $(x,y)$ in a grid on the square.
-1. Return the maximum of observed values.
+2. Return the maximum of observed values.
 
 The grid will be
 
-```{code-cell} python3
+```python3
 grid = np.linspace(-3, 3, 1000)
 ```
 
 Here's a non-vectorized version that uses Python loops.
 
-```{code-cell} python3
+```python3
 %%time
 
 m = -np.inf
@@ -432,7 +422,7 @@ for x in grid:
 
 And here's a vectorized version
 
-```{code-cell} python3
+```python3
 %%time
 
 x, y = np.meshgrid(grid, grid)
@@ -445,7 +435,8 @@ As you can see, the second version is **much** faster.
 
 (We'll make it even faster again later on, using more scientific programming tricks.)
 
-(numba-p_c_vectorization)=
+(numba-p-c-vectorization)=
+
 ## Beyond Vectorization
 
 At its best, vectorization yields fast, simple code.
@@ -474,4 +465,3 @@ It does so through something called **just in time (JIT) compilation**,
 which can generate extremely fast and efficient code.
 
 We'll learn how to use Numba {doc}`soon <numba>`.
-

@@ -1,21 +1,7 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 (debugging)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
+
+```{eval-rst}
+.. include:: /_static/includes/header.raw
 ```
 
 # Debugging
@@ -23,14 +9,18 @@ kernelspec:
 ```{index} single: Debugging
 ```
 
-```{contents} Contents
+```{contents}
 :depth: 2
 ```
 
-```{epigraph}
-"Debugging is twice as hard as writing the code in the first place.
-Therefore, if you write the code as cleverly as possible, you are, by definition,
-not smart enough to debug it." -- Brian Kernighan
+```{eval-rst}
+.. epigraph::
+
+    "Debugging is twice as hard as writing the code in the first place.
+    Therefore, if you write the code as cleverly as possible, you are, by definition,
+    not smart enough to debug it." -- Brian Kernighan
+
+
 ```
 
 ## Overview
@@ -49,11 +39,10 @@ Here we'll focus on Jupyter and leave you to explore other settings.
 
 We'll need the following imports
 
-```{code-cell} ipython
-%matplotlib inline
+```ipython
 import numpy as np
 import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = (10,6)
+%matplotlib inline
 ```
 
 ## Debugging
@@ -65,10 +54,9 @@ plt.rcParams['figure.figsize'] = (10,6)
 
 Let's consider a simple (and rather contrived) example
 
-```{code-cell} ipython
----
-tags: [raises-exception]
----
+```{code-block} ipython
+:class: skip-test
+
 def plot_log():
     fig, ax = plt.subplots(2, 1)
     x = np.linspace(1, 2, 10)
@@ -92,10 +80,9 @@ But let's pretend that we don't understand this for the moment.
 
 We might suspect there's something wrong with `ax` but when we try to investigate this object, we get the following exception:
 
-```{code-cell} python3
----
-tags: [raises-exception]
----
+```{code-block} python3
+:class: skip-test
+
 ax
 ```
 
@@ -106,10 +93,9 @@ Let's try doing it a different way.
 
 We run the first cell block again, generating the same error
 
-```{code-cell} python3
----
-tags: [raises-exception]
----
+```{code-block} python3
+:class: skip-test
+
 def plot_log():
     fig, ax = plt.subplots(2, 1)
     x = np.linspace(1, 2, 10)
@@ -123,6 +109,7 @@ But this time we type in the following cell block
 
 ```{code-block} ipython
 :class: no-execute
+
 %debug
 ```
 
@@ -130,10 +117,11 @@ You should be dropped into a new prompt that looks something like this
 
 ```{code-block} ipython
 :class: no-execute
+
 ipdb>
 ```
 
-(You might see pdb> instead)
+(You might see `pdb>` instead)
 
 Now we can investigate the value of our variables at this point in the program, step forward through the code, etc.
 
@@ -142,6 +130,7 @@ this object:
 
 ```{code-block} ipython
 :class: no-execute
+
 ipdb> ax
 array([<matplotlib.axes.AxesSubplot object at 0x290f5d0>,
        <matplotlib.axes.AxesSubplot object at 0x2930810>], dtype=object)
@@ -155,6 +144,7 @@ online help
 
 ```{code-block} ipython
 :class: no-execute
+
 ipdb> h
 
 Documented commands (type help <topic>):
@@ -185,10 +175,9 @@ The preceding approach is handy but sometimes insufficient.
 
 Consider the following modified version of our function above
 
-```{code-cell} python3
----
-tags: [raises-exception]
----
+```{code-block} python3
+:class: skip-test
+
 def plot_log():
     fig, ax = plt.subplots()
     x = np.logspace(1, 2, 10)
@@ -209,6 +198,7 @@ To this end, we add a "break point" by inserting  `breakpoint()` inside the func
 
 ```{code-block} python3
 :class: no-execute
+
 def plot_log():
     breakpoint()
     fig, ax = plt.subplots()
@@ -223,6 +213,7 @@ Now let's run the script, and investigate via the debugger
 
 ```{code-block} ipython
 :class: no-execute
+
 > <ipython-input-6-a188074383b7>(6)plot_log()
 -> fig, ax = plt.subplots()
 (Pdb) n
@@ -249,9 +240,8 @@ In this lecture, we used the `%debug` IPython magic.
 
 There are many other useful magics:
 
-* `%precision 4` sets printed precision for floats to 4 decimal places
-* `%whos` gives a list of variables and their values
-* `%quickref` gives a list of magics
+- `%precision 4` sets printed precision for floats to 4 decimal places
+- `%whos` gives a list of variables and their values
+- `%quickref` gives a list of magics
 
 The full list of magics is [here](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
-

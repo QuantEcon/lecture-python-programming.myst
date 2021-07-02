@@ -1,55 +1,46 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 (np)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
+
+```{eval-rst}
+.. include:: /_static/includes/header.raw
 ```
 
-# {index}`NumPy <single: NumPy>`
+# {index}`NumPy`
 
 ```{index} single: Python; NumPy
 ```
 
-```{contents} Contents
+```{contents}
 :depth: 2
 ```
 
-```{epigraph}
-"Let's be clear: the work of science has nothing whatever to do with consensus.  Consensus is the business of politics. Science, on the contrary, requires only one investigator who happens to be right, which means that he or she has results that are verifiable by reference to the real world. In science consensus is irrelevant. What is relevant is reproducible results." -- Michael Crichton
+```{eval-rst}
+.. epigraph::
+
+    "Let's be clear: the work of science has nothing whatever to do with consensus.  Consensus is the business of politics. Science, on the contrary, requires only one investigator who happens to be right, which means that he or she has results that are verifiable by reference to the real world. In science consensus is irrelevant. What is relevant is reproducible results." -- Michael Crichton
+
+
 ```
 
 ## Overview
 
 [NumPy](https://en.wikipedia.org/wiki/NumPy) is a first-rate library for numerical programming
 
-* Widely used in academia, finance and industry.
-* Mature, fast, stable and under continuous development.
+- Widely used in academia, finance and industry.
+- Mature, fast, stable and under continuous development.
 
 We have already seen some code involving NumPy in the preceding lectures.
 
 In this lecture, we will start a more systematic discussion of both
 
-* NumPy arrays and
-* the fundamental array processing operations provided by NumPy.
+- NumPy arrays and
+- the fundamental array processing operations provided by NumPy.
 
 ### References
 
-* [The official NumPy documentation](http://docs.scipy.org/doc/numpy/reference/).
+- [The official NumPy documentation](http://docs.scipy.org/doc/numpy/reference/).
 
-(numpy_array)=
+(numpy-array)=
+
 ## NumPy Arrays
 
 ```{index} single: NumPy; Arrays
@@ -63,49 +54,50 @@ NumPy arrays power a large proportion of the scientific Python ecosystem.
 
 Let's first import the library.
 
-```{code-cell} python3
+```python3
 import numpy as np
 ```
 
 To create a NumPy array containing only zeros we use  [np.zeros](http://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros)
 
-```{code-cell} python3
+```python3
 a = np.zeros(3)
 a
 ```
 
-```{code-cell} python3
+```python3
 type(a)
 ```
 
 NumPy arrays are somewhat like native Python lists, except that
 
-* Data *must be homogeneous* (all elements of the same type).
-* These types must be one of the [data types](https://docs.scipy.org/doc/numpy/reference/arrays.dtypes.html) (`dtypes`) provided by NumPy.
+- Data *must be homogeneous* (all elements of the same type).
+- These types must be one of the [data types](https://docs.scipy.org/doc/numpy/reference/arrays.dtypes.html) (`dtypes`) provided by NumPy.
 
 The most important of these dtypes are:
 
-* float64: 64 bit floating-point number
-* int64: 64 bit integer
-* bool:  8 bit True or False
+- float64: 64 bit floating-point number
+- int64: 64 bit integer
+- bool:  8 bit True or False
 
 There are also dtypes to represent complex numbers, unsigned integers, etc.
 
 On modern machines, the default dtype for arrays is `float64`
 
-```{code-cell} python3
+```python3
 a = np.zeros(3)
 type(a[0])
 ```
 
 If we want to use integers we can specify as follows:
 
-```{code-cell} python3
+```python3
 a = np.zeros(3, dtype=int)
 type(a[0])
 ```
 
-(numpy_shape_dim)=
+(numpy-shape-dim)=
+
 ### Shape and Dimension
 
 ```{index} single: NumPy; Arrays (Shape and Dimension)
@@ -113,7 +105,7 @@ type(a[0])
 
 Consider the following assignment
 
-```{code-cell} python3
+```python3
 z = np.zeros(10)
 ```
 
@@ -121,7 +113,7 @@ Here `z` is a *flat* array with no dimension --- neither row nor column vector.
 
 The dimension is recorded in the `shape` attribute, which is a tuple
 
-```{code-cell} python3
+```python3
 z.shape
 ```
 
@@ -129,12 +121,12 @@ Here the shape tuple has only one element, which is the length of the array (tup
 
 To give it dimension, we can change the `shape` attribute
 
-```{code-cell} python3
+```python3
 z.shape = (10, 1)
 z
 ```
 
-```{code-cell} python3
+```python3
 z = np.zeros(4)
 z.shape = (2, 2)
 z
@@ -143,7 +135,8 @@ z
 In the last case, to make the 2 by 2 array, we could also pass a tuple to the `zeros()` function, as
 in `z = np.zeros((2, 2))`.
 
-(creating_arrays)=
+(creating-arrays)=
+
 ### Creating Arrays
 
 ```{index} single: NumPy; Arrays (Creating)
@@ -155,7 +148,7 @@ You can probably guess what `np.ones` creates.
 
 Related is `np.empty`, which creates arrays in memory that can later be populated with data
 
-```{code-cell} python3
+```python3
 z = np.empty(3)
 z
 ```
@@ -166,34 +159,34 @@ The numbers you see here are garbage values.
 
 To set up a grid of evenly spaced numbers use `np.linspace`
 
-```{code-cell} python3
+```python3
 z = np.linspace(2, 4, 5)  # From 2 to 4, with 5 elements
 ```
 
 To create an identity matrix use either `np.identity` or `np.eye`
 
-```{code-cell} python3
+```python3
 z = np.identity(2)
 z
 ```
 
 In addition, NumPy arrays can be created from Python lists, tuples, etc. using `np.array`
 
-```{code-cell} python3
+```python3
 z = np.array([10, 20])                 # ndarray from Python list
 z
 ```
 
-```{code-cell} python3
+```python3
 type(z)
 ```
 
-```{code-cell} python3
+```python3
 z = np.array((10, 20), dtype=float)    # Here 'float' is equivalent to 'np.float64'
 z
 ```
 
-```{code-cell} python3
+```python3
 z = np.array([[1, 2], [3, 4]])         # 2D array from a list of lists
 z
 ```
@@ -201,12 +194,12 @@ z
 See also `np.asarray`, which performs a similar function, but does not make
 a distinct copy of data already in a NumPy array.
 
-```{code-cell} python3
+```python3
 na = np.linspace(10, 20, 2)
 na is np.asarray(na)   # Does not copy NumPy arrays
 ```
 
-```{code-cell} python3
+```python3
 na is np.array(na)     # Does make a new copy --- perhaps unnecessarily
 ```
 
@@ -220,35 +213,35 @@ or `np.genfromtxt`---see [the documentation](http://docs.scipy.org/doc/numpy/ref
 
 For a flat array, indexing is the same as Python sequences:
 
-```{code-cell} python3
+```python3
 z = np.linspace(1, 2, 5)
 z
 ```
 
-```{code-cell} python3
+```python3
 z[0]
 ```
 
-```{code-cell} python3
+```python3
 z[0:2]  # Two elements, starting at element 0
 ```
 
-```{code-cell} python3
+```python3
 z[-1]
 ```
 
 For 2D arrays the index syntax is as follows:
 
-```{code-cell} python3
+```python3
 z = np.array([[1, 2], [3, 4]])
 z
 ```
 
-```{code-cell} python3
+```python3
 z[0, 0]
 ```
 
-```{code-cell} python3
+```python3
 z[0, 1]
 ```
 
@@ -258,38 +251,38 @@ Note that indices are still zero-based, to maintain compatibility with Python se
 
 Columns and rows can be extracted as follows
 
-```{code-cell} python3
+```python3
 z[0, :]
 ```
 
-```{code-cell} python3
+```python3
 z[:, 1]
 ```
 
 NumPy arrays of integers can also be used to extract elements
 
-```{code-cell} python3
+```python3
 z = np.linspace(2, 4, 5)
 z
 ```
 
-```{code-cell} python3
+```python3
 indices = np.array((0, 2, 3))
 z[indices]
 ```
 
 Finally, an array of `dtype bool` can be used to extract elements
 
-```{code-cell} python3
+```python3
 z
 ```
 
-```{code-cell} python3
+```python3
 d = np.array([0, 1, 1, 0, 0], dtype=bool)
 d
 ```
 
-```{code-cell} python3
+```python3
 z[d]
 ```
 
@@ -297,12 +290,12 @@ We'll see why this is useful below.
 
 An aside: all elements of an array can be set equal to one number using slice notation
 
-```{code-cell} python3
+```python3
 z = np.empty(3)
 z
 ```
 
-```{code-cell} python3
+```python3
 z[:] = 42
 z
 ```
@@ -314,49 +307,49 @@ z
 
 Arrays have useful methods, all of which are carefully optimized
 
-```{code-cell} python3
+```python3
 a = np.array((4, 3, 2, 1))
 a
 ```
 
-```{code-cell} python3
+```python3
 a.sort()              # Sorts a in place
 a
 ```
 
-```{code-cell} python3
+```python3
 a.sum()               # Sum
 ```
 
-```{code-cell} python3
+```python3
 a.mean()              # Mean
 ```
 
-```{code-cell} python3
+```python3
 a.max()               # Max
 ```
 
-```{code-cell} python3
+```python3
 a.argmax()            # Returns the index of the maximal element
 ```
 
-```{code-cell} python3
+```python3
 a.cumsum()            # Cumulative sum of the elements of a
 ```
 
-```{code-cell} python3
+```python3
 a.cumprod()           # Cumulative product of the elements of a
 ```
 
-```{code-cell} python3
+```python3
 a.var()               # Variance
 ```
 
-```{code-cell} python3
+```python3
 a.std()               # Standard deviation
 ```
 
-```{code-cell} python3
+```python3
 a.shape = (2, 2)
 a.T                   # Equivalent to a.transpose()
 ```
@@ -365,26 +358,26 @@ Another method worth knowing is `searchsorted()`.
 
 If `z` is a nondecreasing array, then `z.searchsorted(a)` returns the index of the first element of `z` that is `>= a`
 
-```{code-cell} python3
+```python3
 z = np.linspace(2, 4, 5)
 z
 ```
 
-```{code-cell} python3
+```python3
 z.searchsorted(2.2)
 ```
 
 Many of the methods discussed above have equivalent functions in the NumPy namespace
 
-```{code-cell} python3
+```python3
 a = np.array((4, 3, 2, 1))
 ```
 
-```{code-cell} python3
+```python3
 np.sum(a)
 ```
 
-```{code-cell} python3
+```python3
 np.mean(a)
 ```
 
@@ -397,45 +390,46 @@ np.mean(a)
 
 The operators `+`, `-`, `*`, `/` and `**` all act *elementwise* on arrays
 
-```{code-cell} python3
+```python3
 a = np.array([1, 2, 3, 4])
 b = np.array([5, 6, 7, 8])
 a + b
 ```
 
-```{code-cell} python3
+```python3
 a * b
 ```
 
 We can add a scalar to each element as follows
 
-```{code-cell} python3
+```python3
 a + 10
 ```
 
 Scalar multiplication is similar
 
-```{code-cell} python3
+```python3
 a * 10
 ```
 
 The two-dimensional arrays follow the same general rules
 
-```{code-cell} python3
+```python3
 A = np.ones((2, 2))
 B = np.ones((2, 2))
 A + B
 ```
 
-```{code-cell} python3
+```python3
 A + 10
 ```
 
-```{code-cell} python3
+```python3
 A * B
 ```
 
-(numpy_matrix_multiplication)=
+(numpy-matrix-multiplication)=
+
 In particular, `A * B` is *not* the matrix product, it is an element-wise product.
 
 ### Matrix Multiplication
@@ -446,7 +440,7 @@ In particular, `A * B` is *not* the matrix product, it is an element-wise produc
 With Anaconda's scientific Python package based around Python 3.5 and above,
 one can use the `@` symbol for matrix multiplication, as follows:
 
-```{code-cell} python3
+```python3
 A = np.ones((2, 2))
 B = np.ones((2, 2))
 A @ B
@@ -456,7 +450,7 @@ A @ B
 
 We can also use `@` to take the inner product of two flat arrays
 
-```{code-cell} python3
+```python3
 A = np.array((1, 2))
 B = np.array((10, 20))
 A @ B
@@ -464,12 +458,12 @@ A @ B
 
 In fact, we can use `@` when one element is a Python list or tuple
 
-```{code-cell} python3
+```python3
 A = np.array(((1, 2), (3, 4)))
 A
 ```
 
-```{code-cell} python3
+```python3
 A @ (0, 1)
 ```
 
@@ -485,24 +479,24 @@ We already saw examples above.
 
 Here's another example:
 
-```{code-cell} python3
+```python3
 a = np.array([42, 44])
 a
 ```
 
-```{code-cell} python3
+```python3
 a[-1] = 0  # Change last element to 0
 a
 ```
 
 Mutability leads to the following behavior (which can be shocking to MATLAB programmers...)
 
-```{code-cell} python3
+```python3
 a = np.random.randn(3)
 a
 ```
 
-```{code-cell} python3
+```python3
 b = a
 b[0] = 0.0
 a
@@ -527,24 +521,24 @@ It is of course possible to make `b` an independent copy of `a` when required.
 
 This can be done using `np.copy`
 
-```{code-cell} python3
+```python3
 a = np.random.randn(3)
 a
 ```
 
-```{code-cell} python3
+```python3
 b = np.copy(a)
 b
 ```
 
 Now `b` is an independent copy (called a *deep copy*)
 
-```{code-cell} python3
+```python3
 b[:] = 1
 b
 ```
 
-```{code-cell} python3
+```python3
 a
 ```
 
@@ -561,14 +555,14 @@ Let's look at some other useful things we can do with NumPy.
 
 NumPy provides versions of the standard functions `log`, `exp`, `sin`, etc. that act *element-wise* on arrays
 
-```{code-cell} python3
+```python3
 z = np.array([1, 2, 3])
 np.sin(z)
 ```
 
 This eliminates the need for explicit element-by-element loops such as
 
-```{code-cell} python3
+```python3
 n = len(z)
 y = np.empty(n)
 for i in range(n):
@@ -582,11 +576,11 @@ In NumPy-speak, they are also called *ufuncs*, which stands for "universal funct
 As we saw above, the usual arithmetic operations (`+`, `*`, etc.) also
 work element-wise, and combining these with the ufuncs gives a very large set of fast element-wise functions.
 
-```{code-cell} python3
+```python3
 z
 ```
 
-```{code-cell} python3
+```python3
 (1 / np.sqrt(2 * np.pi)) * np.exp(- 0.5 * z**2)
 ```
 
@@ -594,25 +588,25 @@ Not all user-defined functions will act element-wise.
 
 For example, passing the function `f` defined below a NumPy array causes a `ValueError`
 
-```{code-cell} python3
+```python3
 def f(x):
     return 1 if x > 0 else 0
 ```
 
 The NumPy function `np.where` provides a vectorized alternative:
 
-```{code-cell} python3
+```python3
 x = np.random.randn(4)
 x
 ```
 
-```{code-cell} python3
+```python3
 np.where(x > 0, 1, 0)  # Insert 1 if x > 0 true, otherwise 0
 ```
 
 You can also use `np.vectorize` to vectorize a given function
 
-```{code-cell} python3
+```python3
 f = np.vectorize(f)
 f(x)                # Passing the same vector x as in the previous example
 ```
@@ -626,18 +620,18 @@ However, this approach doesn't always obtain the same speed as a more carefully 
 
 As a rule, comparisons on arrays are done element-wise
 
-```{code-cell} python3
+```python3
 z = np.array([2, 3])
 y = np.array([2, 3])
 z == y
 ```
 
-```{code-cell} python3
+```python3
 y[0] = 5
 z == y
 ```
 
-```{code-cell} python3
+```python3
 z != y
 ```
 
@@ -645,29 +639,29 @@ The situation is similar for `>`, `<`, `>=` and `<=`.
 
 We can also do comparisons against scalars
 
-```{code-cell} python3
+```python3
 z = np.linspace(0, 10, 5)
 z
 ```
 
-```{code-cell} python3
+```python3
 z > 3
 ```
 
 This is particularly useful for *conditional extraction*
 
-```{code-cell} python3
+```python3
 b = z > 3
 b
 ```
 
-```{code-cell} python3
+```python3
 z[b]
 ```
 
 Of course we can---and frequently do---perform this in one step
 
-```{code-cell} python3
+```python3
 z[z > 3]
 ```
 
@@ -676,23 +670,23 @@ z[z > 3]
 NumPy provides some additional functionality related to scientific programming
 through its sub-packages.
 
-We've already seen how we can generate random variables using np.random
+We've already seen how we can generate random variables using `np.random`
 
-```{code-cell} python3
+```python3
 z = np.random.randn(10000)  # Generate standard normals
 y = np.random.binomial(10, 0.5, size=1000)    # 1,000 draws from Bin(10, 0.5)
 y.mean()
 ```
 
-Another commonly used subpackage is np.linalg
+Another commonly used subpackage is `np.linalg`
 
-```{code-cell} python3
+```python3
 A = np.array([[1, 2], [3, 4]])
 
 np.linalg.det(A)           # Compute the determinant
 ```
 
-```{code-cell} python3
+```python3
 np.linalg.inv(A)           # Compute the inverse
 ```
 
@@ -710,16 +704,15 @@ For a comprehensive list of what's available in NumPy see [this documentation](h
 
 ## Exercises
 
-(np_ex1)=
+(np-ex1)=
+
 ### Exercise 1
 
 Consider the polynomial expression
 
-```{math}
-:label: np_polynom
-
+$$
 p(x) = a_0 + a_1 x + a_2 x^2 + \cdots a_N x^N = \sum_{n=0}^N a_n x^n
-```
+$$ (np_polynom)
 
 {ref}`Earlier <pyess_ex2>`, you wrote a simple function `p(x, coeff)` to evaluate {eq}`np_polynom` without considering efficiency.
 
@@ -727,9 +720,10 @@ Now write a new function that does the same job, but uses NumPy arrays and array
 
 (Such functionality is already implemented as `np.poly1d`, but for the sake of the exercise don't use this class)
 
-* Hint: Use `np.cumprod()`
+- Hint: Use `np.cumprod()`
 
-(np_ex2)=
+(np-ex2)=
+
 ### Exercise 2
 
 Let `q` be a NumPy array of length `n` with `q.sum() == 1`.
@@ -742,14 +736,14 @@ In other words, `x` takes values in `range(len(q))` and `x = i` with probability
 
 The standard (inverse transform) algorithm is as follows:
 
-* Divide the unit interval $[0, 1]$ into $n$ subintervals $I_0, I_1, \ldots, I_{n-1}$ such that the length of $I_i$ is $q_i$.
-* Draw a uniform random variable $U$ on $[0, 1]$ and return the $i$ such that $U \in I_i$.
+- Divide the unit interval $[0, 1]$ into $n$ subintervals $I_0, I_1, \ldots, I_{n-1}$ such that the length of $I_i$ is $q_i$.
+- Draw a uniform random variable $U$ on $[0, 1]$ and return the $i$ such that $U \in I_i$.
 
 The probability of drawing $i$ is the length of $I_i$, which is equal to $q_i$.
 
 We can implement the algorithm as follows
 
-```{code-cell} python3
+```python3
 from random import uniform
 
 def sample(q):
@@ -766,16 +760,17 @@ It helps to sketch the intervals on paper.
 
 Your exercise is to speed it up using NumPy, avoiding explicit loops
 
-* Hint: Use `np.searchsorted` and `np.cumsum`
+- Hint: Use `np.searchsorted` and `np.cumsum`
 
 If you can, implement the functionality as a class called `DiscreteRV`, where
 
-* the data for an instance of the class is the vector of probabilities `q`
-* the class has a `draw()` method, which returns one draw according to the algorithm described above
+- the data for an instance of the class is the vector of probabilities `q`
+- the class has a `draw()` method, which returns one draw according to the algorithm described above
 
 If you can, write the method so that `draw(k)` returns `k` draws from `q`.
 
-(np_ex3)=
+(np-ex3)=
+
 ### Exercise 3
 
 Recall our {ref}`earlier discussion <oop_ex1>` of the empirical cumulative distribution function.
@@ -783,21 +778,20 @@ Recall our {ref}`earlier discussion <oop_ex1>` of the empirical cumulative distr
 Your task is to
 
 1. Make the `__call__` method more efficient using NumPy.
-1. Add a method that plots the ECDF over $[a, b]$, where $a$ and $b$ are method parameters.
+2. Add a method that plots the ECDF over $[a, b]$, where $a$ and $b$ are method parameters.
 
 ## Solutions
 
-```{code-cell} ipython
-%matplotlib inline
+```ipython
 import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = (10,6)
+%matplotlib inline
 ```
 
 ### Exercise 1
 
 This code does the job
 
-```{code-cell} python3
+```python3
 def p(x, coef):
     X = np.ones_like(coef)
     X[1:] = x
@@ -807,7 +801,7 @@ def p(x, coef):
 
 Let's test it
 
-```{code-cell} python3
+```python3
 x = 2
 coef = np.linspace(2, 4, 3)
 print(coef)
@@ -821,7 +815,7 @@ print(q(x))
 
 Here's our first pass at a solution:
 
-```{code-cell} python3
+```python3
 from numpy import cumsum
 from numpy.random import uniform
 
@@ -855,7 +849,7 @@ There is a problem here, however.
 Suppose that `q` is altered after an instance of `discreteRV` is
 created, for example by
 
-```{code-cell} python3
+```python3
 q = (0.1, 0.9)
 d = DiscreteRV(q)
 d.q = (0.5, 0.5)
@@ -884,7 +878,7 @@ In essence, we've just taken [this
 code](https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/ecdf.py)
 from QuantEcon and added in a plot method
 
-```{code-cell} python3
+```python3
 """
 Modifies ecdf.py from QuantEcon to add in a plot method
 
@@ -955,10 +949,9 @@ class ECDF:
 
 Here's an example of usage
 
-```{code-cell} python3
+```python3
 fig, ax = plt.subplots()
 X = np.random.randn(1000)
 F = ECDF(X)
 F.plot(ax)
 ```
-

@@ -1,21 +1,10 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
+(writing-good-code)=
 
-(writing_good_code)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
+```{eval-rst}
+.. include:: /_static/includes/header.raw
+```
+
+```{highlight} python3
 ```
 
 # Writing Good Code
@@ -23,7 +12,7 @@ kernelspec:
 ```{index} single: Models; Code style
 ```
 
-```{contents} Contents
+```{contents}
 :depth: 2
 ```
 
@@ -47,38 +36,35 @@ Let's have a look at some poorly written code.
 
 The job of the code is to generate and plot time series of the simplified Solow model
 
-```{math}
-:label: gc_solmod
-
+$$
 k_{t+1} = s k_t^{\alpha} + (1 - \delta) k_t,
 \quad t = 0, 1, 2, \ldots
-```
+$$ (gc_solmod)
 
 Here
 
-* $k_t$ is capital at time $t$ and
-* $s, \alpha, \delta$ are parameters (savings, a productivity parameter and depreciation)
+- $k_t$ is capital at time $t$ and
+- $s, \alpha, \delta$ are parameters (savings, a productivity parameter and depreciation)
 
 For each parameterization, the code
 
 1. sets $k_0 = 1$
-1. iterates using {eq}`gc_solmod` to produce a sequence $k_0, k_1, k_2 \ldots , k_T$
-1. plots the sequence
+2. iterates using {eq}`gc_solmod` to produce a sequence $k_0, k_1, k_2 \ldots , k_T$
+3. plots the sequence
 
 The plots will be grouped into three subfigures.
 
 In each subfigure, two parameters are held fixed while another varies
 
-```{code-cell} ipython
-%matplotlib inline
+```ipython
 import numpy as np
 import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = (10,6)
+%matplotlib inline
 
 # Allocate memory for time series
 k = np.empty(50)
 
-fig, axes = plt.subplots(3, 1, figsize=(8, 16))
+fig, axes = plt.subplots(3, 1, figsize=(6, 14))
 
 # Trajectories with different α
 δ = 0.1
@@ -171,8 +157,8 @@ Then in the loops, `49` should be replaced by `time_series_length - 1`.
 
 The advantages are:
 
-* the meaning is much clearer throughout
-* to alter the time series length, you only need to change one value
+- the meaning is much clearer throughout
+- to alter the time series length, you only need to change one value
 
 ### Don't Repeat Yourself
 
@@ -182,7 +168,7 @@ Blocks of logic (such as the loop to generate time series) are repeated with onl
 
 This violates a fundamental tenet of programming: Don't repeat yourself (DRY).
 
-* Also called DIE (duplication is evil).
+- Also called DIE (duplication is evil).
 
 Yes, we realize that you can just cut and paste and change a few symbols.
 
@@ -202,8 +188,8 @@ Rookie programmers typically use global variables with abandon --- as we once di
 
 But global variables are dangerous, especially in medium to large size programs, since
 
-* they can affect what happens in any part of your program
-* they can be changed by any function
+- they can affect what happens in any part of your program
+- they can be changed by any function
 
 This makes it much harder to be certain about what some  small part of a given piece of code actually commands.
 
@@ -228,7 +214,7 @@ more effective when variables are sandboxed inside a function.
 
 Fortunately, we can easily avoid the evils of global variables and WET code.
 
-* WET stands for "we enjoy typing" and is the opposite of DRY.
+- WET stands for "we enjoy typing" and is the opposite of DRY.
 
 We can do this by making frequent use of functions or classes.
 
@@ -248,7 +234,7 @@ What's really important is that you use one or the other or both.
 
 Here's some code that reproduces the plot above with better coding style.
 
-```{code-cell} python3
+```python3
 from itertools import product
 
 def plot_path(ax, αs, s_vals, δs, time_series_length=50):
@@ -268,7 +254,7 @@ def plot_path(ax, αs, s_vals, δs, time_series_length=50):
     ax.set_ylim(0, 18)
     ax.legend(loc='upper left', frameon=True)
 
-fig, axes = plt.subplots(3, 1, figsize=(8, 16))
+fig, axes = plt.subplots(3, 1, figsize=(6, 14))
 
 # Parameters (αs, s_vals, δs)
 set_one = ([0.25, 0.33, 0.45], [0.4], [0.1])
@@ -284,10 +270,10 @@ plt.show()
 
 If you inspect this code, you will see that
 
-* it uses a function to avoid repetition.
-* Global variables are quarantined by collecting them together at the end, not the start of the program.
-* Magic numbers are avoided.
-* The loop at the end where the actual work is done is short and relatively simple.
+- it uses a function to avoid repetition.
+- Global variables are quarantined by collecting them together at the end, not the start of the program.
+- Magic numbers are avoided.
+- The loop at the end where the actual work is done is short and relatively simple.
 
 ## Exercises
 
@@ -333,7 +319,7 @@ The parameter values will be
 - $\gamma = 1$
 - $\delta = 1$
 
-```{code-cell} ipython3
+```ipython3
 from scipy.optimize import brentq
 
 # Compute equilibrium
@@ -349,7 +335,7 @@ print(f'Equilibrium quantity is {q_star: .2f}')
 
 Let's also plot our results.
 
-```{code-cell} ipython3
+```ipython3
 # Now plot
 grid = np.linspace(2, 4, 100)
 fig, ax = plt.subplots()
@@ -372,7 +358,7 @@ We also want to consider supply and demand shifts.
 
 For example, let's see what happens when demand shifts up, with $\gamma$ increasing to $1.25$:
 
-```{code-cell} ipython3
+```ipython3
 # Compute equilibrium
 def h(p):
     return 1.25 * p**(-1) - (np.exp(0.1 * p) - 1)
@@ -384,7 +370,7 @@ print(f'Equilibrium price is {p_star: .2f}')
 print(f'Equilibrium quantity is {q_star: .2f}')
 ```
 
-```{code-cell} ipython3
+```ipython3
 # Now plot
 p_grid = np.linspace(2, 4, 100)
 fig, ax = plt.subplots()
@@ -415,7 +401,7 @@ in this lecture.
 
 Here's one solution, that uses a class:
 
-```{code-cell} ipython3
+```ipython3
 class Equilibrium:
 
     def __init__(self, α=0.1, β=1, γ=1, δ=1):
@@ -453,32 +439,31 @@ class Equilibrium:
 
 Let's create an instance at the default parameter values.
 
-```{code-cell} ipython3
+```ipython3
 eq = Equilibrium()
 ```
 
 Now we'll compute the equilibrium and plot it.
 
-```{code-cell} ipython3
+```ipython3
 eq.compute_equilibrium()
 ```
 
-```{code-cell} ipython3
+```ipython3
 eq.plot_equilibrium()
 ```
 
 One of the nice things about our refactored code is that, when we change
 parameters, we don't need to repeat ourselves:
 
-```{code-cell} ipython3
+```ipython3
 eq.γ = 1.25
 ```
 
-```{code-cell} ipython3
+```ipython3
 eq.compute_equilibrium()
 ```
 
-```{code-cell} ipython3
+```ipython3
 eq.plot_equilibrium()
 ```
-

@@ -1,26 +1,15 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 (troubleshooting)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
+
+```{eval-rst}
+.. include:: /_static/includes/header.raw
+```
+
+```{highlight} python3
 ```
 
 # Troubleshooting
 
-```{contents} Contents
+```{contents}
 :depth: 2
 ```
 
@@ -31,7 +20,7 @@ This page is for readers experiencing errors when running the code from the lect
 The basic assumption of the lectures is that code in a lecture should execute whenever
 
 1. it is executed in a Jupyter notebook and
-1. the notebook is running on a machine with the latest version of Anaconda Python.
+2. the notebook is running on a machine with the latest version of Anaconda Python.
 
 You have installed Anaconda, haven't you, following the instructions in {doc}`this lecture <getting_started>`?
 
@@ -46,15 +35,14 @@ You also need to keep the external code libraries, such as [QuantEcon.py](https:
 
 For this task you can either
 
-* use conda upgrade quantecon on the command line, or
-* execute !conda upgrade quantecon within a Jupyter notebook.
+- use `conda upgrade quantecon` on the command line, or
+- execute `!conda upgrade quantecon` within a Jupyter notebook.
 
 If your local environment is still not working you can do two things.
 
-First, you can use a remote machine instead, by clicking on the Launch Notebook icon available for each lecture
+First, you can use a remote machine instead, by clicking on the `Launch Notebook` icon available for each lecture
 
 ```{image} _static/lecture_specific/troubleshooting/launch.png
-
 ```
 
 Second, you can report an issue, so we can try to fix your local set up.
@@ -71,5 +59,4 @@ detail about your local set up as you can provide.
 
 Another feedback option is to use our [discourse forum](https://discourse.quantecon.org/).
 
-Finally, you can provide direct feedback to [contact@quantecon.org](mailto:contact@quantecon.org)
-
+Finally, you can provide direct feedback to <mailto:contact@quantecon.org>

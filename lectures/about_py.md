@@ -1,21 +1,7 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
+(about-py)=
 
-(about_py)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
+```{eval-rst}
+.. include:: /_static/includes/header.raw
 ```
 
 ```{index} single: python
@@ -23,23 +9,27 @@ kernelspec:
 
 # About Python
 
-```{contents} Contents
+```{contents}
 :depth: 2
 ```
 
-```{epigraph}
-"Python has gotten sufficiently weapons grade that we don’t descend into R
-anymore. Sorry, R people. I used to be one of you but we no longer descend
-into R." -- Chris Wiggins
+```{eval-rst}
+.. epigraph::
+
+   "Python has gotten sufficiently weapons grade that we don’t descend into R
+   anymore. Sorry, R people. I used to be one of you but we no longer descend
+   into R." -- Chris Wiggins
+
+
 ```
 
 ## Overview
 
 In this lecture we will
 
-* outline what Python is
-* showcase some of its abilities
-* compare it to some other languages.
+- outline what Python is
+- showcase some of its abilities
+- compare it to some other languages.
 
 At this stage, it's **not** our intention that you try to replicate all you see.
 
@@ -59,19 +49,19 @@ Python has experienced rapid adoption in the last decade and is now one of the m
 
 {index}`Python <single: Python; common uses>` is a general-purpose language used in almost all application domains such as
 
-* communications
-* web development
-* CGI and graphical user interfaces
-* game development
-* multimedia, data processing, security, etc., etc., etc.
+- communications
+- web development
+- CGI and graphical user interfaces
+- game development
+- multimedia, data processing, security, etc., etc., etc.
 
 Used extensively by Internet services and high tech companies including
 
-* [Google](https://www.google.com/)
-* [Dropbox](https://www.dropbox.com/)
-* [Reddit](https://www.reddit.com/)
-* [YouTube](https://www.youtube.com/)
-* [Walt Disney Animation](https://pydanny-event-notes.readthedocs.org/en/latest/socalpiggies/20110526-wda.html).
+- [Google](https://www.google.com/)
+- [Dropbox](https://www.dropbox.com/)
+- [Reddit](https://www.reddit.com/)
+- [YouTube](https://www.youtube.com/)
+- [Walt Disney Animation](https://pydanny-event-notes.readthedocs.org/en/latest/socalpiggies/20110526-wda.html).
 
 Python is very beginner-friendly and is often used to [teach computer science and programming](http://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-us-universities/fulltext).
 
@@ -83,8 +73,9 @@ It is also [replacing familiar tools like Excel](https://news.efinancialcareers.
 
 The following chart, produced using Stack Overflow Trends, shows one measure of the relative popularity of Python
 
-```{figure} /_static/lecture_specific/about_py/python_vs_matlab.png
-```
+:::{figure} /_static/lecture_specific/about_py/python_vs_matlab.png
+:scale: 55%
+:::
 
 The figure indicates not only that Python is widely used but also that adoption of Python has accelerated significantly since 2012.
 
@@ -95,16 +86,17 @@ For example, the popularity of [pandas](http://pandas.pydata.org/), a library fo
 
 (The corresponding time path for MATLAB is shown for comparison)
 
-```{figure} /_static/lecture_specific/about_py/pandas_vs_matlab.png
-```
+:::{figure} /_static/lecture_specific/about_py/pandas_vs_matlab.png
+:scale: 55%
+:::
 
 Note that pandas takes off in 2012, which is the same year that we see
 Python's popularity begin to spike in the first figure.
 
 Overall, it's clear that
 
-* Python is [one of the most popular programming languages worldwide](https://spectrum.ieee.org/computing/software/the-top-programming-languages-2019).
-* Python is a major tool for scientific computing, accounting for a rapidly rising share of scientific work around the globe.
+- Python is [one of the most popular programming languages worldwide](https://spectrum.ieee.org/computing/software/the-top-programming-languages-2019).
+- Python is a major tool for scientific computing, accounting for a rapidly rising share of scientific work around the globe.
 
 ### Features
 
@@ -114,8 +106,8 @@ It has a relatively small core language supported by many libraries.
 
 Other features of Python:
 
-* multiple programming styles are supported (procedural, object-oriented, functional, etc.)
-* it is interpreted rather than compiled.
+- multiple programming styles are supported (procedural, object-oriented, functional, etc.)
+- it is interpreted rather than compiled.
 
 ### Syntax and Design
 
@@ -143,18 +135,18 @@ Python has become one of the core languages of scientific computing.
 
 It's either the dominant player or a major player in
 
-* [machine learning and data science](http://scikit-learn.org/stable/)
-* [astronomy](http://www.astropy.org/)
-* [artificial intelligence](https://wiki.python.org/moin/PythonForArtificialIntelligence)
-* [chemistry](http://chemlab.github.io/chemlab/)
-* [computational biology](http://biopython.org/wiki/Main_Page)
-* [meteorology](https://pypi.org/project/meteorology/)
+- [machine learning and data science](http://scikit-learn.org/stable/)
+- [astronomy](http://www.astropy.org/)
+- [artificial intelligence](https://wiki.python.org/moin/PythonForArtificialIntelligence)
+- [chemistry](http://chemlab.github.io/chemlab/)
+- [computational biology](http://biopython.org/wiki/Main_Page)
+- [meteorology](https://pypi.org/project/meteorology/)
 
 Its popularity in economics is also beginning to rise.
 
 This section briefly showcases some examples of Python for scientific programming.
 
-* All of these topics will be covered in detail later on.
+- All of these topics will be covered in detail later on.
 
 ### Numerical Programming
 
@@ -167,7 +159,7 @@ NumPy provides the basic array data type plus some simple processing operations.
 
 For example, let's build some arrays
 
-```{code-cell} python3
+```python3
 import numpy as np                     # Load the library
 
 a = np.linspace(-np.pi, np.pi, 100)    # Create even grid from -π to π
@@ -177,7 +169,7 @@ c = np.sin(a)                          # Apply sin to each element of a
 
 Now let's take the inner product
 
-```{code-cell} python3
+```python3
 b @ c
 ```
 
@@ -185,12 +177,16 @@ The number you see here might vary slightly but it's essentially zero.
 
 (For older versions of Python and NumPy you need to use the [np.dot](http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html) function)
 
+% index:
+% single: SciPy
+
 The [SciPy](http://www.scipy.org) library is built on top of NumPy and provides additional functionality.
 
-(tuple_unpacking_example)=
+(tuple-unpacking-example)=
+
 For example, let's calculate $\int_{-2}^2 \phi(z) dz$ where $\phi$ is the standard normal density.
 
-```{code-cell} python3
+```python3
 from scipy.stats import norm
 from scipy.integrate import quad
 
@@ -201,12 +197,12 @@ value
 
 SciPy includes many of the standard routines used in
 
-* [linear algebra](http://docs.scipy.org/doc/scipy/reference/linalg.html)
-* [integration](http://docs.scipy.org/doc/scipy/reference/integrate.html)
-* [interpolation](http://docs.scipy.org/doc/scipy/reference/interpolate.html)
-* [optimization](http://docs.scipy.org/doc/scipy/reference/optimize.html)
-* [distributions and random number generation](http://docs.scipy.org/doc/scipy/reference/stats.html)
-* [signal processing](http://docs.scipy.org/doc/scipy/reference/signal.html)
+- [linear algebra](http://docs.scipy.org/doc/scipy/reference/linalg.html)
+- [integration](http://docs.scipy.org/doc/scipy/reference/integrate.html)
+- [interpolation](http://docs.scipy.org/doc/scipy/reference/interpolate.html)
+- [optimization](http://docs.scipy.org/doc/scipy/reference/optimize.html)
+- [distributions and random number generation](http://docs.scipy.org/doc/scipy/reference/stats.html)
+- [signal processing](http://docs.scipy.org/doc/scipy/reference/signal.html)
 
 See them all [here](http://docs.scipy.org/doc/scipy/reference/index.html).
 
@@ -217,34 +213,35 @@ See them all [here](http://docs.scipy.org/doc/scipy/reference/index.html).
 
 The most popular and comprehensive Python library for creating figures and graphs is [Matplotlib](http://matplotlib.org/), with functionality including
 
-* plots, histograms, contour images, 3D graphs, bar charts etc.
-* output in many formats (PDF, PNG, EPS, etc.)
-* LaTeX integration
+- plots, histograms, contour images, 3D graphs, bar charts etc.
+- output in many formats (PDF, PNG, EPS, etc.)
+- LaTeX integration
 
 Example 2D plot with embedded LaTeX annotations
 
-```{figure} /_static/lecture_specific/about_py/qs.png
-:scale: 75
-```
+:::{figure} /_static/lecture_specific/about_py/qs.png
+:scale: 55%
+:::
 
 Example contour plot
 
-```{figure} /_static/lecture_specific/about_py/bn_density1.png
-:scale: 70
-```
+:::{figure} /_static/lecture_specific/about_py/bn_density1.png
+:scale: 40%
+:::
 
 Example 3D plot
 
-```{figure} /_static/lecture_specific/about_py/career_vf.png
-```
+:::{figure} /_static/lecture_specific/about_py/career_vf.png
+:scale: 50%
+:::
 
 More examples can be found in the [Matplotlib thumbnail gallery](http://matplotlib.org/gallery.html).
 
 Other graphics libraries include
 
-* [Plotly](https://plot.ly/python/)
-* [Bokeh](http://bokeh.pydata.org/en/latest/)
-* [VPython](http://www.vpython.org/) --- 3D graphics and animations
+- [Plotly](https://plot.ly/python/)
+- [Bokeh](http://bokeh.pydata.org/en/latest/)
+- [VPython](http://www.vpython.org/) --- 3D graphics and animations
 
 ### Symbolic Algebra
 
@@ -255,7 +252,7 @@ It's useful to be able to manipulate symbolic expressions, as in Mathematica or 
 
 The [SymPy](http://www.sympy.org/) library provides this functionality from within the Python shell.
 
-```{code-cell} python3
+```python3
 from sympy import Symbol
 
 x, y = Symbol('x'), Symbol('y')  # Treat 'x' and 'y' as algebraic symbols
@@ -264,14 +261,14 @@ x + x + x + y
 
 We can manipulate expressions
 
-```{code-cell} python3
+```python3
 expression = (x + y)**2
 expression.expand()
 ```
 
 solve polynomials
 
-```{code-cell} python3
+```python3
 from sympy import solve
 
 solve(x**2 + x + 2)
@@ -279,17 +276,17 @@ solve(x**2 + x + 2)
 
 and calculate limits, derivatives and integrals
 
-```{code-cell} python3
+```python3
 from sympy import limit, sin, diff
 
 limit(1 / x, x, 0)
 ```
 
-```{code-cell} python3
+```python3
 limit(sin(x) / x, x, 0)
 ```
 
-```{code-cell} python3
+```python3
 diff(sin(x), x)
 ```
 
@@ -316,7 +313,7 @@ Pandas is fast, efficient, flexible and well designed.
 Here's a simple example, using some dummy data generated with Numpy's excellent
 `random` functionality.
 
-```{code-cell} python3
+```python3
 import pandas as pd
 np.random.seed(1234)
 
@@ -327,7 +324,7 @@ df = pd.DataFrame(data, columns=('price', 'weight'), index=dates)
 print(df)
 ```
 
-```{code-cell} python3
+```python3
 df.mean()
 ```
 
@@ -336,22 +333,22 @@ df.mean()
 ```{index} single: statsmodels
 ```
 
-* [statsmodels](http://statsmodels.sourceforge.net/) --- various statistical routines
+- [statsmodels](http://statsmodels.sourceforge.net/) --- various statistical routines
 
 ```{index} single: scikit-learn
 ```
 
-* [scikit-learn](http://scikit-learn.org/) --- machine learning in Python (sponsored by Google, among others)
+- [scikit-learn](http://scikit-learn.org/) --- machine learning in Python (sponsored by Google, among others)
 
 ```{index} single: pyMC
 ```
 
-* [pyMC](http://pymc-devs.github.io/pymc/) --- for Bayesian data analysis
+- [pyMC](http://pymc-devs.github.io/pymc/) --- for Bayesian data analysis
 
 ```{index} single: pystan
 ```
 
-* [pystan](https://pystan.readthedocs.org/en/latest/) Bayesian analysis based on [stan](http://mc-stan.org/)
+- [pystan](https://pystan.readthedocs.org/en/latest/) Bayesian analysis based on [stan](http://mc-stan.org/)
 
 ### Networks and Graphs
 
@@ -363,16 +360,15 @@ Python has many libraries for studying graphs.
 One well-known example is [NetworkX](http://networkx.github.io/).
 Its features include, among many other things:
 
-* standard graph algorithms for analyzing networks
-* plotting routines
+- standard graph algorithms for analyzing networks
+- plotting routines
 
 Here's some example code that generates and plots a random graph, with node color determined by shortest path length from a central node.
 
-```{code-cell} ipython
-%matplotlib inline
+```ipython
 import networkx as nx
 import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = (10,6)
+%matplotlib inline
 np.random.seed(1234)
 
 # Generate a random graph
@@ -415,22 +411,22 @@ See also
 ```{index} single: cloud computing; amazon ec2
 ```
 
-* [Amazon Elastic Compute Cloud](http://aws.amazon.com/ec2/)
+- [Amazon Elastic Compute Cloud](http://aws.amazon.com/ec2/)
 
 ```{index} single: cloud computing; google app engine
 ```
 
-* The [Google App Engine](https://cloud.google.com/appengine/) (Python, Java, PHP or Go)
+- The [Google App Engine](https://cloud.google.com/appengine/) (Python, Java, PHP or Go)
 
 ```{index} single: cloud computing; pythonanywhere
 ```
 
-* [Pythonanywhere](https://www.pythonanywhere.com/)
+- [Pythonanywhere](https://www.pythonanywhere.com/)
 
 ```{index} single: cloud computing; sagemath cloud
 ```
 
-* [Sagemath Cloud](https://cloud.sagemath.com/)
+- [Sagemath Cloud](https://cloud.sagemath.com/)
 
 ### Parallel Processing
 
@@ -442,12 +438,12 @@ Apart from the cloud computing options listed above, you might like to consider
 ```{index} single: parallel computing; ipython
 ```
 
-* [Parallel computing through IPython clusters](http://ipython.org/ipython-doc/stable/parallel/parallel_demos.html).
+- [Parallel computing through IPython clusters](http://ipython.org/ipython-doc/stable/parallel/parallel_demos.html).
 
 ```{index} single: parallel computing; starcluster
 ```
 
-* The [Starcluster](http://star.mit.edu/cluster/) interface to Amazon's EC2.
+- The [Starcluster](http://star.mit.edu/cluster/) interface to Amazon's EC2.
 
 ```{index} single: parallel computing; copperhead
 ```
@@ -455,9 +451,10 @@ Apart from the cloud computing options listed above, you might like to consider
 ```{index} single: parallel computing; pycuda
 ```
 
-* GPU programming through [PyCuda](https://wiki.tiker.net/PyCuda), [PyOpenCL](https://mathema.tician.de/software/pyopencl/), [Theano](https://en.wikipedia.org/wiki/Theano_(software)) or similar.
+- GPU programming through [PyCuda](https://wiki.tiker.net/PyCuda), [PyOpenCL](https://mathema.tician.de/software/pyopencl/), [Theano](http://deeplearning.net/software/theano/) or similar.
 
 (intfc)=
+
 ### Other Developments
 
 There are many other interesting developments with scientific programming in Python.
@@ -467,38 +464,37 @@ Some representative examples include
 ```{index} single: scientific programming; Jupyter
 ```
 
-* [Jupyter](http://jupyter.org/) --- Python in your browser with interactive code cells,  embedded images and other useful features.
+- [Jupyter](http://jupyter.org/) --- Python in your browser with interactive code cells,  embedded images and other useful features.
 
 ```{index} single: scientific programming; Numba
 ```
 
-* [Numba](http://numba.pydata.org/) --- Make Python run at the same speed as native machine code!
+- [Numba](http://numba.pydata.org/) --- Make Python run at the same speed as native machine code!
 
 ```{index} single: scientific programming; Blaze
 ```
 
-* [Blaze](http://blaze.pydata.org/) --- a generalization of NumPy.
+- [Blaze](http://blaze.pydata.org/) --- a generalization of NumPy.
 
 ```{index} single: scientific programming; PyTables
 ```
 
-* [PyTables](http://www.pytables.org) --- manage large data sets.
+- [PyTables](http://www.pytables.org) --- manage large data sets.
 
 ```{index} single: scientific programming; CVXPY
 ```
 
-* [CVXPY](https://github.com/cvxgrp/cvxpy) --- convex optimization in Python.
+- [CVXPY](https://github.com/cvxgrp/cvxpy) --- convex optimization in Python.
 
 ## Learn More
 
-* Browse some Python projects on [GitHub](https://github.com/trending?l=python).
-* Read more about [Python's history and rise in popularity](https://www.welcometothejungle.com/en/articles/btc-python-popular) .
-* Have a look at [some of the Jupyter notebooks](http://nbviewer.jupyter.org/) people have shared on various scientific topics.
+- Browse some Python projects on [GitHub](https://github.com/trending?l=python).
+- Read more about [Python's history and rise in popularity](https://www.welcometothejungle.com/en/articles/btc-python-popular) .
+- Have a look at [some of the Jupyter notebooks](http://nbviewer.jupyter.org/) people have shared on various scientific topics.
 
 ```{index} single: Python; PyPI
 ```
 
-* Visit the [Python Package Index](https://pypi.org/).
-* View some of the questions people are asking about Python on [Stackoverflow](http://stackoverflow.com/questions/tagged/python).
-* Keep up to date on what's happening in the Python community with the [Python subreddit](https://www.reddit.com:443/r/Python/).
-
+- Visit the [Python Package Index](https://pypi.org/).
+- View some of the questions people are asking about Python on [Stackoverflow](http://stackoverflow.com/questions/tagged/python).
+- Keep up to date on what's happening in the Python community with the [Python subreddit](https://www.reddit.com:443/r/Python/).

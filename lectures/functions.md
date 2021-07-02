@@ -1,21 +1,10 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 (functions)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
+
+```{eval-rst}
+.. include:: /_static/includes/header.raw
+```
+
+```{highlight} python3
 ```
 
 # Functions
@@ -23,7 +12,7 @@ kernelspec:
 ```{index} single: Python; User-defined functions
 ```
 
-```{contents} Contents
+```{contents}
 :depth: 2
 ```
 
@@ -34,8 +23,8 @@ languages is **functions**.
 
 We have already met several functions, such as
 
-* the `sqrt()` function from NumPy and
-* the built-in `print()` function
+- the `sqrt()` function from NumPy and
+- the built-in `print()` function
 
 In this lecture we'll treat functions systematically and begin to learn just how
 useful and important they are.
@@ -44,11 +33,10 @@ One of the things we will learn to do is build our own user-defined functions
 
 We will use the following imports.
 
-```{code-cell} ipython
-%matplotlib inline
+```ipython
 import numpy as np
 import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = (10,6)
+%matplotlib inline
 ```
 
 ## Function Basics
@@ -65,30 +53,30 @@ Python has a number of *built-in* functions that are available without `import`.
 
 We have already met some
 
-```{code-cell} python3
+```python3
 max(19, 20)
 ```
 
-```{code-cell} python3
+```python3
 print('foobar')
 ```
 
-```{code-cell} python3
+```python3
 str(22)
 ```
 
-```{code-cell} python3
+```python3
 type(22)
 ```
 
 Two more useful built-in functions are `any()` and `all()`
 
-```{code-cell} python3
+```python3
 bools = False, True, True
 all(bools)  # True if all are True and False otherwise
 ```
 
-```{code-cell} python3
+```python3
 any(bools)  # False if all are False and True otherwise
 ```
 
@@ -104,7 +92,7 @@ were given in the {doc}`previous lecture <python_by_example>`
 
 Here's another one, which tests whether a given year is a leap year:
 
-```{code-cell} python3
+```python3
 import calendar
 
 calendar.isleap(2020)
@@ -123,7 +111,7 @@ Let's start by discussing how it's done.
 Here's a very simple Python function, that implements the mathematical function
 $f(x) = 2 x + 1$
 
-```{code-cell} python3
+```python3
 def f(x):
     return 2 * x + 1
 ```
@@ -131,11 +119,11 @@ def f(x):
 Now that we've *defined* this function, let's *call* it and check whether it
 does what we expect:
 
-```{code-cell} python3
+```python3
 f(1)
 ```
 
-```{code-cell} python3
+```python3
 f(10)
 ```
 
@@ -144,7 +132,7 @@ Here's a longer function, that computes the absolute value of a given number.
 (Such a function already exists as a built-in, but let's write our own for the
 exercise.)
 
-```{code-cell} python3
+```python3
 def new_abs_function(x):
 
     if x < 0:
@@ -157,16 +145,16 @@ def new_abs_function(x):
 
 Let's review the syntax here.
 
-* `def` is a Python keyword used to start function definitions.
-* `def new_abs_function(x):` indicates that the function is called `new_abs_function` and that it has a single argument `x`.
-* The indented code is a code block called the *function body*.
-* The `return` keyword indicates that `abs_value` is the object that should be returned to the calling code.
+- `def` is a Python keyword used to start function definitions.
+- `def new_abs_function(x):` indicates that the function is called `new_abs_function` and that it has a single argument `x`.
+- The indented code is a code block called the *function body*.
+- The `return` keyword indicates that `abs_value` is the object that should be returned to the calling code.
 
 This whole function definition is read by the Python interpreter and stored in memory.
 
 Let's call it to check that it works:
 
-```{code-cell} python3
+```python3
 print(new_abs_function(3))
 print(new_abs_function(-3))
 ```
@@ -175,8 +163,8 @@ print(new_abs_function(-3))
 
 User-defined functions are important for improving the clarity of your code by
 
-* separating different strands of logic
-* facilitating code reuse
+- separating different strands of logic
+- facilitating code reuse
 
 (Writing the same thing twice is [almost always a bad idea](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself))
 
@@ -188,7 +176,7 @@ We will say more about this {doc}`later <writing_good_code>`.
 
 Consider again this code from the {doc}`previous lecture <python_by_example>`
 
-```{code-cell} python3
+```python3
 ts_length = 100
 ϵ_values = []   # empty list
 
@@ -203,14 +191,17 @@ plt.show()
 We will break this program into two parts:
 
 1. A user-defined function that generates a list of random variables.
-1. The main part of the program that
-    1. calls this function to get data
-    1. plots the data
+
+2. The main part of the program that
+
+   1. calls this function to get data
+   2. plots the data
 
 This is accomplished in the next program
 
 (funcloopprog)=
-```{code-cell} python3
+
+```python3
 def generate_data(n):
     ϵ_values = []
     for i in range(n):
@@ -239,7 +230,8 @@ Let's make it slightly more useful by giving it the ability to return either sta
 This is achieved in the next piece of code.
 
 (funcloopprog2)=
-```{code-cell} python3
+
+```python3
 def generate_data(n, generator_type):
     ϵ_values = []
     for i in range(n):
@@ -259,10 +251,12 @@ Hopefully, the syntax of the if/else clause is self-explanatory, with indentatio
 
 Notes
 
-* We are passing the argument `U` as a string, which is why we write it as `'U'`.
-* Notice that equality is tested with the `==` syntax, not `=`.
-    * For example, the statement `a = 10` assigns the name `a` to the value `10`.
-    * The expression `a == 10` evaluates to either `True` or `False`, depending on the value of `a`.
+- We are passing the argument `U` as a string, which is why we write it as `'U'`.
+
+- Notice that equality is tested with the `==` syntax, not `=`.
+
+  - For example, the statement `a = 10` assigns the name `a` to the value `10`.
+  - The expression `a == 10` evaluates to either `True` or `False`, depending on the value of `a`.
 
 Now, there are several ways that we can simplify the code above.
 
@@ -270,8 +264,9 @@ For example, we can get rid of the conditionals all together by just passing the
 
 To understand this, consider the following version.
 
-(test_program_6)=
-```{code-cell} python3
+(test-program-6)=
+
+```python3
 def generate_data(n, generator_type):
     ϵ_values = []
     for i in range(n):
@@ -291,15 +286,15 @@ This object is a *function*.
 
 When the function call  `generate_data(100, np.random.uniform)` is executed, Python runs the function code block with `n` equal to 100 and the name `generator_type` "bound" to the function `np.random.uniform`.
 
-* While these lines are executed, the names `generator_type` and `np.random.uniform` are "synonyms", and can be used in identical ways.
+- While these lines are executed, the names `generator_type` and `np.random.uniform` are "synonyms", and can be used in identical ways.
 
 This principle works more generally---for example, consider the following piece of code
 
-```{code-cell} python3
+```python3
 max(7, 2, 4)   # max() is a built-in Python function
 ```
 
-```{code-cell} python3
+```python3
 m = max
 m(7, 2, 4)
 ```
@@ -338,8 +333,8 @@ Hint: If $U$ is uniform on $(0, 1)$ and $p \in (0,1)$, then the expression `U < 
 First, write a function that returns one realization of the following random device
 
 1. Flip an unbiased coin 10 times.
-1. If a head occurs `k` or more times consecutively within this sequence at least once, pay one dollar.
-1. If not, pay nothing.
+2. If a head occurs `k` or more times consecutively within this sequence at least once, pay one dollar.
+3. If not, pay nothing.
 
 Second, write another function that does the same task except that the second rule of the above random device becomes
 
@@ -353,7 +348,7 @@ Use no import besides `from numpy.random import uniform`.
 
 Here's one solution.
 
-```{code-cell} python3
+```python3
 def factorial(n):
     k = 1
     for i in range(n):
@@ -365,7 +360,7 @@ factorial(4)
 
 ### Exercise 2
 
-```{code-cell} python3
+```python3
 from numpy.random import uniform
 
 def binomial_rv(n, p):
@@ -383,7 +378,7 @@ binomial_rv(10, 0.5)
 
 Here's a function for the first random device.
 
-```{code-cell} python3
+```python3
 from numpy.random import uniform
 
 def draw(k):  # pays if k consecutive successes in a sequence
@@ -405,7 +400,7 @@ draw(3)
 
 Here's another function for the second random device.
 
-```{code-cell} python3
+```python3
 def draw_new(k):  # pays if k successes in a sequence
 
     payoff = 0
@@ -422,4 +417,3 @@ def draw_new(k):  # pays if k successes in a sequence
 
 draw_new(3)
 ```
-

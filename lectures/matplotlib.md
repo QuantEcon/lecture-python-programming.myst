@@ -1,29 +1,15 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 (matplotlib)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
+
+```{eval-rst}
+.. include:: /_static/includes/header.raw
 ```
 
-# {index}`Matplotlib <single: Matplotlib>`
+# {index}`Matplotlib`
 
 ```{index} single: Python; Matplotlib
 ```
 
-```{contents} Contents
+```{contents}
 :depth: 2
 ```
 
@@ -33,11 +19,11 @@ We've already generated quite a few figures in these lectures using [Matplotlib]
 
 Matplotlib is an outstanding graphics library, designed for scientific computing, with
 
-* high-quality 2D and 3D plots
-* output in all the usual formats (PDF, PNG, etc.)
-* LaTeX integration
-* fine-grained control over all aspects of presentation
-* animation, etc.
+- high-quality 2D and 3D plots
+- output in all the usual formats (PDF, PNG, etc.)
+- LaTeX integration
+- fine-grained control over all aspects of presentation
+- animation, etc.
 
 ### Matplotlib's Split Personality
 
@@ -60,10 +46,9 @@ But first, let's discuss the difference.
 
 Here's the kind of easy example you might find in introductory treatments
 
-```{code-cell} ipython
-%matplotlib inline
+```ipython
 import matplotlib.pyplot as plt
-plt.rcParams["figure.figsize"] = (10, 6) #set default figure size
+%matplotlib inline
 import numpy as np
 
 x = np.linspace(0, 10, 200)
@@ -85,7 +70,7 @@ This leads us to the alternative, object-oriented Matplotlib API.
 
 Here's the code corresponding to the preceding figure using the object-oriented API
 
-```{code-cell} python3
+```python3
 fig, ax = plt.subplots()
 ax.plot(x, y, 'b-', linewidth=2)
 plt.show()
@@ -93,8 +78,8 @@ plt.show()
 
 Here the call `fig, ax = plt.subplots()` returns a pair, where
 
-* `fig` is a `Figure` instance---like a blank canvas.
-* `ax` is an `AxesSubplot` instance---think of a frame for plotting in.
+- `fig` is a `Figure` instance---like a blank canvas.
+- `ax` is an `AxesSubplot` instance---think of a frame for plotting in.
 
 The `plot()` function is actually a method of `ax`.
 
@@ -106,7 +91,7 @@ This will become more clear as we go along.
 
 Here we've changed the line to red and added a legend
 
-```{code-cell} python3
+```python3
 fig, ax = plt.subplots()
 ax.plot(x, y, 'r-', linewidth=2, label='sine function', alpha=0.6)
 ax.legend()
@@ -117,7 +102,7 @@ We've also used `alpha` to make the line slightly transparent---which makes it l
 
 The location of the legend can be changed by replacing `ax.legend()` with `ax.legend(loc='upper center')`.
 
-```{code-cell} python3
+```python3
 fig, ax = plt.subplots()
 ax.plot(x, y, 'r-', linewidth=2, label='sine function', alpha=0.6)
 ax.legend(loc='upper center')
@@ -126,7 +111,7 @@ plt.show()
 
 If everything is properly configured, then adding LaTeX is trivial
 
-```{code-cell} python3
+```python3
 fig, ax = plt.subplots()
 ax.plot(x, y, 'r-', linewidth=2, label='$y=\sin(x)$', alpha=0.6)
 ax.legend(loc='upper center')
@@ -135,7 +120,7 @@ plt.show()
 
 Controlling the ticks, adding titles and so on is also straightforward
 
-```{code-cell} python3
+```python3
 fig, ax = plt.subplots()
 ax.plot(x, y, 'r-', linewidth=2, label='$y=\sin(x)$', alpha=0.6)
 ax.legend(loc='upper center')
@@ -160,7 +145,7 @@ It's straightforward to generate multiple plots on the same axes.
 
 Here's an example that randomly generates three normal densities and adds a label with their mean
 
-```{code-cell} python3
+```python3
 from scipy.stats import norm
 from random import uniform
 
@@ -184,7 +169,7 @@ Sometimes we want multiple subplots in one figure.
 
 Here's an example that generates 6 histograms
 
-```{code-cell} python3
+```python3
 num_rows, num_cols = 3, 2
 fig, axes = plt.subplots(num_rows, num_cols, figsize=(10, 12))
 for i in range(num_rows):
@@ -204,7 +189,7 @@ plt.show()
 
 Matplotlib does a nice job of 3D plots --- here is one example
 
-```{code-cell} python3
+```python3
 from mpl_toolkits.mplot3d.axes3d import Axes3D
 from matplotlib import cm
 
@@ -216,7 +201,7 @@ xgrid = np.linspace(-3, 3, 50)
 ygrid = xgrid
 x, y = np.meshgrid(xgrid, ygrid)
 
-fig = plt.figure(figsize=(10, 6))
+fig = plt.figure(figsize=(8, 6))
 ax = fig.add_subplot(111, projection='3d')
 ax.plot_surface(x,
                 y,
@@ -239,7 +224,7 @@ Here's a nice example from [Matthew Doty](https://github.com/xcthulhu) of how th
 
 Read carefully through the code and see if you can follow what's going on
 
-```{code-cell} python3
+```python3
 def subplots():
     "Custom subplots with axes through the origin"
     fig, ax = plt.subplots()
@@ -265,16 +250,16 @@ plt.show()
 The custom `subplots` function
 
 1. calls the standard `plt.subplots` function internally to generate the `fig, ax` pair,
-1. makes the desired customizations to `ax`, and
-1. passes the `fig, ax` pair back to the calling code.
+2. makes the desired customizations to `ax`, and
+3. passes the `fig, ax` pair back to the calling code.
 
 ## Further Reading
 
-* The [Matplotlib gallery](http://matplotlib.org/gallery.html) provides many examples.
-* A nice [Matplotlib tutorial](http://scipy-lectures.org/intro/matplotlib/index.html) by Nicolas Rougier, Mike Muller and Gael Varoquaux.
-* [mpltools](http://tonysyu.github.io/mpltools/index.html) allows easy
+- The [Matplotlib gallery](http://matplotlib.org/gallery.html) provides many examples.
+- A nice [Matplotlib tutorial](http://scipy-lectures.org/intro/matplotlib/index.html) by Nicolas Rougier, Mike Muller and Gael Varoquaux.
+- [mpltools](http://tonysyu.github.io/mpltools/index.html) allows easy
   switching between plot styles.
-* [Seaborn](https://github.com/mwaskom/seaborn) facilitates common statistics plots in Matplotlib.
+- [Seaborn](https://github.com/mwaskom/seaborn) facilitates common statistics plots in Matplotlib.
 
 ## Exercises
 
@@ -292,9 +277,8 @@ Place all the curves in the same figure.
 
 The output should look like this
 
-```{figure} /_static/lecture_specific/matplotlib/matplotlib_ex1.png
-:scale: 130
-```
+:::{figure} /_static/lecture_specific/matplotlib/matplotlib_ex1.png
+:::
 
 ## Solutions
 
@@ -302,7 +286,7 @@ The output should look like this
 
 Here's one solution
 
-```{code-cell} ipython3
+```ipython3
 def f(x, θ):
     return np.cos(np.pi * θ * x ) * np.exp(- x)
 
@@ -315,4 +299,3 @@ for θ in θ_vals:
 
 plt.show()
 ```
-

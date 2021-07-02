@@ -1,35 +1,20 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 (parallel)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
+
+```{eval-rst}
+.. include:: /_static/includes/header.raw
 ```
 
 # Parallelization
 
-```{contents} Contents
+```{contents}
 :depth: 2
 ```
 
 In addition to what's in Anaconda, this lecture will need the following libraries:
 
-```{code-cell} ipython
----
-tags: [hide-output]
----
+```{code-block} ipython
+:class: hide-output
+
 !conda install -y quantecon
 ```
 
@@ -50,22 +35,22 @@ For programmers, the challenge has been to exploit these multiple CPUs by runnin
 
 This is particularly important in scientific programming, which requires handling
 
-* large amounts of data and
-* CPU intensive simulations and other calculations.
+- large amounts of data and
+- CPU intensive simulations and other calculations.
 
 In this lecture we discuss parallelization for scientific computing, with a focus on
 
 1. the best tools for parallelization in Python and
-1. how these tools can be applied to quantitative economic problems.
+2. how these tools can be applied to quantitative economic problems.
 
 Let's start with some imports:
 
-```{code-cell} ipython
-%matplotlib inline
+```ipython
 import numpy as np
 import quantecon as qe
 import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = (10,6)
+
+%matplotlib inline
 ```
 
 ## Types of Parallelization
@@ -136,7 +121,7 @@ generated matrices.
 
 It takes a few seconds to run.
 
-```{code-cell} python3
+```python3
 n = 20
 m = 1000
 for i in range(n):
@@ -144,12 +129,12 @@ for i in range(n):
     λ = np.linalg.eigvals(X)
 ```
 
-Now, let's look at the output of the htop system monitor on our machine while
+Now, let's look at the output of the `htop` system monitor on our machine while
 this code is running:
 
-```{figure} /_static/lecture_specific/parallelization/htop_parallel_npmat.png
-:scale: 80
-```
+:::{figure} /_static/lecture_specific/parallelization/htop_parallel_npmat.png
+:scale: 45%
+:::
 
 We can see that 4 of the 8 CPUs are running at full speed.
 
@@ -163,7 +148,7 @@ out to more and more operations.
 
 For example, let's return to a maximization problem {ref}`discussed previously <ufuncs>`:
 
-```{code-cell} python3
+```python3
 def f(x, y):
     return np.cos(x**2 + y**2) / (1 + x**2 + y**2)
 
@@ -171,11 +156,11 @@ grid = np.linspace(-3, 3, 5000)
 x, y = np.meshgrid(grid, grid)
 ```
 
-```{code-cell} ipython3
+```ipython3
 %timeit np.max(f(x, y))
 ```
 
-If you have a system monitor such as htop (Linux/Mac) or perfmon
+If you have a system monitor such as `htop` (Linux/Mac) or `perfmon`
 (Windows), then try running this and then observing the load on your CPUs.
 
 (You will probably need to bump up the grid size to see large effects.)
@@ -193,7 +178,7 @@ thing with Numba.
 In fact there is an easy way to do this, since Numba can also be used to
 create custom {ref}`ufuncs <ufuncs>` with the [@vectorize](http://numba.pydata.org/numba-doc/dev/user/vectorize.html) decorator.
 
-```{code-cell} python3
+```python3
 from numba import vectorize
 
 @vectorize
@@ -203,7 +188,7 @@ def f_vec(x, y):
 np.max(f_vec(x, y))  # Run once to compile
 ```
 
-```{code-cell} ipython3
+```ipython3
 %timeit np.max(f_vec(x, y))
 ```
 
@@ -239,13 +224,13 @@ Can we get both of these advantages at once?
 
 In other words, can we pair
 
-* the efficiency of Numba's highly specialized JIT compiled function and
-* the speed gains from parallelization obtained by NumPy's implicit
+- the efficiency of Numba's highly specialized JIT compiled function and
+- the speed gains from parallelization obtained by NumPy's implicit
   multithreading?
 
 It turns out that we can, by adding some type information plus `target='parallel'`.
 
-```{code-cell} python3
+```python3
 @vectorize('float64(float64, float64)', target='parallel')
 def f_vec(x, y):
     return np.cos(x**2 + y**2) / (1 + x**2 + y**2)
@@ -253,7 +238,7 @@ def f_vec(x, y):
 np.max(f_vec(x, y))  # Run once to compile
 ```
 
-```{code-cell} ipython3
+```ipython3
 %timeit np.max(f_vec(x, y))
 ```
 
@@ -279,16 +264,16 @@ $$
 
 Here
 
-* $R$ is the gross rate of return on assets
-* $s$ is the savings rate of the household and
-* $y$ is labor income.
+- $R$ is the gross rate of return on assets
+- $s$ is the savings rate of the household and
+- $y$ is labor income.
 
 We model both $R$ and $y$ as independent draws from a lognormal
 distribution.
 
 Here's the code:
 
-```{code-cell} ipython
+```ipython
 from numpy.random import randn
 from numba import njit
 
@@ -309,7 +294,7 @@ def h(w, r=0.1, s=0.3, v1=0.1, v2=1.0):
 
 Let's have a look at how wealth evolves under this rule.
 
-```{code-cell} ipython
+```ipython
 fig, ax = plt.subplots()
 
 T = 100
@@ -342,18 +327,18 @@ wealth of the group at the end of a long simulation.
 Moreover, provided the simulation period is long enough, initial conditions
 don't matter.
 
-* This is due to something called ergodicity, which we will discuss [later on](https://python-intro.quantecon.org/finite_markov.html#Ergodicity).
+- This is due to something called ergodicity, which we will discuss [later on](https://python-intro.quantecon.org/finite_markov.html#Ergodicity).
 
 So, in summary, we are going to simulate 50,000 households by
 
 1. arbitrarily setting initial wealth to 1 and
-1. simulating forward in time for 1,000 periods.
+2. simulating forward in time for 1,000 periods.
 
 Then we'll calculate median wealth at the end period.
 
 Here's the code:
 
-```{code-cell} ipython
+```ipython
 @njit
 def compute_long_run_median(w0=1, T=1000, num_reps=50_000):
 
@@ -369,7 +354,7 @@ def compute_long_run_median(w0=1, T=1000, num_reps=50_000):
 
 Let's see how fast this runs:
 
-```{code-cell} ipython
+```ipython
 %%time
 compute_long_run_median()
 ```
@@ -378,7 +363,7 @@ To speed this up, we're going to parallelize it via multithreading.
 
 To do so, we add the `parallel=True` flag and change `range` to `prange`:
 
-```{code-cell} ipython
+```ipython
 from numba import prange
 
 @njit(parallel=True)
@@ -396,7 +381,7 @@ def compute_long_run_median_parallel(w0=1, T=1000, num_reps=50_000):
 
 Let's look at the timing:
 
-```{code-cell} ipython
+```ipython
 %%time
 compute_long_run_median_parallel()
 ```
@@ -416,6 +401,14 @@ When you see us using `prange` in later lectures, it is because the
 independence of tasks holds true.
 
 When you see us using ordinary `range` in a jitted function, it is either because the speed gain from parallelization is small or because independence fails.
+
+% Dask
+
+% To be added.
+
+% GPUs
+
+% Just say a few words about them.  How do they relate to the foregoing? Explain that we can't introduce executable GPU code here.
 
 ## Exercises
 
@@ -446,7 +439,7 @@ For the size of the Monte Carlo simulation, use something substantial, such as
 
 Here is one solution:
 
-```{code-cell} python3
+```python3
 from random import uniform
 
 @njit(parallel=True)
@@ -464,11 +457,11 @@ def calculate_pi(n=1_000_000):
 
 Now let's see how fast it runs:
 
-```{code-cell} ipython3
+```ipython3
 %time calculate_pi()
 ```
 
-```{code-cell} ipython3
+```ipython3
 %time calculate_pi()
 ```
 
@@ -481,4 +474,3 @@ a factor of 2 or 3.
 
 (If you are executing locally, you will get different numbers, depending mainly
 on the number of CPUs on your machine.)
-

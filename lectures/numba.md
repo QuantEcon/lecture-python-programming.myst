@@ -1,35 +1,20 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 (speed)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
+
+```{eval-rst}
+.. include:: /_static/includes/header.raw
 ```
 
 # Numba
 
-```{contents} Contents
+```{contents}
 :depth: 2
 ```
 
 In addition to what's in Anaconda, this lecture will need the following libraries:
 
-```{code-cell} ipython
----
-tags: [hide-output]
----
+```{code-block} ipython
+:class: hide-output
+
 !conda install -y quantecon
 ```
 
@@ -38,12 +23,12 @@ versions are a {doc}`common source of errors <troubleshooting>`.
 
 Let's start with some imports:
 
-```{code-cell} ipython
-%matplotlib inline
+```ipython
 import numpy as np
 import quantecon as qe
 import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = (10,6)
+
+%matplotlib inline
 ```
 
 ## Overview
@@ -70,14 +55,15 @@ The key idea is to compile functions to native machine code instructions on the 
 
 When it succeeds, the compiled code is extremely fast.
 
-Numba is specifically designed for numerical work and can also do other tricks such as [multithreading](https://en.wikipedia.org/wiki/Multithreading_%28computer_architecture%29).
+Numba is specifically designed for numerical work and can also do other tricks such as [multithreading](<https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)>).
 
 Numba will be a key part of our lectures --- especially those lectures involving dynamic programming.
 
 This lecture introduces the main ideas.
 
-(numba_link)=
-## {index}`Compiling Functions <single: Compiling Functions>`
+(numba-link)=
+
+## {index}`Compiling Functions`
 
 ```{index} single: Python; Numba
 ```
@@ -85,7 +71,8 @@ This lecture introduces the main ideas.
 As stated above, Numba's primary use is compiling functions to fast native
 machine code during runtime.
 
-(quad_map_eg)=
+(quad-map-eg)=
+
 ### An Example
 
 Let's consider a problem that is difficult to vectorize: generating the trajectory of a difference equation given an initial condition.
@@ -98,13 +85,13 @@ $$
 
 In what follows we set
 
-```{code-cell} python3
+```python3
 α = 4.0
 ```
 
 Here's the plot of a typical trajectory, starting from $x_0 = 0.1$, with $t$ on the x-axis
 
-```{code-cell} python3
+```python3
 def qm(x0, n):
     x = np.empty(n+1)
     x[0] = x0
@@ -122,7 +109,7 @@ plt.show()
 
 To speed the function `qm` up using Numba, our first step is
 
-```{code-cell} python3
+```python3
 from numba import jit
 
 qm_numba = jit(qm)
@@ -135,7 +122,7 @@ We will explain what this means momentarily.
 
 Let's time and compare identical function calls across these two versions, starting with the original function `qm`:
 
-```{code-cell} python3
+```python3
 n = 10_000_000
 
 qe.tic()
@@ -143,9 +130,9 @@ qm(0.1, int(n))
 time1 = qe.toc()
 ```
 
-Now let's try qm_numba
+Now let's try `qm_numba`
 
-```{code-cell} python3
+```python3
 qe.tic()
 qm_numba(0.1, int(n))
 time2 = qe.toc()
@@ -155,14 +142,15 @@ This is already a massive speed gain.
 
 In fact, the next time and all subsequent times it runs even faster as the function has been compiled and is in memory:
 
-(qm_numba_result)=
-```{code-cell} python3
+(qm-numba-result)=
+
+```python3
 qe.tic()
 qm_numba(0.1, int(n))
 time3 = qe.toc()
 ```
 
-```{code-cell} python3
+```python3
 time1 / time3  # Calculate speed gain
 ```
 
@@ -178,14 +166,19 @@ It does this by inferring type information on the fly.
 
 The basic idea is this:
 
-* Python is very flexible and hence we could call the function qm with many
+- Python is very flexible and hence we could call the function `qm` with many
   types.
-    * e.g., `x0` could be a NumPy array or a list, `n` could be an integer or a float, etc.
-* This makes it hard to *pre*-compile the function.
-* However, when we do actually call the function, say by executing `qm(0.5, 10)`,
+
+  - e.g., `x0` could be a NumPy array or a list, `n` could be an integer or a float, etc.
+
+- This makes it hard to *pre*-compile the function.
+
+- However, when we do actually call the function, say by executing `qm(0.5, 10)`,
   the types of `x0` and `n` become clear.
-* Moreover, the types of other variables in `qm` can be inferred once the input is known.
-* So the strategy of Numba and other JIT compilers is to wait until this
+
+- Moreover, the types of other variables in `qm` can be inferred once the input is known.
+
+- So the strategy of Numba and other JIT compilers is to wait until this
   moment, and *then* compile the function.
 
 That's why it is called "just-in-time" compilation.
@@ -198,7 +191,7 @@ The compiled code is then cached and recycled as required.
 
 In the code above we created a JIT compiled version of `qm` via the call
 
-```{code-cell} python3
+```python3
 qm_numba = jit(qm)
 ```
 
@@ -214,7 +207,7 @@ To target a function for JIT compilation we can put `@jit` before the function d
 
 Here's what this looks like for `qm`
 
-```{code-cell} python3
+```python3
 @jit
 def qm(x0, n):
     x = np.empty(n+1)
@@ -228,7 +221,7 @@ This is equivalent to `qm = jit(qm)`.
 
 The following now uses the jitted version:
 
-```{code-cell} python3
+```python3
 qm(0.1, 10)
 ```
 
@@ -257,7 +250,7 @@ This is done by using either `@jit(nopython=True)` or, equivalently, `@njit` ins
 
 For example,
 
-```{code-cell} python3
+```python3
 from numba import njit
 
 @njit
@@ -285,9 +278,8 @@ created in {doc}`this lecture <python_oop>`.
 
 To compile this class we use the `@jitclass` decorator:
 
-```{code-cell} python3
-from numba import float64
-from numba.experimental import jitclass
+```python3
+from numba import jitclass, float64
 ```
 
 Notice that we also imported something called `float64`.
@@ -298,7 +290,7 @@ We are importing it here because Numba needs a bit of extra help with types when
 
 Here's our code:
 
-```{code-cell} python3
+```python3
 solow_data = [
     ('n', float64),
     ('s', float64),
@@ -361,7 +353,7 @@ After that, targeting the class for JIT compilation only requires adding
 
 When we call the methods in the class, the methods are compiled just like functions.
 
-```{code-cell} python3
+```python3
 s1 = Solow()
 s2 = Solow(k=8.0)
 
@@ -452,7 +444,7 @@ Here's another thing to be careful about when using Numba.
 
 Consider the following example
 
-```{code-cell} python3
+```python3
 a = 1
 
 @jit
@@ -462,7 +454,7 @@ def add_a(x):
 print(add_a(10))
 ```
 
-```{code-cell} python3
+```python3
 a = 2
 
 print(add_a(10))
@@ -475,7 +467,8 @@ When Numba compiles machine code for functions, it treats global variables as co
 
 ## Exercises
 
-(speed_ex1)=
+(speed-ex1)=
+
 ### Exercise 1
 
 {ref}`Previously <pbe_ex3>` we considered how to approximate $\pi$ by
@@ -485,7 +478,8 @@ Use the same idea here, but make the code efficient using Numba.
 
 Compare speed with and without Numba when the sample size is large.
 
-(speed_ex2)=
+(speed-ex2)=
+
 ### Exercise 2
 
 In the [Introduction to Quantitative Economics with Python](https://python-intro.quantecon.org) lecture series you can
@@ -497,16 +491,15 @@ Suppose that the volatility of returns on an asset can be in one of two regimes 
 
 The transition probabilities across states are as follows
 
-```{figure} /_static/lecture_specific/sci_libs/nfs_ex1.png
-
-```
+:::{figure} /_static/lecture_specific/sci_libs/nfs_ex1.png
+:::
 
 For example, let the period length be one day, and suppose the current state is high.
 
 We see from the graph that the state tomorrow will be
 
-* high with probability 0.8
-* low with probability 0.2
+- high with probability 0.8
+- low with probability 0.2
 
 Your task is to simulate a sequence of daily volatility states according to this rule.
 
@@ -520,8 +513,8 @@ If your code is correct, it should be about 2/3.
 
 Hints:
 
-* Represent the low state as 0 and the high state as 1.
-* If you want to store integers in a NumPy array and then apply JIT compilation, use `x = np.empty(n, dtype=np.int_)`.
+- Represent the low state as 0 and the high state as 1.
+- If you want to store integers in a NumPy array and then apply JIT compilation, use `x = np.empty(n, dtype=np.int_)`.
 
 ## Solutions
 
@@ -529,7 +522,7 @@ Hints:
 
 Here is one solution:
 
-```{code-cell} python3
+```python3
 from random import uniform
 
 @njit
@@ -547,11 +540,11 @@ def calculate_pi(n=1_000_000):
 
 Now let's see how fast it runs:
 
-```{code-cell} ipython3
+```ipython3
 %time calculate_pi()
 ```
 
-```{code-cell} ipython3
+```ipython3
 %time calculate_pi()
 ```
 
@@ -568,13 +561,13 @@ We let
 - 0 represent "low"
 - 1 represent "high"
 
-```{code-cell} python3
+```python3
 p, q = 0.1, 0.2  # Prob of leaving low and high state respectively
 ```
 
 Here's a pure Python version of the function
 
-```{code-cell} python3
+```python3
 def compute_series(n):
     x = np.empty(n, dtype=np.int_)
     x[0] = 1  # Start in state 1
@@ -591,7 +584,7 @@ def compute_series(n):
 Let's run this code and check that the fraction of time spent in the low
 state is about 0.666
 
-```{code-cell} python3
+```python3
 n = 1_000_000
 x = compute_series(n)
 print(np.mean(x == 0))  # Fraction of time x is in state 0
@@ -601,7 +594,7 @@ This is (approximately) the right output.
 
 Now let's time it:
 
-```{code-cell} python3
+```python3
 qe.tic()
 compute_series(n)
 qe.toc()
@@ -609,7 +602,7 @@ qe.toc()
 
 Next let's implement a Numba version, which is easy
 
-```{code-cell} python3
+```python3
 from numba import jit
 
 compute_series_numba = jit(compute_series)
@@ -617,18 +610,17 @@ compute_series_numba = jit(compute_series)
 
 Let's check we still get the right numbers
 
-```{code-cell} python3
+```python3
 x = compute_series_numba(n)
 print(np.mean(x == 0))
 ```
 
 Let's see the time
 
-```{code-cell} python3
+```python3
 qe.tic()
 compute_series_numba(n)
 qe.toc()
 ```
 
 This is a nice speed improvement for one line of code!
-

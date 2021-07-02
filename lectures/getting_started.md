@@ -1,21 +1,7 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
+(getting-started)=
 
-(getting_started)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
+```{eval-rst}
+.. include:: /_static/includes/header.raw
 ```
 
 # Setting up Your Python Environment
@@ -23,7 +9,7 @@ kernelspec:
 ```{index} single: Python
 ```
 
-```{contents} Contents
+```{contents}
 :depth: 2
 ```
 
@@ -32,9 +18,9 @@ kernelspec:
 In this lecture, you will learn how to
 
 1. get a Python environment up and running
-1. execute simple Python commands
-1. run a sample program
-1. install the code libraries that underpin these lectures
+2. execute simple Python commands
+3. run a sample program
+4. install the code libraries that underpin these lectures
 
 ## Anaconda
 
@@ -42,28 +28,29 @@ The [core Python package](https://www.python.org/downloads/) is easy to install 
 
 These lectures require the entire scientific programming ecosystem, which
 
-* the core installation doesn't provide
-* is painful to install one piece at a time.
+- the core installation doesn't provide
+- is painful to install one piece at a time.
 
 Hence the best approach for our purposes is to install a Python distribution that contains
 
 1. the core Python language **and**
-1. compatible versions of the most popular scientific libraries.
+2. compatible versions of the most popular scientific libraries.
 
 The best such distribution is [Anaconda](https://www.anaconda.com/what-is-anaconda/).
 
 Anaconda is
 
-* very popular
-* cross-platform
-* comprehensive
-* completely unrelated to the Nicki Minaj song of the same name
+- very popular
+- cross-platform
+- comprehensive
+- completely unrelated to the Nicki Minaj song of the same name
 
 Anaconda also comes with a great package management system to organize your code libraries.
 
 **All of what follows assumes that you adopt this recommendation!**
 
-(install_anaconda)=
+(install-anaconda)=
+
 ### Installing Anaconda
 
 ```{index} single: Python; Anaconda
@@ -73,24 +60,25 @@ To install Anaconda, [download](https://www.anaconda.com/download/) the binary a
 
 Important points:
 
-* Install the latest version!
-* If you are asked during the installation process whether you'd like to make Anaconda your default Python installation, say yes.
+- Install the latest version!
+- If you are asked during the installation process whether you'd like to make Anaconda your default Python installation, say yes.
 
 ### Updating Anaconda
 
-Anaconda supplies a tool called conda to manage and upgrade your Anaconda packages.
+Anaconda supplies a tool called `conda` to manage and upgrade your Anaconda packages.
 
-One conda command you should execute regularly is the one that updates the whole Anaconda distribution.
+One `conda` command you should execute regularly is the one that updates the whole Anaconda distribution.
 
 As a practice run, please execute the following
 
 1. Open up a terminal
-1. Type `conda update anaconda`
+2. Type `conda update anaconda`
 
-For more information on conda,  type conda help in a terminal.
+For more information on `conda`,  type `conda help` in a terminal.
 
-(ipython_notebook)=
-## {index}`Jupyter Notebooks <single: Jupyter Notebooks>`
+(ipython-notebook)=
+
+## {index}`Jupyter Notebooks`
 
 ```{index} single: Python; IPython
 ```
@@ -105,23 +93,23 @@ For more information on conda,  type conda help in a terminal.
 
 They use  a *browser-based* interface to Python with
 
-* The ability to write and execute Python commands.
-* Formatted output in the browser, including tables, figures, animation, etc.
-* The option to mix in formatted text and mathematical expressions.
+- The ability to write and execute Python commands.
+- Formatted output in the browser, including tables, figures, animation, etc.
+- The option to mix in formatted text and mathematical expressions.
 
 Because of these features, Jupyter is now a major player in the scientific computing ecosystem.
 
 Here's an image showing execution of some code (borrowed from [here](http://matplotlib.org/examples/pylab_examples/hexbin_demo.html)) in a Jupyter notebook
 
-```{figure} /_static/lecture_specific/getting_started/jp_demo.png
-:scale: 60
-```
+:::{figure} /_static/lecture_specific/getting_started/jp_demo.png
+:scale: 45%
+:::
 
 While Jupyter isn't the only way to code in Python, it's great for when you wish to
 
-* start coding in Python
-* test new ideas or interact with small pieces of code
-* share or collaborate scientific ideas with students or colleagues
+- start coding in Python
+- test new ideas or interact with small pieces of code
+- share or collaborate scientific ideas with students or colleagues
 
 These lectures are designed for executing in Jupyter notebooks.
 
@@ -134,28 +122,30 @@ Once you have installed Anaconda, you can start the Jupyter notebook.
 
 Either
 
-* search for Jupyter in your applications menu, or
-* open up a terminal and type `jupyter notebook`
-    * Windows users should substitute "Anaconda command prompt" for "terminal" in the previous line.
+- search for Jupyter in your applications menu, or
+
+- open up a terminal and type `jupyter notebook`
+
+  - Windows users should substitute "Anaconda command prompt" for "terminal" in the previous line.
 
 If you use the second option, you will see something like this
 
-```{figure} /_static/lecture_specific/getting_started/starting_nb.png
-:scale: 60
-```
+:::{figure} /_static/lecture_specific/getting_started/starting_nb.png
+:scale: 45%
+:::
 
 The output tells us the notebook is running at `http://localhost:8888/`
 
-* `localhost` is the name of the local machine
-* `8888` refers to [port number](https://en.wikipedia.org/wiki/Port_%28computer_networking%29) 8888 on your computer
+- `localhost` is the name of the local machine
+- `8888` refers to [port number](https://en.wikipedia.org/wiki/Port_%28computer_networking%29) 8888 on your computer
 
 Thus, the Jupyter kernel is listening for Python commands on port 8888 of our local machine.
 
 Hopefully, your default browser has also opened up with a web page that looks something like this
 
-```{figure} /_static/lecture_specific/getting_started/nb.png
-:scale: 60
-```
+:::{figure} /_static/lecture_specific/getting_started/nb.png
+:scale: 45%
+:::
 
 What you see here is called the Jupyter *dashboard*.
 
@@ -165,9 +155,9 @@ Assuming all this has worked OK, you can now click on `New` at the top right and
 
 Here's what shows up on our machine:
 
-```{figure} /_static/lecture_specific/getting_started/nb2.png
-:scale: 60
-```
+:::{figure} /_static/lecture_specific/getting_started/nb2.png
+:scale: 45%
+:::
 
 The notebook displays an *active cell*, into which you can type Python commands.
 
@@ -188,9 +178,9 @@ In this mode, whatever you type will appear in the cell with the flashing cursor
 
 When you're ready to execute the code in a cell, hit `Shift-Enter` instead of the usual `Enter`.
 
-```{figure} /_static/lecture_specific/getting_started/nb3.png
-:scale: 60
-```
+:::{figure} /_static/lecture_specific/getting_started/nb3.png
+:scale: 45%
+:::
 
 (Note: There are also menu and button options for running code in a cell that you can find by exploring)
 
@@ -203,16 +193,19 @@ This means that the effect of typing at the keyboard **depends on which mode you
 The two modes are
 
 1. Edit mode
-    * Indicated by a green border around one cell, plus a blinking cursor
-    * Whatever you type appears as is in that cell
-1. Command mode
-    * The green border is replaced by a grey (or grey and blue) border
-    * Keystrokes are interpreted as commands --- for example, typing b adds a new cell below  the current one
+
+   - Indicated by a green border around one cell, plus a blinking cursor
+   - Whatever you type appears as is in that cell
+
+2. Command mode
+
+   - The green border is replaced by a grey (or grey and blue) border
+   - Keystrokes are interpreted as commands --- for example, typing `b` adds a new cell below  the current one
 
 To switch to
 
-* command mode from edit mode, hit the `Esc` key or `Ctrl-M`
-* edit mode from command mode, hit `Enter` or click in a cell
+- command mode from edit mode, hit the `Esc` key or `Ctrl-M`
+- edit mode from command mode, hit `Enter` or click in a cell
 
 The modal behavior of the Jupyter notebook is very efficient when you get used to it.
 
@@ -220,22 +213,22 @@ The modal behavior of the Jupyter notebook is very efficient when you get used t
 
 Python supports [unicode](https://docs.python.org/3/howto/unicode.html), allowing the use of characters such as $\alpha$ and $\beta$ as names in your code.
 
-In a code cell, try typing `\alpha` and then hitting the tab key on your keyboard.
+In a code cell, try typing `\alpha` and then hitting the `tab` key on your keyboard.
 
-(a_test_program)=
+(a-test-program)=
+
 #### A Test Program
 
 Let's run a test program.
 
-Here's an arbitrary program we can use: [http://matplotlib.org/3.1.1/gallery/pie_and_polar_charts/polar_bar.html](http://matplotlib.org/3.1.1/gallery/pie_and_polar_charts/polar_bar.html).
+Here's an arbitrary program we can use: <http://matplotlib.org/3.1.1/gallery/pie_and_polar_charts/polar_bar.html>.
 
 On that page, you'll see the following code
 
-```{code-cell} ipython
+```ipython
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
-plt.rcParams['figure.figsize'] = (10,6)
 
 # Fixing random state for reproducibility
 np.random.seed(19680801)
@@ -267,25 +260,26 @@ Here are a few more tips on working with Jupyter notebooks.
 
 In the previous program, we executed the line `import numpy as np`
 
-* NumPy is a numerical library we'll work with in depth.
+- NumPy is a numerical library we'll work with in depth.
 
 After this import command, functions in NumPy can be accessed with `np.function_name` type syntax.
 
-* For example, try `np.random.randn(3)`.
+- For example, try `np.random.randn(3)`.
 
 We can explore these attributes of `np` using the `Tab` key.
 
 For example, here we type `np.ran` and hit Tab
 
-```{figure} /_static/lecture_specific/getting_started/nb6.png
-:scale: 60
-```
+:::{figure} /_static/lecture_specific/getting_started/nb6.png
+:scale: 45%
+:::
 
 Jupyter offers up the two possible completions, `random` and `rank`.
 
 In this way, the Tab key helps remind you of what's available and also saves you typing.
 
-(gs_help)=
+(gs-help)=
+
 #### On-Line Help
 
 ```{index} single: Jupyter Notebook; Help
@@ -295,9 +289,9 @@ To get help on `np.rank`, say, we can execute `np.rank?`.
 
 Documentation appears in a split window of the browser, like so
 
-```{figure} /_static/lecture_specific/getting_started/nb6a.png
-:scale: 60
-```
+:::{figure} /_static/lecture_specific/getting_started/nb6a.png
+:scale: 45%
+:::
 
 Clicking on the top right of the lower split closes the on-line help.
 
@@ -307,9 +301,9 @@ In addition to executing code, the Jupyter notebook allows you to embed text, eq
 
 For example, here we enter a mixture of plain text and LaTeX instead of code
 
-```{figure} /_static/lecture_specific/getting_started/nb7.png
-:scale: 60
-```
+:::{figure} /_static/lecture_specific/getting_started/nb7.png
+:scale: 45%
+:::
 
 Next we `Esc` to enter command mode and then type `m` to indicate that we
 are writing [Markdown](http://daringfireball.net/projects/markdown/), a mark-up language similar to (but simpler than) LaTeX.
@@ -318,9 +312,9 @@ are writing [Markdown](http://daringfireball.net/projects/markdown/), a mark-up 
 
 Now we `Shift+Enter` to produce this
 
-```{figure} /_static/lecture_specific/getting_started/nb8.png
-:scale: 60
-```
+:::{figure} /_static/lecture_specific/getting_started/nb8.png
+:scale: 45%
+:::
 
 ### Sharing Notebooks
 
@@ -350,7 +344,8 @@ to comments and votes by the community.
 
 ## Installing Libraries
 
-(gs_qe)=
+(gs-qe)=
+
 ```{index} single: QuantEcon
 ```
 
@@ -360,7 +355,8 @@ Other libraries can be installed with `pip` or `conda`.
 
 One library we'll be using is [QuantEcon.py](http://quantecon.org/quantecon-py).
 
-(gs_install_qe)=
+(gs-install-qe)=
+
 You can install [QuantEcon.py](http://quantecon.org/quantecon-py) by
 starting Jupyter and typing
 
@@ -413,7 +409,7 @@ By convention, these text files have a `.py` extension.
 
 We can create an example of such a file as follows:
 
-```{code-cell} ipython
+```ipython
 %%file foo.py
 
 print("foobar")
@@ -429,9 +425,9 @@ If you come across code saved in a `*.py` file, you'll need to consider the
 following questions:
 
 1. how should you execute it?
-1. How should you modify or edit it?
+2. How should you modify or edit it?
 
-#### Option 1: {index}`JupyterLab <single: JupyterLab>`
+#### Option 1: {index}`JupyterLab`
 
 ```{index} single: JupyterLab
 ```
@@ -457,8 +453,8 @@ Nothing beats the power and efficiency of a good text editor for working with pr
 
 A good text editor will provide
 
-* efficient text editing commands (e.g., copy, paste, search and replace)
-* syntax highlighting, etc.
+- efficient text editing commands (e.g., copy, paste, search and replace)
+- syntax highlighting, etc.
 
 Right now, an extremely popular text editor for coding is [VS Code](https://code.visualstudio.com/).
 
@@ -482,13 +478,14 @@ Note also the startup message: It should give you a URL such as `http://localhos
 Now
 
 1. Start your browser --- or open a new tab if it's already running.
-1. Enter the URL from above (e.g. `http://localhost:8888`) in the address bar at the top.
+2. Enter the URL from above (e.g. `http://localhost:8888`) in the address bar at the top.
 
 You should now be able to run a standard Jupyter notebook session.
 
 This is an alternative way to start the notebook that can also be handy.
 
-(gs_ex2)=
+(gs-ex2)=
+
 ### Exercise 2
 
 ```{index} single: Git
@@ -514,19 +511,19 @@ lectures.
 There are two main flavors of Git
 
 1. the plain vanilla [command line Git](http://git-scm.com/downloads) version
-1. the various point-and-click GUI versions
-    * See, for example, the [GitHub version](https://desktop.github.com/)
+
+2. the various point-and-click GUI versions
+
+   - See, for example, the [GitHub version](https://desktop.github.com/)
 
 As the 1st task, try
 
 1. Installing Git.
-1. Getting a copy of [QuantEcon.py](https://github.com/QuantEcon/QuantEcon.py) using Git.
+2. Getting a copy of [QuantEcon.py](https://github.com/QuantEcon/QuantEcon.py) using Git.
 
 For example, if you've installed the command line version, open up a terminal and enter.
 
-```{code-block} bash
-:class: no-execute
-
+```bash
 git clone https://github.com/QuantEcon/QuantEcon.py
 ```
 
@@ -535,15 +532,14 @@ git clone https://github.com/QuantEcon/QuantEcon.py
 As the 2nd task,
 
 1. Sign up to [GitHub](https://github.com/).
-1. Look into 'forking' GitHub repositories (forking means making your own copy of a GitHub repository, stored on GitHub).
-1. Fork [QuantEcon.py](https://github.com/QuantEcon/QuantEcon.py).
-1. Clone your fork to some local directory, make edits, commit them, and push them back up to your forked GitHub repo.
-1. If you made a valuable improvement, send us a [pull request](https://help.github.com/articles/about-pull-requests/)!
+2. Look into 'forking' GitHub repositories (forking means making your own copy of a GitHub repository, stored on GitHub).
+3. Fork [QuantEcon.py](https://github.com/QuantEcon/QuantEcon.py).
+4. Clone your fork to some local directory, make edits, commit them, and push them back up to your forked GitHub repo.
+5. If you made a valuable improvement, send us a [pull request](https://help.github.com/articles/about-pull-requests/)!
 
 For reading on these and other topics, try
 
-* [The official Git documentation](http://git-scm.com/doc).
-* Reading through the docs on [GitHub](https://github.com/).
-* [Pro Git Book](http://git-scm.com/book) by Scott Chacon and Ben Straub.
-* One of the thousands of Git tutorials on the Net.
-
+- [The official Git documentation](http://git-scm.com/doc).
+- Reading through the docs on [GitHub](https://github.com/).
+- [Pro Git Book](http://git-scm.com/book) by Scott Chacon and Ben Straub.
+- One of the thousands of Git tutorials on the Net.
