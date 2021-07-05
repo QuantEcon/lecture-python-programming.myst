@@ -1,8 +1,8 @@
 name: quantecon
 channels:
-  - conda-forge
+  - default
 dependencies:
-  - python=3.8
+  - python=3.9
   - anaconda=2021.05
   # - pip
   # - pip:
