@@ -11,7 +11,7 @@ jobs:
         with:
           activate-environment: quantecon
           environment-file: environment.yml
-          python-version: 3.8
+          python-version: 3.7
       - name: Install Anaconda
         shell: bash -l {0}
         run: |
