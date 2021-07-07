@@ -10,7 +10,6 @@ dependencies:
     - sphinx-tojupyter==0.1.1
     - sphinxext-rediraffe==0.2.7
     - sphinx-exercise==0.1.1
-    - jupytext==1.11.2
     - ghp-import==1.1.0
     - jupinx==0.2.3
     # Temporary Fixes
