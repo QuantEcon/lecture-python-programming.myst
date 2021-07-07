@@ -9,8 +9,8 @@ jobs:
       - name: Setup Anaconda
         uses: conda-incubator/setup-miniconda@v2
         with:
-          activate-environment: quantecon
-          environment-file: environment.yml
+          # activate-environment: quantecon
+          # environment-file: environment.yml
           python-version: 3.8
       - name: Install Anaconda
         shell: bash -l {0}
