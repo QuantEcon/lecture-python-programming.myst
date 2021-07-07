@@ -1,9 +1,7 @@
 name: quantecon
-channels:
-  - default
 dependencies:
-  - python=3.8
-  - anaconda=2020.11
+  - conda
+  - anaconda=2021.05
   - pip
   - pip:
     - jupyter-book==0.11.1
