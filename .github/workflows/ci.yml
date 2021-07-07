@@ -11,10 +11,11 @@ jobs:
         with:
           activate-environment: quantecon
           environment-file: environment.yml
-          python-version: 3.7
+          python-version: 3.8
       - name: Install Anaconda
         shell: bash -l {0}
         run: |
+          conda update conda
           conda install anaconda=2021.05
       - name: Install latex dependencies
         run: |
