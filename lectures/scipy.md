@@ -203,8 +203,8 @@ f = lambda x: np.sin(4 * (x - 1/4)) + x + x**20 - 1
 x = np.linspace(0, 1, 100)
 
 fig, ax = plt.subplots()
-ax.plot(x, f(x))
-ax.axhline(ls='--', c='k', label='$f(x)$')
+ax.plot(x, f(x), label='$f(x)$')
+ax.axhline(ls='--', c='k')
 ax.set_xlabel('$x$', fontsize=12)
 ax.set_ylabel('$f(x)$', fontsize=12)
 ax.legend(fontsize=12)
