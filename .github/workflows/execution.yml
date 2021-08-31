@@ -50,8 +50,12 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install Anaconda + Dependencies
         shell: powershell
+        # numba and llvmlite have issues on latest anaconda install for windows
+        # https://github.com/numba/llvmlite/issues/650#issuecomment-865287766
         run: |
           conda install anaconda
+          conda install -c numba numba
+          conda install -c numba llvmlite
           pip install jupyter-book
           pip install jupyter-book sphinx-multitoc-numbering quantecon-book-theme sphinxext-rediraffe sphinx_tojupyter
       - name: Build Lectures (+ Execution Checks)
