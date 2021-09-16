@@ -1,34 +1,34 @@
-- file: intro
+format: jb-book
+root: intro
+parts:
+- caption: Introduction to Python
   numbered: true
-
-- part: Introduction to Python
   chapters:
-    - file: about_py
-    - file: getting_started
-    - file: python_by_example
-    - file: functions
-    - file: python_essentials
-    - file: oop_intro
-    - file: python_oop
-
-- part: The Scientific Libraries
+  - file: about_py
+  - file: getting_started
+  - file: python_by_example
+  - file: functions
+  - file: python_essentials
+  - file: oop_intro
+  - file: python_oop
+- caption: The Scientific Libraries
+  numbered: true
   chapters:
-    - file: need_for_speed
-    - file: numpy
-    - file: matplotlib
-    - file: scipy
-    - file: numba
-    - file: parallelization
-    - file: pandas
-
-- part: Advanced Python Programming
+  - file: need_for_speed
+  - file: numpy
+  - file: matplotlib
+  - file: scipy
+  - file: numba
+  - file: parallelization
+  - file: pandas
+- caption: Advanced Python Programming
+  numbered: true
   chapters:
-    - file: writing_good_code
-    - file: python_advanced_features
-    - file: debugging
-
-# Placeholder for other pages
-
-- part: Other
+  - file: writing_good_code
+  - file: python_advanced_features
+  - file: debugging
+- caption: Other
+  numbered: true
   chapters:
-    - file: troubleshooting
+  - file: troubleshooting
+  - file: status

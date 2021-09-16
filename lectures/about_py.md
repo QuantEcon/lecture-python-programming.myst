@@ -10,7 +10,7 @@ kernelspec:
 ---
 
 (about_py)=
-```{raw} html
+```{raw} jupyter
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
                 <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
@@ -455,7 +455,7 @@ Apart from the cloud computing options listed above, you might like to consider
 ```{index} single: parallel computing; pycuda
 ```
 
-* GPU programming through [PyCuda](https://wiki.tiker.net/PyCuda), [PyOpenCL](https://mathema.tician.de/software/pyopencl/), [Theano](http://deeplearning.net/software/theano/) or similar.
+* GPU programming through [PyCuda](https://wiki.tiker.net/PyCuda), [PyOpenCL](https://mathema.tician.de/software/pyopencl/), [Theano](https://en.wikipedia.org/wiki/Theano_(software)) or similar.
 
 (intfc)=
 ### Other Developments

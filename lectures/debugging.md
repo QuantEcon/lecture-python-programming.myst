@@ -10,7 +10,7 @@ kernelspec:
 ---
 
 (debugging)=
-```{raw} html
+```{raw} jupyter
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
                 <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
@@ -122,12 +122,14 @@ plot_log()  # Call the function, generate plot
 But this time we type in the following cell block
 
 ```{code-block} ipython
+:class: no-execute
 %debug
 ```
 
 You should be dropped into a new prompt that looks something like this
 
 ```{code-block} ipython
+:class: no-execute
 ipdb>
 ```
 
@@ -139,6 +141,7 @@ For example, here we simply type the name `ax` to see what's happening with
 this object:
 
 ```{code-block} ipython
+:class: no-execute
 ipdb> ax
 array([<matplotlib.axes.AxesSubplot object at 0x290f5d0>,
        <matplotlib.axes.AxesSubplot object at 0x2930810>], dtype=object)
@@ -151,6 +154,7 @@ To find out what else you can do from inside `ipdb` (or `pdb`), use the
 online help
 
 ```{code-block} ipython
+:class: no-execute
 ipdb> h
 
 Documented commands (type help <topic>):
@@ -204,6 +208,7 @@ To investigate, it would be helpful if we could inspect variables like `x` durin
 To this end, we add a "break point" by inserting  `breakpoint()` inside the function code block
 
 ```{code-block} python3
+:class: no-execute
 def plot_log():
     breakpoint()
     fig, ax = plt.subplots()
@@ -217,6 +222,7 @@ plot_log()
 Now let's run the script, and investigate via the debugger
 
 ```{code-block} ipython
+:class: no-execute
 > <ipython-input-6-a188074383b7>(6)plot_log()
 -> fig, ax = plt.subplots()
 (Pdb) n

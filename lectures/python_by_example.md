@@ -10,7 +10,7 @@ kernelspec:
 ---
 
 (python_by_example)=
-```{raw} html
+```{raw} jupyter
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
                 <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
@@ -145,6 +145,8 @@ easily enough if you look around.
 On this machine, it's located in
 
 ```{code-block} ipython
+:class: no-execute
+
 anaconda3/lib/python3.7/site-packages/numpy
 ```
 
@@ -334,6 +336,8 @@ This example helps to clarify how the `for` loop works:  When we execute a
 loop of the form
 
 ```{code-block} python3
+:class: no-execute
+
 for variable_name in sequence:
     <code block>
 ```
@@ -471,7 +475,7 @@ Set $T=200$ and $\alpha = 0.9$.
 
 ### Exercise 2
 
-Starting with your solution to exercise 2, plot three simulated time series,
+Starting with your solution to exercise 1, plot three simulated time series,
 one for each of the cases $\alpha=0$, $\alpha=0.8$ and $\alpha=0.98$.
 
 Use a `for` loop to step through the $\alpha$ values.

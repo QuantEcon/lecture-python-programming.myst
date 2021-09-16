@@ -10,7 +10,7 @@ kernelspec:
 ---
 
 (getting_started)=
-```{raw} html
+```{raw} jupyter
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
                 <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
@@ -365,6 +365,8 @@ You can install [QuantEcon.py](http://quantecon.org/quantecon-py) by
 starting Jupyter and typing
 
 ```{code-block} ipython3
+:class: no-execute
+
 !conda install quantecon
 ```
 
@@ -373,6 +375,8 @@ into a cell.
 Alternatively, you can type the following into a terminal
 
 ```{code-block} bash
+:class: no-execute
+
 conda install quantecon
 ```
 
@@ -381,6 +385,8 @@ More instructions can be found on the [library page](http://quantecon.org/quante
 To upgrade to the latest version, which you should do regularly, use
 
 ```{code-block} bash
+:class: no-execute
+
 conda upgrade quantecon
 ```
 
@@ -389,6 +395,8 @@ Another library we will be using is [interpolation.py](https://github.com/EconFo
 This can be installed by typing in Jupyter
 
 ```{code-block} ipython3
+:class: no-execute
+
 !conda install -c conda-forge interpolation
 ```
 
@@ -517,6 +525,8 @@ As the 1st task, try
 For example, if you've installed the command line version, open up a terminal and enter.
 
 ```{code-block} bash
+:class: no-execute
+
 git clone https://github.com/QuantEcon/QuantEcon.py
 ```
 

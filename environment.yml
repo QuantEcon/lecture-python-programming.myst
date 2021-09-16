@@ -1,16 +1,18 @@
-name: qe-lectures
+name: quantecon
 channels:
   - default
 dependencies:
   - python=3.8
-  - anaconda=2020.07
+  - anaconda=2020.11
   - pip
   - pip:
-    - jupyter-book
-    - sphinxext-rediraffe
-    - git+https://github.com/executablebooks/sphinx-multitoc-numbering
-    - git+https://github.com/quantecon/quantecon-book-theme
-    - git+https://github.com/executablebooks/sphinx-exercise.git
-    - joblib
-    - interpolation
+    - jupyter-book==0.11.2
+    - quantecon-book-theme==0.2.3
+    - sphinx-tojupyter==0.1.2
+    - sphinxext-rediraffe==0.2.7
+    - sphinx-exercise==0.1.1
+    - ghp-import==1.1.0
+    - jupinx==0.2.3
+    # Temporary Fixes
+    - tornado>=6.1
 

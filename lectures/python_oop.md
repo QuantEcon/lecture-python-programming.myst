@@ -10,7 +10,7 @@ kernelspec:
 ---
 
 (python_oop)=
-```{raw} html
+```{raw} jupyter
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
                 <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
@@ -254,7 +254,7 @@ We'll also discuss the role of the peculiar  `self` bookkeeping device in detail
 
 #### Usage
 
-Here's an example in which we use the class `Consumer` to crdate an instance of a consumer whom we affectionately name $c1$.
+Here's an example in which we use the class `Consumer` to create an instance of a consumer whom we affectionately name $c1$.
 
 After we create consumer $c1$ and endow it with initial wealth $10$, we'll apply the `spend` method.
 
@@ -777,6 +777,8 @@ Implement $F_n$ as a class called `ECDF`, where
 Your code should work as follows (modulo randomness)
 
 ```{code-block} python3
+:class: no-execute
+
 from random import uniform
 
 samples = [uniform(0, 1) for i in range(10)]
@@ -785,6 +787,8 @@ F(0.5)  # Evaluate ecdf at x = 0.5
 ```
 
 ```{code-block} python3
+:class: no-execute
+
 F.observations = [uniform(0, 1) for i in range(1000)]
 F(0.5)
 ```
