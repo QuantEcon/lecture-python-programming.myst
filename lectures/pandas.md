@@ -10,7 +10,7 @@ kernelspec:
 ---
 
 (pd)=
-```{raw} jupyter
+```{raw} html
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
                 <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
@@ -34,7 +34,6 @@ In addition to what’s in Anaconda, this lecture will need the following librar
 tags: [hide-output]
 ---
 !pip install --upgrade pandas-datareader
-!pip install --upgrade yfinance
 ```
 
 ## Overview
@@ -44,7 +43,7 @@ tags: [hide-output]
 Its popularity has surged in recent years, coincident with the rise
 of fields such as data science and machine learning.
 
-Here's a popularity comparison over time against STATA, SAS, and [dplyr](https://dplyr.tidyverse.org/) courtesy of Stack Overflow Trends
+Here is a popularity comparison over time against STATA, SAS, and [dplyr](https://dplyr.tidyverse.org/) courtesy of Stack Overflow Trends
 
 ```{figure} /_static/lecture_specific/pandas/pandas_vs_rest.png
 :scale: 40
@@ -88,7 +87,7 @@ You can think of a `Series` as a "column" of data, such as a collection of obser
 
 A `DataFrame` is an object for storing related columns of data.
 
-Let's start with Series
+Let us start with Series
 
 ```{code-cell} python3
 s = pd.Series(np.random.randn(4), name='daily returns')
@@ -154,15 +153,7 @@ In essence, a `DataFrame` in pandas is analogous to a (highly optimized) Excel s
 
 Thus, it is a powerful tool for representing and analyzing data that are naturally organized  into rows and columns, often with  descriptive indexes for individual rows and individual columns.
 
-```{only} html
-Let's look at an example that reads data from the CSV file `pandas/data/test_pwt.csv` that can be downloaded
-<a href=_static/lecture_specific/pandas/data/test_pwt.csv download>here</a>.
-```
-
-```{only} latex
-Let's look at an example that reads data from the CSV file `pandas/data/test_pwt.csv` and can be downloaded
-[here](https://lectures.quantecon.org/_downloads/pandas/data/test_pwt.csv).
-```
+Let's look at an example that reads data from the CSV file `test_pwt.csv` , which is a very small part of the Penn World Tables
 
 Here's the content of `test_pwt.csv`
 
@@ -178,12 +169,14 @@ Here's the content of `test_pwt.csv`
 "Uruguay","URY","2000","3219.793","12.099591667","25255.961693","78.978740282","5.108067988"
 ```
 
-Supposing you have this data saved as `test_pwt.csv` in the present working directory (type `%pwd` in Jupyter to see what this is), it can be read in as follows:
+We will read it from a URL using `pd.read_csv()`.
 
 ```{code-cell} python3
 df = pd.read_csv('https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/pandas/data/test_pwt.csv')
 type(df)
 ```
+
+Let's have a look at the dataframe.
 
 ```{code-cell} python3
 df
@@ -386,27 +379,17 @@ Note that pandas offers many other file type alternatives.
 
 Pandas has [a wide variety](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html) of top-level methods that we can use to read, excel, json, parquet or plug straight into a database server.
 
-### Using {index}`pandas_datareader <single: pandas_datareader>` and {index}`yfinance <single: yfinance>` to Access Data
+### Using {index}`pandas_datareader <single: pandas_datareader>` to Access Data
 
 ```{index} single: Python; pandas-datareader
 ```
 
-The maker of pandas has also authored a library called
-[pandas_datareader](https://pandas-datareader.readthedocs.io/en/latest/) that
-gives programmatic access to many data sources straight from the Jupyter notebook.
+The maker of pandas has also authored a library called pandas_datareader that gives programmatic access to many data sources straight from the Jupyter notebook.
 
 While some sources require an access key, many of the most important (e.g., FRED, [OECD](https://data.oecd.org/), [EUROSTAT](https://ec.europa.eu/eurostat/data/database) and the World Bank) are free to use.
 
-We will also use [yfinance](https://pypi.org/project/yfinance/) to fetch data from Yahoo finance
-in the exercises.
-
 For now let's work through one example of downloading and plotting data --- this
 time from the World Bank.
-
-```{note}
-There are also other [python libraries](https://data.worldbank.org/products/third-party-apps)
-available for working with world bank data such as [wbgapi](https://pypi.org/project/wbgapi/)
-```
 
 The World Bank [collects and organizes data](http://data.worldbank.org/indicator) on a huge range of indicators.
 
@@ -437,7 +420,7 @@ With these imports:
 
 ```{code-cell} python3
 import datetime as dt
-import yfinance as yf
+from pandas_datareader import data
 ```
 
 Write a program to calculate the percentage price change over 2019 for the following shares:
@@ -471,8 +454,7 @@ def read_data(ticker_list,
     ticker = pd.DataFrame()
 
     for tick in ticker_list:
-        stock = yf.Ticker(tick)
-        prices = stock.history(start=start, end=end)
+        prices = data.DataReader(tick, 'yahoo', start, end)
         closing_prices = prices['Close']
         ticker[tick] = closing_prices
 
@@ -549,7 +531,7 @@ Following the work you did in {ref}`Exercise 1 <pd_ex1>`, you can query the data
 ```{code-cell} python3
 indices_data = read_data(
         indices_list,
-        start=dt.datetime(1971, 1, 1),  #Common Start Date
+        start=dt.datetime(1928, 1, 2),
         end=dt.datetime(2020, 12, 31)
 )
 ```
