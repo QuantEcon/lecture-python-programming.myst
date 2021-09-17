@@ -44,10 +44,10 @@ tags: [hide-output]
 Its popularity has surged in recent years, coincident with the rise
 of fields such as data science and machine learning.
 
-Here's a popularity comparison over time against STATA, SAS, and [dplyr](https://dplyr.tidyverse.org/) courtesy of Stack Overflow Trends
+Here's a popularity comparison over time against Matlab and STATA courtesy of Stack Overflow Trends
 
 ```{figure} /_static/lecture_specific/pandas/pandas_vs_rest.png
-:scale: 40
+:scale: 100
 ```
 
 Just as [NumPy](http://www.numpy.org/) provides the basic array data type plus core array operations, pandas
@@ -154,15 +154,7 @@ In essence, a `DataFrame` in pandas is analogous to a (highly optimized) Excel s
 
 Thus, it is a powerful tool for representing and analyzing data that are naturally organized  into rows and columns, often with  descriptive indexes for individual rows and individual columns.
 
-```{only} html
-Let's look at an example that reads data from the CSV file `pandas/data/test_pwt.csv` that can be downloaded
-<a href=_static/lecture_specific/pandas/data/test_pwt.csv download>here</a>.
-```
-
-```{only} latex
-Let's look at an example that reads data from the CSV file `pandas/data/test_pwt.csv` and can be downloaded
-[here](https://lectures.quantecon.org/_downloads/pandas/data/test_pwt.csv).
-```
+Let's look at an example that reads data from the CSV file `pandas/data/test_pwt.csv`, which is taken from the Penn World Tables.
 
 Here's the content of `test_pwt.csv`
 
@@ -178,7 +170,7 @@ Here's the content of `test_pwt.csv`
 "Uruguay","URY","2000","3219.793","12.099591667","25255.961693","78.978740282","5.108067988"
 ```
 
-Supposing you have this data saved as `test_pwt.csv` in the present working directory (type `%pwd` in Jupyter to see what this is), it can be read in as follows:
+We'll read this in from a URL using the `pandas` function `read_csv`.
 
 ```{code-cell} python3
 df = pd.read_csv('https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/pandas/data/test_pwt.csv')
