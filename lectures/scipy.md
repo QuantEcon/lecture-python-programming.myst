@@ -63,7 +63,7 @@ from numpy.fft import fft, ifft
 from numpy.lib.scimath import *
 ```
 
-However, it's more common and better practice to use NumPy functionality explicitly. As it has a faster processing time rather than implicitly via SciPy.
+However, it's more common and better practice to use NumPy functionality explicitly.
 
 
 ```{code-cell} python3
