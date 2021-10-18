@@ -3,15 +3,13 @@ channels:
   - default
 dependencies:
   - python=3.8
-  - anaconda=2020.11
+  - anaconda=2021.05
   - pip
   - pip:
-    - jupyter-book==0.11.3
+    - jupyter-book==0.12.0
     - quantecon-book-theme==0.2.7
     - sphinx-tojupyter==0.1.2
     - sphinxext-rediraffe==0.2.7
-    - sphinx-exercise==0.1.1
+    - sphinx-exercise==0.2.1
     - ghp-import==1.1.0
-    # Temporary Fixes
-    - tornado>=6.1
 
