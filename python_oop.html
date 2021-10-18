@@ -4,30 +4,49 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>7. OOP II: Building Classes &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script>
-        MathJax = {
-          loader: {load: ['[tex]/boldsymbol']},
-          tex: {
-            packages: {'[+]': ['boldsymbol']},
-            inlineMath: [['$', '$'], ['\\(', '\\)']],
-            processEscapes: true,
-            macros: {
-                "argmax" : "arg\\,max",
-                "argmin" : "arg\\,min"
-            }
-          },
-          svg: {
-            fontCache: 'global',
-            scale: 0.92,
-            displayAlign: "center",
-          },
-        };
-    </script>
+    
+        <script>
+            MathJax = {
+            loader: {load: ['[tex]/boldsymbol']},
+            tex: {
+                packages: {'[+]': ['boldsymbol']},
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                processEscapes: true,
+                macros: {
+                    "argmax" : "arg\\,max",
+                    "argmin" : "arg\\,min",
+                    "col"    : "col",
+                    "Span"   :  "span",
+                    "epsilon": "\\varepsilon",
+                    "EE": "\\mathbb{E}",
+                    "PP": "\\mathbb{P}",
+                    "RR": "\\mathbb{R}",
+                    "NN": "\\mathbb{N}",
+                    "ZZ": "\\mathbb{Z}",
+                    "aA": "\\mathcal{A}",
+                    "bB": "\\mathcal{B}",
+                    "cC": "\\mathcal{C}",
+                    "dD": "\\mathcal{D}",
+                    "eE": "\\mathcal{E}",
+                    "fF": "\\mathcal{F}",
+                    "gG": "\\mathcal{G}",
+                    "hH": "\\mathcal{H}",
+                }
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 0.92,
+                displayAlign: "center",
+            },
+            };
+        </script>
+    
     
     
   <link href="_static/css/theme.css" rel="stylesheet" />
@@ -45,8 +64,8 @@
       
 
     
-    <link rel="stylesheet" href="_static/quantecon-book-theme.b2c9c855ebbf206c0b4223812193cad1.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/quantecon-book-theme.857ff391aaabaeb8c161d2309c375fe6.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -57,126 +76,20 @@
   <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="_static/quantecon-book-theme.a5462485f8dd312884626d20cc9f547c.js"></script>
+    <script src="_static/quantecon-book-theme.76bf49d7bbc59738cdb03766fad654af.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -385,7 +298,7 @@
                     
                     <div>
                         
-  <div class="section" id="oop-ii-building-classes">
+  <section class="tex2jax_ignore mathjax_ignore" id="oop-ii-building-classes">
 <h1><a class="toc-backref" href="#id3"><span class="section-number">7. </span><span class="target" id="index-0"></span>OOP II: Building Classes</a><a class="headerlink" href="#oop-ii-building-classes" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <span id="index-1"></span><p class="topic-title">Contents</p>
@@ -402,7 +315,7 @@
 </li>
 </ul>
 </div>
-<div class="section" id="overview">
+<section id="overview">
 <h2><a class="toc-backref" href="#id4"><span class="section-number">7.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>In an <a class="reference internal" href="oop_intro.html"><span class="doc">earlier lecture</span></a>, we learned some foundations of object-oriented programming.</p>
 <p>The objectives of this lecture are</p>
@@ -440,8 +353,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="oop-review">
+</section>
+<section id="oop-review">
 <h2><a class="toc-backref" href="#id5"><span class="section-number">7.2. </span>OOP Review</a><a class="headerlink" href="#oop-review" title="Permalink to this headline">¶</a></h2>
 <p>OOP is supported in many languages:</p>
 <ul class="simple">
@@ -451,7 +364,7 @@
 <li><p>C is a procedural language, while C++ is C with OOP added on top.</p></li>
 </ul>
 <p>Let’s cover general OOP concepts before we specialize to Python.</p>
-<div class="section" id="key-concepts">
+<section id="key-concepts">
 <h3><span class="section-number">7.2.1. </span>Key Concepts<a class="headerlink" href="#key-concepts" title="Permalink to this headline">¶</a></h3>
 <p id="index-2">As discussed an <a class="reference internal" href="oop_intro.html"><span class="doc">earlier lecture</span></a>, in the OOP paradigm, data and functions are <strong>bundled together</strong> into “objects”.</p>
 <p>An example is a Python list, which not only stores data but also knows how to sort itself, etc.</p>
@@ -508,8 +421,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">x.sort()</span></code> and <code class="docutils literal notranslate"><span class="pre">x.__class__</span></code> are two attributes of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">dir(x)</span></code> can be used to view all the attributes of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="why-is-oop-useful">
+</section>
+<section id="why-is-oop-useful">
 <span id="why-oop"></span><h3><span class="section-number">7.2.2. </span>Why is OOP Useful?<a class="headerlink" href="#why-is-oop-useful" title="Permalink to this headline">¶</a></h3>
 <p>OOP is useful for the same reason that abstraction is useful: for recognizing and exploiting the common structure.</p>
 <p>For example,</p>
@@ -523,9 +436,9 @@
 <p>In economic theory, this might be a proposition that applies to all games of a certain type.</p>
 <p>In Python, this might be a method that’s useful for all Markov chains (e.g., <code class="docutils literal notranslate"><span class="pre">simulate</span></code>).</p>
 <p>When we use OOP, the <code class="docutils literal notranslate"><span class="pre">simulate</span></code> method is conveniently bundled together with the Markov chain object.</p>
-</div>
-</div>
-<div class="section" id="defining-your-own-classes">
+</section>
+</section>
+<section id="defining-your-own-classes">
 <h2><a class="toc-backref" href="#id6"><span class="section-number">7.3. </span>Defining Your Own Classes</a><a class="headerlink" href="#defining-your-own-classes" title="Permalink to this headline">¶</a></h2>
 <p id="index-3">Let’s build some simple classes to start off.</p>
 <p id="oop-consumer-class">Before we do so, in order to indicate some of the power of Classes, we’ll define two functions that we’ll call <code class="docutils literal notranslate"><span class="pre">earn</span></code> and <code class="docutils literal notranslate"><span class="pre">spend</span></code>.</p>
@@ -573,7 +486,7 @@
 <p>In our example, two functions <code class="docutils literal notranslate"><span class="pre">earn</span></code> and <code class="docutils literal notranslate"><span class="pre">spend</span></code> can be applied to the current instance data.</p>
 <p>Taken together,  the instance data and functions  are called <em>methods</em>.</p>
 <p>These can be readily accessed in ways that we shall describe now.</p>
-<div class="section" id="example-a-consumer-class">
+<section id="example-a-consumer-class">
 <h3><span class="section-number">7.3.1. </span>Example: A Consumer Class<a class="headerlink" href="#example-a-consumer-class" title="Permalink to this headline">¶</a></h3>
 <p>We’ll build a <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> class with</p>
 <ul class="simple">
@@ -619,7 +532,7 @@
 <p>Whenever we create an instance of the class, the <code class="docutils literal notranslate"><span class="pre">__init_</span></code> method will be called automatically.</p>
 <p>Calling <code class="docutils literal notranslate"><span class="pre">__init__</span></code> sets up a “namespace” to hold the instance data — more on this soon.</p>
 <p>We’ll also discuss the role of the peculiar  <code class="docutils literal notranslate"><span class="pre">self</span></code> bookkeeping device in detail below.</p>
-<div class="section" id="usage">
+<section id="usage">
 <h4><span class="section-number">7.3.1.1. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h4>
 <p>Here’s an example in which we use the class <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> to create an instance of a consumer whom we affectionately name <span class="math notranslate nohighlight">\(c1\)</span>.</p>
 <p>After we create consumer <span class="math notranslate nohighlight">\(c1\)</span> and endow it with initial wealth <span class="math notranslate nohighlight">\(10\)</span>, we’ll apply the <code class="docutils literal notranslate"><span class="pre">spend</span></code> method.</p>
@@ -705,8 +618,8 @@
 </div>
 <p>When we access or set attributes we’re actually just modifying the dictionary
 maintained by the instance.</p>
-</div>
-<div class="section" id="self">
+</section>
+<section id="self">
 <h4><span class="section-number">7.3.1.2. </span>Self<a class="headerlink" href="#self" title="Permalink to this headline">¶</a></h4>
 <p>If you look at the <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> class definition again you’ll see the word
 self throughout the code.</p>
@@ -725,8 +638,8 @@ self throughout the code.</p>
 <li><p>Any method referenced within the class should be called as  <code class="docutils literal notranslate"><span class="pre">self.method_name</span></code></p></li>
 </ul>
 <p>There are no examples of the last rule in the preceding code but we will see some shortly.</p>
-</div>
-<div class="section" id="details">
+</section>
+<section id="details">
 <h4><span class="section-number">7.3.1.3. </span>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h4>
 <p>In this section, we look at some more formal details related to classes and <code class="docutils literal notranslate"><span class="pre">self</span></code></p>
 <ul class="simple">
@@ -742,7 +655,7 @@ the class definition</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__module__&#39;: &#39;__main__&#39;, &#39;__init__&#39;: &lt;function Consumer.__init__ at 0x7f641810b160&gt;, &#39;earn&#39;: &lt;function Consumer.earn at 0x7f641810b280&gt;, &#39;spend&#39;: &lt;function Consumer.spend at 0x7f641810b550&gt;, &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__doc__&#39;: None}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__module__&#39;: &#39;__main__&#39;, &#39;__init__&#39;: &lt;function Consumer.__init__ at 0x7f0fa01cdb80&gt;, &#39;earn&#39;: &lt;function Consumer.earn at 0x7f0fa01cdaf0&gt;, &#39;spend&#39;: &lt;function Consumer.spend at 0x7f0fa01cda60&gt;, &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__doc__&#39;: None}
 </pre></div>
 </div>
 </div>
@@ -782,9 +695,9 @@ the class definition</p>
 </div>
 <p>The end result is that <code class="docutils literal notranslate"><span class="pre">self</span></code> is bound to the instance <code class="docutils literal notranslate"><span class="pre">c1</span></code> inside the function call.</p>
 <p>That’s why the statement <code class="docutils literal notranslate"><span class="pre">self.wealth</span> <span class="pre">+=</span> <span class="pre">y</span></code> inside <code class="docutils literal notranslate"><span class="pre">earn</span></code> ends up modifying <code class="docutils literal notranslate"><span class="pre">c1.wealth</span></code>.</p>
-</div>
-</div>
-<div class="section" id="example-the-solow-growth-model">
+</section>
+</section>
+<section id="example-the-solow-growth-model">
 <span id="oop-solow-growth"></span><h3><span class="section-number">7.3.2. </span>Example: The Solow Growth Model<a class="headerlink" href="#example-the-solow-growth-model" title="Permalink to this headline">¶</a></h3>
 <p id="index-4">For our next example, let’s write a simple class to implement the Solow growth model.</p>
 <p>The Solow growth model is a neoclassical growth model in which the per capita
@@ -889,8 +802,8 @@ capital stock <span class="math notranslate nohighlight">\(k_t\)</span> evolves 
 <img alt="_images/python_oop_30_0.png" src="_images/python_oop_30_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="example-a-market">
+</section>
+<section id="example-a-market">
 <h3><span class="section-number">7.3.3. </span>Example: A Market<a class="headerlink" href="#example-a-market" title="Permalink to this headline">¶</a></h3>
 <p>Next, let’s write a class for competitive market in which buyers and sellers are both price takers.</p>
 <p>The market consists of the following objects:</p>
@@ -1054,8 +967,8 @@ supply curves  with and without taxes</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="example-chaos">
+</section>
+<section id="example-chaos">
 <h3><span class="section-number">7.3.4. </span>Example: Chaos<a class="headerlink" href="#example-chaos" title="Permalink to this headline">¶</a></h3>
 <p>Let’s look at one more example, related to chaotic dynamics in nonlinear systems.</p>
 <p>A simple transition rule that can generate erratic time paths is the logistic map</p>
@@ -1158,9 +1071,9 @@ settling down to some kind of steady state, if a steady state exists.</p>
 axis.</p>
 <p>For <span class="math notranslate nohighlight">\(r\)</span> a little bit higher than 3.45, the time series settles down to oscillating among the four values plotted on the vertical axis.</p>
 <p>Notice that there is no value of <span class="math notranslate nohighlight">\(r\)</span> that leads to a steady state oscillating among three values.</p>
-</div>
-</div>
-<div class="section" id="special-methods">
+</section>
+</section>
+<section id="special-methods">
 <h2><a class="toc-backref" href="#id7"><span class="section-number">7.4. </span>Special Methods</a><a class="headerlink" href="#special-methods" title="Permalink to this headline">¶</a></h2>
 <p id="index-5">Python provides special methods that come in handy.</p>
 <p>For example, recall that lists and tuples have a notion of length and that this length can be queried via the <code class="docutils literal notranslate"><span class="pre">len</span></code> function</p>
@@ -1230,10 +1143,10 @@ your user-defined object, use the <code class="docutils literal notranslate"><sp
 </div>
 </div>
 <p>Exercise 1 provides a more useful example.</p>
-</div>
-<div class="section" id="exercises">
+</section>
+<section id="exercises">
 <h2><a class="toc-backref" href="#id8"><span class="section-number">7.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="exercise-1">
+<section id="exercise-1">
 <span id="oop-ex1"></span><h3><span class="section-number">7.5.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Empirical_distribution_function">empirical cumulative distribution function (ecdf)</a> corresponding to a sample <span class="math notranslate nohighlight">\(\{X_i\}_{i=1}^n\)</span> is defined as</p>
 <div class="math notranslate nohighlight" id="equation-emdist">
@@ -1260,8 +1173,8 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
 </pre></div>
 </div>
 <p>Aim for clarity, not efficiency.</p>
-</div>
-<div class="section" id="exercise-2">
+</section>
+<section id="exercise-2">
 <span id="oop-ex2"></span><h3><span class="section-number">7.5.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h3>
 <p>In an <a class="reference internal" href="python_essentials.html#pyess-ex2"><span class="std std-ref">earlier exercise</span></a>, you wrote a function for evaluating polynomials.</p>
 <p>This exercise is an extension, where the task is to build a simple class called <code class="docutils literal notranslate"><span class="pre">Polynomial</span></code> for representing and manipulating polynomial functions such as</p>
@@ -1275,11 +1188,11 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
 <li><p>Differentiate the polynomial, replacing the original coefficients with those of its derivative <span class="math notranslate nohighlight">\(p'\)</span>.</p></li>
 </ol>
 <p>Avoid using any <code class="docutils literal notranslate"><span class="pre">import</span></code> statements.</p>
-</div>
-</div>
-<div class="section" id="solutions">
+</section>
+</section>
+<section id="solutions">
 <h2><a class="toc-backref" href="#id9"><span class="section-number">7.6. </span>Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
+<section id="id1">
 <h3><span class="section-number">7.6.1. </span>Exercise 1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1316,14 +1229,14 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7
-0.504
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4
+0.486
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id2">
+</section>
+<section id="id2">
 <h3><span class="section-number">7.6.2. </span>Exercise 2<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1360,9 +1273,9 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1399,6 +1312,8 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
                 </footer> <!-- .page__footer -->
 
             </div> <!-- .page -->
+
+            
 
             
             <div class="sidebar bd-sidebar inactive" id="site-navigation">
@@ -1566,7 +1481,7 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
-                    <li data-tippy-content="Download Notebook"><a href="/_notebooks/python_oop.ipynb" download><i data-feather="download-cloud"></i></a></li>
+                    <li data-tippy-content="Download Notebook"><a href="_notebooks/python_oop.ipynb" download><i data-feather="download-cloud"></i></a></li>
                     <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
                         <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/tree/master/lectures/python_oop.md" download><i data-feather="github"></i></a></li>

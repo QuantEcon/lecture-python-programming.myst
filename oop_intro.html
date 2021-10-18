@@ -4,30 +4,49 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>6. OOP I: Introduction to Object Oriented Programming &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script>
-        MathJax = {
-          loader: {load: ['[tex]/boldsymbol']},
-          tex: {
-            packages: {'[+]': ['boldsymbol']},
-            inlineMath: [['$', '$'], ['\\(', '\\)']],
-            processEscapes: true,
-            macros: {
-                "argmax" : "arg\\,max",
-                "argmin" : "arg\\,min"
-            }
-          },
-          svg: {
-            fontCache: 'global',
-            scale: 0.92,
-            displayAlign: "center",
-          },
-        };
-    </script>
+    
+        <script>
+            MathJax = {
+            loader: {load: ['[tex]/boldsymbol']},
+            tex: {
+                packages: {'[+]': ['boldsymbol']},
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                processEscapes: true,
+                macros: {
+                    "argmax" : "arg\\,max",
+                    "argmin" : "arg\\,min",
+                    "col"    : "col",
+                    "Span"   :  "span",
+                    "epsilon": "\\varepsilon",
+                    "EE": "\\mathbb{E}",
+                    "PP": "\\mathbb{P}",
+                    "RR": "\\mathbb{R}",
+                    "NN": "\\mathbb{N}",
+                    "ZZ": "\\mathbb{Z}",
+                    "aA": "\\mathcal{A}",
+                    "bB": "\\mathcal{B}",
+                    "cC": "\\mathcal{C}",
+                    "dD": "\\mathcal{D}",
+                    "eE": "\\mathcal{E}",
+                    "fF": "\\mathcal{F}",
+                    "gG": "\\mathcal{G}",
+                    "hH": "\\mathcal{H}",
+                }
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 0.92,
+                displayAlign: "center",
+            },
+            };
+        </script>
+    
     
     
   <link href="_static/css/theme.css" rel="stylesheet" />
@@ -45,8 +64,8 @@
       
 
     
-    <link rel="stylesheet" href="_static/quantecon-book-theme.b2c9c855ebbf206c0b4223812193cad1.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/quantecon-book-theme.857ff391aaabaeb8c161d2309c375fe6.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -57,84 +76,18 @@
   <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="_static/quantecon-book-theme.a5462485f8dd312884626d20cc9f547c.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="_static/quantecon-book-theme.76bf49d7bbc59738cdb03766fad654af.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -282,7 +235,7 @@
                     
                     <div>
                         
-  <div class="section" id="oop-i-introduction-to-object-oriented-programming">
+  <section class="tex2jax_ignore mathjax_ignore" id="oop-i-introduction-to-object-oriented-programming">
 <h1><a class="toc-backref" href="#id4"><span class="section-number">6. </span>OOP I: Introduction to Object Oriented Programming</a><a class="headerlink" href="#oop-i-introduction-to-object-oriented-programming" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
@@ -296,7 +249,7 @@
 </li>
 </ul>
 </div>
-<div class="section" id="overview">
+<section id="overview">
 <h2><a class="toc-backref" href="#id5"><span class="section-number">6.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Object-oriented_programming">OOP</a> is one of the major paradigms in programming.</p>
 <p>The traditional programming paradigm (think Fortran, C, MATLAB, etc.) is called <em>procedural</em>.</p>
@@ -311,15 +264,15 @@
 <li><p>data and functions are “bundled together” into “objects”</p></li>
 </ul>
 <p>(Functions in this context are referred to as <strong>methods</strong>)</p>
-<div class="section" id="python-and-oop">
+<section id="python-and-oop">
 <h3><span class="section-number">6.1.1. </span>Python and OOP<a class="headerlink" href="#python-and-oop" title="Permalink to this headline">¶</a></h3>
 <p>Python is a pragmatic language that blends object-oriented and procedural styles, rather than taking a purist approach.</p>
 <p>However, at a foundational level, Python <em>is</em> object-oriented.</p>
 <p>In particular, in Python, <em>everything is an object</em>.</p>
 <p>In this lecture, we explain what that statement means and why it matters.</p>
-</div>
-</div>
-<div class="section" id="objects">
+</section>
+</section>
+<section id="objects">
 <h2><a class="toc-backref" href="#id6"><span class="section-number">6.2. </span>Objects</a><a class="headerlink" href="#objects" title="Permalink to this headline">¶</a></h2>
 <p id="index-0">In Python, an <em>object</em> is a collection of data and instructions held in computer memory that consists of</p>
 <ol class="simple">
@@ -329,7 +282,7 @@
 <li><p>methods</p></li>
 </ol>
 <p>These concepts are defined and discussed sequentially below.</p>
-<div class="section" id="type">
+<section id="type">
 <span id="id1"></span><h3><span class="section-number">6.2.1. </span>Type<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h3>
 <p id="index-1">Python provides for different types of objects, to accommodate different categories of data.</p>
 <p>For example</p>
@@ -428,8 +381,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="identity">
+</section>
+<section id="identity">
 <span id="id2"></span><h3><span class="section-number">6.2.2. </span>Identity<a class="headerlink" href="#identity" title="Permalink to this headline">¶</a></h3>
 <p id="index-2">In Python, each object has a unique identifier, which helps Python (and us) keep track of the object.</p>
 <p>The identity of an object can be obtained via the <code class="docutils literal notranslate"><span class="pre">id()</span></code> function</p>
@@ -442,7 +395,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140311953287152
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139938965433904
 </pre></div>
 </div>
 </div>
@@ -454,15 +407,15 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140311953285968
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139938965433584
 </pre></div>
 </div>
 </div>
 </div>
 <p>In this example, <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">z</span></code> happen to have the same value (i.e., <code class="docutils literal notranslate"><span class="pre">2.5</span></code>), but they are not the same object.</p>
 <p>The identity of an object is in fact just the address of the object in memory.</p>
-</div>
-<div class="section" id="object-content-data-and-attributes">
+</section>
+<section id="object-content-data-and-attributes">
 <h3><span class="section-number">6.2.3. </span>Object Content: Data and Attributes<a class="headerlink" href="#object-content-data-and-attributes" title="Permalink to this headline">¶</a></h3>
 <p id="index-3">If we set <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">42</span></code> then we create an object of type <code class="docutils literal notranslate"><span class="pre">int</span></code> that contains
 the data <code class="docutils literal notranslate"><span class="pre">42</span></code>.</p>
@@ -512,8 +465,8 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
 <p>We see from this example that objects have attributes that contain auxiliary information.</p>
 <p>They also have attributes that act like functions, called <em>methods</em>.</p>
 <p>These attributes are important, so let’s discuss them in-depth.</p>
-</div>
-<div class="section" id="methods">
+</section>
+<section id="methods">
 <span id="id3"></span><h3><span class="section-number">6.2.4. </span>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
 <p id="index-4">Methods are <em>functions that are bundled with objects</em>.</p>
 <p>Formally, methods are attributes of objects that are callable (i.e., can be called as functions)</p>
@@ -615,9 +568,9 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
 </div>
 </div>
 <p>(If you wanted to you could modify the <code class="docutils literal notranslate"><span class="pre">__setitem__</span></code> method, so that square bracket assignment does something totally different)</p>
-</div>
-</div>
-<div class="section" id="summary">
+</section>
+</section>
+<section id="summary">
 <h2><a class="toc-backref" href="#id7"><span class="section-number">6.3. </span>Summary</a><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <p>In Python, <em>everything in memory is treated as an object</em>.</p>
 <p>This includes not just lists, strings, etc., but also less obvious things, such as</p>
@@ -662,7 +615,7 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140311952975472
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139938964725968
 </pre></div>
 </div>
 </div>
@@ -705,14 +658,14 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140312057004096
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139939083917408
 </pre></div>
 </div>
 </div>
 </div>
 <p>This uniform treatment of data in Python (everything is an object) helps keep the language simple and consistent.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -749,6 +702,8 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
                 </footer> <!-- .page__footer -->
 
             </div> <!-- .page -->
+
+            
 
             
             <div class="sidebar bd-sidebar inactive" id="site-navigation">
@@ -916,7 +871,7 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
-                    <li data-tippy-content="Download Notebook"><a href="/_notebooks/oop_intro.ipynb" download><i data-feather="download-cloud"></i></a></li>
+                    <li data-tippy-content="Download Notebook"><a href="_notebooks/oop_intro.ipynb" download><i data-feather="download-cloud"></i></a></li>
                     <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
                         <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/tree/master/lectures/oop_intro.md" download><i data-feather="github"></i></a></li>

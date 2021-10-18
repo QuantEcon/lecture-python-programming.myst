@@ -4,30 +4,49 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>15. Writing Good Code &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script>
-        MathJax = {
-          loader: {load: ['[tex]/boldsymbol']},
-          tex: {
-            packages: {'[+]': ['boldsymbol']},
-            inlineMath: [['$', '$'], ['\\(', '\\)']],
-            processEscapes: true,
-            macros: {
-                "argmax" : "arg\\,max",
-                "argmin" : "arg\\,min"
-            }
-          },
-          svg: {
-            fontCache: 'global',
-            scale: 0.92,
-            displayAlign: "center",
-          },
-        };
-    </script>
+    
+        <script>
+            MathJax = {
+            loader: {load: ['[tex]/boldsymbol']},
+            tex: {
+                packages: {'[+]': ['boldsymbol']},
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                processEscapes: true,
+                macros: {
+                    "argmax" : "arg\\,max",
+                    "argmin" : "arg\\,min",
+                    "col"    : "col",
+                    "Span"   :  "span",
+                    "epsilon": "\\varepsilon",
+                    "EE": "\\mathbb{E}",
+                    "PP": "\\mathbb{P}",
+                    "RR": "\\mathbb{R}",
+                    "NN": "\\mathbb{N}",
+                    "ZZ": "\\mathbb{Z}",
+                    "aA": "\\mathcal{A}",
+                    "bB": "\\mathcal{B}",
+                    "cC": "\\mathcal{C}",
+                    "dD": "\\mathcal{D}",
+                    "eE": "\\mathcal{E}",
+                    "fF": "\\mathcal{F}",
+                    "gG": "\\mathcal{G}",
+                    "hH": "\\mathcal{H}",
+                }
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 0.92,
+                displayAlign: "center",
+            },
+            };
+        </script>
+    
     
     
   <link href="_static/css/theme.css" rel="stylesheet" />
@@ -45,8 +64,8 @@
       
 
     
-    <link rel="stylesheet" href="_static/quantecon-book-theme.b2c9c855ebbf206c0b4223812193cad1.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/quantecon-book-theme.857ff391aaabaeb8c161d2309c375fe6.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -57,154 +76,20 @@
   <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="_static/quantecon-book-theme.a5462485f8dd312884626d20cc9f547c.js"></script>
+    <script src="_static/quantecon-book-theme.76bf49d7bbc59738cdb03766fad654af.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -388,7 +273,7 @@
                     
                     <div>
                         
-  <div class="section" id="id1">
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><a class="toc-backref" href="#id3"><span class="section-number">15. </span>Writing Good Code</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <span id="index-0"></span><p class="topic-title">Contents</p>
@@ -405,7 +290,7 @@
 </li>
 </ul>
 </div>
-<div class="section" id="overview">
+<section id="overview">
 <h2><a class="toc-backref" href="#id4"><span class="section-number">15.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>When computer programs are small, poorly written code is not overly costly.</p>
 <p>But more data, more sophisticated models, and more computer power are enabling us to take on more challenging problems that involve writing longer programs.</p>
@@ -413,8 +298,8 @@
 <p>The main payoffs are higher productivity and faster code.</p>
 <p>In this lecture, we review some elements of good coding practice.</p>
 <p>We also touch on modern developments in scientific computing — such as just in time compilation — and how they affect good program design.</p>
-</div>
-<div class="section" id="an-example-of-poor-code">
+</section>
+<section id="an-example-of-poor-code">
 <h2><a class="toc-backref" href="#id5"><span class="section-number">15.2. </span>An Example of Poor Code</a><a class="headerlink" href="#an-example-of-poor-code" title="Permalink to this headline">¶</a></h2>
 <p>Let’s have a look at some poorly written code.</p>
 <p>The job of the code is to generate and plot time series of the simplified Solow model</p>
@@ -508,8 +393,8 @@
 <p>True, the code more or less follows <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a>.</p>
 <p>At the same time, it’s very poorly structured.</p>
 <p>Let’s talk about why that’s the case, and what we can do about it.</p>
-</div>
-<div class="section" id="good-coding-practice">
+</section>
+<section id="good-coding-practice">
 <h2><a class="toc-backref" href="#id6"><span class="section-number">15.3. </span>Good Coding Practice</a><a class="headerlink" href="#good-coding-practice" title="Permalink to this headline">¶</a></h2>
 <p>There are usually many different ways to write a program that accomplishes a given task.</p>
 <p>For small programs, like the one above, the way you write code doesn’t matter too much.</p>
@@ -517,7 +402,7 @@
 <p>In those settings, coding style matters <strong>a great deal</strong>.</p>
 <p>Fortunately, lots of smart people have thought about the best way to write code.</p>
 <p>Here are some basic precepts.</p>
-<div class="section" id="don-t-use-magic-numbers">
+<section id="don-t-use-magic-numbers">
 <h3><span class="section-number">15.3.1. </span>Don’t Use Magic Numbers<a class="headerlink" href="#don-t-use-magic-numbers" title="Permalink to this headline">¶</a></h3>
 <p>If you look at the code above, you’ll see numbers like <code class="docutils literal notranslate"><span class="pre">50</span></code> and <code class="docutils literal notranslate"><span class="pre">49</span></code> and <code class="docutils literal notranslate"><span class="pre">3</span></code> scattered through the code.</p>
 <p>These kinds of numeric literals in the body of your code are sometimes called “magic numbers”.</p>
@@ -531,8 +416,8 @@ should certainly be replaced by named constants.</p>
 <li><p>the meaning is much clearer throughout</p></li>
 <li><p>to alter the time series length, you only need to change one value</p></li>
 </ul>
-</div>
-<div class="section" id="don-t-repeat-yourself">
+</section>
+<section id="don-t-repeat-yourself">
 <h3><span class="section-number">15.3.2. </span>Don’t Repeat Yourself<a class="headerlink" href="#don-t-repeat-yourself" title="Permalink to this headline">¶</a></h3>
 <p>The other mortal sin in the code snippet above is repetition.</p>
 <p>Blocks of logic (such as the loop to generate time series) are repeated with only minor changes.</p>
@@ -545,8 +430,8 @@ should certainly be replaced by named constants.</p>
 <p>More importantly, repeating the same logic in different places means that eventually one of them will likely be wrong.</p>
 <p>If you want to know more, read the excellent summary found on <a class="reference external" href="https://code.tutsplus.com/tutorials/3-key-software-principles-you-must-understand--net-25161">this page</a>.</p>
 <p>We’ll talk about how to avoid repetition below.</p>
-</div>
-<div class="section" id="minimize-global-variables">
+</section>
+<section id="minimize-global-variables">
 <h3><span class="section-number">15.3.3. </span>Minimize Global Variables<a class="headerlink" href="#minimize-global-variables" title="Permalink to this headline">¶</a></h3>
 <p>Sure, global variables (i.e., names assigned to values outside of any function or class) are convenient.</p>
 <p>Rookie programmers typically use global variables with abandon — as we once did ourselves.</p>
@@ -559,16 +444,16 @@ should certainly be replaced by named constants.</p>
 <p>Here’s a <a class="reference external" href="http://wiki.c2.com/?GlobalVariablesAreBad">useful discussion on the topic</a>.</p>
 <p>While the odd global in small scripts is no big deal, we recommend that you teach yourself to avoid them.</p>
 <p>(We’ll discuss how just below).</p>
-<div class="section" id="jit-compilation">
+<section id="jit-compilation">
 <h4><span class="section-number">15.3.3.1. </span>JIT Compilation<a class="headerlink" href="#jit-compilation" title="Permalink to this headline">¶</a></h4>
 <p>For scientific computing, there is another good reason to avoid global variables.</p>
 <p>As <a class="reference internal" href="numba.html"><span class="doc">we’ve seen in previous lectures</span></a>, JIT compilation can generate excellent performance for scripting languages like Python.</p>
 <p>But the task of the compiler used for JIT compilation becomes harder when global variables are present.</p>
 <p>Put differently, the type inference required for JIT compilation is safer and
 more effective when variables are sandboxed inside a function.</p>
-</div>
-</div>
-<div class="section" id="use-functions-or-classes">
+</section>
+</section>
+<section id="use-functions-or-classes">
 <h3><span class="section-number">15.3.4. </span>Use Functions or Classes<a class="headerlink" href="#use-functions-or-classes" title="Permalink to this headline">¶</a></h3>
 <p>Fortunately, we can easily avoid the evils of global variables and WET code.</p>
 <ul class="simple">
@@ -576,16 +461,16 @@ more effective when variables are sandboxed inside a function.</p>
 </ul>
 <p>We can do this by making frequent use of functions or classes.</p>
 <p>In fact, functions and classes are designed specifically to help us avoid shaming ourselves by repeating code or excessive use of global variables.</p>
-<div class="section" id="which-one-functions-or-classes">
+<section id="which-one-functions-or-classes">
 <h4><span class="section-number">15.3.4.1. </span>Which One, Functions or Classes?<a class="headerlink" href="#which-one-functions-or-classes" title="Permalink to this headline">¶</a></h4>
 <p>Both can be useful, and in fact they work well with each other.</p>
 <p>We’ll learn more about these topics over time.</p>
 <p>(Personal preference is part of the story too)</p>
 <p>What’s really important is that you use one or the other or both.</p>
-</div>
-</div>
-</div>
-<div class="section" id="revisiting-the-example">
+</section>
+</section>
+</section>
+<section id="revisiting-the-example">
 <h2><a class="toc-backref" href="#id7"><span class="section-number">15.4. </span>Revisiting the Example</a><a class="headerlink" href="#revisiting-the-example" title="Permalink to this headline">¶</a></h2>
 <p>Here’s some code that reproduces the plot above with better coding style.</p>
 <div class="cell docutils container">
@@ -635,10 +520,10 @@ more effective when variables are sandboxed inside a function.</p>
 <li><p>Magic numbers are avoided.</p></li>
 <li><p>The loop at the end where the actual work is done is short and relatively simple.</p></li>
 </ul>
-</div>
-<div class="section" id="exercises">
+</section>
+<section id="exercises">
 <h2><a class="toc-backref" href="#id8"><span class="section-number">15.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="exercise-1">
+<section id="exercise-1">
 <h3><span class="section-number">15.5.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
 <p>Here is some code that needs improving.</p>
 <p>It involves a basic supply and demand problem.</p>
@@ -773,11 +658,11 @@ Equilibrium quantity is  0.38
 a lot of repeated code here.</p>
 <p>Refactor and improve clarity in the code above using the principles discussed
 in this lecture.</p>
-</div>
-</div>
-<div class="section" id="solutions">
+</section>
+</section>
+<section id="solutions">
 <h2><a class="toc-backref" href="#id9"><span class="section-number">15.6. </span>Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id2">
+<section id="id2">
 <h3><span class="section-number">15.6.1. </span>Exercise 1<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>Here’s one solution, that uses a class:</p>
 <div class="cell docutils container">
@@ -883,9 +768,9 @@ Equilibrium quantity is  0.38
 <img alt="_images/writing_good_code_21_0.png" src="_images/writing_good_code_21_0.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -922,6 +807,8 @@ Equilibrium quantity is  0.38
                 </footer> <!-- .page__footer -->
 
             </div> <!-- .page -->
+
+            
 
             
             <div class="sidebar bd-sidebar inactive" id="site-navigation">
@@ -1089,7 +976,7 @@ Equilibrium quantity is  0.38
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
-                    <li data-tippy-content="Download Notebook"><a href="/_notebooks/writing_good_code.ipynb" download><i data-feather="download-cloud"></i></a></li>
+                    <li data-tippy-content="Download Notebook"><a href="_notebooks/writing_good_code.ipynb" download><i data-feather="download-cloud"></i></a></li>
                     <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
                         <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/tree/master/lectures/writing_good_code.md" download><i data-feather="github"></i></a></li>
