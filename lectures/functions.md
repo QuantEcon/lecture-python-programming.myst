@@ -10,7 +10,7 @@ kernelspec:
 ---
 
 (functions)=
-```{raw} html
+```{raw} jupyter
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
                 <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
@@ -45,9 +45,10 @@ One of the things we will learn to do is build our own user-defined functions
 We will use the following imports.
 
 ```{code-cell} ipython
+%matplotlib inline
 import numpy as np
 import matplotlib.pyplot as plt
-%matplotlib inline
+plt.rcParams['figure.figsize'] = (10,6)
 ```
 
 ## Function Basics

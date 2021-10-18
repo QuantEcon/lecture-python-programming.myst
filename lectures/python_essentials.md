@@ -10,7 +10,7 @@ kernelspec:
 ---
 
 (python_done_right)=
-```{raw} html
+```{raw} jupyter
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
                 <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
@@ -315,6 +315,8 @@ Note that if `newfile.txt` is not in the present working directory then this cal
 In this case, you can shift the file to the pwd or specify the [full path](https://en.wikipedia.org/wiki/Path_%28computing%29) to the file
 
 ```{code-block} python3
+:class: no-execute
+
 f = open('insert_full_path_to_file/newfile.txt', 'r')
 ```
 
@@ -621,6 +623,8 @@ f?
 ```
 
 ```{code-block} ipython
+:class: no-execute
+
 Type:       function
 String Form:<function f at 0x2223320>
 File:       /home/john/temp/temp.py
@@ -633,6 +637,8 @@ f??
 ```
 
 ```{code-block} ipython
+:class: no-execute
+
 Type:       function
 String Form:<function f at 0x2223320>
 File:       /home/john/temp/temp.py
@@ -693,6 +699,8 @@ Here the function created by `lambda` is said to be *anonymous* because it was n
 In a {ref}`previous lecture <python_by_example>`, you came across the statement
 
 ```{code-block} python3
+:class: no-execute
+
 plt.plot(x, 'b-', label="white noise")
 ```
 

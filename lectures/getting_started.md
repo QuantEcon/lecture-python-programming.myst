@@ -10,7 +10,7 @@ kernelspec:
 ---
 
 (getting_started)=
-```{raw} html
+```{raw} jupyter
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
                 <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
@@ -114,7 +114,7 @@ Because of these features, Jupyter is now a major player in the scientific compu
 Here's an image showing execution of some code (borrowed from [here](http://matplotlib.org/examples/pylab_examples/hexbin_demo.html)) in a Jupyter notebook
 
 ```{figure} /_static/lecture_specific/getting_started/jp_demo.png
-:scale: 45
+:scale: 60
 ```
 
 While Jupyter isn't the only way to code in Python, it's great for when you wish to
@@ -141,7 +141,7 @@ Either
 If you use the second option, you will see something like this
 
 ```{figure} /_static/lecture_specific/getting_started/starting_nb.png
-:scale: 45
+:scale: 60
 ```
 
 The output tells us the notebook is running at `http://localhost:8888/`
@@ -154,7 +154,7 @@ Thus, the Jupyter kernel is listening for Python commands on port 8888 of our lo
 Hopefully, your default browser has also opened up with a web page that looks something like this
 
 ```{figure} /_static/lecture_specific/getting_started/nb.png
-:scale: 45
+:scale: 60
 ```
 
 What you see here is called the Jupyter *dashboard*.
@@ -166,7 +166,7 @@ Assuming all this has worked OK, you can now click on `New` at the top right and
 Here's what shows up on our machine:
 
 ```{figure} /_static/lecture_specific/getting_started/nb2.png
-:scale: 45
+:scale: 60
 ```
 
 The notebook displays an *active cell*, into which you can type Python commands.
@@ -189,7 +189,7 @@ In this mode, whatever you type will appear in the cell with the flashing cursor
 When you're ready to execute the code in a cell, hit `Shift-Enter` instead of the usual `Enter`.
 
 ```{figure} /_static/lecture_specific/getting_started/nb3.png
-:scale: 45
+:scale: 60
 ```
 
 (Note: There are also menu and button options for running code in a cell that you can find by exploring)
@@ -235,6 +235,7 @@ On that page, you'll see the following code
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
+plt.rcParams['figure.figsize'] = (10,6)
 
 # Fixing random state for reproducibility
 np.random.seed(19680801)
@@ -277,7 +278,7 @@ We can explore these attributes of `np` using the `Tab` key.
 For example, here we type `np.ran` and hit Tab
 
 ```{figure} /_static/lecture_specific/getting_started/nb6.png
-:scale: 45
+:scale: 60
 ```
 
 Jupyter offers up the two possible completions, `random` and `rank`.
@@ -295,7 +296,7 @@ To get help on `np.rank`, say, we can execute `np.rank?`.
 Documentation appears in a split window of the browser, like so
 
 ```{figure} /_static/lecture_specific/getting_started/nb6a.png
-:scale: 45
+:scale: 60
 ```
 
 Clicking on the top right of the lower split closes the on-line help.
@@ -307,7 +308,7 @@ In addition to executing code, the Jupyter notebook allows you to embed text, eq
 For example, here we enter a mixture of plain text and LaTeX instead of code
 
 ```{figure} /_static/lecture_specific/getting_started/nb7.png
-:scale: 45
+:scale: 60
 ```
 
 Next we `Esc` to enter command mode and then type `m` to indicate that we
@@ -318,7 +319,7 @@ are writing [Markdown](http://daringfireball.net/projects/markdown/), a mark-up 
 Now we `Shift+Enter` to produce this
 
 ```{figure} /_static/lecture_specific/getting_started/nb8.png
-:scale: 45
+:scale: 60
 ```
 
 ### Sharing Notebooks
@@ -364,6 +365,8 @@ You can install [QuantEcon.py](http://quantecon.org/quantecon-py) by
 starting Jupyter and typing
 
 ```{code-block} ipython3
+:class: no-execute
+
 !conda install quantecon
 ```
 
@@ -372,6 +375,8 @@ into a cell.
 Alternatively, you can type the following into a terminal
 
 ```{code-block} bash
+:class: no-execute
+
 conda install quantecon
 ```
 
@@ -380,6 +385,8 @@ More instructions can be found on the [library page](http://quantecon.org/quante
 To upgrade to the latest version, which you should do regularly, use
 
 ```{code-block} bash
+:class: no-execute
+
 conda upgrade quantecon
 ```
 
@@ -388,6 +395,8 @@ Another library we will be using is [interpolation.py](https://github.com/EconFo
 This can be installed by typing in Jupyter
 
 ```{code-block} ipython3
+:class: no-execute
+
 !conda install -c conda-forge interpolation
 ```
 
@@ -516,6 +525,8 @@ As the 1st task, try
 For example, if you've installed the command line version, open up a terminal and enter.
 
 ```{code-block} bash
+:class: no-execute
+
 git clone https://github.com/QuantEcon/QuantEcon.py
 ```
 

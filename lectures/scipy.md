@@ -10,7 +10,7 @@ kernelspec:
 ---
 
 (sp)=
-```{raw} html
+```{raw} jupyter
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
                 <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
@@ -63,7 +63,8 @@ from numpy.fft import fft, ifft
 from numpy.lib.scimath import *
 ```
 
-However, it's more common and better practice to use NumPy functionality explicitly
+However, it's more common and better practice to use NumPy functionality explicitly.
+
 
 ```{code-cell} python3
 import numpy as np
@@ -113,9 +114,10 @@ For this, we can use `scipy.stats`, which provides all of this functionality as 
 Here's an example of usage
 
 ```{code-cell} ipython
+%matplotlib inline
 from scipy.stats import beta
 import matplotlib.pyplot as plt
-%matplotlib inline
+plt.rcParams['figure.figsize'] = (10,6)
 
 q = beta(5, 5)      # Beta(a, b), with a = b = 5
 obs = q.rvs(2000)   # 2000 observations
@@ -202,8 +204,8 @@ f = lambda x: np.sin(4 * (x - 1/4)) + x + x**20 - 1
 x = np.linspace(0, 1, 100)
 
 fig, ax = plt.subplots()
-ax.plot(x, f(x))
-ax.axhline(ls='--', c='k', label='$f(x)$')
+ax.plot(x, f(x), label='$f(x)$')
+ax.axhline(ls='--', c='k')
 ax.set_xlabel('$x$', fontsize=12)
 ax.set_ylabel('$f(x)$', fontsize=12)
 ax.legend(fontsize=12)
@@ -441,7 +443,7 @@ We leave you to investigate the [set of available routines](http://docs.scipy.or
 (sp_ex1)=
 ### Exercise 1
 
-Previously we discussed the concept of {ref}`recursive function calls <recursive_functions>`.
+In {ref}`this lecture <python_advanced_features>`, we will discuss the concept of {ref}`recursive function calls <recursive_functions>`.
 
 Try to write a recursive implementation of homemade bisection function {ref}`described above <bisect_func>`.
 

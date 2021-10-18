@@ -10,7 +10,7 @@ kernelspec:
 ---
 
 (speed)=
-```{raw} html
+```{raw} jupyter
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
                 <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
@@ -39,11 +39,11 @@ versions are a {doc}`common source of errors <troubleshooting>`.
 Let's start with some imports:
 
 ```{code-cell} ipython
+%matplotlib inline
 import numpy as np
 import quantecon as qe
 import matplotlib.pyplot as plt
-
-%matplotlib inline
+plt.rcParams['figure.figsize'] = (10,6)
 ```
 
 ## Overview
@@ -286,7 +286,8 @@ created in {doc}`this lecture <python_oop>`.
 To compile this class we use the `@jitclass` decorator:
 
 ```{code-cell} python3
-from numba import jitclass, float64
+from numba import float64
+from numba.experimental import jitclass
 ```
 
 Notice that we also imported something called `float64`.
@@ -554,7 +555,7 @@ Now let's see how fast it runs:
 %time calculate_pi()
 ```
 
-If we switch of JIT compilation by removing `@njit`, the code takes around
+If we switch off JIT compilation by removing `@njit`, the code takes around
 150 times as long on our machine.
 
 So we get a speed gain of 2 orders of magnitude--which is huge--by adding four

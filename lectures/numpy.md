@@ -10,7 +10,7 @@ kernelspec:
 ---
 
 (np)=
-```{raw} html
+```{raw} jupyter
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
                 <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
@@ -788,8 +788,9 @@ Your task is to
 ## Solutions
 
 ```{code-cell} ipython
-import matplotlib.pyplot as plt
 %matplotlib inline
+import matplotlib.pyplot as plt
+plt.rcParams['figure.figsize'] = (10,6)
 ```
 
 ### Exercise 1

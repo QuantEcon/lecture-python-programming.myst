@@ -1,61 +1,98 @@
 name: Build & Publish to GH Pages
 on:
   push:
-    branches:
-      - master
+    tags:
+      - 'publish*'
 jobs:
-  tests:
+  publish:
+    if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup Anaconda
-        uses: goanpeca/setup-miniconda@v1
+        uses: conda-incubator/setup-miniconda@v2
         with:
           auto-update-conda: true
           auto-activate-base: true
           miniconda-version: 'latest'
           python-version: 3.8
           environment-file: environment.yml
-          activate-environment: qe-lectures
-      - name: Install quantecon-book-theme
-        shell: bash -l {0}
+          activate-environment: quantecon
+      - name: Install latex dependencies
         run: |
-          git clone https://github.com/QuantEcon/quantecon-book-theme
-          cd quantecon-book-theme
-          python setup.py install
-          cd ../ && rm -rf quantecon-book-theme
-      - name: Install sphinx-multitoc-numbering
-        shell: bash -l {0}
-        run: |
-          git clone https://github.com/executablebooks/sphinx-multitoc-numbering.git
-          cd sphinx-multitoc-numbering
-          python setup.py install
-          cd ../ && rm -rf sphinx-multitoc-numbering
-      - name: Install sphinx-exercise
-        shell: bash -l {0}
-        run: |
-          git clone https://github.com/executablebooks/sphinx-exercise.git
-          cd sphinx-exercise
-          git checkout fix-env-attr
-          python setup.py install
-          cd ../ && rm -rf sphinx-exercise
-      - name: Install Dependencies
-        shell: bash -l {0}
-        run: |
-          pip install jupyter-book
+          sudo apt-get -qq update
+          sudo apt-get install -y     \
+            texlive-latex-recommended \
+            texlive-latex-extra       \
+            texlive-fonts-recommended \
+            texlive-fonts-extra       \
+            texlive-xetex             \
+            latexmk                   \
+            xindy
       - name: Display Conda Environment Versions
         shell: bash -l {0}
         run: conda list
       - name: Display Pip Versions
         shell: bash -l {0}
         run: pip list
+      # - name: Download "build" folder (cache)
+      #   uses: dawidd6/action-download-artifact@v2
+      #   with:
+      #     workflow: cache.yml
+      #     branch: main
+      #     name: build-cache
+      #     path: _build
+      # Build Assets (Download Notebooks, PDF via LaTeX)
+      - name: Build Download Notebooks (sphinx-tojupyter)
+        shell: bash -l {0}
+        run: |
+          jb build lectures --path-output ./ --builder=custom --custom-builder=jupyter -n -W --keep-going
+          zip -r download-notebooks.zip _build/jupyter
+      - uses: actions/upload-artifact@v2
+        with:
+          name: download-notebooks
+          path: download-notebooks.zip
+      - name: Copy Download Notebooks for GH-PAGES
+        shell: bash -l {0}
+        run: |
+          mkdir -p _build/html/_notebooks
+          cp -u _build/jupyter/*.ipynb _build/html/_notebooks
+      - name: Build PDF from LaTeX
+        shell: bash -l {0}
+        run: |
+          jb build lectures --builder pdflatex --path-output ./ -n -W --keep-going
+      - name: Copy LaTeX PDF for GH-PAGES
+        shell: bash -l {0}
+        run: |
+          mkdir -p _build/html/_pdf
+          cp -u _build/latex/*.pdf _build/html/_pdf
+      # Final Build of HTML (with assets)
       - name: Build HTML
         shell: bash -l {0}
         run: |
-          jb build lectures --path-output ./
-      - name: Deploy
+          jb build lectures --path-output ./ -n -W --keep-going
+      - name: Deploy website to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: _build/html/
+          cname: python-programming.quantecon.org
+      - name: Prepare lecture-python-programming.notebooks sync
+        shell: bash -l {0}
+        run: |
+          mkdir -p _build/lecture-python-programming.notebooks
+          cp -a _notebook_repo/. _build/lecture-python-programming.notebooks
+          cp _build/jupyter/*.ipynb _build/lecture-python-programming.notebooks
+          ls -a _build/lecture-python-programming.notebooks
+      - name: Commit latest notebooks to lecture-python-programming.notebooks
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.QUANTECON_SERVICES_PAT }}
+        with:
+          source-directory: '_build/lecture-python-programming.notebooks/'
+          destination-repository-username: 'QuantEcon'
+          destination-repository-name: 'lecture-python-programming.notebooks'
+          commit-message: 'auto publishing updates to notebooks'
+          destination-github-username: 'quantecon-services'
+          user-email: services@quantecon.org

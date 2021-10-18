@@ -10,7 +10,7 @@ kernelspec:
 ---
 
 (speed)=
-```{raw} html
+```{raw} jupyter
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
                 <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
@@ -198,6 +198,8 @@ Compiled languages avoid these overheads with explicit, static types.
 For example, consider the following C code, which sums the integers from 1 to 10
 
 ```{code-block} c
+:class: no-execute
+
 #include <stdio.h>
 
 int main(void) {
@@ -388,7 +390,7 @@ xgrid = np.linspace(-3, 3, 50)
 ygrid = xgrid
 x, y = np.meshgrid(xgrid, ygrid)
 
-fig = plt.figure(figsize=(8, 6))
+fig = plt.figure(figsize=(10, 8))
 ax = fig.add_subplot(111, projection='3d')
 ax.plot_surface(x,
                 y,
