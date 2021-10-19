@@ -27,6 +27,11 @@ kernelspec:
 :depth: 2
 ```
 
+```{epigraph}
+"Any fool can write code that a computer can understand. Good programmers write code that humans can understand." -- Martin Fowler
+```
+
+
 ## Overview
 
 When computer programs are small, poorly written code is not overly costly.
