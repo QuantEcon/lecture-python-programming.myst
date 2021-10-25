@@ -355,10 +355,12 @@ Use no import besides `from numpy.random import uniform`.
 
 ## Solutions
 
-````{solution} exercise_1
+```{solution} exercise_1
 :label: solution_1
 
 Here's one solution.
+
+```
 
 ```{code-cell} python3
 def factorial(n):
@@ -369,10 +371,10 @@ def factorial(n):
 
 factorial(4)
 ```
-````
 
 ````{solution} exercise_2
 :label: solution_2
+````
 
 ```{code-cell} python3
 from numpy.random import uniform
@@ -387,12 +389,12 @@ def binomial_rv(n, p):
 
 binomial_rv(10, 0.5)
 ```
-````
 
-````{solution} exercise_3
+```{solution} exercise_3
 :label: solution_3
 
 Here's a function for the first random device.
+```
 
 ```{code-cell} python3
 from numpy.random import uniform
@@ -414,7 +416,9 @@ def draw(k):  # pays if k consecutive successes in a sequence
 draw(3)
 ```
 
+```{solution} exercise_3
 Here's another function for the second random device.
+```
 
 ```{code-cell} python3
 def draw_new(k):  # pays if k successes in a sequence
@@ -433,4 +437,4 @@ def draw_new(k):  # pays if k successes in a sequence
 
 draw_new(3)
 ```
-````
+
