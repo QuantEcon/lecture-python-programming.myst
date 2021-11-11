@@ -14,3 +14,4 @@ dependencies:
     - ghp-import==1.1.0
     # Temporary Fixes
     - networkx==2.6.3
+    - sphinx-jupyterbook-latex==0.4.6
