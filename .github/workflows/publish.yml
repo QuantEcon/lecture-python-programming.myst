@@ -93,6 +93,7 @@ jobs:
           source-directory: '_build/lecture-python-programming.notebooks/'
           destination-repository-username: 'QuantEcon'
           destination-repository-name: 'lecture-python-programming.notebooks'
+          target-branch: master
           commit-message: 'auto publishing updates to notebooks'
           destination-github-username: 'quantecon-services'
           user-email: services@quantecon.org
