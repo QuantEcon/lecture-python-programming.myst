@@ -13,9 +13,9 @@
     
         <script>
             MathJax = {
-            loader: {load: ['[tex]/boldsymbol']},
+            loader: {load: ['[tex]/boldsymbol', '[tex]/textmacros']},
             tex: {
-                packages: {'[+]': ['boldsymbol']},
+                packages: {'[+]': ['boldsymbol', 'textmacros']},
                 inlineMath: [['$', '$'], ['\\(', '\\)']],
                 processEscapes: true,
                 macros: {
@@ -49,8 +49,8 @@
     
     
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -65,7 +65,7 @@
 
     
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/quantecon-book-theme.857ff391aaabaeb8c161d2309c375fe6.css" />
+    <link rel="stylesheet" type="text/css" href="_static/quantecon-book-theme.1ef59f8f4e91ec8319176e8479c6af4e.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -73,7 +73,7 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -85,7 +85,7 @@
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="_static/quantecon-book-theme.76bf49d7bbc59738cdb03766fad654af.js"></script>
+    <script src="_static/quantecon-book-theme.15b0c36fffe88f468997fa7b698991d3.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -128,23 +128,23 @@
 
     <span id="top"></span>
 
-    <div class="wrapper">
+    <div class="qe-wrapper">
 
-        <div class="main">
+        <div class="qe-main">
 
-            <div class="page" id=oop_intro>
+            <div class="qe-page" id=oop_intro>
 
-                <div class="page__toc">
+                <div class="qe-page__toc">
 
                     <div class="inner">
 
                         
-                        <div class="page__toc-header">
+                        <div class="qe-page__toc-header">
                             On this page
                         </div>
 
 
-                        <nav id="bd-toc-nav" class="page__toc-nav">
+                        <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#overview">
@@ -204,7 +204,7 @@
 
                         </nav>
 
-                        <div class="page__toc-footer">
+                        <div class="qe-page__toc-footer">
                             
                             
                             <p><a href="#top"><strong>Back to top</strong></a></p>
@@ -214,24 +214,24 @@
 
                 </div>
 
-                <div class="page__header">
+                <div class="qe-page__header">
 
-                    <div class="page__header-copy">
+                    <div class="qe-page__header-copy">
 
-                        <p class="page__header-heading"><a href="intro.html">Python Programming for Economics and Finance</a></p>
+                        <p class="qe-page__header-heading"><a href="intro.html">Python Programming for Economics and Finance</a></p>
 
-                        <p class="page__header-subheading">OOP I: Introduction to Object Oriented Programming</p>
+                        <p class="qe-page__header-subheading">OOP I: Introduction to Object Oriented Programming</p>
 
                     </div>
 
-                    <p class="page__header-authors">Thomas J. Sargent & John Stachurski</p>
+                    <p class="qe-page__header-authors">Thomas J. Sargent & John Stachurski</p>
 
                 </div> <!-- .page__header -->
 
 
 
                 
-                <main class="page__content" role="main">
+                <main class="qe-page__content" role="main">
                     
                     <div>
                         
@@ -349,7 +349,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">263</span><span class="n">a89d2d982</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_9996</span><span class="o">/</span><span class="mf">1595573990.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="s1">&#39;300&#39;</span> <span class="o">+</span> <span class="mi">400</span>
 
 <span class="ne">TypeError</span>: can only concatenate str (not &quot;int&quot;) to str
@@ -395,7 +395,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140647100083728
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139740049677808
 </pre></div>
 </div>
 </div>
@@ -407,7 +407,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140647100082416
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139740100295984
 </pre></div>
 </div>
 </div>
@@ -615,7 +615,7 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140647099388112
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139739931540208
 </pre></div>
 </div>
 </div>
@@ -658,7 +658,7 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140647218567424
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139740142047296
 </pre></div>
 </div>
 </div>
@@ -693,7 +693,7 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
                 
 
 
-                <footer class="page__footer">
+                <footer class="qe-page__footer">
 
                     <p><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"></a></p>
 
@@ -706,17 +706,17 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
             
 
             
-            <div class="sidebar bd-sidebar inactive" id="site-navigation">
+            <div class="qe-sidebar bd-sidebar inactive" id="site-navigation">
 
-                <div class="sidebar__header">
+                <div class="qe-sidebar__header">
 
 
                     Contents
 
                 </div>
 
-                <nav class="sidebar__nav" id="sidebar-nav" aria-label="Main navigation">
-                    <p class="caption">
+                <nav class="qe-sidebar__nav" id="qe-sidebar-nav" aria-label="Main navigation">
+                    <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction to Python
  </span>
@@ -758,7 +758,7 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   The Scientific Libraries
  </span>
@@ -800,7 +800,7 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Advanced Python Programming
  </span>
@@ -822,7 +822,7 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Other
  </span>
@@ -842,7 +842,7 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
 
                 </nav>
 
-                <div class="sidebar__footer">
+                <div class="qe-sidebar__footer">
 
                 </div>
 
@@ -850,11 +850,11 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
             
         </div> <!-- .main -->
 
-        <div class="toolbar">
+        <div class="qe-toolbar">
 
-            <div class="toolbar__inner">
+            <div class="qe-toolbar__inner">
 
-                <ul class="toolbar__main">
+                <ul class="qe-toolbar__main">
                     <li data-tippy-content="Table of Contents" class="btn__sidebar"><i data-feather="menu"></i></li>
                     <li data-tippy-content="Home"><a href="intro.html"><i data-feather="home"></i></a></li>
                     <li class="btn__qelogo"><a href="https://quantecon.org" title=""><span class="show-for-sr">QuantEcon</span></a></li>
@@ -866,7 +866,7 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
                     </li> -->
                 </ul>
 
-                <ul class="toolbar__links">
+                <ul class="qe-toolbar__links">
                     <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>

@@ -13,9 +13,9 @@
     
         <script>
             MathJax = {
-            loader: {load: ['[tex]/boldsymbol']},
+            loader: {load: ['[tex]/boldsymbol', '[tex]/textmacros']},
             tex: {
-                packages: {'[+]': ['boldsymbol']},
+                packages: {'[+]': ['boldsymbol', 'textmacros']},
                 inlineMath: [['$', '$'], ['\\(', '\\)']],
                 processEscapes: true,
                 macros: {
@@ -49,8 +49,8 @@
     
     
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -65,7 +65,7 @@
 
     
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/quantecon-book-theme.857ff391aaabaeb8c161d2309c375fe6.css" />
+    <link rel="stylesheet" type="text/css" href="_static/quantecon-book-theme.1ef59f8f4e91ec8319176e8479c6af4e.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -73,7 +73,7 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -85,7 +85,7 @@
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="_static/quantecon-book-theme.76bf49d7bbc59738cdb03766fad654af.js"></script>
+    <script src="_static/quantecon-book-theme.15b0c36fffe88f468997fa7b698991d3.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -127,20 +127,20 @@
 
     <span id="top"></span>
 
-    <div class="wrapper">
+    <div class="qe-wrapper">
 
-        <div class="main">
+        <div class="qe-main">
 
-            <div class="page" id=intro>
+            <div class="qe-page" id=intro>
 
-                <div class="page__toc">
+                <div class="qe-page__toc">
 
                     <div class="inner">
 
                         
 
 
-                        <nav id="bd-toc-nav" class="page__toc-nav">
+                        <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             
                             <p class="logo">
                                 
@@ -154,7 +154,7 @@
 
                         </nav>
 
-                        <div class="page__toc-footer">
+                        <div class="qe-page__toc-footer">
                             
                             
                             <p><a href="#top"><strong>Back to top</strong></a></p>
@@ -164,24 +164,24 @@
 
                 </div>
 
-                <div class="page__header">
+                <div class="qe-page__header">
 
-                    <div class="page__header-copy">
+                    <div class="qe-page__header-copy">
 
-                        <p class="page__header-heading"><a href="#">Python Programming for Economics and Finance</a></p>
+                        <p class="qe-page__header-heading"><a href="#">Python Programming for Economics and Finance</a></p>
 
-                        <p class="page__header-subheading">Python Programming for Economics and Finance</p>
+                        <p class="qe-page__header-subheading">Python Programming for Economics and Finance</p>
 
                     </div>
 
-                    <p class="page__header-authors">Thomas J. Sargent & John Stachurski</p>
+                    <p class="qe-page__header-authors">Thomas J. Sargent & John Stachurski</p>
 
                 </div> <!-- .page__header -->
 
 
 
                 
-                <main class="page__content" role="main">
+                <main class="qe-page__content" role="main">
                     
                     <div>
                         
@@ -191,7 +191,7 @@
 <a class="reference external" href="http://www.tomsargent.com/">Thomas J. Sargent</a> and <a class="reference external" href="http://johnstachurski.net/">John Stachurski</a>. This is the first text in the series, which focuses on programming in Python.</p>
 <p>For an overview of the series, see <a class="reference external" href="https://quantecon.org/python-lectures/">this page</a></p>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Introduction to Python</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Python</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="about_py.html">1. About Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">2. Setting up Your Python Environment</a></li>
@@ -203,7 +203,7 @@
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">The Scientific Libraries</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Scientific Libraries</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="need_for_speed.html">8. Python for Scientific Computing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numpy.html">9. NumPy</a></li>
@@ -215,7 +215,7 @@
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Advanced Python Programming</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Python Programming</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="writing_good_code.html">15. Writing Good Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_advanced_features.html">16. More Language Features</a></li>
@@ -223,7 +223,7 @@
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Other</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">18. Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="status.html">19. Execution Statistics</a></li>
@@ -257,7 +257,7 @@
                 
 
 
-                <footer class="page__footer">
+                <footer class="qe-page__footer">
 
                     <p><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"></a></p>
 
@@ -270,17 +270,17 @@
             
 
             
-            <div class="sidebar bd-sidebar inactive" id="site-navigation">
+            <div class="qe-sidebar bd-sidebar inactive" id="site-navigation">
 
-                <div class="sidebar__header">
+                <div class="qe-sidebar__header">
 
 
                     Contents
 
                 </div>
 
-                <nav class="sidebar__nav" id="sidebar-nav" aria-label="Main navigation">
-                    <p class="caption">
+                <nav class="qe-sidebar__nav" id="qe-sidebar-nav" aria-label="Main navigation">
+                    <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction to Python
  </span>
@@ -322,7 +322,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   The Scientific Libraries
  </span>
@@ -364,7 +364,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Advanced Python Programming
  </span>
@@ -386,7 +386,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Other
  </span>
@@ -406,7 +406,7 @@
 
                 </nav>
 
-                <div class="sidebar__footer">
+                <div class="qe-sidebar__footer">
 
                 </div>
 
@@ -414,11 +414,11 @@
             
         </div> <!-- .main -->
 
-        <div class="toolbar">
+        <div class="qe-toolbar">
 
-            <div class="toolbar__inner">
+            <div class="qe-toolbar__inner">
 
-                <ul class="toolbar__main">
+                <ul class="qe-toolbar__main">
                     <li data-tippy-content="Table of Contents" class="btn__sidebar"><i data-feather="menu"></i></li>
                     <li data-tippy-content="Home"><a href="#"><i data-feather="home"></i></a></li>
                     <li class="btn__qelogo"><a href="https://quantecon.org" title=""><span class="show-for-sr">QuantEcon</span></a></li>
@@ -430,7 +430,7 @@
                     </li> -->
                 </ul>
 
-                <ul class="toolbar__links">
+                <ul class="qe-toolbar__links">
                     <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>

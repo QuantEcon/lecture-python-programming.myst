@@ -13,9 +13,9 @@
     
         <script>
             MathJax = {
-            loader: {load: ['[tex]/boldsymbol']},
+            loader: {load: ['[tex]/boldsymbol', '[tex]/textmacros']},
             tex: {
-                packages: {'[+]': ['boldsymbol']},
+                packages: {'[+]': ['boldsymbol', 'textmacros']},
                 inlineMath: [['$', '$'], ['\\(', '\\)']],
                 processEscapes: true,
                 macros: {
@@ -49,8 +49,8 @@
     
     
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -65,7 +65,7 @@
 
     
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/quantecon-book-theme.857ff391aaabaeb8c161d2309c375fe6.css" />
+    <link rel="stylesheet" type="text/css" href="_static/quantecon-book-theme.1ef59f8f4e91ec8319176e8479c6af4e.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -73,7 +73,7 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -85,7 +85,7 @@
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="_static/quantecon-book-theme.76bf49d7bbc59738cdb03766fad654af.js"></script>
+    <script src="_static/quantecon-book-theme.15b0c36fffe88f468997fa7b698991d3.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -130,23 +130,23 @@
 
     <span id="top"></span>
 
-    <div class="wrapper">
+    <div class="qe-wrapper">
 
-        <div class="main">
+        <div class="qe-main">
 
-            <div class="page" id=need_for_speed>
+            <div class="qe-page" id=need_for_speed>
 
-                <div class="page__toc">
+                <div class="qe-page__toc">
 
                     <div class="inner">
 
                         
-                        <div class="page__toc-header">
+                        <div class="qe-page__toc-header">
                             On this page
                         </div>
 
 
-                        <nav id="bd-toc-nav" class="page__toc-nav">
+                        <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#overview">
@@ -247,7 +247,7 @@
 
                         </nav>
 
-                        <div class="page__toc-footer">
+                        <div class="qe-page__toc-footer">
                             
                             
                             <p><a href="#top"><strong>Back to top</strong></a></p>
@@ -257,24 +257,24 @@
 
                 </div>
 
-                <div class="page__header">
+                <div class="qe-page__header">
 
-                    <div class="page__header-copy">
+                    <div class="qe-page__header-copy">
 
-                        <p class="page__header-heading"><a href="intro.html">Python Programming for Economics and Finance</a></p>
+                        <p class="qe-page__header-heading"><a href="intro.html">Python Programming for Economics and Finance</a></p>
 
-                        <p class="page__header-subheading">Python for Scientific Computing</p>
+                        <p class="qe-page__header-subheading">Python for Scientific Computing</p>
 
                     </div>
 
-                    <p class="page__header-authors">Thomas J. Sargent & John Stachurski</p>
+                    <p class="qe-page__header-authors">Thomas J. Sargent & John Stachurski</p>
 
                 </div> <!-- .page__header -->
 
 
 
                 
-                <main class="page__content" role="main">
+                <main class="qe-page__content" role="main">
                     
                     <div>
                         
@@ -361,32 +361,8 @@ addressing the following questions:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
-Solving environment: | 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+Solving environment: \ 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
@@ -441,45 +417,6 @@ Solving environment: |
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
@@ -620,17 +557,17 @@ type of the objects on which it acts)</p>
 <h4><span class="section-number">8.3.1.2. </span>Static Types<a class="headerlink" href="#static-types" title="Permalink to this headline">¶</a></h4>
 <p id="index-1">Compiled languages avoid these overheads with explicit, static types.</p>
 <p>For example, consider the following C code, which sums the integers from 1 to 10</p>
-<div class="no-execute highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="no-execute highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">sum</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">i</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;sum = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">sum</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;sum = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The variables <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">sum</span></code> are explicitly declared to be integers.</p>
@@ -718,8 +655,8 @@ square and then sum a large number of random variables:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 447 ms, sys: 673 µs, total: 447 ms
-Wall time: 447 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 436 ms, sys: 546 µs, total: 437 ms
+Wall time: 437 ms
 </pre></div>
 </div>
 </div>
@@ -735,8 +672,8 @@ Wall time: 447 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 11.5 ms, sys: 3.96 ms, total: 15.5 ms
-Wall time: 15.2 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 7 ms, sys: 7.82 ms, total: 14.8 ms
+Wall time: 14.5 ms
 </pre></div>
 </div>
 </div>
@@ -862,8 +799,8 @@ a = 3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.89 s, sys: 0 ns, total: 2.89 s
-Wall time: 2.83 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.73 s, sys: 642 µs, total: 2.73 s
+Wall time: 2.73 s
 </pre></div>
 </div>
 </div>
@@ -879,8 +816,8 @@ Wall time: 2.83 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 38.7 ms, sys: 14.9 ms, total: 53.6 ms
-Wall time: 53.4 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 20.9 ms, sys: 16 ms, total: 36.9 ms
+Wall time: 36.7 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9999819641085747
@@ -940,7 +877,7 @@ which can generate extremely fast and efficient code.</p>
                 
 
 
-                <footer class="page__footer">
+                <footer class="qe-page__footer">
 
                     <p><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"></a></p>
 
@@ -953,17 +890,17 @@ which can generate extremely fast and efficient code.</p>
             
 
             
-            <div class="sidebar bd-sidebar inactive" id="site-navigation">
+            <div class="qe-sidebar bd-sidebar inactive" id="site-navigation">
 
-                <div class="sidebar__header">
+                <div class="qe-sidebar__header">
 
 
                     Contents
 
                 </div>
 
-                <nav class="sidebar__nav" id="sidebar-nav" aria-label="Main navigation">
-                    <p class="caption">
+                <nav class="qe-sidebar__nav" id="qe-sidebar-nav" aria-label="Main navigation">
+                    <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction to Python
  </span>
@@ -1005,7 +942,7 @@ which can generate extremely fast and efficient code.</p>
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   The Scientific Libraries
  </span>
@@ -1047,7 +984,7 @@ which can generate extremely fast and efficient code.</p>
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Advanced Python Programming
  </span>
@@ -1069,7 +1006,7 @@ which can generate extremely fast and efficient code.</p>
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Other
  </span>
@@ -1089,7 +1026,7 @@ which can generate extremely fast and efficient code.</p>
 
                 </nav>
 
-                <div class="sidebar__footer">
+                <div class="qe-sidebar__footer">
 
                 </div>
 
@@ -1097,11 +1034,11 @@ which can generate extremely fast and efficient code.</p>
             
         </div> <!-- .main -->
 
-        <div class="toolbar">
+        <div class="qe-toolbar">
 
-            <div class="toolbar__inner">
+            <div class="qe-toolbar__inner">
 
-                <ul class="toolbar__main">
+                <ul class="qe-toolbar__main">
                     <li data-tippy-content="Table of Contents" class="btn__sidebar"><i data-feather="menu"></i></li>
                     <li data-tippy-content="Home"><a href="intro.html"><i data-feather="home"></i></a></li>
                     <li class="btn__qelogo"><a href="https://quantecon.org" title=""><span class="show-for-sr">QuantEcon</span></a></li>
@@ -1113,7 +1050,7 @@ which can generate extremely fast and efficient code.</p>
                     </li> -->
                 </ul>
 
-                <ul class="toolbar__links">
+                <ul class="qe-toolbar__links">
                     <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
