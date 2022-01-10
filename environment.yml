@@ -6,7 +6,8 @@ dependencies:
   - anaconda=2021.11
   - pip
   - pip:
-    - jupyter-book==0.12.1
+    - git+https://github.com/executablebooks/jupyter-book.git@update-refactor-mystnb
+    - git+https://github.com/executablebooks/MyST-NB.git@refactor-mystnb
     - quantecon-book-theme==0.3.0
     - sphinx-tojupyter==0.2.0
     - sphinxext-rediraffe==0.2.7
