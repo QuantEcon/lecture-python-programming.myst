@@ -56,7 +56,8 @@ jobs:
       - name: Build HTML
         shell: bash -l {0}
         run: |
-          jb build lectures --path-output ./ -n -W --keep-going
+          sphinx-build -b html lectures/ _build/html/
+          # jb build lectures --path-output ./ -n -W --keep-going
       - name: Preview Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
         with:
