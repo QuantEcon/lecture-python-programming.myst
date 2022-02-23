@@ -361,7 +361,7 @@ data.head()  # A useful method to get a quick look at a data frame
 ```
 
 ```{code-cell} python3
-pd.set_option('precision', 1)
+pd.set_option('display.precision', 1)
 data.describe()  # Your output might differ slightly
 ```
 
