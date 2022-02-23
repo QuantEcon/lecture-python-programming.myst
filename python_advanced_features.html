@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>16. More Language Features &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
@@ -80,11 +79,14 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script src="_static/quantecon-book-theme.15b0c36fffe88f468997fa7b698991d3.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
@@ -441,7 +443,7 @@
                     
                     <div>
                         
-  <section class="tex2jax_ignore mathjax_ignore" id="more-language-features">
+  <div class="tex2jax_ignore mathjax_ignore section" id="more-language-features">
 <h1><a class="toc-backref" href="#id5"><span class="section-number">16. </span>More Language Features</a><a class="headerlink" href="#more-language-features" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
@@ -461,7 +463,7 @@
 </li>
 </ul>
 </div>
-<section id="overview">
+<div class="section" id="overview">
 <h2><a class="toc-backref" href="#id6"><span class="section-number">16.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>With this last lecture, our advice is to <strong>skip it on first pass</strong>, unless you have a burning desire to read it.</p>
 <p>It’s here</p>
@@ -470,12 +472,12 @@
 <li><p>for those who have worked through a number of applications, and now want to learn more about the Python language</p></li>
 </ol>
 <p>A variety of topics are treated in the lecture, including generators, exceptions and descriptors.</p>
-</section>
-<section id="iterables-and-iterators">
+</div>
+<div class="section" id="iterables-and-iterators">
 <h2><a class="toc-backref" href="#id7"><span class="section-number">16.2. </span>Iterables and Iterators</a><a class="headerlink" href="#iterables-and-iterators" title="Permalink to this headline">¶</a></h2>
 <p id="index-0">We’ve <a class="reference internal" href="python_essentials.html#iterating-version-1"><span class="std std-ref">already said something</span></a> about iterating in Python.</p>
 <p>Now let’s look more closely at how it all works, focusing in Python’s implementation of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
-<section id="iterators">
+<div class="section" id="iterators">
 <h3><span class="section-number">16.2.1. </span>Iterators<a class="headerlink" href="#iterators" title="Permalink to this headline">¶</a></h3>
 <p id="index-1">Iterators are a uniform interface to stepping through elements in a collection.</p>
 <p>Here we’ll talk about using iterators—later we’ll learn how to build our own.</p>
@@ -499,7 +501,7 @@ which is written to the present working directory in the following cell</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing us_cities.txt
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting us_cities.txt
 </pre></div>
 </div>
 </div>
@@ -623,8 +625,8 @@ which directly calls this method</p>
 </div>
 </div>
 </div>
-</section>
-<section id="iterators-in-for-loops">
+</div>
+<div class="section" id="iterators-in-for-loops">
 <h3><span class="section-number">16.2.2. </span>Iterators in For Loops<a class="headerlink" href="#iterators-in-for-loops" title="Permalink to this headline">¶</a></h3>
 <p id="index-2">All iterators can be placed to the right of the <code class="docutils literal notranslate"><span class="pre">in</span></code> keyword in <code class="docutils literal notranslate"><span class="pre">for</span></code> loop statements.</p>
 <p>In fact this is how the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop works:  If we write</p>
@@ -650,8 +652,8 @@ which directly calls this method</p>
 <li><p>executing the body of the loop</p></li>
 </ol>
 <p>This continues until a <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> error occurs.</p>
-</section>
-<section id="iterables">
+</div>
+<div class="section" id="iterables">
 <h3><span class="section-number">16.2.3. </span>Iterables<a class="headerlink" href="#iterables" title="Permalink to this headline">¶</a></h3>
 <p id="index-3">You already know that we can put a Python list to the right of <code class="docutils literal notranslate"><span class="pre">in</span></code> in a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</p>
 <div class="cell docutils container">
@@ -692,7 +694,7 @@ eggs
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_13050</span><span class="o">/</span><span class="mf">3485793935.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_10230</span><span class="o">/</span><span class="mf">3485793935.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">next</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
 <span class="ne">TypeError</span>: &#39;list&#39; object is not an iterator
@@ -763,7 +765,7 @@ eggs
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StopIteration</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_13050</span><span class="o">/</span><span class="mf">1131913922.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_10230</span><span class="o">/</span><span class="mf">1131913922.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">next</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
 <span class="ne">StopIteration</span>: 
@@ -782,7 +784,7 @@ eggs
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_13050</span><span class="o">/</span><span class="mf">682007251.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_10230</span><span class="o">/</span><span class="mf">682007251.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">iter</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 
 <span class="ne">TypeError</span>: &#39;int&#39; object is not iterable
@@ -795,8 +797,8 @@ eggs
 <li><p><code class="docutils literal notranslate"><span class="pre">for</span></code> loops work on either iterators or iterables.</p></li>
 <li><p>In the second case, the iterable is converted into an iterator before the loop starts.</p></li>
 </ul>
-</section>
-<section id="iterators-and-built-ins">
+</div>
+<div class="section" id="iterators-and-built-ins">
 <h3><span class="section-number">16.2.4. </span>Iterators and built-ins<a class="headerlink" href="#iterators-and-built-ins" title="Permalink to this headline">¶</a></h3>
 <p id="index-4">Some built-in functions that act on sequences also work with iterables</p>
 <ul class="simple">
@@ -865,7 +867,7 @@ eggs
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_13050</span><span class="o">/</span><span class="mf">1443032810.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_10230</span><span class="o">/</span><span class="mf">1443032810.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
 <span class="ne">ValueError</span>: max() arg is an empty sequence
@@ -873,11 +875,11 @@ eggs
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="names-and-name-resolution">
+</div>
+</div>
+<div class="section" id="names-and-name-resolution">
 <span id="name-res"></span><h2><a class="toc-backref" href="#id8"><span class="section-number">16.3. </span>Names and Name Resolution</a><a class="headerlink" href="#names-and-name-resolution" title="Permalink to this headline">¶</a></h2>
-<section id="variable-names-in-python">
+<div class="section" id="variable-names-in-python">
 <h3><span class="section-number">16.3.1. </span>Variable Names in Python<a class="headerlink" href="#variable-names-in-python" title="Permalink to this headline">¶</a></h3>
 <p id="index-5">Consider the Python statement</p>
 <div class="cell docutils container">
@@ -937,7 +939,7 @@ type <code class="docutils literal notranslate"><span class="pre">int</span></co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140427699528496
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140409473536688
 </pre></div>
 </div>
 </div>
@@ -951,8 +953,8 @@ type <code class="docutils literal notranslate"><span class="pre">int</span></co
 </div>
 <p>What happens here is that the first object is garbage collected.</p>
 <p>In other words, the memory slot that stores that object is deallocated, and returned to the operating system.</p>
-</section>
-<section id="namespaces">
+</div>
+<div class="section" id="namespaces">
 <h3><span class="section-number">16.3.2. </span>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this headline">¶</a></h3>
 <p id="index-6">Recall from the preceding discussion that the statement</p>
 <div class="cell docutils container">
@@ -1034,7 +1036,7 @@ type <code class="docutils literal notranslate"><span class="pre">int</span></co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math&#39;), (&#39;__doc__&#39;, &#39;This module provides access to the mathematical functions\ndefined by the C standard.&#39;), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7fb7e0295e20&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math&#39;, loader=&lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7fb7e0295e20&gt;, origin=&#39;/usr/share/miniconda3/envs/quantecon/lib/python3.8/lib-dynload/math.cpython-38-x86_64-linux-gnu.so&#39;)), (&#39;acos&#39;, &lt;built-in function acos&gt;), (&#39;acosh&#39;, &lt;built-in function acosh&gt;), (&#39;asin&#39;, &lt;built-in function asin&gt;), (&#39;asinh&#39;, &lt;built-in function asinh&gt;), (&#39;atan&#39;, &lt;built-in function atan&gt;), (&#39;atan2&#39;, &lt;built-in function atan2&gt;), (&#39;atanh&#39;, &lt;built-in function atanh&gt;), (&#39;ceil&#39;, &lt;built-in function ceil&gt;), (&#39;copysign&#39;, &lt;built-in function copysign&gt;), (&#39;cos&#39;, &lt;built-in function cos&gt;), (&#39;cosh&#39;, &lt;built-in function cosh&gt;), (&#39;degrees&#39;, &lt;built-in function degrees&gt;), (&#39;dist&#39;, &lt;built-in function dist&gt;), (&#39;erf&#39;, &lt;built-in function erf&gt;), (&#39;erfc&#39;, &lt;built-in function erfc&gt;), (&#39;exp&#39;, &lt;built-in function exp&gt;), (&#39;expm1&#39;, &lt;built-in function expm1&gt;), (&#39;fabs&#39;, &lt;built-in function fabs&gt;), (&#39;factorial&#39;, &lt;built-in function factorial&gt;), (&#39;floor&#39;, &lt;built-in function floor&gt;), (&#39;fmod&#39;, &lt;built-in function fmod&gt;), (&#39;frexp&#39;, &lt;built-in function frexp&gt;), (&#39;fsum&#39;, &lt;built-in function fsum&gt;), (&#39;gamma&#39;, &lt;built-in function gamma&gt;), (&#39;gcd&#39;, &lt;built-in function gcd&gt;), (&#39;hypot&#39;, &lt;built-in function hypot&gt;), (&#39;isclose&#39;, &lt;built-in function isclose&gt;), (&#39;isfinite&#39;, &lt;built-in function isfinite&gt;), (&#39;isinf&#39;, &lt;built-in function isinf&gt;), (&#39;isnan&#39;, &lt;built-in function isnan&gt;), (&#39;isqrt&#39;, &lt;built-in function isqrt&gt;), (&#39;ldexp&#39;, &lt;built-in function ldexp&gt;), (&#39;lgamma&#39;, &lt;built-in function lgamma&gt;), (&#39;log&#39;, &lt;built-in function log&gt;), (&#39;log1p&#39;, &lt;built-in function log1p&gt;), (&#39;log10&#39;, &lt;built-in function log10&gt;), (&#39;log2&#39;, &lt;built-in function log2&gt;), (&#39;modf&#39;, &lt;built-in function modf&gt;), (&#39;pow&#39;, &lt;built-in function pow&gt;), (&#39;radians&#39;, &lt;built-in function radians&gt;), (&#39;remainder&#39;, &lt;built-in function remainder&gt;), (&#39;sin&#39;, &lt;built-in function sin&gt;), (&#39;sinh&#39;, &lt;built-in function sinh&gt;), (&#39;sqrt&#39;, &lt;built-in function sqrt&gt;), (&#39;tan&#39;, &lt;built-in function tan&gt;), (&#39;tanh&#39;, &lt;built-in function tanh&gt;), (&#39;trunc&#39;, &lt;built-in function trunc&gt;), (&#39;prod&#39;, &lt;built-in function prod&gt;), (&#39;perm&#39;, &lt;built-in function perm&gt;), (&#39;comb&#39;, &lt;built-in function comb&gt;), (&#39;pi&#39;, 3.141592653589793), (&#39;e&#39;, 2.718281828459045), (&#39;tau&#39;, 6.283185307179586), (&#39;inf&#39;, inf), (&#39;nan&#39;, nan), (&#39;__file__&#39;, &#39;/usr/share/miniconda3/envs/quantecon/lib/python3.8/lib-dynload/math.cpython-38-x86_64-linux-gnu.so&#39;)])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math&#39;), (&#39;__doc__&#39;, &#39;This module provides access to the mathematical functions\ndefined by the C standard.&#39;), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7fb3a1ce9eb0&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math&#39;, loader=&lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7fb3a1ce9eb0&gt;, origin=&#39;/usr/share/miniconda3/envs/quantecon/lib/python3.8/lib-dynload/math.cpython-38-x86_64-linux-gnu.so&#39;)), (&#39;acos&#39;, &lt;built-in function acos&gt;), (&#39;acosh&#39;, &lt;built-in function acosh&gt;), (&#39;asin&#39;, &lt;built-in function asin&gt;), (&#39;asinh&#39;, &lt;built-in function asinh&gt;), (&#39;atan&#39;, &lt;built-in function atan&gt;), (&#39;atan2&#39;, &lt;built-in function atan2&gt;), (&#39;atanh&#39;, &lt;built-in function atanh&gt;), (&#39;ceil&#39;, &lt;built-in function ceil&gt;), (&#39;copysign&#39;, &lt;built-in function copysign&gt;), (&#39;cos&#39;, &lt;built-in function cos&gt;), (&#39;cosh&#39;, &lt;built-in function cosh&gt;), (&#39;degrees&#39;, &lt;built-in function degrees&gt;), (&#39;dist&#39;, &lt;built-in function dist&gt;), (&#39;erf&#39;, &lt;built-in function erf&gt;), (&#39;erfc&#39;, &lt;built-in function erfc&gt;), (&#39;exp&#39;, &lt;built-in function exp&gt;), (&#39;expm1&#39;, &lt;built-in function expm1&gt;), (&#39;fabs&#39;, &lt;built-in function fabs&gt;), (&#39;factorial&#39;, &lt;built-in function factorial&gt;), (&#39;floor&#39;, &lt;built-in function floor&gt;), (&#39;fmod&#39;, &lt;built-in function fmod&gt;), (&#39;frexp&#39;, &lt;built-in function frexp&gt;), (&#39;fsum&#39;, &lt;built-in function fsum&gt;), (&#39;gamma&#39;, &lt;built-in function gamma&gt;), (&#39;gcd&#39;, &lt;built-in function gcd&gt;), (&#39;hypot&#39;, &lt;built-in function hypot&gt;), (&#39;isclose&#39;, &lt;built-in function isclose&gt;), (&#39;isfinite&#39;, &lt;built-in function isfinite&gt;), (&#39;isinf&#39;, &lt;built-in function isinf&gt;), (&#39;isnan&#39;, &lt;built-in function isnan&gt;), (&#39;isqrt&#39;, &lt;built-in function isqrt&gt;), (&#39;ldexp&#39;, &lt;built-in function ldexp&gt;), (&#39;lgamma&#39;, &lt;built-in function lgamma&gt;), (&#39;log&#39;, &lt;built-in function log&gt;), (&#39;log1p&#39;, &lt;built-in function log1p&gt;), (&#39;log10&#39;, &lt;built-in function log10&gt;), (&#39;log2&#39;, &lt;built-in function log2&gt;), (&#39;modf&#39;, &lt;built-in function modf&gt;), (&#39;pow&#39;, &lt;built-in function pow&gt;), (&#39;radians&#39;, &lt;built-in function radians&gt;), (&#39;remainder&#39;, &lt;built-in function remainder&gt;), (&#39;sin&#39;, &lt;built-in function sin&gt;), (&#39;sinh&#39;, &lt;built-in function sinh&gt;), (&#39;sqrt&#39;, &lt;built-in function sqrt&gt;), (&#39;tan&#39;, &lt;built-in function tan&gt;), (&#39;tanh&#39;, &lt;built-in function tanh&gt;), (&#39;trunc&#39;, &lt;built-in function trunc&gt;), (&#39;prod&#39;, &lt;built-in function prod&gt;), (&#39;perm&#39;, &lt;built-in function perm&gt;), (&#39;comb&#39;, &lt;built-in function comb&gt;), (&#39;pi&#39;, 3.141592653589793), (&#39;e&#39;, 2.718281828459045), (&#39;tau&#39;, 6.283185307179586), (&#39;inf&#39;, inf), (&#39;nan&#39;, nan), (&#39;__file__&#39;, &#39;/usr/share/miniconda3/envs/quantecon/lib/python3.8/lib-dynload/math.cpython-38-x86_64-linux-gnu.so&#39;)])
 </pre></div>
 </div>
 </div>
@@ -1048,7 +1050,7 @@ type <code class="docutils literal notranslate"><span class="pre">int</span></co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math2&#39;), (&#39;__doc__&#39;, None), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.SourceFileLoader object at 0x7fb7d8a39730&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math2&#39;, loader=&lt;_frozen_importlib_external.SourceFileLoader object at 0x7fb7d8a39730&gt;, origin=&#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures/math2.py&#39;)), (&#39;__file__&#39;, &#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures/math2.py&#39;), (&#39;__cached__&#39;, &#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures/__pycache__/math2.cpython-38.pyc&#39;), (&#39;__builtins__&#39;, {&#39;__name__&#39;: &#39;builtins&#39;, &#39;__doc__&#39;: &quot;Built-in functions, exceptions, and other objects.\n\nNoteworthy: None is the `nil&#39; object; Ellipsis represents `...&#39; in slices.&quot;, &#39;__package__&#39;: &#39;&#39;, &#39;__loader__&#39;: &lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;, &#39;__spec__&#39;: ModuleSpec(name=&#39;builtins&#39;, loader=&lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;), &#39;__build_class__&#39;: &lt;built-in function __build_class__&gt;, &#39;__import__&#39;: &lt;built-in function __import__&gt;, &#39;abs&#39;: &lt;built-in function abs&gt;, &#39;all&#39;: &lt;built-in function all&gt;, &#39;any&#39;: &lt;built-in function any&gt;, &#39;ascii&#39;: &lt;built-in function ascii&gt;, &#39;bin&#39;: &lt;built-in function bin&gt;, &#39;breakpoint&#39;: &lt;built-in function breakpoint&gt;, &#39;callable&#39;: &lt;built-in function callable&gt;, &#39;chr&#39;: &lt;built-in function chr&gt;, &#39;compile&#39;: &lt;built-in function compile&gt;, &#39;delattr&#39;: &lt;built-in function delattr&gt;, &#39;dir&#39;: &lt;built-in function dir&gt;, &#39;divmod&#39;: &lt;built-in function divmod&gt;, &#39;eval&#39;: &lt;built-in function eval&gt;, &#39;exec&#39;: &lt;built-in function exec&gt;, &#39;format&#39;: &lt;built-in function format&gt;, &#39;getattr&#39;: &lt;built-in function getattr&gt;, &#39;globals&#39;: &lt;built-in function globals&gt;, &#39;hasattr&#39;: &lt;built-in function hasattr&gt;, &#39;hash&#39;: &lt;built-in function hash&gt;, &#39;hex&#39;: &lt;built-in function hex&gt;, &#39;id&#39;: &lt;built-in function id&gt;, &#39;input&#39;: &lt;bound method Kernel.raw_input of &lt;ipykernel.ipkernel.IPythonKernel object at 0x7fb7ddade6a0&gt;&gt;, &#39;isinstance&#39;: &lt;built-in function isinstance&gt;, &#39;issubclass&#39;: &lt;built-in function issubclass&gt;, &#39;iter&#39;: &lt;built-in function iter&gt;, &#39;len&#39;: &lt;built-in function len&gt;, &#39;locals&#39;: &lt;built-in function locals&gt;, &#39;max&#39;: &lt;built-in function max&gt;, &#39;min&#39;: &lt;built-in function min&gt;, &#39;next&#39;: &lt;built-in function next&gt;, &#39;oct&#39;: &lt;built-in function oct&gt;, &#39;ord&#39;: &lt;built-in function ord&gt;, &#39;pow&#39;: &lt;built-in function pow&gt;, &#39;print&#39;: &lt;built-in function print&gt;, &#39;repr&#39;: &lt;built-in function repr&gt;, &#39;round&#39;: &lt;built-in function round&gt;, &#39;setattr&#39;: &lt;built-in function setattr&gt;, &#39;sorted&#39;: &lt;built-in function sorted&gt;, &#39;sum&#39;: &lt;built-in function sum&gt;, &#39;vars&#39;: &lt;built-in function vars&gt;, &#39;None&#39;: None, &#39;Ellipsis&#39;: Ellipsis, &#39;NotImplemented&#39;: NotImplemented, &#39;False&#39;: False, &#39;True&#39;: True, &#39;bool&#39;: &lt;class &#39;bool&#39;&gt;, &#39;memoryview&#39;: &lt;class &#39;memoryview&#39;&gt;, &#39;bytearray&#39;: &lt;class &#39;bytearray&#39;&gt;, &#39;bytes&#39;: &lt;class &#39;bytes&#39;&gt;, &#39;classmethod&#39;: &lt;class &#39;classmethod&#39;&gt;, &#39;complex&#39;: &lt;class &#39;complex&#39;&gt;, &#39;dict&#39;: &lt;class &#39;dict&#39;&gt;, &#39;enumerate&#39;: &lt;class &#39;enumerate&#39;&gt;, &#39;filter&#39;: &lt;class &#39;filter&#39;&gt;, &#39;float&#39;: &lt;class &#39;float&#39;&gt;, &#39;frozenset&#39;: &lt;class &#39;frozenset&#39;&gt;, &#39;property&#39;: &lt;class &#39;property&#39;&gt;, &#39;int&#39;: &lt;class &#39;int&#39;&gt;, &#39;list&#39;: &lt;class &#39;list&#39;&gt;, &#39;map&#39;: &lt;class &#39;map&#39;&gt;, &#39;object&#39;: &lt;class &#39;object&#39;&gt;, &#39;range&#39;: &lt;class &#39;range&#39;&gt;, &#39;reversed&#39;: &lt;class &#39;reversed&#39;&gt;, &#39;set&#39;: &lt;class &#39;set&#39;&gt;, &#39;slice&#39;: &lt;class &#39;slice&#39;&gt;, &#39;staticmethod&#39;: &lt;class &#39;staticmethod&#39;&gt;, &#39;str&#39;: &lt;class &#39;str&#39;&gt;, &#39;super&#39;: &lt;class &#39;super&#39;&gt;, &#39;tuple&#39;: &lt;class &#39;tuple&#39;&gt;, &#39;type&#39;: &lt;class &#39;type&#39;&gt;, &#39;zip&#39;: &lt;class &#39;zip&#39;&gt;, &#39;__debug__&#39;: True, &#39;BaseException&#39;: &lt;class &#39;BaseException&#39;&gt;, &#39;Exception&#39;: &lt;class &#39;Exception&#39;&gt;, &#39;TypeError&#39;: &lt;class &#39;TypeError&#39;&gt;, &#39;StopAsyncIteration&#39;: &lt;class &#39;StopAsyncIteration&#39;&gt;, &#39;StopIteration&#39;: &lt;class &#39;StopIteration&#39;&gt;, &#39;GeneratorExit&#39;: &lt;class &#39;GeneratorExit&#39;&gt;, &#39;SystemExit&#39;: &lt;class &#39;SystemExit&#39;&gt;, &#39;KeyboardInterrupt&#39;: &lt;class &#39;KeyboardInterrupt&#39;&gt;, &#39;ImportError&#39;: &lt;class &#39;ImportError&#39;&gt;, &#39;ModuleNotFoundError&#39;: &lt;class &#39;ModuleNotFoundError&#39;&gt;, &#39;OSError&#39;: &lt;class &#39;OSError&#39;&gt;, &#39;EnvironmentError&#39;: &lt;class &#39;OSError&#39;&gt;, &#39;IOError&#39;: &lt;class &#39;OSError&#39;&gt;, &#39;EOFError&#39;: &lt;class &#39;EOFError&#39;&gt;, &#39;RuntimeError&#39;: &lt;class &#39;RuntimeError&#39;&gt;, &#39;RecursionError&#39;: &lt;class &#39;RecursionError&#39;&gt;, &#39;NotImplementedError&#39;: &lt;class &#39;NotImplementedError&#39;&gt;, &#39;NameError&#39;: &lt;class &#39;NameError&#39;&gt;, &#39;UnboundLocalError&#39;: &lt;class &#39;UnboundLocalError&#39;&gt;, &#39;AttributeError&#39;: &lt;class &#39;AttributeError&#39;&gt;, &#39;SyntaxError&#39;: &lt;class &#39;SyntaxError&#39;&gt;, &#39;IndentationError&#39;: &lt;class &#39;IndentationError&#39;&gt;, &#39;TabError&#39;: &lt;class &#39;TabError&#39;&gt;, &#39;LookupError&#39;: &lt;class &#39;LookupError&#39;&gt;, &#39;IndexError&#39;: &lt;class &#39;IndexError&#39;&gt;, &#39;KeyError&#39;: &lt;class &#39;KeyError&#39;&gt;, &#39;ValueError&#39;: &lt;class &#39;ValueError&#39;&gt;, &#39;UnicodeError&#39;: &lt;class &#39;UnicodeError&#39;&gt;, &#39;UnicodeEncodeError&#39;: &lt;class &#39;UnicodeEncodeError&#39;&gt;, &#39;UnicodeDecodeError&#39;: &lt;class &#39;UnicodeDecodeError&#39;&gt;, &#39;UnicodeTranslateError&#39;: &lt;class &#39;UnicodeTranslateError&#39;&gt;, &#39;AssertionError&#39;: &lt;class &#39;AssertionError&#39;&gt;, &#39;ArithmeticError&#39;: &lt;class &#39;ArithmeticError&#39;&gt;, &#39;FloatingPointError&#39;: &lt;class &#39;FloatingPointError&#39;&gt;, &#39;OverflowError&#39;: &lt;class &#39;OverflowError&#39;&gt;, &#39;ZeroDivisionError&#39;: &lt;class &#39;ZeroDivisionError&#39;&gt;, &#39;SystemError&#39;: &lt;class &#39;SystemError&#39;&gt;, &#39;ReferenceError&#39;: &lt;class &#39;ReferenceError&#39;&gt;, &#39;MemoryError&#39;: &lt;class &#39;MemoryError&#39;&gt;, &#39;BufferError&#39;: &lt;class &#39;BufferError&#39;&gt;, &#39;Warning&#39;: &lt;class &#39;Warning&#39;&gt;, &#39;UserWarning&#39;: &lt;class &#39;UserWarning&#39;&gt;, &#39;DeprecationWarning&#39;: &lt;class &#39;DeprecationWarning&#39;&gt;, &#39;PendingDeprecationWarning&#39;: &lt;class &#39;PendingDeprecationWarning&#39;&gt;, &#39;SyntaxWarning&#39;: &lt;class &#39;SyntaxWarning&#39;&gt;, &#39;RuntimeWarning&#39;: &lt;class &#39;RuntimeWarning&#39;&gt;, &#39;FutureWarning&#39;: &lt;class &#39;FutureWarning&#39;&gt;, &#39;ImportWarning&#39;: &lt;class &#39;ImportWarning&#39;&gt;, &#39;UnicodeWarning&#39;: &lt;class &#39;UnicodeWarning&#39;&gt;, &#39;BytesWarning&#39;: &lt;class &#39;BytesWarning&#39;&gt;, &#39;ResourceWarning&#39;: &lt;class &#39;ResourceWarning&#39;&gt;, &#39;ConnectionError&#39;: &lt;class &#39;ConnectionError&#39;&gt;, &#39;BlockingIOError&#39;: &lt;class &#39;BlockingIOError&#39;&gt;, &#39;BrokenPipeError&#39;: &lt;class &#39;BrokenPipeError&#39;&gt;, &#39;ChildProcessError&#39;: &lt;class &#39;ChildProcessError&#39;&gt;, &#39;ConnectionAbortedError&#39;: &lt;class &#39;ConnectionAbortedError&#39;&gt;, &#39;ConnectionRefusedError&#39;: &lt;class &#39;ConnectionRefusedError&#39;&gt;, &#39;ConnectionResetError&#39;: &lt;class &#39;ConnectionResetError&#39;&gt;, &#39;FileExistsError&#39;: &lt;class &#39;FileExistsError&#39;&gt;, &#39;FileNotFoundError&#39;: &lt;class &#39;FileNotFoundError&#39;&gt;, &#39;IsADirectoryError&#39;: &lt;class &#39;IsADirectoryError&#39;&gt;, &#39;NotADirectoryError&#39;: &lt;class &#39;NotADirectoryError&#39;&gt;, &#39;InterruptedError&#39;: &lt;class &#39;InterruptedError&#39;&gt;, &#39;PermissionError&#39;: &lt;class &#39;PermissionError&#39;&gt;, &#39;ProcessLookupError&#39;: &lt;class &#39;ProcessLookupError&#39;&gt;, &#39;TimeoutError&#39;: &lt;class &#39;TimeoutError&#39;&gt;, &#39;open&#39;: &lt;built-in function open&gt;, &#39;copyright&#39;: Copyright (c) 2001-2021 Python Software Foundation.
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math2&#39;), (&#39;__doc__&#39;, None), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.SourceFileLoader object at 0x7fb39c492370&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math2&#39;, loader=&lt;_frozen_importlib_external.SourceFileLoader object at 0x7fb39c492370&gt;, origin=&#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures/math2.py&#39;)), (&#39;__file__&#39;, &#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures/math2.py&#39;), (&#39;__cached__&#39;, &#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures/__pycache__/math2.cpython-38.pyc&#39;), (&#39;__builtins__&#39;, {&#39;__name__&#39;: &#39;builtins&#39;, &#39;__doc__&#39;: &quot;Built-in functions, exceptions, and other objects.\n\nNoteworthy: None is the `nil&#39; object; Ellipsis represents `...&#39; in slices.&quot;, &#39;__package__&#39;: &#39;&#39;, &#39;__loader__&#39;: &lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;, &#39;__spec__&#39;: ModuleSpec(name=&#39;builtins&#39;, loader=&lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;), &#39;__build_class__&#39;: &lt;built-in function __build_class__&gt;, &#39;__import__&#39;: &lt;built-in function __import__&gt;, &#39;abs&#39;: &lt;built-in function abs&gt;, &#39;all&#39;: &lt;built-in function all&gt;, &#39;any&#39;: &lt;built-in function any&gt;, &#39;ascii&#39;: &lt;built-in function ascii&gt;, &#39;bin&#39;: &lt;built-in function bin&gt;, &#39;breakpoint&#39;: &lt;built-in function breakpoint&gt;, &#39;callable&#39;: &lt;built-in function callable&gt;, &#39;chr&#39;: &lt;built-in function chr&gt;, &#39;compile&#39;: &lt;built-in function compile&gt;, &#39;delattr&#39;: &lt;built-in function delattr&gt;, &#39;dir&#39;: &lt;built-in function dir&gt;, &#39;divmod&#39;: &lt;built-in function divmod&gt;, &#39;eval&#39;: &lt;built-in function eval&gt;, &#39;exec&#39;: &lt;built-in function exec&gt;, &#39;format&#39;: &lt;built-in function format&gt;, &#39;getattr&#39;: &lt;built-in function getattr&gt;, &#39;globals&#39;: &lt;built-in function globals&gt;, &#39;hasattr&#39;: &lt;built-in function hasattr&gt;, &#39;hash&#39;: &lt;built-in function hash&gt;, &#39;hex&#39;: &lt;built-in function hex&gt;, &#39;id&#39;: &lt;built-in function id&gt;, &#39;input&#39;: &lt;bound method Kernel.raw_input of &lt;ipykernel.ipkernel.IPythonKernel object at 0x7fb39f52f730&gt;&gt;, &#39;isinstance&#39;: &lt;built-in function isinstance&gt;, &#39;issubclass&#39;: &lt;built-in function issubclass&gt;, &#39;iter&#39;: &lt;built-in function iter&gt;, &#39;len&#39;: &lt;built-in function len&gt;, &#39;locals&#39;: &lt;built-in function locals&gt;, &#39;max&#39;: &lt;built-in function max&gt;, &#39;min&#39;: &lt;built-in function min&gt;, &#39;next&#39;: &lt;built-in function next&gt;, &#39;oct&#39;: &lt;built-in function oct&gt;, &#39;ord&#39;: &lt;built-in function ord&gt;, &#39;pow&#39;: &lt;built-in function pow&gt;, &#39;print&#39;: &lt;built-in function print&gt;, &#39;repr&#39;: &lt;built-in function repr&gt;, &#39;round&#39;: &lt;built-in function round&gt;, &#39;setattr&#39;: &lt;built-in function setattr&gt;, &#39;sorted&#39;: &lt;built-in function sorted&gt;, &#39;sum&#39;: &lt;built-in function sum&gt;, &#39;vars&#39;: &lt;built-in function vars&gt;, &#39;None&#39;: None, &#39;Ellipsis&#39;: Ellipsis, &#39;NotImplemented&#39;: NotImplemented, &#39;False&#39;: False, &#39;True&#39;: True, &#39;bool&#39;: &lt;class &#39;bool&#39;&gt;, &#39;memoryview&#39;: &lt;class &#39;memoryview&#39;&gt;, &#39;bytearray&#39;: &lt;class &#39;bytearray&#39;&gt;, &#39;bytes&#39;: &lt;class &#39;bytes&#39;&gt;, &#39;classmethod&#39;: &lt;class &#39;classmethod&#39;&gt;, &#39;complex&#39;: &lt;class &#39;complex&#39;&gt;, &#39;dict&#39;: &lt;class &#39;dict&#39;&gt;, &#39;enumerate&#39;: &lt;class &#39;enumerate&#39;&gt;, &#39;filter&#39;: &lt;class &#39;filter&#39;&gt;, &#39;float&#39;: &lt;class &#39;float&#39;&gt;, &#39;frozenset&#39;: &lt;class &#39;frozenset&#39;&gt;, &#39;property&#39;: &lt;class &#39;property&#39;&gt;, &#39;int&#39;: &lt;class &#39;int&#39;&gt;, &#39;list&#39;: &lt;class &#39;list&#39;&gt;, &#39;map&#39;: &lt;class &#39;map&#39;&gt;, &#39;object&#39;: &lt;class &#39;object&#39;&gt;, &#39;range&#39;: &lt;class &#39;range&#39;&gt;, &#39;reversed&#39;: &lt;class &#39;reversed&#39;&gt;, &#39;set&#39;: &lt;class &#39;set&#39;&gt;, &#39;slice&#39;: &lt;class &#39;slice&#39;&gt;, &#39;staticmethod&#39;: &lt;class &#39;staticmethod&#39;&gt;, &#39;str&#39;: &lt;class &#39;str&#39;&gt;, &#39;super&#39;: &lt;class &#39;super&#39;&gt;, &#39;tuple&#39;: &lt;class &#39;tuple&#39;&gt;, &#39;type&#39;: &lt;class &#39;type&#39;&gt;, &#39;zip&#39;: &lt;class &#39;zip&#39;&gt;, &#39;__debug__&#39;: True, &#39;BaseException&#39;: &lt;class &#39;BaseException&#39;&gt;, &#39;Exception&#39;: &lt;class &#39;Exception&#39;&gt;, &#39;TypeError&#39;: &lt;class &#39;TypeError&#39;&gt;, &#39;StopAsyncIteration&#39;: &lt;class &#39;StopAsyncIteration&#39;&gt;, &#39;StopIteration&#39;: &lt;class &#39;StopIteration&#39;&gt;, &#39;GeneratorExit&#39;: &lt;class &#39;GeneratorExit&#39;&gt;, &#39;SystemExit&#39;: &lt;class &#39;SystemExit&#39;&gt;, &#39;KeyboardInterrupt&#39;: &lt;class &#39;KeyboardInterrupt&#39;&gt;, &#39;ImportError&#39;: &lt;class &#39;ImportError&#39;&gt;, &#39;ModuleNotFoundError&#39;: &lt;class &#39;ModuleNotFoundError&#39;&gt;, &#39;OSError&#39;: &lt;class &#39;OSError&#39;&gt;, &#39;EnvironmentError&#39;: &lt;class &#39;OSError&#39;&gt;, &#39;IOError&#39;: &lt;class &#39;OSError&#39;&gt;, &#39;EOFError&#39;: &lt;class &#39;EOFError&#39;&gt;, &#39;RuntimeError&#39;: &lt;class &#39;RuntimeError&#39;&gt;, &#39;RecursionError&#39;: &lt;class &#39;RecursionError&#39;&gt;, &#39;NotImplementedError&#39;: &lt;class &#39;NotImplementedError&#39;&gt;, &#39;NameError&#39;: &lt;class &#39;NameError&#39;&gt;, &#39;UnboundLocalError&#39;: &lt;class &#39;UnboundLocalError&#39;&gt;, &#39;AttributeError&#39;: &lt;class &#39;AttributeError&#39;&gt;, &#39;SyntaxError&#39;: &lt;class &#39;SyntaxError&#39;&gt;, &#39;IndentationError&#39;: &lt;class &#39;IndentationError&#39;&gt;, &#39;TabError&#39;: &lt;class &#39;TabError&#39;&gt;, &#39;LookupError&#39;: &lt;class &#39;LookupError&#39;&gt;, &#39;IndexError&#39;: &lt;class &#39;IndexError&#39;&gt;, &#39;KeyError&#39;: &lt;class &#39;KeyError&#39;&gt;, &#39;ValueError&#39;: &lt;class &#39;ValueError&#39;&gt;, &#39;UnicodeError&#39;: &lt;class &#39;UnicodeError&#39;&gt;, &#39;UnicodeEncodeError&#39;: &lt;class &#39;UnicodeEncodeError&#39;&gt;, &#39;UnicodeDecodeError&#39;: &lt;class &#39;UnicodeDecodeError&#39;&gt;, &#39;UnicodeTranslateError&#39;: &lt;class &#39;UnicodeTranslateError&#39;&gt;, &#39;AssertionError&#39;: &lt;class &#39;AssertionError&#39;&gt;, &#39;ArithmeticError&#39;: &lt;class &#39;ArithmeticError&#39;&gt;, &#39;FloatingPointError&#39;: &lt;class &#39;FloatingPointError&#39;&gt;, &#39;OverflowError&#39;: &lt;class &#39;OverflowError&#39;&gt;, &#39;ZeroDivisionError&#39;: &lt;class &#39;ZeroDivisionError&#39;&gt;, &#39;SystemError&#39;: &lt;class &#39;SystemError&#39;&gt;, &#39;ReferenceError&#39;: &lt;class &#39;ReferenceError&#39;&gt;, &#39;MemoryError&#39;: &lt;class &#39;MemoryError&#39;&gt;, &#39;BufferError&#39;: &lt;class &#39;BufferError&#39;&gt;, &#39;Warning&#39;: &lt;class &#39;Warning&#39;&gt;, &#39;UserWarning&#39;: &lt;class &#39;UserWarning&#39;&gt;, &#39;DeprecationWarning&#39;: &lt;class &#39;DeprecationWarning&#39;&gt;, &#39;PendingDeprecationWarning&#39;: &lt;class &#39;PendingDeprecationWarning&#39;&gt;, &#39;SyntaxWarning&#39;: &lt;class &#39;SyntaxWarning&#39;&gt;, &#39;RuntimeWarning&#39;: &lt;class &#39;RuntimeWarning&#39;&gt;, &#39;FutureWarning&#39;: &lt;class &#39;FutureWarning&#39;&gt;, &#39;ImportWarning&#39;: &lt;class &#39;ImportWarning&#39;&gt;, &#39;UnicodeWarning&#39;: &lt;class &#39;UnicodeWarning&#39;&gt;, &#39;BytesWarning&#39;: &lt;class &#39;BytesWarning&#39;&gt;, &#39;ResourceWarning&#39;: &lt;class &#39;ResourceWarning&#39;&gt;, &#39;ConnectionError&#39;: &lt;class &#39;ConnectionError&#39;&gt;, &#39;BlockingIOError&#39;: &lt;class &#39;BlockingIOError&#39;&gt;, &#39;BrokenPipeError&#39;: &lt;class &#39;BrokenPipeError&#39;&gt;, &#39;ChildProcessError&#39;: &lt;class &#39;ChildProcessError&#39;&gt;, &#39;ConnectionAbortedError&#39;: &lt;class &#39;ConnectionAbortedError&#39;&gt;, &#39;ConnectionRefusedError&#39;: &lt;class &#39;ConnectionRefusedError&#39;&gt;, &#39;ConnectionResetError&#39;: &lt;class &#39;ConnectionResetError&#39;&gt;, &#39;FileExistsError&#39;: &lt;class &#39;FileExistsError&#39;&gt;, &#39;FileNotFoundError&#39;: &lt;class &#39;FileNotFoundError&#39;&gt;, &#39;IsADirectoryError&#39;: &lt;class &#39;IsADirectoryError&#39;&gt;, &#39;NotADirectoryError&#39;: &lt;class &#39;NotADirectoryError&#39;&gt;, &#39;InterruptedError&#39;: &lt;class &#39;InterruptedError&#39;&gt;, &#39;PermissionError&#39;: &lt;class &#39;PermissionError&#39;&gt;, &#39;ProcessLookupError&#39;: &lt;class &#39;ProcessLookupError&#39;&gt;, &#39;TimeoutError&#39;: &lt;class &#39;TimeoutError&#39;&gt;, &#39;open&#39;: &lt;built-in function open&gt;, &#39;copyright&#39;: Copyright (c) 2001-2021 Python Software Foundation.
 All Rights Reserved.
 
 Copyright (c) 2000 BeOpen.com.
@@ -1059,7 +1061,7 @@ All Rights Reserved.
 
 Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.
 All Rights Reserved., &#39;credits&#39;:     Thanks to CWI, CNRI, BeOpen.com, Zope Corporation and a cast of thousands
-    for supporting Python development.  See www.python.org for more information., &#39;license&#39;: Type license() to see the full license text, &#39;help&#39;: Type help() for interactive help, or help(object) for help about object., &#39;execfile&#39;: &lt;function execfile at 0x7fb7dde24940&gt;, &#39;runfile&#39;: &lt;function runfile at 0x7fb7ddc78550&gt;, &#39;__IPYTHON__&#39;: True, &#39;display&#39;: &lt;function display at 0x7fb7df0f34c0&gt;, &#39;get_ipython&#39;: &lt;bound method InteractiveShell.get_ipython of &lt;ipykernel.zmqshell.ZMQInteractiveShell object at 0x7fb7ddaf3070&gt;&gt;}), (&#39;pi&#39;, &#39;foobar&#39;)])
+    for supporting Python development.  See www.python.org for more information., &#39;license&#39;: Type license() to see the full license text, &#39;help&#39;: Type help() for interactive help, or help(object) for help about object., &#39;execfile&#39;: &lt;function execfile at 0x7fb39f88a940&gt;, &#39;runfile&#39;: &lt;function runfile at 0x7fb39f6cf550&gt;, &#39;__IPYTHON__&#39;: True, &#39;display&#39;: &lt;function display at 0x7fb3a0b494c0&gt;, &#39;get_ipython&#39;: &lt;bound method InteractiveShell.get_ipython of &lt;ipykernel.zmqshell.ZMQInteractiveShell object at 0x7fb39f549100&gt;&gt;}), (&#39;pi&#39;, &#39;foobar&#39;)])
 </pre></div>
 </div>
 </div>
@@ -1090,8 +1092,8 @@ All Rights Reserved., &#39;credits&#39;:     Thanks to CWI, CNRI, BeOpen.com, Zo
 </div>
 </div>
 </div>
-</section>
-<section id="viewing-namespaces">
+</div>
+<div class="section" id="viewing-namespaces">
 <h3><span class="section-number">16.3.3. </span>Viewing Namespaces<a class="headerlink" href="#viewing-namespaces" title="Permalink to this headline">¶</a></h3>
 <p>As we saw above, the <code class="docutils literal notranslate"><span class="pre">math</span></code> namespace can be printed by typing <code class="docutils literal notranslate"><span class="pre">math.__dict__</span></code>.</p>
 <p>Another way to see its contents is to type <code class="docutils literal notranslate"><span class="pre">vars(math)</span></code></p>
@@ -1102,7 +1104,7 @@ All Rights Reserved., &#39;credits&#39;:     Thanks to CWI, CNRI, BeOpen.com, Zo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math&#39;), (&#39;__doc__&#39;, &#39;This module provides access to the mathematical functions\ndefined by the C standard.&#39;), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7fb7e0295e20&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math&#39;, loader=&lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7fb7e0295e20&gt;, origin=&#39;/usr/share/miniconda3/envs/quantecon/lib/python3.8/lib-dynload/math.cpython-38-x86_64-linux-gnu.so&#39;)), (&#39;acos&#39;, &lt;built-in function acos&gt;), (&#39;acosh&#39;, &lt;built-in function acosh&gt;), (&#39;asin&#39;, &lt;built-in function asin&gt;), (&#39;asinh&#39;, &lt;built-in function asinh&gt;), (&#39;atan&#39;, &lt;built-in function atan&gt;), (&#39;atan2&#39;, &lt;built-in function atan2&gt;), (&#39;atanh&#39;, &lt;built-in function atanh&gt;), (&#39;ceil&#39;, &lt;built-in function ceil&gt;), (&#39;copysign&#39;, &lt;built-in function copysign&gt;), (&#39;cos&#39;, &lt;built-in function cos&gt;), (&#39;cosh&#39;, &lt;built-in function cosh&gt;), (&#39;degrees&#39;, &lt;built-in function degrees&gt;), (&#39;dist&#39;, &lt;built-in function dist&gt;), (&#39;erf&#39;, &lt;built-in function erf&gt;), (&#39;erfc&#39;, &lt;built-in function erfc&gt;), (&#39;exp&#39;, &lt;built-in function exp&gt;), (&#39;expm1&#39;, &lt;built-in function expm1&gt;), (&#39;fabs&#39;, &lt;built-in function fabs&gt;), (&#39;factorial&#39;, &lt;built-in function factorial&gt;), (&#39;floor&#39;, &lt;built-in function floor&gt;), (&#39;fmod&#39;, &lt;built-in function fmod&gt;), (&#39;frexp&#39;, &lt;built-in function frexp&gt;), (&#39;fsum&#39;, &lt;built-in function fsum&gt;), (&#39;gamma&#39;, &lt;built-in function gamma&gt;), (&#39;gcd&#39;, &lt;built-in function gcd&gt;), (&#39;hypot&#39;, &lt;built-in function hypot&gt;), (&#39;isclose&#39;, &lt;built-in function isclose&gt;), (&#39;isfinite&#39;, &lt;built-in function isfinite&gt;), (&#39;isinf&#39;, &lt;built-in function isinf&gt;), (&#39;isnan&#39;, &lt;built-in function isnan&gt;), (&#39;isqrt&#39;, &lt;built-in function isqrt&gt;), (&#39;ldexp&#39;, &lt;built-in function ldexp&gt;), (&#39;lgamma&#39;, &lt;built-in function lgamma&gt;), (&#39;log&#39;, &lt;built-in function log&gt;), (&#39;log1p&#39;, &lt;built-in function log1p&gt;), (&#39;log10&#39;, &lt;built-in function log10&gt;), (&#39;log2&#39;, &lt;built-in function log2&gt;), (&#39;modf&#39;, &lt;built-in function modf&gt;), (&#39;pow&#39;, &lt;built-in function pow&gt;), (&#39;radians&#39;, &lt;built-in function radians&gt;), (&#39;remainder&#39;, &lt;built-in function remainder&gt;), (&#39;sin&#39;, &lt;built-in function sin&gt;), (&#39;sinh&#39;, &lt;built-in function sinh&gt;), (&#39;sqrt&#39;, &lt;built-in function sqrt&gt;), (&#39;tan&#39;, &lt;built-in function tan&gt;), (&#39;tanh&#39;, &lt;built-in function tanh&gt;), (&#39;trunc&#39;, &lt;built-in function trunc&gt;), (&#39;prod&#39;, &lt;built-in function prod&gt;), (&#39;perm&#39;, &lt;built-in function perm&gt;), (&#39;comb&#39;, &lt;built-in function comb&gt;), (&#39;pi&#39;, 3.141592653589793), (&#39;e&#39;, 2.718281828459045), (&#39;tau&#39;, 6.283185307179586), (&#39;inf&#39;, inf), (&#39;nan&#39;, nan), (&#39;__file__&#39;, &#39;/usr/share/miniconda3/envs/quantecon/lib/python3.8/lib-dynload/math.cpython-38-x86_64-linux-gnu.so&#39;)])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math&#39;), (&#39;__doc__&#39;, &#39;This module provides access to the mathematical functions\ndefined by the C standard.&#39;), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7fb3a1ce9eb0&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math&#39;, loader=&lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7fb3a1ce9eb0&gt;, origin=&#39;/usr/share/miniconda3/envs/quantecon/lib/python3.8/lib-dynload/math.cpython-38-x86_64-linux-gnu.so&#39;)), (&#39;acos&#39;, &lt;built-in function acos&gt;), (&#39;acosh&#39;, &lt;built-in function acosh&gt;), (&#39;asin&#39;, &lt;built-in function asin&gt;), (&#39;asinh&#39;, &lt;built-in function asinh&gt;), (&#39;atan&#39;, &lt;built-in function atan&gt;), (&#39;atan2&#39;, &lt;built-in function atan2&gt;), (&#39;atanh&#39;, &lt;built-in function atanh&gt;), (&#39;ceil&#39;, &lt;built-in function ceil&gt;), (&#39;copysign&#39;, &lt;built-in function copysign&gt;), (&#39;cos&#39;, &lt;built-in function cos&gt;), (&#39;cosh&#39;, &lt;built-in function cosh&gt;), (&#39;degrees&#39;, &lt;built-in function degrees&gt;), (&#39;dist&#39;, &lt;built-in function dist&gt;), (&#39;erf&#39;, &lt;built-in function erf&gt;), (&#39;erfc&#39;, &lt;built-in function erfc&gt;), (&#39;exp&#39;, &lt;built-in function exp&gt;), (&#39;expm1&#39;, &lt;built-in function expm1&gt;), (&#39;fabs&#39;, &lt;built-in function fabs&gt;), (&#39;factorial&#39;, &lt;built-in function factorial&gt;), (&#39;floor&#39;, &lt;built-in function floor&gt;), (&#39;fmod&#39;, &lt;built-in function fmod&gt;), (&#39;frexp&#39;, &lt;built-in function frexp&gt;), (&#39;fsum&#39;, &lt;built-in function fsum&gt;), (&#39;gamma&#39;, &lt;built-in function gamma&gt;), (&#39;gcd&#39;, &lt;built-in function gcd&gt;), (&#39;hypot&#39;, &lt;built-in function hypot&gt;), (&#39;isclose&#39;, &lt;built-in function isclose&gt;), (&#39;isfinite&#39;, &lt;built-in function isfinite&gt;), (&#39;isinf&#39;, &lt;built-in function isinf&gt;), (&#39;isnan&#39;, &lt;built-in function isnan&gt;), (&#39;isqrt&#39;, &lt;built-in function isqrt&gt;), (&#39;ldexp&#39;, &lt;built-in function ldexp&gt;), (&#39;lgamma&#39;, &lt;built-in function lgamma&gt;), (&#39;log&#39;, &lt;built-in function log&gt;), (&#39;log1p&#39;, &lt;built-in function log1p&gt;), (&#39;log10&#39;, &lt;built-in function log10&gt;), (&#39;log2&#39;, &lt;built-in function log2&gt;), (&#39;modf&#39;, &lt;built-in function modf&gt;), (&#39;pow&#39;, &lt;built-in function pow&gt;), (&#39;radians&#39;, &lt;built-in function radians&gt;), (&#39;remainder&#39;, &lt;built-in function remainder&gt;), (&#39;sin&#39;, &lt;built-in function sin&gt;), (&#39;sinh&#39;, &lt;built-in function sinh&gt;), (&#39;sqrt&#39;, &lt;built-in function sqrt&gt;), (&#39;tan&#39;, &lt;built-in function tan&gt;), (&#39;tanh&#39;, &lt;built-in function tanh&gt;), (&#39;trunc&#39;, &lt;built-in function trunc&gt;), (&#39;prod&#39;, &lt;built-in function prod&gt;), (&#39;perm&#39;, &lt;built-in function perm&gt;), (&#39;comb&#39;, &lt;built-in function comb&gt;), (&#39;pi&#39;, 3.141592653589793), (&#39;e&#39;, 2.718281828459045), (&#39;tau&#39;, 6.283185307179586), (&#39;inf&#39;, inf), (&#39;nan&#39;, nan), (&#39;__file__&#39;, &#39;/usr/share/miniconda3/envs/quantecon/lib/python3.8/lib-dynload/math.cpython-38-x86_64-linux-gnu.so&#39;)])
 </pre></div>
 </div>
 </div>
@@ -1160,8 +1162,8 @@ defined by the C standard.
 </div>
 </div>
 </div>
-</section>
-<section id="interactive-sessions">
+</div>
+<div class="section" id="interactive-sessions">
 <h3><span class="section-number">16.3.4. </span>Interactive Sessions<a class="headerlink" href="#interactive-sessions" title="Permalink to this headline">¶</a></h3>
 <p id="index-7">In Python, <strong>all</strong> code executed by the interpreter runs in some module.</p>
 <p>What about commands typed at the prompt?</p>
@@ -1238,14 +1240,14 @@ needs, and has initialized when you started up your session.</p>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable      Type                          Data/Info
 -----------------------------------------------------
-e             enumerate                     &lt;enumerate object at 0x7fb7d8a3ba00&gt;
-f             function                      &lt;function f at 0x7fb7d8a43550&gt;
-g             function                      &lt;function f at 0x7fb7d8a43550&gt;
+e             enumerate                     &lt;enumerate object at 0x7fb39c4f4dc0&gt;
+f             function                      &lt;function f at 0x7fb39c3c29d0&gt;
+g             function                      &lt;function f at 0x7fb39c3c29d0&gt;
 i             str                           eggs
 math          module                        &lt;module &#39;math&#39; from &#39;/usr&lt;...&gt;-38-x86_64-linux-gnu.so&#39;&gt;
 math2         module                        &lt;module &#39;math2&#39; from &#39;/ho&lt;...&gt;.myst/lectures/math2.py&#39;&gt;
 mod           module                        &lt;module &#39;mod&#39; from &#39;/home&lt;...&gt;ng.myst/lectures/mod.py&#39;&gt;
-nikkei_data   reader                        &lt;_csv.reader object at 0x7fb7ddb34e40&gt;
+nikkei_data   reader                        &lt;_csv.reader object at 0x7fb39f58bdd0&gt;
 np            module                        &lt;module &#39;numpy&#39; from &#39;/us&lt;...&gt;kages/numpy/__init__.py&#39;&gt;
 reader        builtin_function_or_method    &lt;built-in function reader&gt;
 x             int                           2
@@ -1254,8 +1256,8 @@ y             int                           3
 </div>
 </div>
 </div>
-</section>
-<section id="the-global-namespace">
+</div>
+<div class="section" id="the-global-namespace">
 <h3><span class="section-number">16.3.5. </span>The Global Namespace<a class="headerlink" href="#the-global-namespace" title="Permalink to this headline">¶</a></h3>
 <p id="index-8">Python documentation often makes reference to the “global namespace”.</p>
 <p>The global namespace is <em>the namespace of the module currently being executed</em>.</p>
@@ -1269,8 +1271,8 @@ y             int                           3
 <p>While this occurs, the namespace <code class="docutils literal notranslate"><span class="pre">amodule.__dict__</span></code> is the global namespace.</p>
 <p>Once execution of the module finishes, the interpreter returns to the module from where the import statement was made.</p>
 <p>In this case it’s <code class="docutils literal notranslate"><span class="pre">__main__</span></code>, so the namespace of <code class="docutils literal notranslate"><span class="pre">__main__</span></code> again becomes the global namespace.</p>
-</section>
-<section id="local-namespaces">
+</div>
+<div class="section" id="local-namespaces">
 <h3><span class="section-number">16.3.6. </span>Local Namespaces<a class="headerlink" href="#local-namespaces" title="Permalink to this headline">¶</a></h3>
 <p id="index-9">Important fact: When we call a function, the interpreter creates a <em>local namespace</em> for that function, and registers the variables in that namespace.</p>
 <p>The reason for this will be explained in just a moment.</p>
@@ -1305,8 +1307,8 @@ y             int                           3
 </div>
 </div>
 <p>You can see the local namespace of <code class="docutils literal notranslate"><span class="pre">f</span></code> before it is destroyed.</p>
-</section>
-<section id="the-builtins-namespace">
+</div>
+<div class="section" id="the-builtins-namespace">
 <h3><span class="section-number">16.3.7. </span>The <code class="docutils literal notranslate"><span class="pre">__builtins__</span></code> Namespace<a class="headerlink" href="#the-builtins-namespace" title="Permalink to this headline">¶</a></h3>
 <p id="index-10">We have been using various built-in functions, such as <code class="docutils literal notranslate"><span class="pre">max(),</span> <span class="pre">dir(),</span> <span class="pre">str(),</span> <span class="pre">list(),</span> <span class="pre">len(),</span> <span class="pre">range(),</span> <span class="pre">type()</span></code>, etc.</p>
 <p>How does access to these names work?</p>
@@ -1386,8 +1388,8 @@ y             int                           3
 </div>
 </div>
 <p>The next section explains how this works …</p>
-</section>
-<section id="name-resolution">
+</div>
+<div class="section" id="name-resolution">
 <h3><span class="section-number">16.3.8. </span>Name Resolution<a class="headerlink" href="#name-resolution" title="Permalink to this headline">¶</a></h3>
 <p id="index-11">Namespaces are great because they help us organize variable names.</p>
 <p>(Type <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">this</span></code> at the prompt and look at the last item that’s printed)</p>
@@ -1492,8 +1494,8 @@ own namespaces.</p>
 <li><p>Local <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">a</span></code> are discarded (and the local namespace is deallocated).</p></li>
 </ul>
 <p>Note that the global <code class="docutils literal notranslate"><span class="pre">a</span></code> was not affected by the local <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
-</section>
-<section id="mutable-versus-immutable-parameters">
+</div>
+<div class="section" id="mutable-versus-immutable-parameters">
 <span id="mutable-vs-immutable"></span><h3><span class="section-number">16.3.9. </span><span class="target" id="index-12"></span>Mutable Versus <span class="target" id="index-13"></span>Immutable Parameters<a class="headerlink" href="#mutable-versus-immutable-parameters" title="Permalink to this headline">¶</a></h3>
 <p>This is a good time to say a little more about mutable vs immutable objects.</p>
 <p>Consider the code segment</p>
@@ -1553,9 +1555,9 @@ own namespaces.</p>
 </li>
 <li><p>Global <code class="docutils literal notranslate"><span class="pre">x</span></code> has been modified</p></li>
 </ul>
-</section>
-</section>
-<section id="handling-errors">
+</div>
+</div>
+<div class="section" id="handling-errors">
 <h2><a class="toc-backref" href="#id9"><span class="section-number">16.4. </span>Handling Errors</a><a class="headerlink" href="#handling-errors" title="Permalink to this headline">¶</a></h2>
 <p id="index-14">Sometimes it’s possible to anticipate errors as we’re writing code.</p>
 <p>For example, the unbiased sample variance of sample <span class="math notranslate nohighlight">\(y_1, \ldots, y_n\)</span>
@@ -1577,7 +1579,7 @@ on possible errors you have in your head when writing code.</p></li>
 <li><p>Because errors causing execution to stop are frustrating if you’re in the middle of a large computation.</p></li>
 <li><p>Because it’s reduces confidence in your code on the part of your users (if you are writing for others).</p></li>
 </ul>
-<section id="assertions">
+<div class="section" id="assertions">
 <h3><span class="section-number">16.4.1. </span>Assertions<a class="headerlink" href="#assertions" title="Permalink to this headline">¶</a></h3>
 <p id="index-15">A relatively easy way to handle checks is with the <code class="docutils literal notranslate"><span class="pre">assert</span></code> keyword.</p>
 <p>For example, pretend for a moment that the <code class="docutils literal notranslate"><span class="pre">np.var</span></code> function doesn’t
@@ -1603,10 +1605,10 @@ print our error message</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_13050</span><span class="o">/</span><span class="mf">2291729048.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_10230</span><span class="o">/</span><span class="mf">2291729048.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">var</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
 
-<span class="nn">/tmp/ipykernel_13050/2947700718.py</span> in <span class="ni">var</span><span class="nt">(y)</span>
+<span class="nn">/tmp/ipykernel_10230/2947700718.py</span> in <span class="ni">var</span><span class="nt">(y)</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">var</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">3</span>     <span class="k">assert</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Sample size must be greater than one.&#39;</span>
@@ -1622,14 +1624,14 @@ print our error message</p>
 <li><p>fail early, as soon as we know there will be a problem</p></li>
 <li><p>supply specific information on why a program is failing</p></li>
 </ul>
-</section>
-<section id="handling-errors-during-runtime">
+</div>
+<div class="section" id="handling-errors-during-runtime">
 <h3><span class="section-number">16.4.2. </span>Handling Errors During Runtime<a class="headerlink" href="#handling-errors-during-runtime" title="Permalink to this headline">¶</a></h3>
 <p id="index-16">The approach used above is a bit limited, because it always leads to
 termination.</p>
 <p>Sometimes we can handle errors more gracefully, by treating special cases.</p>
 <p>Let’s look at how this is done.</p>
-<section id="exceptions">
+<div class="section" id="exceptions">
 <h4><span class="section-number">16.4.2.1. </span>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h4>
 <p id="index-17">Here’s an example of a common error type</p>
 <div class="cell tag_raises-exception docutils container">
@@ -1639,7 +1641,7 @@ termination.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_13050/2899452834.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_10230/2899452834.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
     <span class="k">def</span> <span class="nf">f</span><span class="p">:</span>
          <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -1658,7 +1660,7 @@ termination.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_13050</span><span class="o">/</span><span class="mf">1455669704.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_10230</span><span class="o">/</span><span class="mf">1455669704.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
 
 <span class="ne">ZeroDivisionError</span>: division by zero
@@ -1676,7 +1678,7 @@ termination.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_13050</span><span class="o">/</span><span class="mf">514406925.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_10230</span><span class="o">/</span><span class="mf">514406925.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">y1</span>
 
 <span class="ne">NameError</span>: name &#39;y1&#39; is not defined
@@ -1694,7 +1696,7 @@ termination.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_13050</span><span class="o">/</span><span class="mf">3286907779.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_10230</span><span class="o">/</span><span class="mf">3286907779.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="s1">&#39;foo&#39;</span> <span class="o">+</span> <span class="mi">6</span>
 
 <span class="ne">TypeError</span>: can only concatenate str (not &quot;int&quot;) to str
@@ -1713,7 +1715,7 @@ termination.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_13050</span><span class="o">/</span><span class="mf">1347291761.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_10230</span><span class="o">/</span><span class="mf">1347291761.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">X</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
@@ -1727,8 +1729,8 @@ termination.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">NameError</span></code>, <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>, <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>, <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code>, etc.</p></li>
 </ul>
 <p>In Python, these errors are called <em>exceptions</em>.</p>
-</section>
-<section id="catching-exceptions">
+</div>
+<div class="section" id="catching-exceptions">
 <h4><span class="section-number">16.4.2.2. </span>Catching Exceptions<a class="headerlink" href="#catching-exceptions" title="Permalink to this headline">¶</a></h4>
 <p>We can catch and deal with exceptions using <code class="docutils literal notranslate"><span class="pre">try</span></code> – <code class="docutils literal notranslate"><span class="pre">except</span></code> blocks.</p>
 <p>Here’s a simple example</p>
@@ -1899,21 +1901,21 @@ termination.</p>
 </div>
 </div>
 <p>In general it’s better to be specific.</p>
-</section>
-</section>
-</section>
-<section id="decorators-and-descriptors">
+</div>
+</div>
+</div>
+<div class="section" id="decorators-and-descriptors">
 <h2><a class="toc-backref" href="#id10"><span class="section-number">16.5. </span>Decorators and Descriptors</a><a class="headerlink" href="#decorators-and-descriptors" title="Permalink to this headline">¶</a></h2>
 <span class="target" id="index-18"></span><p id="index-19">Let’s look at some special syntax elements that are routinely used by Python developers.</p>
 <p>You might not need the following concepts immediately, but you will see them
 in other people’s code.</p>
 <p>Hence you need to understand them at some stage of your Python education.</p>
-<section id="decorators">
+<div class="section" id="decorators">
 <h3><span class="section-number">16.5.1. </span>Decorators<a class="headerlink" href="#decorators" title="Permalink to this headline">¶</a></h3>
 <p id="index-20">Decorators are a bit of syntactic sugar that, while easily avoided, have turned out to be popular.</p>
 <p>It’s very easy to say what decorators do.</p>
 <p>On the other hand it takes a bit of effort to explain <em>why</em> you might use them.</p>
-<section id="an-example">
+<div class="section" id="an-example">
 <h4><span class="section-number">16.5.1.1. </span>An Example<a class="headerlink" href="#an-example" title="Permalink to this headline">¶</a></h4>
 <p>Suppose we are working on a program that looks something like this</p>
 <div class="cell docutils container">
@@ -1993,8 +1995,8 @@ verifies <code class="docutils literal notranslate"><span class="pre">x</span></
 <p>Finally, the global name <code class="docutils literal notranslate"><span class="pre">f</span></code> is then set equal to <code class="docutils literal notranslate"><span class="pre">safe_function</span></code>.</p>
 <p>Now the behavior of <code class="docutils literal notranslate"><span class="pre">f</span></code> is as we desire, and the same is true of <code class="docutils literal notranslate"><span class="pre">g</span></code>.</p>
 <p>At the same time, the test logic is written only once.</p>
-</section>
-<section id="enter-decorators">
+</div>
+<div class="section" id="enter-decorators">
 <h4><span class="section-number">16.5.1.2. </span>Enter Decorators<a class="headerlink" href="#enter-decorators" title="Permalink to this headline">¶</a></h4>
 <p id="index-21">The last version of our code is still not ideal.</p>
 <p>For example, if someone is reading our code and wants to know how
@@ -2044,9 +2046,9 @@ verifies <code class="docutils literal notranslate"><span class="pre">x</span></
 <p>Hence anyone looking at the definition of the function will see them and be
 aware that the function is modified.</p>
 <p>In the opinion of many people, this makes the decorator syntax a significant improvement to the language.</p>
-</section>
-</section>
-<section id="descriptors">
+</div>
+</div>
+<div class="section" id="descriptors">
 <span id="id1"></span><h3><span class="section-number">16.5.2. </span>Descriptors<a class="headerlink" href="#descriptors" title="Permalink to this headline">¶</a></h3>
 <p id="index-22">Descriptors solve a common problem regarding management of variables.</p>
 <p>To understand the issue, consider a <code class="docutils literal notranslate"><span class="pre">Car</span></code> class, that simulates a car.</p>
@@ -2108,7 +2110,7 @@ variables but not the other</p>
 </div>
 <p>In the last two lines we see that <code class="docutils literal notranslate"><span class="pre">miles</span></code> and <code class="docutils literal notranslate"><span class="pre">kms</span></code> are out of sync.</p>
 <p>What we really want is some mechanism whereby each time a user sets one of these variables, <em>the other is automatically updated</em>.</p>
-<section id="a-solution">
+<div class="section" id="a-solution">
 <h4><span class="section-number">16.5.2.1. </span>A Solution<a class="headerlink" href="#a-solution" title="Permalink to this headline">¶</a></h4>
 <p>In Python, this issue is solved using <em>descriptors</em>.</p>
 <p>A descriptor is just a Python object that implements certain methods.</p>
@@ -2171,8 +2173,8 @@ variables but not the other</p>
 </div>
 </div>
 <p>Yep, that’s what we want — <code class="docutils literal notranslate"><span class="pre">car.kms</span></code> is automatically updated.</p>
-</section>
-<section id="how-it-works">
+</div>
+<div class="section" id="how-it-works">
 <h4><span class="section-number">16.5.2.2. </span>How it Works<a class="headerlink" href="#how-it-works" title="Permalink to this headline">¶</a></h4>
 <p>The names <code class="docutils literal notranslate"><span class="pre">_miles</span></code> and <code class="docutils literal notranslate"><span class="pre">_kms</span></code> are arbitrary names we are using to store the values of the variables.</p>
 <p>The objects <code class="docutils literal notranslate"><span class="pre">miles</span></code> and <code class="docutils literal notranslate"><span class="pre">kms</span></code> are <em>properties</em>, a common kind of descriptor.</p>
@@ -2185,8 +2187,8 @@ what happens when you get (i.e. access) or set (bind) these variables</p>
 <p>For example, after <code class="docutils literal notranslate"><span class="pre">car</span></code> is created as an instance of <code class="docutils literal notranslate"><span class="pre">Car</span></code>, the object <code class="docutils literal notranslate"><span class="pre">car.miles</span></code> is a property.</p>
 <p>Being a property, when we set its value via <code class="docutils literal notranslate"><span class="pre">car.miles</span> <span class="pre">=</span> <span class="pre">6000</span></code> its setter
 method is triggered — in this case <code class="docutils literal notranslate"><span class="pre">set_miles</span></code>.</p>
-</section>
-<section id="decorators-and-properties">
+</div>
+<div class="section" id="decorators-and-properties">
 <h4><span class="section-number">16.5.2.3. </span>Decorators and Properties<a class="headerlink" href="#decorators-and-properties" title="Permalink to this headline">¶</a></h4>
 <span class="target" id="index-23"></span><p id="index-24">These days its very common to see the <code class="docutils literal notranslate"><span class="pre">property</span></code> function used via a decorator.</p>
 <p>Here’s another version of our <code class="docutils literal notranslate"><span class="pre">Car</span></code> class that works as before but now uses
@@ -2222,14 +2224,14 @@ decorators to set up the properties</p>
 </div>
 <p>We won’t go through all the details here.</p>
 <p>For further information you can refer to the <a class="reference external" href="https://docs.python.org/3/howto/descriptor.html">descriptor documentation</a>.</p>
-</section>
-</section>
-</section>
-<section id="generators">
+</div>
+</div>
+</div>
+<div class="section" id="generators">
 <span id="paf-generators"></span><h2><a class="toc-backref" href="#id11"><span class="section-number">16.6. </span>Generators</a><a class="headerlink" href="#generators" title="Permalink to this headline">¶</a></h2>
 <p id="index-25">A generator is a kind of iterator (i.e., it works with a <code class="docutils literal notranslate"><span class="pre">next</span></code> function).</p>
 <p>We will study two ways to build generators: generator expressions and generator functions.</p>
-<section id="generator-expressions">
+<div class="section" id="generator-expressions">
 <h3><span class="section-number">16.6.1. </span>Generator Expressions<a class="headerlink" href="#generator-expressions" title="Permalink to this headline">¶</a></h3>
 <p>The easiest way to build generators is using <em>generator expressions</em>.</p>
 <p>Just like a list comprehension, but with round brackets.</p>
@@ -2350,12 +2352,12 @@ decorators to set up the properties</p>
 </div>
 </div>
 </div>
-</section>
-<section id="generator-functions">
+</div>
+<div class="section" id="generator-functions">
 <h3><span class="section-number">16.6.2. </span>Generator Functions<a class="headerlink" href="#generator-functions" title="Permalink to this headline">¶</a></h3>
 <p id="index-26">The most flexible way to create generator objects is to use generator functions.</p>
 <p>Let’s look at some examples.</p>
-<section id="example-1">
+<div class="section" id="example-1">
 <h4><span class="section-number">16.6.2.1. </span>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h4>
 <p>Here’s a very simple example of a generator function</p>
 <div class="cell docutils container">
@@ -2390,7 +2392,7 @@ decorators to set up the properties</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object f at 0x7fb7c8628dd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object f at 0x7fb39407df20&gt;
 </pre></div>
 </div>
 </div>
@@ -2440,7 +2442,7 @@ decorators to set up the properties</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StopIteration</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_13050</span><span class="o">/</span><span class="mf">4293081279.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_10230</span><span class="o">/</span><span class="mf">4293081279.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
 
 <span class="ne">StopIteration</span>: 
@@ -2469,8 +2471,8 @@ decorators to set up the properties</p>
 <p>and continues until the next <code class="docutils literal notranslate"><span class="pre">yield</span></code> statement.</p>
 <p>At that point it returns the value following <code class="docutils literal notranslate"><span class="pre">yield</span></code> to the caller of <code class="docutils literal notranslate"><span class="pre">next(gen)</span></code>, and so on.</p>
 <p>When the code block ends, the generator throws a <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> error.</p>
-</section>
-<section id="example-2">
+</div>
+<div class="section" id="example-2">
 <h4><span class="section-number">16.6.2.2. </span>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h4>
 <p>Our next example receives an argument <code class="docutils literal notranslate"><span class="pre">x</span></code> from the caller</p>
 <div class="cell docutils container">
@@ -2554,7 +2556,7 @@ decorators to set up the properties</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StopIteration</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_13050</span><span class="o">/</span><span class="mf">4293081279.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_10230</span><span class="o">/</span><span class="mf">4293081279.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
 
 <span class="ne">StopIteration</span>: 
@@ -2592,9 +2594,9 @@ decorators to set up the properties</p>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="advantages-of-iterators">
+</div>
+</div>
+<div class="section" id="advantages-of-iterators">
 <h3><span class="section-number">16.6.3. </span>Advantages of Iterators<a class="headerlink" href="#advantages-of-iterators" title="Permalink to this headline">¶</a></h3>
 <p>What’s the advantage of using an iterator here?</p>
 <p>Suppose we want to sample a binomial(n,0.5).</p>
@@ -2609,7 +2611,7 @@ decorators to set up the properties</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5002579
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4998147
 </pre></div>
 </div>
 </div>
@@ -2648,7 +2650,7 @@ decorators to set up the properties</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object f at 0x7fb7c863a4a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object f at 0x7fb39408b7b0&gt;
 </pre></div>
 </div>
 </div>
@@ -2660,7 +2662,7 @@ decorators to set up the properties</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4997683
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4999362
 </pre></div>
 </div>
 </div>
@@ -2670,9 +2672,9 @@ decorators to set up the properties</p>
 <li><p>avoid the need to create big lists/tuples, and</p></li>
 <li><p>provide a uniform interface to iteration that can be used transparently in <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</p></li>
 </ul>
-</section>
-</section>
-<section id="recursive-function-calls">
+</div>
+</div>
+<div class="section" id="recursive-function-calls">
 <span id="recursive-functions"></span><h2><a class="toc-backref" href="#id12"><span class="section-number">16.7. </span>Recursive Function Calls</a><a class="headerlink" href="#recursive-function-calls" title="Permalink to this headline">¶</a></h2>
 <p id="index-27">This is not something that you will use every day, but it is still useful — you should learn it at some stage.</p>
 <p>Basically, a recursive function is a function that calls itself.</p>
@@ -2715,18 +2717,18 @@ decorators to set up the properties</p>
 </ul>
 <p>This example is somewhat contrived, since the first (iterative) solution would usually be preferred to the recursive solution.</p>
 <p>We’ll meet less contrived applications of recursion later on.</p>
-</section>
-<section id="exercises">
+</div>
+<div class="section" id="exercises">
 <h2><a class="toc-backref" href="#id13"><span class="section-number">16.8. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<section id="exercise-1">
+<div class="section" id="exercise-1">
 <h3><span class="section-number">16.8.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
 <p>The Fibonacci numbers are defined by</p>
 <div class="math notranslate nohighlight" id="equation-fib">
 <span class="eqno">(16.2)<a class="headerlink" href="#equation-fib" title="Permalink to this equation">¶</a></span>\[x_{t+1} = x_t + x_{t-1}, \quad x_0 = 0, \; x_1 = 1\]</div>
 <p>The first few numbers in the sequence are <span class="math notranslate nohighlight">\(0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55\)</span>.</p>
 <p>Write a function to recursively compute the <span class="math notranslate nohighlight">\(t\)</span>-th Fibonacci number for any <span class="math notranslate nohighlight">\(t\)</span>.</p>
-</section>
-<section id="exercise-2">
+</div>
+<div class="section" id="exercise-2">
 <h3><span class="section-number">16.8.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h3>
 <p>Complete the following code, and test it using <a class="reference external" href="https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/python_advanced_features/test_table.csv">this csv file</a>, which we assume that you’ve put in your current working directory</p>
 <div class="no-execute highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">column_iterator</span><span class="p">(</span><span class="n">target_file</span><span class="p">,</span> <span class="n">column_number</span><span class="p">):</span>
@@ -2744,8 +2746,8 @@ decorators to set up the properties</p>
     <span class="nb">print</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="exercise-3">
+</div>
+<div class="section" id="exercise-3">
 <h3><span class="section-number">16.8.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this headline">¶</a></h3>
 <p>Suppose we have a text file <code class="docutils literal notranslate"><span class="pre">numbers.txt</span></code> containing the following lines</p>
 <div class="no-execute highlight-none notranslate"><div class="highlight"><pre><span></span>prices
@@ -2757,11 +2759,11 @@ decorators to set up the properties</p>
 </pre></div>
 </div>
 <p>Using <code class="docutils literal notranslate"><span class="pre">try</span></code> – <code class="docutils literal notranslate"><span class="pre">except</span></code>, write a program to read in the contents of the file and sum the numbers, ignoring lines without numbers.</p>
-</section>
-</section>
-<section id="solutions">
+</div>
+</div>
+<div class="section" id="solutions">
 <h2><a class="toc-backref" href="#id14"><span class="section-number">16.9. </span>Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
-<section id="id2">
+<div class="section" id="id2">
 <h3><span class="section-number">16.9.1. </span>Exercise 1<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>Here’s the standard solution</p>
 <div class="cell docutils container">
@@ -2790,8 +2792,8 @@ decorators to set up the properties</p>
 </div>
 </div>
 </div>
-</section>
-<section id="id3">
+</div>
+<div class="section" id="id3">
 <h3><span class="section-number">16.9.2. </span>Exercise 2<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>One solution is as follows</p>
 <div class="cell docutils container">
@@ -2834,8 +2836,8 @@ decorators to set up the properties</p>
 </div>
 </div>
 </div>
-</section>
-<section id="id4">
+</div>
+<div class="section" id="id4">
 <h3><span class="section-number">16.9.3. </span>Exercise 3<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>Let’s save the data first</p>
 <div class="cell docutils container">
@@ -2879,9 +2881,9 @@ decorators to set up the properties</p>
 </div>
 </div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>6. OOP I: Introduction to Object Oriented Programming &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
@@ -80,11 +79,14 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script src="_static/quantecon-book-theme.15b0c36fffe88f468997fa7b698991d3.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
@@ -235,7 +237,7 @@
                     
                     <div>
                         
-  <section class="tex2jax_ignore mathjax_ignore" id="oop-i-introduction-to-object-oriented-programming">
+  <div class="tex2jax_ignore mathjax_ignore section" id="oop-i-introduction-to-object-oriented-programming">
 <h1><a class="toc-backref" href="#id4"><span class="section-number">6. </span>OOP I: Introduction to Object Oriented Programming</a><a class="headerlink" href="#oop-i-introduction-to-object-oriented-programming" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
@@ -249,7 +251,7 @@
 </li>
 </ul>
 </div>
-<section id="overview">
+<div class="section" id="overview">
 <h2><a class="toc-backref" href="#id5"><span class="section-number">6.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Object-oriented_programming">OOP</a> is one of the major paradigms in programming.</p>
 <p>The traditional programming paradigm (think Fortran, C, MATLAB, etc.) is called <em>procedural</em>.</p>
@@ -264,15 +266,15 @@
 <li><p>data and functions are “bundled together” into “objects”</p></li>
 </ul>
 <p>(Functions in this context are referred to as <strong>methods</strong>)</p>
-<section id="python-and-oop">
+<div class="section" id="python-and-oop">
 <h3><span class="section-number">6.1.1. </span>Python and OOP<a class="headerlink" href="#python-and-oop" title="Permalink to this headline">¶</a></h3>
 <p>Python is a pragmatic language that blends object-oriented and procedural styles, rather than taking a purist approach.</p>
 <p>However, at a foundational level, Python <em>is</em> object-oriented.</p>
 <p>In particular, in Python, <em>everything is an object</em>.</p>
 <p>In this lecture, we explain what that statement means and why it matters.</p>
-</section>
-</section>
-<section id="objects">
+</div>
+</div>
+<div class="section" id="objects">
 <h2><a class="toc-backref" href="#id6"><span class="section-number">6.2. </span>Objects</a><a class="headerlink" href="#objects" title="Permalink to this headline">¶</a></h2>
 <p id="index-0">In Python, an <em>object</em> is a collection of data and instructions held in computer memory that consists of</p>
 <ol class="simple">
@@ -282,7 +284,7 @@
 <li><p>methods</p></li>
 </ol>
 <p>These concepts are defined and discussed sequentially below.</p>
-<section id="type">
+<div class="section" id="type">
 <span id="id1"></span><h3><span class="section-number">6.2.1. </span>Type<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h3>
 <p id="index-1">Python provides for different types of objects, to accommodate different categories of data.</p>
 <p>For example</p>
@@ -349,7 +351,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_11581</span><span class="o">/</span><span class="mf">1595573990.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_7312</span><span class="o">/</span><span class="mf">1595573990.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="s1">&#39;300&#39;</span> <span class="o">+</span> <span class="mi">400</span>
 
 <span class="ne">TypeError</span>: can only concatenate str (not &quot;int&quot;) to str
@@ -381,8 +383,8 @@
 </div>
 </div>
 </div>
-</section>
-<section id="identity">
+</div>
+<div class="section" id="identity">
 <span id="id2"></span><h3><span class="section-number">6.2.2. </span>Identity<a class="headerlink" href="#identity" title="Permalink to this headline">¶</a></h3>
 <p id="index-2">In Python, each object has a unique identifier, which helps Python (and us) keep track of the object.</p>
 <p>The identity of an object can be obtained via the <code class="docutils literal notranslate"><span class="pre">id()</span></code> function</p>
@@ -395,7 +397,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139666506916304
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139769457275184
 </pre></div>
 </div>
 </div>
@@ -407,15 +409,15 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139666506915888
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139769457275024
 </pre></div>
 </div>
 </div>
 </div>
 <p>In this example, <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">z</span></code> happen to have the same value (i.e., <code class="docutils literal notranslate"><span class="pre">2.5</span></code>), but they are not the same object.</p>
 <p>The identity of an object is in fact just the address of the object in memory.</p>
-</section>
-<section id="object-content-data-and-attributes">
+</div>
+<div class="section" id="object-content-data-and-attributes">
 <h3><span class="section-number">6.2.3. </span>Object Content: Data and Attributes<a class="headerlink" href="#object-content-data-and-attributes" title="Permalink to this headline">¶</a></h3>
 <p id="index-3">If we set <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">42</span></code> then we create an object of type <code class="docutils literal notranslate"><span class="pre">int</span></code> that contains
 the data <code class="docutils literal notranslate"><span class="pre">42</span></code>.</p>
@@ -465,8 +467,8 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
 <p>We see from this example that objects have attributes that contain auxiliary information.</p>
 <p>They also have attributes that act like functions, called <em>methods</em>.</p>
 <p>These attributes are important, so let’s discuss them in-depth.</p>
-</section>
-<section id="methods">
+</div>
+<div class="section" id="methods">
 <span id="id3"></span><h3><span class="section-number">6.2.4. </span>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
 <p id="index-4">Methods are <em>functions that are bundled with objects</em>.</p>
 <p>Formally, methods are attributes of objects that are callable (i.e., can be called as functions)</p>
@@ -568,9 +570,9 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
 </div>
 </div>
 <p>(If you wanted to you could modify the <code class="docutils literal notranslate"><span class="pre">__setitem__</span></code> method, so that square bracket assignment does something totally different)</p>
-</section>
-</section>
-<section id="summary">
+</div>
+</div>
+<div class="section" id="summary">
 <h2><a class="toc-backref" href="#id7"><span class="section-number">6.3. </span>Summary</a><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <p>In Python, <em>everything in memory is treated as an object</em>.</p>
 <p>This includes not just lists, strings, etc., but also less obvious things, such as</p>
@@ -615,7 +617,7 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139666506403904
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139769456769632
 </pre></div>
 </div>
 </div>
@@ -658,14 +660,14 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139666582630288
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139769583341792
 </pre></div>
 </div>
 </div>
 </div>
 <p>This uniform treatment of data in Python (everything is an object) helps keep the language simple and consistent.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
