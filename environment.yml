@@ -10,7 +10,8 @@ dependencies:
     - quantecon-book-theme==0.2.7
     - sphinx-tojupyter==0.2.0
     - sphinxext-rediraffe==0.2.7
-    - sphinx-exercise==0.2.1
+    # - sphinx-exercise==0.2.1
+    - git+https://github.com/executablebooks/sphinx-exercise@gated-directive
     - ghp-import==1.1.0
     # Temporary Fixes
     - networkx==2.6.3
