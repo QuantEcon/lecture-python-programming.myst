@@ -12,6 +12,7 @@ dependencies:
     - sphinxext-rediraffe==0.2.7
     # - sphinx-exercise==0.2.1
     - git+https://github.com/executablebooks/sphinx-exercise@gated-directive
+    - sphinx-togglebutton
     - ghp-import==1.1.0
     # Temporary Fixes
     - networkx==2.6.3

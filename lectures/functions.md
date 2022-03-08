@@ -398,6 +398,7 @@ binomial_rv(10, 0.5)
 
 ```{solution-start} exercise_3
 :label: solution_3
+:class: dropdown
 
 Here's a function for the first random device.
 ```
