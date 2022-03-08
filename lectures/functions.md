@@ -357,6 +357,7 @@ Use no import besides `from numpy.random import uniform`.
 
 ```{solution-start} exercise_1
 :label: solution_1
+:class: dropdown
 
 Here's one solution.
 ```
@@ -376,6 +377,7 @@ factorial(4)
 
 ```{solution-start} exercise_2
 :label: solution_2
+:class: dropdown
 ````
 
 ```{code-cell} python3
