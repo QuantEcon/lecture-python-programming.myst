@@ -1722,6 +1722,7 @@ Using `try` -- `except`, write a program to read in the contents of the file and
 
 
 ```{solution-start} paf_ex1
+:class: dropdown
 ```
 
 Here's the standard solution
@@ -1747,6 +1748,7 @@ print([x(i) for i in range(10)])
 
 
 ```{solution-start} paf_ex2
+:class: dropdown
 ```
 
 One solution is as follows
@@ -1780,6 +1782,7 @@ for date in dates:
 
 
 ```{solution-start} paf_ex3
+:class: dropdown
 ```
 
 Let's save the data first

@@ -864,6 +864,7 @@ for i in range(n):
 ## Solutions
 
 ```{solution-start} pyess_ex1
+:class: dropdown
 ```
 
 **Part 1 Solution:**
@@ -923,6 +924,7 @@ sum([x % 2 == 0 and y % 2 == 0 for x, y in pairs])
 
 
 ```{solution-start} pyess_ex2
+:class: dropdown
 ```
 
 ```{code-cell} python3
@@ -939,6 +941,7 @@ p(1, (2, 4))
 
 
 ```{solution-start} pyess_ex3
+:class: dropdown
 ```
 
 Here's one solution:
@@ -968,6 +971,7 @@ count_uppercase_chars('The Rain in Spain')
 
 
 ```{solution-start} pyess_ex4
+:class: dropdown
 ```
 
 Here's a solution:
@@ -998,6 +1002,7 @@ def f(seq_a, seq_b):
 
 
 ```{solution-start} pyess_ex5
+:class: dropdown
 ```
 
 ```{code-cell} python3
@@ -1042,6 +1047,7 @@ def linapprox(f, a, b, n, x):
 
 
 ```{solution-start} pyess_ex6
+:class: dropdown
 ```
 
 Here's one solution.

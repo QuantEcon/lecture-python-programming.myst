@@ -572,6 +572,7 @@ Your hints are as follows:
 ## Solutions
 
 ```{solution-start} pbe_ex1
+:class: dropdown
 ```
 
 Here's one solution.
@@ -594,6 +595,7 @@ plt.show()
 
 
 ```{solution-start} pbe_ex2
+:class: dropdown
 ```
 
 ```{code-cell} python3
@@ -616,6 +618,7 @@ plt.show()
 
 
 ```{solution-start} pbe_ex3
+:class: dropdown
 ```
 
 Here's one solution:
@@ -638,6 +641,7 @@ plt.show()
 
 
 ```{solution-start} pbe_ex4
+:class: dropdown
 ```
 
 Here's one way:
@@ -680,6 +684,7 @@ plt.show()
 
 
 ```{solution-start} pbe_ex5
+:class: dropdown
 ```
 
 Consider the circle of diameter 1 embedded in the unit square.

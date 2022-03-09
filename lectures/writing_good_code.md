@@ -422,6 +422,7 @@ in this lecture.
 ## Solutions
 
 ```{solution-start} wgc-exercise-1
+:class: dropdown
 ```
 
 Here's one solution, that uses a class:

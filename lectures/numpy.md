@@ -805,6 +805,7 @@ plt.rcParams['figure.figsize'] = (10,6)
 ```
 
 ```{solution-start} np_ex1
+:class: dropdown
 ```
 
 This code does the job
@@ -834,6 +835,7 @@ print(q(x))
 
 
 ```{solution-start} np_ex2
+:class: dropdown
 ```
 
 Here's our first pass at a solution:
@@ -898,6 +900,7 @@ using descriptors that behaves as we desire can be found
 
 
 ```{solution-start} np_ex3
+:class: dropdown
 ```
 
 An example solution is given below.

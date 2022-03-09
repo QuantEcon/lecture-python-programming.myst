@@ -830,6 +830,7 @@ Avoid using any `import` statements.
 ## Solutions
 
 ```{solution-start} oop_ex1
+:class: dropdown
 ```
 
 ```{code-cell} python3

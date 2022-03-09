@@ -531,6 +531,7 @@ Hints:
 ## Solutions
 
 ```{solution-start} speed_ex1
+:class: dropdown
 ```
 
 Here is one solution:
@@ -572,6 +573,7 @@ characters.
 
 
 ```{solution-start} speed_ex2
+:class: dropdown
 ```
 
 We let

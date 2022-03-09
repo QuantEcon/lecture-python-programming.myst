@@ -304,6 +304,7 @@ The output should look like this
 ## Solutions
 
 ```{solution-start} mpl_ex1
+:class: dropdown
 ```
 
 Here's one solution

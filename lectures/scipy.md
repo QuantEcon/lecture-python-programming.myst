@@ -453,6 +453,7 @@ Test it on the function {eq}`root_f`.
 ## Solutions
 
 ```{solution-start} sp_ex1
+:class: dropdown
 ```
 
 Here's a reasonable solution:

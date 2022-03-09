@@ -508,6 +508,7 @@ Complete the program to show summary statistics and plot the result as a time se
 ## Solutions
 
 ```{solution-start} pd_ex1
+:class: dropdown
 ```
 
 There are a few ways to approach this problem using Pandas to calculate
@@ -548,6 +549,7 @@ plt.show()
 
 
 ```{solution-start} pd_ex2
+:class: dropdown
 ```
 
 Following the work you did in {ref}`pd_ex1`, you can query the data using `read_data` by updating the start and end dates accordingly.
