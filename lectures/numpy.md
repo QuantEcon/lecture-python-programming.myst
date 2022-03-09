@@ -710,8 +710,9 @@ For a comprehensive list of what's available in NumPy see [this documentation](h
 
 ## Exercises
 
-(np_ex1)=
-### Exercise 1
+```{exercise-start}
+:label: np_ex1
+```
 
 Consider the polynomial expression
 
@@ -729,8 +730,12 @@ Now write a new function that does the same job, but uses NumPy arrays and array
 
 * Hint: Use `np.cumprod()`
 
-(np_ex2)=
-### Exercise 2
+```{exercise-end}
+```
+
+```{exercise-start}
+:label: np_ex2
+```
 
 Let `q` be a NumPy array of length `n` with `q.sum() == 1`.
 
@@ -775,8 +780,12 @@ If you can, implement the functionality as a class called `DiscreteRV`, where
 
 If you can, write the method so that `draw(k)` returns `k` draws from `q`.
 
-(np_ex3)=
-### Exercise 3
+```{exercise-end}
+```
+
+
+```{exercise-start}
+:label: np_ex3
 
 Recall our {ref}`earlier discussion <oop_ex1>` of the empirical cumulative distribution function.
 
@@ -784,6 +793,8 @@ Your task is to
 
 1. Make the `__call__` method more efficient using NumPy.
 1. Add a method that plots the ECDF over $[a, b]$, where $a$ and $b$ are method parameters.
+
+```
 
 ## Solutions
 
@@ -793,7 +804,7 @@ import matplotlib.pyplot as plt
 plt.rcParams['figure.figsize'] = (10,6)
 ```
 
-### Exercise 1
+```{solution-start} np_ex1
 
 This code does the job
 
@@ -817,7 +828,12 @@ q = np.poly1d(np.flip(coef))
 print(q(x))
 ```
 
-### Exercise 2
+```{solution-end}
+```
+
+
+```{solution-start} np_ex2
+```
 
 Here's our first pass at a solution:
 
@@ -876,7 +892,12 @@ library](https://github.com/QuantEcon/QuantEcon.py/tree/master/quantecon)
 using descriptors that behaves as we desire can be found
 [here](https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/discrete_rv.py).
 
-### Exercise 3
+```{solution-end}
+```
+
+
+```{solution-start} np_ex3
+```
 
 An example solution is given below.
 
@@ -962,3 +983,5 @@ F = ECDF(X)
 F.plot(ax)
 ```
 
+```{solution-end}
+```

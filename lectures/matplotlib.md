@@ -278,7 +278,9 @@ The custom `subplots` function
 
 ## Exercises
 
-### Exercise 1
+```{exercise-start}
+:label: mpl_ex1
+```
 
 Plot the function
 
@@ -296,9 +298,13 @@ The output should look like this
 :scale: 130
 ```
 
+```{exercise-end}
+```
+
 ## Solutions
 
-### Exercise 1
+```{solution-start} mpl_ex1
+```
 
 Here's one solution
 
@@ -316,3 +322,5 @@ for θ in θ_vals:
 plt.show()
 ```
 
+```{solution-end}
+```

@@ -419,7 +419,8 @@ When you see us using ordinary `range` in a jitted function, it is either becaus
 
 ## Exercises
 
-### Exercise 1
+```{exercise}
+:label: parrallel_ex1
 
 In {ref}`an earlier exercise <speed_ex1>`, we used Numba to accelerate an
 effort to compute the constant $\pi$ by Monte Carlo.
@@ -439,10 +440,12 @@ Nevertheless, with suitable hardware, it is possible to get nontrivial speed gai
 
 For the size of the Monte Carlo simulation, use something substantial, such as
 `n = 100_000_000`.
+```
 
 ## Solutions
 
-### Exercise 1
+```{solution-start} parallel_ex1
+```
 
 Here is one solution:
 
@@ -482,3 +485,5 @@ a factor of 2 or 3.
 (If you are executing locally, you will get different numbers, depending mainly
 on the number of CPUs on your machine.)
 
+```{solution-end}
+```
