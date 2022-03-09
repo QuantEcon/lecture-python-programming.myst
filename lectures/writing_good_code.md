@@ -296,7 +296,9 @@ If you inspect this code, you will see that
 
 ## Exercises
 
-### Exercise 1
+```{exercise-start}
+:label: wgc-exercise-1
+```
 
 Here is some code that needs improving.
 
@@ -414,9 +416,13 @@ a lot of repeated code here.
 Refactor and improve clarity in the code above using the principles discussed
 in this lecture.
 
+```{exercise-end}
+```
+
 ## Solutions
 
-### Exercise 1
+```{solution-start} wgc-exercise-1
+```
 
 Here's one solution, that uses a class:
 
@@ -487,3 +493,5 @@ eq.compute_equilibrium()
 eq.plot_equilibrium()
 ```
 
+```{solution-end}
+```
