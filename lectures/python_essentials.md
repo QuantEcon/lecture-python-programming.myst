@@ -763,8 +763,8 @@ Solve the following exercises.
 
 (For some, the built-in function `sum()` comes in handy).
 
-(pyess_ex1)=
-### Exercise 1
+```{exercise}
+:label: pyess_ex1
 
 Part 1: Given two numeric lists or tuples `x_vals` and `y_vals` of equal length, compute
 their inner product using `zip()`.
@@ -775,9 +775,12 @@ Part 2: In one line, count the number of even numbers in 0,...,99.
 
 Part 3: Given `pairs = ((2, 5), (4, 2), (9, 8), (12, 10))`, count the number of pairs `(a, b)`
 such that both `a` and `b` are even.
+```
 
-(pyess_ex2)=
-### Exercise 2
+
+```{exercise-start}
+:label: pyess_ex2
+```
 
 Consider the polynomial
 
@@ -793,15 +796,21 @@ Write a function `p` such that `p(x, coeff)` that computes the value in {eq}`pol
 
 Try to use `enumerate()` in your loop.
 
-(pyess_ex3)=
-### Exercise 3
+```{exercise-end}
+```
+
+
+```{exercise}
+:label: pyess_ex3
 
 Write a function that takes a string as an argument and returns the number of capital letters in the string.
 
 Hint: `'foo'.upper()` returns `'FOO'`.
+```
 
-(pyess_ex4)=
-### Exercise 4
+
+```{exercise}
+:label: pyess_ex4
 
 Write a function that takes two sequences `seq_a` and `seq_b` as arguments and
 returns `True` if every element in `seq_a` is also an element of `seq_b`, else
@@ -809,9 +818,11 @@ returns `True` if every element in `seq_a` is also an element of `seq_b`, else
 
 * By "sequence" we mean a list, a tuple or a string.
 * Do the exercise without using [sets](https://docs.python.org/3/tutorial/datastructures.html#sets) and set methods.
+```
 
-(pyess_ex5)=
-### Exercise 5
+
+```{exercise}
+:label: pyess_ex5
 
 When we cover the numerical libraries, we will see they include many
 alternatives for interpolation and function approximation.
@@ -828,8 +839,11 @@ In particular, without using any imports, write a function `linapprox` that take
 and returns the [piecewise linear interpolation](https://en.wikipedia.org/wiki/Linear_interpolation) of `f` at `x`, based on `n` evenly spaced grid points `a = point[0] < point[1] < ... < point[n-1] = b`.
 
 Aim for clarity, not efficiency.
+```
 
-### Exercise 6
+```{exercise-start}
+:label: pyess_ex6
+```
 
 Using list comprehension syntax, we can simplify the loop in the following
 code.
@@ -844,11 +858,15 @@ for i in range(n):
     ϵ_values.append(e)
 ```
 
+```{exercise-end}
+```
+
 ## Solutions
 
-### Exercise 1
+```{solution-start} pyess_ex1
+```
 
-#### Part 1 Solution:
+**Part 1 Solution:**
 
 Here's one possible solution
 
@@ -864,7 +882,7 @@ This also works
 sum(x * y for x, y in zip(x_vals, y_vals))
 ```
 
-#### Part 2 Solution:
+**Part 2 Solution:**
 
 One solution is
 
@@ -891,7 +909,7 @@ and
 sum([1 for x in range(100) if x % 2 == 0])
 ```
 
-#### Part 3 Solution
+**Part 3 Solution:**
 
 Here's one possibility
 
@@ -900,7 +918,12 @@ pairs = ((2, 5), (4, 2), (9, 8), (12, 10))
 sum([x % 2 == 0 and y % 2 == 0 for x, y in pairs])
 ```
 
-### Exercise 2
+```{solution-end}
+```
+
+
+```{solution-start} pyess_ex2
+```
 
 ```{code-cell} python3
 def p(x, coeff):
@@ -911,7 +934,12 @@ def p(x, coeff):
 p(1, (2, 4))
 ```
 
-### Exercise 3
+```{solution-end}
+```
+
+
+```{solution-start} pyess_ex3
+```
 
 Here's one solution:
 
@@ -935,7 +963,12 @@ def count_uppercase_chars(s):
 count_uppercase_chars('The Rain in Spain')
 ```
 
-### Exercise 4
+```{solution-end}
+```
+
+
+```{solution-start} pyess_ex4
+```
 
 Here's a solution:
 
@@ -960,7 +993,12 @@ def f(seq_a, seq_b):
     return set(seq_a).issubset(set(seq_b))
 ```
 
-### Exercise 5
+```{solution-end}
+```
+
+
+```{solution-start} pyess_ex5
+```
 
 ```{code-cell} python3
 def linapprox(f, a, b, n, x):
@@ -999,7 +1037,12 @@ def linapprox(f, a, b, n, x):
     return f(u) + (x - u) * (f(v) - f(u)) / (v - u)
 ```
 
-### Exercise 6
+```{solution-end}
+```
+
+
+```{solution-start} pyess_ex6
+```
 
 Here's one solution.
 
@@ -1008,3 +1051,5 @@ n = 100
 ϵ_values = [np.random.randn() for i in range(n)]
 ```
 
+```{solution-end}
+```

@@ -1648,7 +1648,9 @@ We'll meet less contrived applications of recursion later on.
 
 ## Exercises
 
-### Exercise 1
+```{exercise-start}
+:label: paf_ex1
+```
 
 The Fibonacci numbers are defined by
 
@@ -1662,7 +1664,13 @@ The first few numbers in the sequence are $0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55$.
 
 Write a function to recursively compute the $t$-th Fibonacci number for any $t$.
 
-### Exercise 2
+```{exercise-end}
+```
+
+
+```{exercise-start}
+:label: paf_ex2
+```
 
 Complete the following code, and test it using [this csv file](https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/python_advanced_features/test_table.csv), which we assume that you've put in your current working directory
 
@@ -1684,7 +1692,13 @@ for date in dates:
     print(date)
 ```
 
-### Exercise 3
+```{exercise-end}
+```
+
+
+```{exercise-start}
+:label: paf_ex3
+```
 
 Suppose we have a text file `numbers.txt` containing the following lines
 
@@ -1701,9 +1715,14 @@ prices
 
 Using `try` -- `except`, write a program to read in the contents of the file and sum the numbers, ignoring lines without numbers.
 
+```{exercise-end}
+```
+
 ## Solutions
 
-### Exercise 1
+
+```{solution-start} paf_ex1
+```
 
 Here's the standard solution
 
@@ -1723,7 +1742,12 @@ Let's test it
 print([x(i) for i in range(10)])
 ```
 
-### Exercise 2
+```{solution-end}
+```
+
+
+```{solution-start} paf_ex2
+```
 
 One solution is as follows
 
@@ -1750,7 +1774,13 @@ for date in dates:
     i += 1
 ```
 
-### Exercise 3
+```{solution-end}
+```
+
+
+
+```{solution-start} paf_ex3
+```
 
 Let's save the data first
 
@@ -1779,3 +1809,5 @@ f.close()
 print(total)
 ```
 
+```{solution-end}
+```

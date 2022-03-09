@@ -451,7 +451,9 @@ use in the exercises.
 Now we turn to exercises.  It is important that you complete them before
 continuing, since they present new concepts we will need.
 
-### Exercise 1
+```{exercise-start}
+:label: pbe_ex1
+```
 
 Your first task is to simulate and plot the correlated time series
 
@@ -473,7 +475,12 @@ import matplotlib.pyplot as plt
 
 Set $T=200$ and $\alpha = 0.9$.
 
-### Exercise 2
+```{exercise-end}
+```
+
+
+```{exercise}
+:label: pbe_ex2
 
 Starting with your solution to exercise 1, plot three simulated time series,
 one for each of the cases $\alpha=0$, $\alpha=0.8$ and $\alpha=0.98$.
@@ -486,8 +493,10 @@ Hints:
 
 * If you call the `plot()` function multiple times before calling `show()`, all of the lines you produce will end up on the same figure.
 * For the legend, noted that the expression `'foo' + str(42)` evaluates to `'foo42'`.
+```
 
-### Exercise 3
+```{exercise}
+:label: pbe_ex3
 
 Similar to the previous exercises, plot the time series
 
@@ -501,8 +510,12 @@ $$
 Use $T=200$, $\alpha = 0.9$ and $\{\epsilon_t\}$ as before.
 
 Search online for a function that can be used to compute the absolute value $|x_t|$.
+```
 
-### Exercise 4
+
+```{exercise-start}
+:label: pbe_ex4
+```
 
 One important aspect of essentially all programming languages is branching and
 conditions.
@@ -529,8 +542,13 @@ to compute the absolute value.
 
 Replace this existing function with an if--else condition.
 
-(pbe_ex3)=
-### Exercise 5
+```{exercise-end}
+```
+
+
+```{exercise-start}
+:label: pbe_ex5
+```
 
 Here's a harder exercise, that takes some thought and planning.
 
@@ -548,9 +566,13 @@ Your hints are as follows:
 * If $U_1,\ldots,U_n$ are IID copies of $U$, then, as $n$ gets large, the fraction that falls in $B$, converges to the probability of landing in $B$.
 * For a circle, $area = \pi * radius^2$.
 
+```{exercise-end}
+```
+
 ## Solutions
 
-### Exercise 1
+```{solution-start} pbe_ex1
+```
 
 Here's one solution.
 
@@ -567,7 +589,12 @@ plt.plot(x)
 plt.show()
 ```
 
-### Exercise 2
+```{solution-end}
+```
+
+
+```{solution-start} pbe_ex2
+```
 
 ```{code-cell} python3
 α_values = [0.0, 0.8, 0.98]
@@ -584,7 +611,12 @@ plt.legend()
 plt.show()
 ```
 
-### Exercise 3
+```{solution-end}
+```
+
+
+```{solution-start} pbe_ex3
+```
 
 Here's one solution:
 
@@ -601,7 +633,12 @@ plt.plot(x)
 plt.show()
 ```
 
-### Exercise 4
+```{solution-end}
+```
+
+
+```{solution-start} pbe_ex4
+```
 
 Here's one way:
 
@@ -638,7 +675,12 @@ plt.plot(x)
 plt.show()
 ```
 
-### Exercise 5
+```{solution-end}
+```
+
+
+```{solution-start} pbe_ex5
+```
 
 Consider the circle of diameter 1 embedded in the unit square.
 
@@ -671,3 +713,5 @@ area_estimate = count / n
 print(area_estimate * 4)  # dividing by radius**2
 ```
 
+```{solution-end}
+```
