@@ -733,6 +733,7 @@ Now write a new function that does the same job, but uses NumPy arrays and array
 ```{exercise-end}
 ```
 
+
 ```{exercise-start}
 :label: np_ex2
 ```
@@ -784,7 +785,7 @@ If you can, write the method so that `draw(k)` returns `k` draws from `q`.
 ```
 
 
-```{exercise-start}
+```{exercise}
 :label: np_ex3
 
 Recall our {ref}`earlier discussion <oop_ex1>` of the empirical cumulative distribution function.
@@ -793,7 +794,6 @@ Your task is to
 
 1. Make the `__call__` method more efficient using NumPy.
 1. Add a method that plots the ECDF over $[a, b]$, where $a$ and $b$ are method parameters.
-
 ```
 
 ## Solutions
@@ -805,6 +805,7 @@ plt.rcParams['figure.figsize'] = (10,6)
 ```
 
 ```{solution-start} np_ex1
+```
 
 This code does the job
 
