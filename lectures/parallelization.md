@@ -420,7 +420,7 @@ When you see us using ordinary `range` in a jitted function, it is either becaus
 ## Exercises
 
 ```{exercise}
-:label: parrallel_ex1
+:label: parallel_ex1
 
 In {ref}`an earlier exercise <speed_ex1>`, we used Numba to accelerate an
 effort to compute the constant $\pi$ by Monte Carlo.
