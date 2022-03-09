@@ -866,6 +866,7 @@ print(F(0.5))
 ```
 
 ```{solution-start} oop_ex2
+:class: dropdown
 ```
 
 ```{code-cell} python3
