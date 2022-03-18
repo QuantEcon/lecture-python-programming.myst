@@ -36,14 +36,24 @@ jobs:
       - name: Display Pip Versions
         shell: bash -l {0}
         run: pip list
-      # - name: Download "build" folder (cache)
-      #   uses: dawidd6/action-download-artifact@v2
-      #   with:
-      #     workflow: cache.yml
-      #     branch: main
-      #     name: build-cache
-      #     path: _build
+      # Download Build Cache from cache.yml
+      - name: Download "build" folder (cache)
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: cache.yml
+          branch: main
+          name: build-cache
+          path: _build
       # Build Assets (Download Notebooks, PDF via LaTeX)
+      - name: Build PDF from LaTeX
+        shell: bash -l {0}
+        run: |
+          jb build lectures --builder pdflatex --path-output ./ -n -W --keep-going
+      - name: Copy LaTeX PDF for GH-PAGES
+        shell: bash -l {0}
+        run: |
+          mkdir -p _build/html/_pdf
+          cp -u _build/latex/*.pdf _build/html/_pdf
       - name: Build Download Notebooks (sphinx-tojupyter)
         shell: bash -l {0}
         run: |
@@ -58,15 +68,6 @@ jobs:
         run: |
           mkdir -p _build/html/_notebooks
           cp -u _build/jupyter/*.ipynb _build/html/_notebooks
-      - name: Build PDF from LaTeX
-        shell: bash -l {0}
-        run: |
-          jb build lectures --builder pdflatex --path-output ./ -n -W --keep-going
-      - name: Copy LaTeX PDF for GH-PAGES
-        shell: bash -l {0}
-        run: |
-          mkdir -p _build/html/_pdf
-          cp -u _build/latex/*.pdf _build/html/_pdf
       # Final Build of HTML (with assets)
       - name: Build HTML
         shell: bash -l {0}
@@ -93,6 +94,7 @@ jobs:
           source-directory: '_build/lecture-python-programming.notebooks/'
           destination-repository-username: 'QuantEcon'
           destination-repository-name: 'lecture-python-programming.notebooks'
+          target-branch: master
           commit-message: 'auto publishing updates to notebooks'
           destination-github-username: 'quantecon-services'
           user-email: services@quantecon.org
