@@ -440,20 +440,24 @@ We leave you to investigate the [set of available routines](http://docs.scipy.or
 
 ## Exercises
 
-(sp_ex1)=
-### Exercise 1
+```{exercise}
+:label: sp_ex1
 
 In {ref}`this lecture <python_advanced_features>`, we will discuss the concept of {ref}`recursive function calls <recursive_functions>`.
 
 Try to write a recursive implementation of homemade bisection function {ref}`described above <bisect_func>`.
 
 Test it on the function {eq}`root_f`.
+```
 
 ## Solutions
 
-### Exercise 1
+```{solution-start} sp_ex1
+:class: dropdown
+```
 
 Here's a reasonable solution:
+
 
 ```{code-cell} python3
 def bisect(f, a, b, tol=10e-5):
@@ -480,3 +484,5 @@ f = lambda x: np.sin(4 * (x - 0.25)) + x + x**20 - 1
 bisect(f, 0, 1)
 ```
 
+```{solution-end}
+```
