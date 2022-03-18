@@ -69,6 +69,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -240,25 +241,11 @@
   <a class="reference internal nav-link" href="#exercises">
    11.8. Exercises
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-1">
-     11.8.1. Exercise 1
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#solutions">
    11.9. Solutions
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     11.9.1. Exercise 1
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -306,27 +293,27 @@
                     <div>
                         
   <div class="tex2jax_ignore mathjax_ignore section" id="scipy">
-<h1><a class="toc-backref" href="#id2"><span class="section-number">11. </span><span class="target" id="index-0"></span>SciPy</a><a class="headerlink" href="#scipy" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id1"><span class="section-number">11. </span><span class="target" id="index-0"></span>SciPy</a><a class="headerlink" href="#scipy" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <span id="index-1"></span><p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#scipy" id="id2">SciPy</a></p>
+<li><p><a class="reference internal" href="#scipy" id="id1">SciPy</a></p>
 <ul>
-<li><p><a class="reference internal" href="#overview" id="id3">Overview</a></p></li>
-<li><p><a class="reference internal" href="#scipy-versus-numpy" id="id4">SciPy versus NumPy</a></p></li>
-<li><p><a class="reference internal" href="#statistics" id="id5">Statistics</a></p></li>
-<li><p><a class="reference internal" href="#roots-and-fixed-points" id="id6">Roots and Fixed Points</a></p></li>
-<li><p><a class="reference internal" href="#optimization" id="id7">Optimization</a></p></li>
-<li><p><a class="reference internal" href="#integration" id="id8">Integration</a></p></li>
-<li><p><a class="reference internal" href="#linear-algebra" id="id9">Linear Algebra</a></p></li>
-<li><p><a class="reference internal" href="#exercises" id="id10">Exercises</a></p></li>
-<li><p><a class="reference internal" href="#solutions" id="id11">Solutions</a></p></li>
+<li><p><a class="reference internal" href="#overview" id="id2">Overview</a></p></li>
+<li><p><a class="reference internal" href="#scipy-versus-numpy" id="id3">SciPy versus NumPy</a></p></li>
+<li><p><a class="reference internal" href="#statistics" id="id4">Statistics</a></p></li>
+<li><p><a class="reference internal" href="#roots-and-fixed-points" id="id5">Roots and Fixed Points</a></p></li>
+<li><p><a class="reference internal" href="#optimization" id="id6">Optimization</a></p></li>
+<li><p><a class="reference internal" href="#integration" id="id7">Integration</a></p></li>
+<li><p><a class="reference internal" href="#linear-algebra" id="id8">Linear Algebra</a></p></li>
+<li><p><a class="reference internal" href="#exercises" id="id9">Exercises</a></p></li>
+<li><p><a class="reference internal" href="#solutions" id="id10">Solutions</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="overview">
-<h2><a class="toc-backref" href="#id3"><span class="section-number">11.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2"><span class="section-number">11.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.scipy.org">SciPy</a> builds on top of NumPy to provide common tools for scientific programming such as</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/linalg.html">linear algebra</a></p></li>
@@ -344,7 +331,7 @@
 <p>In this lecture, we aim only to highlight some useful parts of the package.</p>
 </div>
 <div class="section" id="scipy-versus-numpy">
-<h2><a class="toc-backref" href="#id4"><span class="section-number">11.2. </span><span class="target" id="index-2"></span>SciPy versus <span class="target" id="index-3"></span>NumPy</a><a class="headerlink" href="#scipy-versus-numpy" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3"><span class="section-number">11.2. </span><span class="target" id="index-2"></span>SciPy versus <span class="target" id="index-3"></span>NumPy</a><a class="headerlink" href="#scipy-versus-numpy" title="Permalink to this headline">¶</a></h2>
 <p>SciPy is a package that contains various tools that are built on top of NumPy, using its array data type and related functionality.</p>
 <p>In fact, when we import SciPy we also get NumPy, as can be seen from this excerpt the SciPy initialization file:</p>
 <div class="cell docutils container">
@@ -375,7 +362,7 @@
 <p>Let’s explore some of the major sub-packages.</p>
 </div>
 <div class="section" id="statistics">
-<h2><a class="toc-backref" href="#id5"><span class="section-number">11.3. </span>Statistics</a><a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4"><span class="section-number">11.3. </span>Statistics</a><a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h2>
 <p id="index-4">The <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> subpackage supplies</p>
 <ul class="simple">
 <li><p>numerous random variable objects (densities, cumulative distributions, random sampling, etc.)</p></li>
@@ -392,7 +379,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.52699108, 0.43337316, 0.56670287])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.64678735, 0.29188983, 0.25373653])
 </pre></div>
 </div>
 </div>
@@ -509,7 +496,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2.004885738369577, -0.00019439481890283494)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.994851185173516, 0.006991260591913684)
 </pre></div>
 </div>
 </div>
@@ -518,7 +505,7 @@
 </div>
 </div>
 <div class="section" id="roots-and-fixed-points">
-<h2><a class="toc-backref" href="#id6"><span class="section-number">11.4. </span>Roots and Fixed Points</a><a class="headerlink" href="#roots-and-fixed-points" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5"><span class="section-number">11.4. </span>Roots and Fixed Points</a><a class="headerlink" href="#roots-and-fixed-points" title="Permalink to this headline">¶</a></h2>
 <p>A <strong>root</strong> or <strong>zero</strong> of a real function <span class="math notranslate nohighlight">\(f\)</span> on <span class="math notranslate nohighlight">\([a,b]\)</span> is an <span class="math notranslate nohighlight">\(x \in [a, b]\)</span> such that <span class="math notranslate nohighlight">\(f(x)=0\)</span>.</p>
 <p>For example, if we plot the function</p>
 <div class="math notranslate nohighlight" id="equation-root-f">
@@ -685,7 +672,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15.6 µs ± 51.8 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16.2 µs ± 45.5 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 </pre></div>
 </div>
 </div>
@@ -697,7 +684,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>53.4 µs ± 266 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>62.7 µs ± 503 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
 </pre></div>
 </div>
 </div>
@@ -731,7 +718,7 @@ the fixed point of a function <span class="math notranslate nohighlight">\(f\)</
 </div>
 </div>
 <div class="section" id="optimization">
-<h2><a class="toc-backref" href="#id7"><span class="section-number">11.5. </span><span class="target" id="index-11"></span>Optimization</a><a class="headerlink" href="#optimization" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id6"><span class="section-number">11.5. </span><span class="target" id="index-11"></span>Optimization</a><a class="headerlink" href="#optimization" title="Permalink to this headline">¶</a></h2>
 <p id="index-12">Most numerical packages provide only functions for <em>minimization</em>.</p>
 <p>Maximization can be performed by recalling that the maximizer of a function <span class="math notranslate nohighlight">\(f\)</span> on domain <span class="math notranslate nohighlight">\(D\)</span> is
 the minimizer of <span class="math notranslate nohighlight">\(-f\)</span> on <span class="math notranslate nohighlight">\(D\)</span>.</p>
@@ -761,7 +748,7 @@ the minimizer of <span class="math notranslate nohighlight">\(-f\)</span> on <sp
 </div>
 </div>
 <div class="section" id="integration">
-<h2><a class="toc-backref" href="#id8"><span class="section-number">11.6. </span><span class="target" id="index-14"></span>Integration</a><a class="headerlink" href="#integration" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7"><span class="section-number">11.6. </span><span class="target" id="index-14"></span>Integration</a><a class="headerlink" href="#integration" title="Permalink to this headline">¶</a></h2>
 <p id="index-15">Most numerical integration methods work by computing the integral of an approximating polynomial.</p>
 <p>The resulting error depends on how well the polynomial fits the integrand, which in turn depends on how “regular” the integrand is.</p>
 <p>In SciPy, the relevant module for numerical integration is <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code>.</p>
@@ -788,26 +775,31 @@ the minimizer of <span class="math notranslate nohighlight">\(-f\)</span> on <sp
 <p>See the <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/integrate.html">documentation</a> for more details.</p>
 </div>
 <div class="section" id="linear-algebra">
-<h2><a class="toc-backref" href="#id9"><span class="section-number">11.7. </span><span class="target" id="index-16"></span>Linear Algebra</a><a class="headerlink" href="#linear-algebra" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8"><span class="section-number">11.7. </span><span class="target" id="index-16"></span>Linear Algebra</a><a class="headerlink" href="#linear-algebra" title="Permalink to this headline">¶</a></h2>
 <p id="index-17">We saw that NumPy provides a module for linear algebra called <code class="docutils literal notranslate"><span class="pre">linalg</span></code>.</p>
 <p>SciPy also provides a module for linear algebra with the same name.</p>
 <p>The latter is not an exact superset of the former, but overall it has more functionality.</p>
 <p>We leave you to investigate the <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/linalg.html">set of available routines</a>.</p>
 </div>
 <div class="section" id="exercises">
-<h2><a class="toc-backref" href="#id10"><span class="section-number">11.8. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="exercise-1">
-<span id="sp-ex1"></span><h3><span class="section-number">11.8.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id9"><span class="section-number">11.8. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<div class="exercise admonition" id="sp_ex1">
+
+<p class="admonition-title"><span class="caption-number">Exercise 11.1 </span></p>
+<div class="section" id="exercise-content">
 <p>In <a class="reference internal" href="python_advanced_features.html#python-advanced-features"><span class="std std-ref">this lecture</span></a>, we will discuss the concept of <a class="reference internal" href="python_advanced_features.html#recursive-functions"><span class="std std-ref">recursive function calls</span></a>.</p>
 <p>Try to write a recursive implementation of homemade bisection function <a class="reference internal" href="#bisect-func"><span class="std std-ref">described above</span></a>.</p>
 <p>Test it on the function <a class="reference internal" href="#equation-root-f">(11.2)</a>.</p>
 </div>
 </div>
+</div>
 <div class="section" id="solutions">
-<h2><a class="toc-backref" href="#id11"><span class="section-number">11.9. </span>Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3><span class="section-number">11.9.1. </span>Exercise 1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>Here’s a reasonable solution:</p>
+<h2><a class="toc-backref" href="#id10"><span class="section-number">11.9. </span>Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
+<div class="solution dropdown admonition" id="scipy-solution-1">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#sp_ex1"> Exercise 11.1</a></p>
+<div class="section" id="s">
+<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><p>Here’s a reasonable solution:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bisect</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">10e-5</span><span class="p">):</span>
@@ -856,6 +848,7 @@ Current mid point = 0.40826416015625
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.408294677734375
 </pre></div>
+</div>
 </div>
 </div>
 </div>

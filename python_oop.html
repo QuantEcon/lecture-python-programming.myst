@@ -69,6 +69,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -225,35 +226,11 @@
   <a class="reference internal nav-link" href="#exercises">
    7.5. Exercises
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-1">
-     7.5.1. Exercise 1
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-2">
-     7.5.2. Exercise 2
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#solutions">
    7.6. Solutions
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     7.6.1. Exercise 1
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     7.6.2. Exercise 2
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -301,24 +278,24 @@
                     <div>
                         
   <div class="tex2jax_ignore mathjax_ignore section" id="oop-ii-building-classes">
-<h1><a class="toc-backref" href="#id3"><span class="section-number">7. </span><span class="target" id="index-0"></span>OOP II: Building Classes</a><a class="headerlink" href="#oop-ii-building-classes" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id1"><span class="section-number">7. </span><span class="target" id="index-0"></span>OOP II: Building Classes</a><a class="headerlink" href="#oop-ii-building-classes" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <span id="index-1"></span><p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#oop-ii-building-classes" id="id3">OOP II: Building Classes</a></p>
+<li><p><a class="reference internal" href="#oop-ii-building-classes" id="id1">OOP II: Building Classes</a></p>
 <ul>
-<li><p><a class="reference internal" href="#overview" id="id4">Overview</a></p></li>
-<li><p><a class="reference internal" href="#oop-review" id="id5">OOP Review</a></p></li>
-<li><p><a class="reference internal" href="#defining-your-own-classes" id="id6">Defining Your Own Classes</a></p></li>
-<li><p><a class="reference internal" href="#special-methods" id="id7">Special Methods</a></p></li>
-<li><p><a class="reference internal" href="#exercises" id="id8">Exercises</a></p></li>
-<li><p><a class="reference internal" href="#solutions" id="id9">Solutions</a></p></li>
+<li><p><a class="reference internal" href="#overview" id="id2">Overview</a></p></li>
+<li><p><a class="reference internal" href="#oop-review" id="id3">OOP Review</a></p></li>
+<li><p><a class="reference internal" href="#defining-your-own-classes" id="id4">Defining Your Own Classes</a></p></li>
+<li><p><a class="reference internal" href="#special-methods" id="id5">Special Methods</a></p></li>
+<li><p><a class="reference internal" href="#exercises" id="id6">Exercises</a></p></li>
+<li><p><a class="reference internal" href="#solutions" id="id7">Solutions</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="overview">
-<h2><a class="toc-backref" href="#id4"><span class="section-number">7.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2"><span class="section-number">7.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>In an <a class="reference internal" href="oop_intro.html"><span class="doc">earlier lecture</span></a>, we learned some foundations of object-oriented programming.</p>
 <p>The objectives of this lecture are</p>
 <ul class="simple">
@@ -357,7 +334,7 @@
 </div>
 </div>
 <div class="section" id="oop-review">
-<h2><a class="toc-backref" href="#id5"><span class="section-number">7.2. </span>OOP Review</a><a class="headerlink" href="#oop-review" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3"><span class="section-number">7.2. </span>OOP Review</a><a class="headerlink" href="#oop-review" title="Permalink to this headline">¶</a></h2>
 <p>OOP is supported in many languages:</p>
 <ul class="simple">
 <li><p>JAVA and Ruby are relatively pure OOP.</p></li>
@@ -441,7 +418,7 @@
 </div>
 </div>
 <div class="section" id="defining-your-own-classes">
-<h2><a class="toc-backref" href="#id6"><span class="section-number">7.3. </span>Defining Your Own Classes</a><a class="headerlink" href="#defining-your-own-classes" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4"><span class="section-number">7.3. </span>Defining Your Own Classes</a><a class="headerlink" href="#defining-your-own-classes" title="Permalink to this headline">¶</a></h2>
 <p id="index-3">Let’s build some simple classes to start off.</p>
 <p id="oop-consumer-class">Before we do so, in order to indicate some of the power of Classes, we’ll define two functions that we’ll call <code class="docutils literal notranslate"><span class="pre">earn</span></code> and <code class="docutils literal notranslate"><span class="pre">spend</span></code>.</p>
 <div class="cell docutils container">
@@ -657,7 +634,7 @@ the class definition</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__module__&#39;: &#39;__main__&#39;, &#39;__init__&#39;: &lt;function Consumer.__init__ at 0x7f9e2c480e50&gt;, &#39;earn&#39;: &lt;function Consumer.earn at 0x7f9e2c480dc0&gt;, &#39;spend&#39;: &lt;function Consumer.spend at 0x7f9e2c480d30&gt;, &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__doc__&#39;: None}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__module__&#39;: &#39;__main__&#39;, &#39;__init__&#39;: &lt;function Consumer.__init__ at 0x7fd462a53ca0&gt;, &#39;earn&#39;: &lt;function Consumer.earn at 0x7fd462a53c10&gt;, &#39;spend&#39;: &lt;function Consumer.spend at 0x7fd462a53b80&gt;, &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__doc__&#39;: None}
 </pre></div>
 </div>
 </div>
@@ -1076,7 +1053,7 @@ axis.</p>
 </div>
 </div>
 <div class="section" id="special-methods">
-<h2><a class="toc-backref" href="#id7"><span class="section-number">7.4. </span>Special Methods</a><a class="headerlink" href="#special-methods" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5"><span class="section-number">7.4. </span>Special Methods</a><a class="headerlink" href="#special-methods" title="Permalink to this headline">¶</a></h2>
 <p id="index-5">Python provides special methods that come in handy.</p>
 <p>For example, recall that lists and tuples have a notion of length and that this length can be queried via the <code class="docutils literal notranslate"><span class="pre">len</span></code> function</p>
 <div class="cell docutils container">
@@ -1147,9 +1124,11 @@ your user-defined object, use the <code class="docutils literal notranslate"><sp
 <p>Exercise 1 provides a more useful example.</p>
 </div>
 <div class="section" id="exercises">
-<h2><a class="toc-backref" href="#id8"><span class="section-number">7.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="exercise-1">
-<span id="oop-ex1"></span><h3><span class="section-number">7.5.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id6"><span class="section-number">7.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<div class="exercise admonition" id="oop_ex1">
+
+<p class="admonition-title"><span class="caption-number">Exercise 7.1 </span></p>
+<div class="section" id="exercise-content">
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Empirical_distribution_function">empirical cumulative distribution function (ecdf)</a> corresponding to a sample <span class="math notranslate nohighlight">\(\{X_i\}_{i=1}^n\)</span> is defined as</p>
 <div class="math notranslate nohighlight" id="equation-emdist">
 <span class="eqno">(7.3)<a class="headerlink" href="#equation-emdist" title="Permalink to this equation">¶</a></span>\[F_n(x) := \frac{1}{n}  \sum_{i=1}^n \mathbf{1}\{X_i \leq x\}
@@ -1176,9 +1155,12 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
 </div>
 <p>Aim for clarity, not efficiency.</p>
 </div>
-<div class="section" id="exercise-2">
-<span id="oop-ex2"></span><h3><span class="section-number">7.5.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h3>
-<p>In an <a class="reference internal" href="python_essentials.html#pyess-ex2"><span class="std std-ref">earlier exercise</span></a>, you wrote a function for evaluating polynomials.</p>
+</div>
+<div class="exercise admonition" id="oop_ex2">
+
+<p class="admonition-title"><span class="caption-number">Exercise 7.2 </span></p>
+<div class="section" id="exercise-content">
+<p>In an <a class="reference internal" href="python_essentials.html#pyess_ex2"><span class="std std-ref">earlier exercise</span></a>, you wrote a function for evaluating polynomials.</p>
 <p>This exercise is an extension, where the task is to build a simple class called <code class="docutils literal notranslate"><span class="pre">Polynomial</span></code> for representing and manipulating polynomial functions such as</p>
 <div class="math notranslate nohighlight" id="equation-polynom">
 <span class="eqno">(7.4)<a class="headerlink" href="#equation-polynom" title="Permalink to this equation">¶</a></span>\[p(x) = a_0 + a_1 x + a_2 x^2 + \cdots a_N x^N = \sum_{n=0}^N a_n x^n
@@ -1192,11 +1174,14 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
 <p>Avoid using any <code class="docutils literal notranslate"><span class="pre">import</span></code> statements.</p>
 </div>
 </div>
+</div>
 <div class="section" id="solutions">
-<h2><a class="toc-backref" href="#id9"><span class="section-number">7.6. </span>Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3><span class="section-number">7.6.1. </span>Exercise 1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
+<h2><a class="toc-backref" href="#id7"><span class="section-number">7.6. </span>Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
+<div class="solution dropdown admonition" id="python_oop-solution-2">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#oop_ex1"> Exercise 7.1</a></p>
+<div class="section" id="s">
+<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ECDF</span><span class="p">:</span>
 
@@ -1231,16 +1216,19 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4
-0.512
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5
+0.506
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="id2">
-<h3><span class="section-number">7.6.2. </span>Exercise 2<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
+</div>
+<div class="solution dropdown admonition" id="python_oop-solution-3">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#oop_ex2"> Exercise 7.2</a></p>
+<div class="section" id="s">
+<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Polynomial</span><span class="p">:</span>
 
@@ -1272,6 +1260,7 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
         <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span> <span class="o">=</span> <span class="n">new_coefficients</span>
         <span class="k">return</span> <span class="n">new_coefficients</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>

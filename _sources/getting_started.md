@@ -468,7 +468,9 @@ Alternatively, if you want an outstanding free text editor and don't mind a seem
 
 ## Exercises
 
-### Exercise 1
+```{exercise}
+:label: gs_ex1
+```
 
 If Jupyter is still running, quit by using `Ctrl-C` at the terminal where
 you started it.
@@ -488,8 +490,10 @@ You should now be able to run a standard Jupyter notebook session.
 
 This is an alternative way to start the notebook that can also be handy.
 
-(gs_ex2)=
-### Exercise 2
+
+```{exercise-start}
+:label: gs_ex2
+```
 
 ```{index} single: Git
 ```
@@ -547,3 +551,5 @@ For reading on these and other topics, try
 * [Pro Git Book](http://git-scm.com/book) by Scott Chacon and Ben Straub.
 * One of the thousands of Git tutorials on the Net.
 
+```{exercise-end}
+```

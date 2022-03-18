@@ -422,8 +422,9 @@ The [documentation](https://pandas-datareader.readthedocs.io/en/latest/index.htm
 
 ## Exercises
 
-(pd_ex1)=
-### Exercise 1
+```{exercise-start}
+:label: pd_ex1
+```
 
 With these imports:
 
@@ -479,10 +480,14 @@ Complete the program to plot the result as a bar graph like this one:
 :scale: 80
 ```
 
-(pd_ex2)=
-### Exercise 2
+```{exercise-end}
+```
 
-Using the method `read_data` introduced in {ref}`Exercise 1 <pd_ex1>`, write a program to obtain year-on-year percentage change for the following indices:
+```{exercise-start}
+:label: pd_ex2
+```
+
+Using the method `read_data` introduced in {ref}`pd_ex1`, write a program to obtain year-on-year percentage change for the following indices:
 
 ```{code-cell} python3
 indices_list = {'^GSPC': 'S&P 500',
@@ -497,9 +502,14 @@ Complete the program to show summary statistics and plot the result as a time se
 :scale: 80
 ```
 
+```{exercise-end}
+```
+
 ## Solutions
 
-### Exercise 1
+```{solution-start} pd_ex1
+:class: dropdown
+```
 
 There are a few ways to approach this problem using Pandas to calculate
 the percentage change.
@@ -534,9 +544,15 @@ price_change.plot(kind='bar', ax=ax)
 plt.show()
 ```
 
-### Exercise 2
+```{solution-end}
+```
 
-Following the work you did in {ref}`Exercise 1 <pd_ex1>`, you can query the data using `read_data` by updating the start and end dates accordingly.
+
+```{solution-start} pd_ex2
+:class: dropdown
+```
+
+Following the work you did in {ref}`pd_ex1`, you can query the data using `read_data` by updating the start and end dates accordingly.
 
 ```{code-cell} python3
 indices_data = read_data(
@@ -578,6 +594,9 @@ for iter_, ax in enumerate(axes.flatten()):            # Flatten 2-D array to 1-
     ax.set_title(index_name)
 
 plt.tight_layout()
+```
+
+```{solution-end}
 ```
 
 [^mung]: Wikipedia defines munging as cleaning data from one raw form into a structured, purged one.

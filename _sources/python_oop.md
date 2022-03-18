@@ -752,8 +752,9 @@ Exercise 1 provides a more useful example.
 
 ## Exercises
 
-(oop_ex1)=
-### Exercise 1
+```{exercise-start}
+:label: oop_ex1
+```
 
 The [empirical cumulative distribution function (ecdf)](https://en.wikipedia.org/wiki/Empirical_distribution_function) corresponding to a sample $\{X_i\}_{i=1}^n$ is defined as
 
@@ -795,8 +796,13 @@ F(0.5)
 
 Aim for clarity, not efficiency.
 
-(oop_ex2)=
-### Exercise 2
+```{exercise-end}
+```
+
+
+```{exercise-start}
+:label: oop_ex2
+```
 
 In an {ref}`earlier exercise <pyess_ex2>`, you wrote a function for evaluating polynomials.
 
@@ -818,9 +824,14 @@ Provide methods that
 
 Avoid using any `import` statements.
 
+```{exercise-end}
+```
+
 ## Solutions
 
-### Exercise 1
+```{solution-start} oop_ex1
+:class: dropdown
+```
 
 ```{code-cell} python3
 class ECDF:
@@ -851,7 +862,12 @@ F.observations = [uniform(0, 1) for i in range(1000)]
 print(F(0.5))
 ```
 
-### Exercise 2
+```{solution-end}
+```
+
+```{solution-start} oop_ex2
+:class: dropdown
+```
 
 ```{code-cell} python3
 class Polynomial:
@@ -885,3 +901,5 @@ class Polynomial:
         return new_coefficients
 ```
 
+```{solution-end}
+```

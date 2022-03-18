@@ -69,6 +69,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -210,25 +211,11 @@
   <a class="reference internal nav-link" href="#exercises">
    15.5. Exercises
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-1">
-     15.5.1. Exercise 1
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#solutions">
    15.6. Solutions
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     15.6.1. Exercise 1
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -276,18 +263,18 @@
                     <div>
                         
   <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1><a class="toc-backref" href="#id3"><span class="section-number">15. </span>Writing Good Code</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id2"><span class="section-number">15. </span>Writing Good Code</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <span id="index-0"></span><p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#id1" id="id3">Writing Good Code</a></p>
+<li><p><a class="reference internal" href="#id1" id="id2">Writing Good Code</a></p>
 <ul>
-<li><p><a class="reference internal" href="#overview" id="id4">Overview</a></p></li>
-<li><p><a class="reference internal" href="#an-example-of-poor-code" id="id5">An Example of Poor Code</a></p></li>
-<li><p><a class="reference internal" href="#good-coding-practice" id="id6">Good Coding Practice</a></p></li>
-<li><p><a class="reference internal" href="#revisiting-the-example" id="id7">Revisiting the Example</a></p></li>
-<li><p><a class="reference internal" href="#exercises" id="id8">Exercises</a></p></li>
-<li><p><a class="reference internal" href="#solutions" id="id9">Solutions</a></p></li>
+<li><p><a class="reference internal" href="#overview" id="id3">Overview</a></p></li>
+<li><p><a class="reference internal" href="#an-example-of-poor-code" id="id4">An Example of Poor Code</a></p></li>
+<li><p><a class="reference internal" href="#good-coding-practice" id="id5">Good Coding Practice</a></p></li>
+<li><p><a class="reference internal" href="#revisiting-the-example" id="id6">Revisiting the Example</a></p></li>
+<li><p><a class="reference internal" href="#exercises" id="id7">Exercises</a></p></li>
+<li><p><a class="reference internal" href="#solutions" id="id8">Solutions</a></p></li>
 </ul>
 </li>
 </ul>
@@ -296,7 +283,7 @@
 <div><p>“Any fool can write code that a computer can understand. Good programmers write code that humans can understand.” – Martin Fowler</p>
 </div></blockquote>
 <div class="section" id="overview">
-<h2><a class="toc-backref" href="#id4"><span class="section-number">15.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3"><span class="section-number">15.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>When computer programs are small, poorly written code is not overly costly.</p>
 <p>But more data, more sophisticated models, and more computer power are enabling us to take on more challenging problems that involve writing longer programs.</p>
 <p>For such programs, investment in good coding practices will pay high returns.</p>
@@ -305,7 +292,7 @@
 <p>We also touch on modern developments in scientific computing — such as just in time compilation — and how they affect good program design.</p>
 </div>
 <div class="section" id="an-example-of-poor-code">
-<h2><a class="toc-backref" href="#id5"><span class="section-number">15.2. </span>An Example of Poor Code</a><a class="headerlink" href="#an-example-of-poor-code" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4"><span class="section-number">15.2. </span>An Example of Poor Code</a><a class="headerlink" href="#an-example-of-poor-code" title="Permalink to this headline">¶</a></h2>
 <p>Let’s have a look at some poorly written code.</p>
 <p>The job of the code is to generate and plot time series of the simplified Solow model</p>
 <div class="math notranslate nohighlight" id="equation-gc-solmod">
@@ -400,7 +387,7 @@
 <p>Let’s talk about why that’s the case, and what we can do about it.</p>
 </div>
 <div class="section" id="good-coding-practice">
-<h2><a class="toc-backref" href="#id6"><span class="section-number">15.3. </span>Good Coding Practice</a><a class="headerlink" href="#good-coding-practice" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5"><span class="section-number">15.3. </span>Good Coding Practice</a><a class="headerlink" href="#good-coding-practice" title="Permalink to this headline">¶</a></h2>
 <p>There are usually many different ways to write a program that accomplishes a given task.</p>
 <p>For small programs, like the one above, the way you write code doesn’t matter too much.</p>
 <p>But if you are ambitious and want to produce useful things, you’ll  write medium to large programs too.</p>
@@ -476,7 +463,7 @@ more effective when variables are sandboxed inside a function.</p>
 </div>
 </div>
 <div class="section" id="revisiting-the-example">
-<h2><a class="toc-backref" href="#id7"><span class="section-number">15.4. </span>Revisiting the Example</a><a class="headerlink" href="#revisiting-the-example" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id6"><span class="section-number">15.4. </span>Revisiting the Example</a><a class="headerlink" href="#revisiting-the-example" title="Permalink to this headline">¶</a></h2>
 <p>Here’s some code that reproduces the plot above with better coding style.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -527,9 +514,11 @@ more effective when variables are sandboxed inside a function.</p>
 </ul>
 </div>
 <div class="section" id="exercises">
-<h2><a class="toc-backref" href="#id8"><span class="section-number">15.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="exercise-1">
-<h3><span class="section-number">15.5.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id7"><span class="section-number">15.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<div class="exercise admonition" id="wgc-exercise-1">
+
+<p class="admonition-title"><span class="caption-number">Exercise 15.1 </span></p>
+<div class="section" id="exercise-content">
 <p>Here is some code that needs improving.</p>
 <p>It involves a basic supply and demand problem.</p>
 <p>Supply is given by</p>
@@ -665,11 +654,14 @@ a lot of repeated code here.</p>
 in this lecture.</p>
 </div>
 </div>
+</div>
 <div class="section" id="solutions">
-<h2><a class="toc-backref" href="#id9"><span class="section-number">15.6. </span>Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id2">
-<h3><span class="section-number">15.6.1. </span>Exercise 1<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<p>Here’s one solution, that uses a class:</p>
+<h2><a class="toc-backref" href="#id8"><span class="section-number">15.6. </span>Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
+<div class="solution dropdown admonition" id="writing_good_code-solution-1">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#wgc-exercise-1"> Exercise 15.1</a></p>
+<div class="section" id="s">
+<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><p>Here’s one solution, that uses a class:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Equilibrium</span><span class="p">:</span>
@@ -771,6 +763,7 @@ Equilibrium quantity is  0.38
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/writing_good_code_21_0.png" src="_images/writing_good_code_21_0.png" />
+</div>
 </div>
 </div>
 </div>

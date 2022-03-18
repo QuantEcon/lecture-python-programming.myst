@@ -69,6 +69,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -220,25 +221,11 @@
   <a class="reference internal nav-link" href="#exercises">
    13.5. Exercises
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-1">
-     13.5.1. Exercise 1
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#solutions">
    13.6. Solutions
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     13.6.1. Exercise 1
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -286,18 +273,18 @@
                     <div>
                         
   <div class="tex2jax_ignore mathjax_ignore section" id="parallelization">
-<h1><a class="toc-backref" href="#id2"><span class="section-number">13. </span>Parallelization</a><a class="headerlink" href="#parallelization" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id1"><span class="section-number">13. </span>Parallelization</a><a class="headerlink" href="#parallelization" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#parallelization" id="id2">Parallelization</a></p>
+<li><p><a class="reference internal" href="#parallelization" id="id1">Parallelization</a></p>
 <ul>
-<li><p><a class="reference internal" href="#overview" id="id3">Overview</a></p></li>
-<li><p><a class="reference internal" href="#types-of-parallelization" id="id4">Types of Parallelization</a></p></li>
-<li><p><a class="reference internal" href="#implicit-multithreading-in-numpy" id="id5">Implicit Multithreading in NumPy</a></p></li>
-<li><p><a class="reference internal" href="#multithreaded-loops-in-numba" id="id6">Multithreaded Loops in Numba</a></p></li>
-<li><p><a class="reference internal" href="#exercises" id="id7">Exercises</a></p></li>
-<li><p><a class="reference internal" href="#solutions" id="id8">Solutions</a></p></li>
+<li><p><a class="reference internal" href="#overview" id="id2">Overview</a></p></li>
+<li><p><a class="reference internal" href="#types-of-parallelization" id="id3">Types of Parallelization</a></p></li>
+<li><p><a class="reference internal" href="#implicit-multithreading-in-numpy" id="id4">Implicit Multithreading in NumPy</a></p></li>
+<li><p><a class="reference internal" href="#multithreaded-loops-in-numba" id="id5">Multithreaded Loops in Numba</a></p></li>
+<li><p><a class="reference internal" href="#exercises" id="id6">Exercises</a></p></li>
+<li><p><a class="reference internal" href="#solutions" id="id7">Solutions</a></p></li>
 </ul>
 </li>
 </ul>
@@ -413,9 +400,6 @@ Solving environment: -
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
 </pre></div>
 </div>
@@ -425,7 +409,7 @@ Solving environment: -
 </div>
 </div>
 <div class="section" id="overview">
-<h2><a class="toc-backref" href="#id3"><span class="section-number">13.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2"><span class="section-number">13.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>The growth of CPU clock speed (i.e., the speed at which a single chain of logic can
 be run) has slowed dramatically in recent years.</p>
 <p>This is unlikely to change in the near future, due to inherent physical
@@ -458,7 +442,7 @@ seeking a different path to fast execution: parallelization.</p>
 </div>
 </div>
 <div class="section" id="types-of-parallelization">
-<h2><a class="toc-backref" href="#id4"><span class="section-number">13.2. </span>Types of Parallelization</a><a class="headerlink" href="#types-of-parallelization" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3"><span class="section-number">13.2. </span>Types of Parallelization</a><a class="headerlink" href="#types-of-parallelization" title="Permalink to this headline">¶</a></h2>
 <p>Large textbooks have been written on different approaches to parallelization but we will keep a tight focus on what’s most useful to us.</p>
 <p>We will briefly review the two main kinds of parallelization commonly used in
 scientific computing and discuss their pros and cons.</p>
@@ -495,7 +479,7 @@ suffice.</p>
 </div>
 </div>
 <div class="section" id="implicit-multithreading-in-numpy">
-<h2><a class="toc-backref" href="#id5"><span class="section-number">13.3. </span>Implicit Multithreading in NumPy</a><a class="headerlink" href="#implicit-multithreading-in-numpy" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4"><span class="section-number">13.3. </span>Implicit Multithreading in NumPy</a><a class="headerlink" href="#implicit-multithreading-in-numpy" title="Permalink to this headline">¶</a></h2>
 <p>Actually, you have already been using multithreading in your Python code,
 although you might not have realized it.</p>
 <p>(We are, as usual, assuming that you are running the latest version of
@@ -551,7 +535,7 @@ out to more and more operations.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>890 ms ± 41 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>844 ms ± 37.1 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -594,7 +578,7 @@ create custom <a class="reference internal" href="need_for_speed.html#ufuncs"><s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>363 ms ± 2.05 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>407 ms ± 230 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -648,7 +632,7 @@ multithreading?</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 ms ± 814 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>203 ms ± 748 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -657,7 +641,7 @@ multithreading?</p></li>
 </div>
 </div>
 <div class="section" id="multithreaded-loops-in-numba">
-<h2><a class="toc-backref" href="#id6"><span class="section-number">13.4. </span>Multithreaded Loops in Numba</a><a class="headerlink" href="#multithreaded-loops-in-numba" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5"><span class="section-number">13.4. </span>Multithreaded Loops in Numba</a><a class="headerlink" href="#multithreaded-loops-in-numba" title="Permalink to this headline">¶</a></h2>
 <p>We just saw one approach to parallelization in Numba, using the <code class="docutils literal notranslate"><span class="pre">parallel</span></code>
 flag in <code class="docutils literal notranslate"><span class="pre">&#64;vectorize</span></code>.</p>
 <p>This is neat but, it turns out, not well suited to many problems we consider.</p>
@@ -770,11 +754,11 @@ don’t matter.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.09 s, sys: 6.68 ms, total: 5.1 s
-Wall time: 5.08 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.84 s, sys: 9.86 ms, total: 5.85 s
+Wall time: 5.83 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.83528371167912
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.831324750149239
 </pre></div>
 </div>
 </div>
@@ -809,11 +793,11 @@ Wall time: 5.08 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.88 s, sys: 8.63 ms, total: 4.89 s
-Wall time: 2.81 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.97 s, sys: 4.51 ms, total: 4.98 s
+Wall time: 2.85 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.828090720869362
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.839172018309943
 </pre></div>
 </div>
 </div>
@@ -831,10 +815,12 @@ independence of tasks holds true.</p>
 </div>
 </div>
 <div class="section" id="exercises">
-<h2><a class="toc-backref" href="#id7"><span class="section-number">13.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="exercise-1">
-<h3><span class="section-number">13.5.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
-<p>In <a class="reference internal" href="numba.html#speed-ex1"><span class="std std-ref">an earlier exercise</span></a>, we used Numba to accelerate an
+<h2><a class="toc-backref" href="#id6"><span class="section-number">13.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<div class="exercise admonition" id="parallel_ex1">
+
+<p class="admonition-title"><span class="caption-number">Exercise 13.1 </span></p>
+<div class="section" id="exercise-content">
+<p>In <a class="reference internal" href="numba.html#speed_ex1"><span class="std std-ref">an earlier exercise</span></a>, we used Numba to accelerate an
 effort to compute the constant <span class="math notranslate nohighlight">\(\pi\)</span> by Monte Carlo.</p>
 <p>Now try adding parallelization and see if you get further speed gains.</p>
 <p>You should not expect huge gains here because, while there are many
@@ -848,11 +834,14 @@ tasks to be parallelized are very small relative to total execution time.</p>
 <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">100_000_000</span></code>.</p>
 </div>
 </div>
+</div>
 <div class="section" id="solutions">
-<h2><a class="toc-backref" href="#id8"><span class="section-number">13.6. </span>Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3><span class="section-number">13.6.1. </span>Exercise 1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>Here is one solution:</p>
+<h2><a class="toc-backref" href="#id7"><span class="section-number">13.6. </span>Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
+<div class="solution dropdown admonition" id="parallelization-solution-1">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#parallel_ex1"> Exercise 13.1</a></p>
+<div class="section" id="s">
+<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><p>Here is one solution:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">uniform</span>
@@ -880,11 +869,11 @@ tasks to be parallelized are very small relative to total execution time.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 357 ms, sys: 3.85 ms, total: 360 ms
-Wall time: 353 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 377 ms, sys: 0 ns, total: 377 ms
+Wall time: 369 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.142252
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.139656
 </pre></div>
 </div>
 </div>
@@ -896,11 +885,11 @@ Wall time: 353 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 13.8 ms, sys: 186 µs, total: 13.9 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 14.2 ms, sys: 0 ns, total: 14.2 ms
 Wall time: 8.09 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.142188
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.140988
 </pre></div>
 </div>
 </div>
@@ -912,6 +901,7 @@ multithreading provides on top of JIT compilation.</p>
 a factor of 2 or 3.</p>
 <p>(If you are executing locally, you will get different numbers, depending mainly
 on the number of CPUs on your machine.)</p>
+</div>
 </div>
 </div>
 </div>

@@ -475,8 +475,8 @@ When Numba compiles machine code for functions, it treats global variables as co
 
 ## Exercises
 
-(speed_ex1)=
-### Exercise 1
+```{exercise}
+:label: speed_ex1
 
 {ref}`Previously <pbe_ex3>` we considered how to approximate $\pi$ by
 Monte Carlo.
@@ -484,9 +484,12 @@ Monte Carlo.
 Use the same idea here, but make the code efficient using Numba.
 
 Compare speed with and without Numba when the sample size is large.
+```
 
-(speed_ex2)=
-### Exercise 2
+
+```{exercise-start}
+:label: speed_ex2
+```
 
 In the [Introduction to Quantitative Economics with Python](https://python-intro.quantecon.org) lecture series you can
 learn all about finite-state Markov chains.
@@ -498,7 +501,6 @@ Suppose that the volatility of returns on an asset can be in one of two regimes 
 The transition probabilities across states are as follows
 
 ```{figure} /_static/lecture_specific/sci_libs/nfs_ex1.png
-
 ```
 
 For example, let the period length be one day, and suppose the current state is high.
@@ -523,9 +525,14 @@ Hints:
 * Represent the low state as 0 and the high state as 1.
 * If you want to store integers in a NumPy array and then apply JIT compilation, use `x = np.empty(n, dtype=np.int_)`.
 
+```{exercise-end}
+```
+
 ## Solutions
 
-### Exercise 1
+```{solution-start} speed_ex1
+:class: dropdown
+```
 
 Here is one solution:
 
@@ -561,7 +568,13 @@ If we switch off JIT compilation by removing `@njit`, the code takes around
 So we get a speed gain of 2 orders of magnitude--which is huge--by adding four
 characters.
 
-### Exercise 2
+```{solution-end}
+```
+
+
+```{solution-start} speed_ex2
+:class: dropdown
+```
 
 We let
 
@@ -632,3 +645,5 @@ qe.toc()
 
 This is a nice speed improvement for one line of code!
 
+```{solution-end}
+```
