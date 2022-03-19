@@ -28,7 +28,7 @@ jobs:
           conda install -c numba numba
           conda install -c numba llvmlite
           pip install jupyter-book
-          pip install jupyter-book sphinx-multitoc-numbering quantecon-book-theme sphinxext-rediraffe sphinx_tojupyter
+          pip install jupyter-book sphinx-multitoc-numbering quantecon-book-theme sphinxext-rediraffe sphinx-tojupyter sphinx-exercise sphinx-togglebutton
       - name: Build Lectures (+ Execution Checks)
         shell: powershell
         run: jb build lectures --path-output=./ -W --keep-going
