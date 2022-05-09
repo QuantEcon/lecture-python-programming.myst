@@ -331,7 +331,7 @@ h(p) := q_d(p) - q_s(p)
 $$
 
 This yields the equilibrium price $p^*$. From this we get the
-equilibrium price by $q^* = q_s(p^*)$
+equilibrium quantity by $q^* = q_s(p^*)$
 
 The parameter values will be
 
