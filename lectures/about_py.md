@@ -178,6 +178,7 @@ c = np.sin(a)                          # Apply sin to each element of a
 ```{replite}
 ---
 kernel: python
+height: 400px
 ---
 
 import numpy as np                     # Load the library
