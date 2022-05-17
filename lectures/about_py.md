@@ -175,6 +175,7 @@ b = np.cos(a)                          # Apply cosine to each element of a
 c = np.sin(a)                          # Apply sin to each element of a
 ```
 
+````{only} html
 ```{replite}
 ---
 kernel: python
@@ -187,6 +188,7 @@ a = np.linspace(-np.pi, np.pi, 100)    # Create even grid from -π to π
 b = np.cos(a)                          # Apply cosine to each element of a
 c = np.sin(a)                          # Apply sin to each element of a
 ```
+````
 
 Now let's take the inner product
 
