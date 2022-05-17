@@ -21,3 +21,5 @@ dependencies:
     - cvxopt
     - cylp
     - prettytable
+    # Testing
+    - jupyterlite-sphinx
