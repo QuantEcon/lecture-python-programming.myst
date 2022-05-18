@@ -43,20 +43,20 @@ jobs:
       - name: Build Download Notebooks (sphinx-tojupyter)
         shell: bash -l {0}
         run: |
-          jb build lectures --path-output ./ --builder=custom --custom-builder=jupyter -n -W --keep-going --config=lectures/_config_jupyterlite.yml
+          jb build lectures --path-output ./ --builder=custom --custom-builder=jupyter --config=lectures/_config_jupyterlite.yml
           mkdir -p _build/html/_notebooks
           cp -u _build/jupyter/*.ipynb _build/html/_notebooks
       - name: Build PDF from LaTeX
         shell: bash -l {0}
         run: |
-          jb build lectures --builder pdflatex --path-output ./ -n -W --keep-going
+          jb build lectures --builder pdflatex --path-output ./
           mkdir _build/html/_pdf
           cp -u _build/latex/*.pdf _build/html/_pdf
       # Final Build of HTML
       - name: Build HTML
         shell: bash -l {0}
         run: |
-          jb build lectures --path-output ./ -n -W --keep-going
+          jb build lectures --path-output ./
       - name: Preview Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
         with:
