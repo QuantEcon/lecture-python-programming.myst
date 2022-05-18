@@ -52,4 +52,4 @@ sphinx:
           name: python3
         file_extension: ".py"
     tojupyter_images_markdown: true
-    exclude_patterns=["*_jupyterlite.md"]
+    exclude_patterns: ["*_jupyterlite.md"]
