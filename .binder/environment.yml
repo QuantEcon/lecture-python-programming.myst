@@ -1,7 +1,10 @@
 name: lecture-python-programming
 channels:
-  - default
+  - defaults
+  - conda-forge
 dependencies:
-  - python=3.8
-  - anaconda
+  - python=3.9
+  - pandas
+  - numpy
+  - matplotlib
 
