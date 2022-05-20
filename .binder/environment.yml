@@ -4,6 +4,7 @@ channels:
   - conda-forge
 dependencies:
   - python=3.9
+  - jupytext
   - pandas
   - numpy
   - matplotlib
