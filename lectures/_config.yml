@@ -41,7 +41,7 @@ sphinx:
       google_analytics_id: UA-54984338-9
       launch_buttons:
         notebook_interface: "classic" # The interface interactive links will activate ["classic", "jupyterlab"]
-        binderhub_url: "https://mybinder.org"
+        binderhub_url: "https://gke.mybinder.org"
         thebe: true
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js
     rediraffe_redirects:
