@@ -18,7 +18,6 @@ latex:
 repository:
   url: https://github.com/quantecon/lecture-python-programming.myst
   branch: main
-  path_to_book: lectures
 
 launch_buttons:
   notebook_interface: "classic" # The interface interactive links will activate ["classic", "jupyterlab"]
