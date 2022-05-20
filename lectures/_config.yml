@@ -29,8 +29,8 @@ sphinx:
     html_theme_options:
       # header_organisation_url: https://quantecon.org
       # header_organisation: QuantEcon
-      repository_url: https://github.com/QuantEcon/lecture-python-programming.myst
-      repository_branch: main
+      repository_url: "https://github.com/QuantEcon/lecture-python-programming.myst"
+      repository_branch: "main"
       # repository_path_to_book: lectures
       # nb_repository_url: https://github.com/QuantEcon/lecture-python-programming.notebooks
       # twitter: quantecon
