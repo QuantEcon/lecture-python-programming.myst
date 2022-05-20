@@ -15,10 +15,10 @@ latex:
   latex_documents:
      targetname: quantecon-python-programming.tex
 
-repository:
-  url: https://github.com/QuantEcon/lecture-python-programming.myst
-  branch: main
-  path_to_book: lectures
+# repository:
+#   url: https://github.com/QuantEcon/lecture-python-programming.myst
+#   branch: main
+#   path_to_book: lectures
 
 sphinx:
   extra_extensions: [sphinx_multitoc_numbering, sphinxext.rediraffe, sphinx_tojupyter, sphinx_exercise, sphinx_togglebutton]
@@ -30,6 +30,8 @@ sphinx:
       # header_organisation_url: https://quantecon.org
       # header_organisation: QuantEcon
       repository_url: https://github.com/QuantEcon/lecture-python-programming.myst
+      repository_branch: main
+      repository_path_to_books: lectures
       # nb_repository_url: https://github.com/QuantEcon/lecture-python-programming.notebooks
       # twitter: quantecon
       # twitter_logo_url: https://assets.quantecon.org/img/qe-twitter-logo.png
