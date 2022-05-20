@@ -89,15 +89,14 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script src="_static/quantecon-book-theme.15b0c36fffe88f468997fa7b698991d3.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
     <link rel="canonical" href="https://python.quantecon.org/python_oop.html" />
     <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -634,7 +633,7 @@ the class definition</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__module__&#39;: &#39;__main__&#39;, &#39;__init__&#39;: &lt;function Consumer.__init__ at 0x7fcfab2f4dc0&gt;, &#39;earn&#39;: &lt;function Consumer.earn at 0x7fcfab2f4d30&gt;, &#39;spend&#39;: &lt;function Consumer.spend at 0x7fcfab2f4ca0&gt;, &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__doc__&#39;: None}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__module__&#39;: &#39;__main__&#39;, &#39;__init__&#39;: &lt;function Consumer.__init__ at 0x7fb910123790&gt;, &#39;earn&#39;: &lt;function Consumer.earn at 0x7fb910123700&gt;, &#39;spend&#39;: &lt;function Consumer.spend at 0x7fb910123670&gt;, &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__doc__&#39;: None}
 </pre></div>
 </div>
 </div>
@@ -1216,8 +1215,8 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5
-0.511
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6
+0.479
 </pre></div>
 </div>
 </div>
@@ -1472,7 +1471,7 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
-                    <li data-tippy-content="Download Notebook"><a href="_notebooks/python_oop.ipynb" download><i data-feather="download-cloud"></i></a></li>
+                    <li data-tippy-content="Download Notebook"><a href="/_notebooks/python_oop.ipynb" download><i data-feather="download-cloud"></i></a></li>
                     <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
                         <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/tree/master/lectures/python_oop.md" download><i data-feather="github"></i></a></li>
@@ -1487,7 +1486,7 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
                     <p>Lecture (PDF)</p>
                 </li>
                 <li class="download-pdf-file">
-                    <a href="_pdf/quantecon-python-programming.pdf" download><p>Book (PDF)</p></a>
+                    <a href="/_pdf/quantecon-python-programming.pdf" download><p>Book (PDF)</p></a>
                 </li>
             </ul>
         </div>

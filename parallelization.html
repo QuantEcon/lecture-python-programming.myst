@@ -89,15 +89,14 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script src="_static/quantecon-book-theme.15b0c36fffe88f468997fa7b698991d3.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
     <link rel="canonical" href="https://python.quantecon.org/parallelization.html" />
     <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -372,6 +371,18 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
 Solving environment: | 
 </pre></div>
@@ -439,6 +450,24 @@ Solving environment: |
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
 </pre></div>
 </div>
@@ -454,28 +483,33 @@ The following packages will be downloaded:
 
     package                    |            build
     ---------------------------|-----------------
-    quantecon-0.5.0            |   py38h06a4308_0         288 KB
+    quantecon-0.5.0            |   py39h06a4308_0         285 KB
     ------------------------------------------------------------
-                                           Total:         288 KB
+                                           Total:         285 KB
 
 The following NEW packages will be INSTALLED:
 
-  quantecon          pkgs/main/linux-64::quantecon-0.5.0-py38h06a4308_0
+  quantecon          pkgs/main/linux-64::quantecon-0.5.0-py39h06a4308_0
 
 
 
 Downloading and Extracting Packages
 
-quantecon-0.5.0      | 288 KB    |                                       |   0% 
+quantecon-0.5.0      | 285 KB    |                                       |   0% 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>quantecon-0.5.0      | 288 KB    | ##################################### | 100% 
-quantecon-0.5.0      | 288 KB    | ##################################### | 100% 
-Preparing transaction: \ 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>quantecon-0.5.0      | 285 KB    | ##################################### | 100% 
+Preparing transaction: / 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
-Verifying transaction: / 
+Verifying transaction: \ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
@@ -614,7 +648,7 @@ out to more and more operations.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>847 ms ± 13.1 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>975 ms ± 79.5 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -657,7 +691,7 @@ create custom <a class="reference internal" href="need_for_speed.html#ufuncs"><s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>409 ms ± 285 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>484 ms ± 2.4 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -711,7 +745,7 @@ multithreading?</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>213 ms ± 1.15 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>258 ms ± 2.98 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -833,11 +867,11 @@ don’t matter.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.78 s, sys: 13 ms, total: 5.8 s
-Wall time: 5.78 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 7.03 s, sys: 12.6 ms, total: 7.04 s
+Wall time: 7.02 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8478672212283924
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8450070493927662
 </pre></div>
 </div>
 </div>
@@ -872,11 +906,11 @@ Wall time: 5.78 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.24 s, sys: 0 ns, total: 5.24 s
-Wall time: 2.85 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6.55 s, sys: 7.91 ms, total: 6.56 s
+Wall time: 3.67 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8367756307491765
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.836612457972778
 </pre></div>
 </div>
 </div>
@@ -948,11 +982,11 @@ tasks to be parallelized are very small relative to total execution time.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 409 ms, sys: 0 ns, total: 409 ms
-Wall time: 401 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 524 ms, sys: 7.88 ms, total: 532 ms
+Wall time: 524 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.142656
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.145908
 </pre></div>
 </div>
 </div>
@@ -964,11 +998,11 @@ Wall time: 401 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 15 ms, sys: 0 ns, total: 15 ms
-Wall time: 8.16 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 18.3 ms, sys: 0 ns, total: 18.3 ms
+Wall time: 10 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141596
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.144752
 </pre></div>
 </div>
 </div>
@@ -1189,7 +1223,7 @@ on the number of CPUs on your machine.)</p>
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
-                    <li data-tippy-content="Download Notebook"><a href="_notebooks/parallelization.ipynb" download><i data-feather="download-cloud"></i></a></li>
+                    <li data-tippy-content="Download Notebook"><a href="/_notebooks/parallelization.ipynb" download><i data-feather="download-cloud"></i></a></li>
                     <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
                         <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/tree/master/lectures/parallelization.md" download><i data-feather="github"></i></a></li>
@@ -1204,7 +1238,7 @@ on the number of CPUs on your machine.)</p>
                     <p>Lecture (PDF)</p>
                 </li>
                 <li class="download-pdf-file">
-                    <a href="_pdf/quantecon-python-programming.pdf" download><p>Book (PDF)</p></a>
+                    <a href="/_pdf/quantecon-python-programming.pdf" download><p>Book (PDF)</p></a>
                 </li>
             </ul>
         </div>

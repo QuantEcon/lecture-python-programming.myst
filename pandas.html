@@ -89,12 +89,11 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script src="_static/quantecon-book-theme.15b0c36fffe88f468997fa7b698991d3.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://python.quantecon.org/pandas.html" />
     <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
@@ -267,30 +266,30 @@
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pandas_datareader-0.10.0-py3-none-any.whl (109 kB)
 ?25l
-     |███                             | 10 kB 31.2 MB/s eta 0:00:01
-     |██████                          | 20 kB 19.9 MB/s eta 0:00:01
-     |█████████                       | 30 kB 10.1 MB/s eta 0:00:01
-     |████████████                    | 40 kB 4.9 MB/s eta 0:00:01
-     |███████████████                 | 51 kB 4.8 MB/s eta 0:00:01
-     |██████████████████              | 61 kB 5.7 MB/s eta 0:00:01
-     |█████████████████████           | 71 kB 6.2 MB/s eta 0:00:01
-     |████████████████████████        | 81 kB 4.6 MB/s eta 0:00:01
-     |███████████████████████████     | 92 kB 5.1 MB/s eta 0:00:01
-     |██████████████████████████████  | 102 kB 5.7 MB/s eta 0:00:01
-     |████████████████████████████████| 109 kB 5.7 MB/s 
-?25hRequirement already satisfied: requests&gt;=2.19.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.8/site-packages (from pandas-datareader) (2.26.0)
-Requirement already satisfied: lxml in /usr/share/miniconda3/envs/quantecon/lib/python3.8/site-packages (from pandas-datareader) (4.6.3)
-Requirement already satisfied: pandas&gt;=0.23 in /usr/share/miniconda3/envs/quantecon/lib/python3.8/site-packages (from pandas-datareader) (1.3.4)
+     |███                             | 10 kB 32.4 MB/s eta 0:00:01
+     |██████                          | 20 kB 37.8 MB/s eta 0:00:01
+     |█████████                       | 30 kB 9.2 MB/s eta 0:00:01
+     |████████████                    | 40 kB 11.5 MB/s eta 0:00:01
+     |███████████████                 | 51 kB 13.8 MB/s eta 0:00:01
+     |██████████████████              | 61 kB 16.2 MB/s eta 0:00:01
+     |█████████████████████           | 71 kB 16.5 MB/s eta 0:00:01
+     |████████████████████████        | 81 kB 17.8 MB/s eta 0:00:01
+     |███████████████████████████     | 92 kB 19.5 MB/s eta 0:00:01
+     |██████████████████████████████  | 102 kB 21.3 MB/s eta 0:00:01
+     |████████████████████████████████| 109 kB 21.3 MB/s 
+?25hRequirement already satisfied: requests&gt;=2.19.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from pandas-datareader) (2.27.1)
+Requirement already satisfied: lxml in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from pandas-datareader) (4.8.0)
+Requirement already satisfied: pandas&gt;=0.23 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from pandas-datareader) (1.4.2)
+Requirement already satisfied: python-dateutil&gt;=2.8.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (2.8.2)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (2021.3)
+Requirement already satisfied: numpy&gt;=1.18.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (1.21.5)
+Requirement already satisfied: six&gt;=1.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from python-dateutil&gt;=2.8.1-&gt;pandas&gt;=0.23-&gt;pandas-datareader) (1.16.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: python-dateutil&gt;=2.7.3 in /usr/share/miniconda3/envs/quantecon/lib/python3.8/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (2.8.2)
-Requirement already satisfied: pytz&gt;=2017.3 in /usr/share/miniconda3/envs/quantecon/lib/python3.8/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (2021.3)
-Requirement already satisfied: numpy&gt;=1.17.3 in /usr/share/miniconda3/envs/quantecon/lib/python3.8/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (1.20.3)
-Requirement already satisfied: six&gt;=1.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.8/site-packages (from python-dateutil&gt;=2.7.3-&gt;pandas&gt;=0.23-&gt;pandas-datareader) (1.16.0)
-Requirement already satisfied: charset-normalizer~=2.0.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2.0.4)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (1.26.7)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (3.2)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/share/miniconda3/envs/quantecon/lib/python3.8/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2021.10.8)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (1.26.9)
+Requirement already satisfied: charset-normalizer~=2.0.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2.0.4)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (3.3)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2021.10.8)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pandas-datareader
@@ -300,37 +299,53 @@ Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/share/miniconda3/en
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting yfinance
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading yfinance-0.1.70-py2.py3-none-any.whl (26 kB)
-Requirement already satisfied: pandas&gt;=0.24.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.8/site-packages (from yfinance) (1.3.4)
+  Downloading yfinance-0.1.70-py2.py3-none-any.whl (26 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting multitasking&gt;=0.0.7
   Downloading multitasking-0.0.10.tar.gz (8.2 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy&gt;=1.15 in /usr/share/miniconda3/envs/quantecon/lib/python3.8/site-packages (from yfinance) (1.20.3)
-Requirement already satisfied: requests&gt;=2.26 in /usr/share/miniconda3/envs/quantecon/lib/python3.8/site-packages (from yfinance) (2.26.0)
-Requirement already satisfied: lxml&gt;=4.5.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.8/site-packages (from yfinance) (4.6.3)
-Requirement already satisfied: python-dateutil&gt;=2.7.3 in /usr/share/miniconda3/envs/quantecon/lib/python3.8/site-packages (from pandas&gt;=0.24.0-&gt;yfinance) (2.8.2)
-Requirement already satisfied: pytz&gt;=2017.3 in /usr/share/miniconda3/envs/quantecon/lib/python3.8/site-packages (from pandas&gt;=0.24.0-&gt;yfinance) (2021.3)
-Requirement already satisfied: six&gt;=1.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.8/site-packages (from python-dateutil&gt;=2.7.3-&gt;pandas&gt;=0.24.0-&gt;yfinance) (1.16.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy&gt;=1.15 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from yfinance) (1.21.5)
+Requirement already satisfied: requests&gt;=2.26 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from yfinance) (2.27.1)
+Requirement already satisfied: lxml&gt;=4.5.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from yfinance) (4.8.0)
+Requirement already satisfied: pandas&gt;=0.24.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from yfinance) (1.4.2)
+Requirement already satisfied: python-dateutil&gt;=2.8.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from pandas&gt;=0.24.0-&gt;yfinance) (2.8.2)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from pandas&gt;=0.24.0-&gt;yfinance) (2021.3)
+Requirement already satisfied: six&gt;=1.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from python-dateutil&gt;=2.8.1-&gt;pandas&gt;=0.24.0-&gt;yfinance) (1.16.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.8/site-packages (from requests&gt;=2.26-&gt;yfinance) (3.2)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/share/miniconda3/envs/quantecon/lib/python3.8/site-packages (from requests&gt;=2.26-&gt;yfinance) (2021.10.8)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.8/site-packages (from requests&gt;=2.26-&gt;yfinance) (1.26.7)
-Requirement already satisfied: charset-normalizer~=2.0.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.8/site-packages (from requests&gt;=2.26-&gt;yfinance) (2.0.4)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.26-&gt;yfinance) (3.3)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.26-&gt;yfinance) (2021.10.8)
+Requirement already satisfied: charset-normalizer~=2.0.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.26-&gt;yfinance) (2.0.4)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.26-&gt;yfinance) (1.26.9)
 Building wheels for collected packages: multitasking
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for multitasking (setup.py) ... ?25l-
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-?25h  Created wheel for multitasking: filename=multitasking-0.0.10-py3-none-any.whl size=8500 sha256=4429dc072848b368babf12a3615c683755e6e63df19e19f5639a2433b62363b0
-  Stored in directory: /home/runner/.cache/pip/wheels/21/c9/66/b41c847de65c7985db52ec21d59996841598b8b0e93f2b9500
+?25h  Created wheel for multitasking: filename=multitasking-0.0.10-py3-none-any.whl size=8500 sha256=38db442959c5dda8ddd72b736a1ad2071499b3e2a61dad2876e2db35e96f3522
+  Stored in directory: /home/runner/.cache/pip/wheels/f2/b5/2c/59ba95dcf854e542944c75fe3da584e4e3833b319735a0546c
 Successfully built multitasking
 </pre></div>
 </div>
@@ -396,10 +411,10 @@ place</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   -1.522596
-1   -1.505785
-2    0.358553
-3    1.631860
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   -0.638015
+1    0.517154
+2    1.339874
+3    0.461379
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -416,10 +431,10 @@ operations</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   -152.259565
-1   -150.578456
-2     35.855288
-3    163.186022
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    -63.801537
+1     51.715383
+2    133.987413
+3     46.137905
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -432,10 +447,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1.522596
-1    1.505785
-2    0.358553
-3    1.631860
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.638015
+1    0.517154
+2    1.339874
+3    0.461379
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -451,13 +466,13 @@ Name: daily returns, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    4.000000
-mean    -0.259492
-std      1.539250
-min     -1.522596
-25%     -1.509987
-50%     -0.573616
-75%      0.676880
-max      1.631860
+mean     0.420098
+std      0.811730
+min     -0.638015
+25%      0.186530
+50%      0.489266
+75%      0.722834
+max      1.339874
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -472,10 +487,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN   -1.522596
-AAPL   -1.505785
-MSFT    0.358553
-GOOG    1.631860
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN   -0.638015
+AAPL    0.517154
+MSFT    1.339874
+GOOG    0.461379
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -492,7 +507,7 @@ type—in this case, floats).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.5225956527128706
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.638015368974861
 </pre></div>
 </div>
 </div>
@@ -506,9 +521,9 @@ type—in this case, floats).</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN    0.000000
-AAPL   -1.505785
-MSFT    0.358553
-GOOG    1.631860
+AAPL    0.517154
+MSFT    1.339874
+GOOG    0.461379
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -2687,7 +2702,7 @@ Name: 2019-12-30 00:00:00, dtype: float64
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
-                    <li data-tippy-content="Download Notebook"><a href="_notebooks/pandas.ipynb" download><i data-feather="download-cloud"></i></a></li>
+                    <li data-tippy-content="Download Notebook"><a href="/_notebooks/pandas.ipynb" download><i data-feather="download-cloud"></i></a></li>
                     <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
                         <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/tree/master/lectures/pandas.md" download><i data-feather="github"></i></a></li>
@@ -2702,7 +2717,7 @@ Name: 2019-12-30 00:00:00, dtype: float64
                     <p>Lecture (PDF)</p>
                 </li>
                 <li class="download-pdf-file">
-                    <a href="_pdf/quantecon-python-programming.pdf" download><p>Book (PDF)</p></a>
+                    <a href="/_pdf/quantecon-python-programming.pdf" download><p>Book (PDF)</p></a>
                 </li>
             </ul>
         </div>

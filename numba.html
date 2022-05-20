@@ -89,15 +89,14 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script src="_static/quantecon-book-theme.15b0c36fffe88f468997fa7b698991d3.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
     <link rel="canonical" href="https://python.quantecon.org/numba.html" />
     <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -356,6 +355,18 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
 Solving environment: - 
 </pre></div>
@@ -418,6 +429,27 @@ Solving environment: -
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
@@ -528,7 +560,7 @@ JIT-compilation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:5.44
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:6.66
 </pre></div>
 </div>
 </div>
@@ -543,7 +575,7 @@ JIT-compilation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.20
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.25
 </pre></div>
 </div>
 </div>
@@ -559,7 +591,7 @@ JIT-compilation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.04
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.05
 </pre></div>
 </div>
 </div>
@@ -571,7 +603,7 @@ JIT-compilation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>114.42145338766683
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>115.58502222681692
 </pre></div>
 </div>
 </div>
@@ -952,11 +984,11 @@ learn all about finite-state Markov chains.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 191 ms, sys: 67 µs, total: 191 ms
-Wall time: 190 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 233 ms, sys: 3.89 ms, total: 237 ms
+Wall time: 238 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.144104
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.139668
 </pre></div>
 </div>
 </div>
@@ -968,11 +1000,11 @@ Wall time: 190 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 13.5 ms, sys: 26 µs, total: 13.5 ms
-Wall time: 13.5 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 16.5 ms, sys: 17 µs, total: 16.5 ms
+Wall time: 16.4 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.140612
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.1399
 </pre></div>
 </div>
 </div>
@@ -1028,7 +1060,7 @@ state is about 0.666</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.667473
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.665474
 </pre></div>
 </div>
 </div>
@@ -1044,10 +1076,10 @@ state is about 0.666</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.68
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.77
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6871199607849121
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7731227874755859
 </pre></div>
 </div>
 </div>
@@ -1071,7 +1103,7 @@ state is about 0.666</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.664011
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.666238
 </pre></div>
 </div>
 </div>
@@ -1089,7 +1121,7 @@ state is about 0.666</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.01
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.010699272155761719
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.017388582229614258
 </pre></div>
 </div>
 </div>
@@ -1304,7 +1336,7 @@ state is about 0.666</p>
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
-                    <li data-tippy-content="Download Notebook"><a href="_notebooks/numba.ipynb" download><i data-feather="download-cloud"></i></a></li>
+                    <li data-tippy-content="Download Notebook"><a href="/_notebooks/numba.ipynb" download><i data-feather="download-cloud"></i></a></li>
                     <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
                         <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/tree/master/lectures/numba.md" download><i data-feather="github"></i></a></li>
@@ -1319,7 +1351,7 @@ state is about 0.666</p>
                     <p>Lecture (PDF)</p>
                 </li>
                 <li class="download-pdf-file">
-                    <a href="_pdf/quantecon-python-programming.pdf" download><p>Book (PDF)</p></a>
+                    <a href="/_pdf/quantecon-python-programming.pdf" download><p>Book (PDF)</p></a>
                 </li>
             </ul>
         </div>
