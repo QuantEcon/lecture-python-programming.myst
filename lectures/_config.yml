@@ -31,7 +31,7 @@ sphinx:
       # header_organisation: QuantEcon
       repository_url: https://github.com/QuantEcon/lecture-python-programming.myst
       repository_branch: main
-      repository_path_to_book: lectures
+      # repository_path_to_book: lectures
       # nb_repository_url: https://github.com/QuantEcon/lecture-python-programming.notebooks
       # twitter: quantecon
       # twitter_logo_url: https://assets.quantecon.org/img/qe-twitter-logo.png
