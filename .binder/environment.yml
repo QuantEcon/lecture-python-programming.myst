@@ -1,9 +1,0 @@
-name: lecture-python-programming
-channels:
-  - conda-forge
-dependencies:
-  - jupytext
-  - pandas
-  - numpy
-  - matplotlib
-
