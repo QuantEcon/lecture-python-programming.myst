@@ -1,4 +1,0 @@
-jupytext
-pandas
-numpy
-matplotlib

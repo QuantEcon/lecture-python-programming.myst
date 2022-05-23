@@ -1,0 +1,14 @@
+name: lecture-python-programming
+channels:
+  - conda-forge
+dependencies:
+  - jupytext
+  - numpy
+  - psutil
+  - toolz
+  - matplotlib
+  - dill
+  - pandas
+  - partd
+  - bokeh
+  - dask
