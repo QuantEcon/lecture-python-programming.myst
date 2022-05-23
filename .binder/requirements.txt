@@ -4,3 +4,5 @@ jupytext
 pandas
 numpy
 matplotlib
+scipy
+numba
