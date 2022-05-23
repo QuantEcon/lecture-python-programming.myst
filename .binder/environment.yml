@@ -4,11 +4,5 @@ channels:
 dependencies:
   - jupytext
   - numpy
-  - psutil
-  - toolz
   - matplotlib
-  - dill
   - pandas
-  - partd
-  - bokeh
-  - dask
