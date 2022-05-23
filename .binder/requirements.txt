@@ -1,3 +1,6 @@
+# Infrastructure
+jupytext
+# Lectures Packages
 pandas
 numpy
 matplotlib
