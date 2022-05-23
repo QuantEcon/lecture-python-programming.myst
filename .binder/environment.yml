@@ -1,6 +1,5 @@
 name: lecture-python-programming
 channels:
-  - defaults
   - conda-forge
 dependencies:
   - jupytext
