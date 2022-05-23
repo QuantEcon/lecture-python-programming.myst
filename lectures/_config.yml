@@ -18,11 +18,10 @@ latex:
 repository:
   url: https://github.com/QuantEcon/lecture-python-programming.myst
   branch: main
-  path_to_book: lectures
 
 launch_buttons:
   notebook_interface: "classic" # The interface interactive links will activate ["classic", "jupyterlab"]
-  binderhub_url: "https://mybinder.org"
+  binderhub_url: "https://gke.mybinder.org"
   thebe: true
 
 sphinx:
