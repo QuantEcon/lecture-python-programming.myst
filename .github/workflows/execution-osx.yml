@@ -2,7 +2,7 @@ name: Execution Tests [Latest Anaconda, OSX]
 on:
   schedule:
     # UTC 16:00 is early morning in Australia
-    - cron:  '0 16 * * *'
+    - cron:  '0 15 * * 1'
 jobs:
   execution-tests-osx:
     name: Execution Tests (${{ matrix.python-version }}, ${{ matrix.os }})
