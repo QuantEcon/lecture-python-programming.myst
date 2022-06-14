@@ -3,8 +3,9 @@ on:
   schedule:
     # UTC 15:00 is early morning in Australia
     - cron:  '0 15 * * *'
-  branch:
-    - colab
+  push:
+    branches:
+      - colab 
 jobs:
   execution-tests-linux:
     name: Execution Tests (${{ matrix.python-version }}, ${{ matrix.os }})
