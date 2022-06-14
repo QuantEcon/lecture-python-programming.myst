@@ -1,11 +1,8 @@
 name: Execution Tests [Google Colab, Linux]
-on:
-  schedule:
-    # UTC 15:00 is early morning in Australia
-    - cron:  '0 15 * * *'
-  pull_request:
-    branches:
-      - colab 
+on: [push]
+  # schedule:
+  #   # UTC 15:00 is early morning in Australia
+  #   - cron:  '0 15 * * *'
 jobs:
   execution-tests-linux:
     name: Execution Tests (${{ matrix.python-version }}, ${{ matrix.os }})
