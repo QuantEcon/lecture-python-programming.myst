@@ -3,7 +3,7 @@ on:
   schedule:
     # UTC 15:00 is early morning in Australia
     - cron:  '0 15 * * *'
-  push:
+  pull_request:
     branches:
       - colab 
 jobs:
