@@ -1,4 +1,4 @@
-name: lecture-python-programming
+name: quantecon
 channels:
   - default
 dependencies:
