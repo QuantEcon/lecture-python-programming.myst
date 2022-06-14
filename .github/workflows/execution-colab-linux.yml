@@ -1,0 +1,31 @@
+name: Execution Tests [Google Colab, Linux]
+on:
+  schedule:
+    # UTC 15:00 is early morning in Australia
+    - cron:  '0 15 * * *'
+  branch:
+    - colab
+jobs:
+  execution-tests-linux:
+    name: Execution Tests (${{ matrix.python-version }}, ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ["ubuntu-latest"]
+        python-version: ["3.9"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Google Colab Environment
+        shell: bash -l {0}
+        run: pip install -r google-colab-requirements.txt
+     - name: Build Lectures (+ Execution Checks)
+        shell: bash -l {0}
+        run: jb build lectures --path-output=./ -W --keep-going
+      - name: Upload Execution Reports
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: execution-reports
+          path: _build/html/reports
