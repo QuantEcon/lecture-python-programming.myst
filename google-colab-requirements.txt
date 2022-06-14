@@ -269,7 +269,7 @@ pyemd==0.5.1
 pyerfa==2.0.0.1
 pyglet==1.5.0
 Pygments==2.6.1
-pygobject==3.26.1
+pygobject #==3.26.1
 pymc3==3.11.4
 PyMeeus==0.5.11
 pymongo==4.1.1
