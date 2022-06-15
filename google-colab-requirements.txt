@@ -78,7 +78,7 @@ fastdtw==0.3.4
 fastjsonschema==2.15.3
 fastprogress==1.0.2
 fastrlock==0.8
-fbprophet==0.7.1
+# fbprophet==0.7.1
 feather-format==0.4.1
 filelock==3.7.1
 firebase-admin==4.4.0
