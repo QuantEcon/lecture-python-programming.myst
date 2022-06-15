@@ -281,7 +281,7 @@ pyrsistent==0.18.1
 PySocks==1.7.1
 pystan==2.19.1.1
 pytest==3.6.4
-python-apt==0.0.0
+# python-apt==0.0.0
 python-chess==0.23.11
 python-dateutil==2.8.2
 python-louvain==0.16
