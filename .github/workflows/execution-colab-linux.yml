@@ -17,7 +17,9 @@ jobs:
         uses: actions/checkout@v2
       - name: Setup Google Colab Environment
         shell: bash -l {0}
-        run: pip install -r google-colab-requirements.txt
+        run: |
+          pip install -r google-colab-requirements.txt
+          pip install google-colab
       - name: Install Jupyter Book
         shell: bash -l {0}
         run: pip install jupyter-book quantecon-book-theme sphinxext-rediraffe sphinx-tojupyter sphinx-exercise sphinx-togglebutton
