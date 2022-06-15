@@ -20,7 +20,7 @@ jobs:
         run: pip install -r google-colab-requirements.txt
       - name: Install Jupyter Book
         shell: bash -l {0}
-        run: pip install jupyter-book quantecon-book-theme sphinx-exercise sphinx-togglebutton
+        run: pip install jupyter-book quantecon-book-theme sphinxext-rediraffe sphinx-tojupyter sphinx-exercise sphinx-togglebutton
       - name: Build Lectures (+ Execution Checks)
         shell: bash -l {0}
         run: jb build lectures --path-output=./ -W --keep-going
