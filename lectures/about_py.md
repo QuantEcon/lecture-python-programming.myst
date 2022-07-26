@@ -243,6 +243,7 @@ More examples can be found in the [Matplotlib thumbnail gallery](http://matplotl
 Other graphics libraries include
 
 * [Plotly](https://plot.ly/python/)
+* [seaborn](https://seaborn.pydata.org/)
 * [Bokeh](http://bokeh.pydata.org/en/latest/)
 * [VPython](http://www.vpython.org/) --- 3D graphics and animations
 
@@ -302,7 +303,8 @@ to figures and so on.
 ### Statistics
 
 Python's data manipulation and statistics libraries have improved rapidly over
-the last few years.
+the last few years, and the rich library provides support to tackle
+[specific problems in data science](https://ieeexplore.ieee.org/document/8757088).
 
 #### Pandas
 
@@ -331,6 +333,7 @@ print(df)
 df.mean()
 ```
 
+
 #### Other Useful Statistics Libraries
 
 ```{index} single: statsmodels
@@ -341,7 +344,12 @@ df.mean()
 ```{index} single: scikit-learn
 ```
 
-* [scikit-learn](http://scikit-learn.org/) --- machine learning in Python (sponsored by Google, among others)
+* [scikit-learn](http://scikit-learn.org/) --- Machine Learning in Python
+
+```{index} single: PyTorch
+```
+
+* [PyTorch](https://pytorch.org/) --- Deep learning framework in Python and other major competitors including 
 
 ```{index} single: pyMC
 ```
@@ -352,6 +360,13 @@ df.mean()
 ```
 
 * [pystan](https://pystan.readthedocs.org/en/latest/) Bayesian analysis based on [stan](http://mc-stan.org/)
+
+
+```{index} single: lifelines
+```
+
+* [lifelines](https://lifelines.readthedocs.io/en/latest/) Survival analysis
+
 
 ### Networks and Graphs
 
