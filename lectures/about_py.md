@@ -77,7 +77,7 @@ Python is very beginner-friendly and is often used to [teach computer science an
 
 For reasons we will discuss, Python is particularly popular within the scientific community with users including NASA, CERN and practically all branches of academia.
 
-It is also [replacing familiar tools like Excel](https://news.efinancialcareers.com/us-en/3002556/python-replaced-excel-banking) in the fields of finance and banking.
+It is also [replacing familiar tools like Excel](https://www.efinancialcareers.com.au/news/2019/11/python-replaced-excel-banking) in the fields of finance and banking.
 
 ### Relative Popularity
 
@@ -103,7 +103,7 @@ Python's popularity begin to spike in the first figure.
 
 Overall, it's clear that
 
-* Python is [one of the most popular programming languages worldwide](https://spectrum.ieee.org/computing/software/the-top-programming-languages-2019).
+* Python is [one of the most popular programming languages worldwide](https://spectrum.ieee.org/top-programming-languages-2021).
 * Python is a major tool for scientific computing, accounting for a rapidly rising share of scientific work around the globe.
 
 ### Features
@@ -205,7 +205,7 @@ SciPy includes many of the standard routines used in
 * [integration](http://docs.scipy.org/doc/scipy/reference/integrate.html)
 * [interpolation](http://docs.scipy.org/doc/scipy/reference/interpolate.html)
 * [optimization](http://docs.scipy.org/doc/scipy/reference/optimize.html)
-* [distributions and random number generation](http://docs.scipy.org/doc/scipy/reference/stats.html)
+* [distributions and statistical techniques](http://docs.scipy.org/doc/scipy/reference/stats.html)
 * [signal processing](http://docs.scipy.org/doc/scipy/reference/signal.html)
 
 See them all [here](http://docs.scipy.org/doc/scipy/reference/index.html).
@@ -321,7 +321,7 @@ import pandas as pd
 np.random.seed(1234)
 
 data = np.random.randn(5, 2)  # 5x2 matrix of N(0, 1) random draws
-dates = pd.date_range('28/12/2010', periods=5)
+dates = pd.date_range('2010-12-28', periods=5)
 
 df = pd.DataFrame(data, columns=('price', 'weight'), index=dates)
 print(df)
@@ -442,7 +442,7 @@ Apart from the cloud computing options listed above, you might like to consider
 ```{index} single: parallel computing; ipython
 ```
 
-* [Parallel computing through IPython clusters](http://ipython.org/ipython-doc/stable/parallel/parallel_demos.html).
+* [Parallel computing through IPython clusters](https://ipyparallel.readthedocs.io/en/latest/).
 
 ```{index} single: parallel computing; starcluster
 ```
@@ -455,7 +455,7 @@ Apart from the cloud computing options listed above, you might like to consider
 ```{index} single: parallel computing; pycuda
 ```
 
-* GPU programming through [PyCuda](https://wiki.tiker.net/PyCuda), [PyOpenCL](https://mathema.tician.de/software/pyopencl/), [Theano](https://en.wikipedia.org/wiki/Theano_(software)) or similar.
+* GPU programming through [PyCuda](https://wiki.tiker.net/PyCuda), [PyOpenCL](https://documen.tician.de/pyopencl/), [Theano](https://en.wikipedia.org/wiki/Theano_(software)) or similar.
 
 (intfc)=
 ### Other Developments
@@ -487,7 +487,7 @@ Some representative examples include
 ```{index} single: scientific programming; CVXPY
 ```
 
-* [CVXPY](https://github.com/cvxgrp/cvxpy) --- convex optimization in Python.
+* [CVXPY](https://www.cvxpy.org/) --- convex optimization in Python.
 
 ## Learn More
 
