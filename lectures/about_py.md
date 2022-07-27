@@ -307,7 +307,7 @@ to figures and so on.
 ### Statistics
 
 Python's data manipulation and statistics libraries have improved rapidly over
-the last few years, and the rich library provides support to tackle
+the last few years, which supports to tackle
 [specific problems in data science](https://ieeexplore.ieee.org/document/8757088).
 
 #### Pandas
@@ -439,17 +439,18 @@ See also
 ```{index} single: cloud computing; google app engine
 ```
 
-* The [Google App Engine](https://cloud.google.com/appengine/) (Python, Java, PHP or Go)
+* The [Google App Engine](https://cloud.google.com/appengine/) (PaaS) and the [Google Compute Engine](https://cloud.google.com/compute/) (IaaS)
+
+```{index} single: cloud computing; digital ocean
+```
+
+* [Digital Ocean](https://www.digitalocean.com/)
 
 ```{index} single: cloud computing; pythonanywhere
 ```
 
 * [Pythonanywhere](https://www.pythonanywhere.com/)
 
-```{index} single: cloud computing; sagemath cloud
-```
-
-* [Sagemath Cloud](https://cloud.sagemath.com/)
 
 ### Parallel Processing
 
@@ -463,6 +464,13 @@ Apart from the cloud computing options listed above, you might like to consider
 
 * [Parallel computing through IPython clusters](https://ipyparallel.readthedocs.io/en/latest/).
 
+
+```{index} single: parallel computing; Dask
+```
+
+* The [Dask](https://www.dask.org/) parallelises PyData and Machine Learning in Python.
+
+
 ```{index} single: parallel computing; starcluster
 ```
 
@@ -472,7 +480,7 @@ Apart from the cloud computing options listed above, you might like to consider
 ```{index} single: parallel computing; pycuda
 ```
 
-* GPU programming through [JAX](https://jax.readthedocs.io/en/latest/notebooks/quickstart.html), [PyCuda](https://wiki.tiker.net/PyCuda), [PyOpenCL](https://documen.tician.de/pyopencl/), [Theano](https://en.wikipedia.org/wiki/Theano_(software)) or similar.
+* GPU programming through [JAX](https://jax.readthedocs.io/en/latest/notebooks/quickstart.html), [PyCuda](https://wiki.tiker.net/PyCuda), [PyOpenCL](https://documen.tician.de/pyopencl/), [Rapids](https://rapids.ai/), etc.
 
 (intfc)=
 ### Other Developments
