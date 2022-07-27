@@ -74,9 +74,9 @@ Used and supported extensively by Internet services and high tech companies incl
 * [Dropbox](https://www.dropbox.com/)
 * [Reddit](https://www.reddit.com/)
 
-For reasons we will discuss, Python is particularly popular within the scientific community and behind many scientific achievements in [space science](https://code.nasa.gov/?q=python), [particle physics](https://home.cern/news/news/physics/speeding-machine-learning-particle-physics), [genomics](https://github.com/deepmind/alphafold), and practically all branches of academia.
+For reasons we will discuss, Python is particularly popular within the scientific community and behind many scientific achievements in [space science](https://code.nasa.gov/?q=python), [particle physics](https://home.cern/news/news/physics/speeding-machine-learning-particle-physics), [genomics](https://github.com/deepmind/alphafold), medical science and practically all branches of academia.
 
-Meanwhile, Python is also very beginner-friendly and is often used to [teach programming in at a lower cost for educator and students in various fields of study](https://www.sciencedirect.com/science/article/pii/S1477388021000177).
+Meanwhile, Python is also very beginner-friendly and is found to be suitable for students to learn programming and [introduce computational methods to students in fields other than computer science](https://www.sciencedirect.com/science/article/pii/S1477388021000177).
 
 It is also [replacing familiar tools like Excel](https://www.efinancialcareers.com.au/news/2019/11/python-replaced-excel-banking) in the fields of finance and banking.
 
@@ -145,6 +145,7 @@ Python has become one of the core languages of scientific computing.
 It's either the dominant player or a major player in
 
 * [machine learning and data science](http://scikit-learn.org/stable/)
+* [natural language processing](https://www.nltk.org/)
 * [astronomy](http://www.astropy.org/)
 * [artificial intelligence](https://wiki.python.org/moin/PythonForArtificialIntelligence)
 * [chemistry](http://chemlab.github.io/chemlab/)
@@ -239,14 +240,15 @@ Example 3D plot
 ```{figure} /_static/lecture_specific/about_py/career_vf.png
 ```
 
-More examples can be found in the [Matplotlib thumbnail gallery](http://matplotlib.org/gallery.html).
+More examples can be found in the [Matplotlib thumbnail gallery](https://matplotlib.org/stable/gallery/index.html).
 
 Other graphics libraries include
 
 * [Plotly](https://plot.ly/python/)
 * [seaborn](https://seaborn.pydata.org/) --- a high-level interface for matplotlib
 * [Bokeh](http://bokeh.pydata.org/en/latest/)
-* [VPython](http://www.vpython.org/) --- 3D graphics and animations
+
+You can visit the [Python Graph Gallery](https://www.python-graph-gallery.com/) for example plots drawn using a variety of packages.
 
 ### Symbolic Algebra
 
@@ -299,11 +301,9 @@ diff(sin(x), x)
 integrate(sin(x) * x, x)
 ```
 
-The beauty of importing this functionality into Python is that we are working within
-a fully fledged programming language.
+The beauty of importing this functionality into Python is that we are working within a fully fledged programming language.
 
-We can easily create tables of derivatives, generate LaTeX output, add that output
-to figures and so on.
+We can easily create tables of derivatives, generate LaTeX output, add that output to figures and so on.
 
 ### Statistics
 
@@ -356,21 +356,20 @@ df.mean()
 
 * [PyTorch](https://pytorch.org/) --- Deep learning framework in Python and other major competitors including [TensorFlow](https://www.tensorflow.org/overview) and [Keras](https://keras.io/)
 
-```{index} single: pyMC
+```{index} single: Pyro
 ```
 
-* [pyMC](http://pymc-devs.github.io/pymc/) --- for Bayesian data analysis
-
-```{index} single: pystan
-```
-
-* [pystan](https://pystan.readthedocs.org/en/latest/) Bayesian analysis based on [stan](http://mc-stan.org/)
-
+* [Pyro](https://pyro.ai/) and [PyStan](https://pystan.readthedocs.org/en/latest/) --- for Bayesian data analysis building on [Pytorch](https://pytorch.org/) and [stan](http://mc-stan.org/) respectively.
 
 ```{index} single: lifelines
 ```
 
 * [lifelines](https://lifelines.readthedocs.io/en/latest/) for Survival analysis
+
+```{index} single: GeoPandas
+```
+
+*[GeoPandas](https://geopandas.org/en/stable/) --- spatial data analysis
 
 
 ### Networks and Graphs
@@ -425,10 +424,16 @@ plt.show()
 
 Running your Python code on massive servers in the cloud is becoming easier and easier.
 
+```{index} single: cloud computing; google colab
+```
+An excellent example for the portability of python in a cloud computing environment is The [Google Colab](https://colab.research.google.com/). It hosts Jupyter notebook service online with no preconfigurations to run Python code using cloud servers.
+
+
+There are also commercial application of cloud computing:
+
 ```{index} single: cloud computing; anaconda enterprise
 ```
-
-A nice example is [Anaconda Enterprise](https://www.anaconda.com/enterprise/).
+* [Anaconda Enterprise](https://www.anaconda.com/enterprise/).
 
 See also
 
@@ -437,10 +442,10 @@ See also
 
 * [Amazon Elastic Compute Cloud](http://aws.amazon.com/ec2/)
 
-```{index} single: cloud computing; google app engine
+```{index} single: cloud computing; Google Cloud
 ```
 
-* The [Google App Engine](https://cloud.google.com/appengine/) (PaaS) and the [Google Compute Engine](https://cloud.google.com/compute/) (IaaS)
+* [Google Cloud] The [Google App Engine](https://cloud.google.com/appengine/) (PaaS) and the [Google Compute Engine](https://cloud.google.com/compute/) (IaaS)
 
 ```{index} single: cloud computing; digital ocean
 ```
