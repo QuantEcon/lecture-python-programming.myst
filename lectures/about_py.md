@@ -243,7 +243,7 @@ More examples can be found in the [Matplotlib thumbnail gallery](http://matplotl
 Other graphics libraries include
 
 * [Plotly](https://plot.ly/python/)
-* [seaborn](https://seaborn.pydata.org/)
+* [seaborn](https://seaborn.pydata.org/) --- a high-level interface for matplotlib
 * [Bokeh](http://bokeh.pydata.org/en/latest/)
 * [VPython](http://www.vpython.org/) --- 3D graphics and animations
 
@@ -281,7 +281,7 @@ solve(x**2 + x + 2)
 and calculate limits, derivatives and integrals
 
 ```{code-cell} python3
-from sympy import limit, sin, diff
+from sympy import limit, sin, diff, integrate
 
 limit(1 / x, x, 0)
 ```
@@ -292,6 +292,10 @@ limit(sin(x) / x, x, 0)
 
 ```{code-cell} python3
 diff(sin(x), x)
+```
+
+```{code-cell} python3
+integrate(sin(x) * x, x)
 ```
 
 The beauty of importing this functionality into Python is that we are working within
@@ -334,7 +338,7 @@ df.mean()
 ```
 
 
-#### Other Useful Statistics Libraries
+#### Other Useful Statistics and Data Science Libraries
 
 ```{index} single: statsmodels
 ```
@@ -349,7 +353,7 @@ df.mean()
 ```{index} single: PyTorch
 ```
 
-* [PyTorch](https://pytorch.org/) --- Deep learning framework in Python and other major competitors including [TensorFlow](https://www.tensorflow.org/) and [Keras](https://keras.io/)
+* [PyTorch](https://pytorch.org/) --- Deep learning framework in Python and other major competitors including [TensorFlow](https://www.tensorflow.org/overview) and [Keras](https://keras.io/)
 
 ```{index} single: pyMC
 ```
@@ -365,7 +369,7 @@ df.mean()
 ```{index} single: lifelines
 ```
 
-* [lifelines](https://lifelines.readthedocs.io/en/latest/) Survival analysis
+* [lifelines](https://lifelines.readthedocs.io/en/latest/) for Survival analysis
 
 
 ### Networks and Graphs
