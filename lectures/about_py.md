@@ -66,7 +66,7 @@ Python has experienced rapid adoption in the last decade and is now one of the m
 * [manufacturing resource planning](https://ieeexplore.ieee.org/abstract/document/8667819)
 * multimedia, data processing, security, etc., etc., etc.
 
-Used and supported extensively by Internet services and high tech companies including
+Used and supported extensively by Internet services and high-tech companies including
 
 * [Google](https://www.google.com/)
 * [Netflix](https://www.netflix.com/)
@@ -308,7 +308,7 @@ We can easily create tables of derivatives, generate LaTeX output, add that outp
 ### Statistics
 
 Python's data manipulation and statistics libraries have improved rapidly over
-the last few years, which supports to tackle
+the last few years to tackle
 [specific problems in data science](https://ieeexplore.ieee.org/document/8757088).
 
 #### Pandas
@@ -385,7 +385,7 @@ Its features include, among many other things:
 * standard graph algorithms for analyzing networks
 * plotting routines
 
-Here's some example code that generates and plots a random graph, with node color determined by shortest path length from a central node.
+Here's some example code that generates and plots a random graph, with node color determined by the shortest path length from a central node.
 
 ```{code-cell} ipython
 %matplotlib inline
@@ -426,10 +426,10 @@ Running your Python code on massive servers in the cloud is becoming easier and 
 
 ```{index} single: cloud computing; google colab
 ```
-An excellent example for the portability of python in a cloud computing environment is The [Google Colab](https://colab.research.google.com/). It hosts Jupyter notebook service online with no preconfigurations to run Python code using cloud servers.
+An excellent example of the portability of python in a cloud computing environment is The [Google Colab](https://colab.research.google.com/). It hosts the Jupyter notebook on cloud servers with no pre-configuration necessary to run Python code using cloud servers.
 
 
-There are also commercial application of cloud computing:
+There are also commercial applications of cloud computing:
 
 ```{index} single: cloud computing; anaconda enterprise
 ```
@@ -445,17 +445,12 @@ See also
 ```{index} single: cloud computing; Google Cloud
 ```
 
-* [Google Cloud] The [Google App Engine](https://cloud.google.com/appengine/) (PaaS) and the [Google Compute Engine](https://cloud.google.com/compute/) (IaaS)
+* The [Google App Engine](https://cloud.google.com/appengine/) (PaaS) and the [Google Compute Engine](https://cloud.google.com/compute/) (IaaS)
 
 ```{index} single: cloud computing; digital ocean
 ```
 
 * [Digital Ocean](https://www.digitalocean.com/)
-
-```{index} single: cloud computing; pythonanywhere
-```
-
-* [Pythonanywhere](https://www.pythonanywhere.com/)
 
 
 ### Parallel Processing
@@ -475,13 +470,6 @@ Apart from the cloud computing options listed above, you might like to consider
 ```
 
 * The [Dask](https://www.dask.org/) parallelises PyData and Machine Learning in Python.
-
-
-```{index} single: parallel computing; starcluster
-```
-
-* The [Starcluster](http://star.mit.edu/cluster/) interface to Amazon's EC2.
-
 
 ```{index} single: parallel computing; pycuda
 ```
@@ -506,12 +494,12 @@ Some representative examples include
 ```{index} single: scientific programming; Numba
 ```
 
-* [Numba](http://numba.pydata.org/) --- Make Python run at the same speed as native machine code!
+* [Numba](http://numba.pydata.org/) --- make Python run at the same speed as native machine code!
 
-```{index} single: scientific programming; Blaze
+```{index} single: scientific programming; scikit-image
 ```
 
-* [Blaze](http://blaze.pydata.org/) --- a generalization of NumPy.
+* [scikit-image](https://scikit-image.org/) --- handles image data for computer vision
 
 ```{index} single: scientific programming; PyTables
 ```
