@@ -349,7 +349,7 @@ df.mean()
 ```{index} single: PyTorch
 ```
 
-* [PyTorch](https://pytorch.org/) --- Deep learning framework in Python and other major competitors including 
+* [PyTorch](https://pytorch.org/) --- Deep learning framework in Python and other major competitors including [TensorFlow](https://www.tensorflow.org/) and [Keras](https://keras.io/)
 
 ```{index} single: pyMC
 ```
@@ -464,13 +464,11 @@ Apart from the cloud computing options listed above, you might like to consider
 
 * The [Starcluster](http://star.mit.edu/cluster/) interface to Amazon's EC2.
 
-```{index} single: parallel computing; copperhead
-```
 
 ```{index} single: parallel computing; pycuda
 ```
 
-* GPU programming through [PyCuda](https://wiki.tiker.net/PyCuda), [PyOpenCL](https://documen.tician.de/pyopencl/), [Theano](https://en.wikipedia.org/wiki/Theano_(software)) or similar.
+* GPU programming through [JAX](https://jax.readthedocs.io/en/latest/notebooks/quickstart.html), [PyCuda](https://wiki.tiker.net/PyCuda), [PyOpenCL](https://documen.tician.de/pyopencl/), [Theano](https://en.wikipedia.org/wiki/Theano_(software)) or similar.
 
 (intfc)=
 ### Other Developments
