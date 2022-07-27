@@ -482,6 +482,9 @@ Apart from the cloud computing options listed above, you might like to consider
 
 * GPU programming through [JAX](https://jax.readthedocs.io/en/latest/notebooks/quickstart.html), [PyCuda](https://wiki.tiker.net/PyCuda), [PyOpenCL](https://documen.tician.de/pyopencl/), [Rapids](https://rapids.ai/), etc.
 
+
+Here is more about [recent developments](https://pasc22.pasc-conference.org/program/papers/) in high-performance computing (HPC) in scientific computing and [how HPC helps researchers in different fields](https://pasc22.pasc-conference.org/program/keynote-presentations/). 
+
 (intfc)=
 ### Other Developments
 
