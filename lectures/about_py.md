@@ -63,19 +63,20 @@ Python has experienced rapid adoption in the last decade and is now one of the m
 * web development
 * CGI and graphical user interfaces
 * game development
+* [manufacturing resource planning](https://ieeexplore.ieee.org/abstract/document/8667819)
 * multimedia, data processing, security, etc., etc., etc.
 
-Used extensively by Internet services and high tech companies including
+Used and supported extensively by Internet services and high tech companies including
 
 * [Google](https://www.google.com/)
+* [Netflix](https://www.netflix.com/)
+* [Meta](https://opensource.fb.com/)
 * [Dropbox](https://www.dropbox.com/)
 * [Reddit](https://www.reddit.com/)
-* [YouTube](https://www.youtube.com/)
-* [Walt Disney Animation](https://pydanny-event-notes.readthedocs.org/en/latest/socalpiggies/20110526-wda.html).
 
-Python is very beginner-friendly and is often used to [teach computer science and programming](http://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-us-universities/fulltext).
+For reasons we will discuss, Python is particularly popular within the scientific community and behind many scientific achievements in [space science](https://code.nasa.gov/?q=python), [particle physics](https://home.cern/news/news/physics/speeding-machine-learning-particle-physics), [genomics](https://github.com/deepmind/alphafold), and practically all branches of academia.
 
-For reasons we will discuss, Python is particularly popular within the scientific community with users including NASA, CERN and practically all branches of academia.
+Meanwhile, Python is also very beginner-friendly and is often used to [teach programming in at a lower cost for educator and students in various fields of study](https://www.sciencedirect.com/science/article/pii/S1477388021000177).
 
 It is also [replacing familiar tools like Excel](https://www.efinancialcareers.com.au/news/2019/11/python-replaced-excel-banking) in the fields of finance and banking.
 
