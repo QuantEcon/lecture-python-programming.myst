@@ -38,8 +38,8 @@ into R." -- Chris Wiggins
 In this lecture we will
 
 * outline what Python is
-* showcase some of its abilities
-* compare it to some other languages.
+* compare it to some other languages
+* showcase some of its abilities.
 
 At this stage, it's **not** our intention that you try to replicate all you see.
 
@@ -63,21 +63,28 @@ Python has experienced rapid adoption in the last decade and is now one of the m
 * web development
 * CGI and graphical user interfaces
 * game development
-* multimedia, data processing, security, etc., etc., etc.
+* resource planning
+* multimedia, data science, security, etc., etc., etc.
 
-Used extensively by Internet services and high tech companies including
+Used and supported extensively by Internet services and high-tech companies including
 
 * [Google](https://www.google.com/)
+* [Netflix](https://www.netflix.com/)
+* [Meta](https://opensource.fb.com/)
 * [Dropbox](https://www.dropbox.com/)
+* [Amazon](https://www.amazon.com/)
 * [Reddit](https://www.reddit.com/)
-* [YouTube](https://www.youtube.com/)
-* [Walt Disney Animation](https://pydanny-event-notes.readthedocs.org/en/latest/socalpiggies/20110526-wda.html).
 
-Python is very beginner-friendly and is often used to [teach computer science and programming](http://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-us-universities/fulltext).
+For reasons we will discuss, Python is particularly popular within the scientific community and behind many scientific achievements in 
+* [Space Science](https://code.nasa.gov/?q=python)
+* [Particle Physics](https://home.cern/news/news/physics/speeding-machine-learning-particle-physics)
+* [Genetics](https://github.com/deepmind/alphafold)
 
-For reasons we will discuss, Python is particularly popular within the scientific community with users including NASA, CERN and practically all branches of academia.
+and practically all branches of academia.
 
-It is also [replacing familiar tools like Excel](https://news.efinancialcareers.com/us-en/3002556/python-replaced-excel-banking) in the fields of finance and banking.
+Meanwhile, Python is also very beginner-friendly and is found to be suitable for students learning programming and recommended to introduce computational methods to students in [fields other than computer science](https://www.sciencedirect.com/science/article/pii/S1477388021000177).
+
+Python is also [replacing familiar tools like Excel as an essential skill](https://www.efinancialcareers.com.au/news/2021/08/python-for-banking-jobs) in the fields of finance and banking.
 
 ### Relative Popularity
 
@@ -103,7 +110,7 @@ Python's popularity begin to spike in the first figure.
 
 Overall, it's clear that
 
-* Python is [one of the most popular programming languages worldwide](https://spectrum.ieee.org/computing/software/the-top-programming-languages-2019).
+* Python is [one of the most popular programming languages worldwide](https://spectrum.ieee.org/top-programming-languages-2021).
 * Python is a major tool for scientific computing, accounting for a rapidly rising share of scientific work around the globe.
 
 ### Features
@@ -143,18 +150,18 @@ Python has become one of the core languages of scientific computing.
 
 It's either the dominant player or a major player in
 
-* [machine learning and data science](http://scikit-learn.org/stable/)
+* [machine learning and data science](https://github.com/ml-tooling/best-of-ml-python)
 * [astronomy](http://www.astropy.org/)
-* [artificial intelligence](https://wiki.python.org/moin/PythonForArtificialIntelligence)
 * [chemistry](http://chemlab.github.io/chemlab/)
 * [computational biology](http://biopython.org/wiki/Main_Page)
 * [meteorology](https://pypi.org/project/meteorology/)
+* [natural language processing](https://www.nltk.org/)
 
 Its popularity in economics is also beginning to rise.
 
 This section briefly showcases some examples of Python for scientific programming.
 
-* All of these topics will be covered in detail later on.
+* All of these topics below will be covered in detail later on.
 
 ### Numerical Programming
 
@@ -205,7 +212,7 @@ SciPy includes many of the standard routines used in
 * [integration](http://docs.scipy.org/doc/scipy/reference/integrate.html)
 * [interpolation](http://docs.scipy.org/doc/scipy/reference/interpolate.html)
 * [optimization](http://docs.scipy.org/doc/scipy/reference/optimize.html)
-* [distributions and random number generation](http://docs.scipy.org/doc/scipy/reference/stats.html)
+* [distributions and statistical techniques](http://docs.scipy.org/doc/scipy/reference/stats.html)
 * [signal processing](http://docs.scipy.org/doc/scipy/reference/signal.html)
 
 See them all [here](http://docs.scipy.org/doc/scipy/reference/index.html).
@@ -238,13 +245,15 @@ Example 3D plot
 ```{figure} /_static/lecture_specific/about_py/career_vf.png
 ```
 
-More examples can be found in the [Matplotlib thumbnail gallery](http://matplotlib.org/gallery.html).
+More examples can be found in the [Matplotlib thumbnail gallery](https://matplotlib.org/stable/gallery/index.html).
 
 Other graphics libraries include
 
 * [Plotly](https://plot.ly/python/)
+* [seaborn](https://seaborn.pydata.org/) --- a high-level interface for matplotlib
 * [Bokeh](http://bokeh.pydata.org/en/latest/)
-* [VPython](http://www.vpython.org/) --- 3D graphics and animations
+
+You can visit the [Python Graph Gallery](https://www.python-graph-gallery.com/) for more example plots drawn using a variety of libraries.
 
 ### Symbolic Algebra
 
@@ -280,7 +289,7 @@ solve(x**2 + x + 2)
 and calculate limits, derivatives and integrals
 
 ```{code-cell} python3
-from sympy import limit, sin, diff
+from sympy import limit, sin, diff, integrate
 
 limit(1 / x, x, 0)
 ```
@@ -293,16 +302,19 @@ limit(sin(x) / x, x, 0)
 diff(sin(x), x)
 ```
 
-The beauty of importing this functionality into Python is that we are working within
-a fully fledged programming language.
+```{code-cell} python3
+integrate(sin(x) * x, x)
+```
 
-We can easily create tables of derivatives, generate LaTeX output, add that output
-to figures and so on.
+The beauty of importing this functionality into Python is that we are working within a fully fledged programming language.
+
+We can easily create tables of derivatives, generate LaTeX output, add that output to figures and so on.
 
 ### Statistics
 
 Python's data manipulation and statistics libraries have improved rapidly over
-the last few years.
+the last few years to tackle
+[specific problems in data science](https://ieeexplore.ieee.org/document/8757088).
 
 #### Pandas
 
@@ -321,7 +333,7 @@ import pandas as pd
 np.random.seed(1234)
 
 data = np.random.randn(5, 2)  # 5x2 matrix of N(0, 1) random draws
-dates = pd.date_range('28/12/2010', periods=5)
+dates = pd.date_range('2010-12-28', periods=5)
 
 df = pd.DataFrame(data, columns=('price', 'weight'), index=dates)
 print(df)
@@ -331,7 +343,8 @@ print(df)
 df.mean()
 ```
 
-#### Other Useful Statistics Libraries
+
+#### Other Useful Statistics and Data Science Libraries
 
 ```{index} single: statsmodels
 ```
@@ -341,17 +354,28 @@ df.mean()
 ```{index} single: scikit-learn
 ```
 
-* [scikit-learn](http://scikit-learn.org/) --- machine learning in Python (sponsored by Google, among others)
+* [scikit-learn](http://scikit-learn.org/) --- Machine Learning in Python
 
-```{index} single: pyMC
+```{index} single: PyTorch
 ```
 
-* [pyMC](http://pymc-devs.github.io/pymc/) --- for Bayesian data analysis
+* [PyTorch](https://pytorch.org/) --- Deep learning framework in Python and other major competitors in the field including [TensorFlow](https://www.tensorflow.org/overview) and [Keras](https://keras.io/)
 
-```{index} single: pystan
+```{index} single: Pyro
 ```
 
-* [pystan](https://pystan.readthedocs.org/en/latest/) Bayesian analysis based on [stan](http://mc-stan.org/)
+* [Pyro](https://pyro.ai/) and [PyStan](https://pystan.readthedocs.org/en/latest/) --- for Bayesian data analysis building on [Pytorch](https://pytorch.org/) and [stan](http://mc-stan.org/) respectively
+
+```{index} single: lifelines
+```
+
+* [lifelines](https://lifelines.readthedocs.io/en/latest/) --- for survival analysis
+
+```{index} single: GeoPandas
+```
+
+* [GeoPandas](https://geopandas.org/en/stable/) --- for spatial data analysis
+
 
 ### Networks and Graphs
 
@@ -366,7 +390,7 @@ Its features include, among many other things:
 * standard graph algorithms for analyzing networks
 * plotting routines
 
-Here's some example code that generates and plots a random graph, with node color determined by shortest path length from a central node.
+Here's some example code that generates and plots a random graph, with node color determined by the shortest path length from a central node.
 
 ```{code-cell} ipython
 %matplotlib inline
@@ -405,32 +429,33 @@ plt.show()
 
 Running your Python code on massive servers in the cloud is becoming easier and easier.
 
+```{index} single: cloud computing; google colab
+```
+
+An excellent example of the portability of python in a cloud computing environment is [Google Colab](https://colab.research.google.com/). It hosts the Jupyter notebook on cloud servers with no pre-configuration necessary to run Python code using cloud servers.
+
+
+There are also commercial applications of cloud computing using Python:
+
 ```{index} single: cloud computing; anaconda enterprise
 ```
+* [Anaconda Enterprise](https://www.anaconda.com/enterprise/)
 
-A nice example is [Anaconda Enterprise](https://www.anaconda.com/enterprise/).
-
-See also
-
-```{index} single: cloud computing; amazon ec2
+```{index} single: cloud computing; AWS
 ```
 
-* [Amazon Elastic Compute Cloud](http://aws.amazon.com/ec2/)
+* [Amazon Web Services](https://aws.amazon.com/developer/language/python/?nc1=f_dr)
 
-```{index} single: cloud computing; google app engine
+```{index} single: cloud computing; Google Cloud
 ```
 
-* The [Google App Engine](https://cloud.google.com/appengine/) (Python, Java, PHP or Go)
+* [Google Cloud](https://cloud.google.com/)
 
-```{index} single: cloud computing; pythonanywhere
+```{index} single: cloud computing; digital ocean
 ```
 
-* [Pythonanywhere](https://www.pythonanywhere.com/)
+* [Digital Ocean](https://www.digitalocean.com/)
 
-```{index} single: cloud computing; sagemath cloud
-```
-
-* [Sagemath Cloud](https://cloud.sagemath.com/)
 
 ### Parallel Processing
 
@@ -442,20 +467,21 @@ Apart from the cloud computing options listed above, you might like to consider
 ```{index} single: parallel computing; ipython
 ```
 
-* [Parallel computing through IPython clusters](http://ipython.org/ipython-doc/stable/parallel/parallel_demos.html).
+* [Parallel computing through IPython clusters](https://ipyparallel.readthedocs.io/en/latest/).
 
-```{index} single: parallel computing; starcluster
+
+```{index} single: parallel computing; Dask
 ```
 
-* The [Starcluster](http://star.mit.edu/cluster/) interface to Amazon's EC2.
-
-```{index} single: parallel computing; copperhead
-```
+* [Dask](https://www.dask.org/) parallelises PyData and Machine Learning in Python.
 
 ```{index} single: parallel computing; pycuda
 ```
 
-* GPU programming through [PyCuda](https://wiki.tiker.net/PyCuda), [PyOpenCL](https://mathema.tician.de/software/pyopencl/), [Theano](https://en.wikipedia.org/wiki/Theano_(software)) or similar.
+* GPU programming through [JAX](https://jax.readthedocs.io/en/latest/notebooks/quickstart.html), [PyCuda](https://wiki.tiker.net/PyCuda), [PyOpenCL](https://documen.tician.de/pyopencl/), [Rapids](https://rapids.ai/), etc.
+
+
+Here is more about [recent developments](https://pasc22.pasc-conference.org/program/papers/) in high-performance computing (HPC) in scientific computing and [how HPC helps researchers in different fields](https://pasc22.pasc-conference.org/program/keynote-presentations/). 
 
 (intfc)=
 ### Other Developments
@@ -472,27 +498,46 @@ Some representative examples include
 ```{index} single: scientific programming; Numba
 ```
 
-* [Numba](http://numba.pydata.org/) --- Make Python run at the same speed as native machine code!
+* [Numba](http://numba.pydata.org/) --- make Python run at the same speed as native machine code!
 
-```{index} single: scientific programming; Blaze
+```{index} single: scientific programming; CVXPY
 ```
 
-* [Blaze](http://blaze.pydata.org/) --- a generalization of NumPy.
+* [CVXPY](https://www.cvxpy.org/) --- convex optimization in Python.
+
 
 ```{index} single: scientific programming; PyTables
 ```
 
 * [PyTables](http://www.pytables.org) --- manage large data sets.
 
-```{index} single: scientific programming; CVXPY
+
+```{index} single: scientific programming; scikit-image
 ```
 
-* [CVXPY](https://github.com/cvxgrp/cvxpy) --- convex optimization in Python.
+* [scikit-image](https://scikit-image.org/) and [OpenCV](https://opencv.org/) --- process and analyse scientific image data.
+
+
+```{index} single: scientific programming; mlflow
+```
+
+* [FLAML](https://mlflow.org/docs/latest/index.html) --- automate machine learning and hyperparameter tuning.
+
+
+```{index} single: scientific programming; BeautifulSoup
+```
+
+* [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) --- extract data from HTML and XML files.
+
+```{index} single: scientific programming; PyInstaller
+```
+
+* [PyInstaller](https://pyinstaller.org/en/stable/) --- create packaged app from python script.
 
 ## Learn More
 
 * Browse some Python projects on [GitHub](https://github.com/trending?l=python).
-* Read more about [Python's history and rise in popularity](https://www.welcometothejungle.com/en/articles/btc-python-popular) .
+* Read more about [Python's history and rise in popularity](https://www.welcometothejungle.com/en/articles/btc-python-popular) and [version history](https://www.python.org/doc/versions/).
 * Have a look at [some of the Jupyter notebooks](http://nbviewer.jupyter.org/) people have shared on various scientific topics.
 
 ```{index} single: Python; PyPI
