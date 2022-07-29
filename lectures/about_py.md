@@ -150,9 +150,8 @@ Python has become one of the core languages of scientific computing.
 
 It's either the dominant player or a major player in
 
-* [machine learning and data science](http://scikit-learn.org/stable/)
+* [machine learning and data science](https://github.com/ml-tooling/best-of-ml-python)
 * [astronomy](http://www.astropy.org/)
-* [artificial intelligence](https://wiki.python.org/moin/PythonForArtificialIntelligence)
 * [chemistry](http://chemlab.github.io/chemlab/)
 * [computational biology](http://biopython.org/wiki/Main_Page)
 * [meteorology](https://pypi.org/project/meteorology/)
