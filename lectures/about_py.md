@@ -72,6 +72,7 @@ Used and supported extensively by Internet services and high-tech companies incl
 * [Netflix](https://www.netflix.com/)
 * [Meta](https://opensource.fb.com/)
 * [Dropbox](https://www.dropbox.com/)
+* [Amazon](https://www.amazon.com/)
 * [Reddit](https://www.reddit.com/)
 
 For reasons we will discuss, Python is particularly popular within the scientific community and behind many scientific achievements in 
@@ -161,7 +162,7 @@ Its popularity in economics is also beginning to rise.
 
 This section briefly showcases some examples of Python for scientific programming.
 
-* All of these topics will be covered in detail later on.
+* All of these topics below will be covered in detail later on.
 
 ### Numerical Programming
 
@@ -369,7 +370,7 @@ df.mean()
 ```{index} single: lifelines
 ```
 
-* [lifelines](https://lifelines.readthedocs.io/en/latest/) --- for Survival analysis
+* [lifelines](https://lifelines.readthedocs.io/en/latest/) --- for survival analysis
 
 ```{index} single: GeoPandas
 ```
@@ -441,15 +442,15 @@ There are also commercial applications of cloud computing using Python:
 ```
 * [Anaconda Enterprise](https://www.anaconda.com/enterprise/)
 
-```{index} single: cloud computing; amazon ec2
+```{index} single: cloud computing; AWS
 ```
 
-* [Amazon Elastic Compute Cloud](http://aws.amazon.com/ec2/)
+* [Amazon Web Services](https://aws.amazon.com/developer/language/python/?nc1=f_dr)
 
 ```{index} single: cloud computing; Google Cloud
 ```
 
-* [Google App Engine](https://cloud.google.com/appengine/) (PaaS) and [Google Compute Engine](https://cloud.google.com/compute/) (IaaS)
+* [Google Cloud](https://cloud.google.com/)
 
 ```{index} single: cloud computing; digital ocean
 ```
@@ -527,12 +528,17 @@ Some representative examples include
 ```{index} single: scientific programming; BeautifulSoup
 ```
 
-* [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) --- process online data from HTML and XML files.
+* [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) --- extract data from HTML and XML files.
+
+```{index} single: scientific programming; PyInstaller
+```
+
+* [PyInstaller](https://pyinstaller.org/en/stable/) --- create packaged app from python script.
 
 ## Learn More
 
 * Browse some Python projects on [GitHub](https://github.com/trending?l=python).
-* Read more about [Python's history and rise in popularity](https://www.welcometothejungle.com/en/articles/btc-python-popular) .
+* Read more about [Python's history and rise in popularity](https://www.welcometothejungle.com/en/articles/btc-python-popular) and [version history](https://www.python.org/doc/versions/).
 * Have a look at [some of the Jupyter notebooks](http://nbviewer.jupyter.org/) people have shared on various scientific topics.
 
 ```{index} single: Python; PyPI
