@@ -59,11 +59,11 @@ Python has experienced rapid adoption in the last decade and is now one of the m
 
 {index}`Python <single: Python; common uses>` is a general-purpose language used in almost all application domains such as
 
-* finance
+* communications
 * web development
 * CGI and graphical user interfaces
 * game development
-* manufacturing
+* resource planning
 * multimedia, data science, security, etc., etc., etc.
 
 Used and supported extensively by Internet services and high-tech companies including
@@ -74,11 +74,16 @@ Used and supported extensively by Internet services and high-tech companies incl
 * [Dropbox](https://www.dropbox.com/)
 * [Reddit](https://www.reddit.com/)
 
-For reasons we will discuss, Python is particularly popular within the scientific community and behind many scientific achievements in [space science](https://code.nasa.gov/?q=python), [particle physics](https://home.cern/news/news/physics/speeding-machine-learning-particle-physics), [genomics](https://github.com/deepmind/alphafold),and practically all branches of academia.
+For reasons we will discuss, Python is particularly popular within the scientific community and behind many scientific achievements in 
+* [Space Science](https://code.nasa.gov/?q=python)
+* [Particle Physics](https://home.cern/news/news/physics/speeding-machine-learning-particle-physics)
+* [Genetics](https://github.com/deepmind/alphafold)
+
+and practically all branches of academia.
 
 Meanwhile, Python is also very beginner-friendly and is found to be suitable for students learning programming and recommended to introduce computational methods to students in [fields other than computer science](https://www.sciencedirect.com/science/article/pii/S1477388021000177).
 
-Python is also [replacing familiar tools like Excel as a essential skill](https://www.efinancialcareers.com.au/news/2021/08/python-for-banking-jobs) in the fields of finance and banking.
+Python is also [replacing familiar tools like Excel as an essential skill](https://www.efinancialcareers.com.au/news/2021/08/python-for-banking-jobs) in the fields of finance and banking.
 
 ### Relative Popularity
 
@@ -364,7 +369,7 @@ df.mean()
 ```{index} single: lifelines
 ```
 
-* [lifelines](https://lifelines.readthedocs.io/en/latest/) for Survival analysis
+* [lifelines](https://lifelines.readthedocs.io/en/latest/) --- for Survival analysis
 
 ```{index} single: GeoPandas
 ```
@@ -427,7 +432,7 @@ Running your Python code on massive servers in the cloud is becoming easier and 
 ```{index} single: cloud computing; google colab
 ```
 
-An excellent example of the portability of python in a cloud computing environment is the [Google Colab](https://colab.research.google.com/). It hosts the Jupyter notebook on cloud servers with no pre-configuration necessary to run Python code using cloud servers.
+An excellent example of the portability of python in a cloud computing environment is [Google Colab](https://colab.research.google.com/). It hosts the Jupyter notebook on cloud servers with no pre-configuration necessary to run Python code using cloud servers.
 
 
 There are also commercial applications of cloud computing using Python:
@@ -444,7 +449,7 @@ There are also commercial applications of cloud computing using Python:
 ```{index} single: cloud computing; Google Cloud
 ```
 
-* The [Google App Engine](https://cloud.google.com/appengine/) (PaaS) and the [Google Compute Engine](https://cloud.google.com/compute/) (IaaS)
+* [Google App Engine](https://cloud.google.com/appengine/) (PaaS) and [Google Compute Engine](https://cloud.google.com/compute/) (IaaS)
 
 ```{index} single: cloud computing; digital ocean
 ```
@@ -468,7 +473,7 @@ Apart from the cloud computing options listed above, you might like to consider
 ```{index} single: parallel computing; Dask
 ```
 
-* The [Dask](https://www.dask.org/) parallelises PyData and Machine Learning in Python.
+* [Dask](https://www.dask.org/) parallelises PyData and Machine Learning in Python.
 
 ```{index} single: parallel computing; pycuda
 ```
@@ -495,6 +500,17 @@ Some representative examples include
 
 * [Numba](http://numba.pydata.org/) --- make Python run at the same speed as native machine code!
 
+```{index} single: scientific programming; CVXPY
+```
+
+* [CVXPY](https://www.cvxpy.org/) --- convex optimization in Python.
+
+
+```{index} single: scientific programming; PyTables
+```
+
+* [PyTables](http://www.pytables.org) --- manage large data sets.
+
 
 ```{index} single: scientific programming; scikit-image
 ```
@@ -508,21 +524,10 @@ Some representative examples include
 * [FLAML](https://mlflow.org/docs/latest/index.html) --- automate machine learning and hyperparameter tuning.
 
 
-```{index} single: scientific programming; PyTables
-```
-
-* [PyTables](http://www.pytables.org) --- manage large data sets.
-
 ```{index} single: scientific programming; BeautifulSoup
 ```
 
 * [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) --- process online data from HTML and XML files.
-
-
-```{index} single: scientific programming; CVXPY
-```
-
-* [CVXPY](https://www.cvxpy.org/) --- convex optimization in Python.
 
 ## Learn More
 
