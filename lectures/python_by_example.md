@@ -142,13 +142,26 @@ In fact, a package is just a directory containing
 In fact, you can find and explore the directory for NumPy on your computer
 easily enough if you look around.
 
-On this machine, it's located in
+The directory can be different based on the system of the machine and the version of python.
+
+You can check the location of your  `__init__.py` for NumPy in python by running the code:
+
+```{code-cell} ipython
+:class: no-execute
+
+import numpy as np
+
+print(np.__file__)
+```
+
+For example, on this machine, it's located in
 
 ```{code-block} ipython
 :class: no-execute
 
-anaconda3/lib/python3.7/site-packages/numpy
+anaconda3/lib/python3.9/site-packages/numpy/
 ```
+
 
 #### Subpackages
 
@@ -159,7 +172,7 @@ Consider the line `ϵ_values = np.random.randn(100)`.
 
 Here `np` refers to the package NumPy, while `random` is a **subpackage** of NumPy.
 
-Subpackages are just packages that are subdirectories of another package.
+Subpackages are just packages that are subdirectories of another package. For instance, you can find folder `random` under the directory of NumPy.
 
 ### Importing Names Directly
 
@@ -208,7 +221,7 @@ We can and will look at various ways to configure and improve this plot below.
 
 ## Alternative Implementations
 
-Let's try writing some alternative versions of {ref}`our first program <ourfirstprog>`, which plotted IID draws from the normal distribution.
+Let's try writing some alternative versions of {ref}`our first program <ourfirstprog>`, which plotted IID draws from the standard normal distribution.
 
 The programs below are less efficient than the original one, and hence
 somewhat artificial.
@@ -250,7 +263,7 @@ Let's study some parts of this program in more detail.
 
 Consider the statement `ϵ_values = []`, which creates an empty list.
 
-Lists are a *native Python data structure* used to group a collection of objects.
+Lists are a *native Python data structure* used to group a collection of objects. Items in lists are ordered, and duplicates are allowed in lists.
 
 For example, try
 
@@ -259,7 +272,7 @@ x = [10, 'foo', False]
 type(x)
 ```
 
-The first element of `x` is an [integer](https://en.wikipedia.org/wiki/Integer_%28computer_science%29), the next is a [string](https://en.wikipedia.org/wiki/String_%28computer_science%29), and the third is a [Boolean value](https://en.wikipedia.org/wiki/Boolean_data_type).
+The first element of `x` is an [integer](https://en.wikipedia.org/wiki/Integer_(computer_science)), the next is a [string](https://en.wikipedia.org/wiki/String_(computer_science)), and the third is a [Boolean value](https://en.wikipedia.org/wiki/Boolean_data_type).
 
 When adding a value to a list, we can use the syntax `list_name.append(some_value)`
 
@@ -274,7 +287,7 @@ x
 
 Here `append()` is what's called a *method*, which is a function "attached to" an object---in this case, the list `x`.
 
-We'll learn all about methods later on, but just to give you some idea,
+We'll learn all about methods later on in {doc}`Object Oriented Programming <oop_intro>`, but just to give you some idea,
 
 * Python objects such as lists, strings, etc. all have methods that are used to manipulate the data contained in the object.
 * String objects have [string methods](https://docs.python.org/3/library/stdtypes.html#string-methods), list objects have [list methods](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists), etc.
@@ -332,7 +345,7 @@ for animal in animals:
     print("The plural of " + animal + " is " + animal + "s")
 ```
 
-This example helps to clarify how the `for` loop works:  When we execute a
+This example helps to clarify how the `for` loop works: When we execute a
 loop of the form
 
 ```{code-block} python3
@@ -395,6 +408,12 @@ while i < ts_length:
     i = i + 1
 plt.plot(ϵ_values)
 plt.show()
+```
+
+A while loop will keep executing the code block delimited by indentation until the condition (```i < ts_length```) is satisfied. It means that the programme will keep adding values to the list ```ϵ_values``` until ```i``` equals ```ts_length```:
+
+```{code-cell} python3
+i == ts_length #the ending condition for the while loop
 ```
 
 Note that
