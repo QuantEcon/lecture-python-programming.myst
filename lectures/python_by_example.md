@@ -632,6 +632,9 @@ plt.legend()
 plt.show()
 ```
 
+Note: the `f'$\\alpha = {α}$'` is called [f-String](https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings) in python which allows you to use `{}` to contain expression. The expression will be evaluated, and the result of the evaluation will be placed into the string.
+
+
 ```{solution-end}
 ```
 
