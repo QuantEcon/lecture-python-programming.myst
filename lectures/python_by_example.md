@@ -734,11 +734,11 @@ for i in range(n):
     # drawing random positions on in the square
     u, v = np.random.uniform(), np.random.uniform()
 
-    # check whether the point falls within
-    # the estimated boundary of the inscribed semi-circle
+    # check whether the point falls within the boundary
+    # of the semi-circle located at (0.5,0.5)
     d = np.sqrt((u - 0.5)**2 + (v - 0.5)**2)
 
-    # if it falls on the inscribed semi-circle, 
+    # if it falls within the inscribed semi-circle, 
     # add it to the count
     if d < 0.5:
         count += 1
