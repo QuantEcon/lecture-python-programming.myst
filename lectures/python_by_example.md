@@ -418,8 +418,8 @@ i == ts_length #the ending condition for the while loop
 
 Note that
 
-* the code block for the `while` loop is again delimited only by indentation
-* the statement  `i = i + 1` can be replaced by `i += 1`
+* the code block for the `while` loop is again delimited only by indentation.
+* the statement  `i = i + 1` can be replaced by `i += 1`.
 
 ## Another Application
 
@@ -632,7 +632,7 @@ plt.legend()
 plt.show()
 ```
 
-Note: the `f'$\\alpha = {α}$'` is called [f-String](https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings) in python which allows you to use `{}` to contain expression. The expression will be evaluated, and the result of the evaluation will be placed into the string.
+Note:`f'$\\alpha = {α}$'` in the solution is an application of [f-String](https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings), which allows you to use `{}` to contain expression. The contained expression will be evaluated, and the result will be placed into the string.
 
 
 ```{solution-end}
