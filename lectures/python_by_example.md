@@ -632,7 +632,7 @@ plt.legend()
 plt.show()
 ```
 
-Note:`f'$\\alpha = {α}$'` in the solution is an application of [f-String](https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings), which allows you to use `{}` to contain expression. The contained expression will be evaluated, and the result will be placed into the string.
+Note:`f'$\\alpha = {α}$'` in the solution is an application of [f-String](https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings), which allows you to use `{}` to contain an expression. The contained expression will be evaluated, and the result will be placed into the string.
 
 
 ```{solution-end}
@@ -726,12 +726,20 @@ We estimate the area by sampling bivariate uniforms and looking at the
 fraction that falls into the circle.
 
 ```{code-cell} python3
-n = 100000
+n = 100000 # sample size for Monte Carlo simulation
 
 count = 0
 for i in range(n):
+
+    # drawing random positions on in the square
     u, v = np.random.uniform(), np.random.uniform()
+
+    # check whether the point falls within
+    # the estimated boundary of the inscribed semi-circle
     d = np.sqrt((u - 0.5)**2 + (v - 0.5)**2)
+
+    # if it falls on the inscribed semi-circle, 
+    # add it to the count
     if d < 0.5:
         count += 1
 
