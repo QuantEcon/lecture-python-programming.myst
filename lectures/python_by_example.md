@@ -465,7 +465,7 @@ operating system.
 Notice that we added a legend to the plot --- a feature you will be asked to
 use in the exercises.
 
-## Exercises
+## Exercises and Solutions
 
 Now we turn to exercises.  It is important that you complete them before
 continuing, since they present new concepts we will need.
