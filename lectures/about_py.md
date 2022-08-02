@@ -251,6 +251,7 @@ Other graphics libraries include
 
 * [Plotly](https://plot.ly/python/)
 * [seaborn](https://seaborn.pydata.org/) --- a high-level interface for matplotlib
+* [Altair](https://altair-viz.github.io/)
 * [Bokeh](http://bokeh.pydata.org/en/latest/)
 
 You can visit the [Python Graph Gallery](https://www.python-graph-gallery.com/) for more example plots drawn using a variety of libraries.
