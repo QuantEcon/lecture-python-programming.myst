@@ -497,8 +497,30 @@ Set $T=200$ and $\alpha = 0.9$.
 ```{exercise-end}
 ```
 
+```{solution-start} pbe_ex1
+:class: dropdown
+```
 
-```{exercise}
+Here's one solution.
+
+```{code-cell} python3
+α = 0.9
+T = 200
+x = np.empty(T+1)
+x[0] = 0
+
+for t in range(T):
+    x[t+1] = α * x[t] + np.random.randn()
+
+plt.plot(x)
+plt.show()
+```
+
+```{solution-end}
+```
+
+
+```{exercise-start}
 :label: pbe_ex2
 
 Starting with your solution to exercise 1, plot three simulated time series,
@@ -514,7 +536,36 @@ Hints:
 * For the legend, noted that the expression `'foo' + str(42)` evaluates to `'foo42'`.
 ```
 
-```{exercise}
+```{exercise-end}
+```
+
+
+```{solution-start} pbe_ex2
+:class: dropdown
+```
+
+```{code-cell} python3
+α_values = [0.0, 0.8, 0.98]
+T = 200
+x = np.empty(T+1)
+
+for α in α_values:
+    x[0] = 0
+    for t in range(T):
+        x[t+1] = α * x[t] + np.random.randn()
+    plt.plot(x, label=f'$\\alpha = {α}$')
+
+plt.legend()
+plt.show()
+```
+
+Note:`f'$\\alpha = {α}$'` in the solution is an application of [f-String](https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings), which allows you to use `{}` to contain an expression. The contained expression will be evaluated, and the result will be placed into the string.
+
+
+```{solution-end}
+```
+
+```{exercise-start}
 :label: pbe_ex3
 
 Similar to the previous exercises, plot the time series
@@ -529,6 +580,32 @@ $$
 Use $T=200$, $\alpha = 0.9$ and $\{\epsilon_t\}$ as before.
 
 Search online for a function that can be used to compute the absolute value $|x_t|$.
+```
+
+```{exercise-end}
+```
+
+
+```{solution-start} pbe_ex3
+:class: dropdown
+```
+
+Here's one solution:
+
+```{code-cell} python3
+α = 0.9
+T = 200
+x = np.empty(T+1)
+x[0] = 0
+
+for t in range(T):
+    x[t+1] = α * np.abs(x[t]) + np.random.randn()
+
+plt.plot(x)
+plt.show()
+```
+
+```{solution-end}
 ```
 
 
@@ -563,104 +640,6 @@ Replace this existing function with an if--else condition.
 
 ```{exercise-end}
 ```
-
-
-```{exercise-start}
-:label: pbe_ex5
-```
-
-Here's a harder exercise, that takes some thought and planning.
-
-The task is to compute an approximation to $\pi$ using [Monte Carlo](https://en.wikipedia.org/wiki/Monte_Carlo_method).
-
-Use no imports besides
-
-```{code-cell} python3
-import numpy as np
-```
-
-Your hints are as follows:
-
-* If $U$ is a bivariate uniform random variable on the unit square $(0, 1)^2$, then the probability that $U$ lies in a subset $B$ of $(0,1)^2$ is equal to the area of $B$.
-* If $U_1,\ldots,U_n$ are IID copies of $U$, then, as $n$ gets large, the fraction that falls in $B$, converges to the probability of landing in $B$.
-* For a circle, $area = \pi * radius^2$.
-
-```{exercise-end}
-```
-
-## Solutions
-
-```{solution-start} pbe_ex1
-:class: dropdown
-```
-
-Here's one solution.
-
-```{code-cell} python3
-α = 0.9
-T = 200
-x = np.empty(T+1)
-x[0] = 0
-
-for t in range(T):
-    x[t+1] = α * x[t] + np.random.randn()
-
-plt.plot(x)
-plt.show()
-```
-
-```{solution-end}
-```
-
-
-```{solution-start} pbe_ex2
-:class: dropdown
-```
-
-```{code-cell} python3
-α_values = [0.0, 0.8, 0.98]
-T = 200
-x = np.empty(T+1)
-
-for α in α_values:
-    x[0] = 0
-    for t in range(T):
-        x[t+1] = α * x[t] + np.random.randn()
-    plt.plot(x, label=f'$\\alpha = {α}$')
-
-plt.legend()
-plt.show()
-```
-
-Note:`f'$\\alpha = {α}$'` in the solution is an application of [f-String](https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings), which allows you to use `{}` to contain an expression. The contained expression will be evaluated, and the result will be placed into the string.
-
-
-```{solution-end}
-```
-
-
-```{solution-start} pbe_ex3
-:class: dropdown
-```
-
-Here's one solution:
-
-```{code-cell} python3
-α = 0.9
-T = 200
-x = np.empty(T+1)
-x[0] = 0
-
-for t in range(T):
-    x[t+1] = α * np.abs(x[t]) + np.random.randn()
-
-plt.plot(x)
-plt.show()
-```
-
-```{solution-end}
-```
-
 
 ```{solution-start} pbe_ex4
 :class: dropdown
@@ -705,6 +684,31 @@ plt.show()
 ```
 
 
+
+```{exercise-start}
+:label: pbe_ex5
+```
+
+Here's a harder exercise, that takes some thought and planning.
+
+The task is to compute an approximation to $\pi$ using [Monte Carlo](https://en.wikipedia.org/wiki/Monte_Carlo_method).
+
+Use no imports besides
+
+```{code-cell} python3
+import numpy as np
+```
+
+Your hints are as follows:
+
+* If $U$ is a bivariate uniform random variable on the unit square $(0, 1)^2$, then the probability that $U$ lies in a subset $B$ of $(0,1)^2$ is equal to the area of $B$.
+* If $U_1,\ldots,U_n$ are IID copies of $U$, then, as $n$ gets large, the fraction that falls in $B$, converges to the probability of landing in $B$.
+* For a circle, $area = \pi * radius^2$.
+
+```{exercise-end}
+```
+
+
 ```{solution-start} pbe_ex5
 :class: dropdown
 ```
@@ -726,7 +730,7 @@ We estimate the area by sampling bivariate uniforms and looking at the
 fraction that falls into the circle.
 
 ```{code-cell} python3
-n = 100000 # sample size for Monte Carlo simulation
+n = 1000000 # sample size for Monte Carlo simulation
 
 count = 0
 for i in range(n):
@@ -750,3 +754,4 @@ print(area_estimate * 4)  # dividing by radius**2
 
 ```{solution-end}
 ```
+
