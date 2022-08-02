@@ -146,7 +146,7 @@ The directory can be different based on the system of the machine and the versio
 
 You can check the location of your  `__init__.py` for NumPy in python by running the code:
 
-```{code-cell} ipython
+```{code-block} ipython
 :class: no-execute
 
 import numpy as np
@@ -735,11 +735,11 @@ n = 1000000 # sample size for Monte Carlo simulation
 count = 0
 for i in range(n):
 
-    # drawing random positions on in the square
+    # drawing random positions on the square
     u, v = np.random.uniform(), np.random.uniform()
 
     # check whether the point falls within the boundary
-    # of the semi-circle located at (0.5,0.5)
+    # of the semi-circle centred at (0.5,0.5)
     d = np.sqrt((u - 0.5)**2 + (v - 0.5)**2)
 
     # if it falls within the inscribed semi-circle, 
