@@ -142,8 +142,6 @@ In fact, a package is just a directory containing
 In fact, you can find and explore the directory for NumPy on your computer
 easily enough if you look around.
 
-The directory can be different based on the system of the machine and the version of python.
-
 You can check the location of your  `__init__.py` for NumPy in python by running the code:
 
 ```{code-block} ipython
@@ -154,15 +152,6 @@ import numpy as np
 print(np.__file__)
 ```
 
-For example, on this machine, it's located in
-
-```{code-block} ipython
-:class: no-execute
-
-anaconda3/lib/python3.9/site-packages/numpy/
-```
-
-
 #### Subpackages
 
 ```{index} single: Python; Subpackages
@@ -172,7 +161,9 @@ Consider the line `ϵ_values = np.random.randn(100)`.
 
 Here `np` refers to the package NumPy, while `random` is a **subpackage** of NumPy.
 
-Subpackages are just packages that are subdirectories of another package. For instance, you can find folder `random` under the directory of NumPy.
+Subpackages are just packages that are subdirectories of another package. 
+
+For instance, you can find folder `random` under the directory of NumPy.
 
 ### Importing Names Directly
 
@@ -263,7 +254,9 @@ Let's study some parts of this program in more detail.
 
 Consider the statement `ϵ_values = []`, which creates an empty list.
 
-Lists are a *native Python data structure* used to group a collection of objects. Items in lists are ordered, and duplicates are allowed in lists.
+Lists are a *native Python data structure* used to group a collection of objects. 
+
+Items in lists are ordered, and duplicates are allowed in lists.
 
 For example, try
 
@@ -410,7 +403,9 @@ plt.plot(ϵ_values)
 plt.show()
 ```
 
-A while loop will keep executing the code block delimited by indentation until the condition (```i < ts_length```) is satisfied. It means that the programme will keep adding values to the list ```ϵ_values``` until ```i``` equals ```ts_length```:
+A while loop will keep executing the code block delimited by indentation until the condition (```i < ts_length```) is satisfied.
+
+In this case, the program will keep adding values to the list ```ϵ_values``` until ```i``` equals ```ts_length```:
 
 ```{code-cell} python3
 i == ts_length #the ending condition for the while loop
@@ -465,7 +460,7 @@ operating system.
 Notice that we added a legend to the plot --- a feature you will be asked to
 use in the exercises.
 
-## Exercises and Solutions
+## Exercises
 
 Now we turn to exercises.  It is important that you complete them before
 continuing, since they present new concepts we will need.
@@ -559,7 +554,9 @@ plt.legend()
 plt.show()
 ```
 
-Note:`f'$\\alpha = {α}$'` in the solution is an application of [f-String](https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings), which allows you to use `{}` to contain an expression. The contained expression will be evaluated, and the result will be placed into the string.
+Note: `f'$\\alpha = {α}$'` in the solution is an application of [f-String](https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings), which allows you to use `{}` to contain an expression. 
+
+The contained expression will be evaluated, and the result will be placed into the string.
 
 
 ```{solution-end}
@@ -739,10 +736,10 @@ for i in range(n):
     u, v = np.random.uniform(), np.random.uniform()
 
     # check whether the point falls within the boundary
-    # of the semi-circle centred at (0.5,0.5)
+    # of the unit circle centred at (0.5,0.5)
     d = np.sqrt((u - 0.5)**2 + (v - 0.5)**2)
 
-    # if it falls within the inscribed semi-circle, 
+    # if it falls within the inscribed circle, 
     # add it to the count
     if d < 0.5:
         count += 1
