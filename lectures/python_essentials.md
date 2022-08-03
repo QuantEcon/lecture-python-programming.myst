@@ -653,44 +653,6 @@ def f(x):
 
 With one question mark we bring up the docstring, and with two we get the source code as well.
 
-### One-Line Functions: `lambda`
-
-```{index} single: Python; lambda functions
-```
-
-The `lambda` keyword is used to create simple functions on one line.
-
-For example, the definitions
-
-```{code-cell} python3
-def f(x):
-    return x**3
-```
-
-and
-
-```{code-cell} python3
-f = lambda x: x**3
-```
-
-are entirely equivalent.
-
-To see why `lambda` is useful, suppose that we want to calculate $\int_0^2 x^3 dx$ (and have forgotten our high-school calculus).
-
-The SciPy library has a function called `quad` that will do this calculation for us.
-
-The syntax of the `quad` function is `quad(f, a, b)` where `f` is a function and `a` and `b` are numbers.
-
-To create the function $f(x) = x^3$ we can use `lambda` as follows
-
-```{code-cell} python3
-from scipy.integrate import quad
-
-quad(lambda x: x**3, 0, 2)
-```
-
-Here the function created by `lambda` is said to be *anonymous* because it was never given a name.
-
 ### Keyword Arguments
 
 ```{index} single: Python; keyword arguments
