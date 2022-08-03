@@ -277,7 +277,7 @@ x
 
 Here `append()` is what's called a *method*, which is a function "attached to" an object---in this case, the list `x`.
 
-We'll learn all about methods {doc}`later on <oop_intro>`, but just to give you some idea,
+We'll learn all about methods {doc}`later on <oop_intro>`, but just to give you some idea, 
 
 * Python objects such as lists, strings, etc. all have methods that are used to manipulate the data contained in the object.
 * String objects have [string methods](https://docs.python.org/3/library/stdtypes.html#string-methods), list objects have [list methods](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists), etc.
