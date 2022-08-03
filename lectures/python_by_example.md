@@ -139,9 +139,6 @@ In fact, a package is just a directory containing
 1. possibly some compiled code that can be accessed by Python (e.g., functions compiled from C or FORTRAN code)
 1. a file called `__init__.py` that specifies what will be executed when we type `import package_name`
 
-In fact, you can find and explore the directory for NumPy on your computer
-easily enough if you look around.
-
 You can check the location of your  `__init__.py` for NumPy in python by running the code:
 
 ```{code-block} ipython
@@ -280,7 +277,7 @@ x
 
 Here `append()` is what's called a *method*, which is a function "attached to" an object---in this case, the list `x`.
 
-We'll learn all about methods later on in {doc}`Object Oriented Programming <oop_intro>`, but just to give you some idea,
+We'll learn all about methods {doc}`later on <oop_intro>`, but just to give you some idea,
 
 * Python objects such as lists, strings, etc. all have methods that are used to manipulate the data contained in the object.
 * String objects have [string methods](https://docs.python.org/3/library/stdtypes.html#string-methods), list objects have [list methods](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists), etc.
