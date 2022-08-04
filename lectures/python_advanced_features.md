@@ -792,7 +792,7 @@ Why?
 * Because the debugging information provided by the interpreter is often less useful than the information
   on possible errors you have in your head when writing code.
 * Because errors causing execution to stop are frustrating if you're in the middle of a large computation.
-* Because it's reduces confidence in your code on the part of your users (if you are writing for others).
+* Because it reduces confidence in your code on the part of your users (if you are writing for others).
 
 ### Assertions
 
