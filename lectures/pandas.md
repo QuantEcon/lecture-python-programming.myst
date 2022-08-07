@@ -645,7 +645,7 @@ import datetime as dt
 import yfinance as yf
 ```
 
-Write a program to calculate the percentage price change over 2019 for the following shares:
+Write a program to calculate the percentage price change over 2021 for the following shares:
 
 ```{code-cell} python3
 ticker_list = {'INTC': 'Intel',
@@ -659,7 +659,6 @@ ticker_list = {'INTC': 'Intel',
                'QCOM': 'Qualcomm',
                'KO': 'Coca-Cola',
                'GOOG': 'Google',
-               'SNE': 'Sony',
                'PTR': 'PetroChina'}
 ```
 
@@ -667,8 +666,8 @@ Here's the first part of the program
 
 ```{code-cell} python3
 def read_data(ticker_list,
-          start=dt.datetime(2019, 1, 2),
-          end=dt.datetime(2019, 12, 31)):
+          start=dt.datetime(2021, 1, 1),
+          end=dt.datetime(2021, 12, 31)):
     """
     This function reads in closing price data from Yahoo
     for each tick in the ticker_list.
@@ -694,30 +693,6 @@ Complete the program to plot the result as a bar graph like this one:
 
 ```{exercise-end}
 ```
-
-```{exercise-start}
-:label: pd_ex2
-```
-
-Using the method `read_data` introduced in {ref}`pd_ex1`, write a program to obtain year-on-year percentage change for the following indices:
-
-```{code-cell} python3
-indices_list = {'^GSPC': 'S&P 500',
-               '^IXIC': 'NASDAQ',
-               '^DJI': 'Dow Jones',
-               '^N225': 'Nikkei'}
-```
-
-Complete the program to show summary statistics and plot the result as a time series graph like this one:
-
-```{figure} /_static/lecture_specific/pandas/pandas_indices_pctchange.png
-:scale: 80
-```
-
-```{exercise-end}
-```
-
-## Solutions
 
 ```{solution-start} pd_ex1
 :class: dropdown
@@ -760,6 +735,28 @@ plt.show()
 ```
 
 
+```{exercise-start}
+:label: pd_ex2
+```
+
+Using the method `read_data` introduced in {ref}`pd_ex1`, write a program to obtain year-on-year percentage change for the following indices:
+
+```{code-cell} python3
+indices_list = {'^GSPC': 'S&P 500',
+               '^IXIC': 'NASDAQ',
+               '^DJI': 'Dow Jones',
+               '^N225': 'Nikkei'}
+```
+
+Complete the program to show summary statistics and plot the result as a time series graph like this one:
+
+```{figure} /_static/lecture_specific/pandas/pandas_indices_pctchange.png
+:scale: 80
+```
+
+```{exercise-end}
+```
+
 ```{solution-start} pd_ex2
 :class: dropdown
 ```
@@ -770,7 +767,7 @@ Following the work you did in {ref}`pd_ex1`, you can query the data using `read_
 indices_data = read_data(
         indices_list,
         start=dt.datetime(1971, 1, 1),  #Common Start Date
-        end=dt.datetime(2020, 12, 31)
+        end=dt.datetime(2021, 12, 31)
 )
 ```
 
