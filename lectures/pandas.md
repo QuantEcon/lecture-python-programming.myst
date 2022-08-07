@@ -262,29 +262,6 @@ The first argument takes the condition, while the second argument takes a list o
 df.loc[(df.cc + df.cg >= 80) & (df.POP <= 20000), ['country', 'year', 'POP']]
 ```
 
-### Application: Subsetting Dataframe
-
-Real world datasets can be [enoumous](https://developers.google.com/machine-learning/data-prep/construct/collect/data-size-quality).
-
-It is sometimes desirable to work with a subset of data for computational efficiency and reduce redundancy to save space.
-
-Let's imagine that we're only interested in population (`POP`) and total GDP (`tcgdp`).
-
-One way to strip the data frame `df` down to only these variables is to overwrite the dataframe using the selection method described above
-
-```{code-cell} python3
-df = df[['country', 'POP', 'tcgdp']]
-df
-```
-
-We can then save the smaller dataset for sharing and future analysis
-
-```{code-block} python3
-:class: no-execute
-df.to_csv('GDP.csv', index=False)
-```
-
-
 ### Apply Method
 
 Another widely used Pandas method is `df.apply()`. 
@@ -406,15 +383,23 @@ Pandas also provides us with convinient methods to replace missing values
 for example, single imputation using variable mean can be easily done in pandas
 
 ```{code-cell} python3
-df = df.fillna(df.mean())
-df
+df.fillna(df.mean())
 ```
 
 Missing value imputation is a big area in data science involving various machine learning techniques.
 
 There are also more [advanced tools](https://scikit-learn.org/stable/modules/impute.html) in python to impute missing values.
 
-#### Standarisation, and Summerisation
+#### Manipulating DataFrames
+
+Let's imagine that we're only interested in population (`POP`) and total GDP (`tcgdp`).
+
+One way to strip the data frame `df` down to only these variables is to overwrite the dataframe using the selection method described above
+
+```{code-cell} python3
+df = df[['country', 'POP', 'tcgdp']]
+df
+```
 
 Here the index `0, 1,..., 7` is redundant because we can use the country names as an index.
 
