@@ -218,7 +218,7 @@ To understand what is going on here, notice that `df.POP >= 20000` returns a ser
 df.POP >= 20000
 ```
 
-In this case, `df[___]` takes a series of boolean values with the same index as the original dataframe, and only returns rows that correspond to the `True` values.
+In this case, `df[___]` takes a series of boolean values and only returns rows that correspond to the `True` values.
 
 Take one more example,
 
@@ -245,7 +245,7 @@ df[(df.cc + df.cg >= 80) & (df.POP <= 20000)]
 
 ```{code-cell} python3
 # the above is equivalent to 
-df[(df.cc + df.cg >= 80) & (df.POP <= 20000)]
+df.query("cc + cg >= 80 & POP <= 20000")
 ```
 
 For example, we can use the conditioning to select the country with the largest household consumption - gdp share `cc`.
