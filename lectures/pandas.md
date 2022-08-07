@@ -314,15 +314,83 @@ df.loc[complexCondition]
 ```
 
 
+### Manipulating DataFrame
+
+The ability to make changes in dataframes is crucial to generate a clean dataset for future analysis.
+
+#### replace values
+
+1. We can use `df.where()` conveniently to "keep" the rows we have selected for and replace the rest rows any other values
+
+```{code-cell} python3
+df.where(df.POP >= 20000, False)
+```
 
 
+2. We can simply use `.loc[]` to specify the column that we want to modify, and assign values
+
+```{code-cell} python3
+df.loc[df.cg == max(df.cg), 'cg'] = np.nan
+df
+```
+
+3. We can use `.apply()` method to modify by rows/columns as a whole
+
+```{code-cell} python3
+def update_row(row):
+    # modify POP
+    row.POP = np.nan if row.POP<= 10000 else row.POP
+
+    # modify XRAT
+    row.XRAT = row.XRAT / 10
+    return row
+
+df.apply(update_row, axis=1)
+```
+
+4. We can use `.applymap()` method to modify all individual entries in the dataframe altogether.
+
+```{code-cell} python3
+
+# Let us randomly insert some NaN values
+for idx in list(zip([0, 3, 5, 6], [3, 4, 6, 2])):
+    df.iloc[idx] = np.nan
+
+df
+```
+`zip` function here creates pairs of values at the corresponding position of the two lists (i.e. [0,3],[3,4]...)
 
 
+#### Application: Missing Value Imputation
 
+Replacing missing values is an important step in data munging. 
 
+We can use functions above to replace missing values
 
-### Manipulating DataFrames
+```{code-cell} python3
+# replace all NaN values by 0
+def replace_nan(x):
+    if type(x)!=str:
+        return  0 if np.isnan(x) else x
+    else:
+        return x
 
+df.applymap(replace_nan)
+```
+
+Pandas also provides us with convinient methods to replace missing values
+
+for example, single imputation using variable mean can be easily done in pandas
+
+```{code-cell} python3
+df.fillna(df.mean())
+```
+
+Missing value imputation is a big area in data science involving various machine learning techniques.
+
+There are also more [advanced tools](https://scikit-learn.org/stable/modules/impute.html) in python to impute missing values.
+
+#### Manipulating DataFrames
 
 Let's imagine that we're only interested in population (`POP`) and total GDP (`tcgdp`).
 
