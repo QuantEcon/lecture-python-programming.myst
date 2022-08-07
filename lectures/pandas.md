@@ -262,8 +262,67 @@ The first argument takes the condition, while the second argument takes a list o
 df.loc[(df.cc + df.cg >= 80) & (df.POP <= 20000), ['country', 'year', 'POP']]
 ```
 
+### Apply Method
+
+Another widely used Pandas method is `df.apply()`. 
+
+It applies a function to each row/column and returns a series. 
+
+This function can be some built-in functions like `max`, a `lambda` function, or user-defined function.
+
+Here is an example using `max` function
+
+```{code-cell} python3
+# axis = 0 -- apply function to each column (variables)
+# axis = 1 -- apply function to each row (observations)
+# axis = 0 as default
+
+df[['year', 'POP', 'XRAT', 'tcgdp', 'cc', 'cg']].apply(max)
+```
+
+This line of code apply `max` function to all selected columns.
+
+`lambda` function is often used with `df.apply()` method 
+
+A trivial example is to return itself for each row in the dataframe 
+
+```{code-cell} python3
+df.apply(lambda row: row, axis=1)
+```
+
+We can use it together with `.loc[]` to do some more advanced selection.
+
+
+```{code-cell} python3
+complexCondition = df.apply(
+    lambda row: row.POP > 40000 if row.country in ['Argentina', 'India', 'South Africa'] else row.POP < 20000, 
+    axis=1), ['country', 'year', 'POP', 'XRAT', 'tcgdp']
+```
+
+`df.apply()` here returns a series of boolean values rows that satisfies the condition specified in the if-else statement.
+
+In addition, it also defined a subset of variables of interest.
+
+```{code-cell} python3
+complexCondition
+```
+
+When we apply this condtion to the dataframe, the result will be
+
+```{code-cell} python3
+df.loc[complexCondition]
+```
+
+
+
+
+
+
+
+
 
 ### Manipulating DataFrames
+
 
 Let's imagine that we're only interested in population (`POP`) and total GDP (`tcgdp`).
 
