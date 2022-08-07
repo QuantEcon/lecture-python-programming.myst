@@ -174,6 +174,8 @@ df
 
 ### Indexing
 
+In practice, one thing that we do all the time with a dataframe is we want to find, select and work with a subset of the data of our interests. 
+
 We can select particular rows using standard Python array slicing notation
 
 ```{code-cell} python3
@@ -197,6 +199,71 @@ To select rows and columns using a mixture of integers and labels, the `loc` att
 ```{code-cell} python3
 df.loc[df.index[2:5], ['country', 'tcgdp']]
 ```
+
+### Conditioning
+
+Instead of indexing rows and columns using integers, we can also obtain a sub-dataframe of our interests that satisfies certain (potentially complicated) conditions specified by us.
+
+This section demonstrates various ways to do that.
+
+The most straigntforward way is with the `[]` operator.
+
+```{code-cell} python3
+df[df.POP >= 20000]
+```
+
+To understand what is going on here, notice that `df.POP >= 20000` returns a series of boolean values.
+
+```{code-cell} python3
+df.POP >= 20000
+```
+
+In this case, `df[___]` takes a series of boolean values with the same index as the original dataframe, and only returns rows that correspond to the `True` values.
+
+Take one more example,
+
+```{code-cell} python3
+df[(df.country.isin(['Argentina', 'India', 'South Africa'])) & (df.POP > 40000)]
+```
+
+However, there is another way of doing the same thing, which can be slightly faster for large dataframes, with more natural syntax.
+
+```{code-cell} python3
+# the above is equivalent to 
+df.query("POP >= 20000")
+```
+
+```{code-cell} python3
+df.query("country in ['Argentina', 'India', 'South Africa'] and POP > 40000")
+```
+
+We can also allow arithmetic operations between different columns.
+
+```{code-cell} python3
+df[(df.cc + df.cg >= 80) & (df.POP <= 20000)]
+```
+
+```{code-cell} python3
+# the above is equivalent to 
+df[(df.cc + df.cg >= 80) & (df.POP <= 20000)]
+```
+
+For example, we can use the conditioning to select the country with the largest household consumption - gdp share `cc`.
+
+```{code-cell} python3
+df.loc[df.cc == max(df.cc)]
+```
+
+When we only want to look at certain columns of a selected sub-dataframe, we can use the above conditions with the `.loc[__ , __]` command.
+
+The first argument takes the condition, while the second argument takes a list of columns we want to return.
+
+```{code-cell} python3
+df.loc[(df.cc + df.cg >= 80) & (df.POP <= 20000), ['country', 'year', 'POP']]
+```
+
+
+### Manipulating DataFrames
 
 Let's imagine that we're only interested in population (`POP`) and total GDP (`tcgdp`).
 
