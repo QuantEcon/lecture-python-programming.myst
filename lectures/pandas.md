@@ -181,6 +181,9 @@ type(df)
 df
 ```
 
+
+### Indexing
+
 We can select particular rows using standard Python array slicing notation
 
 ```{code-cell} python3
