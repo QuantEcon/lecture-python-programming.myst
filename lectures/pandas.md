@@ -282,7 +282,8 @@ We can then save the smaller dataset for sharing and future analysis
 
 ```{code-block} python3
 :class: no-execute
-df_subset.to_csv('GDP_subset.csv', index=False)
+
+df_subset.to_csv('pwt_subset.csv', index=False)
 ```
 
 ### Apply Method
@@ -381,7 +382,7 @@ for idx in list(zip([0, 3, 5, 6], [3, 4, 6, 2])):
 
 df
 ```
-`zip` function here creates pairs of values at the corresponding position of the two lists (i.e. [0,3],[3,4]...)
+`zip` function here creates pairs of values at the corresponding position of the two lists (i.e. [0,3], [3,4] ...)
 
 
 #### Application: Missing Value Imputation
@@ -406,7 +407,7 @@ Pandas also provides us with convinient methods to replace missing values
 for example, single imputation using variable mean can be easily done in pandas
 
 ```{code-cell} python3
-df.fillna(df.mean())
+df = df.fillna(df.iloc[:,2:7].mean())
 df
 ```
 
