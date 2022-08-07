@@ -262,6 +262,29 @@ The first argument takes the condition, while the second argument takes a list o
 df.loc[(df.cc + df.cg >= 80) & (df.POP <= 20000), ['country', 'year', 'POP']]
 ```
 
+
+#### Application: Subsetting Dataframe
+
+Real world datasets can be [enoumous](https://developers.google.com/machine-learning/data-prep/construct/collect/data-size-quality).
+
+It is sometimes desirable to work with a subset of data for computational efficiency and reduce redundancy to save space.
+
+Let's imagine that we're only interested in population (`POP`) and total GDP (`tcgdp`).
+
+One way to strip the data frame `df` down to only these variables is to overwrite the dataframe using the selection method described above
+
+```{code-cell} python3
+df_subset = df[['country', 'POP', 'tcgdp']]
+df_subset
+```
+
+We can then save the smaller dataset for sharing and future analysis
+
+```{code-block} python3
+:class: no-execute
+df_subset.to_csv('GDP_subset.csv', index=False)
+```
+
 ### Apply Method
 
 Another widely used Pandas method is `df.apply()`. 
@@ -384,13 +407,14 @@ for example, single imputation using variable mean can be easily done in pandas
 
 ```{code-cell} python3
 df.fillna(df.mean())
+df
 ```
 
 Missing value imputation is a big area in data science involving various machine learning techniques.
 
 There are also more [advanced tools](https://scikit-learn.org/stable/modules/impute.html) in python to impute missing values.
 
-#### Manipulating DataFrames
+### Standarisation and Summerisation
 
 Let's imagine that we're only interested in population (`POP`) and total GDP (`tcgdp`).
 
