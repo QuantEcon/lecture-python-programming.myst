@@ -77,18 +77,21 @@ plt.rcParams["figure.figsize"] = [10,8]  # Set default figure size
 import requests
 ```
 
+Two important data types defined by pandas are  `Series` and `DataFrame`.
+
+You can think of a `Series` as a "column" of data, such as a collection of observations on a single variable.
+
+A `DataFrame` is a two dimensional object for storing related columns of data.
+
 ## Series
 
 ```{index} single: Pandas; Series
 ```
 
-Two important data types defined by pandas are  `Series` and `DataFrame`.
+Let's start with Series.
 
-You can think of a `Series` as a "column" of data, such as a collection of observations on a single variable.
 
-A `DataFrame` is an object for storing related columns of data.
-
-Let's start with Series
+We begin with creating a series with four random observations
 
 ```{code-cell} python3
 s = pd.Series(np.random.randn(4), name='daily returns')
@@ -156,20 +159,6 @@ Thus, it is a powerful tool for representing and analyzing data that are natural
 
 Let's look at an example that reads data from the CSV file `pandas/data/test_pwt.csv`, which is taken from the Penn World Tables.
 
-Here's the content of `test_pwt.csv`
-
-```{code-block} none
-"country","country isocode","year","POP","XRAT","tcgdp","cc","cg"
-"Argentina","ARG","2000","37335.653","0.9995","295072.21869","75.716805379","5.5788042896"
-"Australia","AUS","2000","19053.186","1.72483","541804.6521","67.759025993","6.7200975332"
-"India","IND","2000","1006300.297","44.9416","1728144.3748","64.575551328","14.072205773"
-"Israel","ISR","2000","6114.57","4.07733","129253.89423","64.436450847","10.266688415"
-"Malawi","MWI","2000","11801.505","59.543808333","5026.2217836","74.707624181","11.658954494"
-"South Africa","ZAF","2000","45064.098","6.93983","227242.36949","72.718710427","5.7265463933"
-"United States","USA","2000","282171.957","1","9898700","72.347054303","6.0324539789"
-"Uruguay","URY","2000","3219.793","12.099591667","25255.961693","78.978740282","5.108067988"
-```
-
 We'll read this in from a URL using the `pandas` function `read_csv`.
 
 ```{code-cell} python3
@@ -177,10 +166,11 @@ df = pd.read_csv('https://raw.githubusercontent.com/QuantEcon/lecture-python-pro
 type(df)
 ```
 
+Here's the content of `test_pwt.csv`
+
 ```{code-cell} python3
 df
 ```
-
 
 ### Indexing
 
@@ -196,7 +186,7 @@ To select columns, we can pass a list containing the names of the desired column
 df[['country', 'tcgdp']]
 ```
 
-To select both rows and columns using integers, the `iloc` attribute should be used with the format `.iloc[rows, columns]`
+To select both rows and columns using integers, the `iloc` attribute should be used with the format `.iloc[rows, columns]`.
 
 ```{code-cell} python3
 df.iloc[2:5, 0:4]
