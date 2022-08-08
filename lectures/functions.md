@@ -375,9 +375,9 @@ The default value will be $f(n) = n$
 ```{solution-start} exercise_1
 :label: solution_1
 :class: dropdown
-
-Here's one solution.
 ```
+
+- Here's one solution for part 1
 
 ```{code-cell} python3
 def factorial(n):
@@ -389,7 +389,8 @@ def factorial(n):
 factorial(4)
 ```
 
-Adding the lambda expression where $f(n) = x^2 + 1$
+- Adding the lambda expression
+
 ```{code-cell} python3
 def factorial(n,f = lambda x: x):
     k = 1
