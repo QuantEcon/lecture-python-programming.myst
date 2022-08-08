@@ -172,7 +172,7 @@ Here's the content of `test_pwt.csv`
 df
 ```
 
-### Indexing
+### Locating Data
 
 In practice, one thing that we do all the time with a dataframe is we want to find, select and work with a subset of the data of our interests. 
 
@@ -200,7 +200,7 @@ To select rows and columns using a mixture of integers and labels, the `loc` att
 df.loc[df.index[2:5], ['country', 'tcgdp']]
 ```
 
-### Conditioning
+### Locating Data by Conditions
 
 Instead of indexing rows and columns using integers, we can also obtain a sub-dataframe of our interests that satisfies certain (potentially complicated) conditions specified by us.
 
@@ -263,7 +263,7 @@ df.loc[(df.cc + df.cg >= 80) & (df.POP <= 20000), ['country', 'year', 'POP']]
 ```
 
 
-#### Application: Subsetting Dataframe
+**Application: Subsetting Dataframe**
 
 Real world datasets can be [enoumous](https://developers.google.com/machine-learning/data-prep/construct/collect/data-size-quality).
 
@@ -338,11 +338,9 @@ df.loc[complexCondition]
 ```
 
 
-### Manipulating DataFrame
+### Changing Values in DataFrames
 
 The ability to make changes in dataframes is crucial to generate a clean dataset for future analysis.
-
-#### replace values
 
 1. We can use `df.where()` conveniently to "keep" the rows we have selected for and replace the rest rows any other values
 
@@ -385,7 +383,7 @@ df
 `zip` function here creates pairs of values at the corresponding position of the two lists (i.e. [0,3], [3,4] ...)
 
 
-#### Application: Missing Value Imputation
+**Application: Missing Value Imputation**
 
 Replacing missing values is an important step in data munging. 
 
@@ -407,7 +405,7 @@ Pandas also provides us with convinient methods to replace missing values
 for example, single imputation using variable mean can be easily done in pandas
 
 ```{code-cell} python3
-df = df.fillna(df.iloc[:,2:7].mean())
+df = df.fillna(df.iloc[:,2:8].mean())
 df
 ```
 
