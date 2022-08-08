@@ -364,36 +364,10 @@ write our own version as an exercise.
 
 In particular, write a function `factorial` such that `factorial(n)` returns $n!$
 for any positive integer $n$.
+
+In addition,try to add a new argument for your function.
+The argument will take in a lambda expression f that transforms n to f(n). 
 ```
-
-```{exercise}
-:label: exercise_2
-
-The [binomial random variable](https://en.wikipedia.org/wiki/Binomial_distribution) $Y \sim Bin(n, p)$ represents the number of successes in $n$ binary trials, where each trial succeeds with probability $p$.
-
-Without any import besides `from numpy.random import uniform`, write a function
-`binomial_rv` such that `binomial_rv(n, p)` generates one draw of $Y$.
-
-Hint: If $U$ is uniform on $(0, 1)$ and $p \in (0,1)$, then the expression `U < p` evaluates to `True` with probability $p$.
-```
-
-```{exercise}
-:label: exercise_3
-
-First, write a function that returns one realization of the following random device
-
-1. Flip an unbiased coin 10 times.
-1. If a head occurs `k` or more times consecutively within this sequence at least once, pay one dollar.
-1. If not, pay nothing.
-
-Second, write another function that does the same task except that the second rule of the above random device becomes
-
-- If a head occurs `k` or more times within this sequence, pay one dollar.
-
-Use no import besides `from numpy.random import uniform`.
-```
-
-## Solutions
 
 ```{solution-start} exercise_1
 :label: solution_1
@@ -412,7 +386,30 @@ def factorial(n):
 factorial(4)
 ```
 
+Adding the lambda expression where $f(n) = x^2 + 1$
+```{code-cell} python3
+def factorial(n,f):
+    k = 1
+    for i in range(f(n)):
+        k = k * (i + 1)
+    return k
+
+factorial(2, lambda x: x**2 + 1)
+```
+
 ```{solution-end}
+```
+
+
+```{exercise}
+:label: exercise_2
+
+The [binomial random variable](https://en.wikipedia.org/wiki/Binomial_distribution) $Y \sim Bin(n, p)$ represents the number of successes in $n$ binary trials, where each trial succeeds with probability $p$.
+
+Without any import besides `from numpy.random import uniform`, write a function
+`binomial_rv` such that `binomial_rv(n, p)` generates one draw of $Y$.
+
+Hint: If $U$ is uniform on $(0, 1)$ and $p \in (0,1)$, then the expression `U < p` evaluates to `True` with probability $p$.
 ```
 
 ```{solution-start} exercise_2
@@ -437,6 +434,22 @@ binomial_rv(10, 0.5)
 ```{solution-end}
 ```
 
+
+```{exercise}
+:label: exercise_3
+
+First, write a function that returns one realization of the following random device
+
+1. Flip an unbiased coin 10 times.
+1. If a head occurs `k` or more times consecutively within this sequence at least once, pay one dollar.
+1. If not, pay nothing.
+
+Second, write another function that does the same task except that the second rule of the above random device becomes
+
+- If a head occurs `k` or more times within this sequence, pay one dollar.
+
+Use no import besides `from numpy.random import uniform`.
+```
 
 ```{solution-start} exercise_3
 :label: solution_3
