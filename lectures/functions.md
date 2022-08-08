@@ -359,7 +359,7 @@ function*---as we did above.
 Recall that $n!$ is read as "$n$ factorial" and defined as
 $n! = n \times (n - 1) \times \cdots \times 2 \times 1$.
 
-We will only consider n as positive integer here.
+We will only consider n as a positive integer here.
 
 There are functions to compute this in various modules, but let's
 write our own version as an exercise.
@@ -369,7 +369,7 @@ for any positive integer $n$.
 
 2. In addition, try to add a new argument for your function.
 The argument will take in a lambda expression f that transforms n to $f(n) = x^2 + 1$ if n is even, and $f(n) = x^2$ if n is odd. 
-The default value will be $f(n) = n$
+The default value will be $f(n) = n$.
 ```
 
 ```{solution-start} exercise_1
