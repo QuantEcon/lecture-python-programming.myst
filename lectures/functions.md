@@ -359,13 +359,15 @@ function*---as we did above.
 Recall that $n!$ is read as "$n$ factorial" and defined as
 $n! = n \times (n - 1) \times \cdots \times 2 \times 1$.
 
+We will only consider n as positive integer here.
+
 There are functions to compute this in various modules, but let's
 write our own version as an exercise.
 
-In particular, write a function `factorial` such that `factorial(n)` returns $n!$
+1. In particular, write a function `factorial` such that `factorial(n)` returns $n!$
 for any positive integer $n$.
 
-In addition,try to add a new argument for your function.
+2. In addition, try to add a new argument for your function.
 The argument will take in a lambda expression f that transforms n to $f(n) = x^2 + 1$ if n is even, and $f(n) = x^2$ if n is odd. 
 The default value will be $f(n) = n$
 ```
