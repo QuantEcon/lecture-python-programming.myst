@@ -366,7 +366,8 @@ In particular, write a function `factorial` such that `factorial(n)` returns $n!
 for any positive integer $n$.
 
 In addition,try to add a new argument for your function.
-The argument will take in a lambda expression f that transforms n to f(n). 
+The argument will take in a lambda expression f that transforms n to $f(n) = x^2 + 1$ if n is even, and $f(n) = x^2$ if n is odd. 
+The default value will be $f(n) = n$
 ```
 
 ```{solution-start} exercise_1
@@ -388,13 +389,24 @@ factorial(4)
 
 Adding the lambda expression where $f(n) = x^2 + 1$
 ```{code-cell} python3
-def factorial(n,f):
+def factorial(n,f = lambda x: x):
     k = 1
     for i in range(f(n)):
         k = k * (i + 1)
     return k
 
-factorial(2, lambda x: x**2 + 1)
+
+factorial(9) # default
+```
+
+```{code-cell} python3
+f = lambda x: x**2 + 1 if x % 2 == 0 else x**2
+
+factorial(3, f) # odd (equivalent to factorial(9))
+```
+
+```{code-cell} python3
+factorial(2, f) # even (equivalent to factorial(5))
 ```
 
 ```{solution-end}
