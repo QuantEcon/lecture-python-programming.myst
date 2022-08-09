@@ -368,7 +368,7 @@ write our own version as an exercise.
 for any positive integer $n$.
 
 2. In addition, try to add a new argument for your function.
-The argument will take in a lambda expression f that transforms n to $f(n) = x^2 + 1$ if n is even, and $f(n) = x^2$ if n is odd. 
+The argument will take in a lambda expression f that transforms n to $f(n) = n^2 + 1$ if n is even, and $f(n) = n^2$ if n is odd. 
 The default value will be $f(n) = n$.
 
 For example
