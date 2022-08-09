@@ -81,7 +81,7 @@ Two important data types defined by pandas are  `Series` and `DataFrame`.
 
 You can think of a `Series` as a "column" of data, such as a collection of observations on a single variable.
 
-A `DataFrame` is a two dimensional object for storing related columns of data.
+A `DataFrame` is a two-dimensional object for storing related columns of data.
 
 ## Series
 
@@ -91,7 +91,7 @@ A `DataFrame` is a two dimensional object for storing related columns of data.
 Let's start with Series.
 
 
-We begin with creating a series with four random observations
+We begin by creating a series of four random observations
 
 ```{code-cell} python3
 s = pd.Series(np.random.randn(4), name='daily returns')
@@ -155,7 +155,7 @@ While a `Series` is a single column of data, a `DataFrame` is several columns, o
 
 In essence, a `DataFrame` in pandas is analogous to a (highly optimized) Excel spreadsheet.
 
-Thus, it is a powerful tool for representing and analyzing data that are naturally organized  into rows and columns, often with  descriptive indexes for individual rows and individual columns.
+Thus, it is a powerful tool for representing and analyzing data that are naturally organized into rows and columns, often with descriptive indexes for individual rows and individual columns.
 
 Let's look at an example that reads data from the CSV file `pandas/data/test_pwt.csv`, which is taken from the [Penn World Tables](https://www.rug.nl/ggdc/productivity/pwt/pwt-releases/pwt-7.0).
 
@@ -174,7 +174,7 @@ df
 
 ### Select Data by Position
 
-In practice, one thing that we do all the time with a dataframe is we want to find, select and work with a subset of the data of our interests. 
+In practice, one thing that we do all the time is to find, select and work with a subset of the data of our interests. 
 
 We can select particular rows using standard Python array slicing notation
 
@@ -206,7 +206,7 @@ Instead of indexing rows and columns using integers, we can also obtain a sub-da
 
 This section demonstrates various ways to do that.
 
-The most straigntforward way is with the `[]` operator.
+The most straightforward way is with the `[]` operator.
 
 ```{code-cell} python3
 df[df.POP >= 20000]
@@ -265,11 +265,11 @@ df.loc[(df.cc + df.cg >= 80) & (df.POP <= 20000), ['country', 'year', 'POP']]
 
 **Application: Subsetting Dataframe**
 
-Real world datasets can be [enoumous](https://developers.google.com/machine-learning/data-prep/construct/collect/data-size-quality).
+Real-world datasets can be [enoumous](https://developers.google.com/machine-learning/data-prep/construct/collect/data-size-quality).
 
-It is sometimes desirable to work with a subset of data for computational efficiency and reduce redundancy to save space.
+It is sometimes desirable to work with a subset of data to enhance computational efficiency and reduce redundancy to save space.
 
-Let's imagine that we're only interested in population (`POP`) and total GDP (`tcgdp`).
+Let's imagine that we're only interested in the population (`POP`) and total GDP (`tcgdp`).
 
 One way to strip the data frame `df` down to only these variables is to overwrite the dataframe using the selection method described above
 
@@ -292,15 +292,15 @@ Another widely used Pandas method is `df.apply()`.
 
 It applies a function to each row/column and returns a series. 
 
-This function can be some built-in functions like `max`, a `lambda` function, or user-defined function.
+This function can be some built-in functions like the `max` function, a `lambda` function, or a user-defined function.
 
-Here is an example using `max` function
+Here is an example using the `max` function
 
 ```{code-cell} python3
 df[['year', 'POP', 'XRAT', 'tcgdp', 'cc', 'cg']].apply(max)
 ```
 
-This line of code apply `max` function to all selected columns.
+This line of code applies the `max` function to all selected columns.
 
 `lambda` function is often used with `df.apply()` method 
 
@@ -326,13 +326,13 @@ complexCondition = df.apply(
 
 `df.apply()` here returns a series of boolean values rows that satisfies the condition specified in the if-else statement.
 
-In addition, it also defined a subset of variables of interest.
+In addition, it also defines a subset of variables of interest.
 
 ```{code-cell} python3
 complexCondition
 ```
 
-When we apply this condtion to the dataframe, the result will be
+When we apply this condition to the dataframe, the result will be
 
 ```{code-cell} python3
 df.loc[complexCondition]
@@ -341,9 +341,9 @@ df.loc[complexCondition]
 
 ### Make Changes in DataFrames
 
-The ability to make changes in dataframes is crucial to generate a clean dataset for future analysis.
+The ability to make changes in dataframes is important to generate a clean dataset for future analysis.
 
-1. We can use `df.where()` conveniently to "keep" the rows we have selected for and replace the rest rows any other values
+1. We can use `df.where()` conveniently to "keep" the rows we have selected and replace the rest rows with any other values
 
 ```{code-cell} python3
 df.where(df.POP >= 20000, False)
@@ -357,7 +357,7 @@ df.loc[df.cg == max(df.cg), 'cg'] = np.nan
 df
 ```
 
-3. We can use `.apply()` method to modify by rows/columns as a whole
+3. We can use the `.apply()` method to modify rows/columns as a whole
 
 ```{code-cell} python3
 def update_row(row):
@@ -371,7 +371,7 @@ def update_row(row):
 df.apply(update_row, axis=1)
 ```
 
-4. We can use `.applymap()` method to modify all individual entries in the dataframe altogether.
+4. We can use the `.applymap()` method to modify all individual entries in the dataframe altogether.
 
 ```{code-cell} python3
 
@@ -382,14 +382,14 @@ for idx in list(zip([0, 3, 5, 6], [3, 4, 6, 2])):
 df
 ```
 
-`zip` function here creates pairs of values at the corresponding position of the two lists (i.e. [0,3], [3,4] ...)
+The `zip` function here creates pairs of values at the corresponding position of the two lists (i.e. [0,3], [3,4] ...)
 
 
 **Application: Missing Value Imputation**
 
 Replacing missing values is an important step in data munging. 
 
-We can use functions above to replace missing values
+We can use the functions above to replace missing values
 
 ```{code-cell} python3
 # replace all NaN values by 0
@@ -402,9 +402,9 @@ def replace_nan(x):
 df.applymap(replace_nan)
 ```
 
-Pandas also provides us with convinient methods to replace missing values
+Pandas also provides us with convenient methods to replace missing values
 
-for example, single imputation using variable mean can be easily done in pandas
+for example, single imputation using variable means can be easily done in pandas
 
 ```{code-cell} python3
 df = df.fillna(df.iloc[:,2:8].mean())
@@ -415,9 +415,9 @@ Missing value imputation is a big area in data science involving various machine
 
 There are also more [advanced tools](https://scikit-learn.org/stable/modules/impute.html) in python to impute missing values.
 
-### Standarization and Summerization
+### Standardization and Summarization
 
-Let's imagine that we're only interested in population (`POP`) and total GDP (`tcgdp`).
+Let's imagine that we're only interested in the population (`POP`) and total GDP (`tcgdp`).
 
 One way to strip the data frame `df` down to only these variables is to overwrite the dataframe using the selection method described above
 
@@ -442,7 +442,7 @@ df.columns = 'population', 'total GDP'
 df
 ```
 
-Population is in thousands, let's revert to single units
+The `population` variable is in thousands, let's revert to single units
 
 ```{code-cell} python3
 df['population'] = df['population'] * 1e3
