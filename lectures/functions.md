@@ -370,6 +370,13 @@ for any positive integer $n$.
 2. In addition, try to add a new argument for your function.
 The argument will take in a lambda expression f that transforms n to $f(n) = x^2 + 1$ if n is even, and $f(n) = x^2$ if n is odd. 
 The default value will be $f(n) = n$.
+
+For example
+
+- The default case `factorial(3)` should return $3!$
+- `factorial(3,f)` should return $9!$
+- `factorial(2,f)` should return $5!$
+
 ```
 
 ```{solution-start} exercise_1
