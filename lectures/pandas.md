@@ -157,7 +157,7 @@ In essence, a `DataFrame` in pandas is analogous to a (highly optimized) Excel s
 
 Thus, it is a powerful tool for representing and analyzing data that are naturally organized  into rows and columns, often with  descriptive indexes for individual rows and individual columns.
 
-Let's look at an example that reads data from the CSV file `pandas/data/test_pwt.csv`, which is taken from the Penn World Tables.
+Let's look at an example that reads data from the CSV file `pandas/data/test_pwt.csv`, which is taken from the [Penn World Tables](https://www.rug.nl/ggdc/productivity/pwt/pwt-releases/pwt-7.0).
 
 We'll read this in from a URL using the `pandas` function `read_csv`.
 
@@ -172,7 +172,7 @@ Here's the content of `test_pwt.csv`
 df
 ```
 
-### Locating Data
+### Select Data by Position
 
 In practice, one thing that we do all the time with a dataframe is we want to find, select and work with a subset of the data of our interests. 
 
@@ -200,7 +200,7 @@ To select rows and columns using a mixture of integers and labels, the `loc` att
 df.loc[df.index[2:5], ['country', 'tcgdp']]
 ```
 
-### Locating Data by Conditions
+### Select Data by Conditions
 
 Instead of indexing rows and columns using integers, we can also obtain a sub-dataframe of our interests that satisfies certain (potentially complicated) conditions specified by us.
 
@@ -278,7 +278,7 @@ df_subset = df[['country', 'POP', 'tcgdp']]
 df_subset
 ```
 
-We can then save the smaller dataset for sharing and future analysis
+We can then save the smaller dataset for collaborations and future analysis
 
 ```{code-block} python3
 :class: no-execute
@@ -297,10 +297,6 @@ This function can be some built-in functions like `max`, a `lambda` function, or
 Here is an example using `max` function
 
 ```{code-cell} python3
-# axis = 0 -- apply function to each column (variables)
-# axis = 1 -- apply function to each row (observations)
-# axis = 0 as default
-
 df[['year', 'POP', 'XRAT', 'tcgdp', 'cc', 'cg']].apply(max)
 ```
 
@@ -313,6 +309,11 @@ A trivial example is to return itself for each row in the dataframe
 ```{code-cell} python3
 df.apply(lambda row: row, axis=1)
 ```
+
+Note: for `.apply()` method
+- axis = 0 -- apply function to each column (variables)
+- axis = 1 -- apply function to each row (observations)
+- axis = 0 is the default parameter
 
 We can use it together with `.loc[]` to do some more advanced selection.
 
@@ -338,7 +339,7 @@ df.loc[complexCondition]
 ```
 
 
-### Changing Values in DataFrames
+### Make Changes in DataFrames
 
 The ability to make changes in dataframes is crucial to generate a clean dataset for future analysis.
 
@@ -380,6 +381,7 @@ for idx in list(zip([0, 3, 5, 6], [3, 4, 6, 2])):
 
 df
 ```
+
 `zip` function here creates pairs of values at the corresponding position of the two lists (i.e. [0,3], [3,4] ...)
 
 
@@ -413,7 +415,7 @@ Missing value imputation is a big area in data science involving various machine
 
 There are also more [advanced tools](https://scikit-learn.org/stable/modules/impute.html) in python to impute missing values.
 
-### Standarisation and Summerisation
+### Standarization and Summerization
 
 Let's imagine that we're only interested in population (`POP`) and total GDP (`tcgdp`).
 
