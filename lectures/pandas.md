@@ -202,7 +202,7 @@ df.loc[df.index[2:5], ['country', 'tcgdp']]
 
 ### Select Data by Conditions
 
-Instead of indexing rows and columns using integers, we can also obtain a sub-dataframe of our interests that satisfies certain (potentially complicated) conditions specified by us.
+Instead of indexing rows and columns using integers and names, we can also obtain a sub-dataframe of our interests that satisfies certain (potentially complicated) conditions.
 
 This section demonstrates various ways to do that.
 
@@ -218,7 +218,7 @@ To understand what is going on here, notice that `df.POP >= 20000` returns a ser
 df.POP >= 20000
 ```
 
-In this case, `df[___]` takes a series of boolean values and only returns rows that correspond to the `True` values.
+In this case, `df[___]` takes a series of boolean values and only returns rows with the `True` values.
 
 Take one more example,
 
@@ -267,7 +267,7 @@ df.loc[(df.cc + df.cg >= 80) & (df.POP <= 20000), ['country', 'year', 'POP']]
 
 Real-world datasets can be [enormous](https://developers.google.com/machine-learning/data-prep/construct/collect/data-size-quality).
 
-It is sometimes desirable to work with a subset of data to enhance computational efficiency and reduce redundancy to save space.
+It is sometimes desirable to work with a subset of data to enhance computational efficiency and reduce redundancy.
 
 Let's imagine that we're only interested in the population (`POP`) and total GDP (`tcgdp`).
 
@@ -278,7 +278,7 @@ df_subset = df[['country', 'POP', 'tcgdp']]
 df_subset
 ```
 
-We can then save the smaller dataset for collaborations and future analysis
+We can then save the smaller dataset for further analysis.
 
 ```{code-block} python3
 :class: no-execute
@@ -310,7 +310,7 @@ A trivial example is to return itself for each row in the dataframe
 df.apply(lambda row: row, axis=1)
 ```
 
-Note: for `.apply()` method
+Note: for the `.apply()` method
 - axis = 0 -- apply function to each column (variables)
 - axis = 1 -- apply function to each row (observations)
 - axis = 0 is the default parameter
