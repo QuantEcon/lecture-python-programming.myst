@@ -165,7 +165,7 @@ The dataset contains the following indicators
 | :-: | :-: |
 | POP | Population (in thousands) |
 | XRAT | Exchange Rate to US Dollar |                     
-| tcgdp | Total PPP Converted GDP (in millions international dollar) |
+| tcgdp | Total PPP Converted GDP (in million international dollar) |
 | cc | Consumption Share of PPP Converted GDP Per Capita (%) |
 | cg | Government Consumption Share of PPP Converted GDP Per Capita (%) |
 
