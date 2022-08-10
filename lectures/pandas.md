@@ -159,6 +159,17 @@ Thus, it is a powerful tool for representing and analyzing data that are natural
 
 Let's look at an example that reads data from the CSV file `pandas/data/test_pwt.csv`, which is taken from the [Penn World Tables](https://www.rug.nl/ggdc/productivity/pwt/pwt-releases/pwt-7.0).
 
+The dataset contains the following indicators 
+
+| Variable Name | Description |
+| :-: | :-: |
+| POP | Population (in thousands) |
+| XRAT | Exchange Rate to US Dollar |                     
+| tcgdp | Total PPP Converted GDP (in millions international dollar) |
+| cc | Consumption Share of PPP Converted GDP Per Capita (%) |
+| cg | Government Consumption Share of PPP Converted GDP Per Capita (%) |
+
+
 We'll read this in from a URL using the `pandas` function `read_csv`.
 
 ```{code-cell} python3
