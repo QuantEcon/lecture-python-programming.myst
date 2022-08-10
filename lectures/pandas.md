@@ -265,7 +265,7 @@ df.loc[(df.cc + df.cg >= 80) & (df.POP <= 20000), ['country', 'year', 'POP']]
 
 **Application: Subsetting Dataframe**
 
-Real-world datasets can be [enoumous](https://developers.google.com/machine-learning/data-prep/construct/collect/data-size-quality).
+Real-world datasets can be [enormous](https://developers.google.com/machine-learning/data-prep/construct/collect/data-size-quality).
 
 It is sometimes desirable to work with a subset of data to enhance computational efficiency and reduce redundancy to save space.
 
