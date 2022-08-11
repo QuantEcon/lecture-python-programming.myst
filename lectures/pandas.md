@@ -77,18 +77,21 @@ plt.rcParams["figure.figsize"] = [10,8]  # Set default figure size
 import requests
 ```
 
+Two important data types defined by pandas are  `Series` and `DataFrame`.
+
+You can think of a `Series` as a "column" of data, such as a collection of observations on a single variable.
+
+A `DataFrame` is a two-dimensional object for storing related columns of data.
+
 ## Series
 
 ```{index} single: Pandas; Series
 ```
 
-Two important data types defined by pandas are  `Series` and `DataFrame`.
+Let's start with Series.
 
-You can think of a `Series` as a "column" of data, such as a collection of observations on a single variable.
 
-A `DataFrame` is an object for storing related columns of data.
-
-Let's start with Series
+We begin by creating a series of four random observations
 
 ```{code-cell} python3
 s = pd.Series(np.random.randn(4), name='daily returns')
@@ -152,23 +155,20 @@ While a `Series` is a single column of data, a `DataFrame` is several columns, o
 
 In essence, a `DataFrame` in pandas is analogous to a (highly optimized) Excel spreadsheet.
 
-Thus, it is a powerful tool for representing and analyzing data that are naturally organized  into rows and columns, often with  descriptive indexes for individual rows and individual columns.
+Thus, it is a powerful tool for representing and analyzing data that are naturally organized into rows and columns, often with descriptive indexes for individual rows and individual columns.
 
-Let's look at an example that reads data from the CSV file `pandas/data/test_pwt.csv`, which is taken from the Penn World Tables.
+Let's look at an example that reads data from the CSV file `pandas/data/test_pwt.csv`, which is taken from the [Penn World Tables](https://www.rug.nl/ggdc/productivity/pwt/pwt-releases/pwt-7.0).
 
-Here's the content of `test_pwt.csv`
+The dataset contains the following indicators 
 
-```{code-block} none
-"country","country isocode","year","POP","XRAT","tcgdp","cc","cg"
-"Argentina","ARG","2000","37335.653","0.9995","295072.21869","75.716805379","5.5788042896"
-"Australia","AUS","2000","19053.186","1.72483","541804.6521","67.759025993","6.7200975332"
-"India","IND","2000","1006300.297","44.9416","1728144.3748","64.575551328","14.072205773"
-"Israel","ISR","2000","6114.57","4.07733","129253.89423","64.436450847","10.266688415"
-"Malawi","MWI","2000","11801.505","59.543808333","5026.2217836","74.707624181","11.658954494"
-"South Africa","ZAF","2000","45064.098","6.93983","227242.36949","72.718710427","5.7265463933"
-"United States","USA","2000","282171.957","1","9898700","72.347054303","6.0324539789"
-"Uruguay","URY","2000","3219.793","12.099591667","25255.961693","78.978740282","5.108067988"
-```
+| Variable Name | Description |
+| :-: | :-: |
+| POP | Population (in thousands) |
+| XRAT | Exchange Rate to US Dollar |                     
+| tcgdp | Total PPP Converted GDP (in million international dollar) |
+| cc | Consumption Share of PPP Converted GDP Per Capita (%) |
+| cg | Government Consumption Share of PPP Converted GDP Per Capita (%) |
+
 
 We'll read this in from a URL using the `pandas` function `read_csv`.
 
@@ -177,9 +177,15 @@ df = pd.read_csv('https://raw.githubusercontent.com/QuantEcon/lecture-python-pro
 type(df)
 ```
 
+Here's the content of `test_pwt.csv`
+
 ```{code-cell} python3
 df
 ```
+
+### Select Data by Position
+
+In practice, one thing that we do all the time is to find, select and work with a subset of the data of our interests. 
 
 We can select particular rows using standard Python array slicing notation
 
@@ -193,7 +199,7 @@ To select columns, we can pass a list containing the names of the desired column
 df[['country', 'tcgdp']]
 ```
 
-To select both rows and columns using integers, the `iloc` attribute should be used with the format `.iloc[rows, columns]`
+To select both rows and columns using integers, the `iloc` attribute should be used with the format `.iloc[rows, columns]`.
 
 ```{code-cell} python3
 df.iloc[2:5, 0:4]
@@ -205,7 +211,224 @@ To select rows and columns using a mixture of integers and labels, the `loc` att
 df.loc[df.index[2:5], ['country', 'tcgdp']]
 ```
 
-Let's imagine that we're only interested in population (`POP`) and total GDP (`tcgdp`).
+### Select Data by Conditions
+
+Instead of indexing rows and columns using integers and names, we can also obtain a sub-dataframe of our interests that satisfies certain (potentially complicated) conditions.
+
+This section demonstrates various ways to do that.
+
+The most straightforward way is with the `[]` operator.
+
+```{code-cell} python3
+df[df.POP >= 20000]
+```
+
+To understand what is going on here, notice that `df.POP >= 20000` returns a series of boolean values.
+
+```{code-cell} python3
+df.POP >= 20000
+```
+
+In this case, `df[___]` takes a series of boolean values and only returns rows with the `True` values.
+
+Take one more example,
+
+```{code-cell} python3
+df[(df.country.isin(['Argentina', 'India', 'South Africa'])) & (df.POP > 40000)]
+```
+
+However, there is another way of doing the same thing, which can be slightly faster for large dataframes, with more natural syntax.
+
+```{code-cell} python3
+# the above is equivalent to 
+df.query("POP >= 20000")
+```
+
+```{code-cell} python3
+df.query("country in ['Argentina', 'India', 'South Africa'] and POP > 40000")
+```
+
+We can also allow arithmetic operations between different columns.
+
+```{code-cell} python3
+df[(df.cc + df.cg >= 80) & (df.POP <= 20000)]
+```
+
+```{code-cell} python3
+# the above is equivalent to 
+df.query("cc + cg >= 80 & POP <= 20000")
+```
+
+For example, we can use the conditioning to select the country with the largest household consumption - gdp share `cc`.
+
+```{code-cell} python3
+df.loc[df.cc == max(df.cc)]
+```
+
+When we only want to look at certain columns of a selected sub-dataframe, we can use the above conditions with the `.loc[__ , __]` command.
+
+The first argument takes the condition, while the second argument takes a list of columns we want to return.
+
+```{code-cell} python3
+df.loc[(df.cc + df.cg >= 80) & (df.POP <= 20000), ['country', 'year', 'POP']]
+```
+
+
+**Application: Subsetting Dataframe**
+
+Real-world datasets can be [enormous](https://developers.google.com/machine-learning/data-prep/construct/collect/data-size-quality).
+
+It is sometimes desirable to work with a subset of data to enhance computational efficiency and reduce redundancy.
+
+Let's imagine that we're only interested in the population (`POP`) and total GDP (`tcgdp`).
+
+One way to strip the data frame `df` down to only these variables is to overwrite the dataframe using the selection method described above
+
+```{code-cell} python3
+df_subset = df[['country', 'POP', 'tcgdp']]
+df_subset
+```
+
+We can then save the smaller dataset for further analysis.
+
+```{code-block} python3
+:class: no-execute
+
+df_subset.to_csv('pwt_subset.csv', index=False)
+```
+
+### Apply Method
+
+Another widely used Pandas method is `df.apply()`. 
+
+It applies a function to each row/column and returns a series. 
+
+This function can be some built-in functions like the `max` function, a `lambda` function, or a user-defined function.
+
+Here is an example using the `max` function
+
+```{code-cell} python3
+df[['year', 'POP', 'XRAT', 'tcgdp', 'cc', 'cg']].apply(max)
+```
+
+This line of code applies the `max` function to all selected columns.
+
+`lambda` function is often used with `df.apply()` method 
+
+A trivial example is to return itself for each row in the dataframe 
+
+```{code-cell} python3
+df.apply(lambda row: row, axis=1)
+```
+
+Note: for the `.apply()` method
+- axis = 0 -- apply function to each column (variables)
+- axis = 1 -- apply function to each row (observations)
+- axis = 0 is the default parameter
+
+We can use it together with `.loc[]` to do some more advanced selection.
+
+
+```{code-cell} python3
+complexCondition = df.apply(
+    lambda row: row.POP > 40000 if row.country in ['Argentina', 'India', 'South Africa'] else row.POP < 20000, 
+    axis=1), ['country', 'year', 'POP', 'XRAT', 'tcgdp']
+```
+
+`df.apply()` here returns a series of boolean values rows that satisfies the condition specified in the if-else statement.
+
+In addition, it also defines a subset of variables of interest.
+
+```{code-cell} python3
+complexCondition
+```
+
+When we apply this condition to the dataframe, the result will be
+
+```{code-cell} python3
+df.loc[complexCondition]
+```
+
+
+### Make Changes in DataFrames
+
+The ability to make changes in dataframes is important to generate a clean dataset for future analysis.
+
+1. We can use `df.where()` conveniently to "keep" the rows we have selected and replace the rest rows with any other values
+
+```{code-cell} python3
+df.where(df.POP >= 20000, False)
+```
+
+
+2. We can simply use `.loc[]` to specify the column that we want to modify, and assign values
+
+```{code-cell} python3
+df.loc[df.cg == max(df.cg), 'cg'] = np.nan
+df
+```
+
+3. We can use the `.apply()` method to modify rows/columns as a whole
+
+```{code-cell} python3
+def update_row(row):
+    # modify POP
+    row.POP = np.nan if row.POP<= 10000 else row.POP
+
+    # modify XRAT
+    row.XRAT = row.XRAT / 10
+    return row
+
+df.apply(update_row, axis=1)
+```
+
+4. We can use the `.applymap()` method to modify all individual entries in the dataframe altogether.
+
+```{code-cell} python3
+
+# Let us randomly insert some NaN values
+for idx in list(zip([0, 3, 5, 6], [3, 4, 6, 2])):
+    df.iloc[idx] = np.nan
+
+df
+```
+
+The `zip` function here creates pairs of values at the corresponding position of the two lists (i.e. [0,3], [3,4] ...)
+
+
+**Application: Missing Value Imputation**
+
+Replacing missing values is an important step in data munging. 
+
+We can use the functions above to replace missing values
+
+```{code-cell} python3
+# replace all NaN values by 0
+def replace_nan(x):
+    if type(x)!=str:
+        return  0 if np.isnan(x) else x
+    else:
+        return x
+
+df.applymap(replace_nan)
+```
+
+Pandas also provides us with convenient methods to replace missing values
+
+for example, single imputation using variable means can be easily done in pandas
+
+```{code-cell} python3
+df = df.fillna(df.iloc[:,2:8].mean())
+df
+```
+
+Missing value imputation is a big area in data science involving various machine learning techniques.
+
+There are also more [advanced tools](https://scikit-learn.org/stable/modules/impute.html) in python to impute missing values.
+
+### Standardization and Summarization
+
+Let's imagine that we're only interested in the population (`POP`) and total GDP (`tcgdp`).
 
 One way to strip the data frame `df` down to only these variables is to overwrite the dataframe using the selection method described above
 
@@ -230,7 +453,7 @@ df.columns = 'population', 'total GDP'
 df
 ```
 
-Population is in thousands, let's revert to single units
+The `population` variable is in thousands, let's revert to single units
 
 ```{code-cell} python3
 df['population'] = df['population'] * 1e3
@@ -433,7 +656,7 @@ import datetime as dt
 import yfinance as yf
 ```
 
-Write a program to calculate the percentage price change over 2019 for the following shares:
+Write a program to calculate the percentage price change over 2021 for the following shares:
 
 ```{code-cell} python3
 ticker_list = {'INTC': 'Intel',
@@ -447,7 +670,6 @@ ticker_list = {'INTC': 'Intel',
                'QCOM': 'Qualcomm',
                'KO': 'Coca-Cola',
                'GOOG': 'Google',
-               'SNE': 'Sony',
                'PTR': 'PetroChina'}
 ```
 
@@ -455,8 +677,8 @@ Here's the first part of the program
 
 ```{code-cell} python3
 def read_data(ticker_list,
-          start=dt.datetime(2019, 1, 2),
-          end=dt.datetime(2019, 12, 31)):
+          start=dt.datetime(2021, 1, 1),
+          end=dt.datetime(2021, 12, 31)):
     """
     This function reads in closing price data from Yahoo
     for each tick in the ticker_list.
@@ -482,30 +704,6 @@ Complete the program to plot the result as a bar graph like this one:
 
 ```{exercise-end}
 ```
-
-```{exercise-start}
-:label: pd_ex2
-```
-
-Using the method `read_data` introduced in {ref}`pd_ex1`, write a program to obtain year-on-year percentage change for the following indices:
-
-```{code-cell} python3
-indices_list = {'^GSPC': 'S&P 500',
-               '^IXIC': 'NASDAQ',
-               '^DJI': 'Dow Jones',
-               '^N225': 'Nikkei'}
-```
-
-Complete the program to show summary statistics and plot the result as a time series graph like this one:
-
-```{figure} /_static/lecture_specific/pandas/pandas_indices_pctchange.png
-:scale: 80
-```
-
-```{exercise-end}
-```
-
-## Solutions
 
 ```{solution-start} pd_ex1
 :class: dropdown
@@ -548,6 +746,28 @@ plt.show()
 ```
 
 
+```{exercise-start}
+:label: pd_ex2
+```
+
+Using the method `read_data` introduced in {ref}`pd_ex1`, write a program to obtain year-on-year percentage change for the following indices:
+
+```{code-cell} python3
+indices_list = {'^GSPC': 'S&P 500',
+               '^IXIC': 'NASDAQ',
+               '^DJI': 'Dow Jones',
+               '^N225': 'Nikkei'}
+```
+
+Complete the program to show summary statistics and plot the result as a time series graph like this one:
+
+```{figure} /_static/lecture_specific/pandas/pandas_indices_pctchange.png
+:scale: 80
+```
+
+```{exercise-end}
+```
+
 ```{solution-start} pd_ex2
 :class: dropdown
 ```
@@ -558,7 +778,7 @@ Following the work you did in {ref}`pd_ex1`, you can query the data using `read_
 indices_data = read_data(
         indices_list,
         start=dt.datetime(1971, 1, 1),  #Common Start Date
-        end=dt.datetime(2020, 12, 31)
+        end=dt.datetime(2021, 12, 31)
 )
 ```
 
