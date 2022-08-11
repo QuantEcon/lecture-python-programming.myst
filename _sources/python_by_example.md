@@ -139,15 +139,14 @@ In fact, a package is just a directory containing
 1. possibly some compiled code that can be accessed by Python (e.g., functions compiled from C or FORTRAN code)
 1. a file called `__init__.py` that specifies what will be executed when we type `import package_name`
 
-In fact, you can find and explore the directory for NumPy on your computer
-easily enough if you look around.
-
-On this machine, it's located in
+You can check the location of your  `__init__.py` for NumPy in python by running the code:
 
 ```{code-block} ipython
 :class: no-execute
 
-anaconda3/lib/python3.7/site-packages/numpy
+import numpy as np
+
+print(np.__file__)
 ```
 
 #### Subpackages
@@ -159,7 +158,9 @@ Consider the line `ϵ_values = np.random.randn(100)`.
 
 Here `np` refers to the package NumPy, while `random` is a **subpackage** of NumPy.
 
-Subpackages are just packages that are subdirectories of another package.
+Subpackages are just packages that are subdirectories of another package. 
+
+For instance, you can find folder `random` under the directory of NumPy.
 
 ### Importing Names Directly
 
@@ -208,7 +209,7 @@ We can and will look at various ways to configure and improve this plot below.
 
 ## Alternative Implementations
 
-Let's try writing some alternative versions of {ref}`our first program <ourfirstprog>`, which plotted IID draws from the normal distribution.
+Let's try writing some alternative versions of {ref}`our first program <ourfirstprog>`, which plotted IID draws from the standard normal distribution.
 
 The programs below are less efficient than the original one, and hence
 somewhat artificial.
@@ -250,7 +251,9 @@ Let's study some parts of this program in more detail.
 
 Consider the statement `ϵ_values = []`, which creates an empty list.
 
-Lists are a *native Python data structure* used to group a collection of objects.
+Lists are a *native Python data structure* used to group a collection of objects. 
+
+Items in lists are ordered, and duplicates are allowed in lists.
 
 For example, try
 
@@ -259,7 +262,7 @@ x = [10, 'foo', False]
 type(x)
 ```
 
-The first element of `x` is an [integer](https://en.wikipedia.org/wiki/Integer_%28computer_science%29), the next is a [string](https://en.wikipedia.org/wiki/String_%28computer_science%29), and the third is a [Boolean value](https://en.wikipedia.org/wiki/Boolean_data_type).
+The first element of `x` is an [integer](https://en.wikipedia.org/wiki/Integer_(computer_science)), the next is a [string](https://en.wikipedia.org/wiki/String_(computer_science)), and the third is a [Boolean value](https://en.wikipedia.org/wiki/Boolean_data_type).
 
 When adding a value to a list, we can use the syntax `list_name.append(some_value)`
 
@@ -274,7 +277,7 @@ x
 
 Here `append()` is what's called a *method*, which is a function "attached to" an object---in this case, the list `x`.
 
-We'll learn all about methods later on, but just to give you some idea,
+We'll learn all about methods {doc}`later on <oop_intro>`, but just to give you some idea, 
 
 * Python objects such as lists, strings, etc. all have methods that are used to manipulate the data contained in the object.
 * String objects have [string methods](https://docs.python.org/3/library/stdtypes.html#string-methods), list objects have [list methods](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists), etc.
@@ -332,7 +335,7 @@ for animal in animals:
     print("The plural of " + animal + " is " + animal + "s")
 ```
 
-This example helps to clarify how the `for` loop works:  When we execute a
+This example helps to clarify how the `for` loop works: When we execute a
 loop of the form
 
 ```{code-block} python3
@@ -397,10 +400,18 @@ plt.plot(ϵ_values)
 plt.show()
 ```
 
+A while loop will keep executing the code block delimited by indentation until the condition (```i < ts_length```) is satisfied.
+
+In this case, the program will keep adding values to the list ```ϵ_values``` until ```i``` equals ```ts_length```:
+
+```{code-cell} python3
+i == ts_length #the ending condition for the while loop
+```
+
 Note that
 
-* the code block for the `while` loop is again delimited only by indentation
-* the statement  `i = i + 1` can be replaced by `i += 1`
+* the code block for the `while` loop is again delimited only by indentation.
+* the statement  `i = i + 1` can be replaced by `i += 1`.
 
 ## Another Application
 
@@ -478,8 +489,30 @@ Set $T=200$ and $\alpha = 0.9$.
 ```{exercise-end}
 ```
 
+```{solution-start} pbe_ex1
+:class: dropdown
+```
 
-```{exercise}
+Here's one solution.
+
+```{code-cell} python3
+α = 0.9
+T = 200
+x = np.empty(T+1)
+x[0] = 0
+
+for t in range(T):
+    x[t+1] = α * x[t] + np.random.randn()
+
+plt.plot(x)
+plt.show()
+```
+
+```{solution-end}
+```
+
+
+```{exercise-start}
 :label: pbe_ex2
 
 Starting with your solution to exercise 1, plot three simulated time series,
@@ -495,7 +528,38 @@ Hints:
 * For the legend, noted that the expression `'foo' + str(42)` evaluates to `'foo42'`.
 ```
 
-```{exercise}
+```{exercise-end}
+```
+
+
+```{solution-start} pbe_ex2
+:class: dropdown
+```
+
+```{code-cell} python3
+α_values = [0.0, 0.8, 0.98]
+T = 200
+x = np.empty(T+1)
+
+for α in α_values:
+    x[0] = 0
+    for t in range(T):
+        x[t+1] = α * x[t] + np.random.randn()
+    plt.plot(x, label=f'$\\alpha = {α}$')
+
+plt.legend()
+plt.show()
+```
+
+Note: `f'$\\alpha = {α}$'` in the solution is an application of [f-String](https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings), which allows you to use `{}` to contain an expression. 
+
+The contained expression will be evaluated, and the result will be placed into the string.
+
+
+```{solution-end}
+```
+
+```{exercise-start}
 :label: pbe_ex3
 
 Similar to the previous exercises, plot the time series
@@ -510,6 +574,32 @@ $$
 Use $T=200$, $\alpha = 0.9$ and $\{\epsilon_t\}$ as before.
 
 Search online for a function that can be used to compute the absolute value $|x_t|$.
+```
+
+```{exercise-end}
+```
+
+
+```{solution-start} pbe_ex3
+:class: dropdown
+```
+
+Here's one solution:
+
+```{code-cell} python3
+α = 0.9
+T = 200
+x = np.empty(T+1)
+x[0] = 0
+
+for t in range(T):
+    x[t+1] = α * np.abs(x[t]) + np.random.randn()
+
+plt.plot(x)
+plt.show()
+```
+
+```{solution-end}
 ```
 
 
@@ -544,101 +634,6 @@ Replace this existing function with an if--else condition.
 
 ```{exercise-end}
 ```
-
-
-```{exercise-start}
-:label: pbe_ex5
-```
-
-Here's a harder exercise, that takes some thought and planning.
-
-The task is to compute an approximation to $\pi$ using [Monte Carlo](https://en.wikipedia.org/wiki/Monte_Carlo_method).
-
-Use no imports besides
-
-```{code-cell} python3
-import numpy as np
-```
-
-Your hints are as follows:
-
-* If $U$ is a bivariate uniform random variable on the unit square $(0, 1)^2$, then the probability that $U$ lies in a subset $B$ of $(0,1)^2$ is equal to the area of $B$.
-* If $U_1,\ldots,U_n$ are IID copies of $U$, then, as $n$ gets large, the fraction that falls in $B$, converges to the probability of landing in $B$.
-* For a circle, $area = \pi * radius^2$.
-
-```{exercise-end}
-```
-
-## Solutions
-
-```{solution-start} pbe_ex1
-:class: dropdown
-```
-
-Here's one solution.
-
-```{code-cell} python3
-α = 0.9
-T = 200
-x = np.empty(T+1)
-x[0] = 0
-
-for t in range(T):
-    x[t+1] = α * x[t] + np.random.randn()
-
-plt.plot(x)
-plt.show()
-```
-
-```{solution-end}
-```
-
-
-```{solution-start} pbe_ex2
-:class: dropdown
-```
-
-```{code-cell} python3
-α_values = [0.0, 0.8, 0.98]
-T = 200
-x = np.empty(T+1)
-
-for α in α_values:
-    x[0] = 0
-    for t in range(T):
-        x[t+1] = α * x[t] + np.random.randn()
-    plt.plot(x, label=f'$\\alpha = {α}$')
-
-plt.legend()
-plt.show()
-```
-
-```{solution-end}
-```
-
-
-```{solution-start} pbe_ex3
-:class: dropdown
-```
-
-Here's one solution:
-
-```{code-cell} python3
-α = 0.9
-T = 200
-x = np.empty(T+1)
-x[0] = 0
-
-for t in range(T):
-    x[t+1] = α * np.abs(x[t]) + np.random.randn()
-
-plt.plot(x)
-plt.show()
-```
-
-```{solution-end}
-```
-
 
 ```{solution-start} pbe_ex4
 :class: dropdown
@@ -683,6 +678,31 @@ plt.show()
 ```
 
 
+
+```{exercise-start}
+:label: pbe_ex5
+```
+
+Here's a harder exercise, that takes some thought and planning.
+
+The task is to compute an approximation to $\pi$ using [Monte Carlo](https://en.wikipedia.org/wiki/Monte_Carlo_method).
+
+Use no imports besides
+
+```{code-cell} python3
+import numpy as np
+```
+
+Your hints are as follows:
+
+* If $U$ is a bivariate uniform random variable on the unit square $(0, 1)^2$, then the probability that $U$ lies in a subset $B$ of $(0,1)^2$ is equal to the area of $B$.
+* If $U_1,\ldots,U_n$ are IID copies of $U$, then, as $n$ gets large, the fraction that falls in $B$, converges to the probability of landing in $B$.
+* For a circle, $area = \pi * radius^2$.
+
+```{exercise-end}
+```
+
+
 ```{solution-start} pbe_ex5
 :class: dropdown
 ```
@@ -704,12 +724,20 @@ We estimate the area by sampling bivariate uniforms and looking at the
 fraction that falls into the circle.
 
 ```{code-cell} python3
-n = 100000
+n = 1000000 # sample size for Monte Carlo simulation
 
 count = 0
 for i in range(n):
+
+    # drawing random positions on the square
     u, v = np.random.uniform(), np.random.uniform()
+
+    # check whether the point falls within the boundary
+    # of the unit circle centred at (0.5,0.5)
     d = np.sqrt((u - 0.5)**2 + (v - 0.5)**2)
+
+    # if it falls within the inscribed circle, 
+    # add it to the count
     if d < 0.5:
         count += 1
 
@@ -720,3 +748,4 @@ print(area_estimate * 4)  # dividing by radius**2
 
 ```{solution-end}
 ```
+

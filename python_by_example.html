@@ -241,11 +241,6 @@ const thebe_selector_output = ".output, .cell_output"
    3.6. Exercises
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solutions">
-   3.7. Solutions
-  </a>
- </li>
 </ul>
 
                             <p class="logo">
@@ -304,7 +299,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference internal" href="#alternative-implementations" id="id5">Alternative Implementations</a></p></li>
 <li><p><a class="reference internal" href="#another-application" id="id6">Another Application</a></p></li>
 <li><p><a class="reference internal" href="#exercises" id="id7">Exercises</a></p></li>
-<li><p><a class="reference internal" href="#solutions" id="id8">Solutions</a></p></li>
 </ul>
 </li>
 </ul>
@@ -429,10 +423,10 @@ to import additional functionality.</p>
 <li><p>possibly some compiled code that can be accessed by Python (e.g., functions compiled from C or FORTRAN code)</p></li>
 <li><p>a file called <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> that specifies what will be executed when we type <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">package_name</span></code></p></li>
 </ol>
-<p>In fact, you can find and explore the directory for NumPy on your computer
-easily enough if you look around.</p>
-<p>On this machine, it’s located in</p>
-<div class="no-execute highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.7</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">numpy</span>
+<p>You can check the location of your  <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> for NumPy in python by running the code:</p>
+<div class="no-execute highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -441,6 +435,7 @@ easily enough if you look around.</p>
 <p id="index-2">Consider the line <code class="docutils literal notranslate"><span class="pre">ϵ_values</span> <span class="pre">=</span> <span class="pre">np.random.randn(100)</span></code>.</p>
 <p>Here <code class="docutils literal notranslate"><span class="pre">np</span></code> refers to the package NumPy, while <code class="docutils literal notranslate"><span class="pre">random</span></code> is a <strong>subpackage</strong> of NumPy.</p>
 <p>Subpackages are just packages that are subdirectories of another package.</p>
+<p>For instance, you can find folder <code class="docutils literal notranslate"><span class="pre">random</span></code> under the directory of NumPy.</p>
 </div>
 </div>
 <div class="section" id="importing-names-directly">
@@ -505,7 +500,7 @@ them in <code class="docutils literal notranslate"><span class="pre">ϵ_values</
 </div>
 <div class="section" id="alternative-implementations">
 <h2><a class="toc-backref" href="#id5"><span class="section-number">3.4. </span>Alternative Implementations</a><a class="headerlink" href="#alternative-implementations" title="Permalink to this headline">¶</a></h2>
-<p>Let’s try writing some alternative versions of <a class="reference internal" href="#ourfirstprog"><span class="std std-ref">our first program</span></a>, which plotted IID draws from the normal distribution.</p>
+<p>Let’s try writing some alternative versions of <a class="reference internal" href="#ourfirstprog"><span class="std std-ref">our first program</span></a>, which plotted IID draws from the standard normal distribution.</p>
 <p>The programs below are less efficient than the original one, and hence
 somewhat artificial.</p>
 <p>But they do help us illustrate some important Python syntax and semantics in a familiar setting.</p>
@@ -544,6 +539,7 @@ somewhat artificial.</p>
 <span id="lists-ref"></span><h3><span class="section-number">3.4.2. </span>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h3>
 <p id="index-3">Consider the statement <code class="docutils literal notranslate"><span class="pre">ϵ_values</span> <span class="pre">=</span> <span class="pre">[]</span></code>, which creates an empty list.</p>
 <p>Lists are a <em>native Python data structure</em> used to group a collection of objects.</p>
+<p>Items in lists are ordered, and duplicates are allowed in lists.</p>
 <p>For example, try</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -558,7 +554,7 @@ somewhat artificial.</p>
 </div>
 </div>
 </div>
-<p>The first element of <code class="docutils literal notranslate"><span class="pre">x</span></code> is an <a class="reference external" href="https://en.wikipedia.org/wiki/Integer_%28computer_science%29">integer</a>, the next is a <a class="reference external" href="https://en.wikipedia.org/wiki/String_%28computer_science%29">string</a>, and the third is a <a class="reference external" href="https://en.wikipedia.org/wiki/Boolean_data_type">Boolean value</a>.</p>
+<p>The first element of <code class="docutils literal notranslate"><span class="pre">x</span></code> is an <a class="reference external" href="https://en.wikipedia.org/wiki/Integer_(computer_science)">integer</a>, the next is a <a class="reference external" href="https://en.wikipedia.org/wiki/String_(computer_science)">string</a>, and the third is a <a class="reference external" href="https://en.wikipedia.org/wiki/Boolean_data_type">Boolean value</a>.</p>
 <p>When adding a value to a list, we can use the syntax <code class="docutils literal notranslate"><span class="pre">list_name.append(some_value)</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -586,7 +582,7 @@ somewhat artificial.</p>
 </div>
 </div>
 <p>Here <code class="docutils literal notranslate"><span class="pre">append()</span></code> is what’s called a <em>method</em>, which is a function “attached to” an object—in this case, the list <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p>We’ll learn all about methods later on, but just to give you some idea,</p>
+<p>We’ll learn all about methods <a class="reference internal" href="oop_intro.html"><span class="doc">later on</span></a>, but just to give you some idea,</p>
 <ul class="simple">
 <li><p>Python objects such as lists, strings, etc. all have methods that are used to manipulate the data contained in the object.</p></li>
 <li><p>String objects have <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#string-methods">string methods</a>, list objects have <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">list methods</a>, etc.</p></li>
@@ -687,7 +683,7 @@ The plural of bird is birds
 </div>
 </div>
 </div>
-<p>This example helps to clarify how the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop works:  When we execute a
+<p>This example helps to clarify how the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop works: When we execute a
 loop of the form</p>
 <div class="no-execute highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">variable_name</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
     <span class="o">&lt;</span><span class="n">code</span> <span class="n">block</span><span class="o">&gt;</span>
@@ -746,10 +742,24 @@ soon enough.</p>
 <img alt="_images/python_by_example_34_0.png" src="_images/python_by_example_34_0.png" />
 </div>
 </div>
+<p>A while loop will keep executing the code block delimited by indentation until the condition (<code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">ts_length</span></code>) is satisfied.</p>
+<p>In this case, the program will keep adding values to the list <code class="docutils literal notranslate"><span class="pre">ϵ_values</span></code> until <code class="docutils literal notranslate"><span class="pre">i</span></code> equals <code class="docutils literal notranslate"><span class="pre">ts_length</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">==</span> <span class="n">ts_length</span> <span class="c1">#the ending condition for the while loop</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
 <p>Note that</p>
 <ul class="simple">
-<li><p>the code block for the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop is again delimited only by indentation</p></li>
-<li><p>the statement  <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">i</span> <span class="pre">+</span> <span class="pre">1</span></code> can be replaced by <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">+=</span> <span class="pre">1</span></code></p></li>
+<li><p>the code block for the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop is again delimited only by indentation.</p></li>
+<li><p>the statement  <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">i</span> <span class="pre">+</span> <span class="pre">1</span></code> can be replaced by <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">+=</span> <span class="pre">1</span></code>.</p></li>
 </ul>
 </div>
 </div>
@@ -781,7 +791,7 @@ array.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/python_by_example_36_0.png" src="_images/python_by_example_36_0.png" />
+<img alt="_images/python_by_example_38_0.png" src="_images/python_by_example_38_0.png" />
 </div>
 </div>
 <p>The statement <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">np.empty(T+1)</span></code> allocates storage in memory for <code class="docutils literal notranslate"><span class="pre">T+1</span></code>
@@ -822,6 +832,32 @@ x_0 = 0
 <p>Set <span class="math notranslate nohighlight">\(T=200\)</span> and <span class="math notranslate nohighlight">\(\alpha = 0.9\)</span>.</p>
 </div>
 </div>
+<div class="solution dropdown admonition" id="python_by_example-solution-1">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#pbe_ex1"> Exercise 3.1</a></p>
+<div class="section" id="s">
+<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><p>Here’s one solution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">α</span> <span class="o">=</span> <span class="mf">0.9</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">T</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">α</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/python_by_example_42_0.png" src="_images/python_by_example_42_0.png" />
+</div>
+</div>
+</div>
+</div>
 <div class="exercise admonition" id="pbe_ex2">
 
 <p class="admonition-title"><span class="caption-number">Exercise 3.2 </span></p>
@@ -835,6 +871,35 @@ one for each of the cases <span class="math notranslate nohighlight">\(\alpha=0\
 <li><p>If you call the <code class="docutils literal notranslate"><span class="pre">plot()</span></code> function multiple times before calling <code class="docutils literal notranslate"><span class="pre">show()</span></code>, all of the lines you produce will end up on the same figure.</p></li>
 <li><p>For the legend, noted that the expression <code class="docutils literal notranslate"><span class="pre">'foo'</span> <span class="pre">+</span> <span class="pre">str(42)</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">'foo42'</span></code>.</p></li>
 </ul>
+</div>
+</div>
+<div class="solution dropdown admonition" id="python_by_example-solution-3">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#pbe_ex2"> Exercise 3.2</a></p>
+<div class="section" id="s">
+<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">α_values</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">]</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">T</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">α</span> <span class="ow">in</span> <span class="n">α_values</span><span class="p">:</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">α</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">alpha = </span><span class="si">{</span><span class="n">α</span><span class="si">}</span><span class="s1">$&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/python_by_example_44_0.png" src="_images/python_by_example_44_0.png" />
+</div>
+</div>
+<p>Note: <code class="docutils literal notranslate"><span class="pre">f'$\\alpha</span> <span class="pre">=</span> <span class="pre">{α}$'</span></code> in the solution is an application of <a class="reference external" href="https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings">f-String</a>, which allows you to use <code class="docutils literal notranslate"><span class="pre">{}</span></code> to contain an expression.</p>
+<p>The contained expression will be evaluated, and the result will be placed into the string.</p>
 </div>
 </div>
 <div class="exercise admonition" id="pbe_ex3">
@@ -851,6 +916,32 @@ x_0 = 0
 \]</div>
 <p>Use <span class="math notranslate nohighlight">\(T=200\)</span>, <span class="math notranslate nohighlight">\(\alpha = 0.9\)</span> and <span class="math notranslate nohighlight">\(\{\epsilon_t\}\)</span> as before.</p>
 <p>Search online for a function that can be used to compute the absolute value <span class="math notranslate nohighlight">\(|x_t|\)</span>.</p>
+</div>
+</div>
+<div class="solution dropdown admonition" id="python_by_example-solution-5">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#pbe_ex3"> Exercise 3.3</a></p>
+<div class="section" id="s">
+<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><p>Here’s one solution:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">α</span> <span class="o">=</span> <span class="mf">0.9</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">T</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">α</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="p">])</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/python_by_example_46_0.png" src="_images/python_by_example_46_0.png" />
+</div>
+</div>
 </div>
 </div>
 <div class="exercise admonition" id="pbe_ex4">
@@ -893,111 +984,7 @@ to compute the absolute value.</p>
 <p>Replace this existing function with an if–else condition.</p>
 </div>
 </div>
-<div class="exercise admonition" id="pbe_ex5">
-
-<p class="admonition-title"><span class="caption-number">Exercise 3.5 </span></p>
-<div class="section" id="exercise-content">
-<p>Here’s a harder exercise, that takes some thought and planning.</p>
-<p>The task is to compute an approximation to <span class="math notranslate nohighlight">\(\pi\)</span> using <a class="reference external" href="https://en.wikipedia.org/wiki/Monte_Carlo_method">Monte Carlo</a>.</p>
-<p>Use no imports besides</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Your hints are as follows:</p>
-<ul class="simple">
-<li><p>If <span class="math notranslate nohighlight">\(U\)</span> is a bivariate uniform random variable on the unit square <span class="math notranslate nohighlight">\((0, 1)^2\)</span>, then the probability that <span class="math notranslate nohighlight">\(U\)</span> lies in a subset <span class="math notranslate nohighlight">\(B\)</span> of <span class="math notranslate nohighlight">\((0,1)^2\)</span> is equal to the area of <span class="math notranslate nohighlight">\(B\)</span>.</p></li>
-<li><p>If <span class="math notranslate nohighlight">\(U_1,\ldots,U_n\)</span> are IID copies of <span class="math notranslate nohighlight">\(U\)</span>, then, as <span class="math notranslate nohighlight">\(n\)</span> gets large, the fraction that falls in <span class="math notranslate nohighlight">\(B\)</span>, converges to the probability of landing in <span class="math notranslate nohighlight">\(B\)</span>.</p></li>
-<li><p>For a circle, <span class="math notranslate nohighlight">\(area = \pi * radius^2\)</span>.</p></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="section" id="solutions">
-<h2><a class="toc-backref" href="#id8"><span class="section-number">3.7. </span>Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
-<div class="solution dropdown admonition" id="python_by_example-solution-5">
-
-<p class="admonition-title">Solution to<a class="reference internal" href="#pbe_ex1"> Exercise 3.1</a></p>
-<div class="section" id="s">
-<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><p>Here’s one solution.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">α</span> <span class="o">=</span> <span class="mf">0.9</span>
-<span class="n">T</span> <span class="o">=</span> <span class="mi">200</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">T</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
-    <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">α</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/python_by_example_45_0.png" src="_images/python_by_example_45_0.png" />
-</div>
-</div>
-</div>
-</div>
-<div class="solution dropdown admonition" id="python_by_example-solution-6">
-
-<p class="admonition-title">Solution to<a class="reference internal" href="#pbe_ex2"> Exercise 3.2</a></p>
-<div class="section" id="s">
-<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">α_values</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">]</span>
-<span class="n">T</span> <span class="o">=</span> <span class="mi">200</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">T</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">α</span> <span class="ow">in</span> <span class="n">α_values</span><span class="p">:</span>
-    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
-        <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">α</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">alpha = </span><span class="si">{</span><span class="n">α</span><span class="si">}</span><span class="s1">$&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/python_by_example_47_0.png" src="_images/python_by_example_47_0.png" />
-</div>
-</div>
-</div>
-</div>
 <div class="solution dropdown admonition" id="python_by_example-solution-7">
-
-<p class="admonition-title">Solution to<a class="reference internal" href="#pbe_ex3"> Exercise 3.3</a></p>
-<div class="section" id="s">
-<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><p>Here’s one solution:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">α</span> <span class="o">=</span> <span class="mf">0.9</span>
-<span class="n">T</span> <span class="o">=</span> <span class="mi">200</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">T</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
-    <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">α</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="p">])</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/python_by_example_49_0.png" src="_images/python_by_example_49_0.png" />
-</div>
-</div>
-</div>
-</div>
-<div class="solution dropdown admonition" id="python_by_example-solution-8">
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#pbe_ex4"> Exercise 3.4</a></p>
 <div class="section" id="s">
@@ -1048,6 +1035,28 @@ to compute the absolute value.</p>
 </div>
 </div>
 </div>
+<div class="exercise admonition" id="pbe_ex5">
+
+<p class="admonition-title"><span class="caption-number">Exercise 3.5 </span></p>
+<div class="section" id="exercise-content">
+<p>Here’s a harder exercise, that takes some thought and planning.</p>
+<p>The task is to compute an approximation to <span class="math notranslate nohighlight">\(\pi\)</span> using <a class="reference external" href="https://en.wikipedia.org/wiki/Monte_Carlo_method">Monte Carlo</a>.</p>
+<p>Use no imports besides</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Your hints are as follows:</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(U\)</span> is a bivariate uniform random variable on the unit square <span class="math notranslate nohighlight">\((0, 1)^2\)</span>, then the probability that <span class="math notranslate nohighlight">\(U\)</span> lies in a subset <span class="math notranslate nohighlight">\(B\)</span> of <span class="math notranslate nohighlight">\((0,1)^2\)</span> is equal to the area of <span class="math notranslate nohighlight">\(B\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(U_1,\ldots,U_n\)</span> are IID copies of <span class="math notranslate nohighlight">\(U\)</span>, then, as <span class="math notranslate nohighlight">\(n\)</span> gets large, the fraction that falls in <span class="math notranslate nohighlight">\(B\)</span>, converges to the probability of landing in <span class="math notranslate nohighlight">\(B\)</span>.</p></li>
+<li><p>For a circle, <span class="math notranslate nohighlight">\(area = \pi * radius^2\)</span>.</p></li>
+</ul>
+</div>
+</div>
 <div class="solution dropdown admonition" id="python_by_example-solution-9">
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#pbe_ex5"> Exercise 3.5</a></p>
@@ -1064,12 +1073,20 @@ by <span class="math notranslate nohighlight">\(r^2 = (1/2)^2 = 1/4\)</span> giv
 fraction that falls into the circle.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">100000</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1000000</span> <span class="c1"># sample size for Monte Carlo simulation</span>
 
 <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+
+    <span class="c1"># drawing random positions on the square</span>
     <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">()</span>
+
+    <span class="c1"># check whether the point falls within the boundary</span>
+    <span class="c1"># of the unit circle centred at (0.5,0.5)</span>
     <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">u</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># if it falls within the inscribed circle, </span>
+    <span class="c1"># add it to the count</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
         <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
 
@@ -1080,7 +1097,7 @@ fraction that falls into the circle.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.1376
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.142144
 </pre></div>
 </div>
 </div>
