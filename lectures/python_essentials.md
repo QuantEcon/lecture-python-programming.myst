@@ -61,6 +61,9 @@ Let's learn a bit more about them.
 
 ### Primitive Data Types
 
+
+***1. Boolean Values***
+
 One simple data type is **Boolean values**, which can be either `True` or `False`
 
 ```{code-cell} python3
@@ -109,7 +112,13 @@ bools = [True, True, False, True]  # List of Boolean values
 sum(bools)
 ```
 
-Complex numbers are another primitive data type in Python
+***2. Numeric Types***
+
+Numeric types are also important primitive data types.
+
+We have seen `integer` and `float` types before.
+
+**Complex numbers** are another primitive data type in Python
 
 ```{code-cell} python3
 x = complex(1, 2)
@@ -191,7 +200,7 @@ notation.
 For example,
 
 ```{code-cell} python3
-a = [2, 4, 6, 8]
+a = [2, 4, 6, 8, 10]
 a[1:]
 ```
 
@@ -205,6 +214,18 @@ Negative numbers are also permissible
 
 ```{code-cell} python3
 a[-2:]  # Last two elements of the list
+```
+
+You can also use the format `[start:end:step]` to specify step.
+
+
+```{code-cell} python3
+a[1::2] # Jump over one element each time
+```
+Using negative step, you can return the sequence in a reversed order.
+
+```{code-cell} python3
+a[-1:0:-1] # Walk back from the last element to the second element
 ```
 
 The same slice notation works on tuples and strings
@@ -340,7 +361,7 @@ To give an example, let's write the file us_cities.txt, which lists US cities an
 
 (us_cities_data)=
 ```{code-cell} ipython
-%%file us_cities.txt
+%%writefile us_cities.txt
 new york: 8244910
 los angeles: 3819702
 chicago: 2707120
@@ -352,7 +373,7 @@ san diego: 1326179
 dallas: 1223229
 ```
 
-Here %%file is an [IPython cell magic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cell-magics).
+Here `%%writefile` is an [IPython cell magic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cell-magics).
 
 Suppose that we want to make the information more readable, by capitalizing names and adding commas to mark thousands.
 
