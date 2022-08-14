@@ -354,21 +354,22 @@ df.loc[complexCondition]
 
 The ability to make changes in dataframes is important to generate a clean dataset for future analysis.
 
-1. We can use `df.where()` conveniently to "keep" the rows we have selected and replace the rest rows with any other values
+
+**1.** We can use `df.where()` conveniently to "keep" the rows we have selected and replace the rest rows with any other values
 
 ```{code-cell} python3
 df.where(df.POP >= 20000, False)
 ```
 
 
-2. We can simply use `.loc[]` to specify the column that we want to modify, and assign values
+**2.** We can simply use `.loc[]` to specify the column that we want to modify, and assign values
 
 ```{code-cell} python3
 df.loc[df.cg == max(df.cg), 'cg'] = np.nan
 df
 ```
 
-3. We can use the `.apply()` method to modify rows/columns as a whole
+**3.** We can use the `.apply()` method to modify rows/columns as a whole
 
 ```{code-cell} python3
 def update_row(row):
@@ -382,7 +383,7 @@ def update_row(row):
 df.apply(update_row, axis=1)
 ```
 
-4. We can use the `.applymap()` method to modify all individual entries in the dataframe altogether.
+**4.** We can use the `.applymap()` method to modify all individual entries in the dataframe altogether.
 
 ```{code-cell} python3
 
