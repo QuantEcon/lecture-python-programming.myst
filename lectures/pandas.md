@@ -33,8 +33,8 @@ In addition to what’s in Anaconda, this lecture will need the following librar
 ---
 tags: [hide-output]
 ---
-!pip install --upgrade pandas-datareader
-!pip install --upgrade yfinance
+%pip install --upgrade pandas-datareader
+%pip install --upgrade yfinance
 ```
 
 ## Overview
@@ -386,7 +386,7 @@ df.apply(update_row, axis=1)
 **4.** We can use the `.applymap()` method to modify all individual entries in the dataframe altogether.
 
 ```{code-cell} python3
-# Round all numerical values to 2 decimal points
+# Round all decimal numbers to 2 decimal places
 df.applymap(lambda x : round(x,2) if type(x)!=str else x)
 ```
 
