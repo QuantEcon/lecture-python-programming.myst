@@ -369,7 +369,7 @@ df.loc[df.cg == max(df.cg), 'cg'] = np.nan
 df
 ```
 
-**3.** We can use the `.apply()` method to modify rows/columns as a whole
+**3.** We can use the `.apply()` method to modify *rows/columns as a whole*
 
 ```{code-cell} python3
 def update_row(row):
@@ -383,7 +383,7 @@ def update_row(row):
 df.apply(update_row, axis=1)
 ```
 
-**4.** We can use the `.applymap()` method to modify all individual entries in the dataframe altogether.
+**4.** We can use the `.applymap()` method to modify all *individual entries* in the dataframe altogether.
 
 ```{code-cell} python3
 # Round all decimal numbers to 2 decimal places
@@ -403,7 +403,7 @@ for idx in list(zip([0, 3, 5, 6], [3, 4, 6, 2])):
 df
 ```
 
-We can use the `.applymap()` to replace missing values
+We can also use the `.applymap()` method to replace missing values
 
 ```{code-cell} python3
 # replace all NaN values by 0
