@@ -386,22 +386,24 @@ df.apply(update_row, axis=1)
 **4.** We can use the `.applymap()` method to modify all individual entries in the dataframe altogether.
 
 ```{code-cell} python3
+# Round all numerical values to 2 decimal points
+df.applymap(lambda x : round(x,2) if type(x)!=str else x)
+```
 
-# Let us randomly insert some NaN values
+**Application: Missing Value Imputation**
+
+Replacing missing values is an important step in data munging. 
+
+Let us randomly insert some NaN values
+
+```{code-cell} python3
 for idx in list(zip([0, 3, 5, 6], [3, 4, 6, 2])):
     df.iloc[idx] = np.nan
 
 df
 ```
 
-The `zip` function here creates pairs of values at the corresponding position of the two lists (i.e. [0,3], [3,4] ...)
-
-
-**Application: Missing Value Imputation**
-
-Replacing missing values is an important step in data munging. 
-
-We can use the functions above to replace missing values
+We can use the `.applymap()` to replace missing values
 
 ```{code-cell} python3
 # replace all NaN values by 0
