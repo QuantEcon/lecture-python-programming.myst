@@ -184,8 +184,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#standardization-and-summarization">
-     14.3.5. Standardization and Summarization
+    <a class="reference internal nav-link" href="#standardization-and-visualization">
+     14.3.5. Standardization and Visualization
     </a>
    </li>
   </ul>
@@ -287,30 +287,30 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pandas_datareader-0.10.0-py3-none-any.whl (109 kB)
 ?25l
-     |███                             | 10 kB 24.7 MB/s eta 0:00:01
-     |██████                          | 20 kB 20.2 MB/s eta 0:00:01
-     |█████████                       | 30 kB 9.9 MB/s eta 0:00:01
-     |████████████                    | 40 kB 4.7 MB/s eta 0:00:01
-     |███████████████                 | 51 kB 4.6 MB/s eta 0:00:01
-     |██████████████████              | 61 kB 5.5 MB/s eta 0:00:01
-     |█████████████████████           | 71 kB 5.9 MB/s eta 0:00:01
-     |████████████████████████        | 81 kB 4.5 MB/s eta 0:00:01
-     |███████████████████████████     | 92 kB 5.0 MB/s eta 0:00:01
-     |██████████████████████████████  | 102 kB 5.6 MB/s eta 0:00:01
-     |████████████████████████████████| 109 kB 5.6 MB/s 
-?25hRequirement already satisfied: pandas&gt;=0.23 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from pandas-datareader) (1.4.2)
-Requirement already satisfied: lxml in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from pandas-datareader) (4.8.0)
+     |███                             | 10 kB 42.2 MB/s eta 0:00:01
+     |██████                          | 20 kB 25.5 MB/s eta 0:00:01
+     |█████████                       | 30 kB 17.9 MB/s eta 0:00:01
+     |████████████                    | 40 kB 9.8 MB/s eta 0:00:01
+     |███████████████                 | 51 kB 10.0 MB/s eta 0:00:01
+     |██████████████████              | 61 kB 11.8 MB/s eta 0:00:01
+     |█████████████████████           | 71 kB 9.6 MB/s eta 0:00:01
+     |████████████████████████        | 81 kB 10.4 MB/s eta 0:00:01
+     |███████████████████████████     | 92 kB 11.6 MB/s eta 0:00:01
+     |██████████████████████████████  | 102 kB 10.8 MB/s eta 0:00:01
+     |████████████████████████████████| 109 kB 10.8 MB/s 
+?25hRequirement already satisfied: lxml in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from pandas-datareader) (4.8.0)
 Requirement already satisfied: requests&gt;=2.19.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from pandas-datareader) (2.27.1)
+Requirement already satisfied: pandas&gt;=0.23 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from pandas-datareader) (1.4.2)
 Requirement already satisfied: python-dateutil&gt;=2.8.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (2.8.2)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (2021.3)
+Requirement already satisfied: numpy&gt;=1.18.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (1.21.5)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pytz&gt;=2020.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (2021.3)
-Requirement already satisfied: numpy&gt;=1.18.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (1.21.5)
-Requirement already satisfied: six&gt;=1.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from python-dateutil&gt;=2.8.1-&gt;pandas&gt;=0.23-&gt;pandas-datareader) (1.16.0)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (1.26.9)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from python-dateutil&gt;=2.8.1-&gt;pandas&gt;=0.23-&gt;pandas-datareader) (1.16.0)
 Requirement already satisfied: charset-normalizer~=2.0.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2.0.4)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2021.10.8)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (3.3)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (1.26.9)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2021.10.8)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pandas-datareader
@@ -323,9 +323,9 @@ Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/share/miniconda3/envs/
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading yfinance-0.1.74-py2.py3-none-any.whl (27 kB)
+Requirement already satisfied: numpy&gt;=1.15 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from yfinance) (1.21.5)
 Requirement already satisfied: pandas&gt;=0.24.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from yfinance) (1.4.2)
 Requirement already satisfied: requests&gt;=2.26 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from yfinance) (2.27.1)
-Requirement already satisfied: numpy&gt;=1.15 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from yfinance) (1.21.5)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting multitasking&gt;=0.0.7
@@ -336,9 +336,9 @@ Requirement already satisfied: pytz&gt;=2020.1 in /usr/share/miniconda3/envs/qua
 Requirement already satisfied: six&gt;=1.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from python-dateutil&gt;=2.8.1-&gt;pandas&gt;=0.24.0-&gt;yfinance) (1.16.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.26-&gt;yfinance) (3.3)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.26-&gt;yfinance) (2021.10.8)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.26-&gt;yfinance) (3.3)
 Requirement already satisfied: charset-normalizer~=2.0.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.26-&gt;yfinance) (2.0.4)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.26-&gt;yfinance) (2021.10.8)
 Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.26-&gt;yfinance) (1.26.9)
 </pre></div>
 </div>
@@ -405,10 +405,10 @@ place</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1.420186
-1   -0.793363
-2   -0.608509
-3    0.091092
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   -0.219382
+1    1.407099
+2   -2.158795
+3   -0.571837
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -425,10 +425,10 @@ operations</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    142.018632
-1    -79.336306
-2    -60.850902
-3      9.109239
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    -21.938246
+1    140.709936
+2   -215.879525
+3    -57.183679
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -441,10 +441,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1.420186
-1    0.793363
-2    0.608509
-3    0.091092
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.219382
+1    1.407099
+2    2.158795
+3    0.571837
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -460,13 +460,13 @@ Name: daily returns, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    4.000000
-mean     0.027352
-std      1.003650
-min     -0.793363
-25%     -0.654723
-50%     -0.258708
-75%      0.423366
-max      1.420186
+mean    -0.385729
+std      1.462909
+min     -2.158795
+25%     -0.968576
+50%     -0.395610
+75%      0.187238
+max      1.407099
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -481,10 +481,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN    1.420186
-AAPL   -0.793363
-MSFT   -0.608509
-GOOG    0.091092
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN   -0.219382
+AAPL    1.407099
+MSFT   -2.158795
+GOOG   -0.571837
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -501,7 +501,7 @@ type—in this case, floats).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.4201863197731197
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.2193824583238937
 </pre></div>
 </div>
 </div>
@@ -515,9 +515,9 @@ type—in this case, floats).</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN    0.000000
-AAPL   -0.793363
-MSFT   -0.608509
-GOOG    0.091092
+AAPL    1.407099
+MSFT   -2.158795
+GOOG   -0.571837
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -1898,9 +1898,7 @@ dtype: float64
 <div class="section" id="make-changes-in-dataframes">
 <h3><span class="section-number">14.3.4. </span>Make Changes in DataFrames<a class="headerlink" href="#make-changes-in-dataframes" title="Permalink to this headline">¶</a></h3>
 <p>The ability to make changes in dataframes is important to generate a clean dataset for future analysis.</p>
-<ol class="simple">
-<li><p>We can use <code class="docutils literal notranslate"><span class="pre">df.where()</span></code> conveniently to “keep” the rows we have selected and replace the rest rows with any other values</p></li>
-</ol>
+<p><strong>1.</strong> We can use <code class="docutils literal notranslate"><span class="pre">df.where()</span></code> conveniently to “keep” the rows we have selected and replace the rest rows with any other values</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">POP</span> <span class="o">&gt;=</span> <span class="mi">20000</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
@@ -2029,9 +2027,7 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
-<ol class="simple">
-<li><p>We can simply use <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> to specify the column that we want to modify, and assign values</p></li>
-</ol>
+<p><strong>2.</strong> We can simply use <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> to specify the column that we want to modify, and assign values</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">cg</span> <span class="o">==</span> <span class="nb">max</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">cg</span><span class="p">),</span> <span class="s1">&#39;cg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
@@ -2161,9 +2157,7 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
-<ol class="simple">
-<li><p>We can use the <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> method to modify rows/columns as a whole</p></li>
-</ol>
+<p><strong>3.</strong> We can use the <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> method to modify <em>rows/columns as a whole</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update_row</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
@@ -2300,13 +2294,142 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
-<ol class="simple">
-<li><p>We can use the <code class="docutils literal notranslate"><span class="pre">.applymap()</span></code> method to modify all individual entries in the dataframe altogether.</p></li>
-</ol>
+<p><strong>4.</strong> We can use the <code class="docutils literal notranslate"><span class="pre">.applymap()</span></code> method to modify all <em>individual entries</em> in the dataframe altogether.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let us randomly insert some NaN values</span>
-<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">])):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Round all decimal numbers to 2 decimal places</span>
+<span class="n">df</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">!=</span><span class="nb">str</span> <span class="k">else</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>country isocode</th>
+      <th>year</th>
+      <th>POP</th>
+      <th>XRAT</th>
+      <th>tcgdp</th>
+      <th>cc</th>
+      <th>cg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Argentina</td>
+      <td>ARG</td>
+      <td>2000</td>
+      <td>37335.65</td>
+      <td>1.00</td>
+      <td>295072.22</td>
+      <td>75.72</td>
+      <td>5.58</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Australia</td>
+      <td>AUS</td>
+      <td>2000</td>
+      <td>19053.19</td>
+      <td>1.72</td>
+      <td>541804.65</td>
+      <td>67.76</td>
+      <td>6.72</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>India</td>
+      <td>IND</td>
+      <td>2000</td>
+      <td>1006300.30</td>
+      <td>44.94</td>
+      <td>1728144.37</td>
+      <td>64.58</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Israel</td>
+      <td>ISR</td>
+      <td>2000</td>
+      <td>6114.57</td>
+      <td>4.08</td>
+      <td>129253.89</td>
+      <td>64.44</td>
+      <td>10.27</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Malawi</td>
+      <td>MWI</td>
+      <td>2000</td>
+      <td>11801.50</td>
+      <td>59.54</td>
+      <td>5026.22</td>
+      <td>74.71</td>
+      <td>11.66</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>South Africa</td>
+      <td>ZAF</td>
+      <td>2000</td>
+      <td>45064.10</td>
+      <td>6.94</td>
+      <td>227242.37</td>
+      <td>72.72</td>
+      <td>5.73</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>United States</td>
+      <td>USA</td>
+      <td>2000</td>
+      <td>282171.96</td>
+      <td>1.00</td>
+      <td>9898700.00</td>
+      <td>72.35</td>
+      <td>6.03</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Uruguay</td>
+      <td>URY</td>
+      <td>2000</td>
+      <td>3219.79</td>
+      <td>12.10</td>
+      <td>25255.96</td>
+      <td>78.98</td>
+      <td>5.11</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Application: Missing Value Imputation</strong></p>
+<p>Replacing missing values is an important step in data munging.</p>
+<p>Let’s randomly insert some NaN values</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">])):</span>
     <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 
 <span class="n">df</span>
@@ -2435,10 +2558,8 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">zip</span></code> function here creates pairs of values at the corresponding position of the two lists (i.e. [0,3], [3,4] …)</p>
-<p><strong>Application: Missing Value Imputation</strong></p>
-<p>Replacing missing values is an important step in data munging.</p>
-<p>We can use the functions above to replace missing values</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">zip()</span></code> function here creates pairs of values from the two lists (i.e. [0,3], [3,4] …)</p>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">.applymap()</span></code> method again to replace all missing values with 0</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># replace all NaN values by 0</span>
@@ -2574,8 +2695,8 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
-<p>Pandas also provides us with convenient methods to replace missing values</p>
-<p>for example, single imputation using variable means can be easily done in pandas</p>
+<p>Pandas also provides us with convenient methods to replace missing values.</p>
+<p>For example, single imputation using variable means can be easily done in pandas</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
@@ -2708,8 +2829,8 @@ dtype: float64
 <p>Missing value imputation is a big area in data science involving various machine learning techniques.</p>
 <p>There are also more <a class="reference external" href="https://scikit-learn.org/stable/modules/impute.html">advanced tools</a> in python to impute missing values.</p>
 </div>
-<div class="section" id="standardization-and-summarization">
-<h3><span class="section-number">14.3.5. </span>Standardization and Summarization<a class="headerlink" href="#standardization-and-summarization" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="standardization-and-visualization">
+<h3><span class="section-number">14.3.5. </span>Standardization and Visualization<a class="headerlink" href="#standardization-and-visualization" title="Permalink to this headline">¶</a></h3>
 <p>Let’s imagine that we’re only interested in the population (<code class="docutils literal notranslate"><span class="pre">POP</span></code>) and total GDP (<code class="docutils literal notranslate"><span class="pre">tcgdp</span></code>).</p>
 <p>One way to strip the data frame <code class="docutils literal notranslate"><span class="pre">df</span></code> down to only these variables is to overwrite the dataframe using the selection method described above</p>
 <div class="cell docutils container">
@@ -3143,7 +3264,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_80_0.png" src="_images/pandas_80_0.png" />
+<img alt="_images/pandas_82_0.png" src="_images/pandas_82_0.png" />
 </div>
 </div>
 <p>At the moment the data frame is ordered alphabetically on the countries—let’s change it to GDP per capita</p>
@@ -3248,7 +3369,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_84_0.png" src="_images/pandas_84_0.png" />
+<img alt="_images/pandas_86_0.png" src="_images/pandas_86_0.png" />
 </div>
 </div>
 </div>
@@ -3486,7 +3607,7 @@ this URL into your browser (note that this requires an internet connection)</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_98_0.png" src="_images/pandas_98_0.png" />
+<img alt="_images/pandas_100_0.png" src="_images/pandas_100_0.png" />
 </div>
 </div>
 <p>Note that pandas offers many other file type alternatives.</p>
@@ -3525,7 +3646,7 @@ available for working with world bank data such as <a class="reference external"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_100_0.png" src="_images/pandas_100_0.png" />
+<img alt="_images/pandas_102_0.png" src="_images/pandas_102_0.png" />
 </div>
 </div>
 <p>The <a class="reference external" href="https://pandas-datareader.readthedocs.io/en/latest/index.html">documentation</a> provides more details on how to access various data sources.</p>
@@ -3672,7 +3793,7 @@ Name: 2021-12-30 00:00:00, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_112_0.png" src="_images/pandas_112_0.png" />
+<img alt="_images/pandas_114_0.png" src="_images/pandas_114_0.png" />
 </div>
 </div>
 </div>
@@ -4232,7 +4353,7 @@ Name: 2021-12-30 00:00:00, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/pandas_122_0.png" src="_images/pandas_122_0.png" />
+<img alt="_images/pandas_124_0.png" src="_images/pandas_124_0.png" />
 </div>
 </div>
 </div>
