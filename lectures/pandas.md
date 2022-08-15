@@ -354,21 +354,22 @@ df.loc[complexCondition]
 
 The ability to make changes in dataframes is important to generate a clean dataset for future analysis.
 
-1. We can use `df.where()` conveniently to "keep" the rows we have selected and replace the rest rows with any other values
+
+**1.** We can use `df.where()` conveniently to "keep" the rows we have selected and replace the rest rows with any other values
 
 ```{code-cell} python3
 df.where(df.POP >= 20000, False)
 ```
 
 
-2. We can simply use `.loc[]` to specify the column that we want to modify, and assign values
+**2.** We can simply use `.loc[]` to specify the column that we want to modify, and assign values
 
 ```{code-cell} python3
 df.loc[df.cg == max(df.cg), 'cg'] = np.nan
 df
 ```
 
-3. We can use the `.apply()` method to modify rows/columns as a whole
+**3.** We can use the `.apply()` method to modify *rows/columns as a whole*
 
 ```{code-cell} python3
 def update_row(row):
@@ -382,25 +383,29 @@ def update_row(row):
 df.apply(update_row, axis=1)
 ```
 
-4. We can use the `.applymap()` method to modify all individual entries in the dataframe altogether.
+**4.** We can use the `.applymap()` method to modify all *individual entries* in the dataframe altogether.
 
 ```{code-cell} python3
+# Round all decimal numbers to 2 decimal places
+df.applymap(lambda x : round(x,2) if type(x)!=str else x)
+```
 
-# Let us randomly insert some NaN values
+**Application: Missing Value Imputation**
+
+Replacing missing values is an important step in data munging. 
+
+Let's randomly insert some NaN values
+
+```{code-cell} python3
 for idx in list(zip([0, 3, 5, 6], [3, 4, 6, 2])):
     df.iloc[idx] = np.nan
 
 df
 ```
 
-The `zip` function here creates pairs of values at the corresponding position of the two lists (i.e. [0,3], [3,4] ...)
+The `zip()` function here creates pairs of values from the two lists (i.e. [0,3], [3,4] ...)
 
-
-**Application: Missing Value Imputation**
-
-Replacing missing values is an important step in data munging. 
-
-We can use the functions above to replace missing values
+We can use the `.applymap()` method again to replace all missing values with 0
 
 ```{code-cell} python3
 # replace all NaN values by 0
@@ -413,9 +418,9 @@ def replace_nan(x):
 df.applymap(replace_nan)
 ```
 
-Pandas also provides us with convenient methods to replace missing values
+Pandas also provides us with convenient methods to replace missing values.
 
-for example, single imputation using variable means can be easily done in pandas
+For example, single imputation using variable means can be easily done in pandas
 
 ```{code-cell} python3
 df = df.fillna(df.iloc[:,2:8].mean())
@@ -426,7 +431,7 @@ Missing value imputation is a big area in data science involving various machine
 
 There are also more [advanced tools](https://scikit-learn.org/stable/modules/impute.html) in python to impute missing values.
 
-### Standardization and Summarization
+### Standardization and Visualization
 
 Let's imagine that we're only interested in the population (`POP`) and total GDP (`tcgdp`).
 
