@@ -33,8 +33,8 @@ In addition to what’s in Anaconda, this lecture will need the following librar
 ---
 tags: [hide-output]
 ---
-%pip install --upgrade pandas-datareader
-%pip install --upgrade yfinance
+!pip install --upgrade pandas-datareader
+!pip install --upgrade yfinance
 ```
 
 ## Overview
