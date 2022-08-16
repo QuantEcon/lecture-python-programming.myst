@@ -216,13 +216,13 @@ Negative numbers are also permissible
 a[-2:]  # Last two elements of the list
 ```
 
-You can also use the format `[start:end:step]` to specify step
+You can also use the format `[start:end:step]` to specify the step
 
 ```{code-cell} python3
 a[::2]
 ```
 
-Using negative step, you can return the sequence in a reversed order
+Using the negative step, you can return the sequence in a reversed order
 
 ```{code-cell} python3
 a[-2::-1] # Walk back from the second last element
