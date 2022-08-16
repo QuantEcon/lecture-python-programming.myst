@@ -194,13 +194,13 @@ Tuple unpacking is convenient and we'll use it often.
 ```{index} single: Python; Slicing
 ```
 
-To access multiple elements of a list or tuple, you can use Python's slice
+To access multiple elements of a list or a tuple or a string, you can use Python's slice
 notation.
 
 For example,
 
 ```{code-cell} python3
-a = [2, 4, 6, 8, 10]
+a = ["a", "b", "c", "d", "e"]
 a[1:]
 ```
 
@@ -216,16 +216,16 @@ Negative numbers are also permissible
 a[-2:]  # Last two elements of the list
 ```
 
-You can also use the format `[start:end:step]` to specify step.
-
+You can also use the format `[start:end:step]` to specify step
 
 ```{code-cell} python3
-a[1::2] # Jump over one element each time
+a[::2]
 ```
-Using negative step, you can return the sequence in a reversed order.
+
+Using negative step, you can return the sequence in a reversed order
 
 ```{code-cell} python3
-a[-1:0:-1] # Walk back from the last element to the second element
+a[-2::-1] # Walk back from the second last element
 ```
 
 The same slice notation works on tuples and strings
