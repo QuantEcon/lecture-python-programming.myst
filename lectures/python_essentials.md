@@ -225,7 +225,7 @@ a[::2]
 Using the negative step, you can return the sequence in a reversed order
 
 ```{code-cell} python3
-a[-2::-1] # Walk back from the second last element
+a[-2::-1] # Walk backwards from the second last element to the first element
 ```
 
 The same slice notation works on tuples and strings
