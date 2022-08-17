@@ -951,7 +951,7 @@ An alternative, more pythonic solution using `all()`:
 def f(seq_a, seq_b):
   return all([i in seq_b for i in seq_a])
 
-  # == test == #
+# == test == #
 print(f("ab", "cadb"))
 print(f("ab", "cjdb"))
 print(f([1, 2], [1, 2, 3]))
