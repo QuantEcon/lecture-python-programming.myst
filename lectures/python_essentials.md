@@ -62,7 +62,7 @@ Let's learn a bit more about them.
 ### Primitive Data Types
 
 
-***1. Boolean Values***
+#### Boolean Values
 
 One simple data type is **Boolean values**, which can be either `True` or `False`
 
@@ -112,7 +112,7 @@ bools = [True, True, False, True]  # List of Boolean values
 sum(bools)
 ```
 
-***2. Numeric Types***
+#### Numeric Types
 
 Numeric types are also important primitive data types.
 
@@ -222,7 +222,7 @@ You can also use the format `[start:end:step]` to specify the step
 a[::2]
 ```
 
-Using the negative step, you can return the sequence in a reversed order
+Using a negative step, you can return the sequence in a reversed order
 
 ```{code-cell} python3
 a[-2::-1] # Walk backwards from the second last element to the first element
