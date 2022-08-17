@@ -583,6 +583,23 @@ Remember
 * `P and Q` is `True` if both are `True`, else `False`
 * `P or Q` is `False` if both are `False`, else `True`
 
+We can also use `all()` and `any()` to test a sequence of expressions
+
+```{code-cell} python3
+all([1 <= 2 <= 3, 5 <= 6 <= 7])
+```
+```{code-cell} python3
+all([1 <= 2 <= 3, "a" in "letter"])
+```
+```{code-cell} python3
+any([1 <= 2 <= 3, "a" in "letter"])
+```
+
+Note:
+
+* `all()` returns `True` when *all* boolean values/expressions in the sequence are `True`
+* `any()` returns `True` when *any* boolean values/expressions in the sequence are `True`
+
 ## More Functions
 
 ```{index} single: Python; Functions
