@@ -118,7 +118,7 @@ This will become clearer as you see more examples.
 
 Let's start by discussing how it's done.
 
-### Syntax
+### Basic Syntax
 
 Here's a very simple Python function, that implements the mathematical function
 $f(x) = 2 x + 1$
@@ -171,6 +171,78 @@ print(new_abs_function(3))
 print(new_abs_function(-3))
 ```
 
+Note that a function can have arbitrarily many `return` statements (including zero).
+
+Execution of the function terminates when the first return is hit, allowing
+code like the following example
+
+```{code-cell} python3
+def f(x):
+    if x < 0:
+        return 'negative'
+    return 'nonnegative'
+```
+
+Functions without a return statement automatically return the special Python object `None`.
+
+### Keyword Arguments
+
+```{index} single: Python; keyword arguments
+```
+
+In a {ref}`previous lecture <python_by_example>`, you came across the statement
+
+```{code-block} python3
+:class: no-execute
+
+plt.plot(x, 'b-', label="white noise")
+```
+
+In this call to Matplotlib's `plot` function, notice that the last argument is passed in `name=argument` syntax.
+
+This is called a *keyword argument*, with `label` being the keyword.
+
+Non-keyword arguments are called *positional arguments*, since their meaning
+is determined by order
+
+* `plot(x, 'b-', label="white noise")` is different from `plot('b-', x, label="white noise")`
+
+Keyword arguments are particularly useful when a function has a lot of arguments, in which case it's hard to remember the right order.
+
+You can adopt keyword arguments in user-defined functions with no difficulty.
+
+The next example illustrates the syntax
+
+```{code-cell} python3
+def f(x, a=1, b=1):
+    return a + b * x
+```
+
+The keyword argument values we supplied in the definition of `f` become the default values
+
+```{code-cell} python3
+f(2)
+```
+
+They can be modified as follows
+
+```{code-cell} python3
+f(2, a=4, b=5)
+```
+
+### The Flexibility of Python Functions
+
+As we discussed in the {ref}`previous lecture <python_by_example>`, Python functions are very flexible.
+
+In particular
+
+* Any number of functions can be defined in a given file.
+* Functions can be (and often are) defined inside other functions.
+* Any object can be passed to a function as an argument, including other functions.
+* A function can return any kind of object, including functions.
+
+We will give examples of how straightforward it is to pass a function to
+a function in the following sections.
 
 ### One-Line Functions: `lambda`
 
@@ -350,6 +422,7 @@ then be used in identical ways.
 In the context of our program, the ability to bind new names to functions
 means that there is no problem *passing a function as an argument to another
 function*---as we did above.
+
 
 ## Exercises
 
