@@ -74,6 +74,7 @@ To install Anaconda, [download](https://www.anaconda.com/download/) the binary a
 Important points:
 
 * Install the latest version!
+* Find the correct distribution for your system.
 * If you are asked during the installation process whether you'd like to make Anaconda your default Python installation, say yes.
 
 ### Updating Anaconda
@@ -121,6 +122,7 @@ While Jupyter isn't the only way to code in Python, it's great for when you wish
 
 * start coding in Python
 * test new ideas or interact with small pieces of code
+* use powerful online interative environments such as [Google Colab](https://research.google.com/colaboratory/)
 * share or collaborate scientific ideas with students or colleagues
 
 These lectures are designed for executing in Jupyter notebooks.
@@ -489,6 +491,8 @@ Now
 You should now be able to run a standard Jupyter notebook session.
 
 This is an alternative way to start the notebook that can also be handy.
+
+This can also work if you accidentally close the webpage.
 
 ```{exercise-end}
 ```
