@@ -604,7 +604,7 @@ Note:
 ## Coding Style and Documentation
 
 A consistent coding style and the use of 
-documentations can make the code easier to understand and maintain.
+documentation can make the code easier to understand and maintain.
 
 ### Python Style Guidelines: PEP8
 
