@@ -683,6 +683,8 @@ def f(x):
 
 With one question mark we bring up the docstring, and with two we get the source code as well.
 
+You can find conventions for docstring in [PEP257](https://peps.python.org/pep-0257/).
+
 ## Exercises
 
 Solve the following exercises.
