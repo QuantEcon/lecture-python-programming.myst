@@ -600,12 +600,18 @@ Note:
 * `all()` returns `True` when *all* boolean values/expressions in the sequence are `True`
 * `any()` returns `True` when *any* boolean values/expressions in the sequence are `True`
 
-## Coding Style and PEP8
+
+## Coding Style and Documentation
+
+A consistent coding style and the use of 
+documentations can make the code easier to understand and maintain.
+
+### Python Style Guidelines: PEP8
 
 ```{index} single: Python; PEP8
 ```
 
-To learn more about the Python programming philosophy type `import this` at the prompt.
+You can find Python programming philosophy by typing `import this` at the prompt.
 
 Among other things, Python strongly favors consistency in programming style.
 
@@ -620,6 +626,62 @@ In programming, as in mathematics, the opposite is true
 In Python, the standard style is set out in [PEP8](https://www.python.org/dev/peps/pep-0008/).
 
 (Occasionally we'll deviate from PEP8 in these lectures to better match mathematical notation)
+
+### Docstrings
+
+```{index} single: Python; Docstrings
+```
+
+Python has a system for adding comments to modules, class, functions, etc. called *docstrings*.
+
+The nice thing about docstrings is that they are available at run-time.
+
+Try running this
+
+```{code-cell} python3
+def f(x):
+    """
+    This function squares its argument
+    """
+    return x**2
+```
+
+After running this code, the docstring is available
+
+```{code-cell} ipython
+f?
+```
+
+```{code-block} ipython
+:class: no-execute
+
+Type:       function
+String Form:<function f at 0x2223320>
+File:       /home/john/temp/temp.py
+Definition: f(x)
+Docstring:  This function squares its argument
+```
+
+```{code-cell} ipython
+f??
+```
+
+```{code-block} ipython
+:class: no-execute
+
+Type:       function
+String Form:<function f at 0x2223320>
+File:       /home/john/temp/temp.py
+Definition: f(x)
+Source:
+def f(x):
+    """
+    This function squares its argument
+    """
+    return x**2
+```
+
+With one question mark we bring up the docstring, and with two we get the source code as well.
 
 ## Exercises
 

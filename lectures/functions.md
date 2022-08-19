@@ -118,7 +118,7 @@ This will become clearer as you see more examples.
 
 Let's start by discussing how it's done.
 
-### Syntax
+### Basic Syntax
 
 Here's a very simple Python function, that implements the mathematical function
 $f(x) = 2 x + 1$
@@ -170,6 +170,20 @@ Let's call it to check that it works:
 print(new_abs_function(3))
 print(new_abs_function(-3))
 ```
+
+Note that a function can have arbitrarily many `return` statements (including zero).
+
+Execution of the function terminates when the first return is hit, allowing
+code like the following example
+
+```{code-cell} python3
+def f(x):
+    if x < 0:
+        return 'negative'
+    return 'nonnegative'
+```
+
+Functions without a return statement automatically return the special Python object `None`.
 
 ### Keyword Arguments
 
@@ -227,79 +241,8 @@ In particular
 * Any object can be passed to a function as an argument, including other functions.
 * A function can return any kind of object, including functions.
 
-We already {ref}`gave an example <test_program_6>` of how straightforward it is to pass a function to
-a function.
-
-Note that a function can have arbitrarily many `return` statements (including zero).
-
-Execution of the function terminates when the first return is hit, allowing
-code like the following example
-
-```{code-cell} python3
-def f(x):
-    if x < 0:
-        return 'negative'
-    return 'nonnegative'
-```
-
-Functions without a return statement automatically return the special Python object `None`.
-
-
-### Docstrings
-
-```{index} single: Python; Docstrings
-```
-
-Python has a system for adding comments to functions, modules, etc. called *docstrings*.
-
-The nice thing about docstrings is that they are available at run-time.
-
-Try running this
-
-```{code-cell} python3
-def f(x):
-    """
-    This function squares its argument
-    """
-    return x**2
-```
-
-After running this code, the docstring is available
-
-```{code-cell} ipython
-f?
-```
-
-```{code-block} ipython
-:class: no-execute
-
-Type:       function
-String Form:<function f at 0x2223320>
-File:       /home/john/temp/temp.py
-Definition: f(x)
-Docstring:  This function squares its argument
-```
-
-```{code-cell} ipython
-f??
-```
-
-```{code-block} ipython
-:class: no-execute
-
-Type:       function
-String Form:<function f at 0x2223320>
-File:       /home/john/temp/temp.py
-Definition: f(x)
-Source:
-def f(x):
-    """
-    This function squares its argument
-    """
-    return x**2
-```
-
-With one question mark we bring up the docstring, and with two we get the source code as well.
+We will give examples of how straightforward it is to pass a function to
+a function in the following sections.
 
 ### One-Line Functions: `lambda`
 
