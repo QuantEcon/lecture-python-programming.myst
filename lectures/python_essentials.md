@@ -600,47 +600,39 @@ Note:
 * `all()` returns `True` when *all* boolean values/expressions in the sequence are `True`
 * `any()` returns `True` when *any* boolean values/expressions in the sequence are `True`
 
-## More Functions
 
-```{index} single: Python; Functions
+## Coding Style and Documentation
+
+A consistent coding style and the use of 
+documentation can make the code easier to understand and maintain.
+
+### Python Style Guidelines: PEP8
+
+```{index} single: Python; PEP8
 ```
 
-Let's talk a bit more about functions, which are all important for good programming style.
+You can find Python programming philosophy by typing `import this` at the prompt.
 
-### The Flexibility of Python Functions
+Among other things, Python strongly favors consistency in programming style.
 
-As we discussed in the {ref}`previous lecture <python_by_example>`, Python functions are very flexible.
+We've all heard the saying about consistency and little minds.
 
-In particular
+In programming, as in mathematics, the opposite is true
 
-* Any number of functions can be defined in a given file.
-* Functions can be (and often are) defined inside other functions.
-* Any object can be passed to a function as an argument, including other functions.
-* A function can return any kind of object, including functions.
+* A mathematical paper where the symbols $\cup$ and $\cap$ were
+  reversed would be very hard to read, even if the author told you so on the
+  first page.
 
-We already {ref}`gave an example <test_program_6>` of how straightforward it is to pass a function to
-a function.
+In Python, the standard style is set out in [PEP8](https://www.python.org/dev/peps/pep-0008/).
 
-Note that a function can have arbitrarily many `return` statements (including zero).
-
-Execution of the function terminates when the first return is hit, allowing
-code like the following example
-
-```{code-cell} python3
-def f(x):
-    if x < 0:
-        return 'negative'
-    return 'nonnegative'
-```
-
-Functions without a return statement automatically return the special Python object `None`.
+(Occasionally we'll deviate from PEP8 in these lectures to better match mathematical notation)
 
 ### Docstrings
 
 ```{index} single: Python; Docstrings
 ```
 
-Python has a system for adding comments to functions, modules, etc. called *docstrings*.
+Python has a system for adding comments to modules, classes, functions, etc. called *docstrings*.
 
 The nice thing about docstrings is that they are available at run-time.
 
@@ -691,71 +683,7 @@ def f(x):
 
 With one question mark we bring up the docstring, and with two we get the source code as well.
 
-### Keyword Arguments
-
-```{index} single: Python; keyword arguments
-```
-
-In a {ref}`previous lecture <python_by_example>`, you came across the statement
-
-```{code-block} python3
-:class: no-execute
-
-plt.plot(x, 'b-', label="white noise")
-```
-
-In this call to Matplotlib's `plot` function, notice that the last argument is passed in `name=argument` syntax.
-
-This is called a *keyword argument*, with `label` being the keyword.
-
-Non-keyword arguments are called *positional arguments*, since their meaning
-is determined by order
-
-* `plot(x, 'b-', label="white noise")` is different from `plot('b-', x, label="white noise")`
-
-Keyword arguments are particularly useful when a function has a lot of arguments, in which case it's hard to remember the right order.
-
-You can adopt keyword arguments in user-defined functions with no difficulty.
-
-The next example illustrates the syntax
-
-```{code-cell} python3
-def f(x, a=1, b=1):
-    return a + b * x
-```
-
-The keyword argument values we supplied in the definition of `f` become the default values
-
-```{code-cell} python3
-f(2)
-```
-
-They can be modified as follows
-
-```{code-cell} python3
-f(2, a=4, b=5)
-```
-
-## Coding Style and PEP8
-
-```{index} single: Python; PEP8
-```
-
-To learn more about the Python programming philosophy type `import this` at the prompt.
-
-Among other things, Python strongly favors consistency in programming style.
-
-We've all heard the saying about consistency and little minds.
-
-In programming, as in mathematics, the opposite is true
-
-* A mathematical paper where the symbols $\cup$ and $\cap$ were
-  reversed would be very hard to read, even if the author told you so on the
-  first page.
-
-In Python, the standard style is set out in [PEP8](https://www.python.org/dev/peps/pep-0008/).
-
-(Occasionally we'll deviate from PEP8 in these lectures to better match mathematical notation)
+You can find conventions for docstrings in [PEP257](https://peps.python.org/pep-0257/).
 
 ## Exercises
 
