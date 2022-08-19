@@ -632,7 +632,7 @@ In Python, the standard style is set out in [PEP8](https://www.python.org/dev/pe
 ```{index} single: Python; Docstrings
 ```
 
-Python has a system for adding comments to modules, class, functions, etc. called *docstrings*.
+Python has a system for adding comments to modules, classes, functions, etc. called *docstrings*.
 
 The nice thing about docstrings is that they are available at run-time.
 
@@ -683,7 +683,7 @@ def f(x):
 
 With one question mark we bring up the docstring, and with two we get the source code as well.
 
-You can find conventions for docstring in [PEP257](https://peps.python.org/pep-0257/).
+You can find conventions for docstrings in [PEP257](https://peps.python.org/pep-0257/).
 
 ## Exercises
 
