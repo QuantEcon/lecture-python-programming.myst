@@ -50,7 +50,7 @@ Hence the best approach for our purposes is to install a Python distribution tha
 1. the core Python language **and**
 1. compatible versions of the most popular scientific libraries.
 
-The best such distribution is [Anaconda](https://www.anaconda.com/what-is-anaconda/).
+The best such distribution is [Anaconda](https://www.anaconda.com/products/distribution).
 
 Anaconda is
 
@@ -468,7 +468,7 @@ Alternatively, if you want an outstanding free text editor and don't mind a seem
 
 ## Exercises
 
-```{exercise}
+```{exercise-start}
 :label: gs_ex1
 ```
 
@@ -490,6 +490,8 @@ You should now be able to run a standard Jupyter notebook session.
 
 This is an alternative way to start the notebook that can also be handy.
 
+```{exercise-end}
+```
 
 ```{exercise-start}
 :label: gs_ex2
