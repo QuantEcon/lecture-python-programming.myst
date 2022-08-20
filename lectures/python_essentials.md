@@ -627,6 +627,7 @@ In Python, the standard style is set out in [PEP8](https://www.python.org/dev/pe
 
 (Occasionally we'll deviate from PEP8 in these lectures to better match mathematical notation)
 
+(Docstrings)=
 ### Docstrings
 
 ```{index} single: Python; Docstrings

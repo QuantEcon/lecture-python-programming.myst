@@ -208,9 +208,10 @@ The two modes are
 1. Edit mode
     * Indicated by a green border around one cell, plus a blinking cursor
     * Whatever you type appears as is in that cell
+
 1. Command mode
-    * The green border is replaced by a grey (or grey and blue) border
-    * Keystrokes are interpreted as commands --- for example, typing b adds a new cell below  the current one
+    * The green border is replaced by a blue border
+    * Keystrokes are interpreted as commands --- for example, typing `b` adds a new cell below the current one
 
 To switch to
 
@@ -278,13 +279,13 @@ After this import command, functions in NumPy can be accessed with `np.function_
 
 We can explore these attributes of `np` using the `Tab` key.
 
-For example, here we type `np.cos` and hit Tab
+For example, here we type `np.random.r` and hit Tab
 
 ```{figure} /_static/lecture_specific/getting_started/nb6.png
 :scale: 40
 ```
 
-Jupyter offers up the two possible completions, `cos` and `cosh`.
+Jupyter offers several possible completions for you to choose.
 
 In this way, the Tab key helps remind you of what's available and also saves you typing.
 
@@ -294,7 +295,7 @@ In this way, the Tab key helps remind you of what's available and also saves you
 ```{index} single: Jupyter Notebook; Help
 ```
 
-To get help on `np.rank`, say, we can execute `np.rank?`.
+To get help on `np.random.randn`, we can execute `np.random.randn?`.
 
 Documentation appears in a split window of the browser, like so
 
@@ -304,20 +305,22 @@ Documentation appears in a split window of the browser, like so
 
 Clicking on the top right of the lower split closes the on-line help.
 
+We will learn more about how to create documentation like this {ref}`later <Docstrings>`!
+
 #### Other Content
 
 In addition to executing code, the Jupyter notebook allows you to embed text, equations, figures and even videos in the page.
 
-For example, here we enter a mixture of plain text and LaTeX instead of code
-
-```{figure} /_static/lecture_specific/getting_started/nb7.png
-:scale: 40
-```
+For example, we can enter a mixture of plain text and LaTeX instead of code.
 
 Next we `Esc` to enter command mode and then type `m` to indicate that we
 are writing [Markdown](http://daringfireball.net/projects/markdown/), a mark-up language similar to (but simpler than) LaTeX.
 
 (You can also use your mouse to select `Markdown` from the `Code` drop-down box just below the list of menu items)
+
+```{figure} /_static/lecture_specific/getting_started/nb7.png
+:scale: 40
+```
 
 Now we `Shift+Enter` to produce this
 
@@ -417,14 +420,14 @@ By convention, these text files have a `.py` extension.
 We can create an example of such a file as follows:
 
 ```{code-cell} ipython
-%%file foo.py
+%%writefile foo.py
 
 print("foobar")
 ```
 
 This writes the line `print("foobar")` into a file called `foo.py` in the local directory.
 
-Here `%%file` is an example of a [cell magic](http://ipython.readthedocs.org/en/stable/interactive/magics.html#cell-magics).
+Here `%%writefilefile` is an example of a [cell magic](http://ipython.readthedocs.org/en/stable/interactive/magics.html#cell-magics).
 
 ### Editing and Execution
 
@@ -493,7 +496,7 @@ You should now be able to run a standard Jupyter notebook session.
 
 This is an alternative way to start the notebook that can also be handy.
 
-This can also work if you accidentally close the webpage.
+This can also work when you accidentally close the webpage as long as the kernel is still running.
 
 ```{exercise-end}
 ```
@@ -526,7 +529,7 @@ There are two main flavors of Git
 
 1. the plain vanilla [command line Git](http://git-scm.com/downloads) version
 1. the various point-and-click GUI versions
-    * See, for example, the [GitHub version](https://desktop.github.com/)
+    * See, for example, the [GitHub version](https://desktop.github.com/) or Git GUI integrated in your IDE.
 
 As the 1st task, try
 
@@ -540,8 +543,9 @@ For example, if you've installed the command line version, open up a terminal an
 
 git clone https://github.com/QuantEcon/QuantEcon.py
 ```
-
 (This is just `git clone` in front of the URL for the repository)
+
+This command will download all necessory components to rebuild the lecture you are reading now.
 
 As the 2nd task,
 
@@ -554,7 +558,7 @@ As the 2nd task,
 For reading on these and other topics, try
 
 * [The official Git documentation](http://git-scm.com/doc).
-* Reading through the docs on [GitHub](https://github.com/).
+* Reading through the docs on [GitHub](https://docs.github.com/en).
 * [Pro Git Book](http://git-scm.com/book) by Scott Chacon and Ben Straub.
 * One of the thousands of Git tutorials on the Net.
 
