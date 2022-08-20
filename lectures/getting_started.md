@@ -114,8 +114,9 @@ Because of these features, Jupyter is now a major player in the scientific compu
 
 Here's an image showing execution of some code (borrowed from [here](http://matplotlib.org/examples/pylab_examples/hexbin_demo.html)) in a Jupyter notebook
 
+
 ```{figure} /_static/lecture_specific/getting_started/jp_demo.png
-:scale: 60
+:scale: 40
 ```
 
 While Jupyter isn't the only way to code in Python, it's great for when you wish to
@@ -156,7 +157,7 @@ Thus, the Jupyter kernel is listening for Python commands on port 8888 of our lo
 Hopefully, your default browser has also opened up with a web page that looks something like this
 
 ```{figure} /_static/lecture_specific/getting_started/nb.png
-:scale: 60
+:scale: 40
 ```
 
 What you see here is called the Jupyter *dashboard*.
@@ -168,7 +169,7 @@ Assuming all this has worked OK, you can now click on `New` at the top right and
 Here's what shows up on our machine:
 
 ```{figure} /_static/lecture_specific/getting_started/nb2.png
-:scale: 60
+:scale: 40
 ```
 
 The notebook displays an *active cell*, into which you can type Python commands.
@@ -191,7 +192,7 @@ In this mode, whatever you type will appear in the cell with the flashing cursor
 When you're ready to execute the code in a cell, hit `Shift-Enter` instead of the usual `Enter`.
 
 ```{figure} /_static/lecture_specific/getting_started/nb3.png
-:scale: 60
+:scale: 40
 ```
 
 (Note: There are also menu and button options for running code in a cell that you can find by exploring)
@@ -277,13 +278,13 @@ After this import command, functions in NumPy can be accessed with `np.function_
 
 We can explore these attributes of `np` using the `Tab` key.
 
-For example, here we type `np.ran` and hit Tab
+For example, here we type `np.cos` and hit Tab
 
 ```{figure} /_static/lecture_specific/getting_started/nb6.png
-:scale: 60
+:scale: 40
 ```
 
-Jupyter offers up the two possible completions, `random` and `rank`.
+Jupyter offers up the two possible completions, `cos` and `cosh`.
 
 In this way, the Tab key helps remind you of what's available and also saves you typing.
 
@@ -298,7 +299,7 @@ To get help on `np.rank`, say, we can execute `np.rank?`.
 Documentation appears in a split window of the browser, like so
 
 ```{figure} /_static/lecture_specific/getting_started/nb6a.png
-:scale: 60
+:scale: 40
 ```
 
 Clicking on the top right of the lower split closes the on-line help.
@@ -310,7 +311,7 @@ In addition to executing code, the Jupyter notebook allows you to embed text, eq
 For example, here we enter a mixture of plain text and LaTeX instead of code
 
 ```{figure} /_static/lecture_specific/getting_started/nb7.png
-:scale: 60
+:scale: 40
 ```
 
 Next we `Esc` to enter command mode and then type `m` to indicate that we
@@ -321,7 +322,7 @@ are writing [Markdown](http://daringfireball.net/projects/markdown/), a mark-up 
 Now we `Shift+Enter` to produce this
 
 ```{figure} /_static/lecture_specific/getting_started/nb8.png
-:scale: 60
+:scale: 40
 ```
 
 ### Sharing Notebooks
