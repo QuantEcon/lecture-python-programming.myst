@@ -18,6 +18,18 @@ kernelspec:
 </div>
 ```
 
+<style>
+  .auto {
+    width: 70%;
+    height: auto;
+    } 
+  .terminal{
+    width: 80%;
+    height: auto;
+  }  
+</style>
+
+
 # Setting up Your Python Environment
 
 ```{index} single: Python
@@ -114,14 +126,6 @@ Because of these features, Jupyter is now a major player in the scientific compu
 
 Here's an image showing execution of some code (borrowed from [here](http://matplotlib.org/examples/pylab_examples/hexbin_demo.html)) in a Jupyter notebook
 
-
-<style>
-  .auto {
-    width: 70%;
-    height: auto;
-    }
-</style>
-
 ```{figure} /_static/lecture_specific/getting_started/jp_demo.png
 :figclass: auto
 ```
@@ -151,7 +155,7 @@ Either
 If you use the second option, you will see something like this
 
 ```{figure} /_static/lecture_specific/getting_started/starting_nb.png
-:scale: 60
+:figclass: terminal
 ```
 
 The output tells us the notebook is running at `http://localhost:8888/`
