@@ -130,7 +130,7 @@ While Jupyter isn't the only way to code in Python, it's great for when you wish
 
 * start coding in Python
 * test new ideas or interact with small pieces of code
-* use powerful online interative environments such as [Google Colab](https://research.google.com/colaboratory/)
+* use powerful online interactive environments such as [Google Colab](https://research.google.com/colaboratory/)
 * share or collaborate scientific ideas with students or colleagues
 
 These lectures are designed for executing in Jupyter notebooks.
@@ -292,7 +292,7 @@ For example, here we type `np.random.r` and hit Tab
 :figclass: auto
 ```
 
-Jupyter offers several possible completions for you to choose.
+Jupyter offers several possible completions for you to choose from.
 
 In this way, the Tab key helps remind you of what's available and also saves you typing.
 
@@ -434,7 +434,7 @@ print("foobar")
 
 This writes the line `print("foobar")` into a file called `foo.py` in the local directory.
 
-Here `%%writefilefile` is an example of a [cell magic](http://ipython.readthedocs.org/en/stable/interactive/magics.html#cell-magics).
+Here `%%writefile` is an example of a [cell magic](http://ipython.readthedocs.org/en/stable/interactive/magics.html#cell-magics).
 
 ### Editing and Execution
 
@@ -536,7 +536,7 @@ There are two main flavors of Git
 
 1. the plain vanilla [command line Git](http://git-scm.com/downloads) version
 1. the various point-and-click GUI versions
-    * See, for example, the [GitHub version](https://desktop.github.com/) or Git GUI integrated in your IDE.
+    * See, for example, the [GitHub version](https://desktop.github.com/) or Git GUI integrated into your IDE.
 
 As the 1st task, try
 
@@ -552,7 +552,7 @@ git clone https://github.com/QuantEcon/QuantEcon.py
 ```
 (This is just `git clone` in front of the URL for the repository)
 
-This command will download all necessory components to rebuild the lecture you are reading now.
+This command will download all necessary components to rebuild the lecture you are reading now.
 
 As the 2nd task,
 
