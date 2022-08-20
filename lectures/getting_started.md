@@ -115,8 +115,15 @@ Because of these features, Jupyter is now a major player in the scientific compu
 Here's an image showing execution of some code (borrowed from [here](http://matplotlib.org/examples/pylab_examples/hexbin_demo.html)) in a Jupyter notebook
 
 
+<style>
+  .auto {
+    width: 70%;
+    height: auto;
+    }
+</style>
+
 ```{figure} /_static/lecture_specific/getting_started/jp_demo.png
-:scale: 40
+:figclass: auto
 ```
 
 While Jupyter isn't the only way to code in Python, it's great for when you wish to
@@ -157,7 +164,7 @@ Thus, the Jupyter kernel is listening for Python commands on port 8888 of our lo
 Hopefully, your default browser has also opened up with a web page that looks something like this
 
 ```{figure} /_static/lecture_specific/getting_started/nb.png
-:scale: 40
+:figclass: auto
 ```
 
 What you see here is called the Jupyter *dashboard*.
@@ -169,7 +176,7 @@ Assuming all this has worked OK, you can now click on `New` at the top right and
 Here's what shows up on our machine:
 
 ```{figure} /_static/lecture_specific/getting_started/nb2.png
-:scale: 40
+:figclass: auto
 ```
 
 The notebook displays an *active cell*, into which you can type Python commands.
@@ -192,7 +199,7 @@ In this mode, whatever you type will appear in the cell with the flashing cursor
 When you're ready to execute the code in a cell, hit `Shift-Enter` instead of the usual `Enter`.
 
 ```{figure} /_static/lecture_specific/getting_started/nb3.png
-:scale: 40
+:figclass: auto
 ```
 
 (Note: There are also menu and button options for running code in a cell that you can find by exploring)
@@ -282,7 +289,7 @@ We can explore these attributes of `np` using the `Tab` key.
 For example, here we type `np.random.r` and hit Tab
 
 ```{figure} /_static/lecture_specific/getting_started/nb6.png
-:scale: 40
+:figclass: auto
 ```
 
 Jupyter offers several possible completions for you to choose.
@@ -300,7 +307,7 @@ To get help on `np.random.randn`, we can execute `np.random.randn?`.
 Documentation appears in a split window of the browser, like so
 
 ```{figure} /_static/lecture_specific/getting_started/nb6a.png
-:scale: 40
+:figclass: auto
 ```
 
 Clicking on the top right of the lower split closes the on-line help.
@@ -319,13 +326,13 @@ are writing [Markdown](http://daringfireball.net/projects/markdown/), a mark-up 
 (You can also use your mouse to select `Markdown` from the `Code` drop-down box just below the list of menu items)
 
 ```{figure} /_static/lecture_specific/getting_started/nb7.png
-:scale: 40
+:figclass: auto
 ```
 
 Now we `Shift+Enter` to produce this
 
 ```{figure} /_static/lecture_specific/getting_started/nb8.png
-:scale: 40
+:figclass: auto
 ```
 
 ### Sharing Notebooks
