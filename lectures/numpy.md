@@ -710,6 +710,12 @@ For a comprehensive list of what's available in NumPy see [this documentation](h
 
 ## Exercises
 
+```{code-cell} ipython
+%matplotlib inline
+import matplotlib.pyplot as plt
+plt.rcParams['figure.figsize'] = (10,6)
+```
+
 ```{exercise-start}
 :label: np_ex1
 ```
@@ -731,6 +737,35 @@ Now write a new function that does the same job, but uses NumPy arrays and array
 * Hint: Use `np.cumprod()`
 
 ```{exercise-end}
+```
+
+```{solution-start} np_ex1
+:class: dropdown
+```
+
+This code does the job
+
+```{code-cell} python3
+def p(x, coef):
+    X = np.ones_like(coef)
+    X[1:] = x
+    y = np.cumprod(X)   # y = [1, x, x**2,...]
+    return coef @ y
+```
+
+Let's test it
+
+```{code-cell} python3
+x = 2
+coef = np.linspace(2, 4, 3)
+print(coef)
+print(p(x, coef))
+# For comparison
+q = np.poly1d(np.flip(coef))
+print(q(x))
+```
+
+```{solution-end}
 ```
 
 
@@ -783,56 +818,6 @@ If you can, write the method so that `draw(k)` returns `k` draws from `q`.
 
 ```{exercise-end}
 ```
-
-
-```{exercise}
-:label: np_ex3
-
-Recall our {ref}`earlier discussion <oop_ex1>` of the empirical cumulative distribution function.
-
-Your task is to
-
-1. Make the `__call__` method more efficient using NumPy.
-1. Add a method that plots the ECDF over $[a, b]$, where $a$ and $b$ are method parameters.
-```
-
-## Solutions
-
-```{code-cell} ipython
-%matplotlib inline
-import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = (10,6)
-```
-
-```{solution-start} np_ex1
-:class: dropdown
-```
-
-This code does the job
-
-```{code-cell} python3
-def p(x, coef):
-    X = np.ones_like(coef)
-    X[1:] = x
-    y = np.cumprod(X)   # y = [1, x, x**2,...]
-    return coef @ y
-```
-
-Let's test it
-
-```{code-cell} python3
-x = 2
-coef = np.linspace(2, 4, 3)
-print(coef)
-print(p(x, coef))
-# For comparison
-q = np.poly1d(np.flip(coef))
-print(q(x))
-```
-
-```{solution-end}
-```
-
 
 ```{solution-start} np_ex2
 :class: dropdown
@@ -898,6 +883,17 @@ using descriptors that behaves as we desire can be found
 ```{solution-end}
 ```
 
+
+```{exercise}
+:label: np_ex3
+
+Recall our {ref}`earlier discussion <oop_ex1>` of the empirical cumulative distribution function.
+
+Your task is to
+
+1. Make the `__call__` method more efficient using NumPy.
+1. Add a method that plots the ECDF over $[a, b]$, where $a$ and $b$ are method parameters.
+```
 
 ```{solution-start} np_ex3
 :class: dropdown

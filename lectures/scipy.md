@@ -450,8 +450,6 @@ Try to write a recursive implementation of homemade bisection function {ref}`des
 Test it on the function {eq}`root_f`.
 ```
 
-## Solutions
-
 ```{solution-start} sp_ex1
 :class: dropdown
 ```
