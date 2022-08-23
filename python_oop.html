@@ -226,11 +226,6 @@ const thebe_selector_output = ".output, .cell_output"
    7.5. Exercises
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solutions">
-   7.6. Solutions
-  </a>
- </li>
 </ul>
 
                             <p class="logo">
@@ -288,7 +283,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference internal" href="#defining-your-own-classes" id="id4">Defining Your Own Classes</a></p></li>
 <li><p><a class="reference internal" href="#special-methods" id="id5">Special Methods</a></p></li>
 <li><p><a class="reference internal" href="#exercises" id="id6">Exercises</a></p></li>
-<li><p><a class="reference internal" href="#solutions" id="id7">Solutions</a></p></li>
 </ul>
 </li>
 </ul>
@@ -633,7 +627,7 @@ the class definition</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__module__&#39;: &#39;__main__&#39;, &#39;__init__&#39;: &lt;function Consumer.__init__ at 0x7f4eafbc15e0&gt;, &#39;earn&#39;: &lt;function Consumer.earn at 0x7f4eafbc1550&gt;, &#39;spend&#39;: &lt;function Consumer.spend at 0x7f4eafbc14c0&gt;, &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__doc__&#39;: None}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__module__&#39;: &#39;__main__&#39;, &#39;__init__&#39;: &lt;function Consumer.__init__ at 0x7f661a73d040&gt;, &#39;earn&#39;: &lt;function Consumer.earn at 0x7f661a73d0d0&gt;, &#39;spend&#39;: &lt;function Consumer.spend at 0x7f661a73d160&gt;, &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__doc__&#39;: None}
 </pre></div>
 </div>
 </div>
@@ -1155,28 +1149,7 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
 <p>Aim for clarity, not efficiency.</p>
 </div>
 </div>
-<div class="exercise admonition" id="oop_ex2">
-
-<p class="admonition-title"><span class="caption-number">Exercise 7.2 </span></p>
-<div class="section" id="exercise-content">
-<p>In an <a class="reference internal" href="python_essentials.html#pyess_ex2"><span class="std std-ref">earlier exercise</span></a>, you wrote a function for evaluating polynomials.</p>
-<p>This exercise is an extension, where the task is to build a simple class called <code class="docutils literal notranslate"><span class="pre">Polynomial</span></code> for representing and manipulating polynomial functions such as</p>
-<div class="math notranslate nohighlight" id="equation-polynom">
-<span class="eqno">(7.4)<a class="headerlink" href="#equation-polynom" title="Permalink to this equation">¶</a></span>\[p(x) = a_0 + a_1 x + a_2 x^2 + \cdots a_N x^N = \sum_{n=0}^N a_n x^n
-    \qquad (x \in \mathbb{R})\]</div>
-<p>The instance data for the class <code class="docutils literal notranslate"><span class="pre">Polynomial</span></code> will be the coefficients (in the case of <a class="reference internal" href="#equation-polynom">(7.4)</a>, the numbers <span class="math notranslate nohighlight">\(a_0, \ldots, a_N\)</span>).</p>
-<p>Provide methods that</p>
-<ol class="simple">
-<li><p>Evaluate the polynomial <a class="reference internal" href="#equation-polynom">(7.4)</a>, returning <span class="math notranslate nohighlight">\(p(x)\)</span> for any <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
-<li><p>Differentiate the polynomial, replacing the original coefficients with those of its derivative <span class="math notranslate nohighlight">\(p'\)</span>.</p></li>
-</ol>
-<p>Avoid using any <code class="docutils literal notranslate"><span class="pre">import</span></code> statements.</p>
-</div>
-</div>
-</div>
-<div class="section" id="solutions">
-<h2><a class="toc-backref" href="#id7"><span class="section-number">7.6. </span>Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
-<div class="solution dropdown admonition" id="python_oop-solution-2">
+<div class="solution dropdown admonition" id="python_oop-solution-1">
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#oop_ex1"> Exercise 7.1</a></p>
 <div class="section" id="s">
@@ -1215,12 +1188,30 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4
-0.485
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7
+0.506
 </pre></div>
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="exercise admonition" id="oop_ex2">
+
+<p class="admonition-title"><span class="caption-number">Exercise 7.2 </span></p>
+<div class="section" id="exercise-content">
+<p>In an <a class="reference internal" href="python_essentials.html#pyess_ex2"><span class="std std-ref">earlier exercise</span></a>, you wrote a function for evaluating polynomials.</p>
+<p>This exercise is an extension, where the task is to build a simple class called <code class="docutils literal notranslate"><span class="pre">Polynomial</span></code> for representing and manipulating polynomial functions such as</p>
+<div class="math notranslate nohighlight" id="equation-polynom">
+<span class="eqno">(7.4)<a class="headerlink" href="#equation-polynom" title="Permalink to this equation">¶</a></span>\[p(x) = a_0 + a_1 x + a_2 x^2 + \cdots a_N x^N = \sum_{n=0}^N a_n x^n
+    \qquad (x \in \mathbb{R})\]</div>
+<p>The instance data for the class <code class="docutils literal notranslate"><span class="pre">Polynomial</span></code> will be the coefficients (in the case of <a class="reference internal" href="#equation-polynom">(7.4)</a>, the numbers <span class="math notranslate nohighlight">\(a_0, \ldots, a_N\)</span>).</p>
+<p>Provide methods that</p>
+<ol class="simple">
+<li><p>Evaluate the polynomial <a class="reference internal" href="#equation-polynom">(7.4)</a>, returning <span class="math notranslate nohighlight">\(p(x)\)</span> for any <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
+<li><p>Differentiate the polynomial, replacing the original coefficients with those of its derivative <span class="math notranslate nohighlight">\(p'\)</span>.</p></li>
+</ol>
+<p>Avoid using any <code class="docutils literal notranslate"><span class="pre">import</span></code> statements.</p>
 </div>
 </div>
 <div class="solution dropdown admonition" id="python_oop-solution-3">

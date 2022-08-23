@@ -301,8 +301,6 @@ The output should look like this
 ```{exercise-end}
 ```
 
-## Solutions
-
 ```{solution-start} mpl_ex1
 :class: dropdown
 ```

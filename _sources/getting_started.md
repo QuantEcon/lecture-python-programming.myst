@@ -18,6 +18,18 @@ kernelspec:
 </div>
 ```
 
+<style>
+  .auto {
+    width: 70%;
+    height: auto;
+    } 
+  .terminal{
+    width: 80%;
+    height: auto;
+  }  
+</style>
+
+
 # Setting up Your Python Environment
 
 ```{index} single: Python
@@ -50,7 +62,7 @@ Hence the best approach for our purposes is to install a Python distribution tha
 1. the core Python language **and**
 1. compatible versions of the most popular scientific libraries.
 
-The best such distribution is [Anaconda](https://www.anaconda.com/what-is-anaconda/).
+The best such distribution is [Anaconda](https://www.anaconda.com/products/distribution).
 
 Anaconda is
 
@@ -74,6 +86,7 @@ To install Anaconda, [download](https://www.anaconda.com/download/) the binary a
 Important points:
 
 * Install the latest version!
+* Find the correct distribution for your system.
 * If you are asked during the installation process whether you'd like to make Anaconda your default Python installation, say yes.
 
 ### Updating Anaconda
@@ -114,13 +127,14 @@ Because of these features, Jupyter is now a major player in the scientific compu
 Here's an image showing execution of some code (borrowed from [here](http://matplotlib.org/examples/pylab_examples/hexbin_demo.html)) in a Jupyter notebook
 
 ```{figure} /_static/lecture_specific/getting_started/jp_demo.png
-:scale: 60
+:figclass: auto
 ```
 
 While Jupyter isn't the only way to code in Python, it's great for when you wish to
 
 * start coding in Python
 * test new ideas or interact with small pieces of code
+* use powerful online interactive environments such as [Google Colab](https://research.google.com/colaboratory/)
 * share or collaborate scientific ideas with students or colleagues
 
 These lectures are designed for executing in Jupyter notebooks.
@@ -141,7 +155,7 @@ Either
 If you use the second option, you will see something like this
 
 ```{figure} /_static/lecture_specific/getting_started/starting_nb.png
-:scale: 60
+:figclass: terminal
 ```
 
 The output tells us the notebook is running at `http://localhost:8888/`
@@ -154,7 +168,7 @@ Thus, the Jupyter kernel is listening for Python commands on port 8888 of our lo
 Hopefully, your default browser has also opened up with a web page that looks something like this
 
 ```{figure} /_static/lecture_specific/getting_started/nb.png
-:scale: 60
+:figclass: auto
 ```
 
 What you see here is called the Jupyter *dashboard*.
@@ -166,7 +180,7 @@ Assuming all this has worked OK, you can now click on `New` at the top right and
 Here's what shows up on our machine:
 
 ```{figure} /_static/lecture_specific/getting_started/nb2.png
-:scale: 60
+:figclass: auto
 ```
 
 The notebook displays an *active cell*, into which you can type Python commands.
@@ -189,7 +203,7 @@ In this mode, whatever you type will appear in the cell with the flashing cursor
 When you're ready to execute the code in a cell, hit `Shift-Enter` instead of the usual `Enter`.
 
 ```{figure} /_static/lecture_specific/getting_started/nb3.png
-:scale: 60
+:figclass: auto
 ```
 
 (Note: There are also menu and button options for running code in a cell that you can find by exploring)
@@ -205,9 +219,10 @@ The two modes are
 1. Edit mode
     * Indicated by a green border around one cell, plus a blinking cursor
     * Whatever you type appears as is in that cell
+
 1. Command mode
-    * The green border is replaced by a grey (or grey and blue) border
-    * Keystrokes are interpreted as commands --- for example, typing b adds a new cell below  the current one
+    * The green border is replaced by a blue border
+    * Keystrokes are interpreted as commands --- for example, typing `b` adds a new cell below the current one
 
 To switch to
 
@@ -275,13 +290,13 @@ After this import command, functions in NumPy can be accessed with `np.function_
 
 We can explore these attributes of `np` using the `Tab` key.
 
-For example, here we type `np.ran` and hit Tab
+For example, here we type `np.random.r` and hit Tab
 
 ```{figure} /_static/lecture_specific/getting_started/nb6.png
-:scale: 60
+:figclass: auto
 ```
 
-Jupyter offers up the two possible completions, `random` and `rank`.
+Jupyter offers several possible completions for you to choose from.
 
 In this way, the Tab key helps remind you of what's available and also saves you typing.
 
@@ -291,35 +306,37 @@ In this way, the Tab key helps remind you of what's available and also saves you
 ```{index} single: Jupyter Notebook; Help
 ```
 
-To get help on `np.rank`, say, we can execute `np.rank?`.
+To get help on `np.random.randn`, we can execute `np.random.randn?`.
 
 Documentation appears in a split window of the browser, like so
 
 ```{figure} /_static/lecture_specific/getting_started/nb6a.png
-:scale: 60
+:figclass: auto
 ```
 
 Clicking on the top right of the lower split closes the on-line help.
+
+We will learn more about how to create documentation like this {ref}`later <Docstrings>`!
 
 #### Other Content
 
 In addition to executing code, the Jupyter notebook allows you to embed text, equations, figures and even videos in the page.
 
-For example, here we enter a mixture of plain text and LaTeX instead of code
-
-```{figure} /_static/lecture_specific/getting_started/nb7.png
-:scale: 60
-```
+For example, we can enter a mixture of plain text and LaTeX instead of code.
 
 Next we `Esc` to enter command mode and then type `m` to indicate that we
 are writing [Markdown](http://daringfireball.net/projects/markdown/), a mark-up language similar to (but simpler than) LaTeX.
 
 (You can also use your mouse to select `Markdown` from the `Code` drop-down box just below the list of menu items)
 
+```{figure} /_static/lecture_specific/getting_started/nb7.png
+:figclass: auto
+```
+
 Now we `Shift+Enter` to produce this
 
 ```{figure} /_static/lecture_specific/getting_started/nb8.png
-:scale: 60
+:figclass: auto
 ```
 
 ### Sharing Notebooks
@@ -414,14 +431,14 @@ By convention, these text files have a `.py` extension.
 We can create an example of such a file as follows:
 
 ```{code-cell} ipython
-%%file foo.py
+%%writefile foo.py
 
 print("foobar")
 ```
 
 This writes the line `print("foobar")` into a file called `foo.py` in the local directory.
 
-Here `%%file` is an example of a [cell magic](http://ipython.readthedocs.org/en/stable/interactive/magics.html#cell-magics).
+Here `%%writefile` is an example of a [cell magic](http://ipython.readthedocs.org/en/stable/interactive/magics.html#cell-magics).
 
 ### Editing and Execution
 
@@ -468,7 +485,7 @@ Alternatively, if you want an outstanding free text editor and don't mind a seem
 
 ## Exercises
 
-```{exercise}
+```{exercise-start}
 :label: gs_ex1
 ```
 
@@ -490,6 +507,10 @@ You should now be able to run a standard Jupyter notebook session.
 
 This is an alternative way to start the notebook that can also be handy.
 
+This can also work when you accidentally close the webpage as long as the kernel is still running.
+
+```{exercise-end}
+```
 
 ```{exercise-start}
 :label: gs_ex2
@@ -519,7 +540,7 @@ There are two main flavors of Git
 
 1. the plain vanilla [command line Git](http://git-scm.com/downloads) version
 1. the various point-and-click GUI versions
-    * See, for example, the [GitHub version](https://desktop.github.com/)
+    * See, for example, the [GitHub version](https://desktop.github.com/) or Git GUI integrated into your IDE.
 
 As the 1st task, try
 
@@ -533,8 +554,9 @@ For example, if you've installed the command line version, open up a terminal an
 
 git clone https://github.com/QuantEcon/QuantEcon.py
 ```
-
 (This is just `git clone` in front of the URL for the repository)
+
+This command will download all necessary components to rebuild the lecture you are reading now.
 
 As the 2nd task,
 
@@ -547,7 +569,7 @@ As the 2nd task,
 For reading on these and other topics, try
 
 * [The official Git documentation](http://git-scm.com/doc).
-* Reading through the docs on [GitHub](https://github.com/).
+* Reading through the docs on [GitHub](https://docs.github.com/en).
 * [Pro Git Book](http://git-scm.com/book) by Scott Chacon and Ben Straub.
 * One of the thousands of Git tutorials on the Net.
 

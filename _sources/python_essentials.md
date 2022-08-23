@@ -61,6 +61,9 @@ Let's learn a bit more about them.
 
 ### Primitive Data Types
 
+
+#### Boolean Values
+
 One simple data type is **Boolean values**, which can be either `True` or `False`
 
 ```{code-cell} python3
@@ -109,7 +112,13 @@ bools = [True, True, False, True]  # List of Boolean values
 sum(bools)
 ```
 
-Complex numbers are another primitive data type in Python
+#### Numeric Types
+
+Numeric types are also important primitive data types.
+
+We have seen `integer` and `float` types before.
+
+**Complex numbers** are another primitive data type in Python
 
 ```{code-cell} python3
 x = complex(1, 2)
@@ -185,13 +194,13 @@ Tuple unpacking is convenient and we'll use it often.
 ```{index} single: Python; Slicing
 ```
 
-To access multiple elements of a list or tuple, you can use Python's slice
+To access multiple elements of a sequence (a list, a tuple or a string), you can use Python's slice
 notation.
 
 For example,
 
 ```{code-cell} python3
-a = [2, 4, 6, 8]
+a = ["a", "b", "c", "d", "e"]
 a[1:]
 ```
 
@@ -205,6 +214,18 @@ Negative numbers are also permissible
 
 ```{code-cell} python3
 a[-2:]  # Last two elements of the list
+```
+
+You can also use the format `[start:end:step]` to specify the step
+
+```{code-cell} python3
+a[::2]
+```
+
+Using a negative step, you can return the sequence in a reversed order
+
+```{code-cell} python3
+a[-2::-1] # Walk backwards from the second last element to the first element
 ```
 
 The same slice notation works on tuples and strings
@@ -340,7 +361,7 @@ To give an example, let's write the file us_cities.txt, which lists US cities an
 
 (us_cities_data)=
 ```{code-cell} ipython
-%%file us_cities.txt
+%%writefile us_cities.txt
 new york: 8244910
 los angeles: 3819702
 chicago: 2707120
@@ -352,7 +373,7 @@ san diego: 1326179
 dallas: 1223229
 ```
 
-Here %%file is an [IPython cell magic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cell-magics).
+Here `%%writefile` is an [IPython cell magic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cell-magics).
 
 Suppose that we want to make the information more readable, by capitalizing names and adding commas to mark thousands.
 
@@ -562,47 +583,57 @@ Remember
 * `P and Q` is `True` if both are `True`, else `False`
 * `P or Q` is `False` if both are `False`, else `True`
 
-## More Functions
-
-```{index} single: Python; Functions
-```
-
-Let's talk a bit more about functions, which are all important for good programming style.
-
-### The Flexibility of Python Functions
-
-As we discussed in the {ref}`previous lecture <python_by_example>`, Python functions are very flexible.
-
-In particular
-
-* Any number of functions can be defined in a given file.
-* Functions can be (and often are) defined inside other functions.
-* Any object can be passed to a function as an argument, including other functions.
-* A function can return any kind of object, including functions.
-
-We already {ref}`gave an example <test_program_6>` of how straightforward it is to pass a function to
-a function.
-
-Note that a function can have arbitrarily many `return` statements (including zero).
-
-Execution of the function terminates when the first return is hit, allowing
-code like the following example
+We can also use `all()` and `any()` to test a sequence of expressions
 
 ```{code-cell} python3
-def f(x):
-    if x < 0:
-        return 'negative'
-    return 'nonnegative'
+all([1 <= 2 <= 3, 5 <= 6 <= 7])
+```
+```{code-cell} python3
+all([1 <= 2 <= 3, "a" in "letter"])
+```
+```{code-cell} python3
+any([1 <= 2 <= 3, "a" in "letter"])
 ```
 
-Functions without a return statement automatically return the special Python object `None`.
+Note:
 
+* `all()` returns `True` when *all* boolean values/expressions in the sequence are `True`
+* `any()` returns `True` when *any* boolean values/expressions in the sequence are `True`
+
+
+## Coding Style and Documentation
+
+A consistent coding style and the use of 
+documentation can make the code easier to understand and maintain.
+
+### Python Style Guidelines: PEP8
+
+```{index} single: Python; PEP8
+```
+
+You can find Python programming philosophy by typing `import this` at the prompt.
+
+Among other things, Python strongly favors consistency in programming style.
+
+We've all heard the saying about consistency and little minds.
+
+In programming, as in mathematics, the opposite is true
+
+* A mathematical paper where the symbols $\cup$ and $\cap$ were
+  reversed would be very hard to read, even if the author told you so on the
+  first page.
+
+In Python, the standard style is set out in [PEP8](https://www.python.org/dev/peps/pep-0008/).
+
+(Occasionally we'll deviate from PEP8 in these lectures to better match mathematical notation)
+
+(Docstrings)=
 ### Docstrings
 
 ```{index} single: Python; Docstrings
 ```
 
-Python has a system for adding comments to functions, modules, etc. called *docstrings*.
+Python has a system for adding comments to modules, classes, functions, etc. called *docstrings*.
 
 The nice thing about docstrings is that they are available at run-time.
 
@@ -653,71 +684,7 @@ def f(x):
 
 With one question mark we bring up the docstring, and with two we get the source code as well.
 
-### Keyword Arguments
-
-```{index} single: Python; keyword arguments
-```
-
-In a {ref}`previous lecture <python_by_example>`, you came across the statement
-
-```{code-block} python3
-:class: no-execute
-
-plt.plot(x, 'b-', label="white noise")
-```
-
-In this call to Matplotlib's `plot` function, notice that the last argument is passed in `name=argument` syntax.
-
-This is called a *keyword argument*, with `label` being the keyword.
-
-Non-keyword arguments are called *positional arguments*, since their meaning
-is determined by order
-
-* `plot(x, 'b-', label="white noise")` is different from `plot('b-', x, label="white noise")`
-
-Keyword arguments are particularly useful when a function has a lot of arguments, in which case it's hard to remember the right order.
-
-You can adopt keyword arguments in user-defined functions with no difficulty.
-
-The next example illustrates the syntax
-
-```{code-cell} python3
-def f(x, a=1, b=1):
-    return a + b * x
-```
-
-The keyword argument values we supplied in the definition of `f` become the default values
-
-```{code-cell} python3
-f(2)
-```
-
-They can be modified as follows
-
-```{code-cell} python3
-f(2, a=4, b=5)
-```
-
-## Coding Style and PEP8
-
-```{index} single: Python; PEP8
-```
-
-To learn more about the Python programming philosophy type `import this` at the prompt.
-
-Among other things, Python strongly favors consistency in programming style.
-
-We've all heard the saying about consistency and little minds.
-
-In programming, as in mathematics, the opposite is true
-
-* A mathematical paper where the symbols $\cup$ and $\cap$ were
-  reversed would be very hard to read, even if the author told you so on the
-  first page.
-
-In Python, the standard style is set out in [PEP8](https://www.python.org/dev/peps/pep-0008/).
-
-(Occasionally we'll deviate from PEP8 in these lectures to better match mathematical notation)
+You can find conventions for docstrings in [PEP257](https://peps.python.org/pep-0257/).
 
 ## Exercises
 
@@ -738,92 +705,6 @@ Part 2: In one line, count the number of even numbers in 0,...,99.
 Part 3: Given `pairs = ((2, 5), (4, 2), (9, 8), (12, 10))`, count the number of pairs `(a, b)`
 such that both `a` and `b` are even.
 ```
-
-
-```{exercise-start}
-:label: pyess_ex2
-```
-
-Consider the polynomial
-
-```{math}
-:label: polynom0
-
-p(x)
-= a_0 + a_1 x + a_2 x^2 + \cdots a_n x^n
-= \sum_{i=0}^n a_i x^i
-```
-
-Write a function `p` such that `p(x, coeff)` that computes the value in {eq}`polynom0` given a point `x` and a list of coefficients `coeff`.
-
-Try to use `enumerate()` in your loop.
-
-```{exercise-end}
-```
-
-
-```{exercise}
-:label: pyess_ex3
-
-Write a function that takes a string as an argument and returns the number of capital letters in the string.
-
-Hint: `'foo'.upper()` returns `'FOO'`.
-```
-
-
-```{exercise}
-:label: pyess_ex4
-
-Write a function that takes two sequences `seq_a` and `seq_b` as arguments and
-returns `True` if every element in `seq_a` is also an element of `seq_b`, else
-`False`.
-
-* By "sequence" we mean a list, a tuple or a string.
-* Do the exercise without using [sets](https://docs.python.org/3/tutorial/datastructures.html#sets) and set methods.
-```
-
-
-```{exercise}
-:label: pyess_ex5
-
-When we cover the numerical libraries, we will see they include many
-alternatives for interpolation and function approximation.
-
-Nevertheless, let's write our own function approximation routine as an exercise.
-
-In particular, without using any imports, write a function `linapprox` that takes as arguments
-
-* A function `f` mapping some interval $[a, b]$ into $\mathbb R$.
-* Two scalars `a` and `b` providing the limits of this interval.
-* An integer `n` determining the number of grid points.
-* A number `x` satisfying `a <= x <= b`.
-
-and returns the [piecewise linear interpolation](https://en.wikipedia.org/wiki/Linear_interpolation) of `f` at `x`, based on `n` evenly spaced grid points `a = point[0] < point[1] < ... < point[n-1] = b`.
-
-Aim for clarity, not efficiency.
-```
-
-```{exercise-start}
-:label: pyess_ex6
-```
-
-Using list comprehension syntax, we can simplify the loop in the following
-code.
-
-```{code-cell} python3
-import numpy as np
-
-n = 100
-ϵ_values = []
-for i in range(n):
-    e = np.random.randn()
-    ϵ_values.append(e)
-```
-
-```{exercise-end}
-```
-
-## Solutions
 
 ```{solution-start} pyess_ex1
 :class: dropdown
@@ -884,10 +765,31 @@ sum([x % 2 == 0 and y % 2 == 0 for x, y in pairs])
 ```{solution-end}
 ```
 
+```{exercise-start}
+:label: pyess_ex2
+```
+
+Consider the polynomial
+
+```{math}
+:label: polynom0
+
+p(x)
+= a_0 + a_1 x + a_2 x^2 + \cdots a_n x^n
+= \sum_{i=0}^n a_i x^i
+```
+
+Write a function `p` such that `p(x, coeff)` that computes the value in {eq}`polynom0` given a point `x` and a list of coefficients `coeff` ($a_1, a_2, \cdots a_n$).
+
+Try to use `enumerate()` in your loop.
+
+```{exercise-end}
+```
 
 ```{solution-start} pyess_ex2
 :class: dropdown
 ```
+Here’s a solution:
 
 ```{code-cell} python3
 def p(x, coeff):
@@ -901,6 +803,14 @@ p(1, (2, 4))
 ```{solution-end}
 ```
 
+
+```{exercise}
+:label: pyess_ex3
+
+Write a function that takes a string as an argument and returns the number of capital letters in the string.
+
+Hint: `'foo'.upper()` returns `'FOO'`.
+```
 
 ```{solution-start} pyess_ex3
 :class: dropdown
@@ -932,6 +842,18 @@ count_uppercase_chars('The Rain in Spain')
 ```
 
 
+
+```{exercise}
+:label: pyess_ex4
+
+Write a function that takes two sequences `seq_a` and `seq_b` as arguments and
+returns `True` if every element in `seq_a` is also an element of `seq_b`, else
+`False`.
+
+* By "sequence" we mean a list, a tuple or a string.
+* Do the exercise without using [sets](https://docs.python.org/3/tutorial/datastructures.html#sets) and set methods.
+```
+
 ```{solution-start} pyess_ex4
 :class: dropdown
 ```
@@ -940,14 +862,27 @@ Here's a solution:
 
 ```{code-cell} python3
 def f(seq_a, seq_b):
-    is_subset = True
     for a in seq_a:
         if a not in seq_b:
-            is_subset = False
-    return is_subset
+            return False
+    return True
 
 # == test == #
+print(f("ab", "cadb"))
+print(f("ab", "cjdb"))
+print(f([1, 2], [1, 2, 3]))
+print(f([1, 2, 3], [1, 2]))
+```
 
+An alternative, more pythonic solution using `all()`:
+
+```{code-cell} python3
+def f(seq_a, seq_b):
+  return all([i in seq_b for i in seq_a])
+
+# == test == #
+print(f("ab", "cadb"))
+print(f("ab", "cjdb"))
 print(f([1, 2], [1, 2, 3]))
 print(f([1, 2, 3], [1, 2]))
 ```
@@ -963,9 +898,30 @@ def f(seq_a, seq_b):
 ```
 
 
+```{exercise}
+:label: pyess_ex5
+
+When we cover the numerical libraries, we will see they include many
+alternatives for interpolation and function approximation.
+
+Nevertheless, let's write our own function approximation routine as an exercise.
+
+In particular, without using any imports, write a function `linapprox` that takes as arguments
+
+* A function `f` mapping some interval $[a, b]$ into $\mathbb R$.
+* Two scalars `a` and `b` providing the limits of this interval.
+* An integer `n` determining the number of grid points.
+* A number `x` satisfying `a <= x <= b`.
+
+and returns the [piecewise linear interpolation](https://en.wikipedia.org/wiki/Linear_interpolation) of `f` at `x`, based on `n` evenly spaced grid points `a = point[0] < point[1] < ... < point[n-1] = b`.
+
+Aim for clarity, not efficiency.
+```
+
 ```{solution-start} pyess_ex5
 :class: dropdown
 ```
+Here’s a solution:
 
 ```{code-cell} python3
 def linapprox(f, a, b, n, x):
@@ -1007,6 +963,26 @@ def linapprox(f, a, b, n, x):
 ```{solution-end}
 ```
 
+
+```{exercise-start}
+:label: pyess_ex6
+```
+
+Using list comprehension syntax, we can simplify the loop in the following
+code.
+
+```{code-cell} python3
+import numpy as np
+
+n = 100
+ϵ_values = []
+for i in range(n):
+    e = np.random.randn()
+    ϵ_values.append(e)
+```
+
+```{exercise-end}
+```
 
 ```{solution-start} pyess_ex6
 :class: dropdown

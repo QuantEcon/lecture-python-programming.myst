@@ -792,7 +792,7 @@ Why?
 * Because the debugging information provided by the interpreter is often less useful than the information
   on possible errors you have in your head when writing code.
 * Because errors causing execution to stop are frustrating if you're in the middle of a large computation.
-* Because it's reduces confidence in your code on the part of your users (if you are writing for others).
+* Because it reduces confidence in your code on the part of your users (if you are writing for others).
 
 ### Assertions
 
@@ -1667,6 +1667,31 @@ Write a function to recursively compute the $t$-th Fibonacci number for any $t$.
 ```{exercise-end}
 ```
 
+```{solution-start} paf_ex1
+:class: dropdown
+```
+
+Here's the standard solution
+
+```{code-cell} python3
+def x(t):
+    if t == 0:
+        return 0
+    if t == 1:
+        return 1
+    else:
+        return x(t-1) + x(t-2)
+```
+
+Let's test it
+
+```{code-cell} python3
+print([x(i) for i in range(10)])
+```
+
+```{solution-end}
+```
+
 
 ```{exercise-start}
 :label: paf_ex2
@@ -1694,58 +1719,6 @@ for date in dates:
 
 ```{exercise-end}
 ```
-
-
-```{exercise-start}
-:label: paf_ex3
-```
-
-Suppose we have a text file `numbers.txt` containing the following lines
-
-```{code-block} none
-:class: no-execute
-
-prices
-3
-8
-
-7
-21
-```
-
-Using `try` -- `except`, write a program to read in the contents of the file and sum the numbers, ignoring lines without numbers.
-
-```{exercise-end}
-```
-
-## Solutions
-
-
-```{solution-start} paf_ex1
-:class: dropdown
-```
-
-Here's the standard solution
-
-```{code-cell} python3
-def x(t):
-    if t == 0:
-        return 0
-    if t == 1:
-        return 1
-    else:
-        return x(t-1) + x(t-2)
-```
-
-Let's test it
-
-```{code-cell} python3
-print([x(i) for i in range(10)])
-```
-
-```{solution-end}
-```
-
 
 ```{solution-start} paf_ex2
 :class: dropdown
@@ -1779,6 +1752,29 @@ for date in dates:
 ```{solution-end}
 ```
 
+
+
+```{exercise-start}
+:label: paf_ex3
+```
+
+Suppose we have a text file `numbers.txt` containing the following lines
+
+```{code-block} none
+:class: no-execute
+
+prices
+3
+8
+
+7
+21
+```
+
+Using `try` -- `except`, write a program to read in the contents of the file and sum the numbers, ignoring lines without numbers.
+
+```{exercise-end}
+```
 
 
 ```{solution-start} paf_ex3

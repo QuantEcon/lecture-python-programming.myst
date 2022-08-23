@@ -164,6 +164,18 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal nav-link" href="#primitive-data-types">
      5.2.1. Primitive Data Types
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#boolean-values">
+       5.2.1.1. Boolean Values
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#numeric-types">
+       5.2.1.2. Numeric Types
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#containers">
@@ -236,13 +248,13 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#more-functions">
-   5.6. More Functions
+  <a class="reference internal nav-link" href="#coding-style-and-documentation">
+   5.6. Coding Style and Documentation
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-flexibility-of-python-functions">
-     5.6.1. The Flexibility of Python Functions
+    <a class="reference internal nav-link" href="#python-style-guidelines-pep8">
+     5.6.1. Python Style Guidelines: PEP8
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -250,26 +262,11 @@ const thebe_selector_output = ".output, .cell_output"
      5.6.2. Docstrings
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#keyword-arguments">
-     5.6.3. Keyword Arguments
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#coding-style-and-pep8">
-   5.7. Coding Style and PEP8
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   5.8. Exercises
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solutions">
-   5.9. Solutions
+   5.7. Exercises
   </a>
  </li>
 </ul>
@@ -318,33 +315,31 @@ const thebe_selector_output = ".output, .cell_output"
                     <div>
                         
   <div class="tex2jax_ignore mathjax_ignore section" id="python-essentials">
-<h1><a class="toc-backref" href="#id1"><span class="section-number">5. </span>Python Essentials</a><a class="headerlink" href="#python-essentials" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id2"><span class="section-number">5. </span>Python Essentials</a><a class="headerlink" href="#python-essentials" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#python-essentials" id="id1">Python Essentials</a></p>
+<li><p><a class="reference internal" href="#python-essentials" id="id2">Python Essentials</a></p>
 <ul>
-<li><p><a class="reference internal" href="#overview" id="id2">Overview</a></p></li>
-<li><p><a class="reference internal" href="#data-types" id="id3">Data Types</a></p></li>
-<li><p><a class="reference internal" href="#input-and-output" id="id4">Input and Output</a></p></li>
-<li><p><a class="reference internal" href="#iterating" id="id5">Iterating</a></p></li>
-<li><p><a class="reference internal" href="#comparisons-and-logical-operators" id="id6">Comparisons and Logical Operators</a></p></li>
-<li><p><a class="reference internal" href="#more-functions" id="id7">More Functions</a></p></li>
-<li><p><a class="reference internal" href="#coding-style-and-pep8" id="id8">Coding Style and PEP8</a></p></li>
+<li><p><a class="reference internal" href="#overview" id="id3">Overview</a></p></li>
+<li><p><a class="reference internal" href="#data-types" id="id4">Data Types</a></p></li>
+<li><p><a class="reference internal" href="#input-and-output" id="id5">Input and Output</a></p></li>
+<li><p><a class="reference internal" href="#iterating" id="id6">Iterating</a></p></li>
+<li><p><a class="reference internal" href="#comparisons-and-logical-operators" id="id7">Comparisons and Logical Operators</a></p></li>
+<li><p><a class="reference internal" href="#coding-style-and-documentation" id="id8">Coding Style and Documentation</a></p></li>
 <li><p><a class="reference internal" href="#exercises" id="id9">Exercises</a></p></li>
-<li><p><a class="reference internal" href="#solutions" id="id10">Solutions</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="overview">
-<h2><a class="toc-backref" href="#id2"><span class="section-number">5.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3"><span class="section-number">5.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>We have covered a lot of material quite quickly, with a focus on examples.</p>
 <p>Now let’s cover some core features of Python in a more systematic way.</p>
 <p>This approach is less exciting but helps clear up some details.</p>
 </div>
 <div class="section" id="data-types">
-<h2><a class="toc-backref" href="#id3"><span class="section-number">5.2. </span>Data Types</a><a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4"><span class="section-number">5.2. </span>Data Types</a><a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
 <p id="index-0">Computer programs typically keep track of a range of data types.</p>
 <p>For example, <code class="docutils literal notranslate"><span class="pre">1.5</span></code> is a floating point number, while <code class="docutils literal notranslate"><span class="pre">1</span></code> is an integer.</p>
 <p>Programs need to distinguish between these two types for various reasons.</p>
@@ -363,6 +358,8 @@ are faster and more accurate.</p>
 <p>Let’s learn a bit more about them.</p>
 <div class="section" id="primitive-data-types">
 <h3><span class="section-number">5.2.1. </span>Primitive Data Types<a class="headerlink" href="#primitive-data-types" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="boolean-values">
+<h4><span class="section-number">5.2.1.1. </span>Boolean Values<a class="headerlink" href="#boolean-values" title="Permalink to this headline">¶</a></h4>
 <p>One simple data type is <strong>Boolean values</strong>, which can be either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -469,7 +466,12 @@ are faster and more accurate.</p>
 </div>
 </div>
 </div>
-<p>Complex numbers are another primitive data type in Python</p>
+</div>
+<div class="section" id="numeric-types">
+<h4><span class="section-number">5.2.1.2. </span>Numeric Types<a class="headerlink" href="#numeric-types" title="Permalink to this headline">¶</a></h4>
+<p>Numeric types are also important primitive data types.</p>
+<p>We have seen <code class="docutils literal notranslate"><span class="pre">integer</span></code> and <code class="docutils literal notranslate"><span class="pre">float</span></code> types before.</p>
+<p><strong>Complex numbers</strong> are another primitive data type in Python</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -486,6 +488,7 @@ are faster and more accurate.</p>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>complex
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -590,18 +593,18 @@ are faster and more accurate.</p>
 <p>Tuple unpacking is convenient and we’ll use it often.</p>
 <div class="section" id="slice-notation">
 <h4><span class="section-number">5.2.2.1. </span>Slice Notation<a class="headerlink" href="#slice-notation" title="Permalink to this headline">¶</a></h4>
-<p id="index-2">To access multiple elements of a list or tuple, you can use Python’s slice
+<p id="index-2">To access multiple elements of a sequence (a list, a tuple or a string), you can use Python’s slice
 notation.</p>
 <p>For example,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">]</span>
 <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 6, 8]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]
 </pre></div>
 </div>
 </div>
@@ -613,7 +616,7 @@ notation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 6]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;b&#39;, &#39;c&#39;]
 </pre></div>
 </div>
 </div>
@@ -627,7 +630,33 @@ notation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[6, 8]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;d&#39;, &#39;e&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also use the format <code class="docutils literal notranslate"><span class="pre">[start:end:step]</span></code> to specify the step</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;c&#39;, &#39;e&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using a negative step, you can return the sequence in a reversed order</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># Walk backwards from the second last element to the first element</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;d&#39;, &#39;c&#39;, &#39;b&#39;, &#39;a&#39;]
 </pre></div>
 </div>
 </div>
@@ -737,7 +766,7 @@ usual set-theoretic operations</p>
 </div>
 </div>
 <div class="section" id="input-and-output">
-<h2><a class="toc-backref" href="#id4"><span class="section-number">5.3. </span>Input and Output</a><a class="headerlink" href="#input-and-output" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5"><span class="section-number">5.3. </span>Input and Output</a><a class="headerlink" href="#input-and-output" title="Permalink to this headline">¶</a></h2>
 <p id="index-5">Let’s briefly review reading and writing to text files, starting with writing</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -807,7 +836,7 @@ Testing again
 </div>
 </div>
 <div class="section" id="iterating">
-<span id="iterating-version-1"></span><h2><a class="toc-backref" href="#id5"><span class="section-number">5.4. </span>Iterating</a><a class="headerlink" href="#iterating" title="Permalink to this headline">¶</a></h2>
+<span id="iterating-version-1"></span><h2><a class="toc-backref" href="#id6"><span class="section-number">5.4. </span>Iterating</a><a class="headerlink" href="#iterating" title="Permalink to this headline">¶</a></h2>
 <p id="index-7">One of the most important tasks in computing is stepping through a
 sequence of data and performing a given action.</p>
 <p>One of Python’s strengths is its simple, flexible interface to this kind of iteration via
@@ -818,7 +847,7 @@ the <code class="docutils literal notranslate"><span class="pre">for</span></cod
 <p>To give an example, let’s write the file us_cities.txt, which lists US cities and their population, to the present working directory.</p>
 <div class="cell docutils container" id="us-cities-data">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> us_cities.txt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%writefile</span> us_cities.txt
 <span class="n">new</span> <span class="n">york</span><span class="p">:</span> <span class="mi">8244910</span>
 <span class="n">los</span> <span class="n">angeles</span><span class="p">:</span> <span class="mi">3819702</span>
 <span class="n">chicago</span><span class="p">:</span> <span class="mi">2707120</span>
@@ -837,7 +866,7 @@ the <code class="docutils literal notranslate"><span class="pre">for</span></cod
 </div>
 </div>
 </div>
-<p>Here %%file is an <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#cell-magics">IPython cell magic</a>.</p>
+<p>Here <code class="docutils literal notranslate"><span class="pre">%%writefile</span></code> is an <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#cell-magics">IPython cell magic</a>.</p>
 <p>Suppose that we want to make the information more readable, by capitalizing names and adding commas to mark thousands.</p>
 <p>The program below reads the data in and makes the conversion:</p>
 <div class="cell docutils container">
@@ -1018,7 +1047,7 @@ right-hand side of the second line</p>
 </div>
 </div>
 <div class="section" id="comparisons-and-logical-operators">
-<h2><a class="toc-backref" href="#id6"><span class="section-number">5.5. </span>Comparisons and Logical Operators</a><a class="headerlink" href="#comparisons-and-logical-operators" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7"><span class="section-number">5.5. </span>Comparisons and Logical Operators</a><a class="headerlink" href="#comparisons-and-logical-operators" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="comparisons">
 <h3><span class="section-number">5.5.1. </span>Comparisons<a class="headerlink" href="#comparisons" title="Permalink to this headline">¶</a></h3>
 <p id="index-9">Many different kinds of expressions evaluate to one of the Boolean values (i.e., <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
@@ -1211,41 +1240,71 @@ right-hand side of the second line</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">P</span> <span class="pre">and</span> <span class="pre">Q</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> if both are <code class="docutils literal notranslate"><span class="pre">True</span></code>, else <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">P</span> <span class="pre">or</span> <span class="pre">Q</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code> if both are <code class="docutils literal notranslate"><span class="pre">False</span></code>, else <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="more-functions">
-<h2><a class="toc-backref" href="#id7"><span class="section-number">5.6. </span>More Functions</a><a class="headerlink" href="#more-functions" title="Permalink to this headline">¶</a></h2>
-<p id="index-11">Let’s talk a bit more about functions, which are all important for good programming style.</p>
-<div class="section" id="the-flexibility-of-python-functions">
-<h3><span class="section-number">5.6.1. </span>The Flexibility of Python Functions<a class="headerlink" href="#the-flexibility-of-python-functions" title="Permalink to this headline">¶</a></h3>
-<p>As we discussed in the <a class="reference internal" href="python_by_example.html#python-by-example"><span class="std std-ref">previous lecture</span></a>, Python functions are very flexible.</p>
-<p>In particular</p>
-<ul class="simple">
-<li><p>Any number of functions can be defined in a given file.</p></li>
-<li><p>Functions can be (and often are) defined inside other functions.</p></li>
-<li><p>Any object can be passed to a function as an argument, including other functions.</p></li>
-<li><p>A function can return any kind of object, including functions.</p></li>
-</ul>
-<p>We already <a class="reference internal" href="functions.html#test-program-6"><span class="std std-ref">gave an example</span></a> of how straightforward it is to pass a function to
-a function.</p>
-<p>Note that a function can have arbitrarily many <code class="docutils literal notranslate"><span class="pre">return</span></code> statements (including zero).</p>
-<p>Execution of the function terminates when the first return is hit, allowing
-code like the following example</p>
+<p>We can also use <code class="docutils literal notranslate"><span class="pre">all()</span></code> and <code class="docutils literal notranslate"><span class="pre">any()</span></code> to test a sequence of expressions</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;negative&#39;</span>
-    <span class="k">return</span> <span class="s1">&#39;nonnegative&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">all</span><span class="p">([</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span> <span class="o">&lt;=</span> <span class="mi">6</span> <span class="o">&lt;=</span> <span class="mi">7</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
 </div>
-<p>Functions without a return statement automatically return the special Python object <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">all</span><span class="p">([</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span> <span class="ow">in</span> <span class="s2">&quot;letter&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">any</span><span class="p">([</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span> <span class="ow">in</span> <span class="s2">&quot;letter&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">all()</span></code> returns <code class="docutils literal notranslate"><span class="pre">True</span></code> when <em>all</em> boolean values/expressions in the sequence are <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">any()</span></code> returns <code class="docutils literal notranslate"><span class="pre">True</span></code> when <em>any</em> boolean values/expressions in the sequence are <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="coding-style-and-documentation">
+<h2><a class="toc-backref" href="#id8"><span class="section-number">5.6. </span>Coding Style and Documentation</a><a class="headerlink" href="#coding-style-and-documentation" title="Permalink to this headline">¶</a></h2>
+<p>A consistent coding style and the use of
+documentation can make the code easier to understand and maintain.</p>
+<div class="section" id="python-style-guidelines-pep8">
+<h3><span class="section-number">5.6.1. </span>Python Style Guidelines: PEP8<a class="headerlink" href="#python-style-guidelines-pep8" title="Permalink to this headline">¶</a></h3>
+<p id="index-11">You can find Python programming philosophy by typing <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">this</span></code> at the prompt.</p>
+<p>Among other things, Python strongly favors consistency in programming style.</p>
+<p>We’ve all heard the saying about consistency and little minds.</p>
+<p>In programming, as in mathematics, the opposite is true</p>
+<ul class="simple">
+<li><p>A mathematical paper where the symbols <span class="math notranslate nohighlight">\(\cup\)</span> and <span class="math notranslate nohighlight">\(\cap\)</span> were
+reversed would be very hard to read, even if the author told you so on the
+first page.</p></li>
+</ul>
+<p>In Python, the standard style is set out in <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a>.</p>
+<p>(Occasionally we’ll deviate from PEP8 in these lectures to better match mathematical notation)</p>
 </div>
 <div class="section" id="docstrings">
-<h3><span class="section-number">5.6.2. </span>Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this headline">¶</a></h3>
-<p id="index-12">Python has a system for adding comments to functions, modules, etc. called <em>docstrings</em>.</p>
+<span id="id1"></span><h3><span class="section-number">5.6.2. </span>Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this headline">¶</a></h3>
+<p id="index-12">Python has a system for adding comments to modules, classes, functions, etc. called <em>docstrings</em>.</p>
 <p>The nice thing about docstrings is that they are available at run-time.</p>
 <p>Try running this</p>
 <div class="cell docutils container">
@@ -1294,75 +1353,11 @@ code like the following example</p>
 </pre></div>
 </div>
 <p>With one question mark we bring up the docstring, and with two we get the source code as well.</p>
+<p>You can find conventions for docstrings in <a class="reference external" href="https://peps.python.org/pep-0257/">PEP257</a>.</p>
 </div>
-<div class="section" id="keyword-arguments">
-<h3><span class="section-number">5.6.3. </span>Keyword Arguments<a class="headerlink" href="#keyword-arguments" title="Permalink to this headline">¶</a></h3>
-<p id="index-13">In a <a class="reference internal" href="python_by_example.html#python-by-example"><span class="std std-ref">previous lecture</span></a>, you came across the statement</p>
-<div class="no-execute highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;white noise&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>In this call to Matplotlib’s <code class="docutils literal notranslate"><span class="pre">plot</span></code> function, notice that the last argument is passed in <code class="docutils literal notranslate"><span class="pre">name=argument</span></code> syntax.</p>
-<p>This is called a <em>keyword argument</em>, with <code class="docutils literal notranslate"><span class="pre">label</span></code> being the keyword.</p>
-<p>Non-keyword arguments are called <em>positional arguments</em>, since their meaning
-is determined by order</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">plot(x,</span> <span class="pre">'b-',</span> <span class="pre">label=&quot;white</span> <span class="pre">noise&quot;)</span></code> is different from <code class="docutils literal notranslate"><span class="pre">plot('b-',</span> <span class="pre">x,</span> <span class="pre">label=&quot;white</span> <span class="pre">noise&quot;)</span></code></p></li>
-</ul>
-<p>Keyword arguments are particularly useful when a function has a lot of arguments, in which case it’s hard to remember the right order.</p>
-<p>You can adopt keyword arguments in user-defined functions with no difficulty.</p>
-<p>The next example illustrates the syntax</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The keyword argument values we supplied in the definition of <code class="docutils literal notranslate"><span class="pre">f</span></code> become the default values</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
-</pre></div>
-</div>
-</div>
-</div>
-<p>They can be modified as follows</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="coding-style-and-pep8">
-<h2><a class="toc-backref" href="#id8"><span class="section-number">5.7. </span>Coding Style and PEP8</a><a class="headerlink" href="#coding-style-and-pep8" title="Permalink to this headline">¶</a></h2>
-<p id="index-14">To learn more about the Python programming philosophy type <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">this</span></code> at the prompt.</p>
-<p>Among other things, Python strongly favors consistency in programming style.</p>
-<p>We’ve all heard the saying about consistency and little minds.</p>
-<p>In programming, as in mathematics, the opposite is true</p>
-<ul class="simple">
-<li><p>A mathematical paper where the symbols <span class="math notranslate nohighlight">\(\cup\)</span> and <span class="math notranslate nohighlight">\(\cap\)</span> were
-reversed would be very hard to read, even if the author told you so on the
-first page.</p></li>
-</ul>
-<p>In Python, the standard style is set out in <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a>.</p>
-<p>(Occasionally we’ll deviate from PEP8 in these lectures to better match mathematical notation)</p>
 </div>
 <div class="section" id="exercises">
-<h2><a class="toc-backref" href="#id9"><span class="section-number">5.8. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9"><span class="section-number">5.7. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <p>Solve the following exercises.</p>
 <p>(For some, the built-in function <code class="docutils literal notranslate"><span class="pre">sum()</span></code> comes in handy).</p>
 <div class="exercise admonition" id="pyess_ex1">
@@ -1379,83 +1374,7 @@ their inner product using <code class="docutils literal notranslate"><span class
 such that both <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> are even.</p>
 </div>
 </div>
-<div class="exercise admonition" id="pyess_ex2">
-
-<p class="admonition-title"><span class="caption-number">Exercise 5.2 </span></p>
-<div class="section" id="exercise-content">
-<p>Consider the polynomial</p>
-<div class="math notranslate nohighlight" id="equation-polynom0">
-<span class="eqno">(5.1)<a class="headerlink" href="#equation-polynom0" title="Permalink to this equation">¶</a></span>\[p(x)
-= a_0 + a_1 x + a_2 x^2 + \cdots a_n x^n
-= \sum_{i=0}^n a_i x^i\]</div>
-<p>Write a function <code class="docutils literal notranslate"><span class="pre">p</span></code> such that <code class="docutils literal notranslate"><span class="pre">p(x,</span> <span class="pre">coeff)</span></code> that computes the value in <a class="reference internal" href="#equation-polynom0">(5.1)</a> given a point <code class="docutils literal notranslate"><span class="pre">x</span></code> and a list of coefficients <code class="docutils literal notranslate"><span class="pre">coeff</span></code>.</p>
-<p>Try to use <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> in your loop.</p>
-</div>
-</div>
-<div class="exercise admonition" id="pyess_ex3">
-
-<p class="admonition-title"><span class="caption-number">Exercise 5.3 </span></p>
-<div class="section" id="exercise-content">
-<p>Write a function that takes a string as an argument and returns the number of capital letters in the string.</p>
-<p>Hint: <code class="docutils literal notranslate"><span class="pre">'foo'.upper()</span></code> returns <code class="docutils literal notranslate"><span class="pre">'FOO'</span></code>.</p>
-</div>
-</div>
-<div class="exercise admonition" id="pyess_ex4">
-
-<p class="admonition-title"><span class="caption-number">Exercise 5.4 </span></p>
-<div class="section" id="exercise-content">
-<p>Write a function that takes two sequences <code class="docutils literal notranslate"><span class="pre">seq_a</span></code> and <code class="docutils literal notranslate"><span class="pre">seq_b</span></code> as arguments and
-returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if every element in <code class="docutils literal notranslate"><span class="pre">seq_a</span></code> is also an element of <code class="docutils literal notranslate"><span class="pre">seq_b</span></code>, else
-<code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-<ul class="simple">
-<li><p>By “sequence” we mean a list, a tuple or a string.</p></li>
-<li><p>Do the exercise without using <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#sets">sets</a> and set methods.</p></li>
-</ul>
-</div>
-</div>
-<div class="exercise admonition" id="pyess_ex5">
-
-<p class="admonition-title"><span class="caption-number">Exercise 5.5 </span></p>
-<div class="section" id="exercise-content">
-<p>When we cover the numerical libraries, we will see they include many
-alternatives for interpolation and function approximation.</p>
-<p>Nevertheless, let’s write our own function approximation routine as an exercise.</p>
-<p>In particular, without using any imports, write a function <code class="docutils literal notranslate"><span class="pre">linapprox</span></code> that takes as arguments</p>
-<ul class="simple">
-<li><p>A function <code class="docutils literal notranslate"><span class="pre">f</span></code> mapping some interval <span class="math notranslate nohighlight">\([a, b]\)</span> into <span class="math notranslate nohighlight">\(\mathbb R\)</span>.</p></li>
-<li><p>Two scalars <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> providing the limits of this interval.</p></li>
-<li><p>An integer <code class="docutils literal notranslate"><span class="pre">n</span></code> determining the number of grid points.</p></li>
-<li><p>A number <code class="docutils literal notranslate"><span class="pre">x</span></code> satisfying <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;=</span> <span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code>.</p></li>
-</ul>
-<p>and returns the <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_interpolation">piecewise linear interpolation</a> of <code class="docutils literal notranslate"><span class="pre">f</span></code> at <code class="docutils literal notranslate"><span class="pre">x</span></code>, based on <code class="docutils literal notranslate"><span class="pre">n</span></code> evenly spaced grid points <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">point[0]</span> <span class="pre">&lt;</span> <span class="pre">point[1]</span> <span class="pre">&lt;</span> <span class="pre">...</span> <span class="pre">&lt;</span> <span class="pre">point[n-1]</span> <span class="pre">=</span> <span class="pre">b</span></code>.</p>
-<p>Aim for clarity, not efficiency.</p>
-</div>
-</div>
-<div class="exercise admonition" id="pyess_ex6">
-
-<p class="admonition-title"><span class="caption-number">Exercise 5.6 </span></p>
-<div class="section" id="exercise-content">
-<p>Using list comprehension syntax, we can simplify the loop in the following
-code.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">ϵ_values</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
-    <span class="n">ϵ_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="solutions">
-<h2><a class="toc-backref" href="#id10"><span class="section-number">5.9. </span>Solutions</a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
-<div class="solution dropdown admonition" id="python_essentials-solution-6">
+<div class="solution dropdown admonition" id="python_essentials-solution-1">
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#pyess_ex1"> Exercise 5.1</a></p>
 <div class="section" id="s">
@@ -1559,11 +1478,25 @@ flexibility of list comprehensions are</p>
 </div>
 </div>
 </div>
-<div class="solution dropdown admonition" id="python_essentials-solution-7">
+<div class="exercise admonition" id="pyess_ex2">
+
+<p class="admonition-title"><span class="caption-number">Exercise 5.2 </span></p>
+<div class="section" id="exercise-content">
+<p>Consider the polynomial</p>
+<div class="math notranslate nohighlight" id="equation-polynom0">
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-polynom0" title="Permalink to this equation">¶</a></span>\[p(x)
+= a_0 + a_1 x + a_2 x^2 + \cdots a_n x^n
+= \sum_{i=0}^n a_i x^i\]</div>
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">p</span></code> such that <code class="docutils literal notranslate"><span class="pre">p(x,</span> <span class="pre">coeff)</span></code> that computes the value in <a class="reference internal" href="#equation-polynom0">(5.1)</a> given a point <code class="docutils literal notranslate"><span class="pre">x</span></code> and a list of coefficients <code class="docutils literal notranslate"><span class="pre">coeff</span></code> (<span class="math notranslate nohighlight">\(a_1, a_2, \cdots a_n\)</span>).</p>
+<p>Try to use <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> in your loop.</p>
+</div>
+</div>
+<div class="solution dropdown admonition" id="python_essentials-solution-3">
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#pyess_ex2"> Exercise 5.2</a></p>
 <div class="section" id="s">
-<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><div class="cell docutils container">
+<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><p>Here’s a solution:</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">coeff</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">coeff</span><span class="p">))</span>
@@ -1585,7 +1518,15 @@ flexibility of list comprehensions are</p>
 </div>
 </div>
 </div>
-<div class="solution dropdown admonition" id="python_essentials-solution-8">
+<div class="exercise admonition" id="pyess_ex3">
+
+<p class="admonition-title"><span class="caption-number">Exercise 5.3 </span></p>
+<div class="section" id="exercise-content">
+<p>Write a function that takes a string as an argument and returns the number of capital letters in the string.</p>
+<p>Hint: <code class="docutils literal notranslate"><span class="pre">'foo'.upper()</span></code> returns <code class="docutils literal notranslate"><span class="pre">'FOO'</span></code>.</p>
+</div>
+</div>
+<div class="solution dropdown admonition" id="python_essentials-solution-5">
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#pyess_ex3"> Exercise 5.3</a></p>
 <div class="section" id="s">
@@ -1627,7 +1568,20 @@ flexibility of list comprehensions are</p>
 </div>
 </div>
 </div>
-<div class="solution dropdown admonition" id="python_essentials-solution-9">
+<div class="exercise admonition" id="pyess_ex4">
+
+<p class="admonition-title"><span class="caption-number">Exercise 5.4 </span></p>
+<div class="section" id="exercise-content">
+<p>Write a function that takes two sequences <code class="docutils literal notranslate"><span class="pre">seq_a</span></code> and <code class="docutils literal notranslate"><span class="pre">seq_b</span></code> as arguments and
+returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if every element in <code class="docutils literal notranslate"><span class="pre">seq_a</span></code> is also an element of <code class="docutils literal notranslate"><span class="pre">seq_b</span></code>, else
+<code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<ul class="simple">
+<li><p>By “sequence” we mean a list, a tuple or a string.</p></li>
+<li><p>Do the exercise without using <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#sets">sets</a> and set methods.</p></li>
+</ul>
+</div>
+</div>
+<div class="solution dropdown admonition" id="python_essentials-solution-7">
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#pyess_ex4"> Exercise 5.4</a></p>
 <div class="section" id="s">
@@ -1635,14 +1589,14 @@ flexibility of list comprehensions are</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">seq_a</span><span class="p">,</span> <span class="n">seq_b</span><span class="p">):</span>
-    <span class="n">is_subset</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">seq_a</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">a</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">seq_b</span><span class="p">:</span>
-            <span class="n">is_subset</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="k">return</span> <span class="n">is_subset</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
 
 <span class="c1"># == test == #</span>
-
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="s2">&quot;ab&quot;</span><span class="p">,</span> <span class="s2">&quot;cadb&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="s2">&quot;ab&quot;</span><span class="p">,</span> <span class="s2">&quot;cjdb&quot;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
 </pre></div>
@@ -1650,6 +1604,31 @@ flexibility of list comprehensions are</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+True
+False
+</pre></div>
+</div>
+</div>
+</div>
+<p>An alternative, more pythonic solution using <code class="docutils literal notranslate"><span class="pre">all()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">seq_a</span><span class="p">,</span> <span class="n">seq_b</span><span class="p">):</span>
+  <span class="k">return</span> <span class="nb">all</span><span class="p">([</span><span class="n">i</span> <span class="ow">in</span> <span class="n">seq_b</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">seq_a</span><span class="p">])</span>
+
+<span class="c1"># == test == #</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="s2">&quot;ab&quot;</span><span class="p">,</span> <span class="s2">&quot;cadb&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="s2">&quot;ab&quot;</span><span class="p">,</span> <span class="s2">&quot;cjdb&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+True
 False
 </pre></div>
 </div>
@@ -1666,11 +1645,30 @@ False
 </div>
 </div>
 </div>
-<div class="solution dropdown admonition" id="python_essentials-solution-10">
+<div class="exercise admonition" id="pyess_ex5">
+
+<p class="admonition-title"><span class="caption-number">Exercise 5.5 </span></p>
+<div class="section" id="exercise-content">
+<p>When we cover the numerical libraries, we will see they include many
+alternatives for interpolation and function approximation.</p>
+<p>Nevertheless, let’s write our own function approximation routine as an exercise.</p>
+<p>In particular, without using any imports, write a function <code class="docutils literal notranslate"><span class="pre">linapprox</span></code> that takes as arguments</p>
+<ul class="simple">
+<li><p>A function <code class="docutils literal notranslate"><span class="pre">f</span></code> mapping some interval <span class="math notranslate nohighlight">\([a, b]\)</span> into <span class="math notranslate nohighlight">\(\mathbb R\)</span>.</p></li>
+<li><p>Two scalars <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> providing the limits of this interval.</p></li>
+<li><p>An integer <code class="docutils literal notranslate"><span class="pre">n</span></code> determining the number of grid points.</p></li>
+<li><p>A number <code class="docutils literal notranslate"><span class="pre">x</span></code> satisfying <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;=</span> <span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code>.</p></li>
+</ul>
+<p>and returns the <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_interpolation">piecewise linear interpolation</a> of <code class="docutils literal notranslate"><span class="pre">f</span></code> at <code class="docutils literal notranslate"><span class="pre">x</span></code>, based on <code class="docutils literal notranslate"><span class="pre">n</span></code> evenly spaced grid points <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">point[0]</span> <span class="pre">&lt;</span> <span class="pre">point[1]</span> <span class="pre">&lt;</span> <span class="pre">...</span> <span class="pre">&lt;</span> <span class="pre">point[n-1]</span> <span class="pre">=</span> <span class="pre">b</span></code>.</p>
+<p>Aim for clarity, not efficiency.</p>
+</div>
+</div>
+<div class="solution dropdown admonition" id="python_essentials-solution-9">
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#pyess_ex5"> Exercise 5.5</a></p>
 <div class="section" id="s">
-<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><div class="cell docutils container">
+<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><p>Here’s a solution:</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">linapprox</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -1706,6 +1704,27 @@ False
     <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">point</span> <span class="o">-</span> <span class="n">step</span><span class="p">,</span> <span class="n">point</span>
 
     <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">u</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">u</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">u</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="pyess_ex6">
+
+<p class="admonition-title"><span class="caption-number">Exercise 5.6 </span></p>
+<div class="section" id="exercise-content">
+<p>Using list comprehension syntax, we can simplify the loop in the following
+code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">ϵ_values</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
+    <span class="n">ϵ_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

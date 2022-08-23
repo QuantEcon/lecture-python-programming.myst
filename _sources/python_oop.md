@@ -799,36 +799,6 @@ Aim for clarity, not efficiency.
 ```{exercise-end}
 ```
 
-
-```{exercise-start}
-:label: oop_ex2
-```
-
-In an {ref}`earlier exercise <pyess_ex2>`, you wrote a function for evaluating polynomials.
-
-This exercise is an extension, where the task is to build a simple class called `Polynomial` for representing and manipulating polynomial functions such as
-
-```{math}
-:label: polynom
-
-p(x) = a_0 + a_1 x + a_2 x^2 + \cdots a_N x^N = \sum_{n=0}^N a_n x^n
-    \qquad (x \in \mathbb{R})
-```
-
-The instance data for the class `Polynomial` will be the coefficients (in the case of {eq}`polynom`, the numbers $a_0, \ldots, a_N$).
-
-Provide methods that
-
-1. Evaluate the polynomial {eq}`polynom`, returning $p(x)$ for any $x$.
-1. Differentiate the polynomial, replacing the original coefficients with those of its derivative $p'$.
-
-Avoid using any `import` statements.
-
-```{exercise-end}
-```
-
-## Solutions
-
 ```{solution-start} oop_ex1
 :class: dropdown
 ```
@@ -863,6 +833,34 @@ print(F(0.5))
 ```
 
 ```{solution-end}
+```
+
+
+```{exercise-start}
+:label: oop_ex2
+```
+
+In an {ref}`earlier exercise <pyess_ex2>`, you wrote a function for evaluating polynomials.
+
+This exercise is an extension, where the task is to build a simple class called `Polynomial` for representing and manipulating polynomial functions such as
+
+```{math}
+:label: polynom
+
+p(x) = a_0 + a_1 x + a_2 x^2 + \cdots a_N x^N = \sum_{n=0}^N a_n x^n
+    \qquad (x \in \mathbb{R})
+```
+
+The instance data for the class `Polynomial` will be the coefficients (in the case of {eq}`polynom`, the numbers $a_0, \ldots, a_N$).
+
+Provide methods that
+
+1. Evaluate the polynomial {eq}`polynom`, returning $p(x)$ for any $x$.
+1. Differentiate the polynomial, replacing the original coefficients with those of its derivative $p'$.
+
+Avoid using any `import` statements.
+
+```{exercise-end}
 ```
 
 ```{solution-start} oop_ex2

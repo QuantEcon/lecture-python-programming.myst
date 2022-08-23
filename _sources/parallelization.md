@@ -442,8 +442,6 @@ For the size of the Monte Carlo simulation, use something substantial, such as
 `n = 100_000_000`.
 ```
 
-## Solutions
-
 ```{solution-start} parallel_ex1
 :class: dropdown
 ```

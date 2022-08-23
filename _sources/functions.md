@@ -118,7 +118,7 @@ This will become clearer as you see more examples.
 
 Let's start by discussing how it's done.
 
-### Syntax
+### Basic Syntax
 
 Here's a very simple Python function, that implements the mathematical function
 $f(x) = 2 x + 1$
@@ -171,6 +171,78 @@ print(new_abs_function(3))
 print(new_abs_function(-3))
 ```
 
+Note that a function can have arbitrarily many `return` statements (including zero).
+
+Execution of the function terminates when the first return is hit, allowing
+code like the following example
+
+```{code-cell} python3
+def f(x):
+    if x < 0:
+        return 'negative'
+    return 'nonnegative'
+```
+
+Functions without a return statement automatically return the special Python object `None`.
+
+### Keyword Arguments
+
+```{index} single: Python; keyword arguments
+```
+
+In a {ref}`previous lecture <python_by_example>`, you came across the statement
+
+```{code-block} python3
+:class: no-execute
+
+plt.plot(x, 'b-', label="white noise")
+```
+
+In this call to Matplotlib's `plot` function, notice that the last argument is passed in `name=argument` syntax.
+
+This is called a *keyword argument*, with `label` being the keyword.
+
+Non-keyword arguments are called *positional arguments*, since their meaning
+is determined by order
+
+* `plot(x, 'b-', label="white noise")` is different from `plot('b-', x, label="white noise")`
+
+Keyword arguments are particularly useful when a function has a lot of arguments, in which case it's hard to remember the right order.
+
+You can adopt keyword arguments in user-defined functions with no difficulty.
+
+The next example illustrates the syntax
+
+```{code-cell} python3
+def f(x, a=1, b=1):
+    return a + b * x
+```
+
+The keyword argument values we supplied in the definition of `f` become the default values
+
+```{code-cell} python3
+f(2)
+```
+
+They can be modified as follows
+
+```{code-cell} python3
+f(2, a=4, b=5)
+```
+
+### The Flexibility of Python Functions
+
+As we discussed in the {ref}`previous lecture <python_by_example>`, Python functions are very flexible.
+
+In particular
+
+* Any number of functions can be defined in a given file.
+* Functions can be (and often are) defined inside other functions.
+* Any object can be passed to a function as an argument, including other functions.
+* A function can return any kind of object, including functions.
+
+We will give examples of how straightforward it is to pass a function to
+a function in the following sections.
 
 ### One-Line Functions: `lambda`
 
@@ -351,6 +423,7 @@ In the context of our program, the ability to bind new names to functions
 means that there is no problem *passing a function as an argument to another
 function*---as we did above.
 
+
 ## Exercises
 
 ```{exercise}
@@ -359,48 +432,34 @@ function*---as we did above.
 Recall that $n!$ is read as "$n$ factorial" and defined as
 $n! = n \times (n - 1) \times \cdots \times 2 \times 1$.
 
+We will only consider $n$ as a positive integer here.
+
 There are functions to compute this in various modules, but let's
 write our own version as an exercise.
 
-In particular, write a function `factorial` such that `factorial(n)` returns $n!$
+1. In particular, write a function `factorial` such that `factorial(n)` returns $n!$
 for any positive integer $n$.
+
+2. In addition, try to add a new argument for your function.
+The argument takes a function `f` that transforms n to $f(n) = n^2 + 1$ if n is even, and $f(n) = n^2$ if n is odd. 
+The default value should be $f(n) = n$.
+
+For example
+
+- The default case `factorial(3)` should return $3!$
+- `factorial(3,f)` should return $9!$
+- `factorial(2,f)` should return $5!$
+
+Try to use lambda expressions to define the function `f`.
+
 ```
-
-```{exercise}
-:label: exercise_2
-
-The [binomial random variable](https://en.wikipedia.org/wiki/Binomial_distribution) $Y \sim Bin(n, p)$ represents the number of successes in $n$ binary trials, where each trial succeeds with probability $p$.
-
-Without any import besides `from numpy.random import uniform`, write a function
-`binomial_rv` such that `binomial_rv(n, p)` generates one draw of $Y$.
-
-Hint: If $U$ is uniform on $(0, 1)$ and $p \in (0,1)$, then the expression `U < p` evaluates to `True` with probability $p$.
-```
-
-```{exercise}
-:label: exercise_3
-
-First, write a function that returns one realization of the following random device
-
-1. Flip an unbiased coin 10 times.
-1. If a head occurs `k` or more times consecutively within this sequence at least once, pay one dollar.
-1. If not, pay nothing.
-
-Second, write another function that does the same task except that the second rule of the above random device becomes
-
-- If a head occurs `k` or more times within this sequence, pay one dollar.
-
-Use no import besides `from numpy.random import uniform`.
-```
-
-## Solutions
 
 ```{solution-start} exercise_1
 :label: solution_1
 :class: dropdown
-
-Here's one solution.
 ```
+
+- Here's one solution for part 1
 
 ```{code-cell} python3
 def factorial(n):
@@ -412,7 +471,42 @@ def factorial(n):
 factorial(4)
 ```
 
+- Adding the lambda expression
+
+```{code-cell} python3
+def factorial(n,f = lambda x: x):
+    k = 1
+    for i in range(f(n)):
+        k = k * (i + 1)
+    return k
+
+
+factorial(9) # default
+```
+
+```{code-cell} python3
+f = lambda x: x**2 + 1 if x % 2 == 0 else x**2
+
+factorial(3, f) # odd (equivalent to factorial(9))
+```
+
+```{code-cell} python3
+factorial(2, f) # even (equivalent to factorial(5))
+```
+
 ```{solution-end}
+```
+
+
+```{exercise}
+:label: exercise_2
+
+The [binomial random variable](https://en.wikipedia.org/wiki/Binomial_distribution) $Y \sim Bin(n, p)$ represents the number of successes in $n$ binary trials, where each trial succeeds with probability $p$.
+
+Without any import besides `from numpy.random import uniform`, write a function
+`binomial_rv` such that `binomial_rv(n, p)` generates one draw of $Y$.
+
+Hint: If $U$ is uniform on $(0, 1)$ and $p \in (0,1)$, then the expression `U < p` evaluates to `True` with probability $p$.
 ```
 
 ```{solution-start} exercise_2
@@ -437,6 +531,22 @@ binomial_rv(10, 0.5)
 ```{solution-end}
 ```
 
+
+```{exercise}
+:label: exercise_3
+
+First, write a function that returns one realization of the following random device
+
+1. Flip an unbiased coin 10 times.
+1. If a head occurs `k` or more times consecutively within this sequence at least once, pay one dollar.
+1. If not, pay nothing.
+
+Second, write another function that does the same task except that the second rule of the above random device becomes
+
+- If a head occurs `k` or more times within this sequence, pay one dollar.
+
+Use no import besides `from numpy.random import uniform`.
+```
 
 ```{solution-start} exercise_3
 :label: solution_3
