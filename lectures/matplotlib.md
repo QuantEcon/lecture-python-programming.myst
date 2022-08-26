@@ -270,7 +270,7 @@ The custom `subplots` function
 
 ### Style Sheets
 
-Another useful feature in Matplotlib is [style sheet](https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html).
+Another useful feature in Matplotlib is [style sheets](https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html).
 
 We can use style sheets to create plots with uniform styles.
 
@@ -313,7 +313,7 @@ plt.show()
 
 ```
 
-If you are interested, you can also create [our own style sheet](https://matplotlib.org/stable/tutorials/introductory/customizing.html#defining-your-own-style).
+If you are interested, you can also create [our own style sheets](https://matplotlib.org/stable/tutorials/introductory/customizing.html#defining-your-own-style).
 
 ## Further Reading
 
