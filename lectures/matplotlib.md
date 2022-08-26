@@ -302,10 +302,10 @@ for i in range(4):
         y = norm.pdf(x, loc=m, scale=s)
         rnormX = norm.rvs(loc=m, scale=s, size=150)
         rnormY = norm.rvs(loc=m, scale=s, size=150)
-        axes[0].plot(x, y, linewidth=3)
-        axes[1].plot(rnormX, rnormY, ls='none', marker='o')
-        axes[2].hist(rnormX)
-        axes[3].plot(x, rnormY, linewidth=2)
+        axes[0].plot(x, y, linewidth=3, alpha = 0.7)
+        axes[1].plot(rnormX, rnormY, ls='none', marker='o', alpha = 0.7)
+        axes[2].hist(rnormX, alpha = 0.7)
+        axes[3].plot(x, rnormY, linewidth=2, alpha = 0.7)
 
     plt.title(f'Style: {styles[i]}', fontsize=11)
 
