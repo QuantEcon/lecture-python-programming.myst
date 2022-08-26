@@ -281,7 +281,7 @@ We can find a list of available style sheets by printing the attribute `plt.styl
 print(plt.style.available)
 ```
 
-Let's apply some of them to different types of visualizations
+Let's apply some of them to different types of graphs
 
 ```{code-cell} python3
 
@@ -312,6 +312,8 @@ for i in range(4):
 plt.show()
 
 ```
+
+We can also create [our own style sheet](https://matplotlib.org/stable/tutorials/introductory/customizing.html#defining-your-own-style).
 
 ## Further Reading
 
