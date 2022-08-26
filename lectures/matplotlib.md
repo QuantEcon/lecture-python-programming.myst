@@ -268,6 +268,51 @@ The custom `subplots` function
 1. makes the desired customizations to `ax`, and
 1. passes the `fig, ax` pair back to the calling code.
 
+### Style Sheets
+
+Another useful feature in Matplotlib is [style sheet](https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html).
+
+We can use style sheets to create plots with uniform styles.
+
+We can find a list of available style sheets by printing the attribute `plt.style.available`.
+
+
+```{code-cell} python3
+print(plt.style.available)
+```
+
+Let's apply some of them to different types of visualizations
+
+```{code-cell} python3
+
+# Use four different style sheets
+styles = ['seaborn', 'grayscale', 'ggplot', 'dark_background']
+
+for i in range(4):
+
+    # Set style sheet
+    plt.style.use(styles[i])
+
+    fig, axes = plt.subplots(nrows=1, ncols=4, figsize=(10, 3))
+    x = np.linspace(-12, 12, 150)
+    current_label = f'$\mu = {m:.2}$'
+
+    for j in range(3):
+        m, s = uniform(-10, 10), uniform(1, 2)
+        y = norm.pdf(x, loc=m, scale=s)
+        rnormX = norm.rvs(loc=m, scale=s, size=150)
+        rnormY = norm.rvs(loc=m, scale=s, size=150)
+        axes[0].plot(x, y, linewidth=3)
+        axes[1].plot(rnormX, rnormY, ls='none', marker='o')
+        axes[2].hist(rnormX)
+        axes[3].plot(x, rnormY, linewidth=2)
+
+    plt.title(f'Style: {styles[i]}', fontsize=11)
+
+plt.show()
+
+```
+
 ## Further Reading
 
 * The [Matplotlib gallery](http://matplotlib.org/gallery.html) provides many examples.
