@@ -274,7 +274,7 @@ Another useful feature in Matplotlib is [style sheet](https://matplotlib.org/sta
 
 We can use style sheets to create plots with uniform styles.
 
-We can find a list of available style sheets by printing the attribute `plt.style.available`.
+We can find a list of available style sheets by printing the attribute `plt.style.available`
 
 
 ```{code-cell} python3
