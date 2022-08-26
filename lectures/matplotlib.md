@@ -293,8 +293,8 @@ for i in range(4):
     # Set style sheet
     plt.style.use(styles[i])
 
-    fig, axes = plt.subplots(nrows=1, ncols=4, figsize=(10, 3))
-    x = np.linspace(-12, 12, 150)
+    fig, axes = plt.subplots(nrows=1, ncols=4, figsize=(13, 3))
+    x = np.linspace(-13, 13, 150)
     current_label = f'$\mu = {m:.2}$'
 
     for j in range(3):
