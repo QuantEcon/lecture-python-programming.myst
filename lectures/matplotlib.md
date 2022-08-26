@@ -313,7 +313,7 @@ plt.show()
 
 ```
 
-We can also create [our own style sheet](https://matplotlib.org/stable/tutorials/introductory/customizing.html#defining-your-own-style).
+If you are interested, you can also create [our own style sheet](https://matplotlib.org/stable/tutorials/introductory/customizing.html#defining-your-own-style).
 
 ## Further Reading
 
