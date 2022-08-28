@@ -314,7 +314,7 @@ a = 1
 def sumtwo(a):
   #changes on a is only defined in the local namespace
   a = a + 2
-  print(f'in function: a = {a}')
+  print(f'within function: a = {a}')
 
 sumtwo(a)
 print(f'outside function: a = {a}')
