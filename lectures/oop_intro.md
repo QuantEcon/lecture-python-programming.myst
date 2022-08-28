@@ -244,6 +244,84 @@ x
 
 (If you wanted to you could modify the `__setitem__` method, so that square bracket assignment does something totally different)
 
+## Namespace
+
+We have seen how objects associate with their attributes and methods.
+
+But how does Python know which object/variable is called when they have the same names.
+
+Previously, we have seen examples using `numpy` {ref}`before<ourfirstprog>`.
+
+We have a basic function called `sum()` and a `.sum()` method in numpy
+
+We can use the `.sum()` method on a `np.array` object
+
+```{code-cell} python3
+import numpy as np
+
+ar = np.array([1,2,3])
+
+ar.sum()
+```
+
+While, we can not do the same on lists
+
+```{code-cell} python3
+---
+tags: [raises-exception]
+---
+ls = [1,2,3]
+ls.sum()
+```
+
+We will need to use the `sum()` function to calculate the sum of a list
+
+```{code-cell} python3
+sum(ls)
+```
+
+This is because Python used namespaces to define the scope of a name.
+
+When we call a method on an object, it will search the namespace of the object.
+
+You can use `.__dir__()` method to print namespaces of the two objects we discussed before
+
+```{code-cell} python3
+print(ar.__dir__())
+```
+You can find that name "sum" is defined in the namespace of a `np.array` object,
+
+```{code-cell} python3
+print(ls.__dir__())
+```
+
+but it is not defined in the namespace of lists.
+
+In Python, built-in functions such as `sum()` are defined in the built-in namespace
+
+```{code-cell} python3
+print(dir(__builtins__))
+```
+
+Local namespaces are the innermost namespace that is created when a function is called.
+
+It is deleted once the program leaves the scope of the function
+
+```{code-cell} python3
+# a defined in the global namespace
+a = 1
+
+def sumtwo(a):
+  #changes on a is only defined in the local namespace
+  a = a + 2
+  print(f'in function: a = {a}')
+
+sumtwo(a)
+print(f'outside function: a = {a}')
+```
+
+We can see that changes in function on variable `a` stays in a local namespace without change variable `a` in the global namespace.
+
 ## Summary
 
 In Python, *everything in memory is treated as an object*.
@@ -299,4 +377,32 @@ id(math)
 ```
 
 This uniform treatment of data in Python (everything is an object) helps keep the language simple and consistent.
+
+Namespace defines the scope of names of objects.
+
+It helps Python to keep a track of names that have been defined all over the programme. 
+
+```{exercise-start}
+:label: oopintro_ex1
+```
+
+
+
+```{exercise-end}
+```
+
+```{solution-start} oopintro_ex1
+:class: dropdown
+```
+
+```{code-cell} python3
+def p(x, coef):
+    X = np.ones_like(coef)
+    X[1:] = x
+    y = np.cumprod(X)   # y = [1, x, x**2,...]
+    return coef @ y
+```
+
+```{solution-end}
+```
 
