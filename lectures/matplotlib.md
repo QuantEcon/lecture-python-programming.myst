@@ -323,19 +323,30 @@ def draw_graphs(style='default'):
 
 ```
 
-Let's see what some of the styles look like
+Let's see what some of the styles look like.
+
+First, we draw graphs with the style sheet `seaborn`
 
 ```{code-cell} python3
-
-# Use four different style sheets
 draw_graphs(style='seaborn')
+```
 
+Then, we can use `grayscale` to remove colors
+
+```{code-cell} python3
 draw_graphs(style='grayscale')
+```
 
+Here is what `ggplot` looks like
+
+```{code-cell} python3
 draw_graphs(style='ggplot')
+```
 
+We can also use the style `dark_background`
+
+```{code-cell} python3
 draw_graphs(style='dark_background')
-
 ```
 
 You can use the function to experiment with more styles.
