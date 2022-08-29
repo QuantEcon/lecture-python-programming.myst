@@ -285,7 +285,6 @@ We can also use the `plt.style.use()` method to set style sheet.
 Let's write a function that draws different types of graphs with a given style sheet
 
 ```{code-cell} python3
-import random
 
 def draw_graphs(style='default'):
 
@@ -296,12 +295,12 @@ def draw_graphs(style='default'):
     x = np.linspace(-13, 13, 150)
 
     # Set seed values to replicate results of random draws
-    random.seed(1)
+    np.random.seed(9)
 
     for i in range(3):
 
         # Draw mean and standard deviation from uniform distributions
-        m, s = uniform(-10, 10), uniform(1, 2)
+        m, s = np.random.uniform(-8, 8), np.random.uniform(2, 2.5)
 
         # Generate a normal density plot
         y = norm.pdf(x, loc=m, scale=s)
