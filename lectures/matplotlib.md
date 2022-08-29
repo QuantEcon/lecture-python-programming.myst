@@ -287,7 +287,7 @@ Let's write a function that draws different types of graphs with a given style s
 ```{code-cell} python3
 import random
 
-def draw_graphs(style = 'default'):
+def draw_graphs(style='default'):
 
     # Setting a style sheet
     plt.style.use(style)
@@ -305,7 +305,7 @@ def draw_graphs(style = 'default'):
 
         # Generate a normal density plot
         y = norm.pdf(x, loc=m, scale=s)
-        axes[0].plot(x, y, linewidth=3, alpha = 0.7)
+        axes[0].plot(x, y, linewidth=3, alpha=0.7)
 
         # Create a scatter plot with random X and Y values 
         # from normal distributions
@@ -314,10 +314,10 @@ def draw_graphs(style = 'default'):
         axes[1].plot(rnormX, rnormY, ls='none', marker='o', alpha = 0.7)
 
         # a histogram with X
-        axes[2].hist(rnormX, alpha = 0.7)
+        axes[2].hist(rnormX, alpha=0.7)
 
         # and a line graph with Y
-        axes[3].plot(x, rnormY, linewidth=2, alpha = 0.7)
+        axes[3].plot(x, rnormY, linewidth=2, alpha=0.7)
 
     plt.suptitle(f'Style: {style}', fontsize=13)
     plt.show()
@@ -329,13 +329,14 @@ Let's see what some of the styles look like
 ```{code-cell} python3
 
 # Use four different style sheets
-draw_graphs(style = 'seaborn')
 
-draw_graphs(style = 'grayscale')
+draw_graphs(style='seaborn')
 
-draw_graphs(style = 'ggplot')
+draw_graphs(style='grayscale')
 
-draw_graphs(style = 'dark_background')
+draw_graphs(style='ggplot')
+
+draw_graphs(style='dark_background')
 
 ```
 
