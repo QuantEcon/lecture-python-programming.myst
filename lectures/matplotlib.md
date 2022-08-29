@@ -280,7 +280,7 @@ We can find a list of available style sheets by printing the attribute `plt.styl
 ```{code-cell} python3
 print(plt.style.available)
 ```
-We can also use the `plt.style.use()` method to set style sheet.
+We can also use the `plt.style.use()` method to set the style sheet.
 
 Let's write a function that draws different types of graphs with a given style sheet
 
