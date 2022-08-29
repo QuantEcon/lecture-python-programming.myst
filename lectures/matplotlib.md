@@ -293,7 +293,7 @@ for i in range(4):
     # Set style sheet
     plt.style.use(styles[i])
 
-    fig, axes = plt.subplots(nrows=1, ncols=4, figsize=(13, 3))
+    fig, axes = plt.subplots(nrows=1, ncols=4, figsize=(10, 3))
     x = np.linspace(-13, 13, 150)
     current_label = f'$\mu = {m:.2}$'
 
@@ -307,7 +307,7 @@ for i in range(4):
         axes[2].hist(rnormX, alpha = 0.7)
         axes[3].plot(x, rnormY, linewidth=2, alpha = 0.7)
 
-    plt.title(f'Style: {styles[i]}', fontsize=11)
+    plt.suptitle(f'Style: {styles[i]}', fontsize=13)
 
 plt.show()
 
