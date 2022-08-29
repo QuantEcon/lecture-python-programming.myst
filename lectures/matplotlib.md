@@ -281,7 +281,7 @@ We can find a list of available style sheets by printing the attribute `plt.styl
 print(plt.style.available)
 ```
 
-let's write a function that draws different types of graphs with a given style sheet
+Let's write a function that draws different types of graphs with a given style sheet
 
 We can use `plt.style.use` function to set style sheet.
 
@@ -298,7 +298,6 @@ def draw_graphs(style = 'default'):
 
     # Set seed values to replicate results of random draws
     random.seed(1)
-    np.random.seed(1)
 
     for i in range(3):
 
@@ -332,8 +331,11 @@ Let's see what some of the styles look like
 
 # Use four different style sheets
 draw_graphs(style = 'seaborn')
+
 draw_graphs(style = 'grayscale')
+
 draw_graphs(style = 'ggplot')
+
 draw_graphs(style = 'dark_background')
 
 ```
