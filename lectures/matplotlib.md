@@ -328,7 +328,6 @@ Let's see what some of the styles look like
 ```{code-cell} python3
 
 # Use four different style sheets
-
 draw_graphs(style='seaborn')
 
 draw_graphs(style='grayscale')
