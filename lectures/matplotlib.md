@@ -307,16 +307,16 @@ def draw_graphs(style = 'default'):
         y = norm.pdf(x, loc=m, scale=s)
         axes[0].plot(x, y, linewidth=3, alpha = 0.7)
 
-        # create a scatter plot with random X and Y values 
+        # Create a scatter plot with random X and Y values 
         # from normal distributions
         rnormX = norm.rvs(loc=m, scale=s, size=150)
         rnormY = norm.rvs(loc=m, scale=s, size=150)
         axes[1].plot(rnormX, rnormY, ls='none', marker='o', alpha = 0.7)
 
-        # a histogram with random X
+        # a histogram with X
         axes[2].hist(rnormX, alpha = 0.7)
 
-        # and a line graph with random Y
+        # and a line graph with Y
         axes[3].plot(x, rnormY, linewidth=2, alpha = 0.7)
 
     plt.suptitle(f'Style: {style}', fontsize=13)
