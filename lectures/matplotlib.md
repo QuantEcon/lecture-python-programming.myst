@@ -281,39 +281,66 @@ We can find a list of available style sheets by printing the attribute `plt.styl
 print(plt.style.available)
 ```
 
-Let's apply some of them to different types of graphs
+let's write a function that draws different types of graphs with a given style sheet
+
+We can use `plt.style.use` function to set style sheet.
+
+```{code-cell} python3
+import random
+
+def draw_graphs(style = 'default'):
+
+    # Setting a style sheet
+    plt.style.use(style)
+
+    fig, axes = plt.subplots(nrows=1, ncols=4, figsize=(10, 3))
+    x = np.linspace(-13, 13, 150)
+
+    # Set seed values to replicate results of random draws
+    random.seed(1)
+    np.random.seed(1)
+
+    for i in range(3):
+
+        # Draw mean and standard deviation from uniform distributions
+        m, s = uniform(-10, 10), uniform(1, 2)
+
+        # Generate a normal density plot
+        y = norm.pdf(x, loc=m, scale=s)
+        axes[0].plot(x, y, linewidth=3, alpha = 0.7)
+
+        # create a scatter plot with random X and Y values 
+        # from normal distributions
+        rnormX = norm.rvs(loc=m, scale=s, size=150)
+        rnormY = norm.rvs(loc=m, scale=s, size=150)
+        axes[1].plot(rnormX, rnormY, ls='none', marker='o', alpha = 0.7)
+
+        # a histogram with random X
+        axes[2].hist(rnormX, alpha = 0.7)
+
+        # and a line graph with random Y
+        axes[3].plot(x, rnormY, linewidth=2, alpha = 0.7)
+
+    plt.suptitle(f'Style: {style}', fontsize=13)
+    plt.show()
+
+```
+
+Let's see what some of the styles look like
 
 ```{code-cell} python3
 
 # Use four different style sheets
-styles = ['seaborn', 'grayscale', 'ggplot', 'dark_background']
-
-for i in range(4):
-
-    # Set style sheet
-    plt.style.use(styles[i])
-
-    fig, axes = plt.subplots(nrows=1, ncols=4, figsize=(10, 3))
-    x = np.linspace(-13, 13, 150)
-    current_label = f'$\mu = {m:.2}$'
-
-    for j in range(3):
-        m, s = uniform(-10, 10), uniform(1, 2)
-        y = norm.pdf(x, loc=m, scale=s)
-        rnormX = norm.rvs(loc=m, scale=s, size=150)
-        rnormY = norm.rvs(loc=m, scale=s, size=150)
-        axes[0].plot(x, y, linewidth=3, alpha = 0.7)
-        axes[1].plot(rnormX, rnormY, ls='none', marker='o', alpha = 0.7)
-        axes[2].hist(rnormX, alpha = 0.7)
-        axes[3].plot(x, rnormY, linewidth=2, alpha = 0.7)
-
-    plt.suptitle(f'Style: {styles[i]}', fontsize=13)
-
-plt.show()
+draw_graphs(style = 'seaborn')
+draw_graphs(style = 'grayscale')
+draw_graphs(style = 'ggplot')
+draw_graphs(style = 'dark_background')
 
 ```
 
-If you are interested, you can also create [our own style sheets](https://matplotlib.org/stable/tutorials/introductory/customizing.html#defining-your-own-style).
+You can use the function to experiment with more styles.
+
+If you are interested, you can even create [our own style sheets](https://matplotlib.org/stable/tutorials/introductory/customizing.html#defining-your-own-style).
 
 ## Further Reading
 
