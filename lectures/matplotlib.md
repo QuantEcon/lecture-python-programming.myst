@@ -310,7 +310,7 @@ def draw_graphs(style='default'):
         # from normal distributions
         rnormX = norm.rvs(loc=m, scale=s, size=150)
         rnormY = norm.rvs(loc=m, scale=s, size=150)
-        axes[1].plot(rnormX, rnormY, ls='none', marker='o', alpha = 0.7)
+        axes[1].plot(rnormX, rnormY, ls='none', marker='o', alpha=0.7)
 
         # a histogram with X
         axes[2].hist(rnormX, alpha=0.7)
