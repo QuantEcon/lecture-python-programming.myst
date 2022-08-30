@@ -274,15 +274,16 @@ Another useful feature in Matplotlib is [style sheets](https://matplotlib.org/st
 
 We can use style sheets to create plots with uniform styles.
 
-We can find a list of available style sheets by printing the attribute `plt.style.available`
+We can find a list of available styles by printing the attribute `plt.style.available`
 
 
 ```{code-cell} python3
 print(plt.style.available)
 ```
-We can also use the `plt.style.use()` method to set the style sheet.
 
-Let's write a function that draws different types of graphs with a given style sheet
+We can now use the `plt.style.use()` method to set the style sheet.
+
+Let's write a function that takes the name of a style sheet and draws different plots with the style
 
 ```{code-cell} python3
 
@@ -312,10 +313,10 @@ def draw_graphs(style='default'):
         rnormY = norm.rvs(loc=m, scale=s, size=150)
         axes[1].plot(rnormX, rnormY, ls='none', marker='o', alpha=0.7)
 
-        # a histogram with X
+        # Create a histogram with random X values
         axes[2].hist(rnormX, alpha=0.7)
 
-        # and a line graph with Y
+        # and a line graph with random Y values
         axes[3].plot(x, rnormY, linewidth=2, alpha=0.7)
 
     plt.suptitle(f'Style: {style}', fontsize=13)
@@ -331,7 +332,7 @@ First, we draw graphs with the style sheet `seaborn`
 draw_graphs(style='seaborn')
 ```
 
-Then, we can use `grayscale` to remove colors
+We can use `grayscale` to remove colors in plots
 
 ```{code-cell} python3
 draw_graphs(style='grayscale')
@@ -349,9 +350,9 @@ We can also use the style `dark_background`
 draw_graphs(style='dark_background')
 ```
 
-You can use the function to experiment with more styles.
+You can use the function to experiment with other styles in the list.
 
-If you are interested, you can even create [our own style sheets](https://matplotlib.org/stable/tutorials/introductory/customizing.html#defining-your-own-style).
+If you are interested, you can even create [your own style sheets](https://matplotlib.org/stable/tutorials/introductory/customizing.html#defining-your-own-style).
 
 ## Further Reading
 
