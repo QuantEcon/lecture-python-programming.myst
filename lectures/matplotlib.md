@@ -283,7 +283,7 @@ print(plt.style.available)
 
 We can now use the `plt.style.use()` method to set the style sheet.
 
-Let's write a function that takes the name of a style sheet and draws different plots with the same style
+Let's write a function that takes the name of a style sheet and draws different plots with the style
 
 ```{code-cell} python3
 
