@@ -666,7 +666,7 @@ In the following exercises, we will write recursive functions together.
 
 We will use more advanced syntaxes such as {any}`list comprehensions <list_comprehensions>` to test our solutions against a list of inputs.
 
-If you are unfamiliar with these concepts, feel free to come back later.
+If you are not familiar with these concepts, feel free to come back later.
 
 
 ```{exercise-start}
