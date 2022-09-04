@@ -1601,7 +1601,7 @@ In summary, iterables
 
 
 ```{exercise-start}
-:label: paf_ex2
+:label: paf_ex1
 ```
 
 Complete the following code, and test it using [this csv file](https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/python_advanced_features/test_table.csv), which we assume that you've put in your current working directory
@@ -1627,7 +1627,7 @@ for date in dates:
 ```{exercise-end}
 ```
 
-```{solution-start} paf_ex2
+```{solution-start} paf_ex1
 :class: dropdown
 ```
 
@@ -1662,7 +1662,7 @@ for date in dates:
 
 
 ```{exercise-start}
-:label: paf_ex3
+:label: paf_ex2
 ```
 
 Suppose we have a text file `numbers.txt` containing the following lines
@@ -1684,7 +1684,7 @@ Using `try` -- `except`, write a program to read in the contents of the file and
 ```
 
 
-```{solution-start} paf_ex3
+```{solution-start} paf_ex2
 :class: dropdown
 ```
 
