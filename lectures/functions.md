@@ -662,9 +662,12 @@ draw_new(3)
 
 ## Advanced Exercises
 
-In the following exercises, we used more advanced syntax such as {doc}`list comprehension <list_comprehension>` to test our solutions against a list of inputs.
+In the following exercises, we will use more advanced syntax such as {any}`list comprehension <list_comprehensions>` to test our solutions against a list of inputs.
+
 
 If you are unfamiliar with these concepts, feel free to come back later.
+
+
 ```{exercise-start}
 :label: func_ex4
 ```
@@ -741,11 +744,11 @@ def recursion_factorial_simplified(n):
 Let's test them
 
 ```{code-cell} python3
-print([recursion_factorial(i) for i in range(10)])
+print([recursion_factorial(i) for i in range(1, 10)])
 ```
 
 ```{code-cell} python3
-print([recursion_factorial_simplified(i) for i in range(10)])
+print([recursion_factorial_simplified(i) for i in range(1, 10)])
 ```
 
 
