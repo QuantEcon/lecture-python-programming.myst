@@ -662,8 +662,9 @@ draw_new(3)
 
 ## Advanced Exercises
 
-In the following exercises, we will use more advanced syntax such as {any}`list comprehension <list_comprehensions>` to test our solutions against a list of inputs.
+In the following exercises, we will write recursive functions together.
 
+We will use more advanced syntaxes such as {any}`list comprehensions <list_comprehensions>` to test our solutions against a list of inputs.
 
 If you are unfamiliar with these concepts, feel free to come back later.
 
@@ -734,7 +735,7 @@ def recursion_factorial(n):
    else:
        return n * recursion_factorial(n-1)
 ```
-Here's an one-line solution
+Here's a simplified solution
 
 ```{code-cell} python3
 def recursion_factorial_simplified(n):
