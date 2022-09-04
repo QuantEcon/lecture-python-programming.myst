@@ -1596,105 +1596,12 @@ In summary, iterables
 * avoid the need to create big lists/tuples, and
 * provide a uniform interface to iteration that can be used transparently in `for` loops
 
-(recursive_functions)=
-## Recursive Function Calls
-
-```{index} single: Python; Recursion
-```
-
-This is not something that you will use every day, but it is still useful --- you should learn it at some stage.
-
-Basically, a recursive function is a function that calls itself.
-
-For example, consider the problem of computing $x_t$ for some t when
-
-```{math}
-:label: xseqdoub
-
-x_{t+1} = 2 x_t, \quad x_0 = 1
-```
-
-Obviously the answer is $2^t$.
-
-We can compute this easily enough with a loop
-
-```{code-cell} python3
-def x_loop(t):
-    x = 1
-    for i in range(t):
-        x = 2 * x
-    return x
-```
-
-We can also use a recursive solution, as follows
-
-```{code-cell} python3
-def x(t):
-    if t == 0:
-        return 1
-    else:
-        return 2 * x(t-1)
-```
-
-What happens here is that each successive call uses it's own *frame* in the *stack*
-
-* a frame is where the local variables of a given function call are held
-* stack is memory used to process function calls
-  * a First In Last Out (FILO) queue
-
-This example is somewhat contrived, since the first (iterative) solution would usually be preferred to the recursive solution.
-
-We'll meet less contrived applications of recursion later on.
 
 ## Exercises
 
+
 ```{exercise-start}
 :label: paf_ex1
-```
-
-The Fibonacci numbers are defined by
-
-```{math}
-:label: fib
-
-x_{t+1} = x_t + x_{t-1}, \quad x_0 = 0, \; x_1 = 1
-```
-
-The first few numbers in the sequence are $0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55$.
-
-Write a function to recursively compute the $t$-th Fibonacci number for any $t$.
-
-```{exercise-end}
-```
-
-```{solution-start} paf_ex1
-:class: dropdown
-```
-
-Here's the standard solution
-
-```{code-cell} python3
-def x(t):
-    if t == 0:
-        return 0
-    if t == 1:
-        return 1
-    else:
-        return x(t-1) + x(t-2)
-```
-
-Let's test it
-
-```{code-cell} python3
-print([x(i) for i in range(10)])
-```
-
-```{solution-end}
-```
-
-
-```{exercise-start}
-:label: paf_ex2
 ```
 
 Complete the following code, and test it using [this csv file](https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/python_advanced_features/test_table.csv), which we assume that you've put in your current working directory
@@ -1720,7 +1627,7 @@ for date in dates:
 ```{exercise-end}
 ```
 
-```{solution-start} paf_ex2
+```{solution-start} paf_ex1
 :class: dropdown
 ```
 
@@ -1755,7 +1662,7 @@ for date in dates:
 
 
 ```{exercise-start}
-:label: paf_ex3
+:label: paf_ex2
 ```
 
 Suppose we have a text file `numbers.txt` containing the following lines
@@ -1777,7 +1684,7 @@ Using `try` -- `except`, write a program to read in the contents of the file and
 ```
 
 
-```{solution-start} paf_ex3
+```{solution-start} paf_ex2
 :class: dropdown
 ```
 
