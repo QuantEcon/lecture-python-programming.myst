@@ -424,10 +424,63 @@ means that there is no problem *passing a function as an argument to another
 function*---as we did above.
 
 
+(recursive_functions)=
+## Recursive Function Calls (Advanced)
+
+```{index} single: Python; Recursion
+```
+
+This is not something that you will use every day, but it is still useful --- you should learn it at some stage.
+
+Basically, a recursive function is a function that calls itself.
+
+For example, consider the problem of computing $x_t$ for some t when
+
+```{math}
+:label: xseqdoub
+
+x_{t+1} = 2 x_t, \quad x_0 = 1
+```
+
+Obviously the answer is $2^t$.
+
+We can compute this easily enough with a loop
+
+```{code-cell} python3
+def x_loop(t):
+    x = 1
+    for i in range(t):
+        x = 2 * x
+    return x
+```
+
+We can also use a recursive solution, as follows
+
+```{code-cell} python3
+def x(t):
+    if t == 0:
+        return 1
+    else:
+        return 2 * x(t-1)
+```
+
+What happens here is that each successive call uses it's own *frame* in the *stack*
+
+* a frame is where the local variables of a given function call are held
+* stack is memory used to process function calls
+  * a First In Last Out (FILO) queue
+
+This example is somewhat contrived, since the first (iterative) solution would usually be preferred to the recursive solution.
+
+We'll meet less contrived applications of recursion later on.
+
+
+(factorial_exercise)=
 ## Exercises
 
-```{exercise}
-:label: exercise_1
+```{exercise-start}
+:label: func_ex1
+```
 
 Recall that $n!$ is read as "$n$ factorial" and defined as
 $n! = n \times (n - 1) \times \cdots \times 2 \times 1$.
@@ -452,10 +505,11 @@ For example
 
 Try to use lambda expressions to define the function `f`.
 
+```{exercise-end}
 ```
 
-```{solution-start} exercise_1
-:label: solution_1
+
+```{solution-start} func_ex1
 :class: dropdown
 ```
 
@@ -498,8 +552,9 @@ factorial(2, f) # even (equivalent to factorial(5))
 ```
 
 
-```{exercise}
-:label: exercise_2
+```{exercise-start}
+:label: func_ex2
+```
 
 The [binomial random variable](https://en.wikipedia.org/wiki/Binomial_distribution) $Y \sim Bin(n, p)$ represents the number of successes in $n$ binary trials, where each trial succeeds with probability $p$.
 
@@ -507,10 +562,11 @@ Without any import besides `from numpy.random import uniform`, write a function
 `binomial_rv` such that `binomial_rv(n, p)` generates one draw of $Y$.
 
 Hint: If $U$ is uniform on $(0, 1)$ and $p \in (0,1)$, then the expression `U < p` evaluates to `True` with probability $p$.
+```{exercise-end}
 ```
 
-```{solution-start} exercise_2
-:label: solution_2
+
+```{solution-start} func_ex2
 :class: dropdown
 ````
 
@@ -532,8 +588,9 @@ binomial_rv(10, 0.5)
 ```
 
 
-```{exercise}
-:label: exercise_3
+```{exercise-start}
+:label: func_ex3
+```
 
 First, write a function that returns one realization of the following random device
 
@@ -546,14 +603,18 @@ Second, write another function that does the same task except that the second ru
 - If a head occurs `k` or more times within this sequence, pay one dollar.
 
 Use no import besides `from numpy.random import uniform`.
+
+```{exercise-end}
 ```
 
-```{solution-start} exercise_3
-:label: solution_3
+```{solution-start} func_ex3
 :class: dropdown
+```
 
 Here's a function for the first random device.
-```
+
+
+
 
 ```{code-cell} python3
 from numpy.random import uniform
@@ -594,6 +655,99 @@ def draw_new(k):  # pays if k successes in a sequence
 
 draw_new(3)
 ```
+
+```{solution-end}
+```
+
+
+## Advanced Exercises
+
+In the following exercises, we used more advanced syntax such as {doc}`list comprehension <list_comprehension>` to test our solutions against a list of inputs.
+
+If you are unfamiliar with these concepts, feel free to come back later.
+```{exercise-start}
+:label: func_ex4
+```
+
+The Fibonacci numbers are defined by
+
+```{math}
+:label: fib
+
+x_{t+1} = x_t + x_{t-1}, \quad x_0 = 0, \; x_1 = 1
+```
+
+The first few numbers in the sequence are $0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55$.
+
+Write a function to recursively compute the $t$-th Fibonacci number for any $t$.
+
+```{exercise-end}
+```
+
+```{solution-start} func_ex4
+:class: dropdown
+```
+
+Here's the standard solution
+
+```{code-cell} python3
+def x(t):
+    if t == 0:
+        return 0
+    if t == 1:
+        return 1
+    else:
+        return x(t-1) + x(t-2)
+```
+
+Let's test it
+
+```{code-cell} python3
+print([x(i) for i in range(10)])
+```
+
+```{solution-end}
+```
+
+```{exercise-start}
+:label: func_ex5
+```
+
+For this exercise, rewrite the function `factorial(n)` in **[exercise 1](factorial_exercise)** using recursion.
+
+```{exercise-end}
+```
+
+```{solution-start} func_ex5
+:class: dropdown
+```
+
+Here's the standard solution
+
+```{code-cell} python3
+def recursion_factorial(n):
+   if n == 1:
+       return n
+   else:
+       return n * recursion_factorial(n-1)
+```
+Here's an one-line solution
+
+```{code-cell} python3
+def recursion_factorial_simplified(n):
+    return n * recursion_factorial(n-1) if n != 1 else n
+```
+
+Let's test them
+
+```{code-cell} python3
+print([recursion_factorial(i) for i in range(10)])
+```
+
+```{code-cell} python3
+print([recursion_factorial_simplified(i) for i in range(10)])
+```
+
 
 ```{solution-end}
 ```

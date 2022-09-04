@@ -455,7 +455,7 @@ letter_list = ['a', 'b', 'c']
 for index, letter in enumerate(letter_list):
     print(f"letter_list[{index}] = '{letter}'")
 ```
-
+(list_comprehension)=
 ### List Comprehensions
 
 ```{index} single: Python; List comprehension
