@@ -30,7 +30,7 @@ kernelspec:
 </style>
 
 
-# Setting up Your Python Environment
+# Getting Started
 
 ```{index} single: Python
 ```
@@ -43,12 +43,53 @@ kernelspec:
 
 In this lecture, you will learn how to
 
-1. get a Python environment up and running
+1. use Python in the cloud
+1. get a local Python environment up and running
 1. execute simple Python commands
 1. run a sample program
 1. install the code libraries that underpin these lectures
 
-## Anaconda
+## Python in the Cloud
+
+The easiest way to get started coding in Python is by running it in the cloud.
+
+(That is, by using a remote server that already has Python installed.)
+
+There are many options for doing this, both free and paid.
+
+At present [Google Colab](https://colab.research.google.com/) seems to be the
+most reliable.
+
+Colab offers a free tier and also has the advantage of providing GPUs.
+
+The free-tier GPUs are adequate and better ones can be accessed by signing up
+for Colab Pro.
+
+Tutorials on how to get started with Google Colab can be found by searching.
+
+Written examples include
+
+* [Google Colab Tutorial for Beginners](https://pub.towardsai.net/google-colab-tutorial-for-beginners-834595494d44)
+* [Intro to Google
+  Colab](https://levelup.gitconnected.com/google-colab-what-is-it-how-to-use-it-and-why-should-i-care-721bb8a88c90)
+
+Videos on the same topic can be found by searching on Youtube.
+
+Most of our lectures include a "Launch notebook" (play icon) button on the top
+right that allows you to easily run them in Colab.
+
+
+## Local Install
+
+Local installs are preferable if you have access to a suitable machine and
+plan to do a substantial amount of Python programming.
+
+At the same time, local installs require more work than a cloud option like Colab.
+
+The rest of this lecture runs you through the details.
+
+
+### The Anaconda Distribution
 
 The [core Python package](https://www.python.org/downloads/) is easy to install but *not* what you should choose for these lectures.
 
@@ -69,7 +110,7 @@ Anaconda is
 * very popular
 * cross-platform
 * comprehensive
-* completely unrelated to the Nicki Minaj song of the same name
+* completely unrelated to the [Nicki Minaj song of the same name](https://www.youtube.com/watch?v=LDZX4ooRsWs)
 
 Anaconda also comes with a great package management system to organize your code libraries.
 
@@ -91,9 +132,9 @@ Important points:
 
 ### Updating Anaconda
 
-Anaconda supplies a tool called conda to manage and upgrade your Anaconda packages.
+Anaconda supplies a tool called `conda` to manage and upgrade your Anaconda packages.
 
-One conda command you should execute regularly is the one that updates the whole Anaconda distribution.
+One `conda` command you should execute regularly is the one that updates the whole Anaconda distribution.
 
 As a practice run, please execute the following
 
