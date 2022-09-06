@@ -1,7 +1,7 @@
 name: Link Checker [Anaconda, Linux]
 on:
   pull_request:
-    types: [opened]
+    types: [opened, reopened]
   schedule:
     # UTC 12:00 is early morning in Australia
     - cron:  '0 12 * * *'
@@ -26,6 +26,13 @@ jobs:
           python-version: 3.9
           environment-file: environment.yml
           activate-environment: quantecon
+      - name: Download "build" folder (cache)
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: cache.yml
+          branch: main
+          name: build-cache
+          path: _build
       - name: Link Checker
         shell: bash -l {0}
         run: jb build lectures --path-output=./ --builder=custom --custom-builder=linkcheck
