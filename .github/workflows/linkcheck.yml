@@ -1,5 +1,7 @@
 name: Link Checker [Anaconda, Linux]
-on: [pull_request]
+on:
+  pull_request:
+    types: [opened]
   schedule:
     # UTC 12:00 is early morning in Australia
     - cron:  '0 12 * * *'
