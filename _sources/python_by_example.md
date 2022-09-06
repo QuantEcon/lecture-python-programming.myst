@@ -71,7 +71,6 @@ Here are a few lines of code that perform the task we set
 ```{code-cell} ipython
 import numpy as np
 import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = (10,6)
 
 ϵ_values = np.random.randn(100)
 plt.plot(ϵ_values)
