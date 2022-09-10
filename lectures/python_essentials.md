@@ -61,7 +61,7 @@ Let's learn a bit more about them.
 
 ### Primitive Data Types
 
-
+(boolean)=
 #### Boolean Values
 
 One simple data type is **Boolean values**, which can be either `True` or `False`
