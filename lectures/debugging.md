@@ -43,7 +43,7 @@ Hey, we all used to do that.
 
 But once you start writing larger programs you'll need a better system to spot bugs and errors.
 
-You may even want to handle possible errors in your code before it is raised.
+You may even want to handle possible errors in your code before they are raised.
 
 In this lecture, we will discuss how to debug our programs and handle potential errors.
 
@@ -266,7 +266,7 @@ The full list of magics is [here](http://ipython.readthedocs.org/en/stable/inter
 ```{index} single: Python; Handling Errors
 ```
 
-Errors are problems within the program that stops the program from running further.
+Errors are problems within a program that stops the program from running further.
 
 We have seen `AttributeError` and `NameError` in {any}`our previous examples <debug_magic>`.
 

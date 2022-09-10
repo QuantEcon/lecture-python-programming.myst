@@ -336,14 +336,14 @@ For example, every time we import a module, Python creates a namespace for that 
 To see this in action, suppose we write a script `math2.py` with a single line
 
 ```{code-cell} python3
-%%file math2.py
+%%file mathfoo.py
 pi = 'foobar'
 ```
 
 Now we start the Python interpreter and import it
 
 ```{code-cell} python3
-import math2
+import mathfoo
 ```
 
 Next let's import the `math` module from the standard library
@@ -359,7 +359,7 @@ math.pi
 ```
 
 ```{code-cell} python3
-math2.pi
+mathfoo.pi
 ```
 
 These two different bindings of `pi` exist in different namespaces, each one implemented as a dictionary.
@@ -373,9 +373,9 @@ math.__dict__.items()
 ```
 
 ```{code-cell} python3
-import math2
+import mathfoo
 
-math2.__dict__.items()
+mathfoo.__dict__.items()
 ```
 
 As you know, we access elements of the namespace using the dotted attribute notation
@@ -780,7 +780,7 @@ f.__call__(3)
 
 Another is the `__dir__` method, which returns a list of attributes.
 
-We can also find `f` our current namesapce
+We can also find `f` our current namespace
 
 ```{code-cell} python3
 'f' in dir()
@@ -794,13 +794,13 @@ import math
 id(math)
 ```
 
-We can also find `math` in our global namespace
+We can find `math` in our global namespace after the import
 
 ```{code-cell} python3
 print(dir()[-1::-1])
 ```
 
-We can find all names in the private namespace of `math`
+We can also find all objects associated with the `math` module in the private namespace of `math`
 
 ```{code-cell} python3
 print(dir(math))
@@ -814,9 +814,9 @@ from math import log, pi, sqrt
 print(dir()[-1::-1])
 ```
 
-We can find these names appear in current namespace now.
+We can find these names appear in the current namespace now.
 
-This uniform treatment of data in Python (everything is an object) helps keep the language simple and consistent.
+*This uniform treatment of data in Python (everything is an object) helps keep the language simple and consistent.*
 
 ## Exercises
 
@@ -824,7 +824,7 @@ This uniform treatment of data in Python (everything is an object) helps keep th
 :label: oop_intro_ex1
 ```
 
-We have learnt {any}`boolean data type <boolean>` previously. 
+We have met the {any}`boolean data type <boolean>` previously. 
 Using what we have learnt in this lecture, print a list of methods of boolean objects.
 
 (hint: you can use `callable()` to test whether an attribute of an object can be called as a function)
@@ -836,26 +836,26 @@ Using what we have learnt in this lecture, print a list of methods of boolean ob
 :class: dropdown
 ```
 
-Firstly, we need to find all attributes associated to a boolean object.
+Firstly, we need to find all attributes of a boolean object.
 
 You can use one of the following ways:
 
-you can call the `__dir__()` method
+you can call the `.__dir__()` method
 
 ```{code-cell} python3
-print(True.__dir__())
+print(sorted(True.__dir__()))
 ```
 
 you can use the built-in function `dir()`
 
 ```{code-cell} python3
-print(dir(True))
+print(sorted(dir(True)))
 ```
 
-or, since boolean data type is a primitive type, you can also find it in the built-in namespace
+or, since the boolean data type is a primitive type, you can also find it in the built-in namespace
 
 ```{code-cell} python3
-dir(__builtins__.bool)
+print(dir(__builtins__.bool))
 ```
 
 Next, we can use a `for` loop to filter out attributes that are callable
@@ -865,13 +865,13 @@ attrls = dir(__builtins__.bool)
 callablels = list()
 
 for i in attrls:
-  # we use eval() to transfrom string into a statement
+  # we use eval() to transform a string into a statement
   if callable(eval('True.'+i)):
     callablels.append(i)
 print(callablels)
 ```
 
-here is an one-line solution
+here is a one-line solution
 
 ```{code-cell} python3
 print([i for i in attrls if callable(eval("True." + i))])

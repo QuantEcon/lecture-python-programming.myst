@@ -33,7 +33,7 @@ It's here
 1. as a reference, so we can link back to it when required, and
 1. for those who have worked through a number of applications, and now want to learn more about the Python language
 
-A variety of topics are treated in the lecture, including iterators,decorators and descriptors, and generators.
+A variety of topics are treated in the lecture, including iterators, decorators and descriptors, and generators.
 
 ## Iterables and Iterators
 
