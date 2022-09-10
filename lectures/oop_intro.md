@@ -818,5 +818,66 @@ We can find these names appear in current namespace now.
 
 This uniform treatment of data in Python (everything is an object) helps keep the language simple and consistent.
 
+## Exercises
 
+```{exercise-start}
+:label: oop_intro_ex1
+```
 
+We have learnt {any}`boolean data type <boolean>` previously. 
+Using what we have learnt in this lecture, print a list of methods of boolean objects.
+
+(hint: you can use `callable()` to test whether an attribute of an object can be called as a function)
+
+```{exercise-end}
+```
+
+```{solution-start} oop_intro_ex1
+:class: dropdown
+```
+
+Firstly, we need to find all attributes associated to a boolean object.
+
+You can use one of the following ways:
+
+you can call the `__dir__()` method
+
+```{code-cell} python3
+print(True.__dir__())
+```
+
+you can use the built-in function `dir()`
+
+```{code-cell} python3
+print(dir(True))
+```
+
+or, since boolean data type is a primitive type, you can also find it in the built-in namespace
+
+```{code-cell} python3
+dir(__builtins__.bool)
+```
+
+Next, we can use a `for` loop to filter out attributes that are callable
+
+```{code-cell} python3
+attrls = dir(__builtins__.bool)
+callablels = list()
+
+for i in attrls:
+  # we use eval() to transfrom string into a statement
+  if callable(eval('True.'+i)):
+    callablels.append(i)
+print(callablels)
+```
+
+here is an one-line solution
+
+```{code-cell} python3
+print([i for i in attrls if callable(eval("True." + i))])
+```
+
+You can explore these methods and see what they are used for.
+
+```{solution-end}
+```
