@@ -306,6 +306,10 @@ What happens here is that the first object is garbage collected.
 
 In other words, the memory slot that stores that object is deallocated, and returned to the operating system.
 
+Garbage collection is actually an active research area in computer science.
+
+You can [read more on garbage collection](https://rushter.com/blog/python-garbage-collector/) if you are interested.
+
 ### Namespaces
 
 ```{index} single: Python; Namespaces
