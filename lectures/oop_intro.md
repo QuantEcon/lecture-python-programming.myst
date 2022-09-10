@@ -244,65 +244,6 @@ x
 
 (If you wanted to you could modify the `__setitem__` method, so that square bracket assignment does something totally different)
 
-## Summary
-
-In Python, *everything in memory is treated as an object*.
-
-This includes not just lists, strings, etc., but also less obvious things, such as
-
-* functions (once they have been read into memory)
-* modules  (ditto)
-* files opened for reading or writing
-* integers, etc.
-
-Consider, for example, functions.
-
-When Python reads a function definition, it creates a **function object** and stores it in memory.
-
-The following code illustrates
-
-```{code-cell} python3
-def f(x): return x**2
-f
-```
-
-```{code-cell} python3
-type(f)
-```
-
-```{code-cell} python3
-id(f)
-```
-
-```{code-cell} python3
-f.__name__
-```
-
-We can see that `f` has type, identity, attributes and so on---just like any other object.
-
-It also has methods.
-
-One example is the `__call__` method, which just evaluates the function
-
-```{code-cell} python3
-f.__call__(3)
-```
-
-Another is the `__dir__` method, which returns a list of attributes.
-
-Modules loaded into memory are also treated as objects
-
-```{code-cell} python3
-import math
-
-id(math)
-```
-
-This uniform treatment of data in Python (everything is an object) helps keep the language simple and consistent.
-
-
-
-
 
 (name_res)=
 ## Names and Name Resolution
@@ -777,4 +718,101 @@ Here's what happens
     * Returns the list `[2]`
     * The local namespace is deallocated, and local `x` is lost
 * Global `x` has been modified
+
+
+
+## Summary
+
+Messages in this lecture are clear:
+
+  - In Python, *everything in memory is treated as an object*;
+  - Every object is bound by its name;
+  - Every name resides within a scope defined by its namespace.
+
+This includes not just lists, strings, etc., but also less obvious things, such as
+
+* functions (once they have been read into memory)
+* modules  (ditto)
+* files opened for reading or writing
+* integers, etc.
+
+Consider, for example, functions.
+
+When Python reads a function definition, it creates a **function object** and stores it in memory.
+
+The following code illustrates further this idea
+
+```{code-cell} python3
+#reset current namespace
+%reset
+```
+
+```{code-cell} python3
+def f(x): return x**2
+f
+```
+
+```{code-cell} python3
+type(f)
+```
+
+```{code-cell} python3
+id(f)
+```
+
+```{code-cell} python3
+f.__name__
+```
+
+We can see that `f` has type, identity, attributes and so on---just like any other object.
+
+It also has methods.
+
+One example is the `__call__` method, which just evaluates the function
+
+```{code-cell} python3
+f.__call__(3)
+```
+
+Another is the `__dir__` method, which returns a list of attributes.
+
+We can also find `f` our current namesapce
+
+```{code-cell} python3
+'f' in dir()
+```
+
+Modules loaded into memory are also treated as objects
+
+```{code-cell} python3
+import math
+
+id(math)
+```
+
+We can also find `math` in our global namespace
+
+```{code-cell} python3
+print(dir()[-1::-1])
+```
+
+We can find all names in the private namespace of `math`
+
+```{code-cell} python3
+print(dir(math))
+```
+
+We can also directly import objects to our current namespace using `from ... import ...`
+
+```{code-cell} python3
+from math import log, pi, sqrt
+
+print(dir()[-1::-1])
+```
+
+We can find these names appear in current namespace now.
+
+This uniform treatment of data in Python (everything is an object) helps keep the language simple and consistent.
+
+
 
