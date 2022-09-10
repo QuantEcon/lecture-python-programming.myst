@@ -18,7 +18,7 @@ kernelspec:
 </div>
 ```
 
-# Debugging and Errors
+# Debugging and Handling Errors
 
 ```{index} single: Debugging
 ```
