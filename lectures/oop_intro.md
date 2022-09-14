@@ -18,7 +18,7 @@ kernelspec:
 </div>
 ```
 
-# OOP I: Introduction to Object Oriented Programming
+# OOP I: Names and Objects
 
 ```{contents} Contents
 :depth: 2
@@ -26,7 +26,7 @@ kernelspec:
 
 ## Overview
 
-[OOP](https://en.wikipedia.org/wiki/Object-oriented_programming) is one of the major paradigms in programming.
+[Object Oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming) (OOP) is one of the major paradigms in programming.
 
 The traditional programming paradigm (think Fortran, C, MATLAB, etc.) is called *procedural*.
 
@@ -729,9 +729,9 @@ Here's what happens
 
 Messages in this lecture are clear:
 
-  - In Python, *everything in memory is treated as an object*;
-  - Every object is bound by its name;
-  - Every name resides within a scope defined by its namespace.
+  * In Python, *everything in memory is treated as an object*.
+  * Zero, one or many names can be bound to a given object.
+  * Every name resides within a scope defined by its namespace.
 
 This includes not just lists, strings, etc., but also less obvious things, such as
 
