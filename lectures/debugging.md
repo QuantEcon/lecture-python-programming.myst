@@ -266,8 +266,6 @@ The full list of magics is [here](http://ipython.readthedocs.org/en/stable/inter
 ```{index} single: Python; Handling Errors
 ```
 
-Errors are problems within a program that stops the program from running further.
-
 We have seen `AttributeError` and `NameError` in {any}`our previous examples <debug_magic>`.
 
 Sometimes it's possible to anticipate bugs and errors as we're writing code.
@@ -296,51 +294,12 @@ Why?
 * Because errors causing execution to stop are frustrating if you're in the middle of a large computation.
 * Because it reduces confidence in your code on the part of your users (if you are writing for others).
 
-### Assertions
 
-```{index} single: Python; Assertions
-```
+In this section, we'll dicuss different types of errors in Python and techniques to handle potential errors in our programs.
 
-A relatively easy way to handle checks is with the `assert` keyword.
+### Errors in Python
 
-For example, pretend for a moment that the `np.var` function doesn't
-exist and we need to write our own
-
-```{code-cell} python3
-def var(y):
-    n = len(y)
-    assert n > 1, 'Sample size must be greater than one.'
-    return np.sum((y - y.mean())**2) / float(n-1)
-```
-
-If we run this with an array of length one, the program will terminate and
-print our error message
-
-```{code-cell} python3
----
-tags: [raises-exception]
----
-var([1])
-```
-
-The advantage is that we can
-
-* fail early, as soon as we know there will be a problem
-* supply specific information on why a program is failing
-
-### Handling Errors During Runtime
-
-```{index} single: Python; Runtime Errors
-```
-
-The approach used above is a bit limited, because it always leads to
-termination.
-
-Sometimes we can handle errors more gracefully, by treating special cases.
-
-Let's look at how this is done.
-
-#### Exceptions
+In Python, there are two types of errors -- syntax errors and exceptions.
 
 ```{index} single: Python; Exceptions
 ```
@@ -398,6 +357,52 @@ On each occasion, the interpreter informs us of the error type
 * `NameError`, `TypeError`, `IndexError`, `ZeroDivisionError`, etc.
 
 In Python, these errors are called *exceptions*.
+
+### Assertions
+
+```{index} single: Python; Assertions
+```
+
+Sometimes errors can be avoided by checking whether your program runs as expected.
+
+A relatively easy way to handle checks is with the `assert` keyword.
+
+For example, pretend for a moment that the `np.var` function doesn't
+exist and we need to write our own
+
+```{code-cell} python3
+def var(y):
+    n = len(y)
+    assert n > 1, 'Sample size must be greater than one.'
+    return np.sum((y - y.mean())**2) / float(n-1)
+```
+
+If we run this with an array of length one, the program will terminate and
+print our error message
+
+```{code-cell} python3
+---
+tags: [raises-exception]
+---
+var([1])
+```
+
+The advantage is that we can
+
+* fail early, as soon as we know there will be a problem
+* supply specific information on why a program is failing
+
+### Handling Errors During Runtime
+
+```{index} single: Python; Runtime Errors
+```
+
+The approach used above is a bit limited, because it always leads to
+termination.
+
+Sometimes we can handle errors more gracefully, by treating special cases.
+
+Let's look at how this is done.
 
 #### Catching Exceptions
 
