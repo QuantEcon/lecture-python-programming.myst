@@ -20,7 +20,7 @@ kernelspec:
 
 <style>
   .auto {
-    width: 70%;
+    width: 100%;
     height: auto;
     } 
 </style>
@@ -666,24 +666,44 @@ x
 First,
 
 * The global namespace `{}` is created.
+
+```{figure} /_static/lecture_specific/oop_intro/global.png
+:figclass: auto
+```
+
 * The function object is created, and `g` is bound to it within the global namespace.
 * The name `a` is bound to `0`, again in the global namespace.
+
+```{figure} /_static/lecture_specific/oop_intro/global2.png
+:figclass: auto
+```
 
 Next `g` is called via `y = g(10)`, leading to the following sequence of actions
 
 * The local namespace for the function is created.
 * Local names `x` and `a` are bound, so that the local namespace becomes `{'x': 10, 'a': 1}`.
-* Statement `x = x + a` uses the local `a` and local `x` to compute `x + a`, and binds local name `x` to the result.
-* This value is returned, and `y` is bound to it in the global namespace.
-* Local `x` and `a` are discarded (and the local namespace is deallocated).
 
-Here is a visualization of the process built by [nbtutor](https://github.com/lgpage/nbtutor)
-
-```{figure} /_static/lecture_specific/oop_intro/name_structure.png
+```{figure} /_static/lecture_specific/oop_intro/local1.png
 :figclass: auto
 ```
 
-Note that the global `a` was not affected by the local `a`.
+> Note that the global `a` was not affected by the local `a`.
+
+
+* Statement `x = x + a` uses the local `a` and local `x` to compute `x + a`, and binds local name `x` to the result. 
+
+
+* This value is returned, and `y` is bound to it in the global namespace.
+* Local `x` and `a` are discarded (and the local namespace is deallocated).
+
+```{figure} /_static/lecture_specific/oop_intro/local1.png
+:figclass: auto
+```
+
+Visualizations here are created by [nbtutor](https://github.com/lgpage/nbtutor) in a Jupyter notebook.
+
+They can help you better understand your program.
+
 
 (mutable_vs_immutable)=
 ### {index}`Mutable <single: Mutable>` Versus {index}`Immutable <single: Immutable>` Parameters
