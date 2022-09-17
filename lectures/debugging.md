@@ -266,8 +266,6 @@ The full list of magics is [here](http://ipython.readthedocs.org/en/stable/inter
 ```{index} single: Python; Handling Errors
 ```
 
-We have seen `AttributeError` and `NameError` in {any}`our previous examples <debug_magic>`.
-
 Sometimes it's possible to anticipate bugs and errors as we're writing code.
 
 For example, the unbiased sample variance of sample $y_1, \ldots, y_n$
@@ -298,6 +296,8 @@ Why?
 In this section, we'll dicuss different types of errors in Python and techniques to handle potential errors in our programs.
 
 ### Errors in Python
+
+We have seen `AttributeError` and `NameError` in {any}`our previous examples <debug_magic>`.
 
 In Python, there are two types of errors -- syntax errors and exceptions.
 
