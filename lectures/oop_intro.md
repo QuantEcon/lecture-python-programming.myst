@@ -680,11 +680,11 @@ Next `g` is called via `y = g(10)`, leading to the following sequence of actions
 * The local namespace for the function is created.
 * Local names `x` and `a` are bound, so that the local namespace becomes `{'x': 10, 'a': 1}`.
 
+    * Note that the global `a` was not affected by the local `a`.
 ```{figure} /_static/lecture_specific/oop_intro/local1.png
 :figclass: auto
 ```
 
-> Note that the global `a` was not affected by the local `a`.
 
 
 * Statement `x = x + a` uses the local `a` and local `x` to compute `x + a`, and binds local name `x` to the result. 
