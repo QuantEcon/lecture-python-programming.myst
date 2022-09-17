@@ -634,7 +634,11 @@ If the name is not in any of these namespaces, the interpreter raises a `NameErr
 
 This is called the **LEGB rule** (local, enclosing, global, builtin).
 
-Here's an example that helps to illustrate .
+Here's an example that helps to illustrate.
+
+Visualizations here are created by [nbtutor](https://github.com/lgpage/nbtutor) in a Jupyter notebook.
+
+They can help you better understand your program when you are learning a new language.
 
 Consider a script `test.py` that looks as follows
 
@@ -654,13 +658,6 @@ What happens when we run this script?
 
 ```{code-cell} ipython
 %run test.py
-```
-
-```{code-cell} python3
----
-tags: [raises-exception]
----
-x
 ```
 
 First,
@@ -699,10 +696,6 @@ Next `g` is called via `y = g(10)`, leading to the following sequence of actions
 ```{figure} /_static/lecture_specific/oop_intro/local1.png
 :figclass: auto
 ```
-
-Visualizations here are created by [nbtutor](https://github.com/lgpage/nbtutor) in a Jupyter notebook.
-
-They can help you better understand your program.
 
 
 (mutable_vs_immutable)=
