@@ -18,7 +18,14 @@ kernelspec:
 </div>
 ```
 
-# OOP I: Names and Objects
+<style>
+  .auto {
+    width: 70%;
+    height: auto;
+    } 
+</style>
+
+# OOP I: Objects and Names
 
 ```{contents} Contents
 :depth: 2
@@ -669,6 +676,12 @@ Next `g` is called via `y = g(10)`, leading to the following sequence of actions
 * Statement `x = x + a` uses the local `a` and local `x` to compute `x + a`, and binds local name `x` to the result.
 * This value is returned, and `y` is bound to it in the global namespace.
 * Local `x` and `a` are discarded (and the local namespace is deallocated).
+
+Here is a visualization of the process built by [nbtutor](https://github.com/lgpage/nbtutor)
+
+```{figure} /_static/lecture_specific/oop_intro/name_structure.png
+:figclass: auto
+```
 
 Note that the global `a` was not affected by the local `a`.
 
