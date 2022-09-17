@@ -553,7 +553,7 @@ We have been using various built-in functions, such as `max(), dir(), str(), lis
 How does access to these names work?
 
 * These definitions are stored in a module called `__builtin__`.
-* They have there own namespace called `__builtins__`.
+* They have their own namespace called `__builtins__`.
 
 ```{code-cell} python3
 dir()[0:10]
@@ -773,7 +773,7 @@ When Python reads a function definition, it creates a **function object** and st
 The following code illustrates further this idea
 
 ```{code-cell} python3
-#reset current namespace
+#reset the current namespace
 %reset
 ```
 

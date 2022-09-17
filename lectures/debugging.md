@@ -293,7 +293,7 @@ Why?
 * Because it reduces confidence in your code on the part of your users (if you are writing for others).
 
 
-In this section, we'll dicuss different types of errors in Python and techniques to handle potential errors in our programs.
+In this section, we'll discuss different types of errors in Python and techniques to handle potential errors in our programs.
 
 ### Errors in Python
 
