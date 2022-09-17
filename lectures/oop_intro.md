@@ -33,7 +33,7 @@ kernelspec:
 
 ## Overview
 
-[Object Oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming) (OOP) is one of the major paradigms in programming.
+[Object-oriented programming](https://en.wikipedia.org/wiki/Object-oriented_programming) (OOP) is one of the major paradigms in programming.
 
 The traditional programming paradigm (think Fortran, C, MATLAB, etc.) is called *procedural*.
 
