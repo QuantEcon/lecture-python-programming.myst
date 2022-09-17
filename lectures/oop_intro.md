@@ -693,7 +693,7 @@ Next `g` is called via `y = g(10)`, leading to the following sequence of actions
 * This value is returned, and `y` is bound to it in the global namespace.
 * Local `x` and `a` are discarded (and the local namespace is deallocated).
 
-```{figure} /_static/lecture_specific/oop_intro/local1.png
+```{figure} /_static/lecture_specific/oop_intro/local_return.png
 :figclass: auto
 ```
 
