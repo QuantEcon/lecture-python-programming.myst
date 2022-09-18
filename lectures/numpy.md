@@ -443,7 +443,7 @@ In particular, `A * B` is *not* the matrix product, it is an element-wise produc
 
 With all the element-wise operations above, what would happen if one of the matrix does not have corresponding elements.
 
-For example, `a` is a 3 by 3 matrix (`a -> (3, 3)`), but `b` is a 1 by 3 matrix (`b -> (1, 3)`).
+For example, `a` is a 3 by 3 array (`a -> (3, 3)`), but `b` is an array with three elements (`b -> (1, 3)`).
 
 Element-wise addition will result in a 3 by 3 matrix with each row adding `b`.
 
@@ -465,10 +465,6 @@ tags: [hide-input]
 
 import numpy as np
 from matplotlib import pyplot as plt
-
-# Draw a figure and axis with no boundary
-fig = plt.figure(figsize=(5, 1), facecolor='w')
-ax = plt.axes([0, 0, 1, 1], xticks=[], yticks=[], frameon=False)
 
 
 def draw_cube(ax, xy, size, depth=0.4,
@@ -531,6 +527,10 @@ dotted = dict(c='black', ls='-', lw=0.5, alpha=0.5,
               label_kwargs=dict(color='gray'))
 depth = 0.3
 
+# Draw a figure and axis with no boundary
+fig = plt.figure(figsize=(5, 1), facecolor='w')
+ax = plt.axes([0, 0, 1, 1], xticks=[], yticks=[], frameon=False)
+
 # first block
 draw_cube(ax, (1, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 9], '1', **solid)
 draw_cube(ax, (2, 7.5), 1, depth, [1, 2, 3, 6, 9], '2', **solid)
@@ -574,13 +574,15 @@ ax.text(5, 7.0, '+', size=12, ha='center', va='center')
 ax.text(10.5, 7.0, '=', size=12, ha='center', va='center');
 ```
 
-How about when `b -> (3, 1)`?
+How about `b -> (3, 1)`?
 
 ```{code-cell} python3
 b.shape = (3, 1)
 
 a + b
 ```
+
+We find that Numpy automatically fill up `b` from `b -> (3, 1)` to `b -> (3, 3)`
 
 ```{code-cell} python3
 ---
@@ -634,6 +636,7 @@ ax.text(10.5, 7.0, '=', size=12, ha='center', va='center');
 
 
 ```
+
 Element-wise addition will result in a (3, 3) matrix with each column adding `b`.
 
 
@@ -671,19 +674,63 @@ b = np.array([3, 6, 9])
 a + b
 ```
 
-The ValueError tells us that operands could not be broadcast together.
+The `ValueError` tells us that operands could not be broadcast together.
 
-Let's try to visualise why broadcasting only works in specific situations.
+```{code-cell} python3
+---
+tags: [hide-input]
+---
+# Draw a figure and axis with no boundary
+fig = plt.figure(figsize=(3, 1.3), facecolor='w')
+ax = plt.axes([0, 0, 1, 1], xticks=[], yticks=[], frameon=False)
 
-In the previous two examples where
- - `a -> (3, 3)`
- - `b -> (1, 3)` and `b -> (3, 1)`
+# first block
+draw_cube(ax, (1, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 9], '1', **solid)
+draw_cube(ax, (2, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '2', **solid)
 
-we have additions like this:
+draw_cube(ax, (1, 6.5), 1, depth, [2, 3, 4], '4', **solid)
+draw_cube(ax, (2, 6.5), 1, depth, [2, 3, 7, 10], '6', **solid)
+
+draw_cube(ax, (1, 5.5), 1, depth, [2, 3, 4], '7', **solid)
+draw_cube(ax, (2, 5.5), 1, depth, [2, 3, 7, 10], '9', **solid)
+
+# second block
+draw_cube(ax, (6, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 9], '3', **solid)
+draw_cube(ax, (7, 7.5), 1, depth, [1, 2, 3, 6, 9], '6', **solid)
+draw_cube(ax, (8, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '9', **solid)
+
+draw_cube(ax, (6, 6.5), 1, depth, range(2, 13), '3', **dotted)
+draw_cube(ax, (7, 6.5), 1, depth, [2, 3, 6, 7, 9, 10, 11], '6', **dotted)
+draw_cube(ax, (8, 6.5), 1, depth, [2, 3, 6, 7, 9, 10, 11], '9', **dotted)
+
+draw_cube(ax, (6, 5.5), 1, depth, [2, 3, 4, 7, 8, 10, 11, 12], '3', **dotted)
+draw_cube(ax, (7, 5.5), 1, depth, [2, 3, 7, 10, 11], '6', **dotted)
+draw_cube(ax, (8, 5.5), 1, depth, [2, 3, 7, 10, 11], '9', **dotted)
 
 
+ax.text(5, 7.0, '+', size=12, ha='center', va='center')
+ax.text(10, 7.0, '=', size=12, ha='center', va='center')
+ax.text(11, 7.0, '?', size=16, ha='center', va='center');
+```
 
+We can see that Numpy has difficulty in expanding this operation.
 
+It is because when `b` is expanded from `b -> (1, 3)` to `b -> (3, 3)`, Numpy is still having difficulties to match `b` with `a -> (3, 2)` without resulting in data loss. 
+
+Therefore, we can summerise a rule of thumb to check how Numpy will broadcast matrix:
+
+1. When the dimensions of two arrays do not match, Numpy will expand the one with less dimension by adding a dimension on the left of existing dimension.
+    <br> For example, `a -> (3, 3)` and `b -> (3)`, then broadcasting will add a dimension to the left of existing `b` so that `b -> (1, 3)`
+
+2. When the two arrays have the same dimension but different shapes, numpy will try to expand the smaller array to match the larger array.
+    <br> For example, `a -> (3, 3)` and `b -> (1, 3)`, then broadcasting will expand `b` so that `b -> (3, 3)`.
+    <br> We also have seen a situation where `a -> (3, 3)` and `b -> (3, 1)`, then broadcasting will also expand `b` so that `b -> (3, 3)`. 
+
+3. After step 1 and 2, the two arrays still do not match, a `ValueError` will be raised
+    For example, `a -> (3, 7)` and `b -> (3)`
+    <br> By step 1, b will be expanded to `b -> (1, 3)`;
+    <br> By step 2, b will be expanded to `b -> (3, 3)`.
+    <br> We can see that they do not match each other. Thus a `ValueError` will be raised.
 
 ### Matrix Multiplication
 
