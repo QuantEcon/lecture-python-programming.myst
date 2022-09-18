@@ -441,7 +441,7 @@ In particular, `A * B` is *not* the matrix product, it is an element-wise produc
 
 #### Broadcasting
 
-With all the element-wise operations above, what would happen if one of the matrix does not have corresponding elements 
+With all the element-wise operations above, what would happen if one of the matrix does not have corresponding elements.
 
 For example, `a` is a 3 by 3 matrix (`a -> (3, 3)`), but `b` is a 1 by 3 matrix (`b -> (1, 3)`).
 
@@ -449,10 +449,129 @@ Element-wise addition will result in a 3 by 3 matrix with each row adding `b`.
 
 ```{code-cell} python3
 
-a = np.array([[1, 2, 3],[4, 5, 6],[7, 8, 9]])
+a = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 b = np.array([3, 6, 9])
 
 a + b
+```
+
+We find that Numpy automatically fill up `b` from `b -> (1, 3)` to `b -> (3, 3)`
+
+```{code-cell} python3
+---
+tags: [hide-input]
+---
+# Adapted from astroML: see http://www.astroml.org/book_figures/appendix/fig_broadcast_visual.html
+
+import numpy as np
+from matplotlib import pyplot as plt
+
+# Draw a figure and axis with no boundary
+fig = plt.figure(figsize=(5, 1), facecolor='w')
+ax = plt.axes([0, 0, 1, 1], xticks=[], yticks=[], frameon=False)
+
+
+def draw_cube(ax, xy, size, depth=0.4,
+              edges=None, label=None, label_kwargs=None, **kwargs):
+    """draw and label a cube.  edges is a list of numbers between
+    1 and 12, specifying which of the 12 cube edges to draw"""
+    if edges is None:
+        edges = range(1, 13)
+
+    x, y = xy
+
+    if 1 in edges:
+        ax.plot([x, x + size],
+                [y + size, y + size], **kwargs)
+    if 2 in edges:
+        ax.plot([x + size, x + size],
+                [y, y + size], **kwargs)
+    if 3 in edges:
+        ax.plot([x, x + size],
+                [y, y], **kwargs)
+    if 4 in edges:
+        ax.plot([x, x],
+                [y, y + size], **kwargs)
+
+    if 5 in edges:
+        ax.plot([x, x + depth],
+                [y + size, y + depth + size], **kwargs)
+    if 6 in edges:
+        ax.plot([x + size, x + size + depth],
+                [y + size, y + depth + size], **kwargs)
+    if 7 in edges:
+        ax.plot([x + size, x + size + depth],
+                [y, y + depth], **kwargs)
+    if 8 in edges:
+        ax.plot([x, x + depth],
+                [y, y + depth], **kwargs)
+
+    if 9 in edges:
+        ax.plot([x + depth, x + depth + size],
+                [y + depth + size, y + depth + size], **kwargs)
+    if 10 in edges:
+        ax.plot([x + depth + size, x + depth + size],
+                [y + depth, y + depth + size], **kwargs)
+    if 11 in edges:
+        ax.plot([x + depth, x + depth + size],
+                [y + depth, y + depth], **kwargs)
+    if 12 in edges:
+        ax.plot([x + depth, x + depth],
+                [y + depth, y + depth + size], **kwargs)
+
+    if label:
+        if label_kwargs is None:
+            label_kwargs = {}
+        ax.text(x + 0.5 * size, y + 0.5 * size, label,
+                ha='center', va='center', **label_kwargs)
+
+solid = dict(c='black', ls='-', lw=1,
+             label_kwargs=dict(color='k'))
+dotted = dict(c='black', ls='-', lw=0.5, alpha=0.5,
+              label_kwargs=dict(color='gray'))
+depth = 0.3
+
+# first block
+draw_cube(ax, (1, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 9], '1', **solid)
+draw_cube(ax, (2, 7.5), 1, depth, [1, 2, 3, 6, 9], '2', **solid)
+draw_cube(ax, (3, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '3', **solid)
+
+draw_cube(ax, (1, 6.5), 1, depth, [2, 3, 4], '4', **solid)
+draw_cube(ax, (2, 6.5), 1, depth, [2, 3], '5', **solid)
+draw_cube(ax, (3, 6.5), 1, depth, [2, 3, 7, 10], '6', **solid)
+
+draw_cube(ax, (1, 5.5), 1, depth, [2, 3, 4], '7', **solid)
+draw_cube(ax, (2, 5.5), 1, depth, [2, 3], '8', **solid)
+draw_cube(ax, (3, 5.5), 1, depth, [2, 3, 7, 10], '9', **solid)
+
+# second block
+draw_cube(ax, (6, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 9], '3', **solid)
+draw_cube(ax, (7, 7.5), 1, depth, [1, 2, 3, 6, 9], '6', **solid)
+draw_cube(ax, (8, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '9', **solid)
+
+draw_cube(ax, (6, 6.5), 1, depth, range(2, 13), '3', **dotted)
+draw_cube(ax, (7, 6.5), 1, depth, [2, 3, 6, 7, 9, 10, 11], '6', **dotted)
+draw_cube(ax, (8, 6.5), 1, depth, [2, 3, 6, 7, 9, 10, 11], '9', **dotted)
+
+draw_cube(ax, (6, 5.5), 1, depth, [2, 3, 4, 7, 8, 10, 11, 12], '3', **dotted)
+draw_cube(ax, (7, 5.5), 1, depth, [2, 3, 7, 10, 11], '6', **dotted)
+draw_cube(ax, (8, 5.5), 1, depth, [2, 3, 7, 10, 11], '9', **dotted)
+
+# third block
+draw_cube(ax, (12, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 9], '4', **solid)
+draw_cube(ax, (13, 7.5), 1, depth, [1, 2, 3, 6, 9], '8', **solid)
+draw_cube(ax, (14, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '12', **solid)
+
+draw_cube(ax, (12, 6.5), 1, depth, [2, 3, 4], '7', **solid)
+draw_cube(ax, (13, 6.5), 1, depth, [2, 3], '11', **solid)
+draw_cube(ax, (14, 6.5), 1, depth, [2, 3, 7, 10], '15', **solid)
+
+draw_cube(ax, (12, 5.5), 1, depth, [2, 3, 4], '10', **solid)
+draw_cube(ax, (13, 5.5), 1, depth, [2, 3], '14', **solid)
+draw_cube(ax, (14, 5.5), 1, depth, [2, 3, 7, 10], '18', **solid)
+
+ax.text(5, 7.0, '+', size=12, ha='center', va='center')
+ax.text(10.5, 7.0, '=', size=12, ha='center', va='center');
 ```
 
 How about when `b -> (3, 1)`?
@@ -463,6 +582,58 @@ b.shape = (3, 1)
 a + b
 ```
 
+```{code-cell} python3
+---
+tags: [hide-input]
+---
+
+fig = plt.figure(figsize=(5, 1), facecolor='w')
+ax = plt.axes([0, 0, 1, 1], xticks=[], yticks=[], frameon=False)
+
+# first block
+draw_cube(ax, (1, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 9], '1', **solid)
+draw_cube(ax, (2, 7.5), 1, depth, [1, 2, 3, 6, 9], '2', **solid)
+draw_cube(ax, (3, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '3', **solid)
+
+draw_cube(ax, (1, 6.5), 1, depth, [2, 3, 4], '4', **solid)
+draw_cube(ax, (2, 6.5), 1, depth, [2, 3], '5', **solid)
+draw_cube(ax, (3, 6.5), 1, depth, [2, 3, 7, 10], '6', **solid)
+
+draw_cube(ax, (1, 5.5), 1, depth, [2, 3, 4], '7', **solid)
+draw_cube(ax, (2, 5.5), 1, depth, [2, 3], '8', **solid)
+draw_cube(ax, (3, 5.5), 1, depth, [2, 3, 7, 10], '9', **solid)
+
+# second block
+draw_cube(ax, (6, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 7, 9, 10], '3', **solid)
+draw_cube(ax, (7, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '3', **dotted)
+draw_cube(ax, (8, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '3', **dotted)
+
+draw_cube(ax, (6, 6.5), 1, depth, [2, 3, 4, 7, 10], '6', **solid)
+draw_cube(ax, (7, 6.5), 1, depth, [2, 3, 6, 7, 9, 10, 11], '6', **dotted)
+draw_cube(ax, (8, 6.5), 1, depth, [2, 3, 6, 7, 9, 10, 11], '6', **dotted)
+
+draw_cube(ax, (6, 5.5), 1, depth, [2, 3, 4, 7, 10], '9', **solid)
+draw_cube(ax, (7, 5.5), 1, depth, [2, 3, 7, 10, 11], '9', **dotted)
+draw_cube(ax, (8, 5.5), 1, depth, [2, 3, 7, 10, 11], '9', **dotted)
+
+# third block
+draw_cube(ax, (12, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 9], '4', **solid)
+draw_cube(ax, (13, 7.5), 1, depth, [1, 2, 3, 6, 9], '5', **solid)
+draw_cube(ax, (14, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '6', **solid)
+
+draw_cube(ax, (12, 6.5), 1, depth, [2, 3, 4], '10', **solid)
+draw_cube(ax, (13, 6.5), 1, depth, [2, 3], '11', **solid)
+draw_cube(ax, (14, 6.5), 1, depth, [2, 3, 7, 10], '12', **solid)
+
+draw_cube(ax, (12, 5.5), 1, depth, [2, 3, 4], '16', **solid)
+draw_cube(ax, (13, 5.5), 1, depth, [2, 3], '17', **solid)
+draw_cube(ax, (14, 5.5), 1, depth, [2, 3, 7, 10], '18', **solid)
+
+ax.text(5, 7.0, '+', size=12, ha='center', va='center')
+ax.text(10.5, 7.0, '=', size=12, ha='center', va='center');
+
+
+```
 Element-wise addition will result in a (3, 3) matrix with each column adding `b`.
 
 
@@ -477,7 +648,7 @@ The code above can be seen as the following `for` loop
 row, column = a.shape
 result = np.empty((3,3))
 for i in range(column):
-  result[:, i] = a[:, i] + b
+    result[:, i] = a[:, i] + b.T
 
 print(result)
 ```
@@ -501,6 +672,15 @@ a + b
 ```
 
 The ValueError tells us that operands could not be broadcast together.
+
+Let's try to visualise why broadcasting only works in specific situations.
+
+In the previous two examples where
+ - `a -> (3, 3)`
+ - `b -> (1, 3)` and `b -> (3, 1)`
+
+we have additions like this:
+
 
 
 
