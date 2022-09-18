@@ -892,7 +892,7 @@ callablels = list()
 
 for i in attrls:
   # we use eval() to transform a string into a statement
-  if callable(eval('True.'+i)):
+  if callable(eval(f'True.{i}')):
     callablels.append(i)
 print(callablels)
 ```
@@ -900,7 +900,7 @@ print(callablels)
 here is a one-line solution
 
 ```{code-cell} python3
-print([i for i in attrls if callable(eval("True." + i))])
+print([i for i in attrls if callable(eval(f'True.{i}'))])
 ```
 
 You can explore these methods and see what they are used for.
