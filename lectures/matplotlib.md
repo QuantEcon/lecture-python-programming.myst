@@ -352,7 +352,54 @@ draw_graphs(style='dark_background')
 
 You can use the function to experiment with other styles in the list.
 
-If you are interested, you can even create [your own style sheets](https://matplotlib.org/stable/tutorials/introductory/customizing.html#defining-your-own-style).
+If you are interested, you can even create your own style sheets.
+
+Paraeters for your style sheets are stored in a dictionary-like variable `plt.rcParams`
+
+```{code-cell} python3
+---
+tags: [hide-output]
+---
+ 
+print(plt.rcParams.keys())
+
+```
+
+You can see there are many parameters you could set for your style sheets.
+
+You can change them by [changing the `matplotlibrc` file](https://www.datafantic.com/the-magic-of-matplotlib-stylesheets/).
+
+Or you can also update values stored in the dictionary-like variable `plt.rcParams`.
+
+Let's change the style of our overlaid density lines
+
+```{code-cell} python3
+from cycler import cycler
+
+# set to the default style sheet
+plt.style.use('default')
+
+# update linewidth
+plt.rcParams['lines.linewidth'] = 2
+# add horizontal grid lines
+plt.rcParams['axes.grid'] = True 
+plt.rcParams['axes.grid.axis'] = 'y'
+# update colors for density lines
+plt.rcParams['axes.prop_cycle'] = cycler('color', ['dimgray', 'slategrey', 'darkgray'])
+
+fig, ax = plt.subplots()
+x = np.linspace(-4, 4, 150)
+for i in range(3):
+    m, s = uniform(-1, 1), uniform(1, 2)
+    y = norm.pdf(x, loc=m, scale=s)
+    current_label = f'$\mu = {m:.2}$'
+    ax.plot(x, y, linewidth=2, alpha=0.6, label=current_label)
+ax.legend()
+plt.show()
+
+```
+
+Here are [more examples](https://www.datafantic.com/the-magic-of-matplotlib-stylesheets/) on how to change these parameters.
 
 ## Further Reading
 
