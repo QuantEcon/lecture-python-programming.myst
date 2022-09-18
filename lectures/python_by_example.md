@@ -524,7 +524,10 @@ If you can, add a legend, to help distinguish between the three time series.
 Hints:
 
 * If you call the `plot()` function multiple times before calling `show()`, all of the lines you produce will end up on the same figure.
-* For the legend, noted that the expression `'foo' + str(42)` evaluates to `'foo42'`.
+* For the legend, noted that if `var = 42`, the expression `f'foo{var}'` evaluates to `'foo42'`.
+
+    Note: `f'foo{var}'` is an example of [f-String](https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings), which allows you to use `{}` to contain an expression. The contained expression will be evaluated, and the result will be placed into the string.
+
 ```
 
 ```{exercise-end}
@@ -549,11 +552,6 @@ for α in α_values:
 plt.legend()
 plt.show()
 ```
-
-Note: `f'$\\alpha = {α}$'` in the solution is an application of [f-String](https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings), which allows you to use `{}` to contain an expression. 
-
-The contained expression will be evaluated, and the result will be placed into the string.
-
 
 ```{solution-end}
 ```
