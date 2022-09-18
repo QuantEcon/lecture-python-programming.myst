@@ -438,6 +438,73 @@ A * B
 (numpy_matrix_multiplication)=
 In particular, `A * B` is *not* the matrix product, it is an element-wise product.
 
+
+#### Broadcasting
+
+With all the element-wise operations above, what would happen if one of the matrix does not have corresponding elements 
+
+For example, `a` is a 3 by 3 matrix (`a -> (3, 3)`), but `b` is a 1 by 3 matrix (`b -> (1, 3)`).
+
+Element-wise addition will result in a 3 by 3 matrix with each row adding `b`.
+
+```{code-cell} python3
+
+a = np.array([[1, 2, 3],[4, 5, 6],[7, 8, 9]])
+b = np.array([3, 6, 9])
+
+a + b
+```
+
+How about when `b -> (3, 1)`?
+
+```{code-cell} python3
+b.shape = (3, 1)
+
+a + b
+```
+
+Element-wise addition will result in a (3, 3) matrix with each column adding `b`.
+
+
+This useful (but sometimes confusing) feature in Numpy is called **broadcasting**.
+
+We find broadcasting is actually efficient since we do not need to write slow `for` loops to compute element wise.
+
+The code above can be seen as the following `for` loop
+
+```{code-cell} python3
+
+row, column = a.shape
+result = np.empty((3,3))
+for i in range(column):
+  result[:, i] = a[:, i] + b
+
+print(result)
+```
+
+It sounds great and straitforward, why it is confusing then?
+
+Let's try to use broadcasting in the following scenario:
+
+We have
+
+`a -> (3, 2)` and `b -> (1, 3)`
+
+```{code-cell} python3
+---
+tags: [raises-exception]
+---
+a = np.array([[1, 2],[4, 5],[7, 8]])
+b = np.array([3, 6, 9])
+
+a + b
+```
+
+The ValueError tells us that operands could not be broadcast together.
+
+
+
+
 ### Matrix Multiplication
 
 ```{index} single: NumPy; Matrix Multiplication
