@@ -365,11 +365,12 @@ print(plt.rcParams.keys())
 
 ```
 
-You can see there are many parameters you could set for your style sheets.
+There are many parameters you could set for your style sheets.
 
-You can change them by [changing the `matplotlibrc` file](https://www.datafantic.com/the-magic-of-matplotlib-stylesheets/).
+Set parameters for your style sheet by: 
 
-Or you can also update values stored in the dictionary-like variable `plt.rcParams`.
+1. creating your own [`matplotlibrc` file](https://matplotlib.org/stable/tutorials/introductory/customizing.html#defining-your-own-style), or
+2. updating values stored in the dictionary-like variable `plt.rcParams`
 
 Let's change the style of our overlaid density lines
 
