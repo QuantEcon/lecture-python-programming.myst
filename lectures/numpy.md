@@ -438,7 +438,7 @@ A * B
 (numpy_matrix_multiplication)=
 In particular, `A * B` is *not* the matrix product, it is an element-wise product.
 
-
+(broadcasting)=
 #### Broadcasting
 
 With all the element-wise operations above, what would happen if one of the matrix does not have corresponding elements.
@@ -455,13 +455,14 @@ b = np.array([3, 6, 9])
 a + b
 ```
 
-We find that Numpy automatically fill up `b` from `b -> (1, 3)` to `b -> (3, 3)`
+Numpy automatically fill up `b` from `b -> (1, 3)` to `b -> (3, 3)`
 
 ```{code-cell} python3
 ---
 tags: [hide-input]
 ---
-# Adapted from astroML: see http://www.astroml.org/book_figures/appendix/fig_broadcast_visual.html
+# Adapted and modified based on the book written by Jake VanderPlas (see https://jakevdp.github.io/PythonDataScienceHandbook/06.00-figure-code.html#Broadcasting)
+# Originally from astroML: see http://www.astroml.org/book_figures/appendix/fig_broadcast_visual.html
 
 import numpy as np
 from matplotlib import pyplot as plt
@@ -637,12 +638,8 @@ ax.text(10.5, 7.0, '=', size=12, ha='center', va='center');
 
 ```
 
-Element-wise addition will result in a (3, 3) matrix with each column adding `b`.
+Element-wise addition will then result in a (3, 3) matrix.
 
-
-This useful (but sometimes confusing) feature in Numpy is called **broadcasting**.
-
-We find broadcasting is actually efficient since we do not need to write slow `for` loops to compute element wise.
 
 The code above can be seen as the following `for` loop
 
@@ -650,11 +647,82 @@ The code above can be seen as the following `for` loop
 
 row, column = a.shape
 result = np.empty((3,3))
-for i in range(column):
-    result[:, i] = a[:, i] + b.T
+for i in range(row):
+    for j in range(column):
+        result[i, j] = a[i, j] + b[i]
 
 print(result)
 ```
+
+In some cases, both operants will be expanded.
+
+When we have `c -> (1, 3)` and `d -> (3, 1)`
+
+```{code-cell} python3
+c = np.array([3, 6, 9])
+d = np.array([2, 3, 4])
+d.shape = (3, 1)
+
+c + d
+```
+
+```{code-cell} python3
+---
+tags: [hide-input]
+---
+
+# Draw a figure and axis with no boundary
+fig = plt.figure(figsize=(5, 1), facecolor='w')
+ax = plt.axes([0, 0, 1, 1], xticks=[], yticks=[], frameon=False)
+
+# first block
+draw_cube(ax, (1, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 9], '3', **solid)
+draw_cube(ax, (2, 7.5), 1, depth, [1, 2, 3, 6, 9], '6', **solid)
+draw_cube(ax, (3, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '9', **solid)
+
+draw_cube(ax, (1, 6.5), 1, depth, range(2, 13), '3', **dotted)
+draw_cube(ax, (2, 6.5), 1, depth, [2, 3, 6, 7, 9, 10, 11], '6', **dotted)
+draw_cube(ax, (3, 6.5), 1, depth, [2, 3, 6, 7, 9, 10, 11], '9', **dotted)
+
+draw_cube(ax, (1, 5.5), 1, depth, [2, 3, 4, 7, 8, 10, 11, 12], '3', **dotted)
+draw_cube(ax, (2, 5.5), 1, depth, [2, 3, 7, 10, 11], '6', **dotted)
+draw_cube(ax, (3, 5.5), 1, depth, [2, 3, 7, 10, 11], '9', **dotted)
+
+# second block
+draw_cube(ax, (6, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 7, 9, 10], '2', **solid)
+draw_cube(ax, (7, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '2', **dotted)
+draw_cube(ax, (8, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '2', **dotted)
+
+draw_cube(ax, (6, 6.5), 1, depth, [2, 3, 4, 7, 10], '3', **solid)
+draw_cube(ax, (7, 6.5), 1, depth, [2, 3, 6, 7, 9, 10, 11], '3', **dotted)
+draw_cube(ax, (8, 6.5), 1, depth, [2, 3, 6, 7, 9, 10, 11], '3', **dotted)
+
+draw_cube(ax, (6, 5.5), 1, depth, [2, 3, 4, 7, 10], '4', **solid)
+draw_cube(ax, (7, 5.5), 1, depth, [2, 3, 7, 10, 11], '4', **dotted)
+draw_cube(ax, (8, 5.5), 1, depth, [2, 3, 7, 10, 11], '4', **dotted)
+
+# third block
+draw_cube(ax, (12, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 9], '5', **solid)
+draw_cube(ax, (13, 7.5), 1, depth, [1, 2, 3, 6, 9], '8', **solid)
+draw_cube(ax, (14, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '11', **solid)
+
+draw_cube(ax, (12, 6.5), 1, depth, [2, 3, 4], '6', **solid)
+draw_cube(ax, (13, 6.5), 1, depth, [2, 3], '9', **solid)
+draw_cube(ax, (14, 6.5), 1, depth, [2, 3, 7, 10], '12', **solid)
+
+draw_cube(ax, (12, 5.5), 1, depth, [2, 3, 4], '7', **solid)
+draw_cube(ax, (13, 5.5), 1, depth, [2, 3], '10', **solid)
+draw_cube(ax, (14, 5.5), 1, depth, [2, 3, 7, 10], '13', **solid)
+
+ax.text(5, 7.0, '+', size=12, ha='center', va='center')
+ax.text(10.5, 7.0, '=', size=12, ha='center', va='center');
+```
+
+Element-wise addition will result in a (3, 3) matrix with `c -> (1, 3)` being expanded to `c -> (3, 3)` and `d -> (1, 3)` being expanded to `d -> (3, 3)`.
+
+This useful (but sometimes confusing) feature in Numpy is called **broadcasting**.
+
+We find broadcasting is actually efficient since we do not need to write slow `for` loops to compute element wise.
 
 It sounds great and straitforward, why it is confusing then?
 
@@ -708,7 +776,7 @@ draw_cube(ax, (7, 5.5), 1, depth, [2, 3, 7, 10, 11], '6', **dotted)
 draw_cube(ax, (8, 5.5), 1, depth, [2, 3, 7, 10, 11], '9', **dotted)
 
 
-ax.text(5, 7.0, '+', size=12, ha='center', va='center')
+ax.text(4.5, 7.0, '+', size=12, ha='center', va='center')
 ax.text(10, 7.0, '=', size=12, ha='center', va='center')
 ax.text(11, 7.0, '?', size=16, ha='center', va='center');
 ```
@@ -717,20 +785,45 @@ We can see that Numpy has difficulty in expanding this operation.
 
 It is because when `b` is expanded from `b -> (1, 3)` to `b -> (3, 3)`, Numpy is still having difficulties to match `b` with `a -> (3, 2)` without resulting in data loss. 
 
-Therefore, we can summerise a rule of thumb to check how Numpy will broadcast matrix:
+It will get even trickier when we move to higher dimensions.
 
-1. When the dimensions of two arrays do not match, Numpy will expand the one with less dimension by adding a dimension on the left of existing dimension.
-    <br> For example, `a -> (3, 3)` and `b -> (3)`, then broadcasting will add a dimension to the left of existing `b` so that `b -> (1, 3)`
+Thus, we have listed a number of rules for broadcasting:
 
-2. When the two arrays have the same dimension but different shapes, numpy will try to expand the smaller array to match the larger array.
-    <br> For example, `a -> (3, 3)` and `b -> (1, 3)`, then broadcasting will expand `b` so that `b -> (3, 3)`.
-    <br> We also have seen a situation where `a -> (3, 3)` and `b -> (3, 1)`, then broadcasting will also expand `b` so that `b -> (3, 3)`. 
+* Step 1: When the dimensions of two arrays do not match, Numpy will expand the one with less dimension by adding a dimension on the left of existing dimension.
+    - For example, `a -> (2, 2, 2)` and `b -> (2, 2)`, then broadcasting will add a dimension to the left of existing `b` so that `b -> (1, 2, 2)`
 
-3. After step 1 and 2, the two arrays still do not match, a `ValueError` will be raised
-    For example, `a -> (3, 7)` and `b -> (3)`
-    <br> By step 1, b will be expanded to `b -> (1, 3)`;
-    <br> By step 2, b will be expanded to `b -> (3, 3)`.
-    <br> We can see that they do not match each other. Thus a `ValueError` will be raised.
+
+* Step 2: When the two arrays have the same dimension but different shapes, numpy will try to expand arrays to match each other.
+    - For example, `a -> (3, 3)` and `b -> (1, 3)`, then broadcasting will expand `b` so that `b -> (3, 3)`;
+    - When `a -> (3, 3)` and `b -> (3, 1)`, then broadcasting will also expand `b` so that `b -> (3, 3)`;
+    - When `a -> (1, 3)` and `b -> (3, 1)`, then broadcasting will expand both `a` and `b` so that `a -> (3, 3)` and `b -> (3, 3)`;
+    - When `a -> (2, 2, 2)` and  `b -> (1, 2, 2)`, then broadcasting will expand `b` so that `b -> (2, 2, 2)`. 
+        - Here is a code example for higher dimensional arrays
+
+```{code-cell} python3
+a = np.array([[[1, 2], [2, 3]], [[2, 3], [3, 4]]])
+print(f'the shape of array a is {a.shape}')
+b = np.array([[1,7], [7,1]])
+print(f'the shape of array b is {b.shape}')
+a + b
+```
+
+* Step 3: After step 1 and 2, the two arrays still do not match, a `ValueError` will be raised
+    For example, `a -> (2, 2, 3)` and `b -> (2, 2)`
+    - By step 1, b will be expanded to `b -> (1, 2, 2)`.
+    - By step 2, b will be expanded to `b -> (2, 2, 2)`.
+    - We can see that they do not match each other. Thus a `ValueError` will be raised
+
+```{code-cell} python3
+---
+tags: [raises-exception]
+---
+a = np.array([[[1, 2, 3], [2, 3, 4]], [[2, 3, 4], [3, 4, 5]]])
+print(f'the shape of array a is {a.shape}')
+b = np.array([[1,7], [7,1]])
+print(f'the shape of array b is {b.shape}')
+a + b
+```
 
 ### Matrix Multiplication
 
@@ -1275,6 +1368,43 @@ fig, ax = plt.subplots()
 X = np.random.randn(1000)
 F = ECDF(X)
 F.plot(ax)
+```
+
+```{solution-end}
+```
+
+
+```{exercise-start}
+:label: np_ex4
+```
+
+Recall [broadcasting](broadcasting) in Numpy can help us conduct element-wise operations between arrays with different number of dimensions without using `for` loop.
+
+In this exercise, try to use `for` loop to replicate the result of the following code
+
+```{code-cell} python3
+x = np.random.randn(4, 4)
+y = np.random.randn(4)
+x / y
+```
+
+```{exercise-end}
+```
+
+
+```{solution-start} np_ex4
+:class: dropdown
+```
+
+Here is one solution
+
+```{code-cell} python3
+A = np.empty_like(x)
+n = len(x)
+for i in range(n):
+    for j in range(n):
+        A[i, j] = x[i, j] / y[j]
+print(A)
 ```
 
 ```{solution-end}
