@@ -449,9 +449,9 @@ This useful (but sometimes confusing) feature in Numpy is called **broadcasting*
 
 For example, `a` is a 3 by 3 2-dimensional array (`a -> (3, 3)`), but `b` is an array with three elements (`b -> (3,)`).
 
-Numpy automatically fill up `b` from `b -> (3,)` to `b -> (3, 3)`.
+Numpy will automatically expand `b` from `b -> (3,)` to `b -> (3, 3)`.
 
-Element-wise addition will then also result in a (3, 3) matrix
+Element-wise addition will then result in a (3, 3) array
 
 ```{code-cell} python3
 
@@ -581,15 +581,15 @@ ax.text(10.5, 7.0, '=', size=12, ha='center', va='center');
 
 How about `b -> (3, 1)`?
 
+Numpy will automatically expand `b` from `b -> (3, 1)` to `b -> (3, 3)`
+
+Element-wise addition will then also result in a (3, 3) matrix
+
 ```{code-cell} python3
 b.shape = (3,)
 
 a + b
 ```
-
-Numpy automatically fill up `b` from `b -> (3, 1)` to `b -> (3, 3)`
-
-Element-wise addition will then also result in a (3, 3) matrix
 
 ```{code-cell} python3
 ---
@@ -645,7 +645,7 @@ ax.text(10.5, 7.0, '=', size=12, ha='center', va='center');
 ```
 
 
-The code above can be seen as the following `for` loop
+Broadcasting above can be seen as the following `for` loop
 
 ```{code-cell} python3
 
@@ -658,8 +658,7 @@ for i in range(row):
 print(result)
 ```
 
-Broadcasting is actually efficient since we do not need to write `for` loops to implement element-wise operations in this case.
-
+Broadcasting is actually efficient since we do not need to write `for` loops to implement element-wise operations when shapes do not agree.
 
 In some cases, both operants will be expanded.
 
@@ -729,7 +728,7 @@ Element-wise addition will result in a (3, 3) matrix with `a -> (3,)` being expa
 
 It sounds great and straightforward, so why it is confusing?
 
-Let's try add `a -> (3, 2)` and `b -> (3,)`.
+Let's try adding `a -> (3, 2)` and `b -> (3,)`.
 
 ```{code-cell} python3
 ---
@@ -741,7 +740,7 @@ b = np.array([3, 6, 9])
 a + b
 ```
 
-The `ValueError` tells us that operands could not be added together.
+The `ValueError` tells us that operands could not be broadcast together.
 
 ```{code-cell} python3
 ---
@@ -786,24 +785,39 @@ It is because when `b` is expanded from `b -> (3,)` to `b -> (3, 3)`, Numpy is s
 
 It will get even trickier when we move to higher dimensions.
 
-Thus, we have a list of rules for broadcasting thanks to [Jake VanderPlas](https://jakevdp.github.io/PythonDataScienceHandbook/02.05-computation-on-arrays-broadcasting.html):
+Fortunately, we have a list of rules for broadcasting thanks to [Jake VanderPlas](https://jakevdp.github.io/PythonDataScienceHandbook/02.05-computation-on-arrays-broadcasting.html):
 
-* Step 1: When the dimensions of two arrays do not match, Numpy will expand the one with less dimension by adding a dimension on the left of the existing dimensions.
+* Step 1: When the dimensions of two arrays do not match, Numpy will expand the one with less dimension by adding dimension(s) on the left of the existing dimensions.
     - For example, when `a -> (3, 3)` and `b -> (3,)`, broadcasting will add a dimension to the left so that `b -> (1, 3)`;
     - When `a -> (2, 2, 2)` and `b -> (2, 2)`, then broadcasting will add a dimension to the left so that `b -> (1, 2, 2)`.
+    - When `a -> (3, 2, 2)` and `b -> (2)`, then broadcasting will add a dimension to the left so that `b -> (1, 1, 2)`.
 
 
 * Step 2: When the two arrays have the same dimension but different shapes, Numpy will try to expand arrays to match each other.
-    - For example, when `a -> (3, 3)` and `b -> (3,)`, broadcasting will expand `b` so that `b -> (3, 3)`;
-    - When `a -> (1, 3)` and `b -> (3, 1)`, then broadcasting will expand both `a` and `b` so that `a -> (3, 3)` and `b -> (3, 3)`;
+    - For example, when `a -> (1, 3)` and `b -> (3, 1)`, then broadcasting will expand both `a` and `b` so that `a -> (3, 3)` and `b -> (3, 3)`;
     - When `a -> (2, 2, 2)` and  `b -> (1, 2, 2)`, then broadcasting will expand `b` so that `b -> (2, 2, 2)`. 
-        - Here is a code example for higher dimensional arrays
+    - When `a -> (3, 2, 2)` and `b -> (2,)`, then broadcasting will add a dimension to the left so that `b -> (1, 1, 2)`.
+        - Here are code examples for higher dimensional arrays
 
 ```{code-cell} python3
+# a -> (2, 2, 2) and  b -> (1, 2, 2)
+
 a = np.array([[[1, 2], [2, 3]], [[2, 3], [3, 4]]])
 print(f'the shape of array a is {a.shape}')
 
 b = np.array([[1,7], [7,1]])
+print(f'the shape of array b is {b.shape}')
+
+a + b
+```
+
+```{code-cell} python3
+# a -> (3, 2, 2) and b -> (2,)
+
+a = np.array([[[1, 2], [3, 4]],[[4, 5], [6, 7]],[[7, 8], [9, 10]]])
+print(f'the shape of array a is {a.shape}')
+
+b = np.array([3, 6])
 print(f'the shape of array b is {b.shape}')
 
 a + b
