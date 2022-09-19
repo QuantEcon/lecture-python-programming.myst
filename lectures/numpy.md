@@ -797,7 +797,8 @@ Fortunately, we have a list of rules for broadcasting thanks to [Jake VanderPlas
     - For example, when `a -> (1, 3)` and `b -> (3, 1)`, then broadcasting will expand both `a` and `b` so that `a -> (3, 3)` and `b -> (3, 3)`;
     - When `a -> (2, 2, 2)` and  `b -> (1, 2, 2)`, then broadcasting will expand `b` so that `b -> (2, 2, 2)`. 
     - When `a -> (3, 2, 2)` and `b -> (2,)`, then broadcasting will add a dimension to the left so that `b -> (1, 1, 2)`.
-        - Here are code examples for higher dimensional arrays
+
+Here are code examples for boardcasting higher dimensional arrays
 
 ```{code-cell} python3
 # a -> (2, 2, 2) and  b -> (1, 2, 2)
