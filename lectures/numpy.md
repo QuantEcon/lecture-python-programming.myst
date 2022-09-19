@@ -755,10 +755,10 @@ draw_cube(ax, (1, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 9], '1', **solid)
 draw_cube(ax, (2, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '2', **solid)
 
 draw_cube(ax, (1, 6.5), 1, depth, [2, 3, 4], '4', **solid)
-draw_cube(ax, (2, 6.5), 1, depth, [2, 3, 7, 10], '6', **solid)
+draw_cube(ax, (2, 6.5), 1, depth, [2, 3, 7, 10], '5', **solid)
 
 draw_cube(ax, (1, 5.5), 1, depth, [2, 3, 4], '7', **solid)
-draw_cube(ax, (2, 5.5), 1, depth, [2, 3, 7, 10], '9', **solid)
+draw_cube(ax, (2, 5.5), 1, depth, [2, 3, 7, 10], '8', **solid)
 
 # second block
 draw_cube(ax, (6, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 9], '3', **solid)
