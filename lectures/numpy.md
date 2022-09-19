@@ -441,11 +441,17 @@ In particular, `A * B` is *not* the matrix product, it is an element-wise produc
 (broadcasting)=
 #### Broadcasting
 
-With all the element-wise operations above, what would happen if one of the matrix does not have corresponding elements.
+In element-wise operations above, arrays may not have the same shape.
+ 
+Numpy will automatically expand arrays to the same shape whenever possible.
 
-For example, `a` is a 3 by 3 array (`a -> (3, 3)`), but `b` is an array with three elements (`b -> (1, 3)`).
+This useful (but sometimes confusing) feature in Numpy is called **broadcasting**.
 
-Element-wise addition will result in a 3 by 3 matrix with each row adding `b`.
+For example, `a` is a 3 by 3 2-dimensional array (`a -> (3, 3)`), but `b` is an array with three elements (`b -> (3,)`).
+
+Numpy automatically fill up `b` from `b -> (3,)` to `b -> (3, 3)`.
+
+Element-wise addition will then also result in a (3, 3) matrix
 
 ```{code-cell} python3
 
@@ -454,8 +460,6 @@ b = np.array([3, 6, 9])
 
 a + b
 ```
-
-Numpy automatically fill up `b` from `b -> (1, 3)` to `b -> (3, 3)`
 
 ```{code-cell} python3
 ---
@@ -578,12 +582,14 @@ ax.text(10.5, 7.0, '=', size=12, ha='center', va='center');
 How about `b -> (3, 1)`?
 
 ```{code-cell} python3
-b.shape = (3, 1)
+b.shape = (3,)
 
 a + b
 ```
 
-We find that Numpy automatically fill up `b` from `b -> (3, 1)` to `b -> (3, 3)`
+Numpy automatically fill up `b` from `b -> (3, 1)` to `b -> (3, 3)`
+
+Element-wise addition will then also result in a (3, 3) matrix
 
 ```{code-cell} python3
 ---
@@ -638,8 +644,6 @@ ax.text(10.5, 7.0, '=', size=12, ha='center', va='center');
 
 ```
 
-Element-wise addition will then result in a (3, 3) matrix.
-
 
 The code above can be seen as the following `for` loop
 
@@ -654,16 +658,19 @@ for i in range(row):
 print(result)
 ```
 
+Broadcasting is actually efficient since we do not need to write `for` loops to implement element-wise operations in this case.
+
+
 In some cases, both operants will be expanded.
 
-When we have `c -> (1, 3)` and `d -> (3, 1)`
+When we have `a -> (3,)` and `b -> (3, 1)`
 
 ```{code-cell} python3
-c = np.array([3, 6, 9])
-d = np.array([2, 3, 4])
-d.shape = (3, 1)
+a = np.array([3, 6, 9])
+b = np.array([2, 3, 4])
+b.shape = (3,)
 
-c + d
+a + b
 ```
 
 ```{code-cell} python3
@@ -718,19 +725,11 @@ ax.text(5, 7.0, '+', size=12, ha='center', va='center')
 ax.text(10.5, 7.0, '=', size=12, ha='center', va='center');
 ```
 
-Element-wise addition will result in a (3, 3) matrix with `c -> (1, 3)` being expanded to `c -> (3, 3)` and `d -> (1, 3)` being expanded to `d -> (3, 3)`.
+Element-wise addition will result in a (3, 3) matrix with `a -> (3,)` being expanded to `a -> (3, 3)` and `b -> (3, 1)` being expanded to `b -> (3, 3)`.
 
-This useful (but sometimes confusing) feature in Numpy is called **broadcasting**.
+It sounds great and straightforward, so why it is confusing?
 
-We find broadcasting is actually efficient since we do not need to write slow `for` loops to compute element wise.
-
-It sounds great and straitforward, why it is confusing then?
-
-Let's try to use broadcasting in the following scenario:
-
-We have
-
-`a -> (3, 2)` and `b -> (1, 3)`
+Let's try add `a -> (3, 2)` and `b -> (3,)`.
 
 ```{code-cell} python3
 ---
@@ -742,7 +741,7 @@ b = np.array([3, 6, 9])
 a + b
 ```
 
-The `ValueError` tells us that operands could not be broadcast together.
+The `ValueError` tells us that operands could not be added together.
 
 ```{code-cell} python3
 ---
@@ -781,21 +780,21 @@ ax.text(10, 7.0, '=', size=12, ha='center', va='center')
 ax.text(11, 7.0, '?', size=16, ha='center', va='center');
 ```
 
-We can see that Numpy has difficulty in expanding this operation.
+We can see that Numpy has difficulty expanding the arrays to the same size.
 
-It is because when `b` is expanded from `b -> (1, 3)` to `b -> (3, 3)`, Numpy is still having difficulties to match `b` with `a -> (3, 2)` without resulting in data loss. 
+It is because when `b` is expanded from `b -> (3,)` to `b -> (3, 3)`, Numpy is still having difficulties to match `b` with `a -> (3, 2)`.
 
 It will get even trickier when we move to higher dimensions.
 
-Thus, we have listed a number of rules for broadcasting:
+Thus, we have a list of rules for broadcasting thanks to [Jake VanderPlas](https://jakevdp.github.io/PythonDataScienceHandbook/02.05-computation-on-arrays-broadcasting.html):
 
-* Step 1: When the dimensions of two arrays do not match, Numpy will expand the one with less dimension by adding a dimension on the left of existing dimension.
-    - For example, `a -> (2, 2, 2)` and `b -> (2, 2)`, then broadcasting will add a dimension to the left of existing `b` so that `b -> (1, 2, 2)`
+* Step 1: When the dimensions of two arrays do not match, Numpy will expand the one with less dimension by adding a dimension on the left of the existing dimensions.
+    - For example, when `a -> (3, 3)` and `b -> (3,)`, broadcasting will add a dimension to the left so that `b -> (1, 3)`;
+    - When `a -> (2, 2, 2)` and `b -> (2, 2)`, then broadcasting will add a dimension to the left so that `b -> (1, 2, 2)`.
 
 
-* Step 2: When the two arrays have the same dimension but different shapes, numpy will try to expand arrays to match each other.
-    - For example, `a -> (3, 3)` and `b -> (1, 3)`, then broadcasting will expand `b` so that `b -> (3, 3)`;
-    - When `a -> (3, 3)` and `b -> (3, 1)`, then broadcasting will also expand `b` so that `b -> (3, 3)`;
+* Step 2: When the two arrays have the same dimension but different shapes, Numpy will try to expand arrays to match each other.
+    - For example, when `a -> (3, 3)` and `b -> (3,)`, broadcasting will expand `b` so that `b -> (3, 3)`;
     - When `a -> (1, 3)` and `b -> (3, 1)`, then broadcasting will expand both `a` and `b` so that `a -> (3, 3)` and `b -> (3, 3)`;
     - When `a -> (2, 2, 2)` and  `b -> (1, 2, 2)`, then broadcasting will expand `b` so that `b -> (2, 2, 2)`. 
         - Here is a code example for higher dimensional arrays
@@ -803,15 +802,17 @@ Thus, we have listed a number of rules for broadcasting:
 ```{code-cell} python3
 a = np.array([[[1, 2], [2, 3]], [[2, 3], [3, 4]]])
 print(f'the shape of array a is {a.shape}')
+
 b = np.array([[1,7], [7,1]])
 print(f'the shape of array b is {b.shape}')
+
 a + b
 ```
 
-* Step 3: After step 1 and 2, the two arrays still do not match, a `ValueError` will be raised
+* Step 3: After Step 1 and 2, if the two arrays still do not match, a `ValueError` will be raised
     For example, `a -> (2, 2, 3)` and `b -> (2, 2)`
-    - By step 1, b will be expanded to `b -> (1, 2, 2)`.
-    - By step 2, b will be expanded to `b -> (2, 2, 2)`.
+    - By step 1, `b` will be expanded to `b -> (1, 2, 2)`.
+    - By step 2, `b` will be expanded to `b -> (2, 2, 2)`.
     - We can see that they do not match each other. Thus a `ValueError` will be raised
 
 ```{code-cell} python3
