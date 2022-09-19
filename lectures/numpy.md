@@ -443,13 +443,13 @@ In particular, `A * B` is *not* the matrix product, it is an element-wise produc
 
 In element-wise operations above, arrays may not have the same shape.
  
-Numpy will automatically expand arrays to the same shape whenever possible.
+NumPy will automatically expand arrays to the same shape whenever possible.
 
-This useful (but sometimes confusing) feature in Numpy is called **broadcasting**.
+This useful (but sometimes confusing) feature in NumPy is called **broadcasting**.
 
 For example, `a` is a 3 by 3 2-dimensional array (`a -> (3, 3)`), but `b` is an array with three elements (`b -> (3,)`).
 
-Numpy will automatically expand `b` from `b -> (3,)` to `b -> (3, 3)`.
+NumPy will automatically expand `b` from `b -> (3,)` to `b -> (3, 3)`.
 
 Element-wise addition will then result in a (3, 3) array
 
@@ -581,7 +581,7 @@ ax.text(10.5, 7.0, '=', size=12, ha='center', va='center');
 
 How about `b -> (3, 1)`?
 
-Numpy will automatically expand `b` from `b -> (3, 1)` to `b -> (3, 3)`
+NumPy will automatically expand `b` from `b -> (3, 1)` to `b -> (3, 3)`
 
 Element-wise addition will then also result in a (3, 3) matrix
 
@@ -779,21 +779,21 @@ ax.text(10, 7.0, '=', size=12, ha='center', va='center')
 ax.text(11, 7.0, '?', size=16, ha='center', va='center');
 ```
 
-We can see that Numpy has difficulty expanding the arrays to the same size.
+We can see that NumPy has difficulty expanding the arrays to the same size.
 
-It is because when `b` is expanded from `b -> (3,)` to `b -> (3, 3)`, Numpy is still having difficulties to match `b` with `a -> (3, 2)`.
+It is because when `b` is expanded from `b -> (3,)` to `b -> (3, 3)`, NumPy is still having difficulties to match `b` with `a -> (3, 2)`.
 
 It will get even trickier when we move to higher dimensions.
 
 Fortunately, we have a list of rules for broadcasting thanks to [Jake VanderPlas](https://jakevdp.github.io/PythonDataScienceHandbook/02.05-computation-on-arrays-broadcasting.html):
 
-* Step 1: When the dimensions of two arrays do not match, Numpy will expand the one with less dimension by adding dimension(s) on the left of the existing dimensions.
+* Step 1: When the dimensions of two arrays do not match, NumPy will expand the one with less dimension by adding dimension(s) on the left of the existing dimensions.
     - For example, when `a -> (3, 3)` and `b -> (3,)`, broadcasting will add a dimension to the left so that `b -> (1, 3)`;
     - When `a -> (2, 2, 2)` and `b -> (2, 2)`, then broadcasting will add a dimension to the left so that `b -> (1, 2, 2)`.
     - When `a -> (3, 2, 2)` and `b -> (2)`, then broadcasting will add a dimension to the left so that `b -> (1, 1, 2)`.
 
 
-* Step 2: When the two arrays have the same dimension but different shapes, Numpy will try to expand arrays to match each other.
+* Step 2: When the two arrays have the same dimension but different shapes, NumPy will try to expand arrays to match each other.
     - For example, when `a -> (1, 3)` and `b -> (3, 1)`, then broadcasting will expand both `a` and `b` so that `a -> (3, 3)` and `b -> (3, 3)`;
     - When `a -> (2, 2, 2)` and  `b -> (1, 2, 2)`, then broadcasting will expand `b` so that `b -> (2, 2, 2)`. 
     - When `a -> (3, 2, 2)` and `b -> (2,)`, then broadcasting will add a dimension to the left so that `b -> (1, 1, 2)`.
