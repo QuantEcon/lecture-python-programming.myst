@@ -588,7 +588,7 @@ ax.text(10.5, 7.0, '=', size=12, ha='center', va='center');
 
 How about `b -> (3, 1)`?
 
-In this case, NumPy will automatically expand`b -> (3, 1)` to `b -> (3, 3)`.
+In this case, NumPy will automatically expand `b -> (3, 1)` to `b -> (3, 3)`.
 
 Element-wise addition will then also result in a $3 \times 3$ matrix
 
@@ -659,12 +659,12 @@ The previous broadcasting operation is equivalent to the following `for` loop
 ```{code-cell} python3
 
 row, column = a.shape
-result = np.empty((3,3))
+result = np.empty((3, 3))
 for i in range(row):
     for j in range(column):
         result[i, j] = a[i, j] + b[i]
 
-print(result)
+result
 ```
 
 Broadcasting is more efficient than the `for` loop because we avoid the overhead of arithmentic operations in high-level Python code.
