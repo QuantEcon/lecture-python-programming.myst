@@ -451,9 +451,9 @@ This useful (but sometimes confusing) feature in NumPy is called **broadcasting*
 
 For example, suppose `a` is a $3 \times 3$ array (`a -> (3, 3)`), while `b` is a flat array with three elements (`b -> (3,)`).
 
-NumPy will automatically expand `b` from `b -> (3,)` to `b -> (3, 3)`.
+NumPy will automatically expand `b -> (3,)` to `b -> (3, 3)`.
 
-Element-wise addition will then result in a $3 \times 3$ array
+Element-wise additio will also result in a $3 \times 3$ array
 
 ```{code-cell} python3
 
@@ -588,7 +588,7 @@ ax.text(10.5, 7.0, '=', size=12, ha='center', va='center');
 
 How about `b -> (3, 1)`?
 
-In this case, NumPy will automatically expand `b` from `b -> (3, 1)` to `b -> (3, 3)`.
+In this case, NumPy will automatically expand`b -> (3, 1)` to `b -> (3, 3)`.
 
 Element-wise addition will then also result in a $3 \times 3$ matrix
 
@@ -671,7 +671,7 @@ Broadcasting is more efficient than the `for` loop because we avoid the overhead
 
 In some cases, both operands will be expanded.
 
-When we have `a -> (3,)` and `b -> (3, 1)`, element-wise addition will result in a $3 \times 3$ matrix after `a -> (3,)` being expanded to `a -> (3, 3)` and `b -> (3, 1)` being expanded to `b -> (3, 3)`.
+When we have `a -> (3,)` and `b -> (3, 1)`, element-wise addition will result in a $3 \times 3$ matrix after `a` being expanded to `a -> (3, 3)` and `b` being expanded to `b -> (3, 3)`.
 
 ```{code-cell} python3
 a = np.array([3, 6, 9])
