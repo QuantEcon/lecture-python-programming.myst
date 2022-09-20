@@ -806,13 +806,13 @@ To help us, we can use the following list of rules:
 
 * *Step 1:* When the dimensions of two arrays do not match, NumPy will expand the one with fewer dimensions by adding dimension(s) on the left of the existing dimensions.
     - For example, when `a -> (3, 3)` and `b -> (3,)`, broadcasting will add a dimension to the left so that `b -> (1, 3)`;
-    - When `a -> (2, 2, 2)` and `b -> (2, 2)`, then broadcasting will add a dimension to the left so that `b -> (1, 2, 2)`.
+    - When `a -> (2, 2, 2)` and `b -> (2, 2)`, then broadcasting will add a dimension to the left so that `b -> (1, 2, 2)`;
     - When `a -> (3, 2, 2)` and `b -> (2,)`, then broadcasting will add two dimensions to the left so that `b -> (1, 1, 2)` (you can also see this process as going through *Step 1* twice).
 
 
 * *Step 2:* When the two arrays have the same dimension but different shapes, NumPy will try to expand dimensions where shapes equal to 1.
     - For example, when `a -> (1, 3)` and `b -> (3, 1)`, broadcasting will expand both `a` and `b` so that `a -> (3, 3)` and `b -> (3, 3)`;
-    - When `a -> (2, 2, 2)` and  `b -> (1, 2, 2)`, broadcasting will expand the first dimension of `b` so that `b -> (2, 2, 2)`. 
+    - When `a -> (2, 2, 2)` and  `b -> (1, 2, 2)`, broadcasting will expand the first dimension of `b` so that `b -> (2, 2, 2)`;
     - When `a -> (3, 2, 2)` and `b -> (1, 1, 2)`, broadcasting will expand `b` on all dimensions with shape 1 so that `b -> (3, 2, 2)`.
 
 Here are code examples for broadcasting higher dimensional arrays
@@ -857,9 +857,9 @@ a + b
 ```
 
 * *Step 3:* After Step 1 and 2, if the two arrays still do not match, a `ValueError` will be raised. For example, suppose `a -> (2, 2, 3)` and `b -> (2, 2)`
-    - By *Step 1*, `b` will be expanded to `b -> (1, 2, 2)`.
-    - By *Step 2*, `b` will be expanded to `b -> (2, 2, 2)`.
-    - We can see that they do not match each other. Thus, a `ValueError` will be raised
+    - By *Step 1*, `b` will be expanded to `b -> (1, 2, 2)`;
+    - By *Step 2*, `b` will be expanded to `b -> (2, 2, 2)`;
+    - We can see that they do not match each other after the first two steps. Thus, a `ValueError` will be raised
 
 ```{code-cell} python3
 ---
