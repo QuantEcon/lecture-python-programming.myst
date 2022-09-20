@@ -443,13 +443,13 @@ In particular, `A * B` is *not* the matrix product, it is an element-wise produc
 
 (This section is built upon an excellent discussion of broadcasting provided by [Jake VanderPlas](https://jakevdp.github.io/PythonDataScienceHandbook/02.05-computation-on-arrays-broadcasting.html).)
 
-In element-wise operations above, arrays may not have the same shape.
+In element-wise operations, arrays may not have the same shape.
  
-NumPy will automatically expand arrays to the same shape whenever possible.
+When this happens, NumPy will automatically expand arrays to the same shape whenever possible.
 
 This useful (but sometimes confusing) feature in NumPy is called **broadcasting**.
 
-For example, suppose `a` is a $3 \times 3$ 2-dimensional array (`a -> (3, 3)`), while `b` is a flat array with three elements (`b -> (3,)`).
+For example, suppose `a` is a $3 \times 3$ array (`a -> (3, 3)`), while `b` is a flat array with three elements (`b -> (3,)`).
 
 NumPy will automatically expand `b` from `b -> (3,)` to `b -> (3, 3)`.
 
@@ -667,11 +667,11 @@ for i in range(row):
 print(result)
 ```
 
-Broadcasting is more efficient than the for loop because we avoid the overhead of arithmentic operations in high-level Python code.
+Broadcasting is more efficient than the `for` loop because we avoid the overhead of arithmentic operations in high-level Python code.
 
 In some cases, both operands will be expanded.
 
-When we have `a -> (3,)` and `b -> (3, 1)`
+When we have `a -> (3,)` and `b -> (3, 1)`, element-wise addition will result in a $3 \times 3$ matrix after `a -> (3,)` being expanded to `a -> (3, 3)` and `b -> (3, 1)` being expanded to `b -> (3, 3)`.
 
 ```{code-cell} python3
 a = np.array([3, 6, 9])
@@ -735,8 +735,6 @@ ax.text(5, 7.0, '+', size=12, ha='center', va='center')
 ax.text(10.5, 7.0, '=', size=12, ha='center', va='center');
 ```
 
-In this case, Element-wise addition will result in a $3 \times 3$ matrix with `a -> (3,)` being expanded to `a -> (3, 3)` and `b -> (3, 1)` being expanded to `b -> (3, 3)`.
-
 While broadcasting is very useful, it can sometimes seem confusing.
 
 For example, let's try adding `a -> (3, 2)` and `b -> (3,)`.
@@ -796,7 +794,7 @@ ax.text(10, 7.0, '=', size=12, ha='center', va='center')
 ax.text(11, 7.0, '?', size=16, ha='center', va='center');
 ```
 
-We can see that NumPy has difficulty expanding the arrays to the same size.
+We can see that NumPy cannot expand the arrays to the same size.
 
 It is because, when `b` is expanded from `b -> (3,)` to `b -> (3, 3)`, NumPy cannot match `b` with `a -> (3, 2)`.
 
@@ -804,16 +802,16 @@ Things get even trickier when we move to higher dimensions.
 
 To help us, we can use the following list of rules:
 
-* Step 1: When the dimensions of two arrays do not match, NumPy will expand the one with less dimension by adding dimension(s) on the left of the existing dimensions.
+* *Step 1:* When the dimensions of two arrays do not match, NumPy will expand the one with fewer dimensions by adding dimension(s) on the left of the existing dimensions.
     - For example, when `a -> (3, 3)` and `b -> (3,)`, broadcasting will add a dimension to the left so that `b -> (1, 3)`;
     - When `a -> (2, 2, 2)` and `b -> (2, 2)`, then broadcasting will add a dimension to the left so that `b -> (1, 2, 2)`.
-    - When `a -> (3, 2, 2)` and `b -> (2)`, then broadcasting will add a dimension to the left so that `b -> (1, 1, 2)`.
+    - When `a -> (3, 2, 2)` and `b -> (2,)`, then broadcasting will add two dimensions to the left so that `b -> (1, 1, 2)` (you can also see this process as going through *Step 1* twice).
 
 
-* Step 2: When the two arrays have the same dimension but different shapes, NumPy will try to expand arrays to match each other.
-    - For example, when `a -> (1, 3)` and `b -> (3, 1)`, then broadcasting will expand both `a` and `b` so that `a -> (3, 3)` and `b -> (3, 3)`;
-    - When `a -> (2, 2, 2)` and  `b -> (1, 2, 2)`, then broadcasting will expand `b` so that `b -> (2, 2, 2)`. 
-    - When `a -> (3, 2, 2)` and `b -> (2,)`, then broadcasting will add a dimension to the left so that `b -> (1, 1, 2)`.
+* *Step 2:* When the two arrays have the same dimension but different shapes, NumPy will try to expand dimensions where shapes equal to 1.
+    - For example, when `a -> (1, 3)` and `b -> (3, 1)`, broadcasting will expand both `a` and `b` so that `a -> (3, 3)` and `b -> (3, 3)`;
+    - When `a -> (2, 2, 2)` and  `b -> (1, 2, 2)`, broadcasting will expand the first dimension of `b` so that `b -> (2, 2, 2)`. 
+    - When `a -> (3, 2, 2)` and `b -> (1, 1, 2)`, broadcasting will expand `b` in all dimensions with shape 1 so that `b -> (3, 2, 2)`.
 
 Here are code examples for broadcasting higher dimensional arrays
 
@@ -854,8 +852,7 @@ print(f'the shape of array b is {b.shape}')
 a + b
 ```
 
-* Step 3: After Step 1 and 2, if the two arrays still do not match, a `ValueError` will be raised
-    For example, `a -> (2, 2, 3)` and `b -> (2, 2)`
+* *Step 3:* After Step 1 and 2, if the two arrays still do not match, a `ValueError` will be raised. For example, suppose `a -> (2, 2, 3)` and `b -> (2, 2)`
     - By step 1, `b` will be expanded to `b -> (1, 2, 2)`.
     - By step 2, `b` will be expanded to `b -> (2, 2, 2)`.
     - We can see that they do not match each other. Thus a `ValueError` will be raised
