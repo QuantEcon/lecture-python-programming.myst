@@ -439,7 +439,9 @@ A * B
 In particular, `A * B` is *not* the matrix product, it is an element-wise product.
 
 (broadcasting)=
-#### Broadcasting
+### Broadcasting
+
+(This section is built upon an excellent discussion of broadcasting provided by Jake VanderPlas.)
 
 In element-wise operations above, arrays may not have the same shape.
  
@@ -455,7 +457,10 @@ Element-wise addition will then result in a (3, 3) array
 
 ```{code-cell} python3
 
-a = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+a = np.array(
+        [[1, 2, 3], 
+         [4, 5, 6], 
+         [7, 8, 9]])
 b = np.array([3, 6, 9])
 
 a + b
@@ -586,7 +591,7 @@ NumPy will automatically expand `b` from `b -> (3, 1)` to `b -> (3, 3)`
 Element-wise addition will then also result in a (3, 3) matrix
 
 ```{code-cell} python3
-b.shape = (3,)
+b.shape = (3, 1)
 
 a + b
 ```
@@ -667,7 +672,7 @@ When we have `a -> (3,)` and `b -> (3, 1)`
 ```{code-cell} python3
 a = np.array([3, 6, 9])
 b = np.array([2, 3, 4])
-b.shape = (3,)
+b.shape = (3, 1)
 
 a + b
 ```
@@ -734,7 +739,10 @@ Let's try adding `a -> (3, 2)` and `b -> (3,)`.
 ---
 tags: [raises-exception]
 ---
-a = np.array([[1, 2],[4, 5],[7, 8]])
+a = np.array(
+      [[1, 2],
+       [4, 5],
+       [7, 8]])
 b = np.array([3, 6, 9])
 
 a + b
@@ -803,10 +811,15 @@ Here are code examples for boardcasting higher dimensional arrays
 ```{code-cell} python3
 # a -> (2, 2, 2) and  b -> (1, 2, 2)
 
-a = np.array([[[1, 2], [2, 3]], [[2, 3], [3, 4]]])
+a = np.array(
+    [[[1, 2], 
+      [2, 3]], 
+
+     [[2, 3], 
+      [3, 4]]])
 print(f'the shape of array a is {a.shape}')
 
-b = np.array([[1,7], [7,1]])
+b = np.array([[1,7],[7,1]])
 print(f'the shape of array b is {b.shape}')
 
 a + b
@@ -815,7 +828,15 @@ a + b
 ```{code-cell} python3
 # a -> (3, 2, 2) and b -> (2,)
 
-a = np.array([[[1, 2], [3, 4]],[[4, 5], [6, 7]],[[7, 8], [9, 10]]])
+a = np.array(
+    [[[1, 2], 
+      [3, 4]],
+
+     [[4, 5], 
+      [6, 7]],
+
+     [[7, 8], 
+      [9, 10]]])
 print(f'the shape of array a is {a.shape}')
 
 b = np.array([3, 6])
@@ -834,9 +855,16 @@ a + b
 ---
 tags: [raises-exception]
 ---
-a = np.array([[[1, 2, 3], [2, 3, 4]], [[2, 3, 4], [3, 4, 5]]])
+a = np.array(
+    [[[1, 2, 3], 
+      [2, 3, 4]], 
+     
+     [[2, 3, 4], 
+      [3, 4, 5]]])
 print(f'the shape of array a is {a.shape}')
-b = np.array([[1,7], [7,1]])
+b = np.array(
+    [[1,7], 
+     [7,1]])
 print(f'the shape of array b is {b.shape}')
 a + b
 ```
