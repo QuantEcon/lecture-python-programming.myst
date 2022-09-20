@@ -441,7 +441,7 @@ In particular, `A * B` is *not* the matrix product, it is an element-wise produc
 (broadcasting)=
 ### Broadcasting
 
-(This section is built upon an excellent discussion of broadcasting provided by Jake VanderPlas.)
+(This section is built upon an excellent discussion of broadcasting provided by [Jake VanderPlas](https://jakevdp.github.io/PythonDataScienceHandbook/02.05-computation-on-arrays-broadcasting.html).)
 
 In element-wise operations above, arrays may not have the same shape.
  
@@ -449,11 +449,11 @@ NumPy will automatically expand arrays to the same shape whenever possible.
 
 This useful (but sometimes confusing) feature in NumPy is called **broadcasting**.
 
-For example, `a` is a 3 by 3 2-dimensional array (`a -> (3, 3)`), but `b` is an array with three elements (`b -> (3,)`).
+For example, suppose `a` is a $3 \times 3$ 2-dimensional array (`a -> (3, 3)`), while `b` is a flat array with three elements (`b -> (3,)`).
 
 NumPy will automatically expand `b` from `b -> (3,)` to `b -> (3, 3)`.
 
-Element-wise addition will then result in a (3, 3) array
+Element-wise addition will then result in a $3 \times 3$ array
 
 ```{code-cell} python3
 
@@ -465,6 +465,8 @@ b = np.array([3, 6, 9])
 
 a + b
 ```
+
+Here is a visual representation of this broadcasting operation:
 
 ```{code-cell} python3
 ---
@@ -586,15 +588,17 @@ ax.text(10.5, 7.0, '=', size=12, ha='center', va='center');
 
 How about `b -> (3, 1)`?
 
-NumPy will automatically expand `b` from `b -> (3, 1)` to `b -> (3, 3)`
+In this case, NumPy will automatically expand `b` from `b -> (3, 1)` to `b -> (3, 3)`.
 
-Element-wise addition will then also result in a (3, 3) matrix
+Element-wise addition will then also result in a $3 \times 3$ matrix
 
 ```{code-cell} python3
 b.shape = (3, 1)
 
 a + b
 ```
+
+Here is a visual representation of this broadcasting operation:
 
 ```{code-cell} python3
 ---
@@ -650,7 +654,7 @@ ax.text(10.5, 7.0, '=', size=12, ha='center', va='center');
 ```
 
 
-Broadcasting above can be seen as the following `for` loop
+The previous broadcasting operation is equivalent to the following `for` loop
 
 ```{code-cell} python3
 
@@ -663,9 +667,9 @@ for i in range(row):
 print(result)
 ```
 
-Broadcasting is actually efficient since we do not need to write `for` loops to implement element-wise operations when shapes do not agree.
+Broadcasting is more efficient than the for loop because we avoid the overhead of arithmentic operations in high-level Python code.
 
-In some cases, both operants will be expanded.
+In some cases, both operands will be expanded.
 
 When we have `a -> (3,)` and `b -> (3, 1)`
 
@@ -676,6 +680,8 @@ b.shape = (3, 1)
 
 a + b
 ```
+
+Here is a visual representation of this broadcasting operation:
 
 ```{code-cell} python3
 ---
@@ -729,11 +735,11 @@ ax.text(5, 7.0, '+', size=12, ha='center', va='center')
 ax.text(10.5, 7.0, '=', size=12, ha='center', va='center');
 ```
 
-Element-wise addition will result in a (3, 3) matrix with `a -> (3,)` being expanded to `a -> (3, 3)` and `b -> (3, 1)` being expanded to `b -> (3, 3)`.
+In this case, Element-wise addition will result in a $3 \times 3$ matrix with `a -> (3,)` being expanded to `a -> (3, 3)` and `b -> (3, 1)` being expanded to `b -> (3, 3)`.
 
-It sounds great and straightforward, so why it is confusing?
+While broadcasting is very useful, it can sometimes seem confusing.
 
-Let's try adding `a -> (3, 2)` and `b -> (3,)`.
+For example, let's try adding `a -> (3, 2)` and `b -> (3,)`.
 
 ```{code-cell} python3
 ---
@@ -749,6 +755,9 @@ a + b
 ```
 
 The `ValueError` tells us that operands could not be broadcast together.
+
+
+Here is a visual representation of why this broadcasting cannot be executed:
 
 ```{code-cell} python3
 ---
@@ -789,11 +798,11 @@ ax.text(11, 7.0, '?', size=16, ha='center', va='center');
 
 We can see that NumPy has difficulty expanding the arrays to the same size.
 
-It is because when `b` is expanded from `b -> (3,)` to `b -> (3, 3)`, NumPy is still having difficulties to match `b` with `a -> (3, 2)`.
+It is because, when `b` is expanded from `b -> (3,)` to `b -> (3, 3)`, NumPy cannot match `b` with `a -> (3, 2)`.
 
-It will get even trickier when we move to higher dimensions.
+Things get even trickier when we move to higher dimensions.
 
-Fortunately, we have a list of rules for broadcasting thanks to [Jake VanderPlas](https://jakevdp.github.io/PythonDataScienceHandbook/02.05-computation-on-arrays-broadcasting.html):
+To help us, we can use the following list of rules:
 
 * Step 1: When the dimensions of two arrays do not match, NumPy will expand the one with less dimension by adding dimension(s) on the left of the existing dimensions.
     - For example, when `a -> (3, 3)` and `b -> (3,)`, broadcasting will add a dimension to the left so that `b -> (1, 3)`;
@@ -806,7 +815,7 @@ Fortunately, we have a list of rules for broadcasting thanks to [Jake VanderPlas
     - When `a -> (2, 2, 2)` and  `b -> (1, 2, 2)`, then broadcasting will expand `b` so that `b -> (2, 2, 2)`. 
     - When `a -> (3, 2, 2)` and `b -> (2,)`, then broadcasting will add a dimension to the left so that `b -> (1, 1, 2)`.
 
-Here are code examples for boardcasting higher dimensional arrays
+Here are code examples for broadcasting higher dimensional arrays
 
 ```{code-cell} python3
 # a -> (2, 2, 2) and  b -> (1, 2, 2)
@@ -1422,9 +1431,9 @@ F.plot(ax)
 :label: np_ex4
 ```
 
-Recall [broadcasting](broadcasting) in Numpy can help us conduct element-wise operations between arrays with different number of dimensions without using `for` loop.
+Recall that [broadcasting](broadcasting) in Numpy can help us conduct element-wise operations on arrays with different number of dimensions without using `for` loops.
 
-In this exercise, try to use `for` loop to replicate the result of the following code
+In this exercise, try to use a `for` loop to replicate the result of the following code
 
 ```{code-cell} python3
 x = np.random.randn(4, 4)
