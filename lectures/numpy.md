@@ -451,9 +451,9 @@ This useful (but sometimes confusing) feature in NumPy is called **broadcasting*
 
 For example, suppose `a` is a $3 \times 3$ array (`a -> (3, 3)`), while `b` is a flat array with three elements (`b -> (3,)`).
 
-When `a + b`, NumPy will automatically expand `b -> (3,)` to `b -> (3, 3)`.
+When adding them together, NumPy will automatically expand `b -> (3,)` to `b -> (3, 3)`.
 
-Element-wise addition will result in a $3 \times 3$ array
+the element-wise addition will result in a $3 \times 3$ array
 
 ```{code-cell} python3
 
@@ -590,7 +590,7 @@ How about `b -> (3, 1)`?
 
 In this case, NumPy will automatically expand `b -> (3, 1)` to `b -> (3, 3)`.
 
-Element-wise addition will then also result in a $3 \times 3$ matrix
+Element-wise addition will then result in a $3 \times 3$ matrix
 
 ```{code-cell} python3
 b.shape = (3, 1)
