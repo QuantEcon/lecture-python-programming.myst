@@ -757,7 +757,7 @@ a + b
 The `ValueError` tells us that operands could not be broadcast together.
 
 
-Here is a visual representation of why this broadcasting cannot be executed:
+Here is a visual representation to show why this broadcasting cannot be executed:
 
 ```{code-cell} python3
 ---
