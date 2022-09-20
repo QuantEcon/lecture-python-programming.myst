@@ -451,9 +451,9 @@ This useful (but sometimes confusing) feature in NumPy is called **broadcasting*
 
 For example, suppose `a` is a $3 \times 3$ array (`a -> (3, 3)`), while `b` is a flat array with three elements (`b -> (3,)`).
 
-NumPy will automatically expand `b -> (3,)` to `b -> (3, 3)`.
+When `a + b`, NumPy will automatically expand `b -> (3,)` to `b -> (3, 3)`.
 
-Element-wise additio will also result in a $3 \times 3$ array
+Element-wise addition will result in a $3 \times 3$ array
 
 ```{code-cell} python3
 
@@ -472,7 +472,7 @@ Here is a visual representation of this broadcasting operation:
 ---
 tags: [hide-input]
 ---
-# Adapted and modified based on the book written by Jake VanderPlas (see https://jakevdp.github.io/PythonDataScienceHandbook/06.00-figure-code.html#Broadcasting)
+# Adapted and modified based on the code in the book written by Jake VanderPlas (see https://jakevdp.github.io/PythonDataScienceHandbook/06.00-figure-code.html#Broadcasting)
 # Originally from astroML: see http://www.astroml.org/book_figures/appendix/fig_broadcast_visual.html
 
 import numpy as np
@@ -671,7 +671,9 @@ Broadcasting is more efficient than the `for` loop because we avoid the overhead
 
 In some cases, both operands will be expanded.
 
-When we have `a -> (3,)` and `b -> (3, 1)`, element-wise addition will result in a $3 \times 3$ matrix after `a` being expanded to `a -> (3, 3)` and `b` being expanded to `b -> (3, 3)`.
+When we have `a -> (3,)` and `b -> (3, 1)`, `a` will be expanded to `a -> (3, 3)`, and `b` will be expanded to `b -> (3, 3)`.
+
+In this case, element-wise addition will result in a $3 \times 3$ matrix
 
 ```{code-cell} python3
 a = np.array([3, 6, 9])
@@ -811,7 +813,7 @@ To help us, we can use the following list of rules:
 * *Step 2:* When the two arrays have the same dimension but different shapes, NumPy will try to expand dimensions where shapes equal to 1.
     - For example, when `a -> (1, 3)` and `b -> (3, 1)`, broadcasting will expand both `a` and `b` so that `a -> (3, 3)` and `b -> (3, 3)`;
     - When `a -> (2, 2, 2)` and  `b -> (1, 2, 2)`, broadcasting will expand the first dimension of `b` so that `b -> (2, 2, 2)`. 
-    - When `a -> (3, 2, 2)` and `b -> (1, 1, 2)`, broadcasting will expand `b` in all dimensions with shape 1 so that `b -> (3, 2, 2)`.
+    - When `a -> (3, 2, 2)` and `b -> (1, 1, 2)`, broadcasting will expand `b` on all dimensions with shape 1 so that `b -> (3, 2, 2)`.
 
 Here are code examples for broadcasting higher dimensional arrays
 
@@ -826,7 +828,9 @@ a = np.array(
       [3, 4]]])
 print(f'the shape of array a is {a.shape}')
 
-b = np.array([[1,7],[7,1]])
+b = np.array(
+    [[1,7],
+     [7,1]])
 print(f'the shape of array b is {b.shape}')
 
 a + b
@@ -853,9 +857,9 @@ a + b
 ```
 
 * *Step 3:* After Step 1 and 2, if the two arrays still do not match, a `ValueError` will be raised. For example, suppose `a -> (2, 2, 3)` and `b -> (2, 2)`
-    - By step 1, `b` will be expanded to `b -> (1, 2, 2)`.
-    - By step 2, `b` will be expanded to `b -> (2, 2, 2)`.
-    - We can see that they do not match each other. Thus a `ValueError` will be raised
+    - By *Step 1*, `b` will be expanded to `b -> (1, 2, 2)`.
+    - By *Step 2*, `b` will be expanded to `b -> (2, 2, 2)`.
+    - We can see that they do not match each other. Thus, a `ValueError` will be raised
 
 ```{code-cell} python3
 ---
@@ -868,10 +872,12 @@ a = np.array(
      [[2, 3, 4], 
       [3, 4, 5]]])
 print(f'the shape of array a is {a.shape}')
+
 b = np.array(
     [[1,7], 
      [7,1]])
 print(f'the shape of array b is {b.shape}')
+
 a + b
 ```
 
