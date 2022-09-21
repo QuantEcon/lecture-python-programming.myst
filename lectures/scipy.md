@@ -443,7 +443,7 @@ We leave you to investigate the [set of available routines](http://docs.scipy.or
 ```{exercise}
 :label: sp_ex1
 
-In {ref}`this lecture <python_advanced_features>`, we will discuss the concept of {ref}`recursive function calls <recursive_functions>`.
+In {ref}`this lecture <functions>`, we discussed the concept of {ref}`recursive function calls <recursive_functions>`.
 
 Try to write a recursive implementation of homemade bisection function {ref}`described above <bisect_func>`.
 
