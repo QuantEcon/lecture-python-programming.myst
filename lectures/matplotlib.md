@@ -354,7 +354,7 @@ You can use the function to experiment with other styles in the list.
 
 If you are interested, you can even create your own style sheets.
 
-Paraeters for your style sheets are stored in a dictionary-like variable `plt.rcParams`
+Parameters for your style sheets are stored in a dictionary-like variable `plt.rcParams`
 
 ```{code-cell} python3
 ---
@@ -380,14 +380,27 @@ from cycler import cycler
 # set to the default style sheet
 plt.style.use('default')
 
+#set default figure size
+plt.rcParams["figure.figsize"] = (10, 6)
 # update linewidth
 plt.rcParams['lines.linewidth'] = 2
 # add horizontal grid lines
 plt.rcParams['axes.grid'] = True 
 plt.rcParams['axes.grid.axis'] = 'y'
 # update colors for density lines
-plt.rcParams['axes.prop_cycle'] = cycler('color', ['dimgray', 'slategrey', 'darkgray'])
+plt.rcParams['axes.prop_cycle'] = cycler('color', 
+                                    ['dimgray', 'slategrey', 'darkgray'])
+```
 
+```{note} 
+
+These settings are `global`. 
+
+Any plot generated after changing parameters in `.rcParams` will be affected by the setting.
+
+```
+
+```{code-cell} python3
 fig, ax = plt.subplots()
 x = np.linspace(-4, 4, 150)
 for i in range(3):
@@ -397,10 +410,21 @@ for i in range(3):
     ax.plot(x, y, linewidth=2, alpha=0.6, label=current_label)
 ax.legend()
 plt.show()
+```
+
+Apply the `default` style sheet again to change your style back to default
+
+```{code-cell} python3
+
+plt.style.use('default')
+
+#set default figure size
+plt.rcParams["figure.figsize"] = (10, 6)
 
 ```
 
 Here are [more examples](https://www.datafantic.com/the-magic-of-matplotlib-stylesheets/) on how to change these parameters.
+
 
 ## Further Reading
 
