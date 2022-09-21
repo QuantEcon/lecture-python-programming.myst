@@ -474,6 +474,20 @@ def f(x):
     return None
 ```
 
+Here's what happens
+
+```{code-cell} python3
+f(2)
+```
+
+```{code-cell} python3
+f(0)
+```
+
+```{code-cell} python3
+f('foo')
+```
+
 In general it's better to be specific.
 
 
