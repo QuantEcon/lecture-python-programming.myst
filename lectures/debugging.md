@@ -41,11 +41,11 @@ Hey, we all used to do that.
 
 (OK, sometimes we still do that...)
 
-But once you start writing larger programs you'll need a better system to spot bugs and errors.
+But once you start writing larger programs you'll need a better system.
 
-You may even want to handle possible errors in your code before they are raised.
+You may also want to handle potential errors in your code as they occur.
 
-In this lecture, we will discuss how to debug our programs and handle potential errors.
+In this lecture, we will discuss how to debug our programs and improve error handling.
 
 ## Debugging
 
@@ -287,9 +287,8 @@ But sometimes it's worth writing your code in a way that anticipates and deals w
 
 Why?
 
-* Because the debugging information provided by the interpreter is often less useful than the information
-  on possible errors you have in your head when writing code.
-* Because errors causing execution to stop are frustrating if you're in the middle of a large computation.
+* Because the debugging information provided by the interpreter is often less useful than what can be provided by a well written error message.
+* Because errors that cause execution to stop interrupt workflows.
 * Because it reduces confidence in your code on the part of your users (if you are writing for others).
 
 
@@ -446,7 +445,7 @@ def f(x):
     except ZeroDivisionError:
         print('Error: Division by zero.  Returned None')
     except TypeError:
-        print('Error: Unsupported operation.  Returned None')
+        print(f'Error: x cannot be of type {type(x)}.  Returned None')
     return None
 ```
 
@@ -470,33 +469,8 @@ If we feel lazy we can catch these errors together
 def f(x):
     try:
         return 1.0 / x
-    except (TypeError, ZeroDivisionError):
-        print('Error: Unsupported operation.  Returned None')
-    return None
-```
-
-Here's what happens
-
-```{code-cell} python3
-f(2)
-```
-
-```{code-cell} python3
-f(0)
-```
-
-```{code-cell} python3
-f('foo')
-```
-
-If we feel extra lazy we can catch all error types as follows
-
-```{code-cell} python3
-def f(x):
-    try:
-        return 1.0 / x
     except:
-        print('Error.  Returned None')
+        print(f'Error.  An issue has occurred with x = {x} of type: {type(x)}')
     return None
 ```
 

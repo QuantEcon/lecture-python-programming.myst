@@ -336,7 +336,7 @@ This dictionary is called a *namespace*.
 
 **Definition:** A namespace is a symbol table that maps names to objects in memory.
 
-Python uses multiple namespaces, creating them on the fly as necessary .
+Python uses multiple namespaces, creating them on the fly as necessary.
 
 For example, every time we import a module, Python creates a namespace for that module.
 
@@ -466,12 +466,12 @@ import mod  # Standard import
 
 In the second case, the code is executed as part of `__main__`, so `__name__` is equal to `__main__`.
 
-To see the contents of the namespace of `__main__` we use `vars()` rather than `vars(__main__)` .
+To see the contents of the namespace of `__main__` we use `vars()` rather than `vars(__main__)`.
 
 If you do this in IPython, you will see a whole lot of variables that IPython
 needs, and has initialized when you started up your session.
 
-If you prefer to see only the variables you have initialized, use `whos`
+If you prefer to see only the variables you have initialized, use `%whos`
 
 ```{code-cell} ipython
 x = 2
@@ -491,7 +491,7 @@ Python documentation often makes reference to the "global namespace".
 
 The global namespace is *the namespace of the module currently being executed*.
 
-For example, suppose that we start the interpreter and begin making assignments .
+For example, suppose that we start the interpreter and begin making assignments.
 
 We are now working in the module `__main__`, and hence the namespace for `__main__` is the global namespace.
 
@@ -590,7 +590,10 @@ Namespaces are great because they help us organize variable names.
 
 (Type `import this` at the prompt and look at the last item that's printed)
 
-However, we do need to understand how the Python interpreter works with multiple namespaces .
+However, we do need to understand how the Python interpreter works with multiple namespaces.
+
+Understanding the flow of execution will help us to check which variables are in scope and how to operate on them when writing and debugging programs.
+
 
 At any point of execution, there are in fact at least two namespaces that can be accessed directly.
 
@@ -853,7 +856,11 @@ We can find these names appear in the current namespace now.
 We have met the {any}`boolean data type <boolean>` previously. 
 Using what we have learnt in this lecture, print a list of methods of boolean objects.
 
-(hint: you can use `callable()` to test whether an attribute of an object can be called as a function)
+```{hint}
+:class: dropdown
+
+ You can use `callable()` to test whether an attribute of an object can be called as a function
+```
 
 ```{exercise-end}
 ```
