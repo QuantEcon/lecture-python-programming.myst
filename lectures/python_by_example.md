@@ -525,7 +525,7 @@ If you can, add a legend, to help distinguish between the three time series.
 :class: dropdown
 
 * If you call the `plot()` function multiple times before calling `show()`, all of the lines you produce will end up on the same figure.
-* For the legend, noted that if `var = 42`, the expression `f'foo{var}'` evaluates to `'foo42'`.
+* For the legend, noted that suppose `var = 42`, the expression `f'foo{var}'` evaluates to `'foo42'`.
 ```
 
 ```{exercise-end}
