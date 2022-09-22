@@ -873,19 +873,19 @@ Firstly, we need to find all attributes of a boolean object.
 
 You can use one of the following ways:
 
-you can call the `.__dir__()` method
+*1.* You can call the `.__dir__()` method
 
 ```{code-cell} python3
 print(sorted(True.__dir__()))
 ```
 
-you can use the built-in function `dir()`
+*2.* You can use the built-in function `dir()`
 
 ```{code-cell} python3
 print(sorted(dir(True)))
 ```
 
-or, since the boolean data type is a primitive type, you can also find it in the built-in namespace
+*3.* Since the boolean data type is a primitive type, you can also find it in the built-in namespace
 
 ```{code-cell} python3
 print(dir(__builtins__.bool))
@@ -898,13 +898,13 @@ attrls = dir(__builtins__.bool)
 callablels = list()
 
 for i in attrls:
-  # we use eval() to transform a string into a statement
+  # Use eval() to evaluate a string as an expression
   if callable(eval(f'True.{i}')):
     callablels.append(i)
 print(callablels)
 ```
 
-here is a one-line solution
+Here is a one-line solution
 
 ```{code-cell} python3
 print([i for i in attrls if callable(eval(f'True.{i}'))])
