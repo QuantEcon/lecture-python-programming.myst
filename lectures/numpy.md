@@ -500,7 +500,7 @@ For example, suppose `a` is a $3 \times 3$ array (`a -> (3, 3)`), while `b` is a
 
 When adding them together, NumPy will automatically expand `b -> (3,)` to `b -> (3, 3)`.
 
-the element-wise addition will result in a $3 \times 3$ array
+The element-wise addition will result in a $3 \times 3$ array
 
 ```{code-cell} python3
 
@@ -852,13 +852,13 @@ Things get even trickier when we move to higher dimensions.
 To help us, we can use the following list of rules:
 
 * *Step 1:* When the dimensions of two arrays do not match, NumPy will expand the one with fewer dimensions by adding dimension(s) on the left of the existing dimensions.
-    - For example, when `a -> (3, 3)` and `b -> (3,)`, broadcasting will add a dimension to the left so that `b -> (1, 3)`;
-    - When `a -> (2, 2, 2)` and `b -> (2, 2)`, then broadcasting will add a dimension to the left so that `b -> (1, 2, 2)`;
-    - When `a -> (3, 2, 2)` and `b -> (2,)`, then broadcasting will add two dimensions to the left so that `b -> (1, 1, 2)` (you can also see this process as going through *Step 1* twice).
+    - For example, suppose `a -> (3, 3)` and `b -> (3,)`, broadcasting will add a dimension to the left so that `b -> (1, 3)`;
+    - Suppose `a -> (2, 2, 2)` and `b -> (2, 2)`, broadcasting will add a dimension to the left so that `b -> (1, 2, 2)`;
+    - Suppose `a -> (3, 2, 2)` and `b -> (2,)`, broadcasting will add two dimensions to the left so that `b -> (1, 1, 2)` (you can also see this process as going through *Step 1* twice).
 
 
 * *Step 2:* When the two arrays have the same dimension but different shapes, NumPy will try to expand dimensions where shapes equal to 1.
-    - For example, when `a -> (1, 3)` and `b -> (3, 1)`, broadcasting will expand both `a` and `b` so that `a -> (3, 3)` and `b -> (3, 3)`;
+    - For example, suppose `a -> (1, 3)` and `b -> (3, 1)`, broadcasting will expand dimensions with shape 1 in both `a` and `b` so that `a -> (3, 3)` and `b -> (3, 3)`;
     - When `a -> (2, 2, 2)` and  `b -> (1, 2, 2)`, broadcasting will expand the first dimension of `b` so that `b -> (2, 2, 2)`;
     - When `a -> (3, 2, 2)` and `b -> (1, 1, 2)`, broadcasting will expand `b` on all dimensions with shape 1 so that `b -> (3, 2, 2)`.
 
