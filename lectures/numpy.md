@@ -388,12 +388,11 @@ np.sum(a)
 np.mean(a)
 ```
 
-## Operations on Arrays
 
-```{index} single: NumPy; Arrays (Operations)
+## Arithmetic Operations
+
+```{index} single: NumPy; Arithmetic Operations
 ```
-
-### Arithmetic Operations
 
 The operators `+`, `-`, `*`, `/` and `**` all act *elementwise* on arrays
 
@@ -438,10 +437,58 @@ A * B
 (numpy_matrix_multiplication)=
 In particular, `A * B` is *not* the matrix product, it is an element-wise product.
 
+
+## Matrix Multiplication
+
+```{index} single: NumPy; Matrix Multiplication
+```
+
+```{index} single: NumPy; Matrix Multiplication
+```
+
+With Anaconda's scientific Python package based around Python 3.5 and above,
+one can use the `@` symbol for matrix multiplication, as follows:
+
+```{code-cell} python3
+A = np.ones((2, 2))
+B = np.ones((2, 2))
+A @ B
+```
+
+(For older versions of Python and NumPy you need to use the [np.dot](http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html) function)
+
+We can also use `@` to take the inner product of two flat arrays
+
+```{code-cell} python3
+A = np.array((1, 2))
+B = np.array((10, 20))
+A @ B
+```
+
+In fact, we can use `@` when one element is a Python list or tuple
+
+```{code-cell} python3
+A = np.array(((1, 2), (3, 4)))
+A
+```
+
+```{code-cell} python3
+A @ (0, 1)
+```
+
+Since we are post-multiplying, the tuple is treated as a column vector.
+
 (broadcasting)=
-### Broadcasting
+## Broadcasting
+
+```{index} single: NumPy; Broadcasting
+```
 
 (This section is built upon an excellent discussion of broadcasting provided by [Jake VanderPlas](https://jakevdp.github.io/PythonDataScienceHandbook/02.05-computation-on-arrays-broadcasting.html).)
+
+```{note}
+Some aspects of broadcasting are hard to visualize and considered relatively advanced. As such this section can be skimmed at first pass.
+```
 
 In element-wise operations, arrays may not have the same shape.
  
@@ -880,43 +927,6 @@ print(f'the shape of array b is {b.shape}')
 
 a + b
 ```
-
-### Matrix Multiplication
-
-```{index} single: NumPy; Matrix Multiplication
-```
-
-With Anaconda's scientific Python package based around Python 3.5 and above,
-one can use the `@` symbol for matrix multiplication, as follows:
-
-```{code-cell} python3
-A = np.ones((2, 2))
-B = np.ones((2, 2))
-A @ B
-```
-
-(For older versions of Python and NumPy you need to use the [np.dot](http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html) function)
-
-We can also use `@` to take the inner product of two flat arrays
-
-```{code-cell} python3
-A = np.array((1, 2))
-B = np.array((10, 20))
-A @ B
-```
-
-In fact, we can use `@` when one element is a Python list or tuple
-
-```{code-cell} python3
-A = np.array(((1, 2), (3, 4)))
-A
-```
-
-```{code-cell} python3
-A @ (0, 1)
-```
-
-Since we are post-multiplying, the tuple is treated as a column vector.
 
 ### Mutability and Copying Arrays
 
