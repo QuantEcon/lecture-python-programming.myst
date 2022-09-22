@@ -746,7 +746,7 @@ Here's what happens
 * `x` bound to `[1]` in the global namespace
 * The call `f(x)`
     * Creates a local namespace
-    * Adds `x` to local namespace, bound to `[1]`
+    * Adds `x` to the local namespace, bound to `[1]`
     * The list `[1]` is modified to `[2]`
     * Returns the list `[2]`
     * The local namespace is deallocated, and local `x` is lost
