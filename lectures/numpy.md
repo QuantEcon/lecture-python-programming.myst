@@ -714,7 +714,7 @@ for i in range(row):
 result
 ```
 
-Broadcasting is more efficient than the `for` loop because we avoid the overhead of arithmentic operations in high-level Python code.
+Broadcasting is more efficient than the `for` loop because we avoid the overhead of arithmetic operations in high-level Python code.
 
 In some cases, both operands will be expanded.
 
@@ -857,7 +857,7 @@ To help us, we can use the following list of rules:
     - Suppose `a -> (3, 2, 2)` and `b -> (2,)`, broadcasting will add two dimensions to the left so that `b -> (1, 1, 2)` (you can also see this process as going through *Step 1* twice).
 
 
-* *Step 2:* When the two arrays have the same dimension but different shapes, NumPy will try to expand dimensions where shapes equal to 1.
+* *Step 2:* When the two arrays have the same dimension but different shapes, NumPy will try to expand dimensions where the shape index is 1.
     - For example, suppose `a -> (1, 3)` and `b -> (3, 1)`, broadcasting will expand dimensions with shape 1 in both `a` and `b` so that `a -> (3, 3)` and `b -> (3, 3)`;
     - When `a -> (2, 2, 2)` and  `b -> (1, 2, 2)`, broadcasting will expand the first dimension of `b` so that `b -> (2, 2, 2)`;
     - When `a -> (3, 2, 2)` and `b -> (1, 1, 2)`, broadcasting will expand `b` on all dimensions with shape 1 so that `b -> (3, 2, 2)`.
