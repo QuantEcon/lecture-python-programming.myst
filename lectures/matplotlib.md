@@ -381,7 +381,7 @@ from cycler import cycler
 plt.style.use('default')
 
 #set default figure size
-plt.rcParams["figure.figsize"] = (10, 6)
+plt.rcParams['figure.figsize'] = (10, 6)
 # update linewidth
 plt.rcParams['lines.linewidth'] = 2
 # add horizontal grid lines
@@ -419,7 +419,7 @@ Apply the `default` style sheet again to change your style back to default
 plt.style.use('default')
 
 #set default figure size
-plt.rcParams["figure.figsize"] = (10, 6)
+plt.rcParams['figure.figsize'] = (10, 6)
 
 ```
 
