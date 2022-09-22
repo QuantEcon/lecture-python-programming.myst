@@ -372,7 +372,7 @@ Set parameters for your style sheet by:
 1. creating your own [`matplotlibrc` file](https://matplotlib.org/stable/tutorials/introductory/customizing.html#defining-your-own-style), or
 2. updating values stored in the dictionary-like variable `plt.rcParams`
 
-Let's change the style of our overlaid density lines
+Let's change the style of our overlaid density lines using the second method
 
 ```{code-cell} python3
 from cycler import cycler
@@ -380,16 +380,34 @@ from cycler import cycler
 # set to the default style sheet
 plt.style.use('default')
 
-#set default figure size
-plt.rcParams['figure.figsize'] = (10, 6)
-# update linewidth
+# You can update single values using keys:
+
+# Set the font style to italic
+plt.rcParams['font.style'] = 'italic'
+
+# Update linewidth
 plt.rcParams['lines.linewidth'] = 2
-# add horizontal grid lines
-plt.rcParams['axes.grid'] = True 
-plt.rcParams['axes.grid.axis'] = 'y'
-# update colors for density lines
-plt.rcParams['axes.prop_cycle'] = cycler('color', 
-                                    ['dimgray', 'slategrey', 'darkgray'])
+
+
+# You can also update many values at once using the update() method:
+
+parameters = {
+
+    # Change default figure size
+    'figure.figsize': (5, 4),
+
+    # Add horizontal grid lines
+    'axes.grid': True,
+    'axes.grid.axis': 'y',
+
+    # Update colors for density lines
+    'axes.prop_cycle': cycler('color', 
+                            ['dimgray', 'slategrey', 'darkgray'])
+}
+
+plt.rcParams.update(parameters)
+
+
 ```
 
 ```{note} 
@@ -418,7 +436,7 @@ Apply the `default` style sheet again to change your style back to default
 
 plt.style.use('default')
 
-#set default figure size
+# Reset default figure size
 plt.rcParams['figure.figsize'] = (10, 6)
 
 ```
