@@ -410,6 +410,7 @@ vars(math).items()
 If you just want to see the names, you can type
 
 ```{code-cell} python3
+# Show the first 10 names
 dir(math)[0:10]
 ```
 
@@ -556,10 +557,12 @@ How does access to these names work?
 * They have their own namespace called `__builtins__`.
 
 ```{code-cell} python3
+# Show the first 10 names in `__main__`
 dir()[0:10]
 ```
 
 ```{code-cell} python3
+# Show the first 10 names in `__builtins__`
 dir(__builtins__)[0:10]
 ```
 

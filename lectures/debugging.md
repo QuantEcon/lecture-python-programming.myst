@@ -54,7 +54,9 @@ In this lecture, we will discuss how to debug our programs and improve error han
 
 Debugging tools for Python vary across platforms, IDEs and editors.
 
-Here we'll focus on Jupyter and leave you to explore other settings.
+For example, a [visual debugger](https://jupyterlab.readthedocs.io/en/stable/user/debugger.html) is available in JupyterLab.
+
+Here we'll focus on Jupyter Notebook and leave you to explore other settings.
 
 We'll need the following imports
 
