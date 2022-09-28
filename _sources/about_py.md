@@ -53,7 +53,7 @@ Our only objective for this lecture is to give you some feel of what Python is, 
 
 Python is free and open source, with development coordinated through the [Python Software Foundation](https://www.python.org/psf/).
 
-Python has experienced rapid adoption in the last decade and is now one of the most popular programming languages.
+Python has experienced rapid adoption in the last decade and is now one of the [most popular programming languages](https://pythoncircle.com/post/763/the-rising-popularity-of-python/).
 
 ### Common Uses
 
@@ -474,7 +474,7 @@ Apart from the cloud computing options listed above, you might like to consider
 ```{index} single: parallel computing; Dask
 ```
 
-* [Dask](https://www.dask.org/) parallelises PyData and Machine Learning in Python.
+* [Dask](https://docs.dask.org/en/stable/) parallelises PyData and Machine Learning in Python.
 
 ```{index} single: parallel computing; pycuda
 ```

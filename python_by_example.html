@@ -865,11 +865,13 @@ x_0 = 0
 one for each of the cases <span class="math notranslate nohighlight">\(\alpha=0\)</span>, <span class="math notranslate nohighlight">\(\alpha=0.8\)</span> and <span class="math notranslate nohighlight">\(\alpha=0.98\)</span>.</p>
 <p>Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to step through the <span class="math notranslate nohighlight">\(\alpha\)</span> values.</p>
 <p>If you can, add a legend, to help distinguish between the three time series.</p>
-<p>Hints:</p>
+<div class="dropdown admonition hint">
+<p class="admonition-title">Hint</p>
 <ul class="simple">
 <li><p>If you call the <code class="docutils literal notranslate"><span class="pre">plot()</span></code> function multiple times before calling <code class="docutils literal notranslate"><span class="pre">show()</span></code>, all of the lines you produce will end up on the same figure.</p></li>
-<li><p>For the legend, noted that the expression <code class="docutils literal notranslate"><span class="pre">'foo'</span> <span class="pre">+</span> <span class="pre">str(42)</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">'foo42'</span></code>.</p></li>
+<li><p>For the legend, noted that suppose <code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">=</span> <span class="pre">42</span></code>, the expression <code class="docutils literal notranslate"><span class="pre">f'foo{var}'</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">'foo42'</span></code>.</p></li>
 </ul>
+</div>
 </div>
 </div>
 <div class="solution dropdown admonition" id="python_by_example-solution-3">
@@ -897,8 +899,11 @@ one for each of the cases <span class="math notranslate nohighlight">\(\alpha=0\
 <img alt="_images/python_by_example_44_0.png" src="_images/python_by_example_44_0.png" />
 </div>
 </div>
-<p>Note: <code class="docutils literal notranslate"><span class="pre">f'$\\alpha</span> <span class="pre">=</span> <span class="pre">{α}$'</span></code> in the solution is an application of <a class="reference external" href="https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings">f-String</a>, which allows you to use <code class="docutils literal notranslate"><span class="pre">{}</span></code> to contain an expression.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">f'$\\alpha</span> <span class="pre">=</span> <span class="pre">{α}$'</span></code> in the solution is an application of <a class="reference external" href="https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings">f-String</a>, which allows you to use <code class="docutils literal notranslate"><span class="pre">{}</span></code> to contain an expression.</p>
 <p>The contained expression will be evaluated, and the result will be placed into the string.</p>
+</div>
 </div>
 </div>
 <div class="exercise admonition" id="pbe_ex3">
@@ -1048,12 +1053,15 @@ to compute the absolute value.</p>
 </div>
 </div>
 </div>
+<div class="dropdown admonition hint">
+<p class="admonition-title">Hint</p>
 <p>Your hints are as follows:</p>
 <ul class="simple">
 <li><p>If <span class="math notranslate nohighlight">\(U\)</span> is a bivariate uniform random variable on the unit square <span class="math notranslate nohighlight">\((0, 1)^2\)</span>, then the probability that <span class="math notranslate nohighlight">\(U\)</span> lies in a subset <span class="math notranslate nohighlight">\(B\)</span> of <span class="math notranslate nohighlight">\((0,1)^2\)</span> is equal to the area of <span class="math notranslate nohighlight">\(B\)</span>.</p></li>
 <li><p>If <span class="math notranslate nohighlight">\(U_1,\ldots,U_n\)</span> are IID copies of <span class="math notranslate nohighlight">\(U\)</span>, then, as <span class="math notranslate nohighlight">\(n\)</span> gets large, the fraction that falls in <span class="math notranslate nohighlight">\(B\)</span>, converges to the probability of landing in <span class="math notranslate nohighlight">\(B\)</span>.</p></li>
 <li><p>For a circle, <span class="math notranslate nohighlight">\(area = \pi * radius^2\)</span>.</p></li>
 </ul>
+</div>
 </div>
 </div>
 <div class="solution dropdown admonition" id="python_by_example-solution-9">
@@ -1096,7 +1104,7 @@ fraction that falls into the circle.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.140776
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.140296
 </pre></div>
 </div>
 </div>
@@ -1188,7 +1196,7 @@ fraction that falls into the circle.</p>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="oop_intro.html">
-   6. OOP I: Introduction to Object Oriented Programming
+   6. OOP I: Objects and Names
   </a>
  </li>
  <li class="toctree-l1">
@@ -1257,7 +1265,7 @@ fraction that falls into the circle.</p>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   17. Debugging
+   17. Debugging and Handling Errors
   </a>
  </li>
 </ul>

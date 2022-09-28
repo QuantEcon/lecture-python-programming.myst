@@ -660,7 +660,442 @@ over time as you have need for them.</p>
 </div>
 </div>
 <p>You can use the function to experiment with other styles in the list.</p>
-<p>If you are interested, you can even create <a class="reference external" href="https://matplotlib.org/stable/tutorials/introductory/customizing.html#defining-your-own-style">your own style sheets</a>.</p>
+<p>If you are interested, you can even create your own style sheets.</p>
+<p>Parameters for your style sheets are stored in a dictionary-like variable <code class="docutils literal notranslate"><span class="pre">plt.rcParams</span></code></p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KeysView(RcParams({&#39;_internal.classic_mode&#39;: False,
+          &#39;agg.path.chunksize&#39;: 0,
+          &#39;animation.bitrate&#39;: -1,
+          &#39;animation.codec&#39;: &#39;h264&#39;,
+          &#39;animation.convert_args&#39;: [],
+          &#39;animation.convert_path&#39;: &#39;convert&#39;,
+          &#39;animation.embed_limit&#39;: 20.0,
+          &#39;animation.ffmpeg_args&#39;: [],
+          &#39;animation.ffmpeg_path&#39;: &#39;ffmpeg&#39;,
+          &#39;animation.frame_format&#39;: &#39;png&#39;,
+          &#39;animation.html&#39;: &#39;none&#39;,
+          &#39;animation.writer&#39;: &#39;ffmpeg&#39;,
+          &#39;axes.autolimit_mode&#39;: &#39;data&#39;,
+          &#39;axes.axisbelow&#39;: True,
+          &#39;axes.edgecolor&#39;: &#39;white&#39;,
+          &#39;axes.facecolor&#39;: &#39;black&#39;,
+          &#39;axes.formatter.limits&#39;: [-5, 6],
+          &#39;axes.formatter.min_exponent&#39;: 0,
+          &#39;axes.formatter.offset_threshold&#39;: 4,
+          &#39;axes.formatter.use_locale&#39;: False,
+          &#39;axes.formatter.use_mathtext&#39;: False,
+          &#39;axes.formatter.useoffset&#39;: True,
+          &#39;axes.grid&#39;: True,
+          &#39;axes.grid.axis&#39;: &#39;both&#39;,
+          &#39;axes.grid.which&#39;: &#39;major&#39;,
+          &#39;axes.labelcolor&#39;: &#39;white&#39;,
+          &#39;axes.labelpad&#39;: 4.0,
+          &#39;axes.labelsize&#39;: &#39;large&#39;,
+          &#39;axes.labelweight&#39;: &#39;normal&#39;,
+          &#39;axes.linewidth&#39;: 1.0,
+          &#39;axes.prop_cycle&#39;: cycler(&#39;color&#39;, [&#39;#8dd3c7&#39;, &#39;#feffb3&#39;, &#39;#bfbbd9&#39;, &#39;#fa8174&#39;, &#39;#81b1d2&#39;, &#39;#fdb462&#39;, &#39;#b3de69&#39;, &#39;#bc82bd&#39;, &#39;#ccebc4&#39;, &#39;#ffed6f&#39;]),
+          &#39;axes.spines.bottom&#39;: True,
+          &#39;axes.spines.left&#39;: True,
+          &#39;axes.spines.right&#39;: True,
+          &#39;axes.spines.top&#39;: True,
+          &#39;axes.titlecolor&#39;: &#39;auto&#39;,
+          &#39;axes.titlelocation&#39;: &#39;center&#39;,
+          &#39;axes.titlepad&#39;: 6.0,
+          &#39;axes.titlesize&#39;: &#39;x-large&#39;,
+          &#39;axes.titleweight&#39;: &#39;normal&#39;,
+          &#39;axes.titley&#39;: None,
+          &#39;axes.unicode_minus&#39;: True,
+          &#39;axes.xmargin&#39;: 0.05,
+          &#39;axes.ymargin&#39;: 0.05,
+          &#39;axes.zmargin&#39;: 0.05,
+          &#39;axes3d.grid&#39;: True,
+          &#39;backend&#39;: &#39;module://matplotlib_inline.backend_inline&#39;,
+          &#39;backend_fallback&#39;: True,
+          &#39;boxplot.bootstrap&#39;: None,
+          &#39;boxplot.boxprops.color&#39;: &#39;white&#39;,
+          &#39;boxplot.boxprops.linestyle&#39;: &#39;-&#39;,
+          &#39;boxplot.boxprops.linewidth&#39;: 1.0,
+          &#39;boxplot.capprops.color&#39;: &#39;white&#39;,
+          &#39;boxplot.capprops.linestyle&#39;: &#39;-&#39;,
+          &#39;boxplot.capprops.linewidth&#39;: 1.0,
+          &#39;boxplot.flierprops.color&#39;: &#39;white&#39;,
+          &#39;boxplot.flierprops.linestyle&#39;: &#39;none&#39;,
+          &#39;boxplot.flierprops.linewidth&#39;: 1.0,
+          &#39;boxplot.flierprops.marker&#39;: &#39;o&#39;,
+          &#39;boxplot.flierprops.markeredgecolor&#39;: &#39;white&#39;,
+          &#39;boxplot.flierprops.markeredgewidth&#39;: 1.0,
+          &#39;boxplot.flierprops.markerfacecolor&#39;: &#39;none&#39;,
+          &#39;boxplot.flierprops.markersize&#39;: 6.0,
+          &#39;boxplot.meanline&#39;: False,
+          &#39;boxplot.meanprops.color&#39;: &#39;C2&#39;,
+          &#39;boxplot.meanprops.linestyle&#39;: &#39;--&#39;,
+          &#39;boxplot.meanprops.linewidth&#39;: 1.0,
+          &#39;boxplot.meanprops.marker&#39;: &#39;^&#39;,
+          &#39;boxplot.meanprops.markeredgecolor&#39;: &#39;C2&#39;,
+          &#39;boxplot.meanprops.markerfacecolor&#39;: &#39;C2&#39;,
+          &#39;boxplot.meanprops.markersize&#39;: 6.0,
+          &#39;boxplot.medianprops.color&#39;: &#39;C1&#39;,
+          &#39;boxplot.medianprops.linestyle&#39;: &#39;-&#39;,
+          &#39;boxplot.medianprops.linewidth&#39;: 1.0,
+          &#39;boxplot.notch&#39;: False,
+          &#39;boxplot.patchartist&#39;: False,
+          &#39;boxplot.showbox&#39;: True,
+          &#39;boxplot.showcaps&#39;: True,
+          &#39;boxplot.showfliers&#39;: True,
+          &#39;boxplot.showmeans&#39;: False,
+          &#39;boxplot.vertical&#39;: True,
+          &#39;boxplot.whiskerprops.color&#39;: &#39;white&#39;,
+          &#39;boxplot.whiskerprops.linestyle&#39;: &#39;-&#39;,
+          &#39;boxplot.whiskerprops.linewidth&#39;: 1.0,
+          &#39;boxplot.whiskers&#39;: 1.5,
+          &#39;contour.corner_mask&#39;: True,
+          &#39;contour.linewidth&#39;: None,
+          &#39;contour.negative_linestyle&#39;: &#39;dashed&#39;,
+          &#39;date.autoformatter.day&#39;: &#39;%Y-%m-%d&#39;,
+          &#39;date.autoformatter.hour&#39;: &#39;%m-%d %H&#39;,
+          &#39;date.autoformatter.microsecond&#39;: &#39;%M:%S.%f&#39;,
+          &#39;date.autoformatter.minute&#39;: &#39;%d %H:%M&#39;,
+          &#39;date.autoformatter.month&#39;: &#39;%Y-%m&#39;,
+          &#39;date.autoformatter.second&#39;: &#39;%H:%M:%S&#39;,
+          &#39;date.autoformatter.year&#39;: &#39;%Y&#39;,
+          &#39;date.converter&#39;: &#39;auto&#39;,
+          &#39;date.epoch&#39;: &#39;1970-01-01T00:00:00&#39;,
+          &#39;date.interval_multiples&#39;: True,
+          &#39;docstring.hardcopy&#39;: False,
+          &#39;errorbar.capsize&#39;: 0.0,
+          &#39;figure.autolayout&#39;: False,
+          &#39;figure.constrained_layout.h_pad&#39;: 0.04167,
+          &#39;figure.constrained_layout.hspace&#39;: 0.02,
+          &#39;figure.constrained_layout.use&#39;: False,
+          &#39;figure.constrained_layout.w_pad&#39;: 0.04167,
+          &#39;figure.constrained_layout.wspace&#39;: 0.02,
+          &#39;figure.dpi&#39;: 72.0,
+          &#39;figure.edgecolor&#39;: &#39;black&#39;,
+          &#39;figure.facecolor&#39;: &#39;black&#39;,
+          &#39;figure.figsize&#39;: [8.0, 5.5],
+          &#39;figure.frameon&#39;: True,
+          &#39;figure.max_open_warning&#39;: 20,
+          &#39;figure.raise_window&#39;: True,
+          &#39;figure.subplot.bottom&#39;: 0.125,
+          &#39;figure.subplot.hspace&#39;: 0.2,
+          &#39;figure.subplot.left&#39;: 0.125,
+          &#39;figure.subplot.right&#39;: 0.9,
+          &#39;figure.subplot.top&#39;: 0.88,
+          &#39;figure.subplot.wspace&#39;: 0.2,
+          &#39;figure.titlesize&#39;: &#39;large&#39;,
+          &#39;figure.titleweight&#39;: &#39;normal&#39;,
+          &#39;font.cursive&#39;: [&#39;Apple Chancery&#39;,
+                           &#39;Textile&#39;,
+                           &#39;Zapf Chancery&#39;,
+                           &#39;Sand&#39;,
+                           &#39;Script MT&#39;,
+                           &#39;Felipa&#39;,
+                           &#39;Comic Neue&#39;,
+                           &#39;Comic Sans MS&#39;,
+                           &#39;cursive&#39;],
+          &#39;font.family&#39;: [&#39;sans-serif&#39;],
+          &#39;font.fantasy&#39;: [&#39;Chicago&#39;,
+                           &#39;Charcoal&#39;,
+                           &#39;Impact&#39;,
+                           &#39;Western&#39;,
+                           &#39;Humor Sans&#39;,
+                           &#39;xkcd&#39;,
+                           &#39;fantasy&#39;],
+          &#39;font.monospace&#39;: [&#39;DejaVu Sans Mono&#39;,
+                             &#39;Bitstream Vera Sans Mono&#39;,
+                             &#39;Computer Modern Typewriter&#39;,
+                             &#39;Andale Mono&#39;,
+                             &#39;Nimbus Mono L&#39;,
+                             &#39;Courier New&#39;,
+                             &#39;Courier&#39;,
+                             &#39;Fixed&#39;,
+                             &#39;Terminal&#39;,
+                             &#39;monospace&#39;],
+          &#39;font.sans-serif&#39;: [&#39;Arial&#39;,
+                              &#39;Liberation Sans&#39;,
+                              &#39;DejaVu Sans&#39;,
+                              &#39;Bitstream Vera Sans&#39;,
+                              &#39;sans-serif&#39;],
+          &#39;font.serif&#39;: [&#39;DejaVu Serif&#39;,
+                         &#39;Bitstream Vera Serif&#39;,
+                         &#39;Computer Modern Roman&#39;,
+                         &#39;New Century Schoolbook&#39;,
+                         &#39;Century Schoolbook L&#39;,
+                         &#39;Utopia&#39;,
+                         &#39;ITC Bookman&#39;,
+                         &#39;Bookman&#39;,
+                         &#39;Nimbus Roman No9 L&#39;,
+                         &#39;Times New Roman&#39;,
+                         &#39;Times&#39;,
+                         &#39;Palatino&#39;,
+                         &#39;Charter&#39;,
+                         &#39;serif&#39;],
+          &#39;font.size&#39;: 10.0,
+          &#39;font.stretch&#39;: &#39;normal&#39;,
+          &#39;font.style&#39;: &#39;normal&#39;,
+          &#39;font.variant&#39;: &#39;normal&#39;,
+          &#39;font.weight&#39;: &#39;normal&#39;,
+          &#39;grid.alpha&#39;: 1.0,
+          &#39;grid.color&#39;: &#39;white&#39;,
+          &#39;grid.linestyle&#39;: &#39;-&#39;,
+          &#39;grid.linewidth&#39;: 1.0,
+          &#39;hatch.color&#39;: &#39;black&#39;,
+          &#39;hatch.linewidth&#39;: 1.0,
+          &#39;hist.bins&#39;: 10,
+          &#39;image.aspect&#39;: &#39;equal&#39;,
+          &#39;image.cmap&#39;: &#39;gray&#39;,
+          &#39;image.composite_image&#39;: True,
+          &#39;image.interpolation&#39;: &#39;antialiased&#39;,
+          &#39;image.lut&#39;: 256,
+          &#39;image.origin&#39;: &#39;upper&#39;,
+          &#39;image.resample&#39;: True,
+          &#39;interactive&#39;: True,
+          &#39;keymap.back&#39;: [&#39;left&#39;, &#39;c&#39;, &#39;backspace&#39;, &#39;MouseButton.BACK&#39;],
+          &#39;keymap.copy&#39;: [&#39;ctrl+c&#39;, &#39;cmd+c&#39;],
+          &#39;keymap.forward&#39;: [&#39;right&#39;, &#39;v&#39;, &#39;MouseButton.FORWARD&#39;],
+          &#39;keymap.fullscreen&#39;: [&#39;f&#39;, &#39;ctrl+f&#39;],
+          &#39;keymap.grid&#39;: [&#39;g&#39;],
+          &#39;keymap.grid_minor&#39;: [&#39;G&#39;],
+          &#39;keymap.help&#39;: [&#39;f1&#39;],
+          &#39;keymap.home&#39;: [&#39;h&#39;, &#39;r&#39;, &#39;home&#39;],
+          &#39;keymap.pan&#39;: [&#39;p&#39;],
+          &#39;keymap.quit&#39;: [&#39;ctrl+w&#39;, &#39;cmd+w&#39;, &#39;q&#39;],
+          &#39;keymap.quit_all&#39;: [],
+          &#39;keymap.save&#39;: [&#39;s&#39;, &#39;ctrl+s&#39;],
+          &#39;keymap.xscale&#39;: [&#39;k&#39;, &#39;L&#39;],
+          &#39;keymap.yscale&#39;: [&#39;l&#39;],
+          &#39;keymap.zoom&#39;: [&#39;o&#39;],
+          &#39;legend.borderaxespad&#39;: 0.5,
+          &#39;legend.borderpad&#39;: 0.4,
+          &#39;legend.columnspacing&#39;: 2.0,
+          &#39;legend.edgecolor&#39;: &#39;0.8&#39;,
+          &#39;legend.facecolor&#39;: &#39;inherit&#39;,
+          &#39;legend.fancybox&#39;: True,
+          &#39;legend.fontsize&#39;: 10.0,
+          &#39;legend.framealpha&#39;: 0.8,
+          &#39;legend.frameon&#39;: False,
+          &#39;legend.handleheight&#39;: 0.7,
+          &#39;legend.handlelength&#39;: 2.0,
+          &#39;legend.handletextpad&#39;: 0.8,
+          &#39;legend.labelcolor&#39;: &#39;None&#39;,
+          &#39;legend.labelspacing&#39;: 0.5,
+          &#39;legend.loc&#39;: &#39;best&#39;,
+          &#39;legend.markerscale&#39;: 1.0,
+          &#39;legend.numpoints&#39;: 1,
+          &#39;legend.scatterpoints&#39;: 1,
+          &#39;legend.shadow&#39;: False,
+          &#39;legend.title_fontsize&#39;: None,
+          &#39;lines.antialiased&#39;: True,
+          &#39;lines.color&#39;: &#39;white&#39;,
+          &#39;lines.dash_capstyle&#39;: &lt;CapStyle.butt: &#39;butt&#39;&gt;,
+          &#39;lines.dash_joinstyle&#39;: &lt;JoinStyle.round: &#39;round&#39;&gt;,
+          &#39;lines.dashdot_pattern&#39;: [6.4, 1.6, 1.0, 1.6],
+          &#39;lines.dashed_pattern&#39;: [3.7, 1.6],
+          &#39;lines.dotted_pattern&#39;: [1.0, 1.65],
+          &#39;lines.linestyle&#39;: &#39;-&#39;,
+          &#39;lines.linewidth&#39;: 1.75,
+          &#39;lines.marker&#39;: &#39;None&#39;,
+          &#39;lines.markeredgecolor&#39;: &#39;auto&#39;,
+          &#39;lines.markeredgewidth&#39;: 0.0,
+          &#39;lines.markerfacecolor&#39;: &#39;auto&#39;,
+          &#39;lines.markersize&#39;: 7.0,
+          &#39;lines.scale_dashes&#39;: True,
+          &#39;lines.solid_capstyle&#39;: &lt;CapStyle.round: &#39;round&#39;&gt;,
+          &#39;lines.solid_joinstyle&#39;: &lt;JoinStyle.round: &#39;round&#39;&gt;,
+          &#39;markers.fillstyle&#39;: &#39;full&#39;,
+          &#39;mathtext.bf&#39;: &#39;sans:bold&#39;,
+          &#39;mathtext.cal&#39;: &#39;cursive&#39;,
+          &#39;mathtext.default&#39;: &#39;it&#39;,
+          &#39;mathtext.fallback&#39;: &#39;cm&#39;,
+          &#39;mathtext.fontset&#39;: &#39;dejavusans&#39;,
+          &#39;mathtext.it&#39;: &#39;sans:italic&#39;,
+          &#39;mathtext.rm&#39;: &#39;sans&#39;,
+          &#39;mathtext.sf&#39;: &#39;sans&#39;,
+          &#39;mathtext.tt&#39;: &#39;monospace&#39;,
+          &#39;patch.antialiased&#39;: True,
+          &#39;patch.edgecolor&#39;: &#39;white&#39;,
+          &#39;patch.facecolor&#39;: &#39;#348ABD&#39;,
+          &#39;patch.force_edgecolor&#39;: False,
+          &#39;patch.linewidth&#39;: 0.5,
+          &#39;path.effects&#39;: [],
+          &#39;path.simplify&#39;: True,
+          &#39;path.simplify_threshold&#39;: 0.111111111111,
+          &#39;path.sketch&#39;: None,
+          &#39;path.snap&#39;: True,
+          &#39;pcolor.shading&#39;: &#39;auto&#39;,
+          &#39;pcolormesh.snap&#39;: True,
+          &#39;pdf.compression&#39;: 6,
+          &#39;pdf.fonttype&#39;: 3,
+          &#39;pdf.inheritcolor&#39;: False,
+          &#39;pdf.use14corefonts&#39;: False,
+          &#39;pgf.preamble&#39;: &#39;&#39;,
+          &#39;pgf.rcfonts&#39;: True,
+          &#39;pgf.texsystem&#39;: &#39;xelatex&#39;,
+          &#39;polaraxes.grid&#39;: True,
+          &#39;ps.distiller.res&#39;: 6000,
+          &#39;ps.fonttype&#39;: 3,
+          &#39;ps.papersize&#39;: &#39;letter&#39;,
+          &#39;ps.useafm&#39;: False,
+          &#39;ps.usedistiller&#39;: None,
+          &#39;savefig.bbox&#39;: None,
+          &#39;savefig.directory&#39;: &#39;~&#39;,
+          &#39;savefig.dpi&#39;: &#39;figure&#39;,
+          &#39;savefig.edgecolor&#39;: &#39;black&#39;,
+          &#39;savefig.facecolor&#39;: &#39;black&#39;,
+          &#39;savefig.format&#39;: &#39;png&#39;,
+          &#39;savefig.orientation&#39;: &#39;portrait&#39;,
+          &#39;savefig.pad_inches&#39;: 0.1,
+          &#39;savefig.transparent&#39;: False,
+          &#39;scatter.edgecolors&#39;: &#39;face&#39;,
+          &#39;scatter.marker&#39;: &#39;o&#39;,
+          &#39;svg.fonttype&#39;: &#39;path&#39;,
+          &#39;svg.hashsalt&#39;: None,
+          &#39;svg.image_inline&#39;: True,
+          &#39;text.antialiased&#39;: True,
+          &#39;text.color&#39;: &#39;white&#39;,
+          &#39;text.hinting&#39;: &#39;force_autohint&#39;,
+          &#39;text.hinting_factor&#39;: 8,
+          &#39;text.kerning_factor&#39;: 0,
+          &#39;text.latex.preamble&#39;: &#39;&#39;,
+          &#39;text.usetex&#39;: False,
+          &#39;timezone&#39;: &#39;UTC&#39;,
+          &#39;tk.window_focus&#39;: False,
+          &#39;toolbar&#39;: &#39;toolbar2&#39;,
+          &#39;webagg.address&#39;: &#39;127.0.0.1&#39;,
+          &#39;webagg.open_in_browser&#39;: True,
+          &#39;webagg.port&#39;: 8988,
+          &#39;webagg.port_retries&#39;: 50,
+          &#39;xaxis.labellocation&#39;: &#39;center&#39;,
+          &#39;xtick.alignment&#39;: &#39;center&#39;,
+          &#39;xtick.bottom&#39;: True,
+          &#39;xtick.color&#39;: &#39;white&#39;,
+          &#39;xtick.direction&#39;: &#39;out&#39;,
+          &#39;xtick.labelbottom&#39;: True,
+          &#39;xtick.labelcolor&#39;: &#39;inherit&#39;,
+          &#39;xtick.labelsize&#39;: 10.0,
+          &#39;xtick.labeltop&#39;: False,
+          &#39;xtick.major.bottom&#39;: True,
+          &#39;xtick.major.pad&#39;: 7.0,
+          &#39;xtick.major.size&#39;: 0.0,
+          &#39;xtick.major.top&#39;: True,
+          &#39;xtick.major.width&#39;: 1.0,
+          &#39;xtick.minor.bottom&#39;: True,
+          &#39;xtick.minor.pad&#39;: 3.4,
+          &#39;xtick.minor.size&#39;: 0.0,
+          &#39;xtick.minor.top&#39;: True,
+          &#39;xtick.minor.visible&#39;: False,
+          &#39;xtick.minor.width&#39;: 0.5,
+          &#39;xtick.top&#39;: False,
+          &#39;yaxis.labellocation&#39;: &#39;center&#39;,
+          &#39;ytick.alignment&#39;: &#39;center_baseline&#39;,
+          &#39;ytick.color&#39;: &#39;white&#39;,
+          &#39;ytick.direction&#39;: &#39;out&#39;,
+          &#39;ytick.labelcolor&#39;: &#39;inherit&#39;,
+          &#39;ytick.labelleft&#39;: True,
+          &#39;ytick.labelright&#39;: False,
+          &#39;ytick.labelsize&#39;: 10.0,
+          &#39;ytick.left&#39;: True,
+          &#39;ytick.major.left&#39;: True,
+          &#39;ytick.major.pad&#39;: 7.0,
+          &#39;ytick.major.right&#39;: True,
+          &#39;ytick.major.size&#39;: 0.0,
+          &#39;ytick.major.width&#39;: 1.0,
+          &#39;ytick.minor.left&#39;: True,
+          &#39;ytick.minor.pad&#39;: 3.4,
+          &#39;ytick.minor.right&#39;: True,
+          &#39;ytick.minor.size&#39;: 0.0,
+          &#39;ytick.minor.visible&#39;: False,
+          &#39;ytick.minor.width&#39;: 0.5,
+          &#39;ytick.right&#39;: False}))
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are many parameters you could set for your style sheets.</p>
+<p>Set parameters for your style sheet by:</p>
+<ol class="simple">
+<li><p>creating your own <a class="reference external" href="https://matplotlib.org/stable/tutorials/introductory/customizing.html#defining-your-own-style"><code class="docutils literal notranslate"><span class="pre">matplotlibrc</span></code> file</a>, or</p></li>
+<li><p>updating values stored in the dictionary-like variable <code class="docutils literal notranslate"><span class="pre">plt.rcParams</span></code></p></li>
+</ol>
+<p>Let’s change the style of our overlaid density lines using the second method</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cycler</span> <span class="kn">import</span> <span class="n">cycler</span>
+
+<span class="c1"># set to the default style sheet</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
+
+<span class="c1"># You can update single values using keys:</span>
+
+<span class="c1"># Set the font style to italic</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.style&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;italic&#39;</span>
+
+<span class="c1"># Update linewidth</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;lines.linewidth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+
+
+<span class="c1"># You can also update many values at once using the update() method:</span>
+
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="c1"># Change default figure size</span>
+    <span class="s1">&#39;figure.figsize&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+
+    <span class="c1"># Add horizontal grid lines</span>
+    <span class="s1">&#39;axes.grid&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s1">&#39;axes.grid.axis&#39;</span><span class="p">:</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span>
+
+    <span class="c1"># Update colors for density lines</span>
+    <span class="s1">&#39;axes.prop_cycle&#39;</span><span class="p">:</span> <span class="n">cycler</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">,</span> 
+                            <span class="p">[</span><span class="s1">&#39;dimgray&#39;</span><span class="p">,</span> <span class="s1">&#39;slategrey&#39;</span><span class="p">,</span> <span class="s1">&#39;darkgray&#39;</span><span class="p">])</span>
+<span class="p">}</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These settings are <code class="docutils literal notranslate"><span class="pre">global</span></code>.</p>
+<p>Any plot generated after changing parameters in <code class="docutils literal notranslate"><span class="pre">.rcParams</span></code> will be affected by the setting.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">m</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">current_label</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;$\mu = </span><span class="si">{</span><span class="n">m</span><span class="si">:</span><span class="s1">.2</span><span class="si">}</span><span class="s1">$&#39;</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">current_label</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/matplotlib_37_0.png" src="_images/matplotlib_37_0.png" />
+</div>
+</div>
+<p>Apply the <code class="docutils literal notranslate"><span class="pre">default</span></code> style sheet again to change your style back to default</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
+
+<span class="c1"># Reset default figure size</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here are <a class="reference external" href="https://www.datafantic.com/the-magic-of-matplotlib-stylesheets/">more examples</a> on how to change these parameters.</p>
 </div>
 </div>
 <div class="section" id="further-reading">
@@ -714,7 +1149,7 @@ f(x) = \cos(\pi \theta x) \exp(-x)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/matplotlib_33_0.png" src="_images/matplotlib_33_0.png" />
+<img alt="_images/matplotlib_41_0.png" src="_images/matplotlib_41_0.png" />
 </div>
 </div>
 </div>
@@ -804,7 +1239,7 @@ f(x) = \cos(\pi \theta x) \exp(-x)
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="oop_intro.html">
-   6. OOP I: Introduction to Object Oriented Programming
+   6. OOP I: Objects and Names
   </a>
  </li>
  <li class="toctree-l1">
@@ -873,7 +1308,7 @@ f(x) = \cos(\pi \theta x) \exp(-x)
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   17. Debugging
+   17. Debugging and Handling Errors
   </a>
  </li>
 </ul>

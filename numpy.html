@@ -190,59 +190,57 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#operations-on-arrays">
-   9.3. Operations on Arrays
+  <a class="reference internal nav-link" href="#arithmetic-operations">
+   9.3. Arithmetic Operations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrix-multiplication">
+   9.4. Matrix Multiplication
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broadcasting">
+   9.5. Broadcasting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mutability-and-copying-arrays">
+   9.6. Mutability and Copying Arrays
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#arithmetic-operations">
-     9.3.1. Arithmetic Operations
+    <a class="reference internal nav-link" href="#making-copies">
+     9.6.1. Making Copies
     </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#matrix-multiplication">
-     9.3.2. Matrix Multiplication
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mutability-and-copying-arrays">
-     9.3.3. Mutability and Copying Arrays
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#making-copies">
-       9.3.3.1. Making Copies
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#additional-functionality">
-   9.4. Additional Functionality
+   9.7. Additional Functionality
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#vectorized-functions">
-     9.4.1. Vectorized Functions
+     9.7.1. Vectorized Functions
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#comparisons">
-     9.4.2. Comparisons
+     9.7.2. Comparisons
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#sub-packages">
-     9.4.3. Sub-packages
+     9.7.3. Sub-packages
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   9.5. Exercises
+   9.8. Exercises
   </a>
  </li>
 </ul>
@@ -291,17 +289,20 @@ const thebe_selector_output = ".output, .cell_output"
                     <div>
                         
   <div class="tex2jax_ignore mathjax_ignore section" id="numpy">
-<h1><a class="toc-backref" href="#id2"><span class="section-number">9. </span><span class="target" id="index-0"></span>NumPy</a><a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id3"><span class="section-number">9. </span><span class="target" id="index-0"></span>NumPy</a><a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <span id="index-1"></span><p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#numpy" id="id2">NumPy</a></p>
+<li><p><a class="reference internal" href="#numpy" id="id3">NumPy</a></p>
 <ul>
-<li><p><a class="reference internal" href="#overview" id="id3">Overview</a></p></li>
-<li><p><a class="reference internal" href="#numpy-arrays" id="id4">NumPy Arrays</a></p></li>
-<li><p><a class="reference internal" href="#operations-on-arrays" id="id5">Operations on Arrays</a></p></li>
-<li><p><a class="reference internal" href="#additional-functionality" id="id6">Additional Functionality</a></p></li>
-<li><p><a class="reference internal" href="#exercises" id="id7">Exercises</a></p></li>
+<li><p><a class="reference internal" href="#overview" id="id4">Overview</a></p></li>
+<li><p><a class="reference internal" href="#numpy-arrays" id="id5">NumPy Arrays</a></p></li>
+<li><p><a class="reference internal" href="#arithmetic-operations" id="id6">Arithmetic Operations</a></p></li>
+<li><p><a class="reference internal" href="#matrix-multiplication" id="id7">Matrix Multiplication</a></p></li>
+<li><p><a class="reference internal" href="#broadcasting" id="id8">Broadcasting</a></p></li>
+<li><p><a class="reference internal" href="#mutability-and-copying-arrays" id="id9">Mutability and Copying Arrays</a></p></li>
+<li><p><a class="reference internal" href="#additional-functionality" id="id10">Additional Functionality</a></p></li>
+<li><p><a class="reference internal" href="#exercises" id="id11">Exercises</a></p></li>
 </ul>
 </li>
 </ul>
@@ -310,7 +311,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div><p>“Let’s be clear: the work of science has nothing whatever to do with consensus.  Consensus is the business of politics. Science, on the contrary, requires only one investigator who happens to be right, which means that he or she has results that are verifiable by reference to the real world. In science consensus is irrelevant. What is relevant is reproducible results.” – Michael Crichton</p>
 </div></blockquote>
 <div class="section" id="overview">
-<h2><a class="toc-backref" href="#id3"><span class="section-number">9.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4"><span class="section-number">9.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/NumPy">NumPy</a> is a first-rate library for numerical programming</p>
 <ul class="simple">
 <li><p>Widely used in academia, finance and industry.</p></li>
@@ -330,7 +331,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="numpy-arrays">
-<span id="numpy-array"></span><h2><a class="toc-backref" href="#id4"><span class="section-number">9.2. </span>NumPy Arrays</a><a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">¶</a></h2>
+<span id="numpy-array"></span><h2><a class="toc-backref" href="#id5"><span class="section-number">9.2. </span>NumPy Arrays</a><a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">¶</a></h2>
 <p id="index-2">The essential problem that NumPy solves is fast array processing.</p>
 <p>The most important structure that NumPy defines is an array data type formally called a <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html">numpy.ndarray</a>.</p>
 <p>NumPy arrays power a large proportion of the scientific Python ecosystem.</p>
@@ -1012,11 +1013,9 @@ or <code class="docutils literal notranslate"><span class="pre">np.genfromtxt</s
 </div>
 </div>
 </div>
-<div class="section" id="operations-on-arrays">
-<h2><a class="toc-backref" href="#id5"><span class="section-number">9.3. </span>Operations on Arrays</a><a class="headerlink" href="#operations-on-arrays" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="arithmetic-operations">
-<span id="index-7"></span><h3><span class="section-number">9.3.1. </span>Arithmetic Operations<a class="headerlink" href="#arithmetic-operations" title="Permalink to this headline">¶</a></h3>
-<p>The operators <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code> and <code class="docutils literal notranslate"><span class="pre">**</span></code> all act <em>elementwise</em> on arrays</p>
+<h2><a class="toc-backref" href="#id6"><span class="section-number">9.3. </span>Arithmetic Operations</a><a class="headerlink" href="#arithmetic-operations" title="Permalink to this headline">¶</a></h2>
+<p id="index-7">The operators <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code> and <code class="docutils literal notranslate"><span class="pre">**</span></code> all act <em>elementwise</em> on arrays</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
@@ -1114,8 +1113,8 @@ or <code class="docutils literal notranslate"><span class="pre">np.genfromtxt</s
 <p id="numpy-matrix-multiplication">In particular, <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">*</span> <span class="pre">B</span></code> is <em>not</em> the matrix product, it is an element-wise product.</p>
 </div>
 <div class="section" id="matrix-multiplication">
-<h3><span class="section-number">9.3.2. </span>Matrix Multiplication<a class="headerlink" href="#matrix-multiplication" title="Permalink to this headline">¶</a></h3>
-<p id="index-8">With Anaconda’s scientific Python package based around Python 3.5 and above,
+<h2><a class="toc-backref" href="#id7"><span class="section-number">9.4. </span>Matrix Multiplication</a><a class="headerlink" href="#matrix-multiplication" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-8"></span><p id="index-9">With Anaconda’s scientific Python package based around Python 3.5 and above,
 one can use the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> symbol for matrix multiplication, as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1177,8 +1176,553 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 </div>
 <p>Since we are post-multiplying, the tuple is treated as a column vector.</p>
 </div>
+<div class="section" id="broadcasting">
+<span id="id2"></span><h2><a class="toc-backref" href="#id8"><span class="section-number">9.5. </span>Broadcasting</a><a class="headerlink" href="#broadcasting" title="Permalink to this headline">¶</a></h2>
+<p id="index-10">(This section extends an excellent discussion of broadcasting provided by <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/02.05-computation-on-arrays-broadcasting.html">Jake VanderPlas</a>.)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Broadcasting is a very important aspect of NumPy. At the same time, advanced broadcasting is relatively complex and some of the details below can be skimmed on first pass.</p>
+</div>
+<p>In element-wise operations, arrays may not have the same shape.</p>
+<p>When this happens, NumPy will automatically expand arrays to the same shape whenever possible.</p>
+<p>This useful (but sometimes confusing) feature in NumPy is called <strong>broadcasting</strong>.</p>
+<p>The value of broadcasting is that</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span></code> loops can be avoided, which helps numerical code run fast and</p></li>
+<li><p>broadcasting can allow us to implement operations on arrays without actually creating some dimensions of these arrays in memory, which can be important when arrays are large.</p></li>
+</ul>
+<p>For example, suppose <code class="docutils literal notranslate"><span class="pre">a</span></code> is a <span class="math notranslate nohighlight">\(3 \times 3\)</span> array (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-&gt;</span> <span class="pre">(3,</span> <span class="pre">3)</span></code>), while <code class="docutils literal notranslate"><span class="pre">b</span></code> is a flat array with three elements (<code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(3,)</span></code>).</p>
+<p>When adding them together, NumPy will automatically expand <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(3,)</span></code> to <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(3,</span> <span class="pre">3)</span></code>.</p>
+<p>The element-wise addition will result in a <span class="math notranslate nohighlight">\(3 \times 3\)</span> array</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+        <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> 
+         <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> 
+         <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 4,  8, 12],
+       [ 7, 11, 15],
+       [10, 14, 18]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is a visual representation of this broadcasting operation:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Adapted and modified based on the code in the book written by Jake VanderPlas (see https://jakevdp.github.io/PythonDataScienceHandbook/06.00-figure-code.html#Broadcasting)</span>
+<span class="c1"># Originally from astroML: see http://www.astroml.org/book_figures/appendix/fig_broadcast_visual.html</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+
+<span class="k">def</span> <span class="nf">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">xy</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
+              <span class="n">edges</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">label_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;draw and label a cube.  edges is a list of numbers between</span>
+<span class="sd">    1 and 12, specifying which of the 12 cube edges to draw&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">edges</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">edges</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">xy</span>
+
+    <span class="k">if</span> <span class="mi">1</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">size</span><span class="p">],</span>
+                <span class="p">[</span><span class="n">y</span> <span class="o">+</span> <span class="n">size</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">size</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="mi">2</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span> <span class="o">+</span> <span class="n">size</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">size</span><span class="p">],</span>
+                <span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">size</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="mi">3</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">size</span><span class="p">],</span>
+                <span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="mi">4</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">],</span>
+                <span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">size</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="mi">5</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">depth</span><span class="p">],</span>
+                <span class="p">[</span><span class="n">y</span> <span class="o">+</span> <span class="n">size</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">depth</span> <span class="o">+</span> <span class="n">size</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="mi">6</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span> <span class="o">+</span> <span class="n">size</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">size</span> <span class="o">+</span> <span class="n">depth</span><span class="p">],</span>
+                <span class="p">[</span><span class="n">y</span> <span class="o">+</span> <span class="n">size</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">depth</span> <span class="o">+</span> <span class="n">size</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="mi">7</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span> <span class="o">+</span> <span class="n">size</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">size</span> <span class="o">+</span> <span class="n">depth</span><span class="p">],</span>
+                <span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">depth</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="mi">8</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">depth</span><span class="p">],</span>
+                <span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">depth</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="mi">9</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span> <span class="o">+</span> <span class="n">depth</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">depth</span> <span class="o">+</span> <span class="n">size</span><span class="p">],</span>
+                <span class="p">[</span><span class="n">y</span> <span class="o">+</span> <span class="n">depth</span> <span class="o">+</span> <span class="n">size</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">depth</span> <span class="o">+</span> <span class="n">size</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="mi">10</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span> <span class="o">+</span> <span class="n">depth</span> <span class="o">+</span> <span class="n">size</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">depth</span> <span class="o">+</span> <span class="n">size</span><span class="p">],</span>
+                <span class="p">[</span><span class="n">y</span> <span class="o">+</span> <span class="n">depth</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">depth</span> <span class="o">+</span> <span class="n">size</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="mi">11</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span> <span class="o">+</span> <span class="n">depth</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">depth</span> <span class="o">+</span> <span class="n">size</span><span class="p">],</span>
+                <span class="p">[</span><span class="n">y</span> <span class="o">+</span> <span class="n">depth</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">depth</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="mi">12</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span> <span class="o">+</span> <span class="n">depth</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">depth</span><span class="p">],</span>
+                <span class="p">[</span><span class="n">y</span> <span class="o">+</span> <span class="n">depth</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">depth</span> <span class="o">+</span> <span class="n">size</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">label</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">label_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">label_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">size</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">size</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span>
+                <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">label_kwargs</span><span class="p">)</span>
+
+<span class="n">solid</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+             <span class="n">label_kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">))</span>
+<span class="n">dotted</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+              <span class="n">label_kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">))</span>
+<span class="n">depth</span> <span class="o">=</span> <span class="mf">0.3</span>
+
+<span class="c1"># Draw a figure and axis with no boundary</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">xticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">yticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># first block</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+
+<span class="c1"># second block</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+
+<span class="c1"># third block</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;12&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;11&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;15&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;14&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;18&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">10.5</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/numpy_92_0.png" src="_images/numpy_92_0.png" />
+</div>
+</div>
+<p>How about <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(3,</span> <span class="pre">1)</span></code>?</p>
+<p>In this case, NumPy will automatically expand <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(3,</span> <span class="pre">1)</span></code> to <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(3,</span> <span class="pre">3)</span></code>.</p>
+<p>Element-wise addition will then result in a <span class="math notranslate nohighlight">\(3 \times 3\)</span> matrix</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 4,  5,  6],
+       [10, 11, 12],
+       [16, 17, 18]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is a visual representation of this broadcasting operation:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">xticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">yticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># first block</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+
+<span class="c1"># second block</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+
+<span class="c1"># third block</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;11&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;12&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;16&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;17&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;18&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">10.5</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/numpy_96_0.png" src="_images/numpy_96_0.png" />
+</div>
+</div>
+<p>The previous broadcasting operation is equivalent to the following <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">row</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">column</span><span class="p">):</span>
+        <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 4.,  5.,  6.],
+       [10., 11., 12.],
+       [16., 17., 18.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>In some cases, both operands will be expanded.</p>
+<p>When we have <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-&gt;</span> <span class="pre">(3,)</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(3,</span> <span class="pre">1)</span></code>, <code class="docutils literal notranslate"><span class="pre">a</span></code> will be expanded to <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-&gt;</span> <span class="pre">(3,</span> <span class="pre">3)</span></code>, and <code class="docutils literal notranslate"><span class="pre">b</span></code> will be expanded to <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(3,</span> <span class="pre">3)</span></code>.</p>
+<p>In this case, element-wise addition will result in a <span class="math notranslate nohighlight">\(3 \times 3\)</span> matrix</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">b</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 5,  8, 11],
+       [ 6,  9, 12],
+       [ 7, 10, 13]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is a visual representation of this broadcasting operation:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Draw a figure and axis with no boundary</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">xticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">yticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># first block</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+
+<span class="c1"># second block</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+
+<span class="c1"># third block</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;11&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;12&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;13&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">10.5</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/numpy_102_0.png" src="_images/numpy_102_0.png" />
+</div>
+</div>
+<p>While broadcasting is very useful, it can sometimes seem confusing.</p>
+<p>For example, let’s try adding <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-&gt;</span> <span class="pre">(3,</span> <span class="pre">2)</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(3,)</span></code>.</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+      <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">Input In [69],</span> in <span class="ni">&lt;cell line: 7&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>       <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>        <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>        <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="ne">ValueError</span>: operands could not be broadcast together with shapes (3,2) (3,) 
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> tells us that operands could not be broadcast together.</p>
+<p>Here is a visual representation to show why this broadcasting cannot be executed:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Draw a figure and axis with no boundary</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">xticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">yticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># first block</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+
+<span class="c1"># second block</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">solid</span><span class="p">)</span>
+
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+<span class="n">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">dotted</span><span class="p">)</span>
+
+
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/numpy_106_0.png" src="_images/numpy_106_0.png" />
+</div>
+</div>
+<p>We can see that NumPy cannot expand the arrays to the same size.</p>
+<p>It is because, when <code class="docutils literal notranslate"><span class="pre">b</span></code> is expanded from <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(3,)</span></code> to <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(3,</span> <span class="pre">3)</span></code>, NumPy cannot match <code class="docutils literal notranslate"><span class="pre">b</span></code> with <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-&gt;</span> <span class="pre">(3,</span> <span class="pre">2)</span></code>.</p>
+<p>Things get even trickier when we move to higher dimensions.</p>
+<p>To help us, we can use the following list of rules:</p>
+<ul class="simple">
+<li><p><em>Step 1:</em> When the dimensions of two arrays do not match, NumPy will expand the one with fewer dimensions by adding dimension(s) on the left of the existing dimensions.</p>
+<ul>
+<li><p>For example, if <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-&gt;</span> <span class="pre">(3,</span> <span class="pre">3)</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(3,)</span></code>, then broadcasting will add a dimension to the left so that <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(1,</span> <span class="pre">3)</span></code>;</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-&gt;</span> <span class="pre">(2,</span> <span class="pre">2,</span> <span class="pre">2)</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(2,</span> <span class="pre">2)</span></code>, then broadcasting will add a dimension to the left so that <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">2)</span></code>;</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-&gt;</span> <span class="pre">(3,</span> <span class="pre">2,</span> <span class="pre">2)</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(2,)</span></code>, then broadcasting will add two dimensions to the left so that <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(1,</span> <span class="pre">1,</span> <span class="pre">2)</span></code> (you can also see this process as going through <em>Step 1</em> twice).</p></li>
+</ul>
+</li>
+<li><p><em>Step 2:</em> When the two arrays have the same dimension but different shapes, NumPy will try to expand dimensions where the shape index is 1.</p>
+<ul>
+<li><p>For example, if <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-&gt;</span> <span class="pre">(1,</span> <span class="pre">3)</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(3,</span> <span class="pre">1)</span></code>, then broadcasting will expand dimensions with shape 1 in both <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> so that <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-&gt;</span> <span class="pre">(3,</span> <span class="pre">3)</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(3,</span> <span class="pre">3)</span></code>;</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-&gt;</span> <span class="pre">(2,</span> <span class="pre">2,</span> <span class="pre">2)</span></code> and  <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">2)</span></code>, then broadcasting will expand the first dimension of <code class="docutils literal notranslate"><span class="pre">b</span></code> so that <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(2,</span> <span class="pre">2,</span> <span class="pre">2)</span></code>;</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-&gt;</span> <span class="pre">(3,</span> <span class="pre">2,</span> <span class="pre">2)</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(1,</span> <span class="pre">1,</span> <span class="pre">2)</span></code>, then broadcasting will expand <code class="docutils literal notranslate"><span class="pre">b</span></code> on all dimensions with shape 1 so that <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(3,</span> <span class="pre">2,</span> <span class="pre">2)</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<p>Here are code examples for broadcasting higher dimensional arrays</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># a -&gt; (2, 2, 2) and  b -&gt; (1, 2, 2)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
+      <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span> 
+
+     <span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> 
+      <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;the shape of array a is </span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;the shape of array b is </span><span class="si">{</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the shape of array a is (2, 2, 2)
+the shape of array b is (2, 2)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[ 2,  9],
+        [ 9,  4]],
+
+       [[ 3, 10],
+        [10,  5]]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># a -&gt; (3, 2, 2) and b -&gt; (2,)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
+      <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span>
+
+     <span class="p">[[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> 
+      <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]],</span>
+
+     <span class="p">[[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> 
+      <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;the shape of array a is </span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;the shape of array b is </span><span class="si">{</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the shape of array a is (3, 2, 2)
+the shape of array b is (2,)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[ 4,  8],
+        [ 6, 10]],
+
+       [[ 7, 11],
+        [ 9, 13]],
+
+       [[10, 14],
+        [12, 16]]])
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><em>Step 3:</em> After Step 1 and 2, if the two arrays still do not match, a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> will be raised. For example, suppose <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-&gt;</span> <span class="pre">(2,</span> <span class="pre">2,</span> <span class="pre">3)</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(2,</span> <span class="pre">2)</span></code></p>
+<ul>
+<li><p>By <em>Step 1</em>, <code class="docutils literal notranslate"><span class="pre">b</span></code> will be expanded to <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">2)</span></code>;</p></li>
+<li><p>By <em>Step 2</em>, <code class="docutils literal notranslate"><span class="pre">b</span></code> will be expanded to <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(2,</span> <span class="pre">2,</span> <span class="pre">2)</span></code>;</p></li>
+<li><p>We can see that they do not match each other after the first two steps. Thus, a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> will be raised</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> 
+      <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> 
+     
+     <span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> 
+      <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;the shape of array a is </span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span> 
+     <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;the shape of array b is </span><span class="si">{</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the shape of array a is (2, 2, 3)
+the shape of array b is (2, 2)
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">Input In [73],</span> in <span class="ni">&lt;cell line: 14&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span> 
+<span class="g g-Whitespace">     </span><span class="mi">11</span>      <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;the shape of array b is </span><span class="si">{</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">14</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="ne">ValueError</span>: operands could not be broadcast together with shapes (2,2,3) (2,2) 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="mutability-and-copying-arrays">
-<h3><span class="section-number">9.3.3. </span>Mutability and Copying Arrays<a class="headerlink" href="#mutability-and-copying-arrays" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id9"><span class="section-number">9.6. </span>Mutability and Copying Arrays</a><a class="headerlink" href="#mutability-and-copying-arrays" title="Permalink to this headline">¶</a></h2>
 <p>NumPy arrays are mutable data types, like Python lists.</p>
 <p>In other words, their contents can be altered (mutated) in memory after initialization.</p>
 <p>We already saw examples above.</p>
@@ -1218,7 +1762,7 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.4362331 , 1.65587286, 1.46296399])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.24437691,  0.60195497, -0.29650954])
 </pre></div>
 </div>
 </div>
@@ -1232,7 +1776,7 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.        , 1.65587286, 1.46296399])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        ,  0.60195497, -0.29650954])
 </pre></div>
 </div>
 </div>
@@ -1245,7 +1789,7 @@ array (the Python assignment model is described in more detail <a class="referen
 <p>It means that we pass around only pointers to data, rather than making copies.</p>
 <p>Making copies is expensive in terms of both speed and memory.</p>
 <div class="section" id="making-copies">
-<h4><span class="section-number">9.3.3.1. </span>Making Copies<a class="headerlink" href="#making-copies" title="Permalink to this headline">¶</a></h4>
+<h3><span class="section-number">9.6.1. </span>Making Copies<a class="headerlink" href="#making-copies" title="Permalink to this headline">¶</a></h3>
 <p>It is of course possible to make <code class="docutils literal notranslate"><span class="pre">b</span></code> an independent copy of <code class="docutils literal notranslate"><span class="pre">a</span></code> when required.</p>
 <p>This can be done using <code class="docutils literal notranslate"><span class="pre">np.copy</span></code></p>
 <div class="cell docutils container">
@@ -1256,7 +1800,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.78211385, -1.27912917,  1.02784729])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.53373795, 0.65604854, 1.16252326])
 </pre></div>
 </div>
 </div>
@@ -1269,7 +1813,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.78211385, -1.27912917,  1.02784729])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.53373795, 0.65604854, 1.16252326])
 </pre></div>
 </div>
 </div>
@@ -1295,7 +1839,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.78211385, -1.27912917,  1.02784729])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.53373795, 0.65604854, 1.16252326])
 </pre></div>
 </div>
 </div>
@@ -1303,13 +1847,12 @@ array (the Python assignment model is described in more detail <a class="referen
 <p>Note that the change to <code class="docutils literal notranslate"><span class="pre">b</span></code> has not affected <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
 </div>
 </div>
-</div>
 <div class="section" id="additional-functionality">
-<h2><a class="toc-backref" href="#id6"><span class="section-number">9.4. </span>Additional Functionality</a><a class="headerlink" href="#additional-functionality" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id10"><span class="section-number">9.7. </span>Additional Functionality</a><a class="headerlink" href="#additional-functionality" title="Permalink to this headline">¶</a></h2>
 <p>Let’s look at some other useful things we can do with NumPy.</p>
 <div class="section" id="vectorized-functions">
-<h3><span class="section-number">9.4.1. </span>Vectorized Functions<a class="headerlink" href="#vectorized-functions" title="Permalink to this headline">¶</a></h3>
-<p id="index-9">NumPy provides versions of the standard functions <code class="docutils literal notranslate"><span class="pre">log</span></code>, <code class="docutils literal notranslate"><span class="pre">exp</span></code>, <code class="docutils literal notranslate"><span class="pre">sin</span></code>, etc. that act <em>element-wise</em> on arrays</p>
+<h3><span class="section-number">9.7.1. </span>Vectorized Functions<a class="headerlink" href="#vectorized-functions" title="Permalink to this headline">¶</a></h3>
+<p id="index-11">NumPy provides versions of the standard functions <code class="docutils literal notranslate"><span class="pre">log</span></code>, <code class="docutils literal notranslate"><span class="pre">exp</span></code>, <code class="docutils literal notranslate"><span class="pre">sin</span></code>, etc. that act <em>element-wise</em> on arrays</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
@@ -1381,7 +1924,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.62504414, -0.78500705, -0.61900485,  1.64644564])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.75853544, -0.0321365 ,  0.36668685, -0.37402117])
 </pre></div>
 </div>
 </div>
@@ -1393,7 +1936,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 1, 0])
 </pre></div>
 </div>
 </div>
@@ -1407,7 +1950,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 1, 0])
 </pre></div>
 </div>
 </div>
@@ -1415,8 +1958,8 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 <p>However, this approach doesn’t always obtain the same speed as a more carefully crafted vectorized function.</p>
 </div>
 <div class="section" id="comparisons">
-<h3><span class="section-number">9.4.2. </span>Comparisons<a class="headerlink" href="#comparisons" title="Permalink to this headline">¶</a></h3>
-<p id="index-10">As a rule, comparisons on arrays are done element-wise</p>
+<h3><span class="section-number">9.7.2. </span>Comparisons<a class="headerlink" href="#comparisons" title="Permalink to this headline">¶</a></h3>
+<p id="index-12">As a rule, comparisons on arrays are done element-wise</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
@@ -1524,7 +2067,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="section" id="sub-packages">
-<h3><span class="section-number">9.4.3. </span>Sub-packages<a class="headerlink" href="#sub-packages" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.7.3. </span>Sub-packages<a class="headerlink" href="#sub-packages" title="Permalink to this headline">¶</a></h3>
 <p>NumPy provides some additional functionality related to scientific programming
 through its sub-packages.</p>
 <p>We’ve already seen how we can generate random variables using np.random</p>
@@ -1537,7 +2080,7 @@ through its sub-packages.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.945e+00
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.001
 </pre></div>
 </div>
 </div>
@@ -1570,13 +2113,13 @@ through its sub-packages.</p>
 </div>
 </div>
 </div>
-<span class="target" id="index-11"></span><p id="index-12">Much of this functionality is also available in <a class="reference external" href="http://www.scipy.org/">SciPy</a>, a collection of modules that are built on top of NumPy.</p>
+<span class="target" id="index-13"></span><p id="index-14">Much of this functionality is also available in <a class="reference external" href="http://www.scipy.org/">SciPy</a>, a collection of modules that are built on top of NumPy.</p>
 <p>We’ll cover the SciPy versions in more detail <a class="reference internal" href="scipy.html"><span class="doc">soon</span></a>.</p>
 <p>For a comprehensive list of what’s available in NumPy see <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.html">this documentation</a>.</p>
 </div>
 </div>
 <div class="section" id="exercises">
-<h2><a class="toc-backref" href="#id7"><span class="section-number">9.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id11"><span class="section-number">9.8. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -1847,7 +2390,59 @@ from QuantEcon and added in a plot method</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/numpy_147_0.png" src="_images/numpy_147_0.png" />
+<img alt="_images/numpy_170_0.png" src="_images/numpy_170_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="np_ex4">
+
+<p class="admonition-title"><span class="caption-number">Exercise 9.4 </span></p>
+<div class="section" id="exercise-content">
+<p>Recall that <a class="reference internal" href="#broadcasting"><span class="std std-ref">broadcasting</span></a> in Numpy can help us conduct element-wise operations on arrays with different number of dimensions without using <code class="docutils literal notranslate"><span class="pre">for</span></code> loops.</p>
+<p>In this exercise, try to use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to replicate the result of the following code</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[13.82578055,  0.32709567,  0.99572462, -0.16715582],
+       [ 2.67628663,  2.75234362, -0.29937152, -1.73073499],
+       [-5.24658815,  1.91504547,  0.34816144,  1.1551625 ],
+       [ 1.40733003, -4.08326003,  0.122515  , -0.75192701]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="solution dropdown admonition" id="numpy-solution-7">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#np_ex4"> Exercise 9.4</a></p>
+<div class="section" id="s">
+<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><p>Here is one solution</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">/</span> <span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[13.82578055  0.32709567  0.99572462 -0.16715582]
+ [ 2.67628663  2.75234362 -0.29937152 -1.73073499]
+ [-5.24658815  1.91504547  0.34816144  1.1551625 ]
+ [ 1.40733003 -4.08326003  0.122515   -0.75192701]]
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1937,7 +2532,7 @@ from QuantEcon and added in a plot method</p>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="oop_intro.html">
-   6. OOP I: Introduction to Object Oriented Programming
+   6. OOP I: Objects and Names
   </a>
  </li>
  <li class="toctree-l1">
@@ -2006,7 +2601,7 @@ from QuantEcon and added in a plot method</p>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   17. Debugging
+   17. Debugging and Handling Errors
   </a>
  </li>
 </ul>
