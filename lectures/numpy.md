@@ -484,10 +484,10 @@ Since we are post-multiplying, the tuple is treated as a column vector.
 ```{index} single: NumPy; Broadcasting
 ```
 
-(This section is built upon an excellent discussion of broadcasting provided by [Jake VanderPlas](https://jakevdp.github.io/PythonDataScienceHandbook/02.05-computation-on-arrays-broadcasting.html).)
+(This section extends an excellent discussion of broadcasting provided by [Jake VanderPlas](https://jakevdp.github.io/PythonDataScienceHandbook/02.05-computation-on-arrays-broadcasting.html).)
 
 ```{note}
-Some aspects of broadcasting are hard to visualize and considered relatively advanced. As such this section can be skimmed at first pass.
+Broadcasting is a very important aspect of NumPy. At the same time, advanced broadcasting is relatively complex and some of the details below can be skimmed on first pass.
 ```
 
 In element-wise operations, arrays may not have the same shape.
@@ -495,6 +495,11 @@ In element-wise operations, arrays may not have the same shape.
 When this happens, NumPy will automatically expand arrays to the same shape whenever possible.
 
 This useful (but sometimes confusing) feature in NumPy is called **broadcasting**.
+
+The value of broadcasting is that
+
+* `for` loops can be avoided, which helps numerical code run fast and
+* broadcasting can allow us to implement operations on arrays without actually creating some dimensions of these arrays in memory, which can be important when arrays are large.
 
 For example, suppose `a` is a $3 \times 3$ array (`a -> (3, 3)`), while `b` is a flat array with three elements (`b -> (3,)`).
 
@@ -700,7 +705,6 @@ ax.text(10.5, 7.0, '=', size=12, ha='center', va='center');
 
 ```
 
-
 The previous broadcasting operation is equivalent to the following `for` loop
 
 ```{code-cell} python3
@@ -713,8 +717,6 @@ for i in range(row):
 
 result
 ```
-
-Broadcasting is more efficient than the `for` loop because we avoid the overhead of arithmetic operations in high-level Python code.
 
 In some cases, both operands will be expanded.
 
@@ -852,15 +854,15 @@ Things get even trickier when we move to higher dimensions.
 To help us, we can use the following list of rules:
 
 * *Step 1:* When the dimensions of two arrays do not match, NumPy will expand the one with fewer dimensions by adding dimension(s) on the left of the existing dimensions.
-    - For example, suppose `a -> (3, 3)` and `b -> (3,)`, broadcasting will add a dimension to the left so that `b -> (1, 3)`;
-    - Suppose `a -> (2, 2, 2)` and `b -> (2, 2)`, broadcasting will add a dimension to the left so that `b -> (1, 2, 2)`;
-    - Suppose `a -> (3, 2, 2)` and `b -> (2,)`, broadcasting will add two dimensions to the left so that `b -> (1, 1, 2)` (you can also see this process as going through *Step 1* twice).
+    - For example, if `a -> (3, 3)` and `b -> (3,)`, then broadcasting will add a dimension to the left so that `b -> (1, 3)`;
+    - If `a -> (2, 2, 2)` and `b -> (2, 2)`, then broadcasting will add a dimension to the left so that `b -> (1, 2, 2)`;
+    - If `a -> (3, 2, 2)` and `b -> (2,)`, then broadcasting will add two dimensions to the left so that `b -> (1, 1, 2)` (you can also see this process as going through *Step 1* twice).
 
 
 * *Step 2:* When the two arrays have the same dimension but different shapes, NumPy will try to expand dimensions where the shape index is 1.
-    - For example, suppose `a -> (1, 3)` and `b -> (3, 1)`, broadcasting will expand dimensions with shape 1 in both `a` and `b` so that `a -> (3, 3)` and `b -> (3, 3)`;
-    - When `a -> (2, 2, 2)` and  `b -> (1, 2, 2)`, broadcasting will expand the first dimension of `b` so that `b -> (2, 2, 2)`;
-    - When `a -> (3, 2, 2)` and `b -> (1, 1, 2)`, broadcasting will expand `b` on all dimensions with shape 1 so that `b -> (3, 2, 2)`.
+    - For example, if `a -> (1, 3)` and `b -> (3, 1)`, then broadcasting will expand dimensions with shape 1 in both `a` and `b` so that `a -> (3, 3)` and `b -> (3, 3)`;
+    - If `a -> (2, 2, 2)` and  `b -> (1, 2, 2)`, then broadcasting will expand the first dimension of `b` so that `b -> (2, 2, 2)`;
+    - If `a -> (3, 2, 2)` and `b -> (1, 1, 2)`, then broadcasting will expand `b` on all dimensions with shape 1 so that `b -> (3, 2, 2)`.
 
 Here are code examples for broadcasting higher dimensional arrays
 
@@ -928,7 +930,7 @@ print(f'the shape of array b is {b.shape}')
 a + b
 ```
 
-### Mutability and Copying Arrays
+## Mutability and Copying Arrays
 
 NumPy arrays are mutable data types, like Python lists.
 
