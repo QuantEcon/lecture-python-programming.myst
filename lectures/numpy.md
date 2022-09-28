@@ -976,7 +976,7 @@ It means that we pass around only pointers to data, rather than making copies.
 
 Making copies is expensive in terms of both speed and memory.
 
-#### Making Copies
+### Making Copies
 
 It is of course possible to make `b` an independent copy of `a` when required.
 
