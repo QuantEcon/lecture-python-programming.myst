@@ -247,7 +247,9 @@ When you're ready to execute the code in a cell, hit `Shift-Enter` instead of th
 :figclass: auto
 ```
 
-(Note: There are also menu and button options for running code in a cell that you can find by exploring)
+```{note}
+There are also menu and button options for running code in a cell that you can find by exploring.
+```
 
 #### Modal Editing
 

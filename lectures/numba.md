@@ -478,7 +478,7 @@ When Numba compiles machine code for functions, it treats global variables as co
 ```{exercise}
 :label: speed_ex1
 
-{ref}`Previously <pbe_ex3>` we considered how to approximate $\pi$ by
+{ref}`Previously <pbe_ex5>` we considered how to approximate $\pi$ by
 Monte Carlo.
 
 Use the same idea here, but make the code efficient using Numba.
@@ -560,10 +560,14 @@ To test your code, evaluate the fraction of time that the chain spends in the lo
 
 If your code is correct, it should be about 2/3.
 
-Hints:
+
+```{hint}
+:class: dropdown
 
 * Represent the low state as 0 and the high state as 1.
 * If you want to store integers in a NumPy array and then apply JIT compilation, use `x = np.empty(n, dtype=np.int_)`.
+
+```
 
 ```{exercise-end}
 ```

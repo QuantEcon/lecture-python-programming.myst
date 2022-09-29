@@ -513,7 +513,7 @@ Try to use lambda expressions to define the function `f`.
 :class: dropdown
 ```
 
-- Here's one solution for part 1
+Here's one solution for part 1
 
 ```{code-cell} python3
 def factorial(n):
@@ -525,7 +525,7 @@ def factorial(n):
 factorial(4)
 ```
 
-- Adding the lambda expression
+Adding the lambda expression
 
 ```{code-cell} python3
 def factorial(n,f = lambda x: x):
@@ -561,14 +561,21 @@ The [binomial random variable](https://en.wikipedia.org/wiki/Binomial_distributi
 Without any import besides `from numpy.random import uniform`, write a function
 `binomial_rv` such that `binomial_rv(n, p)` generates one draw of $Y$.
 
-Hint: If $U$ is uniform on $(0, 1)$ and $p \in (0,1)$, then the expression `U < p` evaluates to `True` with probability $p$.
+```{hint}
+:class: dropdown
+
+If $U$ is uniform on $(0, 1)$ and $p \in (0,1)$, then the expression `U < p` evaluates to `True` with probability $p$.
+```
+
 ```{exercise-end}
 ```
 
 
 ```{solution-start} func_ex2
 :class: dropdown
-````
+```
+
+Here is one solution:
 
 ```{code-cell} python3
 from numpy.random import uniform
