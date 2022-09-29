@@ -746,15 +746,58 @@ This prints `[2]` as the value of `f(x)` and *same* for `x`.
 Here's what happens
 
 * `f` is registered as a function in the global namespace
+
+```{figure} /_static/lecture_specific/oop_intro/mutable1.png
+:figclass: auto
+```
+
 * `x` bound to `[1]` in the global namespace
+
+```{figure} /_static/lecture_specific/oop_intro/mutable2.png
+:figclass: auto
+```
+
 * The call `f(x)`
     * Creates a local namespace
     * Adds `x` to the local namespace, bound to `[1]`
+
+```{figure} /_static/lecture_specific/oop_intro/mutable3.png
+:figclass: auto
+```
+
+```{note}
+Global `x` and local `x` have the reference to the same `[1]`
+```
+
+We can observe this by printing the identity of local `x` and global `x` are the same
+
+```{code-cell} python3
+def f(x):
+    x[0] = x[0] + 1
+    print(f'the identity of local x is {id(x)}')
+    return x
+
+x = [1]
+print(f'the identity of global x is {id(x)}')
+print(f(x), x)
+```
+
+* Within `f(x)`
     * The list `[1]` is modified to `[2]`
     * Returns the list `[2]`
-    * The local namespace is deallocated, and local `x` is lost
-* Global `x` has been modified
 
+```{figure} /_static/lecture_specific/oop_intro/mutable4.png
+:figclass: auto
+```
+* The local namespace is deallocated, and local `x` is lost
+
+```{figure} /_static/lecture_specific/oop_intro/mutable5.png
+:figclass: auto
+```
+* Note that global `x` has also been modified
+
+
+If you do not want both `x` and `y` to reference the same mutable object, you can create [*copies*](https://docs.python.org/3/library/copy.html) of `x` and assign it to `y`. 
 
 
 ## Summary
