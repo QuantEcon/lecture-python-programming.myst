@@ -340,7 +340,7 @@ Python uses multiple namespaces, creating them on the fly as necessary.
 
 For example, every time we import a module, Python creates a namespace for that module.
 
-To see this in action, suppose we write a script `math2.py` with a single line
+To see this in action, suppose we write a script `mathfoo.py` with a single line
 
 ```{code-cell} python3
 %%file mathfoo.py
