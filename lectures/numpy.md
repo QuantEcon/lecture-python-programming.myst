@@ -1499,8 +1499,7 @@ for i in range(d1):
 qe.toc()
 ```
 
-Note that the `for` loop takes about 80 
-times longer than the broadcasting operation on this machine.
+Note that the `for` loop takes much longer than the broadcasting operation.
 
 Compare your answer with the output of broadcasting
 
