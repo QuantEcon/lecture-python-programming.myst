@@ -769,7 +769,7 @@ Here's what happens
 The global `x` and the local `x` refer to the same `[1]`
 ```
 
-We can see the identities of the local `x` and the global `x` are the same
+We can see the identity of local `x` and the identity of global `x` are the same
 
 ```{code-cell} python3
 def f(x):
@@ -784,6 +784,7 @@ print(f(x), x)
 
 * Within `f(x)`
     * The list `[1]` is modified to `[2]`
+        * Note that the global `x` has also been modified
     * Returns the list `[2]`
 
 ```{figure} /_static/lecture_specific/oop_intro/mutable4.png
@@ -794,10 +795,9 @@ print(f(x), x)
 ```{figure} /_static/lecture_specific/oop_intro/mutable5.png
 :figclass: auto
 ```
-* Note that the global `x` has also been modified
 
 
-If you want to modify the local `x` and the global `x` separately, you can create a [*copy*](https://docs.python.org/3/library/copy.html) of `x`. 
+If you want to modify the local `x` and the global `x` separately, you can create a [*copy*](https://docs.python.org/3/library/copy.html) of the list and assign the copy to the local `x`. 
 
 We will leave this for you to explore.
 
