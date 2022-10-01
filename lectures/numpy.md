@@ -1451,9 +1451,24 @@ Recall that [broadcasting](broadcasting) in Numpy can help us conduct element-wi
 In this exercise, try to use a `for` loop to replicate the result of the following code
 
 ```{code-cell} python3
-x = np.random.randn(4, 4)
-y = np.random.randn(4)
-x / y
+import quantecon as qe
+
+np.random.seed(123)
+x = np.random.randn(1000, 100, 100)
+y = np.random.randn(100)
+qe.tic()
+A = x / y
+qe.toc()
+```
+
+Observe the time difference between the broadcasting and the `for` loop you implement.
+
+
+```{code-cell} python3
+---
+tags: [hide-output]
+---
+print(A)
 ```
 
 ```{exercise-end}
@@ -1467,12 +1482,36 @@ x / y
 Here is one solution
 
 ```{code-cell} python3
-A = np.empty_like(x)
-n = len(x)
-for i in range(n):
-    for j in range(n):
-        A[i, j] = x[i, j] / y[j]
-print(A)
+
+np.random.seed(123)
+x = np.random.randn(1000, 100, 100)
+y = np.random.randn(100)
+
+qe.tic()
+B = np.empty_like(x)
+d1, d2, d3 = x.shape
+for i in range(d1):
+    for j in range(d2):
+      for n in range(d3):
+          B[i, j, n] = x[i, j, n] / y[n]
+qe.toc()
+```
+
+Note that the `for` loop solution takes about 250 times longer than broadcasting operation on this machine.
+
+Compare your answer with the broadcast operation
+
+```{code-cell} python3
+---
+tags: [hide-output]
+---
+print(B)
+```
+
+You can also use `array_equal()` to check your answer
+
+```{code-cell} python3
+print(np.array_equal(A, B))
 ```
 
 ```{solution-end}
