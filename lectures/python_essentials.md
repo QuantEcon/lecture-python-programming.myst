@@ -595,11 +595,10 @@ all([1 <= 2 <= 3, "a" in "letter"])
 any([1 <= 2 <= 3, "a" in "letter"])
 ```
 
-Note:
-
+```{note}
 * `all()` returns `True` when *all* boolean values/expressions in the sequence are `True`
 * `any()` returns `True` when *any* boolean values/expressions in the sequence are `True`
-
+```
 
 ## Coding Style and Documentation
 
@@ -692,19 +691,27 @@ Solve the following exercises.
 
 (For some, the built-in function `sum()` comes in handy).
 
-```{exercise}
+```{exercise-start}
 :label: pyess_ex1
-
+```
 Part 1: Given two numeric lists or tuples `x_vals` and `y_vals` of equal length, compute
 their inner product using `zip()`.
 
 Part 2: In one line, count the number of even numbers in 0,...,99.
 
-* Hint: `x % 2` returns 0 if `x` is even, 1 otherwise.
-
 Part 3: Given `pairs = ((2, 5), (4, 2), (9, 8), (12, 10))`, count the number of pairs `(a, b)`
 such that both `a` and `b` are even.
+
+```{hint}
+:class: dropdown
+
+`x % 2` returns 0 if `x` is even, 1 otherwise.
+
 ```
+
+```{exercise-end}
+```
+
 
 ```{solution-start} pyess_ex1
 :class: dropdown
@@ -804,12 +811,20 @@ p(1, (2, 4))
 ```
 
 
-```{exercise}
+```{exercise-start}
 :label: pyess_ex3
+```
 
 Write a function that takes a string as an argument and returns the number of capital letters in the string.
 
-Hint: `'foo'.upper()` returns `'FOO'`.
+```{hint}
+:class: dropdown
+
+`'foo'.upper()` returns `'FOO'`.
+
+```
+
+```{exercise-end}
 ```
 
 ```{solution-start} pyess_ex3

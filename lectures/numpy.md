@@ -1189,8 +1189,10 @@ Now write a new function that does the same job, but uses NumPy arrays and array
 
 (Such functionality is already implemented as `np.poly1d`, but for the sake of the exercise don't use this class)
 
-* Hint: Use `np.cumprod()`
-
+```{hint}
+:class: dropdown
+Use `np.cumprod()`
+```
 ```{exercise-end}
 ```
 
@@ -1262,7 +1264,12 @@ It helps to sketch the intervals on paper.
 
 Your exercise is to speed it up using NumPy, avoiding explicit loops
 
-* Hint: Use `np.searchsorted` and `np.cumsum`
+```{hint}
+:class: dropdown
+
+Use `np.searchsorted` and `np.cumsum`
+
+```
 
 If you can, implement the functionality as a class called `DiscreteRV`, where
 

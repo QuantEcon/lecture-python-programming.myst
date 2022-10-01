@@ -321,10 +321,12 @@ A trivial example is to return itself for each row in the dataframe
 df.apply(lambda row: row, axis=1)
 ```
 
-Note: for the `.apply()` method
+```{note}
+For the `.apply()` method
 - axis = 0 -- apply function to each column (variables)
 - axis = 1 -- apply function to each row (observations)
 - axis = 0 is the default parameter
+```
 
 We can use it together with `.loc[]` to do some more advanced selection.
 
