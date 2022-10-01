@@ -1446,11 +1446,11 @@ F.plot(ax)
 :label: np_ex4
 ```
 
-Recall that [broadcasting](broadcasting) in Numpy can help us conduct element-wise operations on arrays with different numbers of dimensions without using `for` loops.
+Recall that [broadcasting](broadcasting) in Numpy can help us conduct element-wise operations on arrays with different number of dimensions without using `for` loops.
 
 In this exercise, try to use a `for` loop to replicate the result of the following code.
 
-Meanwhile, observe the time difference between broadcasting and the `for` loop you implement.
+Meanwhile, compare the speeds of broadcasting and the `for` loop you implement.
 
 ```{code-cell} python3
 import quantecon as qe
@@ -1501,7 +1501,7 @@ qe.toc()
 
 Note that the `for` loop takes much longer than the broadcasting operation.
 
-Compare your answer with the output of broadcasting
+Compare the results to check your answer
 
 ```{code-cell} python3
 ---
