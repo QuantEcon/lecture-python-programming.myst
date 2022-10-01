@@ -1446,9 +1446,11 @@ F.plot(ax)
 :label: np_ex4
 ```
 
-Recall that [broadcasting](broadcasting) in Numpy can help us conduct element-wise operations on arrays with different number of dimensions without using `for` loops.
+Recall that [broadcasting](broadcasting) in Numpy can help us conduct element-wise operations on arrays with different numbers of dimensions without using `for` loops.
 
-In this exercise, try to use a `for` loop to replicate the result of the following code
+In this exercise, try to use a `for` loop to replicate the result of the following code.
+
+Meanwhile, observe the time difference between broadcasting and the `for` loop you implement.
 
 ```{code-cell} python3
 import quantecon as qe
@@ -1461,8 +1463,7 @@ A = x / y
 qe.toc()
 ```
 
-Observe the time difference between the broadcasting and the `for` loop you implement.
-
+Here is the output
 
 ```{code-cell} python3
 ---
@@ -1492,14 +1493,15 @@ B = np.empty_like(x)
 d1, d2, d3 = x.shape
 for i in range(d1):
     for j in range(d2):
-      for n in range(d3):
-          B[i, j, n] = x[i, j, n] / y[n]
+        for k in range(d3):
+            B[i, j, k] = x[i, j, k] / y[k]
 qe.toc()
 ```
 
-Note that the `for` loop solution takes about 250 times longer than broadcasting operation on this machine.
+Note that the `for` loop takes about 80 
+times longer than broadcasting operation on this machine.
 
-Compare your answer with the broadcast operation
+Compare your answer with the output of broadcasting
 
 ```{code-cell} python3
 ---
