@@ -1458,6 +1458,7 @@ import quantecon as qe
 np.random.seed(123)
 x = np.random.randn(1000, 100, 100)
 y = np.random.randn(100)
+
 qe.tic()
 A = x / y
 qe.toc()
@@ -1499,7 +1500,7 @@ qe.toc()
 ```
 
 Note that the `for` loop takes about 80 
-times longer than broadcasting operation on this machine.
+times longer than the broadcasting operation on this machine.
 
 Compare your answer with the output of broadcasting
 
