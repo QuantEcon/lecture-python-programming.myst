@@ -766,10 +766,10 @@ Here's what happens
 ```
 
 ```{note}
-Global `x` and local `x` have the reference to the same `[1]`
+The global `x` and the local `x` refer to the same `[1]`
 ```
 
-We can observe this by printing the identity of local `x` and global `x` are the same
+We can see the identities of the local `x` and the global `x` are the same
 
 ```{code-cell} python3
 def f(x):
@@ -789,15 +789,17 @@ print(f(x), x)
 ```{figure} /_static/lecture_specific/oop_intro/mutable4.png
 :figclass: auto
 ```
-* The local namespace is deallocated, and local `x` is lost
+* The local namespace is deallocated, and the local `x` is lost
 
 ```{figure} /_static/lecture_specific/oop_intro/mutable5.png
 :figclass: auto
 ```
-* Note that global `x` has also been modified
+* Note that the global `x` has also been modified
 
 
-If you do not want both `x` and `y` to reference the same mutable object, you can create [*copies*](https://docs.python.org/3/library/copy.html) of `x` and assign it to `y`. 
+If you want to modify the local `x` and the global `x` separately, you can create a [*copy*](https://docs.python.org/3/library/copy.html) of `x`. 
+
+We will leave this for you to explore.
 
 
 ## Summary
