@@ -486,3 +486,110 @@ on the number of CPUs on your machine.)
 
 ```{solution-end}
 ```
+
+
+```{exercise}
+:label: parallel_ex2
+
+In {doc}`our lecture on SciPy<scipy>`, we discussed pricing a call option in a
+setting where the underlying stock price had a simple and well-known
+distribution.
+
+Here we discuss a more realistic setting.
+
+We recall that the price of the option obeys 
+
+$$ P = \beta^n \mathbb E \max\{ S_n - K, 0 \} $$
+
+where
+
+1. $\beta$ is a discount factor,
+2. $n$ is the expiry date,
+2. $K$ is the strike price and
+3. $\{S_t\}$ is the price of the underlying asset at each time $t$.
+
+Suppose that `n, β, K = 20, 0.99, 100`.
+
+Assume that the stock price obeys 
+
+$$ \ln \frac{S_{t+1}}{S_t} = \mu + \sigma_t \xi_{t+1} $$
+
+where 
+
+$$ 
+    \sigma_t = \exp(h_t), 
+    \quad
+        h_{t+1} = \rho h_t + \nu \eta_{t+1}
+$$
+
+Here $\{\xi_t\}$ and $\{\eta_t\}$ are IID and standard normal.
+
+(This is a **stochastic volatility** model, where the volatility $\sigma_t$
+varies over time.)
+
+Use the defaults `μ, ρ, ν, S0, h0 = 0.0001, 0.1, 0.001, 10, 0`.
+
+(Here `S0` is $S_0$ and `h0` is $h_0$.)
+
+By generating $M$ paths $s_0, \ldots, s_n$, compute the Monte Carlo estimate 
+
+$$
+    \hat P_M 
+    := \beta^n \mathbb E \max\{ S_n - K, 0 \} 
+    \approx
+    \frac{1}{M} \sum_{m=1}^M \max \{S_n^m - K, 0 \}
+    $$
+    
+
+of the price, applying Numba and parallelization.
+
+```
+
+
+```{solution-start} parallel_ex2
+:class: dropdown
+```
+
+
+With $s_t := \ln S_t$, the price dynamics become
+
+$$ s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1} $$
+
+Using this fact, the solution can be written as follows.
+
+
+```{code-cell} ipython3
+from numpy.random import randn
+M = 10_000_000
+
+@njit(parallel=True)
+def compute_call_price_parallel(β=β,
+                                μ=μ,
+                                S0=S0,
+                                h0=h0,
+                                K=K,
+                                n=n,
+                                ρ=ρ,
+                                ν=ν,
+                                M=M):
+    current_sum = 0.0
+    # For each sample path
+    for m in prange(M):
+        s = np.log(S0)
+        h = h0
+        # Simulate forward in time
+        for t in range(n):
+            s = s + μ + np.exp(h) * randn()
+            h = ρ * h + ν * randn()
+        # And add the value max{S_n - K, 0} to current_sum
+        current_sum += np.maximum(np.exp(s) - K, 0)
+        
+    return β**n * current_sum / M
+```
+
+Try swapping between `parallel=True` and `parallel=False` and noting the run time.
+
+If you are on a machine with many CPUs, the difference should be significant.
+
+```{solution-end}
+```

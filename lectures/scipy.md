@@ -440,6 +440,125 @@ We leave you to investigate the [set of available routines](http://docs.scipy.or
 
 ## Exercises
 
+The first few execises concern pricing a European call option under the
+assumption of risk neutrality.  The price satisfies
+
+$$ P = \beta^n \mathbb E \max\{ S_n - K, 0 \} $$
+
+where
+
+1. $\beta$ is a discount factor,
+2. $n$ is the expiry date,
+2. $K$ is the strike price and
+3. $\{S_t\}$ is the price of the underlying asset at each time $t$.
+
+For example, if the call option is to buy stock in Amazon at strike price $K$, the owner has the right (but not the obligation) to buy 1 share in Amazon at price $K$ after $n$ days.  
+
+The payoff is therefore $\max\{S_n - K, 0\}$
+
+The price is the expectation of the payoff, discounted to current value.
+
+
+```{exercise}
+:label: sp_ex01
+
+Suppose that $S_n$ has the [log-normal](https://en.wikipedia.org/wiki/Log-normal_distribution) distribution with parameters $\mu$ and $\sigma$.  Let $f$ denote the density of this distribution.  Then
+
+$$ P = \beta^n \int_0^\infty \max\{x - K, 0\} f(x) dx $$
+
+Plot the function 
+
+$$g(x) = \beta^n  \max\{x - K, 0\} f(x)$$ 
+
+over the interval $[0, 400]$ when `μ, σ, β, n, K = 4, 0.25, 0.99, 10, 40`.
+
+Hint: From `scipy.stats` you can import `lognorm` and then use `lognorm(x, σ, scale=np.exp(μ)` to get the density $f$.
+```
+
+```{solution-start} sp_ex01
+:class: dropdown
+```
+
+Here's one possible solution
+
+```{code-cell} ipython3
+from scipy.integrate import quad
+from scipy.stats import lognorm
+
+def g(x):
+    return β**n * np.maximum(x - K, 0) * lognorm.pdf(x, σ, scale=np.exp(μ))
+
+x_grid = np.linspace(0, 400, 1000)
+y_grid = g(x_grid) 
+
+fig, ax = plt.subplots()
+ax.plot(x_grid, y_grid, label="$g$")
+ax.legend()
+plt.show()
+```
+
+```{solution-end}
+```
+
+```{exercise}
+:label: sp_ex02
+
+In order to get the option price, compute the integral of this function numerically using `quad` from `scipy.optimize`.
+
+```
+
+```{solution-start} sp_ex02
+:class: dropdown
+```
+
+The integral and hence the price is
+
+```{code-cell} ipython3
+P, error = quad(g, 0, 1_000)
+print(f"The numerical integration based option price is {P:3f}")
+```
+
+```{solution-end}
+```
+
+```{exercise}
+:label: sp_ex03
+
+Try to get a similar result using Monte Carlo to compute the expectation term in the option price, rather than `quad`.
+
+In particular, use the fact that if $S_n^1, \ldots, S_n^M$ are independent
+draws from the lognormal distribution specified above, then, by the law of
+large numbers,
+
+$$ \mathbb E \max\{ S_n - K, 0 \} 
+    \approx
+    \frac{1}{M} \sum_{m=1}^M \max \{S_n^m - K, 0 \}
+    $$
+    
+Set `M = 10_000_000`
+
+```
+
+```{solution-start} sp_ex03
+:class: dropdown
+```
+
+Here is one solution:
+
+```{code-cell} ipython3
+M = 10_000_000
+S = np.exp(μ + σ * np.random.randn(M))
+return_draws = np.maximum(S - K, 0)
+P = β**n * np.mean(return_draws) 
+print(f"The Monte Carlo option price is {P:3f}")
+```
+
+
+```{solution-end}
+```
+
+
+
 ```{exercise}
 :label: sp_ex1
 
