@@ -485,6 +485,8 @@ Here's one possible solution
 from scipy.integrate import quad
 from scipy.stats import lognorm
 
+μ, σ, β, n, K = 4, 0.25, 0.99, 10, 40
+
 def g(x):
     return β**n * np.maximum(x - K, 0) * lognorm.pdf(x, σ, scale=np.exp(μ))
 

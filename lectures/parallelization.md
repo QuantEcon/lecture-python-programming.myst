@@ -538,7 +538,7 @@ $$
     := \beta^n \mathbb E \max\{ S_n - K, 0 \} 
     \approx
     \frac{1}{M} \sum_{m=1}^M \max \{S_n^m - K, 0 \}
-    $$
+$$
     
 
 of the price, applying Numba and parallelization.
@@ -561,6 +561,9 @@ Using this fact, the solution can be written as follows.
 ```{code-cell} ipython3
 from numpy.random import randn
 M = 10_000_000
+
+n, β, K = 20, 0.99, 100
+μ, ρ, ν, S0, h0 = 0.0001, 0.1, 0.001, 10, 0
 
 @njit(parallel=True)
 def compute_call_price_parallel(β=β,
