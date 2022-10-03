@@ -440,7 +440,7 @@ We leave you to investigate the [set of available routines](http://docs.scipy.or
 
 ## Exercises
 
-The first few execises concern pricing a European call option under the
+The first few exercises concern pricing a European call option under the
 assumption of risk neutrality.  The price satisfies
 
 $$
