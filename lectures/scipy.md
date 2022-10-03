@@ -471,7 +471,9 @@ $$ P = \beta^n \int_0^\infty \max\{x - K, 0\} f(x) dx $$
 
 Plot the function 
 
-$$g(x) = \beta^n  \max\{x - K, 0\} f(x)$$ 
+$$
+g(x) = \beta^n  \max\{x - K, 0\} f(x)
+$$ 
 
 over the interval $[0, 400]$ when `μ, σ, β, n, K = 4, 0.25, 0.99, 10, 40`.
 
