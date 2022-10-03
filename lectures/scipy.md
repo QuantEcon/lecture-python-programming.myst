@@ -467,7 +467,9 @@ The price is the expectation of the payoff, discounted to current value.
 
 Suppose that $S_n$ has the [log-normal](https://en.wikipedia.org/wiki/Log-normal_distribution) distribution with parameters $\mu$ and $\sigma$.  Let $f$ denote the density of this distribution.  Then
 
-$$ P = \beta^n \int_0^\infty \max\{x - K, 0\} f(x) dx $$
+$$
+P = \beta^n \int_0^\infty \max\{x - K, 0\} f(x) dx
+$$
 
 Plot the function 
 
