@@ -18,9 +18,12 @@ parts:
   - file: numpy
   - file: matplotlib
   - file: scipy
+  - file: pandas
+- caption: High Performance Computing
+  numbered: true
+  chapters:
   - file: numba
   - file: parallelization
-  - file: pandas
 - caption: Advanced Python Programming
   numbered: true
   chapters:
