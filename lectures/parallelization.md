@@ -553,7 +553,9 @@ of the price, applying Numba and parallelization.
 
 With $s_t := \ln S_t$, the price dynamics become
 
-$$ s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1} $$
+$$
+s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1}
+$$
 
 Using this fact, the solution can be written as follows.
 
