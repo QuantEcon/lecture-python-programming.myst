@@ -512,7 +512,9 @@ Suppose that `n, β, K = 20, 0.99, 100`.
 
 Assume that the stock price obeys 
 
-$$ \ln \frac{S_{t+1}}{S_t} = \mu + \sigma_t \xi_{t+1} $$
+$$ 
+\ln \frac{S_{t+1}}{S_t} = \mu + \sigma_t \xi_{t+1}
+$$
 
 where 
 
