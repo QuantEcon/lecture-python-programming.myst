@@ -443,7 +443,9 @@ We leave you to investigate the [set of available routines](http://docs.scipy.or
 The first few execises concern pricing a European call option under the
 assumption of risk neutrality.  The price satisfies
 
-$$ P = \beta^n \mathbb E \max\{ S_n - K, 0 \} $$
+$$
+P = \beta^n \mathbb E \max\{ S_n - K, 0 \}
+$$
 
 where
 
