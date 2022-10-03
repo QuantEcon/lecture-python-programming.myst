@@ -520,11 +520,9 @@ In order to get the option price, compute the integral of this function numerica
 :class: dropdown
 ```
 
-The integral and hence the price is
-
 ```{code-cell} ipython3
 P, error = quad(g, 0, 1_000)
-print(f"The numerical integration based option price is {P:3f}")
+print(f"The numerical integration based option price is {P:.3f}")
 ```
 
 ```{solution-end}
@@ -573,7 +571,7 @@ print(f"The Monte Carlo option price is {P:3f}")
 
 In {ref}`this lecture <functions>`, we discussed the concept of {ref}`recursive function calls <recursive_functions>`.
 
-Try to write a recursive implementation of homemade bisection function {ref}`described above <bisect_func>`.
+Try to write a recursive implementation of the homemade bisection function {ref}`described above <bisect_func>`.
 
 Test it on the function {eq}`root_f`.
 ```
