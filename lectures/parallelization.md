@@ -499,7 +499,9 @@ Here we discuss a more realistic setting.
 
 We recall that the price of the option obeys 
 
-$$ P = \beta^n \mathbb E \max\{ S_n - K, 0 \} $$
+$$
+P = \beta^n \mathbb E \max\{ S_n - K, 0 \}
+$$
 
 where
 
