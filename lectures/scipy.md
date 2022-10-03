@@ -459,8 +459,9 @@ The payoff is therefore $\max\{S_n - K, 0\}$
 The price is the expectation of the payoff, discounted to current value.
 
 
-```{exercise}
+```{exercise-start}
 :label: sp_ex01
+```
 
 Suppose that $S_n$ has the [log-normal](https://en.wikipedia.org/wiki/Log-normal_distribution) distribution with parameters $\mu$ and $\sigma$.  Let $f$ denote the density of this distribution.  Then
 
@@ -472,7 +473,13 @@ $$g(x) = \beta^n  \max\{x - K, 0\} f(x)$$
 
 over the interval $[0, 400]$ when `μ, σ, β, n, K = 4, 0.25, 0.99, 10, 40`.
 
-Hint: From `scipy.stats` you can import `lognorm` and then use `lognorm(x, σ, scale=np.exp(μ)` to get the density $f$.
+```{hint}
+:class: dropdown
+
+From `scipy.stats` you can import `lognorm` and then use `lognorm(x, σ, scale=np.exp(μ)` to get the density $f$.
+```
+
+```{exercise-end}
 ```
 
 ```{solution-start} sp_ex01
