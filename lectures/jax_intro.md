@@ -201,8 +201,8 @@ a
 
 ```{code-cell} ipython3
 a = jnp.array((2, 1))
-a.sort()
-a
+a_new = a.sort()
+a, a_new
 ```
 
 The designers of JAX chose to make arrays immutable because JAX uses a functional programming style.  More on this below.  
