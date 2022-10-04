@@ -38,6 +38,10 @@ jobs:
           python-version: 3.9
           environment-file: environment.yml
           activate-environment: quantecon
+      - name: Install Jax
+        run: |
+          pip install --upgrade pip
+          pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_releases.html
       - name: Install latex dependencies
         run: |
           sudo apt-get -qq update
