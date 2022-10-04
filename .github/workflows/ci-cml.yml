@@ -16,7 +16,7 @@ jobs:
         run: |
           cml runner launch \
               --cloud=aws \
-              --cloud-region=us-west \
+              --cloud-region=us-west-2 \
               --cloud-type=p2.xlarge \
               --labels=cml-gpu
   preview:
