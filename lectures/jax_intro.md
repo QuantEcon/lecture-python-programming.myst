@@ -187,6 +187,7 @@ a
 ```
 
 ```{code-cell} ipython3
+:tags: [raises-exception]
 a[0] = 1
 ```
 
