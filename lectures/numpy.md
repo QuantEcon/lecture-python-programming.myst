@@ -1450,7 +1450,7 @@ Recall that [broadcasting](broadcasting) in Numpy can help us conduct element-wi
 
 In this exercise, try to use a `for` loop to replicate the result of the following broadcasting operations.
 
-**Part1**: Try to replicate this simple example first and compare your results with the boardcasting operation.
+**Part1**: Try to replicate this simple example first and compare your results with the broadcasting operation.
 
 ```{code-cell} python3
 
