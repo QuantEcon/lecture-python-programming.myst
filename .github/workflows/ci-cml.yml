@@ -62,7 +62,7 @@ jobs:
           branch: main
           name: build-cache
           path: _build
-      Build Assets (Download Notebooks and PDF via LaTeX)
+      # Build Assets (Download Notebooks and PDF via LaTeX)
       - name: Build Download Notebooks (sphinx-tojupyter)
         shell: bash -l {0}
         run: |
