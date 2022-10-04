@@ -552,6 +552,11 @@ significantly faster exection.
 Here is one solution:
 
 ```{code-cell} ipython3
+M = 10_000_000
+
+n, β, K = 20, 0.99, 100
+μ, ρ, ν, S0, h0 = 0.0001, 0.1, 0.001, 10, 0
+
 @jax.jit
 def compute_call_price_jax(β=β,
                            μ=μ,
