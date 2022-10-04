@@ -1448,20 +1448,16 @@ F.plot(ax)
 
 Recall that [broadcasting](broadcasting) in Numpy can help us conduct element-wise operations on arrays with different number of dimensions without using `for` loops.
 
-In this exercise, try to use a `for` loop to replicate the result of the following code.
+In this exercise, try to use a `for` loop to replicate the result of the following broadcasting operations.
 
-Meanwhile, compare the speeds of broadcasting and the `for` loop you implement.
+**Part1**: Try to replicate this simple example first and compare your results with the boardcasting operation.
 
 ```{code-cell} python3
-import quantecon as qe
 
 np.random.seed(123)
-x = np.random.randn(1000, 100, 100)
-y = np.random.randn(100)
-
-qe.tic()
+x = np.random.randn(4, 4)
+y = np.random.randn(4)
 A = x / y
-qe.toc()
 ```
 
 Here is the output
@@ -1473,6 +1469,29 @@ tags: [hide-output]
 print(A)
 ```
 
+**Part2**: Move on to replicate the result of the following broadcasting operation. Meanwhile, compare the speeds of broadcasting and the `for` loop you implement.
+
+```{code-cell} python3
+import quantecon as qe
+
+np.random.seed(123)
+x = np.random.randn(1000, 100, 100)
+y = np.random.randn(100)
+
+qe.tic()
+B = x / y
+qe.toc()
+```
+
+Here is the output
+
+```{code-cell} python3
+---
+tags: [hide-output]
+---
+print(B)
+```
+
 ```{exercise-end}
 ```
 
@@ -1481,7 +1500,37 @@ print(A)
 :class: dropdown
 ```
 
-Here is one solution
+**Part 1 Solution**
+
+```{code-cell} python3
+np.random.seed(123)
+x = np.random.randn(4, 4)
+y = np.random.randn(4)
+
+C = np.empty_like(x)
+n = len(x)
+for i in range(n):
+    for j in range(n):
+        C[i, j] = x[i, j] / y[j]
+```
+
+Compare the results to check your answer
+
+```{code-cell} python3
+---
+tags: [hide-output]
+---
+print(C)
+```
+
+You can also use `array_equal()` to check your answer
+
+```{code-cell} python3
+print(np.array_equal(A, C))
+```
+
+
+**Part 2 Solution**
 
 ```{code-cell} python3
 
@@ -1490,12 +1539,12 @@ x = np.random.randn(1000, 100, 100)
 y = np.random.randn(100)
 
 qe.tic()
-B = np.empty_like(x)
+D = np.empty_like(x)
 d1, d2, d3 = x.shape
 for i in range(d1):
     for j in range(d2):
         for k in range(d3):
-            B[i, j, k] = x[i, j, k] / y[k]
+            D[i, j, k] = x[i, j, k] / y[k]
 qe.toc()
 ```
 
@@ -1507,13 +1556,11 @@ Compare the results to check your answer
 ---
 tags: [hide-output]
 ---
-print(B)
+print(D)
 ```
 
-You can also use `array_equal()` to check your answer
-
 ```{code-cell} python3
-print(np.array_equal(A, B))
+print(np.array_equal(B, D))
 ```
 
 ```{solution-end}
