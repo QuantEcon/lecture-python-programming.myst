@@ -55,13 +55,13 @@ jobs:
       - name: Display Pip Versions
         shell: bash -l {0}
         run: pip list
-      - name: Download "build" folder (cache)
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          workflow: cache.yml
-          branch: main
-          name: build-cache
-          path: _build
+      # - name: Download "build" folder (cache)
+      #   uses: dawidd6/action-download-artifact@v2
+      #   with:
+      #     workflow: cache.yml
+      #     branch: main
+      #     name: build-cache
+      #     path: _build
       # Build Assets (Download Notebooks and PDF via LaTeX)
       - name: Build Download Notebooks (sphinx-tojupyter)
         shell: bash -l {0}
@@ -80,6 +80,12 @@ jobs:
         shell: bash -l {0}
         run: |
           jb build lectures --path-output ./ -n -W --keep-going
+      - name: Upload Execution Reports
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: execution-reports
+          path: _build/html/reports
       - name: Preview Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
         with:
