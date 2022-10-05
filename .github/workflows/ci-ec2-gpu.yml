@@ -37,12 +37,6 @@ jobs:
           python-version: 3.9
           environment-file: environment.yml
           activate-environment: quantecon
-      - name: Install nvidia drivers
-        shell: bash -l {0}
-        run: |
-          sudo add-apt-repository ppa:graphics-drivers/ppa --yes
-          sudo apt update
-          sudo apt install nvidia-driver-470
       - name: Install Jax
         shell: bash -l {0}
         run: |
