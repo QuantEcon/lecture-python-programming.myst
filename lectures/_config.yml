@@ -5,7 +5,7 @@ description: This website presents a set of lectures on python programming for e
 
 execute:
   execute_notebooks: "cache"
-  timeout: 240
+  timeout: 600 # 10 minutes
 #   run_in_temp: true
 
 html:
