@@ -78,6 +78,10 @@ The following import is standard, replacing `import numpy as np`:
 ```{code-cell} ipython3
 import jax
 import jax.numpy as jnp
+print(jax.default_backend())
+```
+```{code-cell} ipython3
+!nvidia-smi
 ```
 
 Now we can use `jnp` in place of `np` for the usual array operations:
@@ -325,7 +329,7 @@ x = jnp.ones(n)
 How long does the function take to execute?
 
 ```{code-cell} ipython3
-%time f(x).block_until_ready()
+# %time f(x).block_until_ready()
 ```
 
 This code is not particularly fast.  
@@ -347,7 +351,7 @@ f_jit(x)
 And now let's time it.
 
 ```{code-cell} ipython3
-%time f_jit(x).block_until_ready()
+#%time f_jit(x).block_until_ready()
 ```
 
 ## Functional Programming
@@ -590,8 +594,8 @@ compute_call_price_jax()
 And now let's time it:
 
 ```{code-cell} ipython3
-%%time 
-compute_call_price_jax().block_until_ready()
+#%%time 
+#compute_call_price_jax().block_until_ready()
 ```
 
 
