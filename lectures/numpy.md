@@ -1448,9 +1448,9 @@ F.plot(ax)
 
 Recall that [broadcasting](broadcasting) in Numpy can help us conduct element-wise operations on arrays with different number of dimensions without using `for` loops.
 
-In this exercise, try to use a `for` loop to replicate the result of the following broadcasting operations.
+In this exercise, try to use `for` loops to replicate the result of the following broadcasting operations.
 
-**Part1**: Try to replicate this simple example first and compare your results with the broadcasting operation.
+**Part1**: Try to replicate this simple example using `for` loops and compare your results with the broadcasting operation below.
 
 ```{code-cell} python3
 
