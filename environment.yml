@@ -14,13 +14,12 @@ dependencies:
     - ghp-import==1.1.0
     - sphinxcontrib-youtube==1.1.0
     - sphinx-togglebutton==0.3.1
-    - jax[cuda]
-    - jaxlib
-    # Sandpit Requirements
     - quantecon
     - array-to-latex
-    - PuLP
-    - cvxpy
-    - cvxopt
-    - cylp
     - prettytable
+    # Sandpit Requirements
+    # - PuLP
+    # - cvxpy
+    # - cvxopt
+    # - cylp
+

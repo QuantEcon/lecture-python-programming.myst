@@ -38,6 +38,10 @@ jobs:
           python-version: 3.9
           environment-file: environment.yml
           activate-environment: quantecon
+      - name: Install Jax
+        shell: bash -l {0}
+        run: |
+          pip install jax jaxlib
       - name: Install latex dependencies
         run: |
           sudo apt-get -qq update
