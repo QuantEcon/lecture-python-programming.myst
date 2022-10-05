@@ -41,7 +41,7 @@ jobs:
       - name: Install Jax
         shell: bash -l {0}
         run: |
-          conda install -c conda-forge jax jaxlib
+          pip install jax jaxlib
       - name: Install latex dependencies
         run: |
           sudo apt-get -qq update
