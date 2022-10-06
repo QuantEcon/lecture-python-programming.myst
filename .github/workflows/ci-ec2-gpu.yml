@@ -24,7 +24,7 @@ jobs:
     needs: deploy-runner
     runs-on: [self-hosted, cml-gpu]
     container:
-      image: nvidia/cuda:10.2-devel-ubuntu18.04
+      image: nvidia/cuda:11.8.0-devel-ubuntu22.04
       options: --gpus all
     steps:
       - uses: actions/checkout@v3
@@ -42,8 +42,8 @@ jobs:
       - name: Install Jax and Upgrade CUDA
         shell: bash -l {0}
         run: |
-          conda install cuda cudatoolkit -c nvidia
-          whereis libcuda.so.1
+          # conda install cuda cudatoolkit -c nvidia
+          # whereis libcuda.so.1
           pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
       # - name: Install latex dependencies
       #   run: |
