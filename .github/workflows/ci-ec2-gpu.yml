@@ -42,8 +42,8 @@ jobs:
           activate-environment: quantecon
       - name: Install Jax and Upgrade CUDA
         shell: bash -l {0}
-        # conda install -c "nvidia/label/cuda-11.8.0" cuda cuda-toolkit
         run: |
+          conda install -c nvidia cuda cuda-toolkit
           pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
           nvidia-smi
       # - name: Install latex dependencies
