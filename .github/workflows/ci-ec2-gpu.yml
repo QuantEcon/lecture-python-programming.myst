@@ -24,6 +24,7 @@ jobs:
     runs-on: [self-hosted, cml-gpu]
     container:
       image: nvidia/cuda:10.2-devel-ubuntu18.04
+      options: --gpus all
     steps:
       - uses: actions/checkout@v3
         with:
@@ -42,6 +43,8 @@ jobs:
         run: |
           pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
           conda install cudatoolkit
+          whereis libcuda.so.1
+          locate libcuda.so.1
       # - name: Install latex dependencies
       #   run: |
       #     sudo apt-get -qq update
