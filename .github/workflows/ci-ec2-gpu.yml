@@ -38,11 +38,11 @@ jobs:
           python-version: 3.9
           environment-file: environment.yml
           activate-environment: quantecon
-      - name: Install Jax
+      - name: Install Jax and Upgrade CUDA
         shell: bash -l {0}
         run: |
           pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-          conda install cudatoolkit
+          conda install cuda cudatoolkit -c nvidia
           whereis libcuda.so.1
       # - name: Install latex dependencies
       #   run: |
