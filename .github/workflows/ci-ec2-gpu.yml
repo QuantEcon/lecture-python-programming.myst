@@ -41,9 +41,9 @@ jobs:
       - name: Install Jax and Upgrade CUDA
         shell: bash -l {0}
         run: |
-          pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
           conda install cuda cudatoolkit -c nvidia
           whereis libcuda.so.1
+          pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
       # - name: Install latex dependencies
       #   run: |
       #     sudo apt-get -qq update
