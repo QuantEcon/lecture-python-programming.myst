@@ -41,17 +41,17 @@ jobs:
         shell: bash -l {0}
         run: |
           pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-      - name: Install latex dependencies
-        run: |
-          sudo apt-get -qq update
-          sudo apt-get install -y     \
-            texlive-latex-recommended \
-            texlive-latex-extra       \
-            texlive-fonts-recommended \
-            texlive-fonts-extra       \
-            texlive-xetex             \
-            latexmk                   \
-            xindy
+      # - name: Install latex dependencies
+      #   run: |
+      #     sudo apt-get -qq update
+      #     sudo apt-get install -y     \
+      #       texlive-latex-recommended \
+      #       texlive-latex-extra       \
+      #       texlive-fonts-recommended \
+      #       texlive-fonts-extra       \
+      #       texlive-xetex             \
+      #       latexmk                   \
+      #       xindy
       - name: Display Conda Environment Versions
         shell: bash -l {0}
         run: conda list
