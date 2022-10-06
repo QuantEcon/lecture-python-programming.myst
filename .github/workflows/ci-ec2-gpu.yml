@@ -25,7 +25,7 @@ jobs:
     runs-on: [self-hosted, cml-gpu]
     container:
       image: nvidia/cuda:11.8.0-devel-ubuntu22.04
-      options: --gpus all --runtime nvidia
+      options: --gpus all
     steps:
       - uses: actions/checkout@v3
         with:
@@ -43,8 +43,6 @@ jobs:
         shell: bash -l {0}
         # conda install -c "nvidia/label/cuda-11.8.0" cuda cuda-toolkit
         run: |
-          nvcc --version
-          nvidia-smi
           pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
           nvidia-smi
       # - name: Install latex dependencies
@@ -88,6 +86,7 @@ jobs:
       - name: Build HTML
         shell: bash -l {0}
         run: |
+          nvidia-smi
           jb build lectures --path-output ./ -n -W --keep-going
       - name: Upload Execution Reports
         uses: actions/upload-artifact@v2
