@@ -41,6 +41,7 @@ jobs:
         shell: bash -l {0}
         run: |
           pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+          conda install cudatoolkit
       # - name: Install latex dependencies
       #   run: |
       #     sudo apt-get -qq update
