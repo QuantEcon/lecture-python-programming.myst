@@ -22,7 +22,7 @@ jobs:
   #             --cloud-hdd-size=40
   preview:
     # needs: deploy-runner
-    runs-on: [self-hosted, local, runner]  # cml-gpu
+    runs-on: self-hosted  # [self-hosted, cml-gpu]
     # container:
     #   # nvidia/cuda:11.8.0-devel-ubuntu22.04
     #   image: docker://iterativeai/cml:0-dvc2-base1-gpu
@@ -31,21 +31,21 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-      - name: Setup Anaconda
-        uses: conda-incubator/setup-miniconda@v2
-        with:
-          auto-update-conda: true
-          auto-activate-base: true
-          miniconda-version: 'latest'
-          python-version: 3.9
-          environment-file: environment.yml
-          activate-environment: quantecon
-      - name: Install Jax and Upgrade CUDA
-        shell: bash -l {0}
-        run: |
-          conda install -c nvidia cuda cuda-toolkit
-          pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-          nvidia-smi
+      # - name: Setup Anaconda
+      #   uses: conda-incubator/setup-miniconda@v2
+      #   with:
+      #     auto-update-conda: true
+      #     auto-activate-base: true
+      #     miniconda-version: 'latest'
+      #     python-version: 3.9
+      #     environment-file: environment.yml
+      #     activate-environment: quantecon
+      # - name: Install Jax and Upgrade CUDA
+      #   shell: bash -l {0}
+      #   run: |
+      #     # conda install -c nvidia cuda cuda-toolkit
+      #     pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+      #     nvidia-smi
       # - name: Install latex dependencies
       #   run: |
       #     sudo apt-get -qq update
@@ -57,6 +57,9 @@ jobs:
       #       texlive-xetex             \
       #       latexmk                   \
       #       xindy
+      - name: Checkout Local QuantEcon Environment
+        shell: bash -l {0}
+        run: conda checkout quantecon
       - name: Display Conda Environment Versions
         shell: bash -l {0}
         run: conda list
