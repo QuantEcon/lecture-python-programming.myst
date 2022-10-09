@@ -1,32 +1,32 @@
 name: Build Project [using jupyter-book]
 on: [push]
 jobs:
-  deploy-runner:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: iterative/setup-cml@v1
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-      - name: Deploy runner on EC2
-        env:
-          REPO_TOKEN: ${{ secrets.QUANTECON_SERVICES_PAT }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: |
-          cml runner launch \
-              --cloud=aws \
-              --cloud-region=us-west-2 \
-              --cloud-type=p2.xlarge \
-              --labels=cml-gpu \
-              --cloud-hdd-size=40
+  # deploy-runner:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: iterative/setup-cml@v1
+  #     - uses: actions/checkout@v3
+  #       with:
+  #         ref: ${{ github.event.pull_request.head.sha }}
+  #     - name: Deploy runner on EC2
+  #       env:
+  #         REPO_TOKEN: ${{ secrets.QUANTECON_SERVICES_PAT }}
+  #         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  #       run: |
+  #         cml runner launch \
+  #             --cloud=aws \
+  #             --cloud-region=us-west-2 \
+  #             --cloud-type=p2.xlarge \
+  #             --labels=cml-gpu \
+  #             --cloud-hdd-size=40
   preview:
-    needs: deploy-runner
-    runs-on: [self-hosted, cml-gpu]
-    container:
-      # nvidia/cuda:11.8.0-devel-ubuntu22.04
-      image: docker://iterativeai/cml:0-dvc2-base1-gpu
-      options: --gpus all
+    # needs: deploy-runner
+    runs-on: [self-hosted, local, runner]  # cml-gpu
+    # container:
+    #   # nvidia/cuda:11.8.0-devel-ubuntu22.04
+    #   image: docker://iterativeai/cml:0-dvc2-base1-gpu
+    #   options: --gpus all
     steps:
       - uses: actions/checkout@v3
         with:
