@@ -122,11 +122,11 @@ The term `Device` refers to the hardware accelerator (GPU or TPU), although JAX 
 
 (In the terminology of GPUs, the "host" is the machine that launches GPU operations, while the "device" is the GPU itself.)
 
-Note that `DeviceArray` is a future, which allows Python to continue execution when the results of computation are not available immediately. 
+Note that `DeviceArray` is a *future*; it allows Python to continue execution when the results of computation are not available immediately.
 
-It enables Python to dispatch more jobs before the computation results are returned by the device.
+So, Python can dispatch more jobs without waiting for the computation results to be returned by the device.
 
-This feature is called *asynchronous dispatch* which hides Python overheads and reduces wait time.
+This feature is called *asynchronous dispatch*, which hides Python overheads and reduces wait time.
 
 Operations on higher dimensional arrays is also similar to NumPy:
 
@@ -331,7 +331,7 @@ How long does the function take to execute?
 
 With asynchronous dispatch, the `%time` magic is only evaluating the time to dispatch works on Python without taking into account the computation time.
 
-Here, the `block_until_ready()` method prevents asynchronous dispatch by asking Python to wait until the computation results are ready
+Here, to measure the actual speed, the `block_until_ready()` method prevents asynchronous dispatch by asking Python to wait until the computation results are ready.
 
 ```{code-cell} ipython3
 %time f(x).block_until_ready()
