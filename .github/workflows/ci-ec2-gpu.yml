@@ -59,7 +59,7 @@ jobs:
       #       xindy
       - name: Checkout Local QuantEcon Environment
         shell: bash -l {0}
-        run: conda checkout quantecon
+        run: conda activate quantecon
       - name: Display Conda Environment Versions
         shell: bash -l {0}
         run: conda list
