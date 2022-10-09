@@ -46,43 +46,43 @@ jobs:
           # conda install -c nvidia cuda cuda-toolkit
           pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
           nvidia-smi
-      # - name: Install latex dependencies
-      #   run: |
-      #     sudo apt-get -qq update
-      #     sudo apt-get install -y     \
-      #       texlive-latex-recommended \
-      #       texlive-latex-extra       \
-      #       texlive-fonts-recommended \
-      #       texlive-fonts-extra       \
-      #       texlive-xetex             \
-      #       latexmk                   \
-      #       xindy
+      - name: Install latex dependencies
+        run: |
+          sudo apt-get -qq update
+          sudo apt-get install -y     \
+            texlive-latex-recommended \
+            texlive-latex-extra       \
+            texlive-fonts-recommended \
+            texlive-fonts-extra       \
+            texlive-xetex             \
+            latexmk                   \
+            xindy
       - name: Display Conda Environment Versions
         shell: bash -l {0}
         run: conda list
       - name: Display Pip Versions
         shell: bash -l {0}
         run: pip list
-      # - name: Download "build" folder (cache)
-      #   uses: dawidd6/action-download-artifact@v2
-      #   with:
-      #     workflow: cache.yml
-      #     branch: main
-      #     name: build-cache
-      #     path: _build
+      - name: Download "build" folder (cache)
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: cache.yml
+          branch: main
+          name: build-cache
+          path: _build
       # Build Assets (Download Notebooks and PDF via LaTeX)
-      # - name: Build Download Notebooks (sphinx-tojupyter)
-      #   shell: bash -l {0}
-      #   run: |
-      #     jb build lectures --path-output ./ --builder=custom --custom-builder=jupyter -n -W --keep-going
-      #     mkdir -p _build/html/_notebooks
-      #     cp -u _build/jupyter/*.ipynb _build/html/_notebooks
-      # - name: Build PDF from LaTeX
-      #   shell: bash -l {0}
-      #   run: |
-      #     jb build lectures --builder pdflatex --path-output ./ -n -W --keep-going
-      #     mkdir _build/html/_pdf
-      #     cp -u _build/latex/*.pdf _build/html/_pdf
+      - name: Build Download Notebooks (sphinx-tojupyter)
+        shell: bash -l {0}
+        run: |
+          jb build lectures --path-output ./ --builder=custom --custom-builder=jupyter -n -W --keep-going
+          mkdir -p _build/html/_notebooks
+          cp -u _build/jupyter/*.ipynb _build/html/_notebooks
+      - name: Build PDF from LaTeX
+        shell: bash -l {0}
+        run: |
+          jb build lectures --builder pdflatex --path-output ./ -n -W --keep-going
+          mkdir _build/html/_pdf
+          cp -u _build/latex/*.pdf _build/html/_pdf
       # Final Build of HTML
       - name: Build HTML
         shell: bash -l {0}
