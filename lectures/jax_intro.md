@@ -68,7 +68,7 @@ If you do not have your own GPU, we recommend that you run this lecture on Colab
 ## JAX as a NumPy Replacement
 
 
-One way to use JAX is as a plug-in NumPy replacement.  Let's look at the similarities and differences.
+One way to use JAX is as a plug-in NumPy replacement. Let's look at the similarities and differences.
 
 ### Similarities
 
@@ -112,7 +112,7 @@ a
 type(a)
 ```
 
-Even scalar-valued maps on arrays are of type `DeviceArray`:
+Even scalar-valued maps on arrays return objects of type `DeviceArray`:
 
 ```{code-cell} ipython3
 jnp.sum(a)
@@ -122,6 +122,11 @@ The term `Device` refers to the hardware accelerator (GPU or TPU), although JAX 
 
 (In the terminology of GPUs, the "host" is the machine that launches GPU operations, while the "device" is the GPU itself.)
 
+Note that `DeviceArray` is a future, which allows Python to continue execution when the results of computation are not available immediately. 
+
+It enables Python to dispatch more jobs before the computation results are returned by the device.
+
+This feature is called *asynchronous dispatch* which hides Python overheads and reduces wait time.
 
 Operations on higher dimensional arrays is also similar to NumPy:
 
@@ -324,13 +329,17 @@ x = jnp.ones(n)
 
 How long does the function take to execute?
 
+With asynchronous dispatch, the `%time` magic is only evaluating the time to dispatch works on Python without taking into account the computation time.
+
+Here, the `block_until_ready()` method prevents asynchronous dispatch by asking Python to wait until the computation results are ready
+
 ```{code-cell} ipython3
 %time f(x).block_until_ready()
 ```
 
 This code is not particularly fast.  
 
-While it is run on the GPU (since `x` is a DeviceArray), each vector `k * x` has to be instantiated before the final sum is computed.
+While it is run on the GPU (since `x` is a `DeviceArray`), each vector `k * x` has to be instantiated before the final sum is computed.
 
 If we JIT-compile the function with JAX, then the operations are fused and no intermediate arrays are created.
 
