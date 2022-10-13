@@ -273,6 +273,43 @@ The first argument takes the condition, while the second argument takes a list o
 df.loc[(df.cc + df.cg >= 80) & (df.POP <= 20000), ['country', 'year', 'POP']]
 ```
 
+### Select Data using Filter
+
+Another powerful method is the `filter` method.
+
+We can filter DataFrame by items.
+
+The default is to choose specified columns of the DataFrame
+
+```{code-cell} python3
+df.filter(items = ['POP', 'XRAT'])
+```
+With `axis = 0`, we can choose specifed rows of the DataFrame
+
+```{code-cell} python3
+df.filter(items = [1, 3], axis = 0)
+```
+
+Sometimes we want to search columns and rows using only a subset of the index
+
+```{code-cell} python3
+df.filter(like = 'gdp')
+```
+
+This also applies to rows if row indices are strings.
+
+```{code-cell} python3
+df.filter(regex = 'XRAT|POP', axis = 1)
+```
+
+```{code-cell} python3
+df.filter(regex = 'ia$', axis = 0)
+```
+
+```{code-cell} python3
+df.filter(regex = '.*code', axis = 1)
+```
+
 
 **Application: Subsetting Dataframe**
 
@@ -413,7 +450,7 @@ We can use the `.applymap()` method again to replace all missing values with 0
 # replace all NaN values by 0
 def replace_nan(x):
     if type(x)!=str:
-        return  0 if np.isnan(x) else x
+        return 0 if np.isnan(x) else x
     else:
         return x
 
@@ -432,6 +469,33 @@ df
 Missing value imputation is a big area in data science involving various machine learning techniques.
 
 There are also more [advanced tools](https://scikit-learn.org/stable/modules/impute.html) in python to impute missing values.
+
+
+**5.** Since each column in Pandas DataFrame is a Series, we can use the `pandas.Series` method to modify a specific column.
+
+Note the variable `year` contains `float64` values which are not intuitive
+
+```{code-cell} python3
+df['year']
+```
+
+We can tranform it into integer using the `astype()` method
+
+```{code-cell} python3
+df['year'] = df['year'].astype(int)
+df
+```
+
+We can also format the country code to lower case using series methods
+
+```{code-cell} python3
+df['country isocode'] = df['country isocode'].str.lower()
+df
+```
+
+Series methods are very powerful when changing values based on attributes.
+
+The [documentation](https://pandas.pydata.org/docs/reference/api/pandas.Series.html) provides more useful series methods.
 
 ### Standardization and Visualization
 
