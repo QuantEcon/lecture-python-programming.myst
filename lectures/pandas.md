@@ -277,39 +277,48 @@ df.loc[(df.cc + df.cg >= 80) & (df.POP <= 20000), ['country', 'year', 'POP']]
 
 Another powerful method is the `filter` method.
 
-We can filter DataFrame by items.
+We can filter dataframe by items.
 
-The default is to choose specified columns of the DataFrame
+The default is to choose specified columns of the dataframe
 
 ```{code-cell} python3
+# select columns with name 'POP' and 'XRAT'
 df.filter(items = ['POP', 'XRAT'])
 ```
-With `axis = 0`, we can choose specifed rows of the DataFrame
+With `axis = 0`, we can choose specifed rows of the dataframe
 
 ```{code-cell} python3
+# select rows with index 1 and 3
 df.filter(items = [1, 3], axis = 0)
 ```
 
-Sometimes we want to search columns and rows using only a subset of the index
+Sometimes we want to search columns and rows using only a subset the index
 
 ```{code-cell} python3
+# select columns that contains 'gdp'
 df.filter(like = 'gdp')
 ```
 
 This also applies to rows if row indices are strings.
 
+Another powerful aspect of the `filter` method is its ability to use [regular expressions](https://docs.python.org/3/library/re.html)
+
 ```{code-cell} python3
+# select columns with either XRAT or POP as their names
 df.filter(regex = 'XRAT|POP', axis = 1)
 ```
 
 ```{code-cell} python3
-df.filter(regex = 'ia$', axis = 0)
+# select rows with row index ends with 1 to 4
+df.filter(regex = '[1-4]', axis = 0)
 ```
 
 ```{code-cell} python3
-df.filter(regex = '.*code', axis = 1)
+# select columns that starts with 'c' and contains 'c' in the following string
+df.filter(regex = '^c.*c', axis = 1)
 ```
 
+The regular expression will be increasely useful when you have a very large dataset.
 
 **Application: Subsetting Dataframe**
 
@@ -471,7 +480,7 @@ Missing value imputation is a big area in data science involving various machine
 There are also more [advanced tools](https://scikit-learn.org/stable/modules/impute.html) in python to impute missing values.
 
 
-**5.** Since each column in Pandas DataFrame is a Series, we can use the `pandas.Series` method to modify a specific column.
+**5.** Since each column in the dataframe is a series, we can use the `pandas.Series` method to modify a specific column.
 
 Note the variable `year` contains `float64` values which are not intuitive
 
