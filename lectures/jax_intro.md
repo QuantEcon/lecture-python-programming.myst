@@ -68,7 +68,7 @@ If you do not have your own GPU, we recommend that you run this lecture on Colab
 ## JAX as a NumPy Replacement
 
 
-One way to use JAX is as a plug-in NumPy replacement.  Let's look at the similarities and differences.
+One way to use JAX is as a plug-in NumPy replacement. Let's look at the similarities and differences.
 
 ### Similarities
 
@@ -112,7 +112,7 @@ a
 type(a)
 ```
 
-Even scalar-valued maps on arrays are of type `DeviceArray`:
+Even scalar-valued maps on arrays return objects of type `DeviceArray`:
 
 ```{code-cell} ipython3
 jnp.sum(a)
@@ -121,6 +121,14 @@ jnp.sum(a)
 The term `Device` refers to the hardware accelerator (GPU or TPU), although JAX falls back to the CPU if no accelerator is detected.
 
 (In the terminology of GPUs, the "host" is the machine that launches GPU operations, while the "device" is the GPU itself.)
+
+```{note}
+Note that `DeviceArray` is a [*future*](https://en.wikipedia.org/wiki/Futures_and_promises); it allows Python to continue execution when the results of computation are not available immediately.
+
+This means that Python can dispatch more jobs without waiting for the computation results to be returned by the device.
+
+This feature is called [*asynchronous dispatch*](https://jax.readthedocs.io/en/latest/async_dispatch.html), which hides Python overheads and reduces wait time.
+```
 
 
 Operations on higher dimensional arrays is also similar to NumPy:
@@ -328,9 +336,16 @@ How long does the function take to execute?
 %time f(x).block_until_ready()
 ```
 
+```{note}
+With asynchronous dispatch, the `%time` magic is only evaluating the time to dispatch by the Python interpreter, without taking into account the computation time on the device.
+
+Here, to measure the actual speed, the `block_until_ready()` method prevents asynchronous dispatch by asking Python to wait until the computation results are ready.
+```
+
+
 This code is not particularly fast.  
 
-While it is run on the GPU (since `x` is a DeviceArray), each vector `k * x` has to be instantiated before the final sum is computed.
+While it is run on the GPU (since `x` is a `DeviceArray`), each vector `k * x` has to be instantiated before the final sum is computed.
 
 If we JIT-compile the function with JAX, then the operations are fused and no intermediate arrays are created.
 
