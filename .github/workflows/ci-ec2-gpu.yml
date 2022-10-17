@@ -24,8 +24,7 @@ jobs:
     needs: deploy-runner
     runs-on: [self-hosted, cml-gpu] # self-hosted
     container:
-      # nvidia/cuda:11.8.0-devel-ubuntu22.04
-      image: docker://iterativeai/cml:0-dvc2-base1-gpu
+      image: docker://nvidia/cuda:11.8.0-devel-ubuntu22.04
       options: --gpus all
     steps:
       - uses: actions/checkout@v3
