@@ -44,6 +44,7 @@ jobs:
         shell: bash -l {0}
         run: |
           # conda install -c nvidia cuda cuda-toolkit
+          conda install -c nvidia cuda-nvcc
           pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
           nvidia-smi
       # - name: Install latex dependencies
