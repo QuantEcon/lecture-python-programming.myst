@@ -17,7 +17,7 @@ jobs:
           cml runner launch \
               --cloud=aws \
               --cloud-region=us-west-2 \
-              --cloud-type=p2.xlarge \
+              --cloud-type=p3.2xlarge \
               --labels=cml-gpu \
               --cloud-hdd-size=40
   preview:
