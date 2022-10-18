@@ -50,7 +50,9 @@ jobs:
         run: |
           # export XLA_PYTHON_CLIENT_PREALLOCATE=false
           # conda install -c nvidia cuda-nvcc cuda cuda-toolkit
+          pip uninstall -y jax jaxlib
           pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+          sudo nvidia-smi -pm 1
           nvidia-smi
       # - name: Install latex dependencies
       #   run: |
