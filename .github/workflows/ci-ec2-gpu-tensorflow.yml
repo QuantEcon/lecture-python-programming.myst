@@ -24,7 +24,7 @@ jobs:
     needs: deploy-runner
     runs-on: [self-hosted, cml-gpu] # self-hosted
     container:
-      image: docker://tensorflow/tensorflow:latest-gpu-jupyter
+      image: docker://tensorflow/tensorflow:2.9.2-gpu-jupyter
       options: --gpus all
     steps:
       - uses: actions/checkout@v3
