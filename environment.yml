@@ -6,7 +6,7 @@ dependencies:
   - anaconda=2022.05
   - pip
   - pip:
-    - jupyter-book==0.12.3
+    - git+https://github.com/executablebooks/jupyter-book/tree/update-myst-nb
     - quantecon-book-theme==0.3.1
     - sphinx-tojupyter==0.2.1
     - sphinxext-rediraffe==0.2.7
