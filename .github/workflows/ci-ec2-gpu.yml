@@ -49,7 +49,6 @@ jobs:
         run: |
           apt-get -qq update
           export DEBIAN_FRONTEND=noninteractive
-          ENV TZ=Australia/Sydney
           apt-get install -y tzdata
           apt-get install -y     \
             texlive-latex-recommended \
