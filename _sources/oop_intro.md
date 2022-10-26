@@ -340,7 +340,7 @@ Python uses multiple namespaces, creating them on the fly as necessary.
 
 For example, every time we import a module, Python creates a namespace for that module.
 
-To see this in action, suppose we write a script `math2.py` with a single line
+To see this in action, suppose we write a script `mathfoo.py` with a single line
 
 ```{code-cell} python3
 %%file mathfoo.py
@@ -746,15 +746,58 @@ This prints `[2]` as the value of `f(x)` and *same* for `x`.
 Here's what happens
 
 * `f` is registered as a function in the global namespace
+
+```{figure} /_static/lecture_specific/oop_intro/mutable1.png
+:figclass: auto
+```
+
 * `x` bound to `[1]` in the global namespace
+
+```{figure} /_static/lecture_specific/oop_intro/mutable2.png
+:figclass: auto
+```
+
 * The call `f(x)`
     * Creates a local namespace
     * Adds `x` to the local namespace, bound to `[1]`
+
+```{figure} /_static/lecture_specific/oop_intro/mutable3.png
+:figclass: auto
+```
+
+```{note}
+The global `x` and the local `x` refer to the same `[1]`
+```
+
+We can see the identity of local `x` and the identity of global `x` are the same
+
+```{code-cell} python3
+def f(x):
+    x[0] = x[0] + 1
+    print(f'the identity of local x is {id(x)}')
+    return x
+
+x = [1]
+print(f'the identity of global x is {id(x)}')
+print(f(x), x)
+```
+
+* Within `f(x)`
     * The list `[1]` is modified to `[2]`
     * Returns the list `[2]`
-    * The local namespace is deallocated, and local `x` is lost
-* Global `x` has been modified
 
+```{figure} /_static/lecture_specific/oop_intro/mutable4.png
+:figclass: auto
+```
+* The local namespace is deallocated, and the local `x` is lost
+
+```{figure} /_static/lecture_specific/oop_intro/mutable5.png
+:figclass: auto
+```
+
+If you want to modify the local `x` and the global `x` separately, you can create a [*copy*](https://docs.python.org/3/library/copy.html) of the list and assign the copy to the local `x`. 
+
+We will leave this for you to explore.
 
 
 ## Summary

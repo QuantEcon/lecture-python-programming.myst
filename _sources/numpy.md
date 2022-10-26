@@ -1189,8 +1189,10 @@ Now write a new function that does the same job, but uses NumPy arrays and array
 
 (Such functionality is already implemented as `np.poly1d`, but for the sake of the exercise don't use this class)
 
-* Hint: Use `np.cumprod()`
-
+```{hint}
+:class: dropdown
+Use `np.cumprod()`
+```
 ```{exercise-end}
 ```
 
@@ -1262,7 +1264,12 @@ It helps to sketch the intervals on paper.
 
 Your exercise is to speed it up using NumPy, avoiding explicit loops
 
-* Hint: Use `np.searchsorted` and `np.cumsum`
+```{hint}
+:class: dropdown
+
+Use `np.searchsorted` and `np.cumsum`
+
+```
 
 If you can, implement the functionality as a class called `DiscreteRV`, where
 
@@ -1448,12 +1455,48 @@ F.plot(ax)
 
 Recall that [broadcasting](broadcasting) in Numpy can help us conduct element-wise operations on arrays with different number of dimensions without using `for` loops.
 
-In this exercise, try to use a `for` loop to replicate the result of the following code
+In this exercise, try to use `for` loops to replicate the result of the following broadcasting operations.
+
+**Part1**: Try to replicate this simple example using `for` loops and compare your results with the broadcasting operation below.
 
 ```{code-cell} python3
+
+np.random.seed(123)
 x = np.random.randn(4, 4)
 y = np.random.randn(4)
-x / y
+A = x / y
+```
+
+Here is the output
+
+```{code-cell} python3
+---
+tags: [hide-output]
+---
+print(A)
+```
+
+**Part2**: Move on to replicate the result of the following broadcasting operation. Meanwhile, compare the speeds of broadcasting and the `for` loop you implement.
+
+```{code-cell} python3
+import quantecon as qe
+
+np.random.seed(123)
+x = np.random.randn(1000, 100, 100)
+y = np.random.randn(100)
+
+qe.tic()
+B = x / y
+qe.toc()
+```
+
+Here is the output
+
+```{code-cell} python3
+---
+tags: [hide-output]
+---
+print(B)
 ```
 
 ```{exercise-end}
@@ -1464,15 +1507,67 @@ x / y
 :class: dropdown
 ```
 
-Here is one solution
+**Part 1 Solution**
 
 ```{code-cell} python3
-A = np.empty_like(x)
+np.random.seed(123)
+x = np.random.randn(4, 4)
+y = np.random.randn(4)
+
+C = np.empty_like(x)
 n = len(x)
 for i in range(n):
     for j in range(n):
-        A[i, j] = x[i, j] / y[j]
-print(A)
+        C[i, j] = x[i, j] / y[j]
+```
+
+Compare the results to check your answer
+
+```{code-cell} python3
+---
+tags: [hide-output]
+---
+print(C)
+```
+
+You can also use `array_equal()` to check your answer
+
+```{code-cell} python3
+print(np.array_equal(A, C))
+```
+
+
+**Part 2 Solution**
+
+```{code-cell} python3
+
+np.random.seed(123)
+x = np.random.randn(1000, 100, 100)
+y = np.random.randn(100)
+
+qe.tic()
+D = np.empty_like(x)
+d1, d2, d3 = x.shape
+for i in range(d1):
+    for j in range(d2):
+        for k in range(d3):
+            D[i, j, k] = x[i, j, k] / y[k]
+qe.toc()
+```
+
+Note that the `for` loop takes much longer than the broadcasting operation.
+
+Compare the results to check your answer
+
+```{code-cell} python3
+---
+tags: [hide-output]
+---
+print(D)
+```
+
+```{code-cell} python3
+print(np.array_equal(B, D))
 ```
 
 ```{solution-end}

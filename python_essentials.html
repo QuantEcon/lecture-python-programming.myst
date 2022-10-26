@@ -1277,11 +1277,13 @@ right-hand side of the second line</p>
 </div>
 </div>
 </div>
-<p>Note:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">all()</span></code> returns <code class="docutils literal notranslate"><span class="pre">True</span></code> when <em>all</em> boolean values/expressions in the sequence are <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">any()</span></code> returns <code class="docutils literal notranslate"><span class="pre">True</span></code> when <em>any</em> boolean values/expressions in the sequence are <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
 </ul>
+</div>
 </div>
 </div>
 <div class="section" id="coding-style-and-documentation">
@@ -1367,11 +1369,12 @@ first page.</p></li>
 <p>Part 1: Given two numeric lists or tuples <code class="docutils literal notranslate"><span class="pre">x_vals</span></code> and <code class="docutils literal notranslate"><span class="pre">y_vals</span></code> of equal length, compute
 their inner product using <code class="docutils literal notranslate"><span class="pre">zip()</span></code>.</p>
 <p>Part 2: In one line, count the number of even numbers in 0,…,99.</p>
-<ul class="simple">
-<li><p>Hint: <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%</span> <span class="pre">2</span></code> returns 0 if <code class="docutils literal notranslate"><span class="pre">x</span></code> is even, 1 otherwise.</p></li>
-</ul>
 <p>Part 3: Given <code class="docutils literal notranslate"><span class="pre">pairs</span> <span class="pre">=</span> <span class="pre">((2,</span> <span class="pre">5),</span> <span class="pre">(4,</span> <span class="pre">2),</span> <span class="pre">(9,</span> <span class="pre">8),</span> <span class="pre">(12,</span> <span class="pre">10))</span></code>, count the number of pairs <code class="docutils literal notranslate"><span class="pre">(a,</span> <span class="pre">b)</span></code>
 such that both <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> are even.</p>
+<div class="dropdown admonition hint">
+<p class="admonition-title">Hint</p>
+<p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%</span> <span class="pre">2</span></code> returns 0 if <code class="docutils literal notranslate"><span class="pre">x</span></code> is even, 1 otherwise.</p>
+</div>
 </div>
 </div>
 <div class="solution dropdown admonition" id="python_essentials-solution-1">
@@ -1523,7 +1526,10 @@ flexibility of list comprehensions are</p>
 <p class="admonition-title"><span class="caption-number">Exercise 5.3 </span></p>
 <div class="section" id="exercise-content">
 <p>Write a function that takes a string as an argument and returns the number of capital letters in the string.</p>
-<p>Hint: <code class="docutils literal notranslate"><span class="pre">'foo'.upper()</span></code> returns <code class="docutils literal notranslate"><span class="pre">'FOO'</span></code>.</p>
+<div class="dropdown admonition hint">
+<p class="admonition-title">Hint</p>
+<p><code class="docutils literal notranslate"><span class="pre">'foo'.upper()</span></code> returns <code class="docutils literal notranslate"><span class="pre">'FOO'</span></code>.</p>
+</div>
 </div>
 </div>
 <div class="solution dropdown admonition" id="python_essentials-solution-5">
@@ -1867,18 +1873,25 @@ code.</p>
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   12. Pandas
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  High Performance Computing
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
   <a class="reference internal" href="numba.html">
-   12. Numba
+   13. Numba
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="parallelization.html">
-   13. Parallelization
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="pandas.html">
-   14. Pandas
+   14. Parallelization
   </a>
  </li>
 </ul>

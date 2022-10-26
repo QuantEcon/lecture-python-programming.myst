@@ -1762,7 +1762,7 @@ the shape of array b is (2, 2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.24437691,  0.60195497, -0.29650954])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.04340413, -0.61720251, -0.47459607])
 </pre></div>
 </div>
 </div>
@@ -1776,7 +1776,7 @@ the shape of array b is (2, 2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        ,  0.60195497, -0.29650954])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        , -0.61720251, -0.47459607])
 </pre></div>
 </div>
 </div>
@@ -1800,7 +1800,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.53373795, 0.65604854, 1.16252326])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.13718737, -0.86632084,  1.54964678])
 </pre></div>
 </div>
 </div>
@@ -1813,7 +1813,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.53373795, 0.65604854, 1.16252326])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.13718737, -0.86632084,  1.54964678])
 </pre></div>
 </div>
 </div>
@@ -1839,7 +1839,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.53373795, 0.65604854, 1.16252326])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.13718737, -0.86632084,  1.54964678])
 </pre></div>
 </div>
 </div>
@@ -1924,7 +1924,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.75853544, -0.0321365 ,  0.36668685, -0.37402117])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-2.32982547, -1.63250183, -0.40208628, -0.31983298])
 </pre></div>
 </div>
 </div>
@@ -1936,7 +1936,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 1, 0])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 0])
 </pre></div>
 </div>
 </div>
@@ -1950,7 +1950,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 1, 0])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 0])
 </pre></div>
 </div>
 </div>
@@ -2080,7 +2080,7 @@ through its sub-packages.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.001
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.955e+00
 </pre></div>
 </div>
 </div>
@@ -2139,9 +2139,10 @@ through its sub-packages.</p>
 <p><a class="reference internal" href="python_essentials.html#pyess_ex2"><span class="std std-ref">Earlier</span></a>, you wrote a simple function <code class="docutils literal notranslate"><span class="pre">p(x,</span> <span class="pre">coeff)</span></code> to evaluate <a class="reference internal" href="#equation-np-polynom">(9.1)</a> without considering efficiency.</p>
 <p>Now write a new function that does the same job, but uses NumPy arrays and array operations for its computations, rather than any form of Python loop.</p>
 <p>(Such functionality is already implemented as <code class="docutils literal notranslate"><span class="pre">np.poly1d</span></code>, but for the sake of the exercise don’t use this class)</p>
-<ul class="simple">
-<li><p>Hint: Use <code class="docutils literal notranslate"><span class="pre">np.cumprod()</span></code></p></li>
-</ul>
+<div class="dropdown admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">np.cumprod()</span></code></p>
+</div>
 </div>
 </div>
 <div class="solution dropdown admonition" id="numpy-solution-1">
@@ -2216,9 +2217,10 @@ through its sub-packages.</p>
 <p>If you can’t see how this works, try thinking through the flow for a simple example, such as <code class="docutils literal notranslate"><span class="pre">q</span> <span class="pre">=</span> <span class="pre">[0.25,</span> <span class="pre">0.75]</span></code>
 It helps to sketch the intervals on paper.</p>
 <p>Your exercise is to speed it up using NumPy, avoiding explicit loops</p>
-<ul class="simple">
-<li><p>Hint: Use <code class="docutils literal notranslate"><span class="pre">np.searchsorted</span></code> and <code class="docutils literal notranslate"><span class="pre">np.cumsum</span></code></p></li>
-</ul>
+<div class="dropdown admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">np.searchsorted</span></code> and <code class="docutils literal notranslate"><span class="pre">np.cumsum</span></code></p>
+</div>
 <p>If you can, implement the functionality as a class called <code class="docutils literal notranslate"><span class="pre">DiscreteRV</span></code>, where</p>
 <ul class="simple">
 <li><p>the data for an instance of the class is the vector of probabilities <code class="docutils literal notranslate"><span class="pre">q</span></code></p></li>
@@ -2400,20 +2402,151 @@ from QuantEcon and added in a plot method</p>
 <p class="admonition-title"><span class="caption-number">Exercise 9.4 </span></p>
 <div class="section" id="exercise-content">
 <p>Recall that <a class="reference internal" href="#broadcasting"><span class="std std-ref">broadcasting</span></a> in Numpy can help us conduct element-wise operations on arrays with different number of dimensions without using <code class="docutils literal notranslate"><span class="pre">for</span></code> loops.</p>
-<p>In this exercise, try to use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to replicate the result of the following code</p>
+<p>In this exercise, try to use <code class="docutils literal notranslate"><span class="pre">for</span></code> loops to replicate the result of the following broadcasting operations.</p>
+<p><strong>Part1</strong>: Try to replicate this simple example using <code class="docutils literal notranslate"><span class="pre">for</span></code> loops and compare your results with the broadcasting operation below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is the output</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[13.82578055,  0.32709567,  0.99572462, -0.16715582],
-       [ 2.67628663,  2.75234362, -0.29937152, -1.73073499],
-       [-5.24658815,  1.91504547,  0.34816144,  1.1551625 ],
-       [ 1.40733003, -4.08326003,  0.122515  , -0.75192701]])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.49214189  0.45607819  0.28183596 -3.90043439]
+ [-0.26229311  0.75518888 -2.41688145 -1.11063629]
+ [ 0.57387869 -0.39635354 -0.67614513 -0.2452416 ]
+ [ 0.676082   -0.29216483 -0.44218937 -1.12471925]]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Part2</strong>: Move on to replicate the result of the following broadcasting operation. Meanwhile, compare the speeds of broadcasting and the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop you implement.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">quantecon</span> <span class="k">as</span> <span class="nn">qe</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">qe</span><span class="o">.</span><span class="n">tic</span><span class="p">()</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
+<span class="n">qe</span><span class="o">.</span><span class="n">toc</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.02
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02768087387084961
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is the output</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[ 1.85764005 -0.89419976  0.24485371 ... -3.04214618  0.17711597
+   -0.22643801]
+  [-1.09863014  1.77333433  0.61630351 ... -0.24732757 -0.15931155
+   -0.13015397]
+  [-1.20344529  0.53624915  1.90420857 ...  0.92748804  0.07494711
+    0.48954772]
+  ...
+  [-1.09763323  0.68632802 -1.21568707 ... -3.87025031 -0.19456046
+    0.18331773]
+  [-0.47546852 -0.16883695  2.92991418 ... -0.05967182 -0.20796073
+   -0.49082994]
+  [ 1.14380091  1.93460538 -0.76305492 ... -1.0537099   0.27167901
+    0.57963424]]
+
+ [[ 2.12344323  0.28058176 -0.73457091 ...  3.55049699  0.59737154
+   -0.31414907]
+  [ 1.40074417 -0.09113173  0.50276294 ... -1.85572391  0.13914077
+   -0.93776321]
+  [ 2.35739042 -0.79089649  0.20835615 ... -0.11001198  0.86250367
+   -1.26949634]
+  ...
+  [ 2.11831946  0.15242396 -0.17269536 ...  0.03469371 -0.06074779
+    0.10114045]
+  [-0.08300138  0.47232405 -0.89930099 ...  0.66104947 -0.45183377
+   -1.05885526]
+  [ 0.282155   -1.44848315 -1.25832989 ... -3.12998376  0.48762406
+    0.22052869]]
+
+ [[-1.76517625 -1.19419485  0.08293115 ...  0.7919151  -0.03812759
+   -1.19540255]
+  [-0.66639955  0.16580616 -0.32083535 ...  0.72351825 -0.72239583
+   -0.46386281]
+  [-0.45163238 -1.5262587  -0.38541194 ...  1.82015759  0.23151272
+    0.81609303]
+  ...
+  [ 1.14317214 -0.60571044 -0.74962613 ... -3.13330221  0.61817627
+    0.37738869]
+  [-0.65686356  0.41024983  0.2700362  ... -0.08588743  0.20408508
+    0.33667429]
+  [-0.43851304  0.58339651 -0.9076869  ... -2.55408527 -0.22112928
+    0.9912754 ]]
+
+ ...
+
+ [[ 1.13470002 -0.20836287 -0.50483798 ...  0.32733859 -0.32203002
+    0.43385307]
+  [-0.11763272 -0.77698937 -0.46659376 ...  2.01256989 -0.19222608
+   -0.48021737]
+  [ 0.89558661  0.93447059  0.35386499 ... -1.2218747   0.42826019
+    0.73980809]
+  ...
+  [-0.30040698 -1.14758822 -1.2785068  ...  3.9600491  -0.25830068
+   -1.09906439]
+  [-2.89569174 -0.67988752 -0.26342148 ...  0.62855881  0.05570693
+   -0.05084807]
+  [ 0.87738281 -2.37555322  1.66177996 ...  0.09857952  0.35564132
+   -1.22140972]]
+
+ [[-3.31843223  0.19402721  0.87502303 ... -1.47591384 -0.25236749
+   -0.85281481]
+  [-2.84794867 -0.31042414  0.43040259 ... -4.01127498  0.06267678
+   -0.2073196 ]
+  [-0.47909317 -0.77256923 -0.49818879 ... -0.17526151  0.64720631
+   -0.06831215]
+  ...
+  [ 0.35509683 -0.48189502 -0.18528007 ...  2.03614189 -0.15287291
+    0.0979404 ]
+  [-1.20730244 -0.24269721 -0.28048927 ...  0.94378219 -0.21283324
+   -0.30738091]
+  [-1.81004008  1.01260185 -0.62311067 ... -0.03158149 -0.36355966
+    0.43427753]]
+
+ [[-1.43227284 -0.20319046  1.37271425 ...  2.34113161  0.18025411
+   -0.247025  ]
+  [ 0.47792311  0.61186236  0.73460309 ... -1.52671835 -0.10967386
+   -0.04788996]
+  [-1.51873339  0.73425213 -0.54033092 ...  0.21434631 -0.31597544
+   -0.24364054]
+  ...
+  [-0.24128379 -0.72604109 -0.36722827 ...  2.20219708  1.04943754
+   -0.44221604]
+  [-1.43364744  0.54701702  1.08795598 ...  0.19549939 -0.12604844
+   -0.74936097]
+  [-0.59335595  0.46807169 -0.04178975 ... -1.1783837   0.0395992
+    0.55109001]]]
 </pre></div>
 </div>
 </div>
@@ -2424,23 +2557,184 @@ from QuantEcon and added in a plot method</p>
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#np_ex4"> Exercise 9.4</a></p>
 <div class="section" id="s">
-<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><p>Here is one solution</p>
+<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><p><strong>Part 1 Solution</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">/</span> <span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+        <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">/</span> <span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Compare the results to check your answer</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[13.82578055  0.32709567  0.99572462 -0.16715582]
- [ 2.67628663  2.75234362 -0.29937152 -1.73073499]
- [-5.24658815  1.91504547  0.34816144  1.1551625 ]
- [ 1.40733003 -4.08326003  0.122515   -0.75192701]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.49214189  0.45607819  0.28183596 -3.90043439]
+ [-0.26229311  0.75518888 -2.41688145 -1.11063629]
+ [ 0.57387869 -0.39635354 -0.67614513 -0.2452416 ]
+ [ 0.676082   -0.29216483 -0.44218937 -1.12471925]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also use <code class="docutils literal notranslate"><span class="pre">array_equal()</span></code> to check your answer</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">C</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Part 2 Solution</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">qe</span><span class="o">.</span><span class="n">tic</span><span class="p">()</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">,</span> <span class="n">d3</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">d1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">d2</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">d3</span><span class="p">):</span>
+            <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">/</span> <span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+<span class="n">qe</span><span class="o">.</span><span class="n">toc</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:5.70
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.706870794296265
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop takes much longer than the broadcasting operation.</p>
+<p>Compare the results to check your answer</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[ 1.85764005 -0.89419976  0.24485371 ... -3.04214618  0.17711597
+   -0.22643801]
+  [-1.09863014  1.77333433  0.61630351 ... -0.24732757 -0.15931155
+   -0.13015397]
+  [-1.20344529  0.53624915  1.90420857 ...  0.92748804  0.07494711
+    0.48954772]
+  ...
+  [-1.09763323  0.68632802 -1.21568707 ... -3.87025031 -0.19456046
+    0.18331773]
+  [-0.47546852 -0.16883695  2.92991418 ... -0.05967182 -0.20796073
+   -0.49082994]
+  [ 1.14380091  1.93460538 -0.76305492 ... -1.0537099   0.27167901
+    0.57963424]]
+
+ [[ 2.12344323  0.28058176 -0.73457091 ...  3.55049699  0.59737154
+   -0.31414907]
+  [ 1.40074417 -0.09113173  0.50276294 ... -1.85572391  0.13914077
+   -0.93776321]
+  [ 2.35739042 -0.79089649  0.20835615 ... -0.11001198  0.86250367
+   -1.26949634]
+  ...
+  [ 2.11831946  0.15242396 -0.17269536 ...  0.03469371 -0.06074779
+    0.10114045]
+  [-0.08300138  0.47232405 -0.89930099 ...  0.66104947 -0.45183377
+   -1.05885526]
+  [ 0.282155   -1.44848315 -1.25832989 ... -3.12998376  0.48762406
+    0.22052869]]
+
+ [[-1.76517625 -1.19419485  0.08293115 ...  0.7919151  -0.03812759
+   -1.19540255]
+  [-0.66639955  0.16580616 -0.32083535 ...  0.72351825 -0.72239583
+   -0.46386281]
+  [-0.45163238 -1.5262587  -0.38541194 ...  1.82015759  0.23151272
+    0.81609303]
+  ...
+  [ 1.14317214 -0.60571044 -0.74962613 ... -3.13330221  0.61817627
+    0.37738869]
+  [-0.65686356  0.41024983  0.2700362  ... -0.08588743  0.20408508
+    0.33667429]
+  [-0.43851304  0.58339651 -0.9076869  ... -2.55408527 -0.22112928
+    0.9912754 ]]
+
+ ...
+
+ [[ 1.13470002 -0.20836287 -0.50483798 ...  0.32733859 -0.32203002
+    0.43385307]
+  [-0.11763272 -0.77698937 -0.46659376 ...  2.01256989 -0.19222608
+   -0.48021737]
+  [ 0.89558661  0.93447059  0.35386499 ... -1.2218747   0.42826019
+    0.73980809]
+  ...
+  [-0.30040698 -1.14758822 -1.2785068  ...  3.9600491  -0.25830068
+   -1.09906439]
+  [-2.89569174 -0.67988752 -0.26342148 ...  0.62855881  0.05570693
+   -0.05084807]
+  [ 0.87738281 -2.37555322  1.66177996 ...  0.09857952  0.35564132
+   -1.22140972]]
+
+ [[-3.31843223  0.19402721  0.87502303 ... -1.47591384 -0.25236749
+   -0.85281481]
+  [-2.84794867 -0.31042414  0.43040259 ... -4.01127498  0.06267678
+   -0.2073196 ]
+  [-0.47909317 -0.77256923 -0.49818879 ... -0.17526151  0.64720631
+   -0.06831215]
+  ...
+  [ 0.35509683 -0.48189502 -0.18528007 ...  2.03614189 -0.15287291
+    0.0979404 ]
+  [-1.20730244 -0.24269721 -0.28048927 ...  0.94378219 -0.21283324
+   -0.30738091]
+  [-1.81004008  1.01260185 -0.62311067 ... -0.03158149 -0.36355966
+    0.43427753]]
+
+ [[-1.43227284 -0.20319046  1.37271425 ...  2.34113161  0.18025411
+   -0.247025  ]
+  [ 0.47792311  0.61186236  0.73460309 ... -1.52671835 -0.10967386
+   -0.04788996]
+  [-1.51873339  0.73425213 -0.54033092 ...  0.21434631 -0.31597544
+   -0.24364054]
+  ...
+  [-0.24128379 -0.72604109 -0.36722827 ...  2.20219708  1.04943754
+   -0.44221604]
+  [-1.43364744  0.54701702  1.08795598 ...  0.19549939 -0.12604844
+   -0.74936097]
+  [-0.59335595  0.46807169 -0.04178975 ... -1.1783837   0.0395992
+    0.55109001]]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">D</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -2568,18 +2862,25 @@ from QuantEcon and added in a plot method</p>
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   12. Pandas
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  High Performance Computing
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
   <a class="reference internal" href="numba.html">
-   12. Numba
+   13. Numba
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="parallelization.html">
-   13. Parallelization
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="pandas.html">
-   14. Pandas
+   14. Parallelization
   </a>
  </li>
 </ul>

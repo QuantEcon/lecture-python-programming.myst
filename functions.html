@@ -881,9 +881,7 @@ The default value should be <span class="math notranslate nohighlight">\(f(n) = 
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#func_ex1"> Exercise 4.1</a></p>
 <div class="section" id="s">
-<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><ul class="simple">
-<li><p>Here’s one solution for part 1</p></li>
-</ul>
+<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><p>Here’s one solution for part 1</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -902,9 +900,7 @@ The default value should be <span class="math notranslate nohighlight">\(f(n) = 
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Adding the lambda expression</p></li>
-</ul>
+<p>Adding the lambda expression</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">):</span>
@@ -959,14 +955,18 @@ The default value should be <span class="math notranslate nohighlight">\(f(n) = 
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Binomial_distribution">binomial random variable</a> <span class="math notranslate nohighlight">\(Y \sim Bin(n, p)\)</span> represents the number of successes in <span class="math notranslate nohighlight">\(n\)</span> binary trials, where each trial succeeds with probability <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <p>Without any import besides <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">numpy.random</span> <span class="pre">import</span> <span class="pre">uniform</span></code>, write a function
 <code class="docutils literal notranslate"><span class="pre">binomial_rv</span></code> such that <code class="docutils literal notranslate"><span class="pre">binomial_rv(n,</span> <span class="pre">p)</span></code> generates one draw of <span class="math notranslate nohighlight">\(Y\)</span>.</p>
-<p>Hint: If <span class="math notranslate nohighlight">\(U\)</span> is uniform on <span class="math notranslate nohighlight">\((0, 1)\)</span> and <span class="math notranslate nohighlight">\(p \in (0,1)\)</span>, then the expression <code class="docutils literal notranslate"><span class="pre">U</span> <span class="pre">&lt;</span> <span class="pre">p</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code> with probability <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<div class="dropdown admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If <span class="math notranslate nohighlight">\(U\)</span> is uniform on <span class="math notranslate nohighlight">\((0, 1)\)</span> and <span class="math notranslate nohighlight">\(p \in (0,1)\)</span>, then the expression <code class="docutils literal notranslate"><span class="pre">U</span> <span class="pre">&lt;</span> <span class="pre">p</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code> with probability <span class="math notranslate nohighlight">\(p\)</span>.</p>
+</div>
 </div>
 </div>
 <div class="solution dropdown admonition" id="functions-solution-3">
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#func_ex2"> Exercise 4.2</a></p>
 <div class="section" id="s">
-<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><div class="cell docutils container">
+<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><p>Here is one solution:</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">uniform</span>
 
@@ -983,7 +983,7 @@ The default value should be <span class="math notranslate nohighlight">\(f(n) = 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
 </pre></div>
 </div>
 </div>
@@ -1035,15 +1035,15 @@ The default value should be <span class="math notranslate nohighlight">\(f(n) = 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-1
-0
-1
-0
-1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 2
 0
+0
 1
+0
+1
+0
+0
 0
 </pre></div>
 </div>
@@ -1074,16 +1074,16 @@ The default value should be <span class="math notranslate nohighlight">\(f(n) = 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
 1
-2
-2
+1
+1
+1
 2
 3
 4
+4
 5
-6
-7
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
@@ -1323,18 +1323,25 @@ The default value should be <span class="math notranslate nohighlight">\(f(n) = 
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   12. Pandas
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  High Performance Computing
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
   <a class="reference internal" href="numba.html">
-   12. Numba
+   13. Numba
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="parallelization.html">
-   13. Parallelization
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="pandas.html">
-   14. Pandas
+   14. Parallelization
   </a>
  </li>
 </ul>
