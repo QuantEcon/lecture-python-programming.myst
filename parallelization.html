@@ -291,19 +291,19 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /__w/lecture-python-programming.myst/lecture-python-programming.myst/3/envs/quantecon/lib/python3.9/site-packages (0.5.3)
-Requirement already satisfied: requests in /__w/lecture-python-programming.myst/lecture-python-programming.myst/3/envs/quantecon/lib/python3.9/site-packages (from quantecon) (2.27.1)
-Requirement already satisfied: sympy in /__w/lecture-python-programming.myst/lecture-python-programming.myst/3/envs/quantecon/lib/python3.9/site-packages (from quantecon) (1.10.1)
 Requirement already satisfied: numpy in /__w/lecture-python-programming.myst/lecture-python-programming.myst/3/envs/quantecon/lib/python3.9/site-packages (from quantecon) (1.21.5)
+Requirement already satisfied: sympy in /__w/lecture-python-programming.myst/lecture-python-programming.myst/3/envs/quantecon/lib/python3.9/site-packages (from quantecon) (1.10.1)
+Requirement already satisfied: requests in /__w/lecture-python-programming.myst/lecture-python-programming.myst/3/envs/quantecon/lib/python3.9/site-packages (from quantecon) (2.27.1)
 Requirement already satisfied: scipy&gt;=1.0.0 in /__w/lecture-python-programming.myst/lecture-python-programming.myst/3/envs/quantecon/lib/python3.9/site-packages (from quantecon) (1.7.3)
 Requirement already satisfied: numba in /__w/lecture-python-programming.myst/lecture-python-programming.myst/3/envs/quantecon/lib/python3.9/site-packages (from quantecon) (0.55.1)
 Requirement already satisfied: setuptools in /__w/lecture-python-programming.myst/lecture-python-programming.myst/3/envs/quantecon/lib/python3.9/site-packages (from numba-&gt;quantecon) (61.2.0)
 Requirement already satisfied: llvmlite&lt;0.39,&gt;=0.38.0rc1 in /__w/lecture-python-programming.myst/lecture-python-programming.myst/3/envs/quantecon/lib/python3.9/site-packages (from numba-&gt;quantecon) (0.38.0)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /__w/lecture-python-programming.myst/lecture-python-programming.myst/3/envs/quantecon/lib/python3.9/site-packages (from requests-&gt;quantecon) (3.3)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /__w/lecture-python-programming.myst/lecture-python-programming.myst/3/envs/quantecon/lib/python3.9/site-packages (from requests-&gt;quantecon) (1.26.9)
-Requirement already satisfied: charset-normalizer~=2.0.0 in /__w/lecture-python-programming.myst/lecture-python-programming.myst/3/envs/quantecon/lib/python3.9/site-packages (from requests-&gt;quantecon) (2.0.4)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: charset-normalizer~=2.0.0 in /__w/lecture-python-programming.myst/lecture-python-programming.myst/3/envs/quantecon/lib/python3.9/site-packages (from requests-&gt;quantecon) (2.0.4)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /__w/lecture-python-programming.myst/lecture-python-programming.myst/3/envs/quantecon/lib/python3.9/site-packages (from requests-&gt;quantecon) (2021.10.8)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /__w/lecture-python-programming.myst/lecture-python-programming.myst/3/envs/quantecon/lib/python3.9/site-packages (from requests-&gt;quantecon) (1.26.9)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /__w/lecture-python-programming.myst/lecture-python-programming.myst/3/envs/quantecon/lib/python3.9/site-packages (from requests-&gt;quantecon) (3.3)
 Requirement already satisfied: mpmath&gt;=0.19 in /__w/lecture-python-programming.myst/lecture-python-programming.myst/3/envs/quantecon/lib/python3.9/site-packages (from sympy-&gt;quantecon) (1.2.1)
 </pre></div>
 </div>
@@ -439,7 +439,7 @@ out to more and more operations.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 s ± 9.81 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.18 s ± 651 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -482,7 +482,7 @@ create custom <a class="reference internal" href="need_for_speed.html#ufuncs"><s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>542 ms ± 728 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>567 ms ± 524 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -536,7 +536,7 @@ multithreading?</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>125 ms ± 977 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>137 ms ± 190 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -658,11 +658,11 @@ don’t matter.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6.17 s, sys: 29.9 ms, total: 6.2 s
-Wall time: 6.18 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6.13 s, sys: 12.6 ms, total: 6.15 s
+Wall time: 6.13 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8370409321684193
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.857194628266347
 </pre></div>
 </div>
 </div>
@@ -697,11 +697,11 @@ Wall time: 6.18 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 7.81 s, sys: 11.7 ms, total: 7.82 s
-Wall time: 1.49 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 7.75 s, sys: 14.7 ms, total: 7.76 s
+Wall time: 1.47 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8384082108041646
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8437732092749275
 </pre></div>
 </div>
 </div>
@@ -770,11 +770,11 @@ tasks to be parallelized are very small relative to total execution time.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 574 ms, sys: 3.9 ms, total: 578 ms
-Wall time: 550 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 549 ms, sys: 16.1 ms, total: 566 ms
+Wall time: 538 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.144124
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.144752
 </pre></div>
 </div>
 </div>
@@ -786,11 +786,11 @@ Wall time: 550 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 29.9 ms, sys: 152 µs, total: 30.1 ms
-Wall time: 5.17 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 30.6 ms, sys: 232 µs, total: 30.8 ms
+Wall time: 5.16 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.140392
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.142768
 </pre></div>
 </div>
 </div>
