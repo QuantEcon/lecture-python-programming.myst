@@ -18,8 +18,8 @@ dependencies:
     - array-to-latex
     - prettytable
     # Sandpit Requirements
-    - PuLP
-    - cvxpy
-    - cvxopt
-    - cylp
+    # - PuLP
+    # - cvxpy
+    # - cvxopt
+    # - cylp
 
