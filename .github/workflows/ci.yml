@@ -1,5 +1,5 @@
 name: Build Project [using jupyter-book]
-on: [pull-request]
+on: [pull_request]
 jobs:
   deploy-runner:
     runs-on: ubuntu-latest
