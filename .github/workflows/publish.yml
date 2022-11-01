@@ -49,8 +49,10 @@ jobs:
           nvidia-smi
       - name: Install latex dependencies
         run: |
-          sudo apt-get -qq update
-          sudo apt-get install -y     \
+          apt-get -qq update
+          export DEBIAN_FRONTEND=noninteractive
+          apt-get install -y tzdata
+          apt-get install -y     \
             texlive-latex-recommended \
             texlive-latex-extra       \
             texlive-fonts-recommended \
