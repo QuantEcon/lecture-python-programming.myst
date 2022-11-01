@@ -39,6 +39,11 @@ jobs:
           python-version: 3.9
           environment-file: environment.yml
           activate-environment: quantecon
+      - name: Conda Environment
+        shell: bash -l {0}
+        run: |
+          echo $CONDA
+          echo $CONDA_PKGS_DIR
       - name: Install Jax and Upgrade CUDA
         shell: bash -l {0}
         run: |
