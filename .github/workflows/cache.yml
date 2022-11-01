@@ -52,7 +52,7 @@ jobs:
         run: |
           jb build lectures --path-output ./ -W --keep-going
       - name: Upload "_build" folder (cache)
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: build-cache
           path: _build
