@@ -47,16 +47,37 @@ jobs:
         shell: bash -l {0}
         run: |
           mkdir test && cd test
-          echo 'This is a test' > data.txt
-      - name: Commit latest notebooks to lecture-python-programming.notebooks
-        uses: cpina/github-action-push-to-another-repository@main
+          
+      - name: Commit to another Repo
+        shell: bash -l {0}
         env:
-          API_TOKEN_GITHUB: ${{ secrets.QUANTECON_SERVICES_PAT }}
-        with:
-          source-directory: 'test'
-          destination-repository-username: 'QuantEcon'
-          destination-repository-name: 'lecture-python-programming.notebooks'
-          target-branch: test
-          commit-message: 'auto publishing updates to notebooks'
-          destination-github-username: 'quantecon-services'
-          user-email: services@quantecon.org
+          QE_SERVICES_PAT: ${{ secrets.QUANTECON_SERVICES_PAT }}
+        run: |
+          git clone https://quantecon-services:$QE_SERVICES_PAT@github.com/quantecon/lecture-python-programming.notebooks
+
+          cd lecture-python-programming.notebooks
+          git config user.name "QuantEcon Services"
+          git config user.email "admin@quantecon.org"
+
+          git checkout -b test
+          echo 'This is a test' > data.txt
+          git add data.txt
+          git commit -m "This is a test"
+
+          git remote -v # Prints:
+          # origin ***github.com/owner/my-repo.git (fetch)
+          # origin ***github.com/owner/my-repo.git (push)
+
+          git push origin test
+      # - name: Commit latest notebooks to lecture-python-programming.notebooks
+      #   uses: cpina/github-action-push-to-another-repository@main
+      #   env:
+      #     API_TOKEN_GITHUB: ${{ secrets.QUANTECON_SERVICES_PAT }}
+      #   with:
+      #     source-directory: 'test'
+      #     destination-repository-username: 'QuantEcon'
+      #     destination-repository-name: 'lecture-python-programming.notebooks'
+      #     target-branch: test
+      #     commit-message: 'auto publishing updates to notebooks'
+      #     destination-github-username: 'quantecon-services'
+      #     user-email: services@quantecon.org
