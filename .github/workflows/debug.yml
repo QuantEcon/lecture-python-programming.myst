@@ -45,7 +45,9 @@ jobs:
           nvidia-smi
       - name: Install Git
         shell: bash -l {0}
-        run: apt-get install git
+        run: |
+          apt-get -qq update
+          apt-get install -y git
       - name: Construct Test data
         shell: bash -l {0}
         run: |
