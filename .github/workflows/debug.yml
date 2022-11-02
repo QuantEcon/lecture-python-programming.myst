@@ -1,5 +1,5 @@
-name: Build & Publish to GH Pages
-on: [pull_request]
+name: Debug Publishing
+on: ["pull_request"]
 jobs:
   deploy-runner:
     runs-on: ubuntu-latest
@@ -20,8 +20,7 @@ jobs:
               --cloud-type=p3.2xlarge \
               --labels=cml-gpu \
               --cloud-hdd-size=40
-  publish:
-    if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
+  debug:
     needs: deploy-runner
     runs-on: [self-hosted, cml-gpu]
     container:
@@ -54,7 +53,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.QUANTECON_SERVICES_PAT }}
         with:
-          source-directory: '_build/lecture-python-programming.notebooks/'
+          source-directory: 'test'
           destination-repository-username: 'QuantEcon'
           destination-repository-name: 'lecture-python-programming.notebooks'
           target-branch: test
