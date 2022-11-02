@@ -117,16 +117,16 @@ jobs:
           cp -a _notebook_repo/. _build/lecture-python-programming.notebooks
           cp _build/jupyter/*.ipynb _build/lecture-python-programming.notebooks
           ls -a _build/lecture-python-programming.notebooks
-      - name: Commit latest notebooks to lecture-python-programming.notebooks
-        uses: cpina/github-action-push-to-another-repository@main
-        env:
-          CONDA: /__w/lecture-python-programming.myst/lecture-python-programming.myst/3
-          API_TOKEN_GITHUB: ${{ secrets.QUANTECON_SERVICES_PAT }}
-        with:
-          source-directory: '_build/lecture-python-programming.notebooks/'
-          destination-repository-username: 'QuantEcon'
-          destination-repository-name: 'lecture-python-programming.notebooks'
-          target-branch: master
-          commit-message: 'auto publishing updates to notebooks'
-          destination-github-username: 'quantecon-services'
-          user-email: services@quantecon.org
+      # - name: Commit latest notebooks to lecture-python-programming.notebooks
+      #   uses: cpina/github-action-push-to-another-repository@main
+      #   env:
+      #     CONDA: /__w/lecture-python-programming.myst/lecture-python-programming.myst/3
+      #     API_TOKEN_GITHUB: ${{ secrets.QUANTECON_SERVICES_PAT }}
+      #   with:
+      #     source-directory: '_build/lecture-python-programming.notebooks/'
+      #     destination-repository-username: 'QuantEcon'
+      #     destination-repository-name: 'lecture-python-programming.notebooks'
+      #     target-branch: master
+      #     commit-message: 'auto publishing updates to notebooks'
+      #     destination-github-username: 'quantecon-services'
+      #     user-email: services@quantecon.org
