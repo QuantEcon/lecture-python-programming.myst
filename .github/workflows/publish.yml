@@ -117,15 +117,18 @@ jobs:
           cp -a _notebook_repo/. _build/lecture-python-programming.notebooks
           cp _build/jupyter/*.ipynb _build/lecture-python-programming.notebooks
           ls -a _build/lecture-python-programming.notebooks
-      # - name: Commit latest notebooks to lecture-python-programming.notebooks
-      #   uses: cpina/github-action-push-to-another-repository@main
-      #   env:
-      #     API_TOKEN_GITHUB: ${{ secrets.QUANTECON_SERVICES_PAT }}
-      #   with:
-      #     source-directory: '_build/lecture-python-programming.notebooks/'
-      #     destination-repository-username: 'QuantEcon'
-      #     destination-repository-name: 'lecture-python-programming.notebooks'
-      #     target-branch: master
-      #     commit-message: 'auto publishing updates to notebooks'
-      #     destination-github-username: 'quantecon-services'
-      #     user-email: services@quantecon.org
+      - name: Commit notebooks to lecture-python-programming.notebooks
+        shell: bash -l {0}
+        env:
+          QE_SERVICES_PAT: ${{ secrets.QUANTECON_SERVICES_PAT }}
+        run: |
+          git clone https://quantecon-services:$QE_SERVICES_PAT@github.com/quantecon/lecture-python-programming.notebooks
+
+          cp _build/lecture-python-programming.notebooks/*.ipynb lecture-python-programming.notebooks
+
+          cd lecture-python-programming.notebooks
+          git config user.name "QuantEcon Services"
+          git config user.email "admin@quantecon.org"
+          git add *.ipynb
+          git commit -m "auto publishing updates to notebooks"
+          git push origin master
