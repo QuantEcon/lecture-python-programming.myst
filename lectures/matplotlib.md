@@ -268,6 +268,182 @@ The custom `subplots` function
 1. makes the desired customizations to `ax`, and
 1. passes the `fig, ax` pair back to the calling code.
 
+### Style Sheets
+
+Another useful feature in Matplotlib is [style sheets](https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html).
+
+We can use style sheets to create plots with uniform styles.
+
+We can find a list of available styles by printing the attribute `plt.style.available`
+
+
+```{code-cell} python3
+print(plt.style.available)
+```
+
+We can now use the `plt.style.use()` method to set the style sheet.
+
+Let's write a function that takes the name of a style sheet and draws different plots with the style
+
+```{code-cell} python3
+
+def draw_graphs(style='default'):
+
+    # Setting a style sheet
+    plt.style.use(style)
+
+    fig, axes = plt.subplots(nrows=1, ncols=4, figsize=(10, 3))
+    x = np.linspace(-13, 13, 150)
+
+    # Set seed values to replicate results of random draws
+    np.random.seed(9)
+
+    for i in range(3):
+
+        # Draw mean and standard deviation from uniform distributions
+        m, s = np.random.uniform(-8, 8), np.random.uniform(2, 2.5)
+
+        # Generate a normal density plot
+        y = norm.pdf(x, loc=m, scale=s)
+        axes[0].plot(x, y, linewidth=3, alpha=0.7)
+
+        # Create a scatter plot with random X and Y values 
+        # from normal distributions
+        rnormX = norm.rvs(loc=m, scale=s, size=150)
+        rnormY = norm.rvs(loc=m, scale=s, size=150)
+        axes[1].plot(rnormX, rnormY, ls='none', marker='o', alpha=0.7)
+
+        # Create a histogram with random X values
+        axes[2].hist(rnormX, alpha=0.7)
+
+        # and a line graph with random Y values
+        axes[3].plot(x, rnormY, linewidth=2, alpha=0.7)
+
+    plt.suptitle(f'Style: {style}', fontsize=13)
+    plt.show()
+
+```
+
+Let's see what some of the styles look like.
+
+First, we draw graphs with the style sheet `seaborn`
+
+```{code-cell} python3
+draw_graphs(style='seaborn')
+```
+
+We can use `grayscale` to remove colors in plots
+
+```{code-cell} python3
+draw_graphs(style='grayscale')
+```
+
+Here is what `ggplot` looks like
+
+```{code-cell} python3
+draw_graphs(style='ggplot')
+```
+
+We can also use the style `dark_background`
+
+```{code-cell} python3
+draw_graphs(style='dark_background')
+```
+
+You can use the function to experiment with other styles in the list.
+
+If you are interested, you can even create your own style sheets.
+
+Parameters for your style sheets are stored in a dictionary-like variable `plt.rcParams`
+
+```{code-cell} python3
+---
+tags: [hide-output]
+---
+ 
+print(plt.rcParams.keys())
+
+```
+
+There are many parameters you could set for your style sheets.
+
+Set parameters for your style sheet by: 
+
+1. creating your own [`matplotlibrc` file](https://matplotlib.org/stable/tutorials/introductory/customizing.html#defining-your-own-style), or
+2. updating values stored in the dictionary-like variable `plt.rcParams`
+
+Let's change the style of our overlaid density lines using the second method
+
+```{code-cell} python3
+from cycler import cycler
+
+# set to the default style sheet
+plt.style.use('default')
+
+# You can update single values using keys:
+
+# Set the font style to italic
+plt.rcParams['font.style'] = 'italic'
+
+# Update linewidth
+plt.rcParams['lines.linewidth'] = 2
+
+
+# You can also update many values at once using the update() method:
+
+parameters = {
+
+    # Change default figure size
+    'figure.figsize': (5, 4),
+
+    # Add horizontal grid lines
+    'axes.grid': True,
+    'axes.grid.axis': 'y',
+
+    # Update colors for density lines
+    'axes.prop_cycle': cycler('color', 
+                            ['dimgray', 'slategrey', 'darkgray'])
+}
+
+plt.rcParams.update(parameters)
+
+
+```
+
+```{note} 
+
+These settings are `global`. 
+
+Any plot generated after changing parameters in `.rcParams` will be affected by the setting.
+
+```
+
+```{code-cell} python3
+fig, ax = plt.subplots()
+x = np.linspace(-4, 4, 150)
+for i in range(3):
+    m, s = uniform(-1, 1), uniform(1, 2)
+    y = norm.pdf(x, loc=m, scale=s)
+    current_label = f'$\mu = {m:.2}$'
+    ax.plot(x, y, linewidth=2, alpha=0.6, label=current_label)
+ax.legend()
+plt.show()
+```
+
+Apply the `default` style sheet again to change your style back to default
+
+```{code-cell} python3
+
+plt.style.use('default')
+
+# Reset default figure size
+plt.rcParams['figure.figsize'] = (10, 6)
+
+```
+
+Here are [more examples](https://www.datafantic.com/the-magic-of-matplotlib-stylesheets/) on how to change these parameters.
+
+
 ## Further Reading
 
 * The [Matplotlib gallery](http://matplotlib.org/gallery.html) provides many examples.
@@ -300,8 +476,6 @@ The output should look like this
 
 ```{exercise-end}
 ```
-
-## Solutions
 
 ```{solution-start} mpl_ex1
 :class: dropdown

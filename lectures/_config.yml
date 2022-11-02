@@ -5,7 +5,7 @@ description: This website presents a set of lectures on python programming for e
 
 execute:
   execute_notebooks: "cache"
-  timeout: 60
+  timeout: 120
 #   run_in_temp: true
 
 html:
@@ -35,6 +35,7 @@ sphinx:
       launch_buttons:
         notebook_interface        : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
         binderhub_url             : https://mybinder.org  # The URL of the BinderHub (e.g., https://mybinder.org)
+        colab_url                 : https://colab.research.google.com
         thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js
     rediraffe_redirects:

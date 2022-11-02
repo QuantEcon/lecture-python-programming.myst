@@ -54,7 +54,7 @@ In addition to what's in Anaconda, this lecture will need
 ---
 tags: [hide-output]
 ---
-!conda install -y quantecon
+!pip install quantecon
 ```
 
 ## Scientific Libraries

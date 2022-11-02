@@ -30,7 +30,7 @@ In addition to what's in Anaconda, this lecture will need the following librarie
 ---
 tags: [hide-output]
 ---
-!conda install -y quantecon
+!pip install quantecon
 ```
 
 Please also make sure that you have the latest version of Anaconda, since old
@@ -478,57 +478,13 @@ When Numba compiles machine code for functions, it treats global variables as co
 ```{exercise}
 :label: speed_ex1
 
-{ref}`Previously <pbe_ex3>` we considered how to approximate $\pi$ by
+{ref}`Previously <pbe_ex5>` we considered how to approximate $\pi$ by
 Monte Carlo.
 
 Use the same idea here, but make the code efficient using Numba.
 
 Compare speed with and without Numba when the sample size is large.
 ```
-
-
-```{exercise-start}
-:label: speed_ex2
-```
-
-In the [Introduction to Quantitative Economics with Python](https://python-intro.quantecon.org) lecture series you can
-learn all about finite-state Markov chains.
-
-For now, let's just concentrate on simulating a very simple example of such a chain.
-
-Suppose that the volatility of returns on an asset can be in one of two regimes --- high or low.
-
-The transition probabilities across states are as follows
-
-```{figure} /_static/lecture_specific/sci_libs/nfs_ex1.png
-```
-
-For example, let the period length be one day, and suppose the current state is high.
-
-We see from the graph that the state tomorrow will be
-
-* high with probability 0.8
-* low with probability 0.2
-
-Your task is to simulate a sequence of daily volatility states according to this rule.
-
-Set the length of the sequence to `n = 1_000_000` and start in the high state.
-
-Implement a pure Python version and a Numba version, and compare speeds.
-
-To test your code, evaluate the fraction of time that the chain spends in the low state.
-
-If your code is correct, it should be about 2/3.
-
-Hints:
-
-* Represent the low state as 0 and the high state as 1.
-* If you want to store integers in a NumPy array and then apply JIT compilation, use `x = np.empty(n, dtype=np.int_)`.
-
-```{exercise-end}
-```
-
-## Solutions
 
 ```{solution-start} speed_ex1
 :class: dropdown
@@ -571,6 +527,50 @@ characters.
 ```{solution-end}
 ```
 
+```{exercise-start}
+:label: speed_ex2
+```
+
+In the [Introduction to Quantitative Economics with Python](https://python-intro.quantecon.org) lecture series you can
+learn all about finite-state Markov chains.
+
+For now, let's just concentrate on simulating a very simple example of such a chain.
+
+Suppose that the volatility of returns on an asset can be in one of two regimes --- high or low.
+
+The transition probabilities across states are as follows
+
+```{figure} /_static/lecture_specific/sci_libs/nfs_ex1.png
+```
+
+For example, let the period length be one day, and suppose the current state is high.
+
+We see from the graph that the state tomorrow will be
+
+* high with probability 0.8
+* low with probability 0.2
+
+Your task is to simulate a sequence of daily volatility states according to this rule.
+
+Set the length of the sequence to `n = 1_000_000` and start in the high state.
+
+Implement a pure Python version and a Numba version, and compare speeds.
+
+To test your code, evaluate the fraction of time that the chain spends in the low state.
+
+If your code is correct, it should be about 2/3.
+
+
+```{hint}
+:class: dropdown
+
+* Represent the low state as 0 and the high state as 1.
+* If you want to store integers in a NumPy array and then apply JIT compilation, use `x = np.empty(n, dtype=np.int_)`.
+
+```
+
+```{exercise-end}
+```
 
 ```{solution-start} speed_ex2
 :class: dropdown

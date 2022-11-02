@@ -1,35 +1,11 @@
 name: Build Project [using jupyter-book]
-on: [pull_request]
+on: [push]
 jobs:
-  deploy-runner:
+  preview:
     runs-on: ubuntu-latest
     steps:
-      - uses: iterative/setup-cml@v1
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-      - name: Deploy runner on EC2
-        env:
-          REPO_TOKEN: ${{ secrets.QUANTECON_SERVICES_PAT }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: |
-          cml runner launch \
-              --cloud=aws \
-              --cloud-region=us-west-2 \
-              --cloud-type=p3.2xlarge \
-              --labels=cml-gpu \
-              --cloud-hdd-size=40
-  preview:
-    needs: deploy-runner
-    runs-on: [self-hosted, cml-gpu]
-    container:
-      image: docker://nvidia/cuda:11.2.1-devel-ubuntu20.04
-      options: --gpus all
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Setup Anaconda
         uses: conda-incubator/setup-miniconda@v2
         with:
@@ -39,18 +15,10 @@ jobs:
           python-version: 3.9
           environment-file: environment.yml
           activate-environment: quantecon
-      - name: Install Jax and Upgrade CUDA
-        shell: bash -l {0}
-        run: |
-          pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-          nvidia-smi
       - name: Install latex dependencies
-        shell: bash -l {0}
         run: |
-          apt-get -qq update
-          export DEBIAN_FRONTEND=noninteractive
-          apt-get install -y tzdata
-          apt-get install -y     \
+          sudo apt-get -qq update
+          sudo apt-get install -y     \
             texlive-latex-recommended \
             texlive-latex-extra       \
             texlive-fonts-recommended \
@@ -89,12 +57,6 @@ jobs:
         shell: bash -l {0}
         run: |
           jb build lectures --path-output ./ -n -W --keep-going
-      - name: Upload Execution Reports
-        uses: actions/upload-artifact@v2
-        if: failure()
-        with:
-          name: execution-reports
-          path: _build/html/reports
       - name: Preview Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
         with:

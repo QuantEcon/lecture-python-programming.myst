@@ -419,8 +419,6 @@ in this lecture.
 ```{exercise-end}
 ```
 
-## Solutions
-
 ```{solution-start} wgc-exercise-1
 :class: dropdown
 ```
