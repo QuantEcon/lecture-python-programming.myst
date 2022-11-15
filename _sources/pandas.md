@@ -695,6 +695,7 @@ def read_data(ticker_list,
     for tick in ticker_list:
         stock = yf.Ticker(tick)
         prices = stock.history(start=start, end=end)
+        
         closing_prices = prices['Close']
         ticker[tick] = closing_prices
 

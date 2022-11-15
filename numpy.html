@@ -1523,12 +1523,9 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">Input In [69],</span> in <span class="ni">&lt;cell line: 7&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>       <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>        <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>        <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2430</span><span class="o">/</span><span class="mf">3915099438.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
 <span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 
 <span class="ne">ValueError</span>: operands could not be broadcast together with shapes (3,2) (3,) 
@@ -1708,11 +1705,9 @@ the shape of array b is (2, 2)
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">Input In [73],</span> in <span class="ni">&lt;cell line: 14&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span> 
-<span class="g g-Whitespace">     </span><span class="mi">11</span>      <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2430</span><span class="o">/</span><span class="mf">1249908981.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;the shape of array b is </span><span class="si">{</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> 
 <span class="ne">---&gt; </span><span class="mi">14</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 
 <span class="ne">ValueError</span>: operands could not be broadcast together with shapes (2,2,3) (2,2) 
@@ -1762,7 +1757,7 @@ the shape of array b is (2, 2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.06818613, -0.15447722,  0.92933964])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.20384552, 0.16065706, 0.50051914])
 </pre></div>
 </div>
 </div>
@@ -1776,7 +1771,7 @@ the shape of array b is (2, 2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        , -0.15447722,  0.92933964])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.        , 0.16065706, 0.50051914])
 </pre></div>
 </div>
 </div>
@@ -1800,7 +1795,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.09700089,  0.19666865,  1.3424534 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.407586  , 0.0035775 , 1.87627824])
 </pre></div>
 </div>
 </div>
@@ -1813,7 +1808,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.09700089,  0.19666865,  1.3424534 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.407586  , 0.0035775 , 1.87627824])
 </pre></div>
 </div>
 </div>
@@ -1839,7 +1834,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.09700089,  0.19666865,  1.3424534 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.407586  , 0.0035775 , 1.87627824])
 </pre></div>
 </div>
 </div>
@@ -1924,7 +1919,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.35803801, -0.24928818, -0.1938326 ,  0.30977976])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.62452258,  0.45311736,  0.32758233,  0.51718071])
 </pre></div>
 </div>
 </div>
@@ -1936,7 +1931,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 0, 1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 1, 1])
 </pre></div>
 </div>
 </div>
@@ -1950,7 +1945,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 0, 1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 1, 1])
 </pre></div>
 </div>
 </div>
@@ -2080,7 +2075,7 @@ through its sub-packages.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.013
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.018
 </pre></div>
 </div>
 </div>
@@ -2449,7 +2444,7 @@ from QuantEcon and added in a plot method</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.04
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.045946598052978516
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.043773651123046875
 </pre></div>
 </div>
 </div>
@@ -2621,10 +2616,10 @@ from QuantEcon and added in a plot method</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:5.83
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:6.35
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.83625864982605
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.359629154205322
 </pre></div>
 </div>
 </div>
@@ -2883,6 +2878,11 @@ from QuantEcon and added in a plot method</p>
    14. Parallelization
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jax_intro.html">
+   15. JAX
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -2892,17 +2892,17 @@ from QuantEcon and added in a plot method</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   15. Writing Good Code
+   16. Writing Good Code
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   16. More Language Features
+   17. More Language Features
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   17. Debugging and Handling Errors
+   18. Debugging and Handling Errors
   </a>
  </li>
 </ul>
@@ -2914,12 +2914,12 @@ from QuantEcon and added in a plot method</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   18. Troubleshooting
+   19. Troubleshooting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   19. Execution Statistics
+   20. Execution Statistics
   </a>
  </li>
 </ul>

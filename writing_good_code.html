@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>15. Writing Good Code &#8212; Python Programming for Economics and Finance</title>
+    <title>16. Writing Good Code &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
@@ -101,8 +101,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="16. More Language Features" href="python_advanced_features.html" />
-    <link rel="prev" title="14. Parallelization" href="parallelization.html" />
+    <link rel="next" title="17. More Language Features" href="python_advanced_features.html" />
+    <link rel="prev" title="15. JAX" href="jax_intro.html" />
 
 <!-- Normal Meta Tags -->
 <meta name="author" context="Thomas J. Sargent &amp; John Stachurski" />
@@ -152,49 +152,49 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#overview">
-   15.1. Overview
+   16.1. Overview
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#an-example-of-poor-code">
-   15.2. An Example of Poor Code
+   16.2. An Example of Poor Code
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#good-coding-practice">
-   15.3. Good Coding Practice
+   16.3. Good Coding Practice
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#don-t-use-magic-numbers">
-     15.3.1. Don’t Use Magic Numbers
+     16.3.1. Don’t Use Magic Numbers
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#don-t-repeat-yourself">
-     15.3.2. Don’t Repeat Yourself
+     16.3.2. Don’t Repeat Yourself
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#minimize-global-variables">
-     15.3.3. Minimize Global Variables
+     16.3.3. Minimize Global Variables
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#jit-compilation">
-       15.3.3.1. JIT Compilation
+       16.3.3.1. JIT Compilation
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#use-functions-or-classes">
-     15.3.4. Use Functions or Classes
+     16.3.4. Use Functions or Classes
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#which-one-functions-or-classes">
-       15.3.4.1. Which One, Functions or Classes?
+       16.3.4.1. Which One, Functions or Classes?
       </a>
      </li>
     </ul>
@@ -203,12 +203,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#revisiting-the-example">
-   15.4. Revisiting the Example
+   16.4. Revisiting the Example
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   15.5. Exercises
+   16.5. Exercises
   </a>
  </li>
 </ul>
@@ -257,7 +257,7 @@ const thebe_selector_output = ".output, .cell_output"
                     <div>
                         
   <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1><a class="toc-backref" href="#id2"><span class="section-number">15. </span>Writing Good Code</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id2"><span class="section-number">16. </span>Writing Good Code</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <span id="index-0"></span><p class="topic-title">Contents</p>
 <ul class="simple">
@@ -276,7 +276,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div><p>“Any fool can write code that a computer can understand. Good programmers write code that humans can understand.” – Martin Fowler</p>
 </div></blockquote>
 <div class="section" id="overview">
-<h2><a class="toc-backref" href="#id3"><span class="section-number">15.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3"><span class="section-number">16.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>When computer programs are small, poorly written code is not overly costly.</p>
 <p>But more data, more sophisticated models, and more computer power are enabling us to take on more challenging problems that involve writing longer programs.</p>
 <p>For such programs, investment in good coding practices will pay high returns.</p>
@@ -285,11 +285,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p>We also touch on modern developments in scientific computing — such as just in time compilation — and how they affect good program design.</p>
 </div>
 <div class="section" id="an-example-of-poor-code">
-<h2><a class="toc-backref" href="#id4"><span class="section-number">15.2. </span>An Example of Poor Code</a><a class="headerlink" href="#an-example-of-poor-code" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4"><span class="section-number">16.2. </span>An Example of Poor Code</a><a class="headerlink" href="#an-example-of-poor-code" title="Permalink to this headline">¶</a></h2>
 <p>Let’s have a look at some poorly written code.</p>
 <p>The job of the code is to generate and plot time series of the simplified Solow model</p>
 <div class="math notranslate nohighlight" id="equation-gc-solmod">
-<span class="eqno">(15.1)<a class="headerlink" href="#equation-gc-solmod" title="Permalink to this equation">¶</a></span>\[k_{t+1} = s k_t^{\alpha} + (1 - \delta) k_t,
+<span class="eqno">(16.1)<a class="headerlink" href="#equation-gc-solmod" title="Permalink to this equation">¶</a></span>\[k_{t+1} = s k_t^{\alpha} + (1 - \delta) k_t,
 \quad t = 0, 1, 2, \ldots\]</div>
 <p>Here</p>
 <ul class="simple">
@@ -299,7 +299,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>For each parameterization, the code</p>
 <ol class="simple">
 <li><p>sets <span class="math notranslate nohighlight">\(k_0 = 1\)</span></p></li>
-<li><p>iterates using <a class="reference internal" href="#equation-gc-solmod">(15.1)</a> to produce a sequence <span class="math notranslate nohighlight">\(k_0, k_1, k_2 \ldots , k_T\)</span></p></li>
+<li><p>iterates using <a class="reference internal" href="#equation-gc-solmod">(16.1)</a> to produce a sequence <span class="math notranslate nohighlight">\(k_0, k_1, k_2 \ldots , k_T\)</span></p></li>
 <li><p>plots the sequence</p></li>
 </ol>
 <p>The plots will be grouped into three subfigures.</p>
@@ -380,7 +380,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Let’s talk about why that’s the case, and what we can do about it.</p>
 </div>
 <div class="section" id="good-coding-practice">
-<h2><a class="toc-backref" href="#id5"><span class="section-number">15.3. </span>Good Coding Practice</a><a class="headerlink" href="#good-coding-practice" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5"><span class="section-number">16.3. </span>Good Coding Practice</a><a class="headerlink" href="#good-coding-practice" title="Permalink to this headline">¶</a></h2>
 <p>There are usually many different ways to write a program that accomplishes a given task.</p>
 <p>For small programs, like the one above, the way you write code doesn’t matter too much.</p>
 <p>But if you are ambitious and want to produce useful things, you’ll  write medium to large programs too.</p>
@@ -388,7 +388,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Fortunately, lots of smart people have thought about the best way to write code.</p>
 <p>Here are some basic precepts.</p>
 <div class="section" id="don-t-use-magic-numbers">
-<h3><span class="section-number">15.3.1. </span>Don’t Use Magic Numbers<a class="headerlink" href="#don-t-use-magic-numbers" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">16.3.1. </span>Don’t Use Magic Numbers<a class="headerlink" href="#don-t-use-magic-numbers" title="Permalink to this headline">¶</a></h3>
 <p>If you look at the code above, you’ll see numbers like <code class="docutils literal notranslate"><span class="pre">50</span></code> and <code class="docutils literal notranslate"><span class="pre">49</span></code> and <code class="docutils literal notranslate"><span class="pre">3</span></code> scattered through the code.</p>
 <p>These kinds of numeric literals in the body of your code are sometimes called “magic numbers”.</p>
 <p>This is not a compliment.</p>
@@ -403,7 +403,7 @@ should certainly be replaced by named constants.</p>
 </ul>
 </div>
 <div class="section" id="don-t-repeat-yourself">
-<h3><span class="section-number">15.3.2. </span>Don’t Repeat Yourself<a class="headerlink" href="#don-t-repeat-yourself" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">16.3.2. </span>Don’t Repeat Yourself<a class="headerlink" href="#don-t-repeat-yourself" title="Permalink to this headline">¶</a></h3>
 <p>The other mortal sin in the code snippet above is repetition.</p>
 <p>Blocks of logic (such as the loop to generate time series) are repeated with only minor changes.</p>
 <p>This violates a fundamental tenet of programming: Don’t repeat yourself (DRY).</p>
@@ -417,7 +417,7 @@ should certainly be replaced by named constants.</p>
 <p>We’ll talk about how to avoid repetition below.</p>
 </div>
 <div class="section" id="minimize-global-variables">
-<h3><span class="section-number">15.3.3. </span>Minimize Global Variables<a class="headerlink" href="#minimize-global-variables" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">16.3.3. </span>Minimize Global Variables<a class="headerlink" href="#minimize-global-variables" title="Permalink to this headline">¶</a></h3>
 <p>Sure, global variables (i.e., names assigned to values outside of any function or class) are convenient.</p>
 <p>Rookie programmers typically use global variables with abandon — as we once did ourselves.</p>
 <p>But global variables are dangerous, especially in medium to large size programs, since</p>
@@ -430,7 +430,7 @@ should certainly be replaced by named constants.</p>
 <p>While the odd global in small scripts is no big deal, we recommend that you teach yourself to avoid them.</p>
 <p>(We’ll discuss how just below).</p>
 <div class="section" id="jit-compilation">
-<h4><span class="section-number">15.3.3.1. </span>JIT Compilation<a class="headerlink" href="#jit-compilation" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">16.3.3.1. </span>JIT Compilation<a class="headerlink" href="#jit-compilation" title="Permalink to this headline">¶</a></h4>
 <p>For scientific computing, there is another good reason to avoid global variables.</p>
 <p>As <a class="reference internal" href="numba.html"><span class="doc">we’ve seen in previous lectures</span></a>, JIT compilation can generate excellent performance for scripting languages like Python.</p>
 <p>But the task of the compiler used for JIT compilation becomes harder when global variables are present.</p>
@@ -439,7 +439,7 @@ more effective when variables are sandboxed inside a function.</p>
 </div>
 </div>
 <div class="section" id="use-functions-or-classes">
-<h3><span class="section-number">15.3.4. </span>Use Functions or Classes<a class="headerlink" href="#use-functions-or-classes" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">16.3.4. </span>Use Functions or Classes<a class="headerlink" href="#use-functions-or-classes" title="Permalink to this headline">¶</a></h3>
 <p>Fortunately, we can easily avoid the evils of global variables and WET code.</p>
 <ul class="simple">
 <li><p>WET stands for “we enjoy typing” and is the opposite of DRY.</p></li>
@@ -447,7 +447,7 @@ more effective when variables are sandboxed inside a function.</p>
 <p>We can do this by making frequent use of functions or classes.</p>
 <p>In fact, functions and classes are designed specifically to help us avoid shaming ourselves by repeating code or excessive use of global variables.</p>
 <div class="section" id="which-one-functions-or-classes">
-<h4><span class="section-number">15.3.4.1. </span>Which One, Functions or Classes?<a class="headerlink" href="#which-one-functions-or-classes" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">16.3.4.1. </span>Which One, Functions or Classes?<a class="headerlink" href="#which-one-functions-or-classes" title="Permalink to this headline">¶</a></h4>
 <p>Both can be useful, and in fact they work well with each other.</p>
 <p>We’ll learn more about these topics over time.</p>
 <p>(Personal preference is part of the story too)</p>
@@ -456,7 +456,7 @@ more effective when variables are sandboxed inside a function.</p>
 </div>
 </div>
 <div class="section" id="revisiting-the-example">
-<h2><a class="toc-backref" href="#id6"><span class="section-number">15.4. </span>Revisiting the Example</a><a class="headerlink" href="#revisiting-the-example" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id6"><span class="section-number">16.4. </span>Revisiting the Example</a><a class="headerlink" href="#revisiting-the-example" title="Permalink to this headline">¶</a></h2>
 <p>Here’s some code that reproduces the plot above with better coding style.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -507,10 +507,10 @@ more effective when variables are sandboxed inside a function.</p>
 </ul>
 </div>
 <div class="section" id="exercises">
-<h2><a class="toc-backref" href="#id7"><span class="section-number">15.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7"><span class="section-number">16.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <div class="exercise admonition" id="wgc-exercise-1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 15.1 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 16.1 </span></p>
 <div class="section" id="exercise-content">
 <p>Here is some code that needs improving.</p>
 <p>It involves a basic supply and demand problem.</p>
@@ -649,7 +649,7 @@ in this lecture.</p>
 </div>
 <div class="solution dropdown admonition" id="writing_good_code-solution-1">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#wgc-exercise-1"> Exercise 15.1</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#wgc-exercise-1"> Exercise 16.1</a></p>
 <div class="section" id="s">
 <span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><p>Here’s one solution, that uses a class:</p>
 <div class="cell docutils container">
@@ -899,6 +899,11 @@ Equilibrium quantity is  0.38
    14. Parallelization
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jax_intro.html">
+   15. JAX
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -908,17 +913,17 @@ Equilibrium quantity is  0.38
 <ul class="current nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1 current active active">
   <a class="current reference internal" href="#">
-   15. Writing Good Code
+   16. Writing Good Code
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   16. More Language Features
+   17. More Language Features
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   17. Debugging and Handling Errors
+   18. Debugging and Handling Errors
   </a>
  </li>
 </ul>
@@ -930,12 +935,12 @@ Equilibrium quantity is  0.38
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   18. Troubleshooting
+   19. Troubleshooting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   19. Execution Statistics
+   20. Execution Statistics
   </a>
  </li>
 </ul>
