@@ -24,8 +24,8 @@ Google to support in-house artificial intelligence and machine learning.
 
 ```{note}
 This lecture is built using the [following hardware](status:machine-details) that
-has access to an `NVIDIA Tesla V100` GPU. Your local results will differ depending
-on your hardware and access to a GPU.
+has access to an NVIDIA Tesla V100 GPU. When running this lecture on your local 
+machine the speed differences will vary depending on the hardware available. 
 ```
 
 JAX provides data types, functions and a compiler for fast linear
