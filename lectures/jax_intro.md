@@ -22,6 +22,10 @@ This lecture provides a short introduction to [Google JAX](https://github.com/go
 [JAX](https://github.com/google/jax) is a Python library initially developed by
 Google to support in-house artificial intelligence and machine learning.
 
+```{note}
+This lecture is built using the [following hardware](status:machine-details)
+```
+
 JAX provides data types, functions and a compiler for fast linear
 algebra operations and automatic differentiation.
 
