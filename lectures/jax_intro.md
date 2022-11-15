@@ -23,7 +23,9 @@ This lecture provides a short introduction to [Google JAX](https://github.com/go
 Google to support in-house artificial intelligence and machine learning.
 
 ```{note}
-This lecture is built using the [following hardware](status:machine-details)
+This lecture is built using the [following hardware](status:machine-details) that
+has access to an `NVIDIA Tesla V100` GPU. Your local results will differ depending
+on your hardware and access to a GPU.
 ```
 
 JAX provides data types, functions and a compiler for fast linear
