@@ -326,6 +326,27 @@ out
 print(out)
 ```
 
+We can also use `with` statement to contain operations on the file within a block.
+
+Note that we used `a+` mode (standing for append+ mode) to allow appending new content at the end of the file and enable reading at the same time.
+
+There are even [more modes](https://www.geeksforgeeks.org/reading-writing-text-files-python/) you could set when openning the file.
+
+The trick is to check where the pointer is set: if the pointer is set at the end of the file `seek` method is needed to go back to the start of the file. 
+
+Here we set `file.seek(0)` to move the pointer back to the first line (line 0) of the file.
+
+```{code-cell} python3
+with open('newfile.txt', 'a+') as file: 
+    file.write('\nAdding a new line')
+    file.seek(0)
+    lines = file.readlines()
+    i = 0
+    for line in lines:
+        print(f'Line {i}: {line}')
+        i += 1
+```
+
 ### Paths
 
 ```{index} single: Python; Paths
