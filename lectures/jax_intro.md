@@ -13,20 +13,27 @@ kernelspec:
 
 # JAX
 
+
+```{note}
+This lecture is built using [hardware](status:machine-details) that
+has access to a GPU. This means that 
+
+1. the lecture might be significantly slower when running on your machine, and
+2. the code is well-suited to execution with Google colab (click "Launch Notebook" button).
+```
+
+
 This lecture provides a short introduction to [Google JAX](https://github.com/google/jax).
 
 ## Overview
+
+Let's start with an overview of JAX.
 
 ### Capabilities
 
 [JAX](https://github.com/google/jax) is a Python library initially developed by
 Google to support in-house artificial intelligence and machine learning.
 
-```{note}
-This lecture is built using the [following hardware](status:machine-details) that
-has access to an NVIDIA Tesla V100 GPU. When running this lecture on your local 
-machine the speed differences will vary depending on the hardware available. 
-```
 
 JAX provides data types, functions and a compiler for fast linear
 algebra operations and automatic differentiation.
