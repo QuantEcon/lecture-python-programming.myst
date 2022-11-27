@@ -326,31 +326,40 @@ out
 print(out)
 ```
 
-We can also use `with` statement to contain operations on the file within a block for clarity and cleanness.
+We can also use a `with` statement (also known as a [context manager](https://realpython.com/python-with-statement/#the-with-statement-approach)) which enables you to group operations on the file within a block which improves the clarity of your code.
+
 
 ```{code-cell} python3
-with open('newfile.txt', 'a+') as file: 
-
-    # Adding a line at the end 
-    file.write('\nAdding a new line')
-
-    # Move the pointer back to the top
-    file.seek(0)
-
-    # Read the file line-by-line from the first line
+with open("newfile.txt", "r") as f:
+    file = f.readlines()
+with open("output.txt", "w") as fo:
     for i, line in enumerate(file):
-        print(f'Line {i}: {line}')
+        fo.write(f'Line {i}: {line} \n')
 ```
 
-Note that we used `a+` mode (standing for append+ mode) to allow appending new content at the end of the file and enable reading at the same time.
+```{code-cell} python3
+fo = open('output.txt', 'r')
+out = fo.read()
+print(out)
+```
 
-There are [many modes](https://www.geeksforgeeks.org/reading-writing-text-files-python/) you could set when opening the file.
+We can write the example above under the same context to reduce redundancy
 
-When experimenting with different modes, it is important to check where the pointer is set.
+```{code-cell} python3
+with open("newfile.txt", "r") as f, open("output2.txt", "w") as fo:
+        for i, line in enumerate(f):
+            fo.write(f'Line {i}: {line} \n')
+```
 
-The pointer is set to the end of the file in `a+` mode.
+```{code-cell} python3
+fo = open('output2.txt', 'r')
+out = fo.read()
+print(out)
+```
 
-Here we set `file.seek(0)` to move the pointer back to the first line (line 0) of the file to print the whole file.
+```{note}
+Note that we only used `r` and `w` mode. There are [more modes](https://www.geeksforgeeks.org/reading-writing-text-files-python/) you could experiment with.
+```
 
 
 ### Paths
