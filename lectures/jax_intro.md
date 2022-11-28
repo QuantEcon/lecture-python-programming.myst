@@ -19,9 +19,8 @@ This lecture is built using [hardware](status:machine-details) that
 has access to a GPU. This means that 
 
 1. the lecture might be significantly slower when running on your machine, and
-2. the code is well-suited to execution with Google colab (click "Launch Notebook" button).
+2. the code is well-suited to execution with [Google colab](https://colab.research.google.com/github/QuantEcon/lecture-python-programming.notebooks/blob/master/jax_intro.ipynb)
 ```
-
 
 This lecture provides a short introduction to [Google JAX](https://github.com/google/jax).
 
