@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# JAX
+# JAX {bdg-link-primary-line}`GPU <status:machine-details>`
 
 
 ```{note}
