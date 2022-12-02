@@ -326,8 +326,7 @@ out
 print(out)
 ```
 
-We can also use a `with` statement to ensure the files are properly acquired 
-and released.
+In fact, the recommended approach in modern Python is to use a `with` statement to ensure the files are properly acquired and released.
 
 Containing the operations within the same block also improves the clarity of your code.
 
