@@ -261,19 +261,23 @@ const thebe_selector_output = ".output, .cell_output"
                         
   <div class="tex2jax_ignore mathjax_ignore section" id="jax">
 <h1><span class="section-number">15. </span>JAX<a class="headerlink" href="#jax" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This lecture is built using <a class="reference internal" href="status.html#status-machine-details"><span class="std std-ref">hardware</span></a> that
+has access to a GPU. This means that</p>
+<ol class="simple">
+<li><p>the lecture might be significantly slower when running on your machine, and</p></li>
+<li><p>the code is well-suited to execution with <a class="reference external" href="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.notebooks/blob/master/jax_intro.ipynb">Google colab</a></p></li>
+</ol>
+</div>
 <p>This lecture provides a short introduction to <a class="reference external" href="https://github.com/google/jax">Google JAX</a>.</p>
 <div class="section" id="overview">
 <h2><span class="section-number">15.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Let’s start with an overview of JAX.</p>
 <div class="section" id="capabilities">
 <h3><span class="section-number">15.1.1. </span>Capabilities<a class="headerlink" href="#capabilities" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://github.com/google/jax">JAX</a> is a Python library initially developed by
 Google to support in-house artificial intelligence and machine learning.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This lecture is built using the <a class="reference internal" href="status.html#status-machine-details"><span class="std std-ref">following hardware</span></a> that
-has access to an NVIDIA Tesla V100 GPU. When running this lecture on your local
-machine the speed differences will vary depending on the hardware available.</p>
-</div>
 <p>JAX provides data types, functions and a compiler for fast linear
 algebra operations and automatic differentiation.</p>
 <p>Loosely speaking, JAX is like NumPy with the addition of</p>
@@ -552,15 +556,15 @@ attention back to Google-based machine learning architectures.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2192</span><span class="o">/</span><span class="mf">3686271957.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2517</span><span class="o">/</span><span class="mf">3686271957.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="nn">/__w/lecture-python-programming.myst/lecture-python-programming.myst/3/envs/quantecon/lib/python3.9/site-packages/jax/_src/numpy/lax_numpy.py</span> in <span class="ni">_unimplemented_setitem</span><span class="nt">(self, i, x)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4944</span>          <span class="s2">&quot;or another .at[] method: &quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">4945</span>          <span class="s2">&quot;https://jax.readthedocs.io/en/latest/_autosummary/jax.numpy.ndarray.at.html&quot;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">4946</span>   <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
-<span class="g g-Whitespace">   </span><span class="mi">4947</span> 
-<span class="g g-Whitespace">   </span><span class="mi">4948</span> <span class="k">def</span> <span class="nf">_operator_round</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">ndigits</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">4946</span>          <span class="s2">&quot;or another .at[] method: &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">4947</span>          <span class="s2">&quot;https://jax.readthedocs.io/en/latest/_autosummary/jax.numpy.ndarray.at.html&quot;</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">4948</span>   <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
+<span class="g g-Whitespace">   </span><span class="mi">4949</span> 
+<span class="g g-Whitespace">   </span><span class="mi">4950</span> <span class="k">def</span> <span class="nf">_operator_round</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">ndigits</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 
 <span class="ne">TypeError</span>: &#39;&lt;class &#39;jaxlib.xla_extension.DeviceArray&#39;&gt;&#39; object does not support item assignment. JAX arrays are immutable. Instead of ``x[idx] = y``, use ``x = x.at[idx].set(y)`` or another .at[] method: https://jax.readthedocs.io/en/latest/_autosummary/jax.numpy.ndarray.at.html
 </pre></div>
@@ -606,7 +610,7 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140680918975952
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140290482633104
 </pre></div>
 </div>
 </div>
@@ -643,7 +647,7 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140680918975952
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140290482633104
 </pre></div>
 </div>
 </div>
@@ -835,8 +839,8 @@ launch on the GPU / TPU (or CPU if no accelerator is detected).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 449 ms, sys: 200 ms, total: 649 ms
-Wall time: 3.38 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 455 ms, sys: 180 ms, total: 635 ms
+Wall time: 3.37 s
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray([499500., 499500., 499500., ..., 499500., 499500., 499500.],            dtype=float64)
@@ -880,8 +884,8 @@ Wall time: 3.38 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 826 µs, sys: 225 µs, total: 1.05 ms
-Wall time: 35.7 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.15 ms, sys: 293 µs, total: 1.44 ms
+Wall time: 36 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray([499500., 499500., 499500., ..., 499500., 499500., 499500.],            dtype=float64)
@@ -1176,8 +1180,8 @@ significantly faster exection.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.22 ms, sys: 0 ns, total: 1.22 ms
-Wall time: 106 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 997 µs, sys: 124 µs, total: 1.12 ms
+Wall time: 107 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray(180876.48840921, dtype=float64)
