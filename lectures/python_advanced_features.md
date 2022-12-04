@@ -314,7 +314,7 @@ Now we can use `*` to unpack the lists
 
 ```{code-cell} python3
 l1 = ["a", "b", "c", "d", "e"]
-l2 = ["e", "f"]
+l2 = ["e", "f", "j"]
 l3 = [*l1, *l2]
 
 print(l3)
@@ -368,17 +368,23 @@ def arb(*args):
 arb(l1, l2)
 ```
 
+Let's try more inputs
+
+```{code-cell} python3
+arb(l1, l2, l3, l4)
+```
+
 We can see that `*args` allows us to put an arbitary number of input into the function, and the inputs are stored into a tuple.
 
 Now we can use it together with what we have learnt before to write compute the union of multiple lists
 
 ```{code-cell} python3
 def intersect(*lists):
-    output = []
-    for ls in lists:
-        print(f'list is {ls}')
-        output = [*ls, *output]
-    return set(output)
+    output = set()
+    for i in range(len(lists)):
+        other = set([j for l in (lists[:i] + lists[i+1:]) for j in l])
+        output.update(set(lists[i]).intersection(other))
+    return output
 ```
 
 ```{code-cell} python3
@@ -392,8 +398,51 @@ intersect(l1, l2, l3, l4)
 
 We find that the function is now capable of handling arbitarily many lists inputs.
 
-Suppose we also want to compute unique elements
+Suppose we also want to output intersections for each list. In this case, we will need to input keyword arguments with an arbitary size.
 
+Similarly, Python allows us to use `**kargs` to pass keyword arguments into functions without specifying the size of the arguments.
+
+Let's start with a simple example
+
+```{code-cell} python3
+def arb(**args):
+    print(args)
+
+arb(l1=l1, l2=l2)
+```
+
+We can see that Python uses a dictionary to store these keyword arguments.
+
+Let's try more inputs
+
+```{code-cell} python3
+arb(l1=l1, l2=l2, l3=l3, l4=l4)
+```
+
+Now suppose we want the intersection function to return both intersection and unique elements in each list in a dictionary.
+
+We can use `**kargs` to pass names of the lists as well lists into the fucntion
+
+
+```{code-cell} python3
+def intersect(**lists):
+    keys = list(lists.keys())
+    print(keys)
+    inters_output = set()
+    unique_output = dict()
+    for i in range(len(keys)):
+        key = keys[i]
+        other = set([j for k in (keys[:i] + keys[i+1:]) for j in lists[k]])
+        inters = set(lists[key]).intersection(other)
+        inters_output.update(inters)
+        unique_output[key] = set(lists[key]) - inters
+    return inters_output, unique_output
+```
+
+```{code-cell} python3
+intersectionSet, uniqueSet = intersect(l1=l1, l2=l2, l3=l3, l4=l4)
+print(intersectionSet, uniqueSet)
+```
 
 
 
