@@ -290,6 +290,113 @@ tags: [raises-exception]
 max(y)
 ```
 
+## Splat (*) Operator
+
+### Unpacking Argument Lists
+
+When we operate on a list of values, we often encounter a situation where we want to unpack a list.
+
+To make things concrete, consider the following example:
+
+Suppose we have two lists `l1` and `l2` and we want to add all elements of `l1` and `l2` to a new list `l3`.
+
+By putting the two lists into one, we find that we have a list of two lists instead of a single list with all elements in `l1` and `l2`
+
+```{code-cell} python3
+l1 = ["a", "b", "c", "d", "e"]
+l2 = ["e", "f"]
+l3 = [l1, l2]
+
+print(l3)
+```
+
+Now we can use `*` to unpack the lists
+
+```{code-cell} python3
+l1 = ["a", "b", "c", "d", "e"]
+l2 = ["e", "f"]
+l3 = [*l1, *l2]
+
+print(l3)
+```
+
+The output is what we are expecting -- a list with elements in `l1` and `l2`.
+
+We can also unpack dictionaries into keyword arguments using `**`.
+
+For example, we have a simple function to print out a string describing a book:
+
+```{code-cell} python3
+def printBook(book_name, author_name, publication_year, publisher):
+    print(f'{book_name} published in {publication_year} by {publisher} is written by {author_name} \n')
+```
+
+Now suppose we have a list of math books we want to print
+
+
+```{code-cell} python3
+book_list = [{'book_name': 'An Introduction to Measure and Probability',
+    'author_name': 'J. C. Taylor',
+    'publication_year': 1997,
+    'publisher': 'Springer New York'}, 
+    {'book_name': 'A User\'s Guide to Measure Theoretic Probability',
+    'author_name': 'David Pollard',
+    'publication_year': 2001,
+    'publisher': 'Cambridge University Press'}]
+```
+
+Using `**` will help us to unpack dictionaries into `keyword: argument` pairs and use them in the function
+
+```{code-cell} python3
+for book in book_list:
+    printBook(**book)
+```
+
+Suppose we have a very long list of structured dictionary, this can will make our function scalable.
+
+
+### Arbitrary Argument List
+
+In many cases, we do not have prior knowledge about how many parameters will be put into the function. 
+
+`*args` operator can be used to input argument with an arbitary size.
+
+```{code-cell} python3
+def arb(*args):
+    print(args)
+
+arb(l1, l2)
+```
+
+We can see that `*args` allows us to put an arbitary number of input into the function, and the inputs are stored into a tuple.
+
+Now we can use it together with what we have learnt before to write compute the union of multiple lists
+
+```{code-cell} python3
+def intersect(*lists):
+    output = []
+    for ls in lists:
+        print(f'list is {ls}')
+        output = [*ls, *output]
+    return set(output)
+```
+
+```{code-cell} python3
+intersect(l1, l2, l3)
+```
+
+```{code-cell} python3
+l4 = ['z', 'x', 'b']
+intersect(l1, l2, l3, l4)
+```
+
+We find that the function is now capable of handling arbitarily many lists inputs.
+
+Suppose we also want to compute unique elements
+
+
+
+
 ## Decorators and Descriptors
 
 ```{index} single: Python; Decorators
