@@ -352,14 +352,14 @@ for book in book_list:
     printBook(**book)
 ```
 
-Suppose we have a very long list of structured dictionary, this can will make our function scalable.
+When we have a very long list of structured dictionaries, this can will make our function scalable.
 
 
 ### Arbitrary Argument List
 
-In many cases, we do not have prior knowledge about how many parameters will be put into the function. 
+`*` can be used when defining a function.
 
-`*args` operator can be used to input argument with an arbitary size.
+In many cases, we do not have prior knowledge about how many parameters will be put into the function. 
 
 ```{code-cell} python3
 def arb(*args):
@@ -373,20 +373,20 @@ Let's try more inputs
 ```{code-cell} python3
 l4 = ['z', 'x', 'b']
 arb(l1, l2, l3, l4)
-
-print(l1, l2, l3, l4)
 ```
 
-We can see that `*args` allows us to put an arbitary number of input into the function, and the inputs are stored into a tuple.
+We can see that `*args` allows us to put input with an arbitrary size into the function, and the inputs are stored into a tuple.
 
-Now we can use it together with what we have learnt before to compute all non-unique elements (union of pairwise intersections) across multiple lists.
+Now we can use it together with what we have learnt before to compute the intersection across multiple lists.
+
+Suppose $l1 ... ln$ are book lists of $n$ people and they want to know what books they have all read when a new reader joins; that is to say, the intersection of arbitrarily many lists.
+
+The following function computes the intersection
 
 ```{code-cell} python3
-
-#Here * is used to allow arbitarily many arguments
-# Here * is used to allow arbitarily many arguments
+# Here * is used to allow arbitrarily many arguments
 def intersect(*lists):
-    if len(lists) == 1: print("Warning: Calculating Intersection with Itself")
+    if len(lists) == 1: print("Warning: Calculating Intersection with Only One Input")
         
     # Here * is used to unpack the tuple
     return set(lists[0]).intersection(*lists)
@@ -400,11 +400,9 @@ intersect(l1, l2, l3)
 intersect(l1, l2, l3, l4)
 ```
 
-We find that the function is now capable of handling arbitarily many lists inputs.
+This is an ad hoc example but it shows the difference between using `*` to allow multiple arguments and using `*` to unpack the tuple for the `intersection` function.
 
-Suppose we also want to output intersections for each list. In this case, we will need to input keyword arguments with an arbitary size.
-
-Similarly, Python allows us to use `**kargs` to pass keyword arguments into functions without specifying the size of the arguments.
+Python also allows us to use `**kargs` to pass *keyword arguments* into functions without specifying the size of the arguments.
 
 Let's start with a simple example
 
@@ -423,33 +421,39 @@ Let's try more inputs
 arb(l1=l1, l2=l2, l3=l3, l4=l4)
 ```
 
-Now suppose we want the intersection function to return both intersection and unique elements in each list in a dictionary.
+Now suppose we want to build on the previous intersection function to return both the intersection of book lists as well as books in each book list that are not in the intersection.
 
-We can use `**kargs` to pass names of the lists as well lists into the fucntion
+We can use `**kargs` to pass names of the lists as well elements of the lists into the function
 
 
 ```{code-cell} python3
 def intersect_two_output(**lists):
-    if len(lists) == 1: print("Warning: Calculating Intersection with Itself")
+    if len(lists) == 1: print("Warning: Calculating Intersection with Only One Input")
     unique_output = dict()
-    keys = list(lists.keys())
-    values = list(lists.values())
-    inters_output = set(lists[keys[0]]).intersection(*values)
+    keys = lists.keys()
+    values = lists.values()
+
+    # Compute the intersection across the lists
+    inters_output = intersect(*values)
+
+    # Compute elements within each list that are not in the intersection
     for k in keys:
         unique_output[k] = set(lists[k]) - inters_output
+
     return inters_output, unique_output
 ```
 
 ```{code-cell} python3
 intersectionSet, uniqueSet = intersect_two_output(l1=l1, l2=l2, l3=l3)
-print(intersectionSet, uniqueSet)
+print(f'Intersection: {intersectionSet}')
+print(f'Outside Intersection: {uniqueSet}')
 ```
 
 ```{code-cell} python3
 intersectionSet, uniqueSet = intersect_two_output(l1=l1, l2=l2, l3=l3, l4=l4)
-print(intersectionSet, uniqueSet)
+print(f'Intersection: {intersectionSet}')
+print(f'Outside Intersection: {uniqueSet}')
 ```
-
 
 ## Decorators and Descriptors
 
