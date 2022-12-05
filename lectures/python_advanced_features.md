@@ -428,17 +428,14 @@ We can use `**kargs` to pass names of the lists as well elements of the lists in
 
 ```{code-cell} python3
 def intersect_two_output(**lists):
-    if len(lists) == 1: print("Warning: Calculating Intersection with Only One Input")
     unique_output = dict()
-    keys = lists.keys()
-    values = lists.values()
 
     # Compute the intersection across the lists
-    inters_output = intersect(*values)
+    inters_output = intersect(*lists.values())
 
     # Compute elements within each list that are not in the intersection
-    for k in keys:
-        unique_output[k] = set(lists[k]) - inters_output
+    for k, v in lists.items():
+        unique_output[k] = set(v) - inters_output
 
     return inters_output, unique_output
 ```
