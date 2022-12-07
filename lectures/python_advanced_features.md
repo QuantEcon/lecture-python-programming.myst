@@ -290,27 +290,49 @@ tags: [raises-exception]
 max(y)
 ```
 
-## Splat (*) Operator
+## `*` and `**` Operators
 
-### Unpacking Argument Lists
+`*` and `**` are convenient and widely used tools to unpack lists and tuples and to allow users to define functions that use arbitrarily many arguments as input.
 
-When we operate on a list of values, we often encounter a situation where we want to unpack a list.
+In this section, we will explore how to use them and distinguish different use cases.
+
+### Unpacking Arguments
+
+When we operate on a list of values, we often encounter situations where we want lists or tuples to be input into a function as individual arguments instead of a collection.
+
+Luckily, the `*` operator can help us to unpack argument lists and tuples in function calls.
 
 To make things concrete, consider the following example:
 
-Suppose we have two lists `l1` and `l2` and we want to add all elements of `l1` and `l2` to a new list `l3`.
-
-By putting the two lists into one, we find that we have a list of two lists instead of a single list with all elements in `l1` and `l2`
+Without `*`, the `print` function prints a list
 
 ```{code-cell} python3
 l1 = ["a", "b", "c", "d", "e"]
+
+print(l1)
+```
+
+While, with `*`, the `print` function prints individual elements since each of them 
+are considered a separate argument.
+
+```{code-cell} python3
+print(*l1)
+```
+
+Let's run through another example.
+
+Suppose we have two lists `l1` and `l2` and we want to add all elements of `l1` and `l2` to a new list `l3`.
+
+By putting the two lists into one, we get a list of two lists instead of a single list with all elements in `l1` and `l2`
+
+```{code-cell} python3
 l2 = ["e", "b", "c", "f", "j"]
 l3 = [l1, l2]
 
 print(l3)
 ```
 
-Now we can use `*` to unpack the lists
+Here we can use `*` to unpack the lists
 
 ```{code-cell} python3
 l1 = ["a", "b", "c", "d", "e"]
@@ -322,16 +344,38 @@ print(l3)
 
 The output is what we are expecting -- a list with elements in `l1` and `l2`.
 
-We can also unpack dictionaries into keyword arguments using `**`.
+```{note}
+It works in this case because `[]` can be considered a function call.
+```
 
-For example, we have a simple function to print out a string describing a book:
+However, we cannot use `*` in list comprehensions and outside function calls.
+
+```{code-cell} python3
+---
+tags: [raises-exception]
+---
+[*ls for ls in [l1, l2]]
+```
+
+```{code-cell} python3
+---
+tags: [raises-exception]
+---
+*l1
+```
+
+Similarly, `**` is also used to unpack arguments.
+
+The difference is that `**` unpacks dictionaries into keyword arguments.
+
+Suppose we have a simple function to print a string to describe a book:
 
 ```{code-cell} python3
 def printBook(book_name, author_name, publication_year, publisher):
     print(f'{book_name} published in {publication_year} by {publisher} is written by {author_name} \n')
 ```
 
-Now suppose we have a list of math books we want to print
+Now we want to print the following books structured into two dictionaries
 
 
 ```{code-cell} python3
@@ -355,11 +399,18 @@ for book in book_list:
 When we have a very long list of structured dictionaries, this can will make our function scalable.
 
 
-### Arbitrary Argument List
+Overall, when `*list`/`*tuple` and `**dictionary` are passed into *function calls*, they will be unpacked into individual arguments instead of a collection.
 
-`*` can be used when defining a function.
+The difference is that `*` will unpack lists and tuples the into positional arguments, while `**` will unpack dictionaries into keyword arguments.
 
-In many cases, we do not have prior knowledge about how many parameters will be put into the function. 
+
+### Arbitrary Arguments
+
+In many cases, we want to allow users to put as many arguments as they want into a function. 
+
+`*args` helps us to enable function inputs with an arbitrary size.
+
+Let's explore how we can leverage them.
 
 ```{code-cell} python3
 def arb(*args):
@@ -375,11 +426,13 @@ l4 = ['z', 'x', 'b']
 arb(l1, l2, l3, l4)
 ```
 
-We can see that `*args` allows us to put input with an arbitrary size into the function, and the inputs are stored into a tuple.
+The inputs are passed into the function and stored in a tuple.
 
-Now we can use it together with what we have learnt before to compute the intersection across multiple lists.
+Let's practice together with another example:
 
-Suppose $l1 ... ln$ are book lists of $n$ people and they want to know what books they have all read when a new reader joins; that is to say, the intersection of arbitrarily many lists.
+Suppose `l1` ... `ln` are book lists of $n$ people, and we want to know what books they have all read.
+
+That is to say, we want to calculate the intersection of arbitrarily many lists.
 
 The following function computes the intersection
 
@@ -392,6 +445,10 @@ def intersect(*lists):
     return set(lists[0]).intersection(*lists)
 ```
 
+This is a very simple example but it shows the difference between using `*` to allow multiple arguments and using `*` to unpack a tuple for the `intersection` function.
+
+We can try inputs with different sizes
+
 ```{code-cell} python3
 intersect(l1, l2, l3)
 ```
@@ -400,9 +457,7 @@ intersect(l1, l2, l3)
 intersect(l1, l2, l3, l4)
 ```
 
-This is an ad hoc example but it shows the difference between using `*` to allow multiple arguments and using `*` to unpack the tuple for the `intersection` function.
-
-Python also allows us to use `**kargs` to pass *keyword arguments* into functions without specifying the size of the arguments.
+Similarly, Python also allows us to use `**kargs` to pass arbitrarily many *keyword arguments* into functions.
 
 Let's start with a simple example
 
@@ -410,10 +465,11 @@ Let's start with a simple example
 def arb(**args):
     print(args)
 
+# Note that these are keyword arguments
 arb(l1=l1, l2=l2)
 ```
 
-We can see that Python uses a dictionary to store these keyword arguments.
+We can see Python uses a dictionary to store these keyword arguments.
 
 Let's try more inputs
 
@@ -421,10 +477,9 @@ Let's try more inputs
 arb(l1=l1, l2=l2, l3=l3, l4=l4)
 ```
 
-Now suppose we want to build on the previous intersection function to return both the intersection of book lists as well as books in each book list that are not in the intersection.
+Now suppose we want to build on the previous intersection function to return both the intersection of book lists and books in each book list that are not in the intersection.
 
-We can use `**kargs` to pass names of the lists as well elements of the lists into the function
-
+Here is one way we can write the function
 
 ```{code-cell} python3
 def intersect_two_output(**lists):
@@ -451,6 +506,10 @@ intersectionSet, uniqueSet = intersect_two_output(l1=l1, l2=l2, l3=l3, l4=l4)
 print(f'Intersection: {intersectionSet}')
 print(f'Outside Intersection: {uniqueSet}')
 ```
+
+Overall, when `*args` and `**kargs` are used when *defining a function*, they will enable the function to take input with an arbitrary size.
+
+The difference is that `*args` will enable the function to take *positional arguments* with an arbitrary size, while `**kargs` will allow functions to take arbitrarily many *keyword arguments*.
 
 ## Decorators and Descriptors
 
