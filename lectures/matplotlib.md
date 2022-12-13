@@ -73,6 +73,10 @@ plt.plot(x, y, 'b-', linewidth=2)
 plt.show()
 ```
 
+```{code-cell} ipython
+print("Hi")
+```
+
 This is simple and convenient, but also somewhat limited and un-Pythonic.
 
 For example, in the function calls, a lot of objects get created and passed around without making themselves known to the programmer.
