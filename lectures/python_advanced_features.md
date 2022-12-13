@@ -298,7 +298,7 @@ In this section, we will explore how to use them and distinguish different use c
 
 ### Unpacking Arguments
 
-When we operate on a list of values, we often encounter situations where we want lists or tuples to be input into a function as individual arguments instead of a collection.
+When we operate on a list of values, we often encounter situations where we have a list of parameters that we want to put into a function as individual arguments instead of a collection.
 
 Luckily, the `*` operator can help us to unpack argument lists and tuples in function calls.
 
@@ -375,7 +375,7 @@ def printBook(book_name, author_name, publication_year, publisher):
     print(f'{book_name} published in {publication_year} by {publisher} is written by {author_name} \n')
 ```
 
-Now we want to print the following books structured into two dictionaries
+Now we want to print the following books structured into a dictionary
 
 
 ```{code-cell} python3
@@ -389,7 +389,7 @@ book_list = [{'book_name': 'An Introduction to Measure and Probability',
     'publisher': 'Cambridge University Press'}]
 ```
 
-Using `**` will help us to unpack dictionaries into `keyword: argument` pairs and use them in the function
+Using `**` will unpack dictionaries into `keyword: argument` pairs and pass them into the function
 
 ```{code-cell} python3
 for book in book_list:
@@ -406,11 +406,11 @@ The difference is that `*` will unpack lists and tuples the into positional argu
 
 ### Arbitrary Arguments
 
-In many cases, we want to allow users to put as many arguments as they want into a function. 
+When we write functions, we may also want to allow users to put as many arguments as they want into a function. 
 
 `*args` helps us to enable function inputs with an arbitrary size.
 
-Let's explore how we can leverage them.
+Let's explore how we can leverage this feature.
 
 ```{code-cell} python3
 def arb(*args):
@@ -477,7 +477,7 @@ Let's try more inputs
 arb(l1=l1, l2=l2, l3=l3, l4=l4)
 ```
 
-Now suppose we want to build on the previous intersection function to return both the intersection of book lists and books in each book list that are not in the intersection.
+Now suppose we want to build on the previous `intersect` function to return both the intersection of book lists and books in each book list that are not in the intersection.
 
 Here is one way we can write the function
 
@@ -507,9 +507,9 @@ print(f'Intersection: {intersectionSet}')
 print(f'Outside Intersection: {uniqueSet}')
 ```
 
-Overall, when `*args` and `**kargs` are used when *defining a function*, they will enable the function to take input with an arbitrary size.
+Overall, `*args` and `**kargs` are used when *defining a function*, they will enable the function to take input with an arbitrary size.
 
-The difference is that `*args` will enable the function to take *positional arguments* with an arbitrary size, while `**kargs` will allow functions to take arbitrarily many *keyword arguments*.
+The difference is that functions with `*args` will be able to take *positional arguments* with an arbitrary size, while `**kargs` will allow functions to take arbitrarily many *keyword arguments*.
 
 ## Decorators and Descriptors
 
