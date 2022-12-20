@@ -296,6 +296,7 @@ max(y)
 
 In this section, we will explore how to use them and distinguish different use cases.
 
+
 ### Unpacking Arguments
 
 When we operate on a list of values, we often encounter situations where we have a list of parameters that we want to put into a function as individual arguments instead of a collection.
@@ -307,7 +308,7 @@ To make things concrete, consider the following example:
 Without `*`, the `print` function prints a list
 
 ```{code-cell} python3
-l1 = ["a", "b", "c", "d", "e"]
+l1 = ['a', 'b', 'c']
 
 print(l1)
 ```
@@ -319,100 +320,101 @@ are considered a separate argument.
 print(*l1)
 ```
 
-Let's run through another example.
-
-Suppose we have two lists `l1` and `l2` and we want to add all elements of `l1` and `l2` to a new list `l3`.
-
-By putting the two lists into one, we get a list of two lists instead of a single list with all elements in `l1` and `l2`
-
-```{code-cell} python3
-l2 = ["e", "b", "c", "f", "j"]
-l3 = [l1, l2]
-
-print(l3)
-```
-
-Here we can use `*` to unpack the lists
-
-```{code-cell} python3
-l1 = ["a", "b", "c", "d", "e"]
-l2 = ["e", "b", "c", "f", "j"]
-l3 = [*l1, *l2]
-
-print(l3)
-```
-
-The output is what we are expecting -- a list with elements in `l1` and `l2`.
-
-```{note}
-It works in this case because `[]` can be considered a function call.
-```
-
-However, we cannot use `*` in list comprehensions and outside function calls.
-
-```{code-cell} python3
----
-tags: [raises-exception]
----
-[*ls for ls in [l1, l2]]
-```
-
-```{code-cell} python3
----
-tags: [raises-exception]
----
-*l1
-```
-
 Similarly, `**` is also used to unpack arguments.
 
 The difference is that `**` unpacks dictionaries into keyword arguments.
 
-Suppose we have a simple function to print a string to describe a book:
+We can use them when there are many keyword arguments we would like to reuse for a function.
+
+For example, Assume we want to draw a few time series lines using synthetic time series data with different values for $\sigma$.
+
+It may involve setting many graphical parameters, which are usually keyword arguments when drawing the line.
+
+In this case, we can use `**` to unpack keyword arguments.
+
+Let's walk through this example together
 
 ```{code-cell} python3
-def printBook(book_name, author_name, publication_year, publisher):
-    print(f'{book_name} published in {publication_year} by {publisher} is written by {author_name} \n')
+# Setting up scene
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Set up the figure and subplots
+fig, ax = plt.subplots(2, 1)
+plt.subplots_adjust(hspace=0.5)
+plt.rcParams['figure.figsize'] = (8, 7)
+
+# Set the seed for reproducibility
+np.random.seed(0)
+
+# Create a function that generates synthetic data
+def generate_data(scale, n):
+  return range(n), np.cumsum(np.random.normal(size=n, scale=scale))
+
+# Define the keyword arguments in a dictionary
+line_kargs = {'lw': 2, 'alpha': 0.7}
+
+# Define keyword arguments for legends
+legend_kargs = {'bbox_to_anchor': (0., 1.02, 1., .102), 'loc': 3, 'mode': 'expand'}
+scales = [1, 2, 3]
+
+# Use a for loop to plot each line with the corresponding scale
+
+def generate_plots(stds, idx, line_kargs, legend_kargs, n=100):
+  for std in stds:
+    line_data = generate_data(std, n)
+    # Use * to unpack the tuple output of the line_data function
+    # Use ** to unpack the dictionary of arguments for lines
+    ax[idx].plot(*line_data, **line_kargs)
+  label_list = ['$\sigma = {}$'.format(scale) for scale in scales]
+
+  # Use ** to unpack the list of scales into separate labels
+  ax[idx].legend(label_list, ncol=4, **legend_kargs)
+
+generate_plots(scales, 0, line_kargs, legend_kargs)
+
+# We can easily update our parameters
+scales.append(10)
+line_kargs['lw'] = 1
+line_kargs['linestyle'] = ':'
+
+generate_plots(scales, 1, line_kargs, legend_kargs)
+
+plt.show()
 ```
 
-Now we want to print the following books structured into a dictionary
+It is easy to see how `*` and `**` can help write cleaner code and make our code more reusable.
 
+Overall, when `*list`/`*tuple` and `**dictionary` are passed into *function calls*, they are unpacked into individual arguments instead of a collection.
 
-```{code-cell} python3
-book_list = [{'book_name': 'An Introduction to Measure and Probability',
-    'author_name': 'J. C. Taylor',
-    'publication_year': 1997,
-    'publisher': 'Springer New York'}, 
-    {'book_name': 'A User\'s Guide to Measure Theoretic Probability',
-    'author_name': 'David Pollard',
-    'publication_year': 2001,
-    'publisher': 'Cambridge University Press'}]
-```
-
-Using `**` will unpack dictionaries into `keyword: argument` pairs and pass them into the function
-
-```{code-cell} python3
-for book in book_list:
-    printBook(**book)
-```
-
-When we have a very long list of structured dictionaries, this can will make our function scalable.
-
-
-Overall, when `*list`/`*tuple` and `**dictionary` are passed into *function calls*, they will be unpacked into individual arguments instead of a collection.
-
-The difference is that `*` will unpack lists and tuples the into positional arguments, while `**` will unpack dictionaries into keyword arguments.
-
+The difference is that `*` will unpack lists and tuples into *positional arguments*, while `**` will unpack dictionaries into *keyword arguments*.
 
 ### Arbitrary Arguments
 
-When we write functions, we may also want to allow users to put as many arguments as they want into a function. 
+When we write functions, it is sometimes desirable to allow users to put as many arguments as they want into a function. 
 
-`*args` helps us to enable function inputs with an arbitrary size.
+You might have noticed before that the `ax.plot()` function is capable of handling as many inputs as we input.
+
+If we take a look at the [documentation](https://github.com/matplotlib/matplotlib/blob/v3.6.2/lib/matplotlib/axes/_axes.py#L1417-L1669) of the function, we can see the function is defined as
+
+```
+Axes.plot(*args, scalex=True, scaley=True, data=None, **kwargs)
+```
+
+We found `*` and `**` operators we have seen before.
+
+In fact, they are commonly used when developing packages for scientific computing to allow users to provide input with a flexible length.
+
+Here we will introduce `*args` and `**kargs` respectively.
+
+`*args` helps us to enable the function to handle *positional arguments* with an arbitrary size.
 
 Let's explore how we can leverage this feature.
 
 ```{code-cell} python3
+l1 = ['a', 'b', 'c']
+l2 = ['b', 'c', 'd']
+
 def arb(*args):
     print(args)
 
@@ -422,40 +424,11 @@ arb(l1, l2)
 Let's try more inputs
 
 ```{code-cell} python3
-l4 = ['z', 'x', 'b']
-arb(l1, l2, l3, l4)
+l3 = ['z', 'x', 'b']
+arb(l1, l2, l3)
 ```
 
 The inputs are passed into the function and stored in a tuple.
-
-Let's practice together with another example:
-
-Suppose `l1` ... `ln` are book lists of $n$ people, and we want to know what books they have all read.
-
-That is to say, we want to calculate the intersection of arbitrarily many lists.
-
-The following function computes the intersection
-
-```{code-cell} python3
-# Here * is used to allow arbitrarily many arguments
-def intersect(*lists):
-    if len(lists) == 1: print("Warning: Calculating Intersection with Only One Input")
-        
-    # Here * is used to unpack the tuple
-    return set(lists[0]).intersection(*lists)
-```
-
-This is a very simple example but it shows the difference between using `*` to allow multiple arguments and using `*` to unpack a tuple for the `intersection` function.
-
-We can try inputs with different sizes
-
-```{code-cell} python3
-intersect(l1, l2, l3)
-```
-
-```{code-cell} python3
-intersect(l1, l2, l3, l4)
-```
 
 Similarly, Python also allows us to use `**kargs` to pass arbitrarily many *keyword arguments* into functions.
 
@@ -474,42 +447,18 @@ We can see Python uses a dictionary to store these keyword arguments.
 Let's try more inputs
 
 ```{code-cell} python3
-arb(l1=l1, l2=l2, l3=l3, l4=l4)
+arb(l1=l1, l2=l2, l3=l3)
 ```
 
-Now suppose we want to build on the previous `intersect` function to return both the intersection of book lists and books in each book list that are not in the intersection.
+This is also what happened under the hood when we added more keyword arguments to the `ax.plot()` function in our previous example.
 
-Here is one way we can write the function
-
-```{code-cell} python3
-def intersect_two_output(**lists):
-    unique_output = dict()
-
-    # Compute the intersection across the lists
-    inters_output = intersect(*lists.values())
-
-    # Compute elements within each list that are not in the intersection
-    for k, v in lists.items():
-        unique_output[k] = set(v) - inters_output
-
-    return inters_output, unique_output
-```
-
-```{code-cell} python3
-intersectionSet, uniqueSet = intersect_two_output(l1=l1, l2=l2, l3=l3)
-print(f'Intersection: {intersectionSet}')
-print(f'Outside Intersection: {uniqueSet}')
-```
-
-```{code-cell} python3
-intersectionSet, uniqueSet = intersect_two_output(l1=l1, l2=l2, l3=l3, l4=l4)
-print(f'Intersection: {intersectionSet}')
-print(f'Outside Intersection: {uniqueSet}')
-```
-
-Overall, `*args` and `**kargs` are used when *defining a function*, they will enable the function to take input with an arbitrary size.
+Overall, `*args` and `**kargs` are used when *defining a function*; they enable the function to take input with an arbitrary size.
 
 The difference is that functions with `*args` will be able to take *positional arguments* with an arbitrary size, while `**kargs` will allow functions to take arbitrarily many *keyword arguments*.
+
+`Axes.plot(*args, scalex=True, scaley=True, data=None, **kwargs)` is a nice example for the use of `*` and `**` in the function definition.
+
+`*args` allows us to input many *positional arguments* as `x` and `y` for a line, and `**kwargs` allows us to define multiple named line options using *keyword arguments*.
 
 ## Decorators and Descriptors
 
