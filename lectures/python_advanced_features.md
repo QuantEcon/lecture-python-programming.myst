@@ -335,7 +335,6 @@ In this case, we can use `**` to unpack keyword arguments.
 Let's walk through this example together
 
 ```{code-cell} python3
-# Setting up scene
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -351,24 +350,23 @@ np.random.seed(0)
 def generate_data(scale, n):
   return range(n), np.cumsum(np.random.normal(size=n, scale=scale))
 
-# Define the keyword arguments in a dictionary
+# Define the keyword arguments for lines and legends in a dictionary
 line_kargs = {'lw': 2, 'alpha': 0.7}
-
-# Define keyword arguments for legends
 legend_kargs = {'bbox_to_anchor': (0., 1.02, 1., .102), 'loc': 3, 'mode': 'expand'}
+
 scales = [1, 2, 3]
 
 # Use a for loop to plot each line with the corresponding scale
-
 def generate_plots(stds, idx, line_kargs, legend_kargs, n=100):
   for std in stds:
     line_data = generate_data(std, n)
+
     # Use * to unpack the tuple output of the line_data function
-    # Use ** to unpack the dictionary of arguments for lines
+    # Use ** to unpack the dictionary of keyword arguments for lines
     ax[idx].plot(*line_data, **line_kargs)
   label_list = ['$\sigma = {}$'.format(scale) for scale in scales]
 
-  # Use ** to unpack the list of scales into separate labels
+  # Use ** to unpack the dictionary of keyword arguments for legends
   ax[idx].legend(label_list, ncol=4, **legend_kargs)
 
 generate_plots(scales, 0, line_kargs, legend_kargs)
@@ -379,7 +377,6 @@ line_kargs['lw'] = 1
 line_kargs['linestyle'] = ':'
 
 generate_plots(scales, 1, line_kargs, legend_kargs)
-
 plt.show()
 ```
 
