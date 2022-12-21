@@ -294,14 +294,14 @@ max(y)
 
 `*` and `**` are convenient and widely used tools to unpack lists and tuples and to allow users to define functions that use arbitrarily many arguments as input.
 
-In this section, we will explore how to use them and distinguish different use cases.
+In this section, we will explore how to use them and distinguish their use cases.
 
 
 ### Unpacking Arguments
 
-When we operate on a list of values, we often encounter situations where we have a list of parameters that we want to put into a function as individual arguments instead of a collection.
+When we operate on a list of parameters, we often need to put the content of the list into a function as individual arguments instead of a collection.
 
-Luckily, the `*` operator can help us to unpack argument lists and tuples in function calls.
+Luckily, the `*` operator can help us to unpack lists and tuples into *positional arguments* in function calls.
 
 To make things concrete, consider the following example:
 
@@ -314,25 +314,41 @@ print(l1)
 ```
 
 While, with `*`, the `print` function prints individual elements since each of them 
-are considered a separate argument.
+is considered a separate argument
 
 ```{code-cell} python3
 print(*l1)
 ```
 
+Unpacking the list into positional arguments is equivalent to put each element of the list seprately into the function
+
+```{code-cell} python3
+print('a', 'b', 'c')
+```
+
+However, it is more convinient since we can reuse the list
+
+```{code-cell} python3
+l1.append('d')
+
+print(*l1)
+```
+
 Similarly, `**` is also used to unpack arguments.
 
-The difference is that `**` unpacks dictionaries into keyword arguments.
+The difference is that `**` unpacks *dictionaries* into *keyword arguments*.
 
 We can use them when there are many keyword arguments we would like to reuse for a function.
 
-For example, Assume we want to draw a few time series lines using synthetic time series data with different values for $\sigma$.
+For example, assume we want to draw a few lines using synthetic data with parameter values.
 
-It may involve setting many graphical parameters, which are usually keyword arguments when drawing the line.
+It may involve setting many graphical parameters repetitively, which are usually keyword arguments.
 
-In this case, we can use `**` to unpack keyword arguments.
+In this case, we can use dictionary to store these parameters and use `**` to unpack keyword arguments when they are needed.
 
-Let's walk through this example together
+Let's walk through this example using Geometric Brownian motion process.
+
+The setup of this example is left for future exploration:
 
 ```{code-cell} python3
 import numpy as np
@@ -340,47 +356,54 @@ import matplotlib.pyplot as plt
 
 # Set up the figure and subplots
 fig, ax = plt.subplots(2, 1)
-plt.subplots_adjust(hspace=0.5)
-plt.rcParams['figure.figsize'] = (8, 7)
+plt.subplots_adjust(hspace=0.7)
+plt.rcParams["figure.figsize"] = (10, 6)
 
-# Set the seed for reproducibility
-np.random.seed(0)
+# Generates synthetic data from a Geometric Brownian motion process
+def simulate_gbm(µ, σ, s0=100, dt=0.01, n=50):
+    np.random.seed(1)
+    t = n*dt
+    time_step = np.linspace(0, t, n)
+    W = np.cumsum(np.random.standard_normal(size = n))*np.sqrt(dt)
+    S = s0*np.exp((µ-0.5*σ**2)*t + σ*W )
+    return time_step, S
+```
 
-# Create a function that generates synthetic data
-def generate_data(scale, n):
-  return range(n), np.cumsum(np.random.normal(size=n, scale=scale))
 
-# Define the keyword arguments for lines and legends in a dictionary
-line_kargs = {'lw': 2, 'alpha': 0.7}
-legend_kargs = {'bbox_to_anchor': (0., 1.02, 1., .102), 'loc': 3, 'mode': 'expand'}
+We will focus on the use of `*` and `**` in this case
 
-scales = [1, 2, 3]
+```{code-cell} python3
+# Store the keyword arguments for lines and legends in a dictionary
+line_kargs = {'lw': 1.5, 'alpha': 0.7}
+legend_kargs = {'bbox_to_anchor': (0., 1.02, 1., .3), 'loc': 0, 'mode': 'expand', 'prop': {'size': 7}}
 
-# Use a for loop to plot each line with the corresponding scale
-def generate_plots(stds, idx, line_kargs, legend_kargs, n=100):
-  for std in stds:
-    line_data = generate_data(std, n)
+µs = [0]*3
+σs = [0.1, 0.2, 0.3]
 
-    # Use * to unpack the tuple output of the line_data function
+def generate_plots(µs, σs, idx, line_kargs, legend_kargs):
+  for parameters in zip(µs, σs):
+
+    # Use * to unpack parameters and the tuple output from the simulate_gbm function
     # Use ** to unpack the dictionary of keyword arguments for lines
-    ax[idx].plot(*line_data, **line_kargs)
-  label_list = ['$\sigma = {}$'.format(scale) for scale in scales]
+    ax[idx].plot(*simulate_gbm(*parameters), **line_kargs)
+  label_list = [f'$\mu = {µ}$ / $\sigma = {σ}$' for µ, σ in zip(µs, σs)]
 
   # Use ** to unpack the dictionary of keyword arguments for legends
   ax[idx].legend(label_list, ncol=4, **legend_kargs)
 
-generate_plots(scales, 0, line_kargs, legend_kargs)
+generate_plots(µs, σs, 0, line_kargs, legend_kargs)
 
 # We can easily update our parameters
-scales.append(10)
-line_kargs['lw'] = 1
+line_kargs['lw'] = 2
 line_kargs['linestyle'] = ':'
+µs.append(0.1)
+σs.append(0.3)
 
-generate_plots(scales, 1, line_kargs, legend_kargs)
+generate_plots(µs, σs, 1, line_kargs, legend_kargs)
 plt.show()
 ```
 
-It is easy to see how `*` and `**` can help write cleaner code and make our code more reusable.
+In this example, `*` unpacked the zipped parameters and the output of `simulate_gbm` function stored in a tuple, while `**` unpacked graphical parameters stored in `legend_kargs` and `line_kargs`.
 
 Overall, when `*list`/`*tuple` and `**dictionary` are passed into *function calls*, they are unpacked into individual arguments instead of a collection.
 
@@ -388,9 +411,9 @@ The difference is that `*` will unpack lists and tuples into *positional argumen
 
 ### Arbitrary Arguments
 
-When we write functions, it is sometimes desirable to allow users to put as many arguments as they want into a function. 
+When we *define* functions, it is sometimes desirable to allow users to put as many arguments as they want into a function. 
 
-You might have noticed before that the `ax.plot()` function is capable of handling as many inputs as we input.
+You might have noticed that the `ax.plot()` function was capable of handling as many inputs as we gave it.
 
 If we take a look at the [documentation](https://github.com/matplotlib/matplotlib/blob/v3.6.2/lib/matplotlib/axes/_axes.py#L1417-L1669) of the function, we can see the function is defined as
 
@@ -398,22 +421,20 @@ If we take a look at the [documentation](https://github.com/matplotlib/matplotli
 Axes.plot(*args, scalex=True, scaley=True, data=None, **kwargs)
 ```
 
-We found `*` and `**` operators we have seen before.
+We found `*` and `**` operators again in the context of *function definition*.
 
-In fact, they are commonly used when developing packages for scientific computing to allow users to provide input with a flexible length.
+In fact, `*args` and `**kargs` are commonly used when developing functions for scientific computing packages and machine learning to allow users to provide input with a flexible length.
 
-Here we will introduce `*args` and `**kargs` respectively.
+Let's explore `*args` and `**kargs` together.
 
-`*args` helps us to enable the function to handle *positional arguments* with an arbitrary size.
-
-Let's explore how we can leverage this feature.
+`*args` helps us to enable the function to handle *positional arguments* with an arbitrary size
 
 ```{code-cell} python3
 l1 = ['a', 'b', 'c']
 l2 = ['b', 'c', 'd']
 
-def arb(*args):
-    print(args)
+def arb(*ls):
+    print(ls)
 
 arb(l1, l2)
 ```
@@ -432,8 +453,8 @@ Similarly, Python also allows us to use `**kargs` to pass arbitrarily many *keyw
 Let's start with a simple example
 
 ```{code-cell} python3
-def arb(**args):
-    print(args)
+def arb(**ls):
+    print(ls)
 
 # Note that these are keyword arguments
 arb(l1=l1, l2=l2)
@@ -447,15 +468,19 @@ Let's try more inputs
 arb(l1=l1, l2=l2, l3=l3)
 ```
 
-This is also what happened under the hood when we added more keyword arguments to the `ax.plot()` function in our previous example.
+This is also what happened under the hood when we added more keyword arguments to the `ax.plot()` function in our previous example:
+
+In 
+
+```
+Axes.plot(*args, scalex=True, scaley=True, data=None, **kwargs)
+```
+
+`*args` allows us to input many *positional arguments* as `x`s and `y`s for lines, and `**kwargs` allows us to define arbitarily many *named* line options using *keyword arguments*.
 
 Overall, `*args` and `**kargs` are used when *defining a function*; they enable the function to take input with an arbitrary size.
 
 The difference is that functions with `*args` will be able to take *positional arguments* with an arbitrary size, while `**kargs` will allow functions to take arbitrarily many *keyword arguments*.
-
-`Axes.plot(*args, scalex=True, scaley=True, data=None, **kwargs)` is a nice example for the use of `*` and `**` in the function definition.
-
-`*args` allows us to input many *positional arguments* as `x` and `y` for a line, and `**kwargs` allows us to define multiple named line options using *keyword arguments*.
 
 ## Decorators and Descriptors
 
