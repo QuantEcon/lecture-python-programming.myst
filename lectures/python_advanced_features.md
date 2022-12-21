@@ -320,13 +320,13 @@ is considered a separate argument
 print(*l1)
 ```
 
-Unpacking the list into positional arguments is equivalent to put each element of the list seprately into the function
+Unpacking the list into positional arguments is equivalent to putting each element of the list separately into the function
 
 ```{code-cell} python3
 print('a', 'b', 'c')
 ```
 
-However, it is more convinient since we can reuse the list
+However, it is more convenient since we can reuse the list
 
 ```{code-cell} python3
 l1.append('d')
@@ -342,70 +342,64 @@ We can use them when there are many keyword arguments we would like to reuse for
 
 For example, assume we want to draw a few lines using synthetic data with parameter values.
 
-It may involve setting many graphical parameters repetitively, which are usually keyword arguments.
+It may involve repetitively setting many graphical parameters, usually keyword arguments.
 
-In this case, we can use dictionary to store these parameters and use `**` to unpack keyword arguments when they are needed.
+In this case, we can use a dictionary to store these parameters and use `**` to unpack keyword arguments when they are needed.
 
-Let's walk through this example using Geometric Brownian motion process.
-
-The setup of this example is left for future exploration:
+Let's walk through a simple example together
 
 ```{code-cell} python3
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Set up the figure and subplots
+# Set up the frame and subplots
 fig, ax = plt.subplots(2, 1)
 plt.subplots_adjust(hspace=0.7)
 plt.rcParams["figure.figsize"] = (10, 6)
 
-# Generates synthetic data from a Geometric Brownian motion process
-def simulate_gbm(µ, σ, s0=100, dt=0.01, n=50):
-    np.random.seed(1)
-    t = n*dt
-    time_step = np.linspace(0, t, n)
-    W = np.cumsum(np.random.standard_normal(size = n))*np.sqrt(dt)
-    S = s0*np.exp((µ-0.5*σ**2)*t + σ*W )
-    return time_step, S
-```
+# Create a function that generates synthetic data
+def generate_data(β_0, β_1, σ=30, n=100):
+    x_values = np.arange(0, n, 1)
+    y_values = β_0 + β_1 * x_values + np.random.normal(size=n, scale=σ)
+    return x_values, y_values
 
-
-We will focus on the use of `*` and `**` in this case
-
-```{code-cell} python3
 # Store the keyword arguments for lines and legends in a dictionary
 line_kargs = {'lw': 1.5, 'alpha': 0.7}
-legend_kargs = {'bbox_to_anchor': (0., 1.02, 1., .3), 'loc': 0, 'mode': 'expand', 'prop': {'size': 7}}
+legend_kargs = {'bbox_to_anchor': (0., 1.02, 1., .102), 
+                'loc': 3, 
+                'mode': 'expand', 
+                'prop': {'size': 7}}
 
-µs = [0]*3
-σs = [0.1, 0.2, 0.3]
+β_0s = [10, 20, 30]
+β_1s = [1, 2, 3]
 
-def generate_plots(µs, σs, idx, line_kargs, legend_kargs):
-  for parameters in zip(µs, σs):
+# Use a for loop to plot each line with the corresponding scale
+def generate_plots(β_0s, β_1s, idx, line_kargs, legend_kargs):
+    label_list = []
+    for βs in zip(β_0s, β_1s):
 
-    # Use * to unpack parameters and the tuple output from the simulate_gbm function
-    # Use ** to unpack the dictionary of keyword arguments for lines
-    ax[idx].plot(*simulate_gbm(*parameters), **line_kargs)
-  label_list = [f'$\mu = {µ}$ / $\sigma = {σ}$' for µ, σ in zip(µs, σs)]
+        # Use * to unpack βs and the tuple output from the generate_data function
+        # Use ** to unpack the dictionary of keyword arguments for lines
+        ax[idx].plot(*generate_data(*βs), **line_kargs)
 
-  # Use ** to unpack the dictionary of keyword arguments for legends
-  ax[idx].legend(label_list, ncol=4, **legend_kargs)
+        label_list.append(f'$β_0 = {βs[0]}$ | $β_1 = {βs[1]}$')
 
-generate_plots(µs, σs, 0, line_kargs, legend_kargs)
+    # Use ** to unpack the dictionary of keyword arguments for legends
+    ax[idx].legend(label_list, ncol=4, **legend_kargs)
 
-# We can easily update our parameters
-line_kargs['lw'] = 2
-line_kargs['linestyle'] = ':'
-µs.append(0.1)
-σs.append(0.3)
+generate_plots(β_0s, β_1s, 0, line_kargs, legend_kargs)
 
-generate_plots(µs, σs, 1, line_kargs, legend_kargs)
+# We can easily reuse our parameters
+β_1s.append(-2)
+β_0s.append(40)
+
+generate_plots(β_0s, β_1s, 1, line_kargs, legend_kargs)
 plt.show()
 ```
 
-In this example, `*` unpacked the zipped parameters and the output of `simulate_gbm` function stored in a tuple, while `**` unpacked graphical parameters stored in `legend_kargs` and `line_kargs`.
+In this example, `*` unpacked the zipped parameters and the output of `generate_data` function stored in a tuple, while `**` unpacked graphical parameters stored in `legend_kargs` and `line_kargs`.
 
-Overall, when `*list`/`*tuple` and `**dictionary` are passed into *function calls*, they are unpacked into individual arguments instead of a collection.
+To summarize, when `*list`/`*tuple` and `**dictionary` are passed into *function calls*, they are unpacked into individual arguments instead of a collection.
 
 The difference is that `*` will unpack lists and tuples into *positional arguments*, while `**` will unpack dictionaries into *keyword arguments*.
 
@@ -421,13 +415,11 @@ If we take a look at the [documentation](https://github.com/matplotlib/matplotli
 Axes.plot(*args, scalex=True, scaley=True, data=None, **kwargs)
 ```
 
-We found `*` and `**` operators again in the context of *function definition*.
+We found `*` and `**` operators again in the context of the *function definition*.
 
-In fact, `*args` and `**kargs` are commonly used when developing functions for scientific computing packages and machine learning to allow users to provide input with a flexible length.
+In fact, `*args` and `**kargs` are ubiquitous in functions of Python packages to allow users to provide more flexible input.
 
-Let's explore `*args` and `**kargs` together.
-
-`*args` helps us to enable the function to handle *positional arguments* with an arbitrary size
+`*args` enables the function to handle *positional arguments* with an arbitrary size
 
 ```{code-cell} python3
 l1 = ['a', 'b', 'c']
@@ -439,6 +431,8 @@ def arb(*ls):
 arb(l1, l2)
 ```
 
+The inputs are passed into the function and stored in a tuple.
+
 Let's try more inputs
 
 ```{code-cell} python3
@@ -446,11 +440,7 @@ l3 = ['z', 'x', 'b']
 arb(l1, l2, l3)
 ```
 
-The inputs are passed into the function and stored in a tuple.
-
-Similarly, Python also allows us to use `**kargs` to pass arbitrarily many *keyword arguments* into functions.
-
-Let's start with a simple example
+Similarly, Python also allows us to use `**kargs` to pass arbitrarily many *keyword arguments* into functions
 
 ```{code-cell} python3
 def arb(**ls):
@@ -467,16 +457,6 @@ Let's try more inputs
 ```{code-cell} python3
 arb(l1=l1, l2=l2, l3=l3)
 ```
-
-This is also what happened under the hood when we added more keyword arguments to the `ax.plot()` function in our previous example:
-
-In 
-
-```
-Axes.plot(*args, scalex=True, scaley=True, data=None, **kwargs)
-```
-
-`*args` allows us to input many *positional arguments* as `x`s and `y`s for lines, and `**kwargs` allows us to define arbitarily many *named* line options using *keyword arguments*.
 
 Overall, `*args` and `**kargs` are used when *defining a function*; they enable the function to take input with an arbitrary size.
 
