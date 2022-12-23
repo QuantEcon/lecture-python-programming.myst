@@ -365,6 +365,7 @@ def generate_data(β_0, β_1, σ=30, n=100):
 line_kargs = {'lw': 1.5, 'alpha': 0.7}
 legend_kargs = {'bbox_to_anchor': (0., 1.02, 1., .102), 
                 'loc': 3, 
+                'ncol': 4,
                 'mode': 'expand', 
                 'prop': {'size': 7}}
 
@@ -383,13 +384,15 @@ def generate_plots(β_0s, β_1s, idx, line_kargs, legend_kargs):
         label_list.append(f'$β_0 = {βs[0]}$ | $β_1 = {βs[1]}$')
 
     # Use ** to unpack the dictionary of keyword arguments for legends
-    ax[idx].legend(label_list, ncol=4, **legend_kargs)
+    ax[idx].legend(label_list, **legend_kargs)
 
 generate_plots(β_0s, β_1s, 0, line_kargs, legend_kargs)
 
-# We can easily reuse our parameters
+# We can easily reuse and update our parameters
 β_1s.append(-2)
 β_0s.append(40)
+line_kargs['lw'] = 2
+line_kargs['alpha'] = 0.4
 
 generate_plots(β_0s, β_1s, 1, line_kargs, legend_kargs)
 plt.show()
