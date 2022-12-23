@@ -292,18 +292,18 @@ max(y)
 
 ## `*` and `**` Operators
 
-`*` and `**` are convenient and widely used tools to unpack lists and tuples and to allow users to define functions that use arbitrarily many arguments as input.
+`*` and `**` are convenient and widely used tools to unpack lists and tuples and to allow users to define functions that take arbitrarily many arguments as input.
 
 In this section, we will explore how to use them and distinguish their use cases.
 
 
 ### Unpacking Arguments
 
-When we operate on a list of parameters, we often need to put the content of the list into a function as individual arguments instead of a collection.
+When we operate on a list of parameters, we often need to extract the content of the list as individual arguments instead of a collection when passing them into functions.
 
-Luckily, the `*` operator can help us to unpack lists and tuples into *positional arguments* in function calls.
+Luckily, the `*` operator can help us to unpack lists and tuples into [*positional arguments*](https://63a3119f7a9a1a12f59e7803--epic-agnesi-957267.netlify.app/functions.html#keyword-arguments) in function calls.
 
-To make things concrete, consider the following example:
+To make things concrete, consider the following examples:
 
 Without `*`, the `print` function prints a list
 
@@ -313,20 +313,19 @@ l1 = ['a', 'b', 'c']
 print(l1)
 ```
 
-While, with `*`, the `print` function prints individual elements since each of them 
-is considered a separate argument
+While the `print` function prints individual elements since `*` unpacks the list into individual arguments
 
 ```{code-cell} python3
 print(*l1)
 ```
 
-Unpacking the list into positional arguments is equivalent to putting each element of the list separately into the function
+Unpacking the list using `*` into positional arguments is equivalent to defining them individually when calling the function
 
 ```{code-cell} python3
 print('a', 'b', 'c')
 ```
 
-However, it is more convenient since we can reuse the list
+However, `*` operator is more convenient if we want to reuse them again
 
 ```{code-cell} python3
 l1.append('d')
@@ -334,19 +333,18 @@ l1.append('d')
 print(*l1)
 ```
 
-Similarly, `**` is also used to unpack arguments.
+Similarly, `**` is used to unpack arguments.
 
 The difference is that `**` unpacks *dictionaries* into *keyword arguments*.
 
-We can use them when there are many keyword arguments we would like to reuse for a function.
+`**` is often used when there are many keyword arguments we want to reuse.
 
-For example, assume we want to draw a few lines using synthetic data with parameter values.
+For example, assuming we want to draw multiple graphs using the same graphical settings, 
+it may involve repetitively setting many graphical parameters, usually defined using keyword arguments.
 
-It may involve repetitively setting many graphical parameters, usually keyword arguments.
+In this case, we can use a dictionary to store these parameters and use `**` to unpack dictionaries into keyword arguments when they are needed.
 
-In this case, we can use a dictionary to store these parameters and use `**` to unpack keyword arguments when they are needed.
-
-Let's walk through a simple example together
+Let's walk through a simple example together and distinguish the use of `*` and `**`
 
 ```{code-cell} python3
 import numpy as np
@@ -373,12 +371,12 @@ legend_kargs = {'bbox_to_anchor': (0., 1.02, 1., .102),
 β_0s = [10, 20, 30]
 β_1s = [1, 2, 3]
 
-# Use a for loop to plot each line with the corresponding scale
+# Use a for loop to plot lines
 def generate_plots(β_0s, β_1s, idx, line_kargs, legend_kargs):
     label_list = []
     for βs in zip(β_0s, β_1s):
-
-        # Use * to unpack βs and the tuple output from the generate_data function
+    
+        # Use * to unpack tuple βs and the tuple output from the generate_data function
         # Use ** to unpack the dictionary of keyword arguments for lines
         ax[idx].plot(*generate_data(*βs), **line_kargs)
 
@@ -397,7 +395,8 @@ generate_plots(β_0s, β_1s, 1, line_kargs, legend_kargs)
 plt.show()
 ```
 
-In this example, `*` unpacked the zipped parameters and the output of `generate_data` function stored in a tuple, while `**` unpacked graphical parameters stored in `legend_kargs` and `line_kargs`.
+In this example, `*` unpacked the zipped parameters `βs` and the output of `generate_data` function stored in tuples, 
+while `**` unpacked graphical parameters stored in `legend_kargs` and `line_kargs`.
 
 To summarize, when `*list`/`*tuple` and `**dictionary` are passed into *function calls*, they are unpacked into individual arguments instead of a collection.
 
@@ -407,9 +406,9 @@ The difference is that `*` will unpack lists and tuples into *positional argumen
 
 When we *define* functions, it is sometimes desirable to allow users to put as many arguments as they want into a function. 
 
-You might have noticed that the `ax.plot()` function was capable of handling as many inputs as we gave it.
+You might have noticed that the `ax.plot()` function could handle arbitrarily many arguments.
 
-If we take a look at the [documentation](https://github.com/matplotlib/matplotlib/blob/v3.6.2/lib/matplotlib/axes/_axes.py#L1417-L1669) of the function, we can see the function is defined as
+If we look at the [documentation](https://github.com/matplotlib/matplotlib/blob/v3.6.2/lib/matplotlib/axes/_axes.py#L1417-L1669) of the function, we can see the function is defined as
 
 ```
 Axes.plot(*args, scalex=True, scaley=True, data=None, **kwargs)
@@ -417,9 +416,9 @@ Axes.plot(*args, scalex=True, scaley=True, data=None, **kwargs)
 
 We found `*` and `**` operators again in the context of the *function definition*.
 
-In fact, `*args` and `**kargs` are ubiquitous in functions of Python packages to allow users to provide more flexible input.
+In fact, `*args` and `**kargs` are ubiquitous in the scientific libraries in Python to reduce redundancy and allow flexible inputs.
 
-`*args` enables the function to handle *positional arguments* with an arbitrary size
+`*args` enables the function to handle *positional arguments* with a variable size
 
 ```{code-cell} python3
 l1 = ['a', 'b', 'c']
@@ -440,7 +439,7 @@ l3 = ['z', 'x', 'b']
 arb(l1, l2, l3)
 ```
 
-Similarly, Python also allows us to use `**kargs` to pass arbitrarily many *keyword arguments* into functions
+Similarly, Python allows us to use `**kargs` to pass arbitrarily many *keyword arguments* into functions
 
 ```{code-cell} python3
 def arb(**ls):
