@@ -25,6 +25,7 @@ parts:
   - file: numba
   - file: parallelization
   - file: jax_intro
+  - file: dask_intro
 - caption: Advanced Python Programming
   numbered: true
   chapters:
