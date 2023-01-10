@@ -353,7 +353,6 @@ import matplotlib.pyplot as plt
 # Set up the frame and subplots
 fig, ax = plt.subplots(2, 1)
 plt.subplots_adjust(hspace=0.7)
-plt.rcParams["figure.figsize"] = (10, 6)
 
 # Create a function that generates synthetic data
 def generate_data(β_0, β_1, σ=30, n=100):
