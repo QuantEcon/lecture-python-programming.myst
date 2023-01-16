@@ -27,30 +27,29 @@ jobs:
     needs: deploy-runner
     runs-on: [self-hosted, cml-gpu]
     container:
-      image: docker://nvidia/cuda:11.2.1-devel-ubuntu20.04
+      image: docker://mmcky/quantecon-lecture-python:py39-anaconda-2022-10
       options: --gpus all
     steps:
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-      - name: Setup Anaconda
-        uses: conda-incubator/setup-miniconda@v2
-        with:
-          auto-update-conda: true
-          auto-activate-base: true
-          miniconda-version: 'latest'
-          python-version: 3.9
-          environment-file: environment.yml
-          activate-environment: quantecon
+      # Install Hardware Dependant Libraries
       - name: Install Jax and Upgrade CUDA
         shell: bash -l {0}
         run: |
           pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+          pip install --upgrade "numpyro[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
           nvidia-smi
       - name: Build HTML
         shell: bash -l {0}
         run: |
           jb build lectures --path-output ./ -W --keep-going
+      - name: Upload Execution Reports
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: execution-reports
+          path: _build/html/reports
       - name: Upload "_build" folder (cache)
         uses: actions/upload-artifact@v3
         with:

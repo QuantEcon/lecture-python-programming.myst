@@ -673,11 +673,10 @@ ticker_list = {'INTC': 'Intel',
                'TM': 'Toyota',
                'AAPL': 'Apple',
                'AMZN': 'Amazon',
-               'BA': 'Boeing',
+               'C': 'Citigroup',
                'QCOM': 'Qualcomm',
                'KO': 'Coca-Cola',
-               'GOOG': 'Google',
-               'PTR': 'PetroChina'}
+               'GOOG': 'Google'}
 ```
 
 Here's the first part of the program
@@ -695,6 +694,10 @@ def read_data(ticker_list,
     for tick in ticker_list:
         stock = yf.Ticker(tick)
         prices = stock.history(start=start, end=end)
+
+        # Change the index to date-only
+        prices.index = pd.to_datetime(prices.index.date)
+        
         closing_prices = prices['Close']
         ticker[tick] = closing_prices
 

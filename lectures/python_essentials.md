@@ -326,6 +326,89 @@ out
 print(out)
 ```
 
+In fact, the recommended approach in modern Python is to use a `with` statement to ensure the files are properly acquired and released.
+
+Containing the operations within the same block also improves the clarity of your code.
+
+```{note}
+This kind of block is formally referred to as a [*context*](https://realpython.com/python-with-statement/#the-with-statement-approach).
+```
+
+Let's try to convert the two examples above into a `with` statement.
+
+We change the writing example first
+```{code-cell} python3
+
+with open('newfile.txt', 'w') as f:  
+    f.write('Testing\n')         
+    f.write('Testing again')
+```
+
+Note that we do not need to call the `close()` method since the `with` block
+will ensure the stream is closed at the end of the block.
+
+With slight modifications, we can also read files using `with`
+
+```{code-cell} python3
+with open('newfile.txt', 'r') as fo:
+    out = fo.read()
+    print(out)
+```
+Now suppose that we want to read input from one file and write output to another. 
+Here's how we could accomplish this task while correctly acquiring and returning 
+resources to the operating system using `with` statements:
+
+```{code-cell} python3
+with open("newfile.txt", "r") as f:
+    file = f.readlines()
+    with open("output.txt", "w") as fo:
+        for i, line in enumerate(file):
+            fo.write(f'Line {i}: {line} \n')
+```
+
+The output file will be
+
+```{code-cell} python3
+with open('output.txt', 'r') as fo:
+    print(fo.read())
+```
+
+We can simplify the example above by grouping the two `with` statements into one line
+
+```{code-cell} python3
+with open("newfile.txt", "r") as f, open("output2.txt", "w") as fo:
+        for i, line in enumerate(f):
+            fo.write(f'Line {i}: {line} \n')
+```
+
+The output file will be the same
+
+```{code-cell} python3
+with open('output2.txt', 'r') as fo:
+    print(fo.read())
+```
+
+Suppose we want to continue to write into the existing file 
+instead of overwriting it.
+
+we can switch the mode to `a` which stands for append mode
+
+```{code-cell} python3
+with open('output2.txt', 'a') as fo:
+    fo.write('\nThis is the end of the file')
+```
+
+```{code-cell} python3
+with open('output2.txt', 'r') as fo:
+    print(fo.read())
+```
+
+```{note}
+Note that we only covered `r`, `w`, and `a` mode here, which are the most commonly used modes. 
+Python provides [a variety of modes](https://www.geeksforgeeks.org/reading-writing-text-files-python/) 
+that you could experiment with.
+```
+
 ### Paths
 
 ```{index} single: Python; Paths
