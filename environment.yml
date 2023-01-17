@@ -17,6 +17,8 @@ dependencies:
     - quantecon
     - array-to-latex
     - prettytable
+    # Docker Requirements
+    - pytz
     # Sandpit Requirements
     # - PuLP
     # - cvxpy
