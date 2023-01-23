@@ -10,7 +10,7 @@ dependencies:
     - git+https://github.com/QuantEcon/quantecon-book-theme.git@updating-sbt
     # - sphinx-tojupyter==0.2.1
     - sphinxext-rediraffe==0.2.7
-    - sphinx-exercise==0.4.0
+    - sphinx-exercise==0.4.1
     - ghp-import==1.1.0
     - sphinxcontrib-youtube==1.1.0
     - sphinx-togglebutton==0.3.1
