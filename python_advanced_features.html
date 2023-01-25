@@ -181,45 +181,74 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#and-operators">
+   17.3.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     *
+    </span>
+   </code>
+   and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     **
+    </span>
+   </code>
+   Operators
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unpacking-arguments">
+     17.3.1. Unpacking Arguments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#arbitrary-arguments">
+     17.3.2. Arbitrary Arguments
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#decorators-and-descriptors">
-   17.3. Decorators and Descriptors
+   17.4. Decorators and Descriptors
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#decorators">
-     17.3.1. Decorators
+     17.4.1. Decorators
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#an-example">
-       17.3.1.1. An Example
+       17.4.1.1. An Example
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#enter-decorators">
-       17.3.1.2. Enter Decorators
+       17.4.1.2. Enter Decorators
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#descriptors">
-     17.3.2. Descriptors
+     17.4.2. Descriptors
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#a-solution">
-       17.3.2.1. A Solution
+       17.4.2.1. A Solution
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#how-it-works">
-       17.3.2.2. How it Works
+       17.4.2.2. How it Works
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#decorators-and-properties">
-       17.3.2.3. Decorators and Properties
+       17.4.2.3. Decorators and Properties
       </a>
      </li>
     </ul>
@@ -228,41 +257,41 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#generators">
-   17.4. Generators
+   17.5. Generators
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#generator-expressions">
-     17.4.1. Generator Expressions
+     17.5.1. Generator Expressions
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#generator-functions">
-     17.4.2. Generator Functions
+     17.5.2. Generator Functions
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#example-1">
-       17.4.2.1. Example 1
+       17.5.2.1. Example 1
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#example-2">
-       17.4.2.2. Example 2
+       17.5.2.2. Example 2
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#advantages-of-iterators">
-     17.4.3. Advantages of Iterators
+     17.5.3. Advantages of Iterators
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   17.5. Exercises
+   17.6. Exercises
   </a>
  </li>
 </ul>
@@ -319,9 +348,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul>
 <li><p><a class="reference internal" href="#overview" id="id4">Overview</a></p></li>
 <li><p><a class="reference internal" href="#iterables-and-iterators" id="id5">Iterables and Iterators</a></p></li>
-<li><p><a class="reference internal" href="#decorators-and-descriptors" id="id6">Decorators and Descriptors</a></p></li>
-<li><p><a class="reference internal" href="#generators" id="id7">Generators</a></p></li>
-<li><p><a class="reference internal" href="#exercises" id="id8">Exercises</a></p></li>
+<li><p><a class="reference internal" href="#and-operators" id="id6"><code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">**</span></code> Operators</a></p></li>
+<li><p><a class="reference internal" href="#decorators-and-descriptors" id="id7">Decorators and Descriptors</a></p></li>
+<li><p><a class="reference internal" href="#generators" id="id8">Generators</a></p></li>
+<li><p><a class="reference internal" href="#exercises" id="id9">Exercises</a></p></li>
 </ul>
 </li>
 </ul>
@@ -557,7 +587,7 @@ eggs
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_819</span><span class="o">/</span><span class="mf">3485793935.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_888</span><span class="o">/</span><span class="mf">3485793935.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">next</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
 <span class="ne">TypeError</span>: &#39;list&#39; object is not an iterator
@@ -628,7 +658,7 @@ eggs
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StopIteration</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_819</span><span class="o">/</span><span class="mf">1131913922.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_888</span><span class="o">/</span><span class="mf">1131913922.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">next</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
 <span class="ne">StopIteration</span>: 
@@ -647,7 +677,7 @@ eggs
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_819</span><span class="o">/</span><span class="mf">682007251.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_888</span><span class="o">/</span><span class="mf">682007251.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">iter</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 
 <span class="ne">TypeError</span>: &#39;int&#39; object is not iterable
@@ -730,7 +760,7 @@ eggs
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_819</span><span class="o">/</span><span class="mf">1443032810.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_888</span><span class="o">/</span><span class="mf">1443032810.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
 <span class="ne">ValueError</span>: max() arg is an empty sequence
@@ -740,19 +770,232 @@ eggs
 </div>
 </div>
 </div>
+<div class="section" id="and-operators">
+<h2><a class="toc-backref" href="#id6"><span class="section-number">17.3. </span><code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">**</span></code> Operators</a><a class="headerlink" href="#and-operators" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">**</span></code> are convenient and widely used tools to unpack lists and tuples and to allow users to define functions that take arbitrarily many arguments as input.</p>
+<p>In this section, we will explore how to use them and distinguish their use cases.</p>
+<div class="section" id="unpacking-arguments">
+<h3><span class="section-number">17.3.1. </span>Unpacking Arguments<a class="headerlink" href="#unpacking-arguments" title="Permalink to this headline">¶</a></h3>
+<p>When we operate on a list of parameters, we often need to extract the content of the list as individual arguments instead of a collection when passing them into functions.</p>
+<p>Luckily, the <code class="docutils literal notranslate"><span class="pre">*</span></code> operator can help us to unpack lists and tuples into <a class="reference external" href="https://63a3119f7a9a1a12f59e7803--epic-agnesi-957267.netlify.app/functions.html#keyword-arguments"><em>positional arguments</em></a> in function calls.</p>
+<p>To make things concrete, consider the following examples:</p>
+<p>Without <code class="docutils literal notranslate"><span class="pre">*</span></code>, the <code class="docutils literal notranslate"><span class="pre">print</span></code> function prints a list</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>While the <code class="docutils literal notranslate"><span class="pre">print</span></code> function prints individual elements since <code class="docutils literal notranslate"><span class="pre">*</span></code> unpacks the list into individual arguments</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">l1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a b c
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unpacking the list using <code class="docutils literal notranslate"><span class="pre">*</span></code> into positional arguments is equivalent to defining them individually when calling the function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a b c
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, <code class="docutils literal notranslate"><span class="pre">*</span></code> operator is more convenient if we want to reuse them again</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">l1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a b c d
+</pre></div>
+</div>
+</div>
+</div>
+<p>Similarly, <code class="docutils literal notranslate"><span class="pre">**</span></code> is used to unpack arguments.</p>
+<p>The difference is that <code class="docutils literal notranslate"><span class="pre">**</span></code> unpacks <em>dictionaries</em> into <em>keyword arguments</em>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">**</span></code> is often used when there are many keyword arguments we want to reuse.</p>
+<p>For example, assuming we want to draw multiple graphs using the same graphical settings,
+it may involve repetitively setting many graphical parameters, usually defined using keyword arguments.</p>
+<p>In this case, we can use a dictionary to store these parameters and use <code class="docutils literal notranslate"><span class="pre">**</span></code> to unpack dictionaries into keyword arguments when they are needed.</p>
+<p>Let’s walk through a simple example together and distinguish the use of <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">**</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Set up the frame and subplots</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="c1"># Create a function that generates synthetic data</span>
+<span class="k">def</span> <span class="nf">generate_data</span><span class="p">(</span><span class="n">β_0</span><span class="p">,</span> <span class="n">β_1</span><span class="p">,</span> <span class="n">σ</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">x_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">y_values</span> <span class="o">=</span> <span class="n">β_0</span> <span class="o">+</span> <span class="n">β_1</span> <span class="o">*</span> <span class="n">x_values</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">σ</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span>
+
+<span class="c1"># Store the keyword arguments for lines and legends in a dictionary</span>
+<span class="n">line_kargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;lw&#39;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span> <span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">}</span>
+<span class="n">legend_kargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;bbox_to_anchor&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.02</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">.102</span><span class="p">),</span> 
+                <span class="s1">&#39;loc&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> 
+                <span class="s1">&#39;ncol&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                <span class="s1">&#39;mode&#39;</span><span class="p">:</span> <span class="s1">&#39;expand&#39;</span><span class="p">,</span> 
+                <span class="s1">&#39;prop&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">}}</span>
+
+<span class="n">β_0s</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">β_1s</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="c1"># Use a for loop to plot lines</span>
+<span class="k">def</span> <span class="nf">generate_plots</span><span class="p">(</span><span class="n">β_0s</span><span class="p">,</span> <span class="n">β_1s</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">line_kargs</span><span class="p">,</span> <span class="n">legend_kargs</span><span class="p">):</span>
+    <span class="n">label_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">βs</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">β_0s</span><span class="p">,</span> <span class="n">β_1s</span><span class="p">):</span>
+    
+        <span class="c1"># Use * to unpack tuple βs and the tuple output from the generate_data function</span>
+        <span class="c1"># Use ** to unpack the dictionary of keyword arguments for lines</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="n">generate_data</span><span class="p">(</span><span class="o">*</span><span class="n">βs</span><span class="p">),</span> <span class="o">**</span><span class="n">line_kargs</span><span class="p">)</span>
+
+        <span class="n">label_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;$β_0 = </span><span class="si">{</span><span class="n">βs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">$ | $β_1 = </span><span class="si">{</span><span class="n">βs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">$&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Use ** to unpack the dictionary of keyword arguments for legends</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">label_list</span><span class="p">,</span> <span class="o">**</span><span class="n">legend_kargs</span><span class="p">)</span>
+
+<span class="n">generate_plots</span><span class="p">(</span><span class="n">β_0s</span><span class="p">,</span> <span class="n">β_1s</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">line_kargs</span><span class="p">,</span> <span class="n">legend_kargs</span><span class="p">)</span>
+
+<span class="c1"># We can easily reuse and update our parameters</span>
+<span class="n">β_1s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">β_0s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="n">line_kargs</span><span class="p">[</span><span class="s1">&#39;lw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">line_kargs</span><span class="p">[</span><span class="s1">&#39;alpha&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.4</span>
+
+<span class="n">generate_plots</span><span class="p">(</span><span class="n">β_0s</span><span class="p">,</span> <span class="n">β_1s</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">line_kargs</span><span class="p">,</span> <span class="n">legend_kargs</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/python_advanced_features_42_0.png" src="_images/python_advanced_features_42_0.png" />
+</div>
+</div>
+<p>In this example, <code class="docutils literal notranslate"><span class="pre">*</span></code> unpacked the zipped parameters <code class="docutils literal notranslate"><span class="pre">βs</span></code> and the output of <code class="docutils literal notranslate"><span class="pre">generate_data</span></code> function stored in tuples,
+while <code class="docutils literal notranslate"><span class="pre">**</span></code> unpacked graphical parameters stored in <code class="docutils literal notranslate"><span class="pre">legend_kargs</span></code> and <code class="docutils literal notranslate"><span class="pre">line_kargs</span></code>.</p>
+<p>To summarize, when <code class="docutils literal notranslate"><span class="pre">*list</span></code>/<code class="docutils literal notranslate"><span class="pre">*tuple</span></code> and <code class="docutils literal notranslate"><span class="pre">**dictionary</span></code> are passed into <em>function calls</em>, they are unpacked into individual arguments instead of a collection.</p>
+<p>The difference is that <code class="docutils literal notranslate"><span class="pre">*</span></code> will unpack lists and tuples into <em>positional arguments</em>, while <code class="docutils literal notranslate"><span class="pre">**</span></code> will unpack dictionaries into <em>keyword arguments</em>.</p>
+</div>
+<div class="section" id="arbitrary-arguments">
+<h3><span class="section-number">17.3.2. </span>Arbitrary Arguments<a class="headerlink" href="#arbitrary-arguments" title="Permalink to this headline">¶</a></h3>
+<p>When we <em>define</em> functions, it is sometimes desirable to allow users to put as many arguments as they want into a function.</p>
+<p>You might have noticed that the <code class="docutils literal notranslate"><span class="pre">ax.plot()</span></code> function could handle arbitrarily many arguments.</p>
+<p>If we look at the <a class="reference external" href="https://github.com/matplotlib/matplotlib/blob/v3.6.2/lib/matplotlib/axes/_axes.py#L1417-L1669">documentation</a> of the function, we can see the function is defined as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">scalex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">scaley</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We found <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">**</span></code> operators again in the context of the <em>function definition</em>.</p>
+<p>In fact, <code class="docutils literal notranslate"><span class="pre">*args</span></code> and <code class="docutils literal notranslate"><span class="pre">**kargs</span></code> are ubiquitous in the scientific libraries in Python to reduce redundancy and allow flexible inputs.</p>
+<p><code class="docutils literal notranslate"><span class="pre">*args</span></code> enables the function to handle <em>positional arguments</em> with a variable size</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">arb</span><span class="p">(</span><span class="o">*</span><span class="n">ls</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
+
+<span class="n">arb</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], [&#39;b&#39;, &#39;c&#39;, &#39;d&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>The inputs are passed into the function and stored in a tuple.</p>
+<p>Let’s try more inputs</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l3</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
+<span class="n">arb</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">,</span> <span class="n">l3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], [&#39;b&#39;, &#39;c&#39;, &#39;d&#39;], [&#39;z&#39;, &#39;x&#39;, &#39;b&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Similarly, Python allows us to use <code class="docutils literal notranslate"><span class="pre">**kargs</span></code> to pass arbitrarily many <em>keyword arguments</em> into functions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">arb</span><span class="p">(</span><span class="o">**</span><span class="n">ls</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
+
+<span class="c1"># Note that these are keyword arguments</span>
+<span class="n">arb</span><span class="p">(</span><span class="n">l1</span><span class="o">=</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="o">=</span><span class="n">l2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;l1&#39;: [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], &#39;l2&#39;: [&#39;b&#39;, &#39;c&#39;, &#39;d&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see Python uses a dictionary to store these keyword arguments.</p>
+<p>Let’s try more inputs</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arb</span><span class="p">(</span><span class="n">l1</span><span class="o">=</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="o">=</span><span class="n">l2</span><span class="p">,</span> <span class="n">l3</span><span class="o">=</span><span class="n">l3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;l1&#39;: [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], &#39;l2&#39;: [&#39;b&#39;, &#39;c&#39;, &#39;d&#39;], &#39;l3&#39;: [&#39;z&#39;, &#39;x&#39;, &#39;b&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Overall, <code class="docutils literal notranslate"><span class="pre">*args</span></code> and <code class="docutils literal notranslate"><span class="pre">**kargs</span></code> are used when <em>defining a function</em>; they enable the function to take input with an arbitrary size.</p>
+<p>The difference is that functions with <code class="docutils literal notranslate"><span class="pre">*args</span></code> will be able to take <em>positional arguments</em> with an arbitrary size, while <code class="docutils literal notranslate"><span class="pre">**kargs</span></code> will allow functions to take arbitrarily many <em>keyword arguments</em>.</p>
+</div>
+</div>
 <div class="section" id="decorators-and-descriptors">
-<h2><a class="toc-backref" href="#id6"><span class="section-number">17.3. </span>Decorators and Descriptors</a><a class="headerlink" href="#decorators-and-descriptors" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7"><span class="section-number">17.4. </span>Decorators and Descriptors</a><a class="headerlink" href="#decorators-and-descriptors" title="Permalink to this headline">¶</a></h2>
 <span class="target" id="index-5"></span><p id="index-6">Let’s look at some special syntax elements that are routinely used by Python developers.</p>
 <p>You might not need the following concepts immediately, but you will see them
 in other people’s code.</p>
 <p>Hence you need to understand them at some stage of your Python education.</p>
 <div class="section" id="decorators">
-<h3><span class="section-number">17.3.1. </span>Decorators<a class="headerlink" href="#decorators" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">17.4.1. </span>Decorators<a class="headerlink" href="#decorators" title="Permalink to this headline">¶</a></h3>
 <p id="index-7">Decorators are a bit of syntactic sugar that, while easily avoided, have turned out to be popular.</p>
 <p>It’s very easy to say what decorators do.</p>
 <p>On the other hand it takes a bit of effort to explain <em>why</em> you might use them.</p>
 <div class="section" id="an-example">
-<h4><span class="section-number">17.3.1.1. </span>An Example<a class="headerlink" href="#an-example" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">17.4.1.1. </span>An Example<a class="headerlink" href="#an-example" title="Permalink to this headline">¶</a></h4>
 <p>Suppose we are working on a program that looks something like this</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -833,7 +1076,7 @@ verifies <code class="docutils literal notranslate"><span class="pre">x</span></
 <p>At the same time, the test logic is written only once.</p>
 </div>
 <div class="section" id="enter-decorators">
-<h4><span class="section-number">17.3.1.2. </span>Enter Decorators<a class="headerlink" href="#enter-decorators" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">17.4.1.2. </span>Enter Decorators<a class="headerlink" href="#enter-decorators" title="Permalink to this headline">¶</a></h4>
 <p id="index-8">The last version of our code is still not ideal.</p>
 <p>For example, if someone is reading our code and wants to know how
 <code class="docutils literal notranslate"><span class="pre">f</span></code> works, they will be looking for the function definition, which is</p>
@@ -885,7 +1128,7 @@ aware that the function is modified.</p>
 </div>
 </div>
 <div class="section" id="descriptors">
-<span id="id2"></span><h3><span class="section-number">17.3.2. </span>Descriptors<a class="headerlink" href="#descriptors" title="Permalink to this headline">¶</a></h3>
+<span id="id2"></span><h3><span class="section-number">17.4.2. </span>Descriptors<a class="headerlink" href="#descriptors" title="Permalink to this headline">¶</a></h3>
 <p id="index-9">Descriptors solve a common problem regarding management of variables.</p>
 <p>To understand the issue, consider a <code class="docutils literal notranslate"><span class="pre">Car</span></code> class, that simulates a car.</p>
 <p>Suppose that this class defines the variables <code class="docutils literal notranslate"><span class="pre">miles</span></code> and <code class="docutils literal notranslate"><span class="pre">kms</span></code>, which give the distance traveled in miles
@@ -947,7 +1190,7 @@ variables but not the other</p>
 <p>In the last two lines we see that <code class="docutils literal notranslate"><span class="pre">miles</span></code> and <code class="docutils literal notranslate"><span class="pre">kms</span></code> are out of sync.</p>
 <p>What we really want is some mechanism whereby each time a user sets one of these variables, <em>the other is automatically updated</em>.</p>
 <div class="section" id="a-solution">
-<h4><span class="section-number">17.3.2.1. </span>A Solution<a class="headerlink" href="#a-solution" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">17.4.2.1. </span>A Solution<a class="headerlink" href="#a-solution" title="Permalink to this headline">¶</a></h4>
 <p>In Python, this issue is solved using <em>descriptors</em>.</p>
 <p>A descriptor is just a Python object that implements certain methods.</p>
 <p>These methods are triggered when the object is accessed through dotted attribute notation.</p>
@@ -1011,7 +1254,7 @@ variables but not the other</p>
 <p>Yep, that’s what we want — <code class="docutils literal notranslate"><span class="pre">car.kms</span></code> is automatically updated.</p>
 </div>
 <div class="section" id="how-it-works">
-<h4><span class="section-number">17.3.2.2. </span>How it Works<a class="headerlink" href="#how-it-works" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">17.4.2.2. </span>How it Works<a class="headerlink" href="#how-it-works" title="Permalink to this headline">¶</a></h4>
 <p>The names <code class="docutils literal notranslate"><span class="pre">_miles</span></code> and <code class="docutils literal notranslate"><span class="pre">_kms</span></code> are arbitrary names we are using to store the values of the variables.</p>
 <p>The objects <code class="docutils literal notranslate"><span class="pre">miles</span></code> and <code class="docutils literal notranslate"><span class="pre">kms</span></code> are <em>properties</em>, a common kind of descriptor.</p>
 <p>The methods <code class="docutils literal notranslate"><span class="pre">get_miles</span></code>, <code class="docutils literal notranslate"><span class="pre">set_miles</span></code>, <code class="docutils literal notranslate"><span class="pre">get_kms</span></code> and <code class="docutils literal notranslate"><span class="pre">set_kms</span></code> define
@@ -1025,7 +1268,7 @@ what happens when you get (i.e. access) or set (bind) these variables</p>
 method is triggered — in this case <code class="docutils literal notranslate"><span class="pre">set_miles</span></code>.</p>
 </div>
 <div class="section" id="decorators-and-properties">
-<h4><span class="section-number">17.3.2.3. </span>Decorators and Properties<a class="headerlink" href="#decorators-and-properties" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">17.4.2.3. </span>Decorators and Properties<a class="headerlink" href="#decorators-and-properties" title="Permalink to this headline">¶</a></h4>
 <span class="target" id="index-10"></span><p id="index-11">These days its very common to see the <code class="docutils literal notranslate"><span class="pre">property</span></code> function used via a decorator.</p>
 <p>Here’s another version of our <code class="docutils literal notranslate"><span class="pre">Car</span></code> class that works as before but now uses
 decorators to set up the properties</p>
@@ -1064,11 +1307,11 @@ decorators to set up the properties</p>
 </div>
 </div>
 <div class="section" id="generators">
-<span id="paf-generators"></span><h2><a class="toc-backref" href="#id7"><span class="section-number">17.4. </span>Generators</a><a class="headerlink" href="#generators" title="Permalink to this headline">¶</a></h2>
+<span id="paf-generators"></span><h2><a class="toc-backref" href="#id8"><span class="section-number">17.5. </span>Generators</a><a class="headerlink" href="#generators" title="Permalink to this headline">¶</a></h2>
 <p id="index-12">A generator is a kind of iterator (i.e., it works with a <code class="docutils literal notranslate"><span class="pre">next</span></code> function).</p>
 <p>We will study two ways to build generators: generator expressions and generator functions.</p>
 <div class="section" id="generator-expressions">
-<h3><span class="section-number">17.4.1. </span>Generator Expressions<a class="headerlink" href="#generator-expressions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">17.5.1. </span>Generator Expressions<a class="headerlink" href="#generator-expressions" title="Permalink to this headline">¶</a></h3>
 <p>The easiest way to build generators is using <em>generator expressions</em>.</p>
 <p>Just like a list comprehension, but with round brackets.</p>
 <p>Here is the list comprehension:</p>
@@ -1190,11 +1433,11 @@ decorators to set up the properties</p>
 </div>
 </div>
 <div class="section" id="generator-functions">
-<h3><span class="section-number">17.4.2. </span>Generator Functions<a class="headerlink" href="#generator-functions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">17.5.2. </span>Generator Functions<a class="headerlink" href="#generator-functions" title="Permalink to this headline">¶</a></h3>
 <p id="index-13">The most flexible way to create generator objects is to use generator functions.</p>
 <p>Let’s look at some examples.</p>
 <div class="section" id="example-1">
-<h4><span class="section-number">17.4.2.1. </span>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">17.5.2.1. </span>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h4>
 <p>Here’s a very simple example of a generator function</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1228,7 +1471,7 @@ decorators to set up the properties</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object f at 0x7fdcc9fcad60&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object f at 0x7f287ed41580&gt;
 </pre></div>
 </div>
 </div>
@@ -1278,7 +1521,7 @@ decorators to set up the properties</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StopIteration</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_819</span><span class="o">/</span><span class="mf">4293081279.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_888</span><span class="o">/</span><span class="mf">4293081279.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
 
 <span class="ne">StopIteration</span>: 
@@ -1309,7 +1552,7 @@ decorators to set up the properties</p>
 <p>When the code block ends, the generator throws a <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> error.</p>
 </div>
 <div class="section" id="example-2">
-<h4><span class="section-number">17.4.2.2. </span>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">17.5.2.2. </span>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h4>
 <p>Our next example receives an argument <code class="docutils literal notranslate"><span class="pre">x</span></code> from the caller</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1392,7 +1635,7 @@ decorators to set up the properties</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StopIteration</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_819</span><span class="o">/</span><span class="mf">4293081279.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_888</span><span class="o">/</span><span class="mf">4293081279.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
 
 <span class="ne">StopIteration</span>: 
@@ -1433,7 +1676,7 @@ decorators to set up the properties</p>
 </div>
 </div>
 <div class="section" id="advantages-of-iterators">
-<h3><span class="section-number">17.4.3. </span>Advantages of Iterators<a class="headerlink" href="#advantages-of-iterators" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">17.5.3. </span>Advantages of Iterators<a class="headerlink" href="#advantages-of-iterators" title="Permalink to this headline">¶</a></h3>
 <p>What’s the advantage of using an iterator here?</p>
 <p>Suppose we want to sample a binomial(n,0.5).</p>
 <p>One way to do it is as follows</p>
@@ -1447,7 +1690,7 @@ decorators to set up the properties</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4999640
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5002121
 </pre></div>
 </div>
 </div>
@@ -1486,7 +1729,7 @@ decorators to set up the properties</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object f at 0x7fdcc85d39e0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object f at 0x7f287ed2c2e0&gt;
 </pre></div>
 </div>
 </div>
@@ -1498,7 +1741,7 @@ decorators to set up the properties</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5001462
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4999289
 </pre></div>
 </div>
 </div>
@@ -1511,7 +1754,7 @@ decorators to set up the properties</p>
 </div>
 </div>
 <div class="section" id="exercises">
-<h2><a class="toc-backref" href="#id8"><span class="section-number">17.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9"><span class="section-number">17.6. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <div class="exercise admonition" id="paf_ex1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 17.1 </span></p>

@@ -389,7 +389,7 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray([ 1. ,  3.2, -1.5], dtype=float32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([ 1. ,  3.2, -1.5], dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -401,7 +401,7 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jaxlib.xla_extension.DeviceArray
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jaxlib.xla_extension.Array
 </pre></div>
 </div>
 </div>
@@ -414,7 +414,7 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray(2.6999998, dtype=float32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array(2.6999998, dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -437,8 +437,8 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray([[1., 1.],
-             [1., 1.]], dtype=float32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([[1., 1.],
+       [1., 1.]], dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -457,8 +457,8 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray([[1., 1.],
-             [1., 1.]], dtype=float32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([[1., 1.],
+       [1., 1.]], dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -470,9 +470,9 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(DeviceArray([0.99999994, 0.99999994], dtype=float32),
- DeviceArray([[1., 0.],
-              [0., 1.]], dtype=float32))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(Array([0.99999994, 0.99999994], dtype=float32),
+ Array([[1., 0.],
+        [0., 1.]], dtype=float32))
 </pre></div>
 </div>
 </div>
@@ -498,7 +498,7 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray([1., 1., 1.], dtype=float64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([1., 1., 1.], dtype=float64)
 </pre></div>
 </div>
 </div>
@@ -542,7 +542,7 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray([0. , 0.5, 1. ], dtype=float64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([0. , 0.5, 1. ], dtype=float64)
 </pre></div>
 </div>
 </div>
@@ -556,17 +556,17 @@ attention back to Google-based machine learning architectures.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_472</span><span class="o">/</span><span class="mf">3686271957.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_318</span><span class="o">/</span><span class="mf">3686271957.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="nn">/opt/conda/envs/quantecon/lib/python3.9/site-packages/jax/_src/numpy/lax_numpy.py</span> in <span class="ni">_unimplemented_setitem</span><span class="nt">(self, i, x)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4946</span>          <span class="s2">&quot;or another .at[] method: &quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">4947</span>          <span class="s2">&quot;https://jax.readthedocs.io/en/latest/_autosummary/jax.numpy.ndarray.at.html&quot;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">4948</span>   <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
-<span class="g g-Whitespace">   </span><span class="mi">4949</span> 
-<span class="g g-Whitespace">   </span><span class="mi">4950</span> <span class="k">def</span> <span class="nf">_operator_round</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">ndigits</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">4958</span>          <span class="s2">&quot;or another .at[] method: &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">4959</span>          <span class="s2">&quot;https://jax.readthedocs.io/en/latest/_autosummary/jax.numpy.ndarray.at.html&quot;</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">4960</span>   <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
+<span class="g g-Whitespace">   </span><span class="mi">4961</span> 
+<span class="g g-Whitespace">   </span><span class="mi">4962</span> <span class="k">def</span> <span class="nf">_operator_round</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">ndigits</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 
-<span class="ne">TypeError</span>: &#39;&lt;class &#39;jaxlib.xla_extension.DeviceArray&#39;&gt;&#39; object does not support item assignment. JAX arrays are immutable. Instead of ``x[idx] = y``, use ``x = x.at[idx].set(y)`` or another .at[] method: https://jax.readthedocs.io/en/latest/_autosummary/jax.numpy.ndarray.at.html
+<span class="ne">TypeError</span>: &#39;&lt;class &#39;jaxlib.xla_extension.Array&#39;&gt;&#39; object does not support item assignment. JAX arrays are immutable. Instead of ``x[idx] = y``, use ``x = x.at[idx].set(y)`` or another .at[] method: https://jax.readthedocs.io/en/latest/_autosummary/jax.numpy.ndarray.at.html
 </pre></div>
 </div>
 </div>
@@ -595,7 +595,7 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(DeviceArray([2, 1], dtype=int64), DeviceArray([1, 2], dtype=int64))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(Array([2, 1], dtype=int64), Array([1, 2], dtype=int64))
 </pre></div>
 </div>
 </div>
@@ -610,7 +610,7 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140016811254288
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140708566969024
 </pre></div>
 </div>
 </div>
@@ -622,7 +622,7 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray([0. , 0.5, 1. ], dtype=float64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([0. , 0.5, 1. ], dtype=float64)
 </pre></div>
 </div>
 </div>
@@ -634,7 +634,7 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray([1. , 0.5, 1. ], dtype=float64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([1. , 0.5, 1. ], dtype=float64)
 </pre></div>
 </div>
 </div>
@@ -647,7 +647,7 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140016811254288
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140708566969024
 </pre></div>
 </div>
 </div>
@@ -679,7 +679,7 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jaxlib.xla_extension.DeviceArray
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jaxlib.xla_extension.Array
 </pre></div>
 </div>
 </div>
@@ -705,9 +705,9 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray([[-1.35247421, -0.2712502 , -0.02920518],
-             [ 0.34706456,  0.5464053 , -1.52325812],
-             [ 0.41677264, -0.59710138, -0.5678208 ]], dtype=float64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([[-1.35247421, -0.2712502 , -0.02920518],
+       [ 0.34706456,  0.5464053 , -1.52325812],
+       [ 0.41677264, -0.59710138, -0.5678208 ]], dtype=float64)
 </pre></div>
 </div>
 </div>
@@ -720,9 +720,9 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray([[-1.35247421, -0.2712502 , -0.02920518],
-             [ 0.34706456,  0.5464053 , -1.52325812],
-             [ 0.41677264, -0.59710138, -0.5678208 ]], dtype=float64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([[-1.35247421, -0.2712502 , -0.02920518],
+       [ 0.34706456,  0.5464053 , -1.52325812],
+       [ 0.41677264, -0.59710138, -0.5678208 ]], dtype=float64)
 </pre></div>
 </div>
 </div>
@@ -742,9 +742,9 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray([[ 1.85374374, -0.37683949, -0.61276867],
-             [-1.91829718,  0.27219409,  0.54922246],
-             [ 0.40451442, -0.58726839, -0.63967753]], dtype=float64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([[ 1.85374374, -0.37683949, -0.61276867],
+       [-1.91829718,  0.27219409,  0.54922246],
+       [ 0.40451442, -0.58726839, -0.63967753]], dtype=float64)
 </pre></div>
 </div>
 </div>
@@ -756,9 +756,9 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray([[-0.4300635 ,  0.22778552,  0.57241269],
-             [-0.15969178,  0.46719192,  0.21165091],
-             [ 0.84118631,  1.18671326, -0.16607783]], dtype=float64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([[-0.4300635 ,  0.22778552,  0.57241269],
+       [-0.15969178,  0.46719192,  0.21165091],
+       [ 0.84118631,  1.18671326, -0.16607783]], dtype=float64)
 </pre></div>
 </div>
 </div>
@@ -801,8 +801,7 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray([-0.64377279,  0.76961857, -0.29809604,  0.47858776,
-             -2.00591299], dtype=float64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([-0.64377279,  0.76961857, -0.29809604,  0.47858776, -2.00591299],      dtype=float64)
 </pre></div>
 </div>
 </div>
@@ -839,11 +838,11 @@ launch on the GPU / TPU (or CPU if no accelerator is detected).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 482 ms, sys: 207 ms, total: 688 ms
-Wall time: 3.38 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 533 ms, sys: 179 ms, total: 712 ms
+Wall time: 3.43 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray([499500., 499500., 499500., ..., 499500., 499500., 499500.],            dtype=float64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([499500., 499500., 499500., ..., 499500., 499500., 499500.],      dtype=float64)
 </pre></div>
 </div>
 </div>
@@ -871,7 +870,7 @@ Wall time: 3.38 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray([499500., 499500., 499500., ..., 499500., 499500., 499500.],            dtype=float64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([499500., 499500., 499500., ..., 499500., 499500., 499500.],      dtype=float64)
 </pre></div>
 </div>
 </div>
@@ -884,11 +883,11 @@ Wall time: 3.38 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 822 µs, sys: 212 µs, total: 1.03 ms
-Wall time: 36.5 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 880 µs, sys: 224 µs, total: 1.1 ms
+Wall time: 36.3 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray([499500., 499500., 499500., ..., 499500., 499500., 499500.],            dtype=float64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([499500., 499500., 499500., ..., 499500., 499500., 499500.],      dtype=float64)
 </pre></div>
 </div>
 </div>
@@ -932,7 +931,7 @@ Wall time: 36.5 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray([2., 2.], dtype=float64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([2., 2.], dtype=float64)
 </pre></div>
 </div>
 </div>
@@ -953,7 +952,7 @@ Wall time: 36.5 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray([2., 2.], dtype=float64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([2., 2.], dtype=float64)
 </pre></div>
 </div>
 </div>
@@ -973,7 +972,7 @@ Wall time: 36.5 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray([43., 43., 43.], dtype=float64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([43., 43., 43.], dtype=float64)
 </pre></div>
 </div>
 </div>
@@ -1008,7 +1007,7 @@ Wall time: 36.5 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray(10., dtype=float64, weak_type=True)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array(10., dtype=float64, weak_type=True)
 </pre></div>
 </div>
 </div>
@@ -1099,7 +1098,7 @@ Wall time: 36.5 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray(0.4082935, dtype=float64, weak_type=True)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array(0.4082935, dtype=float64, weak_type=True)
 </pre></div>
 </div>
 </div>
@@ -1166,7 +1165,7 @@ significantly faster exection.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray(180876.48840921, dtype=float64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array(180876.48840921, dtype=float64)
 </pre></div>
 </div>
 </div>
@@ -1180,11 +1179,11 @@ significantly faster exection.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.04 ms, sys: 256 µs, total: 2.3 ms
-Wall time: 105 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.28 ms, sys: 157 µs, total: 1.43 ms
+Wall time: 103 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray(180876.48840921, dtype=float64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array(180876.48840921, dtype=float64)
 </pre></div>
 </div>
 </div>
