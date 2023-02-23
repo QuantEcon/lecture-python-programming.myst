@@ -17,6 +17,7 @@ dependencies:
     - quantecon
     - array-to-latex
     - prettytable
+    - pandas==2.0.0rc0
     # Sandpit Requirements
     # - PuLP
     # - cvxpy
