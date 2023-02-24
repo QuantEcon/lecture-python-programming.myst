@@ -37,6 +37,10 @@ jobs:
           pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
           pip install --upgrade "numpyro[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
           nvidia-smi
+      - name: Install latest Pandas==2.0.0rc0
+        shell: bash -l {0}
+        run: |
+          pip install pandas==2.0.0rc0
       - name: Display Conda Environment Versions
         shell: bash -l {0}
         run: conda list
