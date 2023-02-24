@@ -37,6 +37,10 @@ tags: [hide-output]
 !pip install --upgrade yfinance
 ```
 
+```{code-cell} ipython
+print(pd.__version__)
+```
+
 ## Overview
 
 [Pandas](http://pandas.pydata.org/) is a package of fast, efficient data analysis tools for Python.
