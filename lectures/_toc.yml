@@ -36,3 +36,4 @@ parts:
   chapters:
   - file: troubleshooting
   - file: status
+  - file: new-lecture
