@@ -6,19 +6,9 @@ dependencies:
   - anaconda=2022.05
   - pip
   - pip:
-    - jupyter-book==0.12.3
-    - quantecon-book-theme==0.3.1
-    - sphinx-tojupyter==0.2.1
-    - sphinxext-rediraffe==0.2.7
-    - sphinx-exercise==0.4.0
-    - ghp-import==1.1.0
-    - sphinxcontrib-youtube==1.1.0
-    - sphinx-togglebutton==0.3.1
-    # Sandpit Requirements
-    - quantecon
-    - array-to-latex
-    - PuLP
-    - cvxpy
-    - cvxopt
-    - cylp
-    - prettytable
+    - jupyter-book
+    - sphinxext-rediraffe
+    - sphinx-exercise
+    - ghp-import
+    - sphinxcontrib-youtube
+    - sphinx-togglebutton
