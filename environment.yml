@@ -6,8 +6,8 @@ dependencies:
   - anaconda=2022.10
   - pip
   - pip:
-    - jupyter-book==0.12.3
-    - quantecon-book-theme==0.3.1
+    - jupyter-book==0.15.1
+    - quantecon-book-theme==0.4.0
     - sphinx-tojupyter==0.2.1
     - sphinxext-rediraffe==0.2.7
     - sphinx-exercise==0.4.0
