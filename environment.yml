@@ -6,8 +6,8 @@ dependencies:
   - anaconda=2022.10
   - pip
   - pip:
-    - git+https://github.com/executablebooks/jupyter-book.git@update-myst-nb
-    # - git+https://github.com/QuantEcon/quantecon-book-theme.git@updating-sbt
+    - jupyter-book==0.15.1
+    - quantecon-book-theme==0.4.0
     # - sphinx-tojupyter==0.2.1
     - sphinxext-rediraffe==0.2.7
     - sphinx-exercise==0.4.1
