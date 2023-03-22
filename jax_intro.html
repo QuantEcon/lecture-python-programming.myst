@@ -1,10 +1,14 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>15. JAX &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
@@ -47,47 +51,53 @@
         </script>
     
     
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/quantecon-book-theme.1ef59f8f4e91ec8319176e8479c6af4e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/quantecon-book-theme.279dae03c5caae754d20501e3fa00bbf.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
     <script src="_static/quantecon-book-theme.15b0c36fffe88f468997fa7b698991d3.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -96,7 +106,8 @@ const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'jax_intro';</script>
     <link rel="canonical" href="https://python.quantecon.org/jax_intro.html" />
     <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -150,72 +161,23 @@ const thebe_selector_output = ".output, .cell_output"
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview">
-   15.1. Overview
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#capabilities">
-     15.1.1. Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#history">
-     15.1.2. History
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#installation">
-     15.1.3. Installation
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jax-as-a-numpy-replacement">
-   15.2. JAX as a NumPy Replacement
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#similarities">
-     15.2.1. Similarities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#differences">
-     15.2.2. Differences
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#random-numbers">
-   15.3. Random Numbers
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jit-compilation">
-   15.4. JIT Compilation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#functional-programming">
-   15.5. Functional Programming
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gradients">
-   15.6. Gradients
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   15.7. Exercises
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">15.1. Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capabilities">15.1.1. Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#history">15.1.2. History</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">15.1.3. Installation</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jax-as-a-numpy-replacement">15.2. JAX as a NumPy Replacement</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#similarities">15.2.1. Similarities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differences">15.2.2. Differences</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-numbers">15.3. Random Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jit-compilation">15.4. JIT Compilation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-programming">15.5. Functional Programming</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradients">15.6. Gradients</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">15.7. Exercises</a></li>
+</ul>
                             <p class="logo">
                                 
                                     
@@ -259,23 +221,23 @@ const thebe_selector_output = ".output, .cell_output"
                     
                     <div>
                         
-  <div class="tex2jax_ignore mathjax_ignore section" id="jax">
-<h1><span class="section-number">15. </span>JAX<a class="headerlink" href="#jax" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="jax">
+<h1><span class="section-number">15. </span>JAX<a class="headerlink" href="#jax" title="Permalink to this heading">#</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This lecture is built using <a class="reference internal" href="status.html#status-machine-details"><span class="std std-ref">hardware</span></a> that
 has access to a GPU. This means that</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>the lecture might be significantly slower when running on your machine, and</p></li>
 <li><p>the code is well-suited to execution with <a class="reference external" href="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.notebooks/blob/master/jax_intro.ipynb">Google colab</a></p></li>
 </ol>
 </div>
 <p>This lecture provides a short introduction to <a class="reference external" href="https://github.com/google/jax">Google JAX</a>.</p>
-<div class="section" id="overview">
-<h2><span class="section-number">15.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<section id="overview">
+<h2><span class="section-number">15.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>Let’s start with an overview of JAX.</p>
-<div class="section" id="capabilities">
-<h3><span class="section-number">15.1.1. </span>Capabilities<a class="headerlink" href="#capabilities" title="Permalink to this headline">¶</a></h3>
+<section id="capabilities">
+<h3><span class="section-number">15.1.1. </span>Capabilities<a class="headerlink" href="#capabilities" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://github.com/google/jax">JAX</a> is a Python library initially developed by
 Google to support in-house artificial intelligence and machine learning.</p>
 <p>JAX provides data types, functions and a compiler for fast linear
@@ -290,9 +252,9 @@ algebra operations and automatic differentiation.</p>
 the CPU or on a hardware accelerator, such as a GPU or TPU.</p>
 <p>For example, JAX automatically builds and deploys kernels on the GPU whenever
 an accessible device is detected.</p>
-</div>
-<div class="section" id="history">
-<h3><span class="section-number">15.1.2. </span>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="history">
+<h3><span class="section-number">15.1.2. </span>History<a class="headerlink" href="#history" title="Permalink to this heading">#</a></h3>
 <p>In 2015, Google open-sourced part of its AI infrastructure called TensorFlow.</p>
 <p>Around two years later, Facebook open-sourced PyTorch beta, an alternative AI
 framework which is regarded as developer-friendly and more Pythonic than
@@ -303,19 +265,19 @@ many other companies.</p>
 beginning to shift away from TPUs to Nvidia GPUs.</p>
 <p>In the last few years, uptake of Google JAX has accelerated rapidly, bringing
 attention back to Google-based machine learning architectures.</p>
-</div>
-<div class="section" id="installation">
-<h3><span class="section-number">15.1.3. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="installation">
+<h3><span class="section-number">15.1.3. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h3>
 <p>JAX can be installed with or without GPU support by following <a class="reference external" href="https://github.com/google/jax">the install guide</a>.</p>
 <p>Note that JAX is pre-installed with GPU support on <a class="reference external" href="https://colab.research.google.com/">Google Colab</a>.</p>
 <p>If you do not have your own GPU, we recommend that you run this lecture on Colab.</p>
-</div>
-</div>
-<div class="section" id="jax-as-a-numpy-replacement">
-<h2><span class="section-number">15.2. </span>JAX as a NumPy Replacement<a class="headerlink" href="#jax-as-a-numpy-replacement" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="jax-as-a-numpy-replacement">
+<h2><span class="section-number">15.2. </span>JAX as a NumPy Replacement<a class="headerlink" href="#jax-as-a-numpy-replacement" title="Permalink to this heading">#</a></h2>
 <p>One way to use JAX is as a plug-in NumPy replacement. Let’s look at the similarities and differences.</p>
-<div class="section" id="similarities">
-<h3><span class="section-number">15.2.1. </span>Similarities<a class="headerlink" href="#similarities" title="Permalink to this headline">¶</a></h3>
+<section id="similarities">
+<h3><span class="section-number">15.2.1. </span>Similarities<a class="headerlink" href="#similarities" title="Permalink to this heading">#</a></h3>
 <p>The following import is standard, replacing <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -477,9 +439,9 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="differences">
-<h3><span class="section-number">15.2.2. </span>Differences<a class="headerlink" href="#differences" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="differences">
+<h3><span class="section-number">15.2.2. </span>Differences<a class="headerlink" href="#differences" title="Permalink to this heading">#</a></h3>
 <p>One difference between NumPy and JAX is that, when running on a GPU, JAX uses 32 bit floats by default.</p>
 <p>This is standard for GPU computing and can lead to significant speed gains with small loss of precision.</p>
 <p>However, for some calculations precision matters.  In these cases 64 bit floats can be enforced via the command</p>
@@ -556,15 +518,15 @@ attention back to Google-based machine learning architectures.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_318</span><span class="o">/</span><span class="mf">3686271957.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_260</span><span class="o">/</span><span class="mf">3686271957.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="nn">/opt/conda/envs/quantecon/lib/python3.9/site-packages/jax/_src/numpy/lax_numpy.py</span> in <span class="ni">_unimplemented_setitem</span><span class="nt">(self, i, x)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4958</span>          <span class="s2">&quot;or another .at[] method: &quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">4959</span>          <span class="s2">&quot;https://jax.readthedocs.io/en/latest/_autosummary/jax.numpy.ndarray.at.html&quot;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">4960</span>   <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
-<span class="g g-Whitespace">   </span><span class="mi">4961</span> 
-<span class="g g-Whitespace">   </span><span class="mi">4962</span> <span class="k">def</span> <span class="nf">_operator_round</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">ndigits</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">4980</span>          <span class="s2">&quot;or another .at[] method: &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">4981</span>          <span class="s2">&quot;https://jax.readthedocs.io/en/latest/_autosummary/jax.numpy.ndarray.at.html&quot;</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">4982</span>   <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
+<span class="g g-Whitespace">   </span><span class="mi">4983</span> 
+<span class="g g-Whitespace">   </span><span class="mi">4984</span> <span class="k">def</span> <span class="nf">_operator_round</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">ndigits</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
 
 <span class="ne">TypeError</span>: &#39;&lt;class &#39;jaxlib.xla_extension.Array&#39;&gt;&#39; object does not support item assignment. JAX arrays are immutable. Instead of ``x[idx] = y``, use ``x = x.at[idx].set(y)`` or another .at[] method: https://jax.readthedocs.io/en/latest/_autosummary/jax.numpy.ndarray.at.html
 </pre></div>
@@ -610,7 +572,7 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140708566969024
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140382490587824
 </pre></div>
 </div>
 </div>
@@ -647,15 +609,15 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140708566969024
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140382490587824
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="random-numbers">
-<h2><span class="section-number">15.3. </span>Random Numbers<a class="headerlink" href="#random-numbers" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="random-numbers">
+<h2><span class="section-number">15.3. </span>Random Numbers<a class="headerlink" href="#random-numbers" title="Permalink to this heading">#</a></h2>
 <p>Random numbers are also a bit different in JAX, relative to NumPy.  Typically, in JAX, the state of the random number generator needs to be controlled explicitly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -806,9 +768,9 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="jit-compilation">
-<h2><span class="section-number">15.4. </span>JIT Compilation<a class="headerlink" href="#jit-compilation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="jit-compilation">
+<h2><span class="section-number">15.4. </span>JIT Compilation<a class="headerlink" href="#jit-compilation" title="Permalink to this heading">#</a></h2>
 <p>The JAX JIT compiler accelerates logic within functions by fusing linear
 algebra operations into a single, highly optimized kernel that the host can
 launch on the GPU / TPU (or CPU if no accelerator is detected).</p>
@@ -838,8 +800,8 @@ launch on the GPU / TPU (or CPU if no accelerator is detected).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 533 ms, sys: 179 ms, total: 712 ms
-Wall time: 3.43 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 549 ms, sys: 198 ms, total: 747 ms
+Wall time: 3.39 s
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([499500., 499500., 499500., ..., 499500., 499500., 499500.],      dtype=float64)
@@ -883,8 +845,8 @@ Wall time: 3.43 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 880 µs, sys: 224 µs, total: 1.1 ms
-Wall time: 36.3 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 803 µs, sys: 220 µs, total: 1.02 ms
+Wall time: 35.2 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([499500., 499500., 499500., ..., 499500., 499500., 499500.],      dtype=float64)
@@ -892,9 +854,9 @@ Wall time: 36.3 ms
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="functional-programming">
-<h2><span class="section-number">15.5. </span>Functional Programming<a class="headerlink" href="#functional-programming" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="functional-programming">
+<h2><span class="section-number">15.5. </span>Functional Programming<a class="headerlink" href="#functional-programming" title="Permalink to this heading">#</a></h2>
 <p>From JAX’s documentation:</p>
 <p><em>When walking about the countryside of Italy, the people will not hesitate to tell you that JAX has “una anima di pura programmazione funzionale”.</em></p>
 <p>In other words, JAX assumes a functional programming style.</p>
@@ -978,9 +940,9 @@ Wall time: 36.3 ms
 </div>
 </div>
 <p>Moral of the story: write pure functions when using JAX!</p>
-</div>
-<div class="section" id="gradients">
-<h2><span class="section-number">15.6. </span>Gradients<a class="headerlink" href="#gradients" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="gradients">
+<h2><span class="section-number">15.6. </span>Gradients<a class="headerlink" href="#gradients" title="Permalink to this heading">#</a></h2>
 <p>JAX can use automatic differentiation to compute gradients.</p>
 <p>This can be extremely useful in optimization, root finding and other applications.</p>
 <p>Here’s a very simple illustration, involving the function</p>
@@ -1027,16 +989,16 @@ Wall time: 36.3 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/jax_intro_86_0.png" src="_images/jax_intro_86_0.png" />
+<img alt="_images/ff6df997fd1e03c1c0c692168bf193dc4144448be4ea3baa0fede1cd4c53911f.png" src="_images/ff6df997fd1e03c1c0c692168bf193dc4144448be4ea3baa0fede1cd4c53911f.png" />
 </div>
 </div>
-</div>
-<div class="section" id="exercises">
-<h2><span class="section-number">15.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="exercises">
+<h2><span class="section-number">15.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <div class="exercise admonition" id="jax_intro_ex1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 15.1 </span></p>
-<div class="section" id="exercise-content">
+<section id="exercise-content">
 <p>Recall that Newton’s method for solving for the root of <span class="math notranslate nohighlight">\(f\)</span> involves iterating on</p>
 <div class="math notranslate nohighlight">
 \[ 
@@ -1061,16 +1023,16 @@ Wall time: 36.3 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/jax_intro_89_0.png" src="_images/jax_intro_89_0.png" />
+<img alt="_images/0782326900acdd2af584b7c4e5984327caef37bdb02cd09d613f438f818806a8.png" src="_images/0782326900acdd2af584b7c4e5984327caef37bdb02cd09d613f438f818806a8.png" />
 </div>
 </div>
-</div>
+</section>
 </div>
 <div class="solution dropdown admonition" id="jax_intro-solution-1">
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#jax_intro_ex1"> Exercise 15.1</a></p>
-<div class="section" id="s">
-<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><p>Here’s a suitable function:</p>
+<section id="solution-content">
+<p>Here’s a suitable function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">):</span>
@@ -1104,12 +1066,12 @@ Wall time: 36.3 ms
 </div>
 </div>
 <p>This number looks good, given the figure.</p>
-</div>
+</section>
 </div>
 <div class="exercise admonition" id="jax_intro_ex2">
 
 <p class="admonition-title"><span class="caption-number">Exercise 15.2 </span></p>
-<div class="section" id="exercise-content">
+<section id="exercise-content">
 <p>In <a class="reference internal" href="parallelization.html#parallel_ex2"><span class="std std-ref">an earlier exercise on parallelization</span></a>, we used Monte
 Carlo to price a European call option.</p>
 <p>The code was accelerated by Numba-based multithreading.</p>
@@ -1117,13 +1079,13 @@ Carlo to price a European call option.</p>
 parameters.</p>
 <p>If you are running your code on a GPU, you should be able to achieve
 significantly faster exection.</p>
-</div>
+</section>
 </div>
 <div class="solution dropdown admonition" id="jax_intro-solution-3">
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#jax_intro_ex2"> Exercise 15.2</a></p>
-<div class="section" id="s">
-<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><p>Here is one solution:</p>
+<section id="solution-content">
+<p>Here is one solution:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="mi">10_000_000</span>
@@ -1179,8 +1141,8 @@ significantly faster exection.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.28 ms, sys: 157 µs, total: 1.43 ms
-Wall time: 103 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.29 ms, sys: 188 µs, total: 1.48 ms
+Wall time: 105 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array(180876.48840921, dtype=float64)
@@ -1188,10 +1150,10 @@ Wall time: 103 ms
 </div>
 </div>
 </div>
+</section>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1205,7 +1167,7 @@ Wall time: 103 ms
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1398,7 +1360,7 @@ Wall time: 103 ms
                     <li class="btn__qelogo"><a href="https://quantecon.org" title=""><span class="show-for-sr">QuantEcon</span></a></li>
                     <!-- <li class="btn__search">
                         <form action="search.html" method="get">
-                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search..." aria-label="Search..." autocomplete="off">
                             <i data-feather="search"></i>
                         </form>
                     </li> -->
@@ -1540,16 +1502,5 @@ Wall time: 103 ms
         </div>
 
     </div> <!-- .wrapper-->
-    
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-54984338-9', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
-
   </body>
 </html>

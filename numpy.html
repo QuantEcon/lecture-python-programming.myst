@@ -1,10 +1,14 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>9. NumPy &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
@@ -47,47 +51,53 @@
         </script>
     
     
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/quantecon-book-theme.1ef59f8f4e91ec8319176e8479c6af4e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/quantecon-book-theme.279dae03c5caae754d20501e3fa00bbf.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
     <script src="_static/quantecon-book-theme.15b0c36fffe88f468997fa7b698991d3.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -96,7 +106,8 @@ const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'numpy';</script>
     <link rel="canonical" href="https://python.quantecon.org/numpy.html" />
     <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -150,101 +161,32 @@ const thebe_selector_output = ".output, .cell_output"
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview">
-   9.1. Overview
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#references">
-     9.1.1. References
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#numpy-arrays">
-   9.2. NumPy Arrays
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#shape-and-dimension">
-     9.2.1. Shape and Dimension
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#creating-arrays">
-     9.2.2. Creating Arrays
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#array-indexing">
-     9.2.3. Array Indexing
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#array-methods">
-     9.2.4. Array Methods
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#arithmetic-operations">
-   9.3. Arithmetic Operations
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#matrix-multiplication">
-   9.4. Matrix Multiplication
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#broadcasting">
-   9.5. Broadcasting
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mutability-and-copying-arrays">
-   9.6. Mutability and Copying Arrays
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#making-copies">
-     9.6.1. Making Copies
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#additional-functionality">
-   9.7. Additional Functionality
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#vectorized-functions">
-     9.7.1. Vectorized Functions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#comparisons">
-     9.7.2. Comparisons
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sub-packages">
-     9.7.3. Sub-packages
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   9.8. Exercises
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">9.1. Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">9.1.1. References</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-arrays">9.2. NumPy Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-and-dimension">9.2.1. Shape and Dimension</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-arrays">9.2.2. Creating Arrays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-indexing">9.2.3. Array Indexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-methods">9.2.4. Array Methods</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-operations">9.3. Arithmetic Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-multiplication">9.4. Matrix Multiplication</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">9.5. Broadcasting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mutability-and-copying-arrays">9.6. Mutability and Copying Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-copies">9.6.1. Making Copies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-functionality">9.7. Additional Functionality</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorized-functions">9.7.1. Vectorized Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparisons">9.7.2. Comparisons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sub-packages">9.7.3. Sub-packages</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">9.8. Exercises</a></li>
+</ul>
                             <p class="logo">
                                 
                                     
@@ -288,9 +230,9 @@ const thebe_selector_output = ".output, .cell_output"
                     
                     <div>
                         
-  <div class="tex2jax_ignore mathjax_ignore section" id="numpy">
-<h1><a class="toc-backref" href="#id3"><span class="section-number">9. </span><span class="target" id="index-0"></span>NumPy</a><a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h1>
-<div class="contents topic" id="contents">
+  <section class="tex2jax_ignore mathjax_ignore" id="numpy">
+<h1><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">9. </span><span class="target" id="index-0"></span>NumPy</a><a class="headerlink" href="#numpy" title="Permalink to this heading">#</a></h1>
+<nav class="contents" id="contents">
 <span id="index-1"></span><p class="topic-title">Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#numpy" id="id3">NumPy</a></p>
@@ -306,12 +248,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <blockquote class="epigraph">
 <div><p>“Let’s be clear: the work of science has nothing whatever to do with consensus.  Consensus is the business of politics. Science, on the contrary, requires only one investigator who happens to be right, which means that he or she has results that are verifiable by reference to the real world. In science consensus is irrelevant. What is relevant is reproducible results.” – Michael Crichton</p>
 </div></blockquote>
-<div class="section" id="overview">
-<h2><a class="toc-backref" href="#id4"><span class="section-number">9.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<section id="overview">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">9.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/NumPy">NumPy</a> is a first-rate library for numerical programming</p>
 <ul class="simple">
 <li><p>Widely used in academia, finance and industry.</p></li>
@@ -323,15 +265,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>NumPy arrays and</p></li>
 <li><p>the fundamental array processing operations provided by NumPy.</p></li>
 </ul>
-<div class="section" id="references">
-<h3><span class="section-number">9.1.1. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
+<section id="references">
+<h3><span class="section-number">9.1.1. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/">The official NumPy documentation</a>.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="numpy-arrays">
-<span id="numpy-array"></span><h2><a class="toc-backref" href="#id5"><span class="section-number">9.2. </span>NumPy Arrays</a><a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="numpy-arrays">
+<span id="numpy-array"></span><h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">9.2. </span>NumPy Arrays</a><a class="headerlink" href="#numpy-arrays" title="Permalink to this heading">#</a></h2>
 <p id="index-2">The essential problem that NumPy solves is fast array processing.</p>
 <p>The most important structure that NumPy defines is an array data type formally called a <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html">numpy.ndarray</a>.</p>
 <p>NumPy arrays power a large proportion of the scientific Python ecosystem.</p>
@@ -409,8 +351,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="shape-and-dimension">
-<span id="numpy-shape-dim"></span><h3><span class="section-number">9.2.1. </span>Shape and Dimension<a class="headerlink" href="#shape-and-dimension" title="Permalink to this headline">¶</a></h3>
+<section id="shape-and-dimension">
+<span id="numpy-shape-dim"></span><h3><span class="section-number">9.2.1. </span>Shape and Dimension<a class="headerlink" href="#shape-and-dimension" title="Permalink to this heading">#</a></h3>
 <p id="index-3">Consider the following assignment</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -474,9 +416,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>In the last case, to make the 2 by 2 array, we could also pass a tuple to the <code class="docutils literal notranslate"><span class="pre">zeros()</span></code> function, as
 in <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">np.zeros((2,</span> <span class="pre">2))</span></code>.</p>
-</div>
-<div class="section" id="creating-arrays">
-<span id="id1"></span><h3><span class="section-number">9.2.2. </span>Creating Arrays<a class="headerlink" href="#creating-arrays" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="creating-arrays">
+<span id="id1"></span><h3><span class="section-number">9.2.2. </span>Creating Arrays<a class="headerlink" href="#creating-arrays" title="Permalink to this heading">#</a></h3>
 <p id="index-4">As we’ve seen, the <code class="docutils literal notranslate"><span class="pre">np.zeros</span></code> function creates an array of zeros.</p>
 <p>You can probably guess what <code class="docutils literal notranslate"><span class="pre">np.ones</span></code> creates.</p>
 <p>Related is <code class="docutils literal notranslate"><span class="pre">np.empty</span></code>, which creates arrays in memory that can later be populated with data</p>
@@ -600,9 +542,9 @@ a distinct copy of data already in a NumPy array.</p>
 </div>
 <p>To read in the array data from a text file containing numeric data use <code class="docutils literal notranslate"><span class="pre">np.loadtxt</span></code>
 or <code class="docutils literal notranslate"><span class="pre">np.genfromtxt</span></code>—see <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/routines.io.html">the documentation</a> for details.</p>
-</div>
-<div class="section" id="array-indexing">
-<h3><span class="section-number">9.2.3. </span>Array Indexing<a class="headerlink" href="#array-indexing" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="array-indexing">
+<h3><span class="section-number">9.2.3. </span>Array Indexing<a class="headerlink" href="#array-indexing" title="Permalink to this heading">#</a></h3>
 <p id="index-5">For a flat array, indexing is the same as Python sequences:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -812,9 +754,9 @@ or <code class="docutils literal notranslate"><span class="pre">np.genfromtxt</s
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="array-methods">
-<h3><span class="section-number">9.2.4. </span>Array Methods<a class="headerlink" href="#array-methods" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="array-methods">
+<h3><span class="section-number">9.2.4. </span>Array Methods<a class="headerlink" href="#array-methods" title="Permalink to this heading">#</a></h3>
 <p id="index-6">Arrays have useful methods, all of which are carefully optimized</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1011,10 +953,10 @@ or <code class="docutils literal notranslate"><span class="pre">np.genfromtxt</s
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="arithmetic-operations">
-<h2><a class="toc-backref" href="#id6"><span class="section-number">9.3. </span>Arithmetic Operations</a><a class="headerlink" href="#arithmetic-operations" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="arithmetic-operations">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">9.3. </span>Arithmetic Operations</a><a class="headerlink" href="#arithmetic-operations" title="Permalink to this heading">#</a></h2>
 <p id="index-7">The operators <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code> and <code class="docutils literal notranslate"><span class="pre">**</span></code> all act <em>elementwise</em> on arrays</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1111,9 +1053,9 @@ or <code class="docutils literal notranslate"><span class="pre">np.genfromtxt</s
 </div>
 </div>
 <p id="numpy-matrix-multiplication">In particular, <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">*</span> <span class="pre">B</span></code> is <em>not</em> the matrix product, it is an element-wise product.</p>
-</div>
-<div class="section" id="matrix-multiplication">
-<h2><a class="toc-backref" href="#id7"><span class="section-number">9.4. </span>Matrix Multiplication</a><a class="headerlink" href="#matrix-multiplication" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="matrix-multiplication">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">9.4. </span>Matrix Multiplication</a><a class="headerlink" href="#matrix-multiplication" title="Permalink to this heading">#</a></h2>
 <span class="target" id="index-8"></span><p id="index-9">With Anaconda’s scientific Python package based around Python 3.5 and above,
 one can use the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> symbol for matrix multiplication, as follows:</p>
 <div class="cell docutils container">
@@ -1175,9 +1117,9 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 </div>
 </div>
 <p>Since we are post-multiplying, the tuple is treated as a column vector.</p>
-</div>
-<div class="section" id="broadcasting">
-<span id="id2"></span><h2><a class="toc-backref" href="#id8"><span class="section-number">9.5. </span>Broadcasting</a><a class="headerlink" href="#broadcasting" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="broadcasting">
+<span id="id2"></span><h2><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">9.5. </span>Broadcasting</a><a class="headerlink" href="#broadcasting" title="Permalink to this heading">#</a></h2>
 <p id="index-10">(This section extends an excellent discussion of broadcasting provided by <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/02.05-computation-on-arrays-broadcasting.html">Jake VanderPlas</a>.)</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1216,6 +1158,11 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 </div>
 <p>Here is a visual representation of this broadcasting operation:</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Adapted and modified based on the code in the book written by Jake VanderPlas (see https://jakevdp.github.io/PythonDataScienceHandbook/06.00-figure-code.html#Broadcasting)</span>
 <span class="c1"># Originally from astroML: see http://www.astroml.org/book_figures/appendix/fig_broadcast_visual.html</span>
@@ -1332,8 +1279,9 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="_images/numpy_92_0.png" src="_images/numpy_92_0.png" />
+<img alt="_images/26da2bac856ea3b77642a005c998cddb697d590ca423ac2c5400bced9897cccf.png" src="_images/26da2bac856ea3b77642a005c998cddb697d590ca423ac2c5400bced9897cccf.png" />
 </div>
 </div>
 <p>How about <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(3,</span> <span class="pre">1)</span></code>?</p>
@@ -1357,6 +1305,11 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 </div>
 <p>Here is a visual representation of this broadcasting operation:</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">xticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">yticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -1405,8 +1358,9 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="_images/numpy_96_0.png" src="_images/numpy_96_0.png" />
+<img alt="_images/6cd59941867ed84e890d58790c4497a297d7b000873a1167fe024dd0c88c739e.png" src="_images/6cd59941867ed84e890d58790c4497a297d7b000873a1167fe024dd0c88c739e.png" />
 </div>
 </div>
 <p>The previous broadcasting operation is equivalent to the following <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</p>
@@ -1453,6 +1407,11 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 </div>
 <p>Here is a visual representation of this broadcasting operation:</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Draw a figure and axis with no boundary</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
@@ -1502,8 +1461,9 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="_images/numpy_102_0.png" src="_images/numpy_102_0.png" />
+<img alt="_images/8f8d0ce47e55e0fe25220105f34193dd8513d5083cb3c3abafd40419f5156a83.png" src="_images/8f8d0ce47e55e0fe25220105f34193dd8513d5083cb3c3abafd40419f5156a83.png" />
 </div>
 </div>
 <p>While broadcasting is very useful, it can sometimes seem confusing.</p>
@@ -1523,7 +1483,7 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_934</span><span class="o">/</span><span class="mf">3915099438.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_846</span><span class="o">/</span><span class="mf">3915099438.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> 
 <span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
@@ -1536,6 +1496,11 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 <p>The <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> tells us that operands could not be broadcast together.</p>
 <p>Here is a visual representation to show why this broadcasting cannot be executed:</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Draw a figure and axis with no boundary</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
@@ -1571,8 +1536,9 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="_images/numpy_106_0.png" src="_images/numpy_106_0.png" />
+<img alt="_images/fac9d7da6e8ed174eaa84d68efe1f88db14d3e23c0c6c42f9f2db47a2946671d.png" src="_images/fac9d7da6e8ed174eaa84d68efe1f88db14d3e23c0c6c42f9f2db47a2946671d.png" />
 </div>
 </div>
 <p>We can see that NumPy cannot expand the arrays to the same size.</p>
@@ -1705,7 +1671,7 @@ the shape of array b is (2, 2)
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_934</span><span class="o">/</span><span class="mf">1249908981.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_846</span><span class="o">/</span><span class="mf">1249908981.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;the shape of array b is </span><span class="si">{</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">13</span> 
 <span class="ne">---&gt; </span><span class="mi">14</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
@@ -1715,9 +1681,9 @@ the shape of array b is (2, 2)
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="mutability-and-copying-arrays">
-<h2><a class="toc-backref" href="#id9"><span class="section-number">9.6. </span>Mutability and Copying Arrays</a><a class="headerlink" href="#mutability-and-copying-arrays" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mutability-and-copying-arrays">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">9.6. </span>Mutability and Copying Arrays</a><a class="headerlink" href="#mutability-and-copying-arrays" title="Permalink to this heading">#</a></h2>
 <p>NumPy arrays are mutable data types, like Python lists.</p>
 <p>In other words, their contents can be altered (mutated) in memory after initialization.</p>
 <p>We already saw examples above.</p>
@@ -1757,7 +1723,7 @@ the shape of array b is (2, 2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.61995042,  0.32458279, -0.26965576])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.35807312, -1.15939905,  0.16312394])
 </pre></div>
 </div>
 </div>
@@ -1771,7 +1737,7 @@ the shape of array b is (2, 2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        ,  0.32458279, -0.26965576])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        , -1.15939905,  0.16312394])
 </pre></div>
 </div>
 </div>
@@ -1783,8 +1749,8 @@ array (the Python assignment model is described in more detail <a class="referen
 <p>This is in fact the most sensible default behavior!</p>
 <p>It means that we pass around only pointers to data, rather than making copies.</p>
 <p>Making copies is expensive in terms of both speed and memory.</p>
-<div class="section" id="making-copies">
-<h3><span class="section-number">9.6.1. </span>Making Copies<a class="headerlink" href="#making-copies" title="Permalink to this headline">¶</a></h3>
+<section id="making-copies">
+<h3><span class="section-number">9.6.1. </span>Making Copies<a class="headerlink" href="#making-copies" title="Permalink to this heading">#</a></h3>
 <p>It is of course possible to make <code class="docutils literal notranslate"><span class="pre">b</span></code> an independent copy of <code class="docutils literal notranslate"><span class="pre">a</span></code> when required.</p>
 <p>This can be done using <code class="docutils literal notranslate"><span class="pre">np.copy</span></code></p>
 <div class="cell docutils container">
@@ -1795,7 +1761,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.14657657,  1.23655144,  0.22927864])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.07844569,  0.0775153 ,  0.8107658 ])
 </pre></div>
 </div>
 </div>
@@ -1808,7 +1774,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.14657657,  1.23655144,  0.22927864])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.07844569,  0.0775153 ,  0.8107658 ])
 </pre></div>
 </div>
 </div>
@@ -1834,19 +1800,19 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.14657657,  1.23655144,  0.22927864])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.07844569,  0.0775153 ,  0.8107658 ])
 </pre></div>
 </div>
 </div>
 </div>
 <p>Note that the change to <code class="docutils literal notranslate"><span class="pre">b</span></code> has not affected <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
-</div>
-</div>
-<div class="section" id="additional-functionality">
-<h2><a class="toc-backref" href="#id10"><span class="section-number">9.7. </span>Additional Functionality</a><a class="headerlink" href="#additional-functionality" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="additional-functionality">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">9.7. </span>Additional Functionality</a><a class="headerlink" href="#additional-functionality" title="Permalink to this heading">#</a></h2>
 <p>Let’s look at some other useful things we can do with NumPy.</p>
-<div class="section" id="vectorized-functions">
-<h3><span class="section-number">9.7.1. </span>Vectorized Functions<a class="headerlink" href="#vectorized-functions" title="Permalink to this headline">¶</a></h3>
+<section id="vectorized-functions">
+<h3><span class="section-number">9.7.1. </span>Vectorized Functions<a class="headerlink" href="#vectorized-functions" title="Permalink to this heading">#</a></h3>
 <p id="index-11">NumPy provides versions of the standard functions <code class="docutils literal notranslate"><span class="pre">log</span></code>, <code class="docutils literal notranslate"><span class="pre">exp</span></code>, <code class="docutils literal notranslate"><span class="pre">sin</span></code>, etc. that act <em>element-wise</em> on arrays</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1919,7 +1885,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.31851173,  0.35560544, -1.6949092 ,  0.4213034 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.36978891, -0.99829586, -0.35780452,  1.00882201])
 </pre></div>
 </div>
 </div>
@@ -1931,7 +1897,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 0, 1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 1])
 </pre></div>
 </div>
 </div>
@@ -1945,15 +1911,15 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 0, 1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 1])
 </pre></div>
 </div>
 </div>
 </div>
 <p>However, this approach doesn’t always obtain the same speed as a more carefully crafted vectorized function.</p>
-</div>
-<div class="section" id="comparisons">
-<h3><span class="section-number">9.7.2. </span>Comparisons<a class="headerlink" href="#comparisons" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="comparisons">
+<h3><span class="section-number">9.7.2. </span>Comparisons<a class="headerlink" href="#comparisons" title="Permalink to this heading">#</a></h3>
 <p id="index-12">As a rule, comparisons on arrays are done element-wise</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2060,9 +2026,9 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="sub-packages">
-<h3><span class="section-number">9.7.3. </span>Sub-packages<a class="headerlink" href="#sub-packages" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="sub-packages">
+<h3><span class="section-number">9.7.3. </span>Sub-packages<a class="headerlink" href="#sub-packages" title="Permalink to this heading">#</a></h3>
 <p>NumPy provides some additional functionality related to scientific programming
 through its sub-packages.</p>
 <p>We’ve already seen how we can generate random variables using np.random</p>
@@ -2075,7 +2041,7 @@ through its sub-packages.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.079
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.023
 </pre></div>
 </div>
 </div>
@@ -2111,10 +2077,10 @@ through its sub-packages.</p>
 <span class="target" id="index-13"></span><p id="index-14">Much of this functionality is also available in <a class="reference external" href="http://www.scipy.org/">SciPy</a>, a collection of modules that are built on top of NumPy.</p>
 <p>We’ll cover the SciPy versions in more detail <a class="reference internal" href="scipy.html"><span class="doc">soon</span></a>.</p>
 <p>For a comprehensive list of what’s available in NumPy see <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.html">this documentation</a>.</p>
-</div>
-</div>
-<div class="section" id="exercises">
-<h2><a class="toc-backref" href="#id11"><span class="section-number">9.8. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="exercises">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">9.8. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -2127,10 +2093,10 @@ through its sub-packages.</p>
 <div class="exercise admonition" id="np_ex1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 9.1 </span></p>
-<div class="section" id="exercise-content">
+<section id="exercise-content">
 <p>Consider the polynomial expression</p>
 <div class="math notranslate nohighlight" id="equation-np-polynom">
-<span class="eqno">(9.1)<a class="headerlink" href="#equation-np-polynom" title="Permalink to this equation">¶</a></span>\[p(x) = a_0 + a_1 x + a_2 x^2 + \cdots a_N x^N = \sum_{n=0}^N a_n x^n\]</div>
+<span class="eqno">(9.1)<a class="headerlink" href="#equation-np-polynom" title="Permalink to this equation">#</a></span>\[p(x) = a_0 + a_1 x + a_2 x^2 + \cdots a_N x^N = \sum_{n=0}^N a_n x^n\]</div>
 <p><a class="reference internal" href="python_essentials.html#pyess_ex2"><span class="std std-ref">Earlier</span></a>, you wrote a simple function <code class="docutils literal notranslate"><span class="pre">p(x,</span> <span class="pre">coeff)</span></code> to evaluate <a class="reference internal" href="#equation-np-polynom">(9.1)</a> without considering efficiency.</p>
 <p>Now write a new function that does the same job, but uses NumPy arrays and array operations for its computations, rather than any form of Python loop.</p>
 <p>(Such functionality is already implemented as <code class="docutils literal notranslate"><span class="pre">np.poly1d</span></code>, but for the sake of the exercise don’t use this class)</p>
@@ -2138,13 +2104,13 @@ through its sub-packages.</p>
 <p class="admonition-title">Hint</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">np.cumprod()</span></code></p>
 </div>
-</div>
+</section>
 </div>
 <div class="solution dropdown admonition" id="numpy-solution-1">
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#np_ex1"> Exercise 9.1</a></p>
-<div class="section" id="s">
-<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><p>This code does the job</p>
+<section id="solution-content">
+<p>This code does the job</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">coef</span><span class="p">):</span>
@@ -2177,12 +2143,12 @@ through its sub-packages.</p>
 </div>
 </div>
 </div>
-</div>
+</section>
 </div>
 <div class="exercise admonition" id="np_ex2">
 
 <p class="admonition-title"><span class="caption-number">Exercise 9.2 </span></p>
-<div class="section" id="exercise-content">
+<section id="exercise-content">
 <p>Let <code class="docutils literal notranslate"><span class="pre">q</span></code> be a NumPy array of length <code class="docutils literal notranslate"><span class="pre">n</span></code> with <code class="docutils literal notranslate"><span class="pre">q.sum()</span> <span class="pre">==</span> <span class="pre">1</span></code>.</p>
 <p>Suppose that <code class="docutils literal notranslate"><span class="pre">q</span></code> represents a <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_mass_function">probability mass function</a>.</p>
 <p>We wish to generate a discrete random variable <span class="math notranslate nohighlight">\(x\)</span> such that <span class="math notranslate nohighlight">\(\mathbb P\{x = i\} = q_i\)</span>.</p>
@@ -2222,13 +2188,13 @@ It helps to sketch the intervals on paper.</p>
 <li><p>the class has a <code class="docutils literal notranslate"><span class="pre">draw()</span></code> method, which returns one draw according to the algorithm described above</p></li>
 </ul>
 <p>If you can, write the method so that <code class="docutils literal notranslate"><span class="pre">draw(k)</span></code> returns <code class="docutils literal notranslate"><span class="pre">k</span></code> draws from <code class="docutils literal notranslate"><span class="pre">q</span></code>.</p>
-</div>
+</section>
 </div>
 <div class="solution dropdown admonition" id="numpy-solution-3">
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#np_ex2"> Exercise 9.2</a></p>
-<div class="section" id="s">
-<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><p>Here’s our first pass at a solution:</p>
+<section id="solution-content">
+<p>Here’s our first pass at a solution:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">cumsum</span>
@@ -2282,25 +2248,25 @@ method is called.</p>
 library</a>
 using descriptors that behaves as we desire can be found
 <a class="reference external" href="https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/discrete_rv.py">here</a>.</p>
-</div>
+</section>
 </div>
 <div class="exercise admonition" id="np_ex3">
 
 <p class="admonition-title"><span class="caption-number">Exercise 9.3 </span></p>
-<div class="section" id="exercise-content">
+<section id="exercise-content">
 <p>Recall our <a class="reference internal" href="python_oop.html#oop_ex1"><span class="std std-ref">earlier discussion</span></a> of the empirical cumulative distribution function.</p>
 <p>Your task is to</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Make the <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method more efficient using NumPy.</p></li>
 <li><p>Add a method that plots the ECDF over <span class="math notranslate nohighlight">\([a, b]\)</span>, where <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are method parameters.</p></li>
 </ol>
-</div>
+</section>
 </div>
 <div class="solution dropdown admonition" id="numpy-solution-5">
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#np_ex3"> Exercise 9.3</a></p>
-<div class="section" id="s">
-<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><p>An example solution is given below.</p>
+<section id="solution-content">
+<p>An example solution is given below.</p>
 <p>In essence, we’ve just taken <a class="reference external" href="https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/ecdf.py">this
 code</a>
 from QuantEcon and added in a plot method</p>
@@ -2387,15 +2353,15 @@ from QuantEcon and added in a plot method</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/numpy_170_0.png" src="_images/numpy_170_0.png" />
+<img alt="_images/9a098318243418dba5e9adcea812ea8c34e39f5423a4451d4b2d8c75e0d1438b.png" src="_images/9a098318243418dba5e9adcea812ea8c34e39f5423a4451d4b2d8c75e0d1438b.png" />
 </div>
 </div>
-</div>
+</section>
 </div>
 <div class="exercise admonition" id="np_ex4">
 
 <p class="admonition-title"><span class="caption-number">Exercise 9.4 </span></p>
-<div class="section" id="exercise-content">
+<section id="exercise-content">
 <p>Recall that <a class="reference internal" href="#broadcasting"><span class="std std-ref">broadcasting</span></a> in Numpy can help us conduct element-wise operations on arrays with different number of dimensions without using <code class="docutils literal notranslate"><span class="pre">for</span></code> loops.</p>
 <p>In this exercise, try to use <code class="docutils literal notranslate"><span class="pre">for</span></code> loops to replicate the result of the following broadcasting operations.</p>
 <p><strong>Part1</strong>: Try to replicate this simple example using <code class="docutils literal notranslate"><span class="pre">for</span></code> loops and compare your results with the broadcasting operation below.</p>
@@ -2411,11 +2377,16 @@ from QuantEcon and added in a plot method</p>
 </div>
 <p>Here is the output</p>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.49214189  0.45607819  0.28183596 -3.90043439]
  [-0.26229311  0.75518888 -2.41688145 -1.11063629]
@@ -2424,6 +2395,7 @@ from QuantEcon and added in a plot method</p>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p><strong>Part2</strong>: Move on to replicate the result of the following broadcasting operation. Meanwhile, compare the speeds of broadcasting and the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop you implement.</p>
 <div class="cell docutils container">
@@ -2441,21 +2413,26 @@ from QuantEcon and added in a plot method</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.04
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.05
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.04268312454223633
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0515897274017334
 </pre></div>
 </div>
 </div>
 </div>
 <p>Here is the output</p>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[ 1.85764005 -0.89419976  0.24485371 ... -3.04214618  0.17711597
    -0.22643801]
@@ -2545,14 +2522,15 @@ from QuantEcon and added in a plot method</p>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-</div>
+</section>
 </div>
 <div class="solution dropdown admonition" id="numpy-solution-7">
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#np_ex4"> Exercise 9.4</a></p>
-<div class="section" id="s">
-<span id="o"></span><span id="l"></span><span id="u"></span><span id="t"></span><span id="i"></span><span id="o"></span><span id="n"></span><span id="-"></span><span id="c"></span><span id="o"></span><span id="n"></span><span id="t"></span><span id="e"></span><span id="n"></span><span id="t"></span><p><strong>Part 1 Solution</strong></p>
+<section id="solution-content">
+<p><strong>Part 1 Solution</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
@@ -2570,11 +2548,16 @@ from QuantEcon and added in a plot method</p>
 </div>
 <p>Compare the results to check your answer</p>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.49214189  0.45607819  0.28183596 -3.90043439]
  [-0.26229311  0.75518888 -2.41688145 -1.11063629]
@@ -2583,6 +2566,7 @@ from QuantEcon and added in a plot method</p>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>You can also use <code class="docutils literal notranslate"><span class="pre">array_equal()</span></code> to check your answer</p>
 <div class="cell docutils container">
@@ -2616,10 +2600,10 @@ from QuantEcon and added in a plot method</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:6.37
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:6.47
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.3736186027526855
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.478822231292725
 </pre></div>
 </div>
 </div>
@@ -2627,11 +2611,16 @@ from QuantEcon and added in a plot method</p>
 <p>Note that the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop takes much longer than the broadcasting operation.</p>
 <p>Compare the results to check your answer</p>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[ 1.85764005 -0.89419976  0.24485371 ... -3.04214618  0.17711597
    -0.22643801]
@@ -2721,6 +2710,7 @@ from QuantEcon and added in a plot method</p>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2734,10 +2724,10 @@ from QuantEcon and added in a plot method</p>
 </div>
 </div>
 </div>
+</section>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2751,7 +2741,7 @@ from QuantEcon and added in a plot method</p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -2944,7 +2934,7 @@ from QuantEcon and added in a plot method</p>
                     <li class="btn__qelogo"><a href="https://quantecon.org" title=""><span class="show-for-sr">QuantEcon</span></a></li>
                     <!-- <li class="btn__search">
                         <form action="search.html" method="get">
-                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search..." aria-label="Search..." autocomplete="off">
                             <i data-feather="search"></i>
                         </form>
                     </li> -->
@@ -3086,16 +3076,5 @@ from QuantEcon and added in a plot method</p>
         </div>
 
     </div> <!-- .wrapper-->
-    
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-54984338-9', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
-
   </body>
 </html>
