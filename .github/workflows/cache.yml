@@ -27,25 +27,16 @@ jobs:
     needs: deploy-runner
     runs-on: [self-hosted, cml-gpu]
     container:
-      image: docker://nvidia/cuda:11.2.1-devel-ubuntu20.04
+      image: docker://mmcky/quantecon-lecture-python:cuda-12.1.0-anaconda-2023-03-py310
       options: --gpus all
     steps:
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-      - name: Setup Anaconda
-        uses: conda-incubator/setup-miniconda@v2
-        with:
-          auto-update-conda: true
-          auto-activate-base: true
-          miniconda-version: 'latest'
-          python-version: 3.9
-          environment-file: environment.yml
-          activate-environment: quantecon
-      - name: Install Jax and Upgrade CUDA
+      # Install Hardware Dependant Libraries
+      - name: Check nvidia drivers
         shell: bash -l {0}
         run: |
-          pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
           nvidia-smi
       - name: Build HTML
         shell: bash -l {0}

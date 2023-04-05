@@ -11,7 +11,7 @@ jobs:
       fail-fast: false
       matrix:
         os: ["windows-latest"]
-        python-version: ["3.9"]
+        python-version: ["3.10"]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -29,6 +29,10 @@ jobs:
           conda install -c numba llvmlite
           pip install jupyter-book
           pip install jupyter-book sphinx-multitoc-numbering quantecon-book-theme sphinxext-rediraffe sphinx-tojupyter sphinx-exercise sphinx-togglebutton
+      - name: Install Jax [CPU]
+        shell: bash -l {0}
+        run: |
+          pip install "jax[CPU]"
       - name: Build Lectures (+ Execution Checks)
         shell: powershell
         run: jb build lectures --path-output=./ -W --keep-going
