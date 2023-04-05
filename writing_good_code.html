@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>16. Writing Good Code &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -60,12 +60,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -80,8 +80,8 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -223,8 +223,8 @@ const thebe_selector_output = ".output, .cell_output"
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">16. </span>Writing Good Code</a><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
-<nav class="contents" id="contents">
+<h1><a class="toc-backref" href="#id2"><span class="section-number">16. </span>Writing Good Code</a><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<div class="contents topic" id="contents">
 <span id="index-0"></span><p class="topic-title">Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#id1" id="id2">Writing Good Code</a></p>
@@ -237,12 +237,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
-</nav>
+</div>
 <blockquote class="epigraph">
 <div><p>“Any fool can write code that a computer can understand. Good programmers write code that humans can understand.” – Martin Fowler</p>
 </div></blockquote>
 <section id="overview">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">16.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3"><span class="section-number">16.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>When computer programs are small, poorly written code is not overly costly.</p>
 <p>But more data, more sophisticated models, and more computer power are enabling us to take on more challenging problems that involve writing longer programs.</p>
 <p>For such programs, investment in good coding practices will pay high returns.</p>
@@ -251,7 +251,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>We also touch on modern developments in scientific computing — such as just in time compilation — and how they affect good program design.</p>
 </section>
 <section id="an-example-of-poor-code">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">16.2. </span>An Example of Poor Code</a><a class="headerlink" href="#an-example-of-poor-code" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4"><span class="section-number">16.2. </span>An Example of Poor Code</a><a class="headerlink" href="#an-example-of-poor-code" title="Permalink to this heading">#</a></h2>
 <p>Let’s have a look at some poorly written code.</p>
 <p>The job of the code is to generate and plot time series of the simplified Solow model</p>
 <div class="math notranslate nohighlight" id="equation-gc-solmod">
@@ -338,7 +338,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0d7dd0303d345d103fa123de323baa11fd641ccbcd90bd2ab53a84d2b32c794b.png" src="_images/0d7dd0303d345d103fa123de323baa11fd641ccbcd90bd2ab53a84d2b32c794b.png" />
+<img alt="_images/6ab09ccac4732ea8ee49a2d58d8c83cb8a16e5f84b53967acd5f700137821cff.png" src="_images/6ab09ccac4732ea8ee49a2d58d8c83cb8a16e5f84b53967acd5f700137821cff.png" />
 </div>
 </div>
 <p>True, the code more or less follows <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a>.</p>
@@ -346,7 +346,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Let’s talk about why that’s the case, and what we can do about it.</p>
 </section>
 <section id="good-coding-practice">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">16.3. </span>Good Coding Practice</a><a class="headerlink" href="#good-coding-practice" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5"><span class="section-number">16.3. </span>Good Coding Practice</a><a class="headerlink" href="#good-coding-practice" title="Permalink to this heading">#</a></h2>
 <p>There are usually many different ways to write a program that accomplishes a given task.</p>
 <p>For small programs, like the one above, the way you write code doesn’t matter too much.</p>
 <p>But if you are ambitious and want to produce useful things, you’ll  write medium to large programs too.</p>
@@ -422,7 +422,7 @@ more effective when variables are sandboxed inside a function.</p>
 </section>
 </section>
 <section id="revisiting-the-example">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">16.4. </span>Revisiting the Example</a><a class="headerlink" href="#revisiting-the-example" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6"><span class="section-number">16.4. </span>Revisiting the Example</a><a class="headerlink" href="#revisiting-the-example" title="Permalink to this heading">#</a></h2>
 <p>Here’s some code that reproduces the plot above with better coding style.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -461,7 +461,7 @@ more effective when variables are sandboxed inside a function.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7df7ab21c149842ff04a58ca95dbf552d810667efe36d593331c716fc929be50.png" src="_images/7df7ab21c149842ff04a58ca95dbf552d810667efe36d593331c716fc929be50.png" />
+<img alt="_images/5d2458031380e2c86b333c535a18da87ffe2800fa7113a72fbfad860425d3ad4.png" src="_images/5d2458031380e2c86b333c535a18da87ffe2800fa7113a72fbfad860425d3ad4.png" />
 </div>
 </div>
 <p>If you inspect this code, you will see that</p>
@@ -473,7 +473,7 @@ more effective when variables are sandboxed inside a function.</p>
 </ul>
 </section>
 <section id="exercises">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">16.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id7"><span class="section-number">16.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <div class="exercise admonition" id="wgc-exercise-1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 16.1 </span></p>
@@ -556,7 +556,7 @@ Equilibrium quantity is  0.34
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/48fe40a94fdd5ae872370f1a7fbd00c4465d36c6833e299efe0c2863e9b70bbc.png" src="_images/48fe40a94fdd5ae872370f1a7fbd00c4465d36c6833e299efe0c2863e9b70bbc.png" />
+<img alt="_images/20422cafaa288e6cca5604590764de1daa24d090ae0c8ef698b6b513d8e6d350.png" src="_images/20422cafaa288e6cca5604590764de1daa24d090ae0c8ef698b6b513d8e6d350.png" />
 </div>
 </div>
 <p>We also want to consider supply and demand shifts.</p>
@@ -604,7 +604,7 @@ Equilibrium quantity is  0.38
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/96c23812a2c09e2e8036c988be4be9f8cd199a65aae821611a212b83782b54f1.png" src="_images/96c23812a2c09e2e8036c988be4be9f8cd199a65aae821611a212b83782b54f1.png" />
+<img alt="_images/bc2b0bcd3aaf0c09a0c09b7f75be6161e13ff2aab3b02260515e7ea6d6bea463.png" src="_images/bc2b0bcd3aaf0c09a0c09b7f75be6161e13ff2aab3b02260515e7ea6d6bea463.png" />
 </div>
 </div>
 <p>Now we might consider supply shifts, but you already get the idea that there’s
@@ -686,7 +686,7 @@ Equilibrium quantity is  0.34
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/48fe40a94fdd5ae872370f1a7fbd00c4465d36c6833e299efe0c2863e9b70bbc.png" src="_images/48fe40a94fdd5ae872370f1a7fbd00c4465d36c6833e299efe0c2863e9b70bbc.png" />
+<img alt="_images/20422cafaa288e6cca5604590764de1daa24d090ae0c8ef698b6b513d8e6d350.png" src="_images/20422cafaa288e6cca5604590764de1daa24d090ae0c8ef698b6b513d8e6d350.png" />
 </div>
 </div>
 <p>One of the nice things about our refactored code is that, when we change
@@ -718,7 +718,7 @@ Equilibrium quantity is  0.38
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/96c23812a2c09e2e8036c988be4be9f8cd199a65aae821611a212b83782b54f1.png" src="_images/96c23812a2c09e2e8036c988be4be9f8cd199a65aae821611a212b83782b54f1.png" />
+<img alt="_images/bc2b0bcd3aaf0c09a0c09b7f75be6161e13ff2aab3b02260515e7ea6d6bea463.png" src="_images/bc2b0bcd3aaf0c09a0c09b7f75be6161e13ff2aab3b02260515e7ea6d6bea463.png" />
 </div>
 </div>
 </section>

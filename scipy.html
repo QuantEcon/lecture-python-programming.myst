@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>11. SciPy &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -60,12 +60,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -80,8 +80,8 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -229,8 +229,8 @@ const thebe_selector_output = ".output, .cell_output"
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="scipy">
-<h1><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">11. </span><span class="target" id="index-0"></span>SciPy</a><a class="headerlink" href="#scipy" title="Permalink to this heading">#</a></h1>
-<nav class="contents" id="contents">
+<h1><a class="toc-backref" href="#id1"><span class="section-number">11. </span><span class="target" id="index-0"></span>SciPy</a><a class="headerlink" href="#scipy" title="Permalink to this heading">#</a></h1>
+<div class="contents topic" id="contents">
 <span id="index-1"></span><p class="topic-title">Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#scipy" id="id1">SciPy</a></p>
@@ -246,9 +246,9 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
-</nav>
+</div>
 <section id="overview">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">11.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2"><span class="section-number">11.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="http://www.scipy.org">SciPy</a> builds on top of NumPy to provide common tools for scientific programming such as</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/linalg.html">linear algebra</a></p></li>
@@ -266,7 +266,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>In this lecture, we aim only to highlight some useful parts of the package.</p>
 </section>
 <section id="scipy-versus-numpy">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">11.2. </span><span class="target" id="index-2"></span>SciPy versus <span class="target" id="index-3"></span>NumPy</a><a class="headerlink" href="#scipy-versus-numpy" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3"><span class="section-number">11.2. </span><span class="target" id="index-2"></span>SciPy versus <span class="target" id="index-3"></span>NumPy</a><a class="headerlink" href="#scipy-versus-numpy" title="Permalink to this heading">#</a></h2>
 <p>SciPy is a package that contains various tools that are built on top of NumPy, using its array data type and related functionality.</p>
 <p>In fact, when we import SciPy we also get NumPy, as can be seen from this excerpt the SciPy initialization file:</p>
 <div class="cell docutils container">
@@ -297,7 +297,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Let’s explore some of the major sub-packages.</p>
 </section>
 <section id="statistics">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">11.3. </span>Statistics</a><a class="headerlink" href="#statistics" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4"><span class="section-number">11.3. </span>Statistics</a><a class="headerlink" href="#statistics" title="Permalink to this heading">#</a></h2>
 <p id="index-4">The <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> subpackage supplies</p>
 <ul class="simple">
 <li><p>numerous random variable objects (densities, cumulative distributions, random sampling, etc.)</p></li>
@@ -314,7 +314,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.43416856, 0.40024605, 0.44626046])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.50428222, 0.53678252, 0.55961898])
 </pre></div>
 </div>
 </div>
@@ -346,7 +346,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bacc46265a13b39dba7c8513c30a157049a1fad1ca5d305febba0b9ec90336af.png" src="_images/bacc46265a13b39dba7c8513c30a157049a1fad1ca5d305febba0b9ec90336af.png" />
+<img alt="_images/1a56f43fcadd5870cf0d1e691c4d33b72c9864c7ca1277b8604d88a96de18b90.png" src="_images/1a56f43fcadd5870cf0d1e691c4d33b72c9864c7ca1277b8604d88a96de18b90.png" />
 </div>
 </div>
 <p>The object <code class="docutils literal notranslate"><span class="pre">q</span></code> that represents the distribution has additional useful methods, including</p>
@@ -411,7 +411,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/24b5958b460e891445920705494e78b9e621a2ed43e19778bf34a51f1d7124aa.png" src="_images/24b5958b460e891445920705494e78b9e621a2ed43e19778bf34a51f1d7124aa.png" />
+<img alt="_images/80e4768cbba4c28195f9749240c6672bb3ba16b595534c3da8e10464c52a5fec.png" src="_images/80e4768cbba4c28195f9749240c6672bb3ba16b595534c3da8e10464c52a5fec.png" />
 </div>
 </div>
 </section>
@@ -431,7 +431,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.9938830499362525, 0.00705838869312736)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2.016570444376491, -0.011755756304434442)
 </pre></div>
 </div>
 </div>
@@ -440,7 +440,7 @@ const thebe_selector_output = ".output, .cell_output"
 </section>
 </section>
 <section id="roots-and-fixed-points">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">11.4. </span>Roots and Fixed Points</a><a class="headerlink" href="#roots-and-fixed-points" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5"><span class="section-number">11.4. </span>Roots and Fixed Points</a><a class="headerlink" href="#roots-and-fixed-points" title="Permalink to this heading">#</a></h2>
 <p>A <strong>root</strong> or <strong>zero</strong> of a real function <span class="math notranslate nohighlight">\(f\)</span> on <span class="math notranslate nohighlight">\([a,b]\)</span> is an <span class="math notranslate nohighlight">\(x \in [a, b]\)</span> such that <span class="math notranslate nohighlight">\(f(x)=0\)</span>.</p>
 <p>For example, if we plot the function</p>
 <div class="math notranslate nohighlight" id="equation-root-f">
@@ -462,7 +462,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/54fbc0dfdb7a96caa2ab8751323f055119309620277f359796c30ed06b0a693b.png" src="_images/54fbc0dfdb7a96caa2ab8751323f055119309620277f359796c30ed06b0a693b.png" />
+<img alt="_images/7ffbb3d5c85f161357e7e5a5f2bde594ce10fb226031b3886509da3b59d0664d.png" src="_images/7ffbb3d5c85f161357e7e5a5f2bde594ce10fb226031b3886509da3b59d0664d.png" />
 </div>
 </div>
 <p>The unique root is approximately 0.408.</p>
@@ -607,7 +607,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17.8 µs ± 13.9 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.3 µs ± 23.7 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -619,7 +619,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>67.4 µs ± 62.3 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>54.5 µs ± 69.7 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -653,7 +653,7 @@ the fixed point of a function <span class="math notranslate nohighlight">\(f\)</
 </section>
 </section>
 <section id="optimization">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">11.5. </span><span class="target" id="index-11"></span>Optimization</a><a class="headerlink" href="#optimization" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6"><span class="section-number">11.5. </span><span class="target" id="index-11"></span>Optimization</a><a class="headerlink" href="#optimization" title="Permalink to this heading">#</a></h2>
 <p id="index-12">Most numerical packages provide only functions for <em>minimization</em>.</p>
 <p>Maximization can be performed by recalling that the maximizer of a function <span class="math notranslate nohighlight">\(f\)</span> on domain <span class="math notranslate nohighlight">\(D\)</span> is
 the minimizer of <span class="math notranslate nohighlight">\(-f\)</span> on <span class="math notranslate nohighlight">\(D\)</span>.</p>
@@ -683,7 +683,7 @@ the minimizer of <span class="math notranslate nohighlight">\(-f\)</span> on <sp
 </section>
 </section>
 <section id="integration">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">11.6. </span><span class="target" id="index-14"></span>Integration</a><a class="headerlink" href="#integration" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id7"><span class="section-number">11.6. </span><span class="target" id="index-14"></span>Integration</a><a class="headerlink" href="#integration" title="Permalink to this heading">#</a></h2>
 <p id="index-15">Most numerical integration methods work by computing the integral of an approximating polynomial.</p>
 <p>The resulting error depends on how well the polynomial fits the integrand, which in turn depends on how “regular” the integrand is.</p>
 <p>In SciPy, the relevant module for numerical integration is <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code>.</p>
@@ -710,14 +710,14 @@ the minimizer of <span class="math notranslate nohighlight">\(-f\)</span> on <sp
 <p>See the <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/integrate.html">documentation</a> for more details.</p>
 </section>
 <section id="linear-algebra">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">11.7. </span><span class="target" id="index-16"></span>Linear Algebra</a><a class="headerlink" href="#linear-algebra" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id8"><span class="section-number">11.7. </span><span class="target" id="index-16"></span>Linear Algebra</a><a class="headerlink" href="#linear-algebra" title="Permalink to this heading">#</a></h2>
 <p id="index-17">We saw that NumPy provides a module for linear algebra called <code class="docutils literal notranslate"><span class="pre">linalg</span></code>.</p>
 <p>SciPy also provides a module for linear algebra with the same name.</p>
 <p>The latter is not an exact superset of the former, but overall it has more functionality.</p>
 <p>We leave you to investigate the <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/linalg.html">set of available routines</a>.</p>
 </section>
 <section id="exercises">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">11.8. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id9"><span class="section-number">11.8. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <p>The first few exercises concern pricing a European call option under the
 assumption of risk neutrality.  The price satisfies</p>
 <div class="math notranslate nohighlight">
@@ -781,7 +781,7 @@ g(x) = \beta^n  \max\{x - K, 0\} f(x)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3cefc930bb77b51a704ab82a76859152cdc9b1ea1c1ab8e99d969cbc876e9f0f.png" src="_images/3cefc930bb77b51a704ab82a76859152cdc9b1ea1c1ab8e99d969cbc876e9f0f.png" />
+<img alt="_images/72538464377c40d7e0c8cfc3f00fa5412f23b20f85ee8e503f49eae3e75cdccd.png" src="_images/72538464377c40d7e0c8cfc3f00fa5412f23b20f85ee8e503f49eae3e75cdccd.png" />
 </div>
 </div>
 </section>
@@ -844,7 +844,7 @@ large numbers,</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Monte Carlo option price is 15.191351
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Monte Carlo option price is 15.187148
 </pre></div>
 </div>
 </div>

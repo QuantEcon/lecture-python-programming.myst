@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>12. Pandas &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -60,12 +60,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -80,8 +80,8 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -220,8 +220,8 @@ const thebe_selector_output = ".output, .cell_output"
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="pandas">
-<h1><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">12. </span><span class="target" id="index-0"></span>Pandas</a><a class="headerlink" href="#pandas" title="Permalink to this heading">#</a></h1>
-<nav class="contents" id="contents">
+<h1><a class="toc-backref" href="#id2"><span class="section-number">12. </span><span class="target" id="index-0"></span>Pandas</a><a class="headerlink" href="#pandas" title="Permalink to this heading">#</a></h1>
+<div class="contents topic" id="contents">
 <span id="index-1"></span><p class="topic-title">Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#pandas" id="id2">Pandas</a></p>
@@ -234,7 +234,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
-</nav>
+</div>
 <p>In addition to what’s in Anaconda, this lecture will need the following libraries:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
@@ -254,20 +254,20 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pandas_datareader-0.10.0-py3-none-any.whl (109 kB)
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/109.5 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">109.5/109.5 kB</span> <span class=" -Color -Color-Red">6.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hRequirement already satisfied: lxml in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from pandas-datareader) (4.9.1)
-Requirement already satisfied: requests&gt;=2.19.0 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from pandas-datareader) (2.28.1)
-Requirement already satisfied: pandas&gt;=0.23 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from pandas-datareader) (1.4.4)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">109.5/109.5 kB</span> <span class=" -Color -Color-Red">5.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: lxml in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from pandas-datareader) (4.9.1)
+Requirement already satisfied: requests&gt;=2.19.0 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from pandas-datareader) (2.28.1)
+Requirement already satisfied: pandas&gt;=0.23 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from pandas-datareader) (1.5.3)
+Requirement already satisfied: python-dateutil&gt;=2.8.1 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (2.8.2)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: python-dateutil&gt;=2.8.1 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (2.8.2)
-Requirement already satisfied: pytz&gt;=2020.1 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (2022.7.1)
-Requirement already satisfied: numpy&gt;=1.18.5 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (1.21.5)
-Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2.0.4)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (3.3)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (1.26.11)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2022.9.14)
-Requirement already satisfied: six&gt;=1.5 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from python-dateutil&gt;=2.8.1-&gt;pandas&gt;=0.23-&gt;pandas-datareader) (1.16.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pytz&gt;=2020.1 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (2023.3)
+Requirement already satisfied: numpy&gt;=1.21.0 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (1.23.5)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (3.4)
+Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2.0.4)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2022.12.7)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (1.26.14)
+Requirement already satisfied: six&gt;=1.5 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from python-dateutil&gt;=2.8.1-&gt;pandas&gt;=0.23-&gt;pandas-datareader) (1.16.0)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pandas-datareader
@@ -281,56 +281,56 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/envs/quantecon/lib/pyth
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting yfinance
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading yfinance-0.2.13-py2.py3-none-any.whl (59 kB)
-?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/59.3 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">59.3/59.3 kB</span> <span class=" -Color -Color-Red">4.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hRequirement already satisfied: lxml&gt;=4.9.1 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from yfinance) (4.9.1)
-Requirement already satisfied: beautifulsoup4&gt;=4.11.1 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from yfinance) (4.11.1)
-Requirement already satisfied: requests&gt;=2.26 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from yfinance) (2.28.1)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting frozendict&gt;=2.3.4
-  Downloading frozendict-2.3.6-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (114 kB)
-?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/114.3 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">114.3/114.3 kB</span> <span class=" -Color -Color-Red">10.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hCollecting html5lib&gt;=1.1
-  Downloading html5lib-1.1-py2.py3-none-any.whl (112 kB)
-?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/112.2 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">112.2/112.2 kB</span> <span class=" -Color -Color-Red">22.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading yfinance-0.2.14-py2.py3-none-any.whl (59 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/59.7 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">59.7/59.7 kB</span> <span class=" -Color -Color-Red">5.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pandas&gt;=1.3.0 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from yfinance) (1.4.4)
-Requirement already satisfied: cryptography&gt;=3.3.2 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from yfinance) (37.0.1)
-Requirement already satisfied: numpy&gt;=1.16.5 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from yfinance) (1.21.5)
-Requirement already satisfied: pytz&gt;=2022.5 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from yfinance) (2022.7.1)
-Requirement already satisfied: appdirs&gt;=1.4.4 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from yfinance) (1.4.4)
-Collecting multitasking&gt;=0.0.7
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting html5lib&gt;=1.1
+  Downloading html5lib-1.1-py2.py3-none-any.whl (112 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/112.2 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading multitasking-0.0.11-py3-none-any.whl (8.5 kB)
-Requirement already satisfied: soupsieve&gt;1.2 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from beautifulsoup4&gt;=4.11.1-&gt;yfinance) (2.3.1)
-Requirement already satisfied: cffi&gt;=1.12 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from cryptography&gt;=3.3.2-&gt;yfinance) (1.15.1)
-Requirement already satisfied: six&gt;=1.9 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from html5lib&gt;=1.1-&gt;yfinance) (1.16.0)
-Requirement already satisfied: webencodings in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from html5lib&gt;=1.1-&gt;yfinance) (0.5.1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">112.2/112.2 kB</span> <span class=" -Color -Color-Red">11.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: pandas&gt;=1.3.0 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from yfinance) (1.5.3)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: python-dateutil&gt;=2.8.1 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from pandas&gt;=1.3.0-&gt;yfinance) (2.8.2)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.26-&gt;yfinance) (3.3)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.26-&gt;yfinance) (2022.9.14)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.26-&gt;yfinance) (1.26.11)
-Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from requests&gt;=2.26-&gt;yfinance) (2.0.4)
-Requirement already satisfied: pycparser in /opt/conda/envs/quantecon/lib/python3.9/site-packages (from cffi&gt;=1.12-&gt;cryptography&gt;=3.3.2-&gt;yfinance) (2.21)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting frozendict&gt;=2.3.4
+  Downloading frozendict-2.3.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (114 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/114.9 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">114.9/114.9 kB</span> <span class=" -Color -Color-Red">20.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: appdirs&gt;=1.4.4 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from yfinance) (1.4.4)
+Requirement already satisfied: cryptography&gt;=3.3.2 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from yfinance) (39.0.1)
+Requirement already satisfied: beautifulsoup4&gt;=4.11.1 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from yfinance) (4.11.1)
+Requirement already satisfied: numpy&gt;=1.16.5 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from yfinance) (1.23.5)
+Requirement already satisfied: pytz&gt;=2022.5 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from yfinance) (2023.3)
+Requirement already satisfied: requests&gt;=2.26 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from yfinance) (2.28.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting multitasking&gt;=0.0.7
+  Downloading multitasking-0.0.11-py3-none-any.whl (8.5 kB)
+Requirement already satisfied: lxml&gt;=4.9.1 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from yfinance) (4.9.1)
+Requirement already satisfied: soupsieve&gt;1.2 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from beautifulsoup4&gt;=4.11.1-&gt;yfinance) (2.3.2.post1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: cffi&gt;=1.12 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from cryptography&gt;=3.3.2-&gt;yfinance) (1.15.1)
+Requirement already satisfied: webencodings in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from html5lib&gt;=1.1-&gt;yfinance) (0.5.1)
+Requirement already satisfied: six&gt;=1.9 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from html5lib&gt;=1.1-&gt;yfinance) (1.16.0)
+Requirement already satisfied: python-dateutil&gt;=2.8.1 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from pandas&gt;=1.3.0-&gt;yfinance) (2.8.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.26-&gt;yfinance) (2.0.4)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.26-&gt;yfinance) (3.4)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.26-&gt;yfinance) (1.26.14)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.26-&gt;yfinance) (2022.12.7)
+Requirement already satisfied: pycparser in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from cffi&gt;=1.12-&gt;cryptography&gt;=3.3.2-&gt;yfinance) (2.21)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: multitasking, html5lib, frozendict, yfinance
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed frozendict-2.3.6 html5lib-1.1 multitasking-0.0.11 yfinance-0.2.13
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed frozendict-2.3.6 html5lib-1.1 multitasking-0.0.11 yfinance-0.2.14
 <span class=" -Color -Color-Yellow">WARNING: Running pip as the &#39;root&#39; user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv</span>
 
 </pre></div>
@@ -339,7 +339,7 @@ Requirement already satisfied: pycparser in /opt/conda/envs/quantecon/lib/python
 </details>
 </div>
 <section id="overview">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">12.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3"><span class="section-number">12.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="http://pandas.pydata.org/">Pandas</a> is a package of fast, efficient data analysis tools for Python.</p>
 <p>Its popularity has surged in recent years, coincident with the rise
 of fields such as data science and machine learning.</p>
@@ -355,7 +355,7 @@ of fields such as data science and machine learning.</p>
 <li><p>reading in data</p></li>
 <li><p>adjusting indices</p></li>
 <li><p>working with dates and time series</p></li>
-<li><p>sorting, grouping, re-ordering and general data munging <a class="footnote-reference brackets" href="#mung" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></li>
+<li><p>sorting, grouping, re-ordering and general data munging <a class="footnote-reference brackets" href="#mung" id="id1">1</a></p></li>
 <li><p>dealing with missing values, etc., etc.</p></li>
 </ul>
 </li>
@@ -382,7 +382,7 @@ place</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is a two-dimensional object for storing related columns of data.</p>
 </section>
 <section id="series">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">12.2. </span>Series</a><a class="headerlink" href="#series" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4"><span class="section-number">12.2. </span>Series</a><a class="headerlink" href="#series" title="Permalink to this heading">#</a></h2>
 <p id="index-2">Let’s start with Series.</p>
 <p>We begin by creating a series of four random observations</p>
 <div class="cell docutils container">
@@ -393,10 +393,10 @@ place</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.186907
-1   -2.241860
-2    0.520483
-3   -0.486524
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   -0.935474
+1    1.115433
+2   -0.025194
+3    0.581645
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -413,10 +413,10 @@ operations</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     18.690730
-1   -224.186028
-2     52.048337
-3    -48.652441
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    -93.547381
+1    111.543320
+2     -2.519438
+3     58.164452
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -429,10 +429,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.186907
-1    2.241860
-2    0.520483
-3    0.486524
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.935474
+1    1.115433
+2    0.025194
+3    0.581645
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -448,13 +448,13 @@ Name: daily returns, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    4.000000
-mean    -0.505249
-std      1.231175
-min     -2.241860
-25%     -0.925358
-50%     -0.149809
-75%      0.270301
-max      0.520483
+mean     0.184102
+std      0.879900
+min     -0.935474
+25%     -0.252764
+50%      0.278225
+75%      0.715092
+max      1.115433
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -469,10 +469,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN    0.186907
-AAPL   -2.241860
-MSFT    0.520483
-GOOG   -0.486524
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN   -0.935474
+AAPL    1.115433
+MSFT   -0.025194
+GOOG    0.581645
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -489,7 +489,7 @@ type—in this case, floats).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.18690729701324563
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.9354738071912417
 </pre></div>
 </div>
 </div>
@@ -503,9 +503,9 @@ type—in this case, floats).</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN    0.000000
-AAPL   -2.241860
-MSFT    0.520483
-GOOG   -0.486524
+AAPL    1.115433
+MSFT   -0.025194
+GOOG    0.581645
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -525,16 +525,16 @@ Name: daily returns, dtype: float64
 </div>
 </section>
 <section id="dataframes">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">12.3. </span>DataFrames</a><a class="headerlink" href="#dataframes" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5"><span class="section-number">12.3. </span>DataFrames</a><a class="headerlink" href="#dataframes" title="Permalink to this heading">#</a></h2>
 <p id="index-3">While a <code class="docutils literal notranslate"><span class="pre">Series</span></code> is a single column of data, a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is several columns, one for each variable.</p>
 <p>In essence, a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> in pandas is analogous to a (highly optimized) Excel spreadsheet.</p>
 <p>Thus, it is a powerful tool for representing and analyzing data that are naturally organized into rows and columns, often with descriptive indexes for individual rows and individual columns.</p>
 <p>Let’s look at an example that reads data from the CSV file <code class="docutils literal notranslate"><span class="pre">pandas/data/test_pwt.csv</span></code>, which is taken from the <a class="reference external" href="https://www.rug.nl/ggdc/productivity/pwt/pwt-releases/pwt-7.0">Penn World Tables</a>.</p>
 <p>The dataset contains the following indicators</p>
-<table class="table">
+<table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head text-center"><p>Variable Name</p></th>
-<th class="head text-center"><p>Description</p></th>
+<tr class="row-odd"><th class="text-center head"><p>Variable Name</p></th>
+<th class="text-center head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
@@ -3255,7 +3255,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/30cf7714812394b961f8bb9932c49afb4d72af29429f25e1f4bca17b54f38efc.png" src="_images/30cf7714812394b961f8bb9932c49afb4d72af29429f25e1f4bca17b54f38efc.png" />
+<img alt="_images/c78092edd629d16b8f043b150bb21d6c0cb2b33d9ca6abbee35dcf0a943ccee8.png" src="_images/c78092edd629d16b8f043b150bb21d6c0cb2b33d9ca6abbee35dcf0a943ccee8.png" />
 </div>
 </div>
 <p>At the moment the data frame is ordered alphabetically on the countries—let’s change it to GDP per capita</p>
@@ -3360,13 +3360,13 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ccc2b4cbd9ca932c4b4b36fe3d70b5e530e34dc4cf547d94eef3bed1c65b9684.png" src="_images/ccc2b4cbd9ca932c4b4b36fe3d70b5e530e34dc4cf547d94eef3bed1c65b9684.png" />
+<img alt="_images/a40b95caa764e577e918842bc5c64c356d88653ecbf8c39501629cc0e73f0405.png" src="_images/a40b95caa764e577e918842bc5c64c356d88653ecbf8c39501629cc0e73f0405.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="on-line-data-sources">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">12.4. </span>On-Line Data Sources</a><a class="headerlink" href="#on-line-data-sources" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6"><span class="section-number">12.4. </span>On-Line Data Sources</a><a class="headerlink" href="#on-line-data-sources" title="Permalink to this heading">#</a></h2>
 <p id="index-4">Python makes it straightforward to query online databases programmatically.</p>
 <p>An important database for economists is <a class="reference external" href="https://research.stlouisfed.org/fred2/">FRED</a> — a vast collection of time series data maintained by the St. Louis Fed.</p>
 <p>For example, suppose that we are interested in the <a class="reference external" href="https://research.stlouisfed.org/fred2/series/UNRATE">unemployment rate</a>.</p>
@@ -3598,7 +3598,7 @@ this URL into your browser (note that this requires an internet connection)</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b4e4b5bcce1477ee9a873f542d49e3e0a36207f754592b75ffbba4bc63dfacf1.png" src="_images/b4e4b5bcce1477ee9a873f542d49e3e0a36207f754592b75ffbba4bc63dfacf1.png" />
+<img alt="_images/b1827eb8064f181055d4e9e5ffc49943377fa3bfa24244222c7cd60ebf03472a.png" src="_images/b1827eb8064f181055d4e9e5ffc49943377fa3bfa24244222c7cd60ebf03472a.png" />
 </div>
 </div>
 <p>Note that pandas offers many other file type alternatives.</p>
@@ -3637,14 +3637,14 @@ available for working with world bank data such as <a class="reference external"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cb3a156d5bd1a8ab1d91b7a111f4615e0ef5c6707a4498da4d294c650744d99b.png" src="_images/cb3a156d5bd1a8ab1d91b7a111f4615e0ef5c6707a4498da4d294c650744d99b.png" />
+<img alt="_images/7969010b4ae5f028c01c5411ee71a3e4d3db84406721ec57f3adcad2769d5f8a.png" src="_images/7969010b4ae5f028c01c5411ee71a3e4d3db84406721ec57f3adcad2769d5f8a.png" />
 </div>
 </div>
 <p>The <a class="reference external" href="https://pandas-datareader.readthedocs.io/en/latest/index.html">documentation</a> provides more details on how to access various data sources.</p>
 </section>
 </section>
 <section id="exercises">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">12.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id7"><span class="section-number">12.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <div class="exercise admonition" id="pd_ex1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 12.1 </span></p>
@@ -3785,7 +3785,7 @@ Name: 2021-12-30 00:00:00, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c773566c32812d247015df771f8fb72564523e46113b42372946ebdb900d3b66.png" src="_images/c773566c32812d247015df771f8fb72564523e46113b42372946ebdb900d3b66.png" />
+<img alt="_images/c87fa2eed6868b3c8a9e4fa6025a0f8c06a6ad1759e5fdd6d008aefb56e34c7a.png" src="_images/c87fa2eed6868b3c8a9e4fa6025a0f8c06a6ad1759e5fdd6d008aefb56e34c7a.png" />
 </div>
 </div>
 </section>
@@ -4338,16 +4338,17 @@ Name: 2021-12-30 00:00:00, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9bacafe598d8f133c3c44ad869328d19b7068a4fa4d6eea0d859d9ec2fc18a91.png" src="_images/9bacafe598d8f133c3c44ad869328d19b7068a4fa4d6eea0d859d9ec2fc18a91.png" />
+<img alt="_images/be09d49b9c097adaf8f1c6328ed0d109f0d37ddf2fca222ab1e7a44d090ada52.png" src="_images/be09d49b9c097adaf8f1c6328ed0d109f0d37ddf2fca222ab1e7a44d090ada52.png" />
 </div>
 </div>
 </section>
 </div>
 <hr class="footnotes docutils" />
-<aside class="footnote brackets" id="mung" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>Wikipedia defines munging as cleaning data from one raw form into a structured, purged one.</p>
-</aside>
+<dl class="footnote brackets">
+<dt class="label" id="mung"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Wikipedia defines munging as cleaning data from one raw form into a structured, purged one.</p>
+</dd>
+</dl>
 </section>
 </section>
 

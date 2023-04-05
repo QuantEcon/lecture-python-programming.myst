@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>15. JAX &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -60,12 +60,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -80,8 +80,8 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -363,7 +363,7 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jaxlib.xla_extension.Array
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jaxlib.xla_extension.ArrayImpl
 </pre></div>
 </div>
 </div>
@@ -518,17 +518,18 @@ attention back to Google-based machine learning architectures.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_260</span><span class="o">/</span><span class="mf">3686271957.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="nn">/opt/conda/envs/quantecon/lib/python3.9/site-packages/jax/_src/numpy/lax_numpy.py</span> in <span class="ni">_unimplemented_setitem</span><span class="nt">(self, i, x)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4980</span>          <span class="s2">&quot;or another .at[] method: &quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">4981</span>          <span class="s2">&quot;https://jax.readthedocs.io/en/latest/_autosummary/jax.numpy.ndarray.at.html&quot;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">4982</span>   <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
-<span class="g g-Whitespace">   </span><span class="mi">4983</span> 
-<span class="g g-Whitespace">   </span><span class="mi">4984</span> <span class="k">def</span> <span class="nf">_operator_round</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">ndigits</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+<span class="nn">File /opt/conda/envs/quantecon/lib/python3.10/site-packages/jax/_src/numpy/array_methods.py:263,</span> in <span class="ni">_unimplemented_setitem</span><span class="nt">(self, i, x)</span>
+<span class="g g-Whitespace">    </span><span class="mi">258</span> <span class="k">def</span> <span class="nf">_unimplemented_setitem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">259</span>   <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;&#39;</span><span class="si">{}</span><span class="s2">&#39; object does not support item assignment. JAX arrays are &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">260</span>          <span class="s2">&quot;immutable. Instead of ``x[idx] = y``, use ``x = x.at[idx].set(y)`` &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">261</span>          <span class="s2">&quot;or another .at[] method: &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">262</span>          <span class="s2">&quot;https://jax.readthedocs.io/en/latest/_autosummary/jax.numpy.ndarray.at.html&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">263</span>   <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
 
-<span class="ne">TypeError</span>: &#39;&lt;class &#39;jaxlib.xla_extension.Array&#39;&gt;&#39; object does not support item assignment. JAX arrays are immutable. Instead of ``x[idx] = y``, use ``x = x.at[idx].set(y)`` or another .at[] method: https://jax.readthedocs.io/en/latest/_autosummary/jax.numpy.ndarray.at.html
+<span class="ne">TypeError</span>: &#39;&lt;class &#39;jaxlib.xla_extension.ArrayImpl&#39;&gt;&#39; object does not support item assignment. JAX arrays are immutable. Instead of ``x[idx] = y``, use ``x = x.at[idx].set(y)`` or another .at[] method: https://jax.readthedocs.io/en/latest/_autosummary/jax.numpy.ndarray.at.html
 </pre></div>
 </div>
 </div>
@@ -572,7 +573,7 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140382490587824
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1143362192
 </pre></div>
 </div>
 </div>
@@ -609,7 +610,7 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140382490587824
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1143362192
 </pre></div>
 </div>
 </div>
@@ -641,7 +642,7 @@ attention back to Google-based machine learning architectures.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jaxlib.xla_extension.Array
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jaxlib.xla_extension.ArrayImpl
 </pre></div>
 </div>
 </div>
@@ -800,8 +801,8 @@ launch on the GPU / TPU (or CPU if no accelerator is detected).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 549 ms, sys: 198 ms, total: 747 ms
-Wall time: 3.39 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 535 ms, sys: 171 ms, total: 706 ms
+Wall time: 4.29 s
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([499500., 499500., 499500., ..., 499500., 499500., 499500.],      dtype=float64)
@@ -845,8 +846,8 @@ Wall time: 3.39 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 803 µs, sys: 220 µs, total: 1.02 ms
-Wall time: 35.2 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 978 µs, sys: 260 µs, total: 1.24 ms
+Wall time: 35.8 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([499500., 499500., 499500., ..., 499500., 499500., 499500.],      dtype=float64)
@@ -989,7 +990,7 @@ Wall time: 35.2 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ff6df997fd1e03c1c0c692168bf193dc4144448be4ea3baa0fede1cd4c53911f.png" src="_images/ff6df997fd1e03c1c0c692168bf193dc4144448be4ea3baa0fede1cd4c53911f.png" />
+<img alt="_images/98d8ad6885f397353a235bbc67f91823a2b6bbea2bbd8d90999973ef5fbb0361.png" src="_images/98d8ad6885f397353a235bbc67f91823a2b6bbea2bbd8d90999973ef5fbb0361.png" />
 </div>
 </div>
 </section>
@@ -1023,7 +1024,7 @@ Wall time: 35.2 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0782326900acdd2af584b7c4e5984327caef37bdb02cd09d613f438f818806a8.png" src="_images/0782326900acdd2af584b7c4e5984327caef37bdb02cd09d613f438f818806a8.png" />
+<img alt="_images/9e5927624162cce35b51195f159768375415cf3e6c5341a1a492adc2c60f6801.png" src="_images/9e5927624162cce35b51195f159768375415cf3e6c5341a1a492adc2c60f6801.png" />
 </div>
 </div>
 </section>
@@ -1141,8 +1142,8 @@ significantly faster exection.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.29 ms, sys: 188 µs, total: 1.48 ms
-Wall time: 105 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.28 ms, sys: 196 µs, total: 1.47 ms
+Wall time: 111 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array(180876.48840921, dtype=float64)
