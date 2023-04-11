@@ -56,13 +56,6 @@ vertical axis.)
 We'll do this in several different ways, each time learning something more
 about Python.
 
-We run the following command first, which helps ensure that plots appear in the
-notebook if you run it on your own machine.
-
-```{code-cell} ipython
-%matplotlib inline
-```
-
 ## Version 1
 
 (ourfirstprog)=
