@@ -99,6 +99,13 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script src="_static/quantecon-book-theme.15b0c36fffe88f468997fa7b698991d3.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-54984338-9"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-54984338-9');
+            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -265,15 +272,6 @@ process <span class="math notranslate nohighlight">\(\epsilon_0, \epsilon_1, \ld
 vertical axis.)</p>
 <p>We’ll do this in several different ways, each time learning something more
 about Python.</p>
-<p>We run the following command first, which helps ensure that plots appear in the
-notebook if you run it on your own machine.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="version-1">
 <h2><a class="toc-backref" href="#id4"><span class="section-number">3.3. </span>Version 1</a><a class="headerlink" href="#version-1" title="Permalink to this heading">#</a></h2>
@@ -290,7 +288,7 @@ notebook if you run it on your own machine.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ce74e8d78a639df5a89707ba5814d0f7bccce615d40b1f9b270be429570d0ac8.png" src="_images/ce74e8d78a639df5a89707ba5814d0f7bccce615d40b1f9b270be429570d0ac8.png" />
+<img alt="_images/23d21a7101d6c5f45c23008d64bbe8cef119f48d30a9e974992598de61449e1c.png" src="_images/23d21a7101d6c5f45c23008d64bbe8cef119f48d30a9e974992598de61449e1c.png" />
 </div>
 </div>
 <p>Let’s break this program down and see how it works.</p>
@@ -430,7 +428,7 @@ after the import statements are</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6705bda9fcc2e01aee26794aa4bc9f90d221a4334e5250f740a5bf8a3adfd0dc.png" src="_images/6705bda9fcc2e01aee26794aa4bc9f90d221a4334e5250f740a5bf8a3adfd0dc.png" />
+<img alt="_images/023aacb9917ab71ddb06ea5cd09e95fbeafe8a8151449194d4eced1fd4b25c1f.png" src="_images/023aacb9917ab71ddb06ea5cd09e95fbeafe8a8151449194d4eced1fd4b25c1f.png" />
 </div>
 </div>
 <p>The first line generates 100 (quasi) independent standard normals and stores
@@ -463,7 +461,7 @@ somewhat artificial.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0e3dc77ca6774f8346679d65358475ffeb0fee219a7af96a12a2317984fc2b65.png" src="_images/0e3dc77ca6774f8346679d65358475ffeb0fee219a7af96a12a2317984fc2b65.png" />
+<img alt="_images/d1ea857735ed30212552103fcfcd1d9e03f45e5a38c5e72d2038f58a5a541afd.png" src="_images/d1ea857735ed30212552103fcfcd1d9e03f45e5a38c5e72d2038f58a5a541afd.png" />
 </div>
 </div>
 <p>In brief,</p>
@@ -680,7 +678,7 @@ soon enough.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b681a8809b7c2091a772d28acd4bf7a282de650f0e769fc26b2f7d4e03d47b20.png" src="_images/b681a8809b7c2091a772d28acd4bf7a282de650f0e769fc26b2f7d4e03d47b20.png" />
+<img alt="_images/225aff8393bef52d7d1084ab47995061176236b4300e70d69d6c70c328277c0e.png" src="_images/225aff8393bef52d7d1084ab47995061176236b4300e70d69d6c70c328277c0e.png" />
 </div>
 </div>
 <p>A while loop will keep executing the code block delimited by indentation until the condition (<code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">ts_length</span></code>) is satisfied.</p>
@@ -794,7 +792,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b2109644992a629f637cf2b75dd90e96d9448b0b49a37d05e565e7a801f48a96.png" src="_images/b2109644992a629f637cf2b75dd90e96d9448b0b49a37d05e565e7a801f48a96.png" />
+<img alt="_images/8f74ae02627d9e4db6184096f635c9c3b901148b281772dd6b48b6a672d12487.png" src="_images/8f74ae02627d9e4db6184096f635c9c3b901148b281772dd6b48b6a672d12487.png" />
 </div>
 </div>
 </section>
@@ -838,7 +836,7 @@ one for each of the cases <span class="math notranslate nohighlight">\(\alpha=0\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d947eb3cf1c088b3423b8c4441c129cba452c3d2cc6e2d7c63d05da67239df25.png" src="_images/d947eb3cf1c088b3423b8c4441c129cba452c3d2cc6e2d7c63d05da67239df25.png" />
+<img alt="_images/6968a588d1954bf23cfa805547fa79d7ed2ad872c5cac2ec3c76e5fbc6ad59d0.png" src="_images/6968a588d1954bf23cfa805547fa79d7ed2ad872c5cac2ec3c76e5fbc6ad59d0.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -885,7 +883,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4be355e5b8b2f0ae67eaf418fa45ddbe41eef67a835ed4843e2cca8a83b8808c.png" src="_images/4be355e5b8b2f0ae67eaf418fa45ddbe41eef67a835ed4843e2cca8a83b8808c.png" />
+<img alt="_images/33bdbe9bdd1d240b4196dc23a0aa35925fc672226f50b582e4f5f0e4c4bccb14.png" src="_images/33bdbe9bdd1d240b4196dc23a0aa35925fc672226f50b582e4f5f0e4c4bccb14.png" />
 </div>
 </div>
 </section>
@@ -955,7 +953,7 @@ to compute the absolute value.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3f6a6d22380ea35dc58e162cc912e56487942574fa66a6b3d20740283e101457.png" src="_images/3f6a6d22380ea35dc58e162cc912e56487942574fa66a6b3d20740283e101457.png" />
+<img alt="_images/99df14dbc003a423329fe8f5a9c0c2f4b15a4efbe08e98d9cdb83db789dedec1.png" src="_images/99df14dbc003a423329fe8f5a9c0c2f4b15a4efbe08e98d9cdb83db789dedec1.png" />
 </div>
 </div>
 <p>Here’s a shorter way to write the same thing:</p>
@@ -976,7 +974,7 @@ to compute the absolute value.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7c2edb37dafdcf5d32470e55d7d2687a183faeadd5b0663a7fa04e43b955ac13.png" src="_images/7c2edb37dafdcf5d32470e55d7d2687a183faeadd5b0663a7fa04e43b955ac13.png" />
+<img alt="_images/116e142f63b7a433eb722c7d2861944d15f85093598fc052df42ea769d7c112d.png" src="_images/116e142f63b7a433eb722c7d2861944d15f85093598fc052df42ea769d7c112d.png" />
 </div>
 </div>
 </section>
@@ -1046,7 +1044,7 @@ fraction that falls into the circle.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141752
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14292
 </pre></div>
 </div>
 </div>
