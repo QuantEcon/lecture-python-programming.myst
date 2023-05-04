@@ -388,12 +388,11 @@ np.sum(a)
 np.mean(a)
 ```
 
-## Operations on Arrays
 
-```{index} single: NumPy; Arrays (Operations)
+## Arithmetic Operations
+
+```{index} single: NumPy; Arithmetic Operations
 ```
-
-### Arithmetic Operations
 
 The operators `+`, `-`, `*`, `/` and `**` all act *elementwise* on arrays
 
@@ -438,7 +437,11 @@ A * B
 (numpy_matrix_multiplication)=
 In particular, `A * B` is *not* the matrix product, it is an element-wise product.
 
-### Matrix Multiplication
+
+## Matrix Multiplication
+
+```{index} single: NumPy; Matrix Multiplication
+```
 
 ```{index} single: NumPy; Matrix Multiplication
 ```
@@ -475,7 +478,459 @@ A @ (0, 1)
 
 Since we are post-multiplying, the tuple is treated as a column vector.
 
-### Mutability and Copying Arrays
+(broadcasting)=
+## Broadcasting
+
+```{index} single: NumPy; Broadcasting
+```
+
+(This section extends an excellent discussion of broadcasting provided by [Jake VanderPlas](https://jakevdp.github.io/PythonDataScienceHandbook/02.05-computation-on-arrays-broadcasting.html).)
+
+```{note}
+Broadcasting is a very important aspect of NumPy. At the same time, advanced broadcasting is relatively complex and some of the details below can be skimmed on first pass.
+```
+
+In element-wise operations, arrays may not have the same shape.
+ 
+When this happens, NumPy will automatically expand arrays to the same shape whenever possible.
+
+This useful (but sometimes confusing) feature in NumPy is called **broadcasting**.
+
+The value of broadcasting is that
+
+* `for` loops can be avoided, which helps numerical code run fast and
+* broadcasting can allow us to implement operations on arrays without actually creating some dimensions of these arrays in memory, which can be important when arrays are large.
+
+For example, suppose `a` is a $3 \times 3$ array (`a -> (3, 3)`), while `b` is a flat array with three elements (`b -> (3,)`).
+
+When adding them together, NumPy will automatically expand `b -> (3,)` to `b -> (3, 3)`.
+
+The element-wise addition will result in a $3 \times 3$ array
+
+```{code-cell} python3
+
+a = np.array(
+        [[1, 2, 3], 
+         [4, 5, 6], 
+         [7, 8, 9]])
+b = np.array([3, 6, 9])
+
+a + b
+```
+
+Here is a visual representation of this broadcasting operation:
+
+```{code-cell} python3
+---
+tags: [hide-input]
+---
+# Adapted and modified based on the code in the book written by Jake VanderPlas (see https://jakevdp.github.io/PythonDataScienceHandbook/06.00-figure-code.html#Broadcasting)
+# Originally from astroML: see http://www.astroml.org/book_figures/appendix/fig_broadcast_visual.html
+
+import numpy as np
+from matplotlib import pyplot as plt
+
+
+def draw_cube(ax, xy, size, depth=0.4,
+              edges=None, label=None, label_kwargs=None, **kwargs):
+    """draw and label a cube.  edges is a list of numbers between
+    1 and 12, specifying which of the 12 cube edges to draw"""
+    if edges is None:
+        edges = range(1, 13)
+
+    x, y = xy
+
+    if 1 in edges:
+        ax.plot([x, x + size],
+                [y + size, y + size], **kwargs)
+    if 2 in edges:
+        ax.plot([x + size, x + size],
+                [y, y + size], **kwargs)
+    if 3 in edges:
+        ax.plot([x, x + size],
+                [y, y], **kwargs)
+    if 4 in edges:
+        ax.plot([x, x],
+                [y, y + size], **kwargs)
+
+    if 5 in edges:
+        ax.plot([x, x + depth],
+                [y + size, y + depth + size], **kwargs)
+    if 6 in edges:
+        ax.plot([x + size, x + size + depth],
+                [y + size, y + depth + size], **kwargs)
+    if 7 in edges:
+        ax.plot([x + size, x + size + depth],
+                [y, y + depth], **kwargs)
+    if 8 in edges:
+        ax.plot([x, x + depth],
+                [y, y + depth], **kwargs)
+
+    if 9 in edges:
+        ax.plot([x + depth, x + depth + size],
+                [y + depth + size, y + depth + size], **kwargs)
+    if 10 in edges:
+        ax.plot([x + depth + size, x + depth + size],
+                [y + depth, y + depth + size], **kwargs)
+    if 11 in edges:
+        ax.plot([x + depth, x + depth + size],
+                [y + depth, y + depth], **kwargs)
+    if 12 in edges:
+        ax.plot([x + depth, x + depth],
+                [y + depth, y + depth + size], **kwargs)
+
+    if label:
+        if label_kwargs is None:
+            label_kwargs = {}
+        ax.text(x + 0.5 * size, y + 0.5 * size, label,
+                ha='center', va='center', **label_kwargs)
+
+solid = dict(c='black', ls='-', lw=1,
+             label_kwargs=dict(color='k'))
+dotted = dict(c='black', ls='-', lw=0.5, alpha=0.5,
+              label_kwargs=dict(color='gray'))
+depth = 0.3
+
+# Draw a figure and axis with no boundary
+fig = plt.figure(figsize=(5, 1), facecolor='w')
+ax = plt.axes([0, 0, 1, 1], xticks=[], yticks=[], frameon=False)
+
+# first block
+draw_cube(ax, (1, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 9], '1', **solid)
+draw_cube(ax, (2, 7.5), 1, depth, [1, 2, 3, 6, 9], '2', **solid)
+draw_cube(ax, (3, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '3', **solid)
+
+draw_cube(ax, (1, 6.5), 1, depth, [2, 3, 4], '4', **solid)
+draw_cube(ax, (2, 6.5), 1, depth, [2, 3], '5', **solid)
+draw_cube(ax, (3, 6.5), 1, depth, [2, 3, 7, 10], '6', **solid)
+
+draw_cube(ax, (1, 5.5), 1, depth, [2, 3, 4], '7', **solid)
+draw_cube(ax, (2, 5.5), 1, depth, [2, 3], '8', **solid)
+draw_cube(ax, (3, 5.5), 1, depth, [2, 3, 7, 10], '9', **solid)
+
+# second block
+draw_cube(ax, (6, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 9], '3', **solid)
+draw_cube(ax, (7, 7.5), 1, depth, [1, 2, 3, 6, 9], '6', **solid)
+draw_cube(ax, (8, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '9', **solid)
+
+draw_cube(ax, (6, 6.5), 1, depth, range(2, 13), '3', **dotted)
+draw_cube(ax, (7, 6.5), 1, depth, [2, 3, 6, 7, 9, 10, 11], '6', **dotted)
+draw_cube(ax, (8, 6.5), 1, depth, [2, 3, 6, 7, 9, 10, 11], '9', **dotted)
+
+draw_cube(ax, (6, 5.5), 1, depth, [2, 3, 4, 7, 8, 10, 11, 12], '3', **dotted)
+draw_cube(ax, (7, 5.5), 1, depth, [2, 3, 7, 10, 11], '6', **dotted)
+draw_cube(ax, (8, 5.5), 1, depth, [2, 3, 7, 10, 11], '9', **dotted)
+
+# third block
+draw_cube(ax, (12, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 9], '4', **solid)
+draw_cube(ax, (13, 7.5), 1, depth, [1, 2, 3, 6, 9], '8', **solid)
+draw_cube(ax, (14, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '12', **solid)
+
+draw_cube(ax, (12, 6.5), 1, depth, [2, 3, 4], '7', **solid)
+draw_cube(ax, (13, 6.5), 1, depth, [2, 3], '11', **solid)
+draw_cube(ax, (14, 6.5), 1, depth, [2, 3, 7, 10], '15', **solid)
+
+draw_cube(ax, (12, 5.5), 1, depth, [2, 3, 4], '10', **solid)
+draw_cube(ax, (13, 5.5), 1, depth, [2, 3], '14', **solid)
+draw_cube(ax, (14, 5.5), 1, depth, [2, 3, 7, 10], '18', **solid)
+
+ax.text(5, 7.0, '+', size=12, ha='center', va='center')
+ax.text(10.5, 7.0, '=', size=12, ha='center', va='center');
+```
+
+How about `b -> (3, 1)`?
+
+In this case, NumPy will automatically expand `b -> (3, 1)` to `b -> (3, 3)`.
+
+Element-wise addition will then result in a $3 \times 3$ matrix
+
+```{code-cell} python3
+b.shape = (3, 1)
+
+a + b
+```
+
+Here is a visual representation of this broadcasting operation:
+
+```{code-cell} python3
+---
+tags: [hide-input]
+---
+
+fig = plt.figure(figsize=(5, 1), facecolor='w')
+ax = plt.axes([0, 0, 1, 1], xticks=[], yticks=[], frameon=False)
+
+# first block
+draw_cube(ax, (1, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 9], '1', **solid)
+draw_cube(ax, (2, 7.5), 1, depth, [1, 2, 3, 6, 9], '2', **solid)
+draw_cube(ax, (3, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '3', **solid)
+
+draw_cube(ax, (1, 6.5), 1, depth, [2, 3, 4], '4', **solid)
+draw_cube(ax, (2, 6.5), 1, depth, [2, 3], '5', **solid)
+draw_cube(ax, (3, 6.5), 1, depth, [2, 3, 7, 10], '6', **solid)
+
+draw_cube(ax, (1, 5.5), 1, depth, [2, 3, 4], '7', **solid)
+draw_cube(ax, (2, 5.5), 1, depth, [2, 3], '8', **solid)
+draw_cube(ax, (3, 5.5), 1, depth, [2, 3, 7, 10], '9', **solid)
+
+# second block
+draw_cube(ax, (6, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 7, 9, 10], '3', **solid)
+draw_cube(ax, (7, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '3', **dotted)
+draw_cube(ax, (8, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '3', **dotted)
+
+draw_cube(ax, (6, 6.5), 1, depth, [2, 3, 4, 7, 10], '6', **solid)
+draw_cube(ax, (7, 6.5), 1, depth, [2, 3, 6, 7, 9, 10, 11], '6', **dotted)
+draw_cube(ax, (8, 6.5), 1, depth, [2, 3, 6, 7, 9, 10, 11], '6', **dotted)
+
+draw_cube(ax, (6, 5.5), 1, depth, [2, 3, 4, 7, 10], '9', **solid)
+draw_cube(ax, (7, 5.5), 1, depth, [2, 3, 7, 10, 11], '9', **dotted)
+draw_cube(ax, (8, 5.5), 1, depth, [2, 3, 7, 10, 11], '9', **dotted)
+
+# third block
+draw_cube(ax, (12, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 9], '4', **solid)
+draw_cube(ax, (13, 7.5), 1, depth, [1, 2, 3, 6, 9], '5', **solid)
+draw_cube(ax, (14, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '6', **solid)
+
+draw_cube(ax, (12, 6.5), 1, depth, [2, 3, 4], '10', **solid)
+draw_cube(ax, (13, 6.5), 1, depth, [2, 3], '11', **solid)
+draw_cube(ax, (14, 6.5), 1, depth, [2, 3, 7, 10], '12', **solid)
+
+draw_cube(ax, (12, 5.5), 1, depth, [2, 3, 4], '16', **solid)
+draw_cube(ax, (13, 5.5), 1, depth, [2, 3], '17', **solid)
+draw_cube(ax, (14, 5.5), 1, depth, [2, 3, 7, 10], '18', **solid)
+
+ax.text(5, 7.0, '+', size=12, ha='center', va='center')
+ax.text(10.5, 7.0, '=', size=12, ha='center', va='center');
+
+
+```
+
+The previous broadcasting operation is equivalent to the following `for` loop
+
+```{code-cell} python3
+
+row, column = a.shape
+result = np.empty((3, 3))
+for i in range(row):
+    for j in range(column):
+        result[i, j] = a[i, j] + b[i]
+
+result
+```
+
+In some cases, both operands will be expanded.
+
+When we have `a -> (3,)` and `b -> (3, 1)`, `a` will be expanded to `a -> (3, 3)`, and `b` will be expanded to `b -> (3, 3)`.
+
+In this case, element-wise addition will result in a $3 \times 3$ matrix
+
+```{code-cell} python3
+a = np.array([3, 6, 9])
+b = np.array([2, 3, 4])
+b.shape = (3, 1)
+
+a + b
+```
+
+Here is a visual representation of this broadcasting operation:
+
+```{code-cell} python3
+---
+tags: [hide-input]
+---
+
+# Draw a figure and axis with no boundary
+fig = plt.figure(figsize=(5, 1), facecolor='w')
+ax = plt.axes([0, 0, 1, 1], xticks=[], yticks=[], frameon=False)
+
+# first block
+draw_cube(ax, (1, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 9], '3', **solid)
+draw_cube(ax, (2, 7.5), 1, depth, [1, 2, 3, 6, 9], '6', **solid)
+draw_cube(ax, (3, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '9', **solid)
+
+draw_cube(ax, (1, 6.5), 1, depth, range(2, 13), '3', **dotted)
+draw_cube(ax, (2, 6.5), 1, depth, [2, 3, 6, 7, 9, 10, 11], '6', **dotted)
+draw_cube(ax, (3, 6.5), 1, depth, [2, 3, 6, 7, 9, 10, 11], '9', **dotted)
+
+draw_cube(ax, (1, 5.5), 1, depth, [2, 3, 4, 7, 8, 10, 11, 12], '3', **dotted)
+draw_cube(ax, (2, 5.5), 1, depth, [2, 3, 7, 10, 11], '6', **dotted)
+draw_cube(ax, (3, 5.5), 1, depth, [2, 3, 7, 10, 11], '9', **dotted)
+
+# second block
+draw_cube(ax, (6, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 7, 9, 10], '2', **solid)
+draw_cube(ax, (7, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '2', **dotted)
+draw_cube(ax, (8, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '2', **dotted)
+
+draw_cube(ax, (6, 6.5), 1, depth, [2, 3, 4, 7, 10], '3', **solid)
+draw_cube(ax, (7, 6.5), 1, depth, [2, 3, 6, 7, 9, 10, 11], '3', **dotted)
+draw_cube(ax, (8, 6.5), 1, depth, [2, 3, 6, 7, 9, 10, 11], '3', **dotted)
+
+draw_cube(ax, (6, 5.5), 1, depth, [2, 3, 4, 7, 10], '4', **solid)
+draw_cube(ax, (7, 5.5), 1, depth, [2, 3, 7, 10, 11], '4', **dotted)
+draw_cube(ax, (8, 5.5), 1, depth, [2, 3, 7, 10, 11], '4', **dotted)
+
+# third block
+draw_cube(ax, (12, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 9], '5', **solid)
+draw_cube(ax, (13, 7.5), 1, depth, [1, 2, 3, 6, 9], '8', **solid)
+draw_cube(ax, (14, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '11', **solid)
+
+draw_cube(ax, (12, 6.5), 1, depth, [2, 3, 4], '6', **solid)
+draw_cube(ax, (13, 6.5), 1, depth, [2, 3], '9', **solid)
+draw_cube(ax, (14, 6.5), 1, depth, [2, 3, 7, 10], '12', **solid)
+
+draw_cube(ax, (12, 5.5), 1, depth, [2, 3, 4], '7', **solid)
+draw_cube(ax, (13, 5.5), 1, depth, [2, 3], '10', **solid)
+draw_cube(ax, (14, 5.5), 1, depth, [2, 3, 7, 10], '13', **solid)
+
+ax.text(5, 7.0, '+', size=12, ha='center', va='center')
+ax.text(10.5, 7.0, '=', size=12, ha='center', va='center');
+```
+
+While broadcasting is very useful, it can sometimes seem confusing.
+
+For example, let's try adding `a -> (3, 2)` and `b -> (3,)`.
+
+```{code-cell} python3
+---
+tags: [raises-exception]
+---
+a = np.array(
+      [[1, 2],
+       [4, 5],
+       [7, 8]])
+b = np.array([3, 6, 9])
+
+a + b
+```
+
+The `ValueError` tells us that operands could not be broadcast together.
+
+
+Here is a visual representation to show why this broadcasting cannot be executed:
+
+```{code-cell} python3
+---
+tags: [hide-input]
+---
+# Draw a figure and axis with no boundary
+fig = plt.figure(figsize=(3, 1.3), facecolor='w')
+ax = plt.axes([0, 0, 1, 1], xticks=[], yticks=[], frameon=False)
+
+# first block
+draw_cube(ax, (1, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 9], '1', **solid)
+draw_cube(ax, (2, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '2', **solid)
+
+draw_cube(ax, (1, 6.5), 1, depth, [2, 3, 4], '4', **solid)
+draw_cube(ax, (2, 6.5), 1, depth, [2, 3, 7, 10], '5', **solid)
+
+draw_cube(ax, (1, 5.5), 1, depth, [2, 3, 4], '7', **solid)
+draw_cube(ax, (2, 5.5), 1, depth, [2, 3, 7, 10], '8', **solid)
+
+# second block
+draw_cube(ax, (6, 7.5), 1, depth, [1, 2, 3, 4, 5, 6, 9], '3', **solid)
+draw_cube(ax, (7, 7.5), 1, depth, [1, 2, 3, 6, 9], '6', **solid)
+draw_cube(ax, (8, 7.5), 1, depth, [1, 2, 3, 6, 7, 9, 10], '9', **solid)
+
+draw_cube(ax, (6, 6.5), 1, depth, range(2, 13), '3', **dotted)
+draw_cube(ax, (7, 6.5), 1, depth, [2, 3, 6, 7, 9, 10, 11], '6', **dotted)
+draw_cube(ax, (8, 6.5), 1, depth, [2, 3, 6, 7, 9, 10, 11], '9', **dotted)
+
+draw_cube(ax, (6, 5.5), 1, depth, [2, 3, 4, 7, 8, 10, 11, 12], '3', **dotted)
+draw_cube(ax, (7, 5.5), 1, depth, [2, 3, 7, 10, 11], '6', **dotted)
+draw_cube(ax, (8, 5.5), 1, depth, [2, 3, 7, 10, 11], '9', **dotted)
+
+
+ax.text(4.5, 7.0, '+', size=12, ha='center', va='center')
+ax.text(10, 7.0, '=', size=12, ha='center', va='center')
+ax.text(11, 7.0, '?', size=16, ha='center', va='center');
+```
+
+We can see that NumPy cannot expand the arrays to the same size.
+
+It is because, when `b` is expanded from `b -> (3,)` to `b -> (3, 3)`, NumPy cannot match `b` with `a -> (3, 2)`.
+
+Things get even trickier when we move to higher dimensions.
+
+To help us, we can use the following list of rules:
+
+* *Step 1:* When the dimensions of two arrays do not match, NumPy will expand the one with fewer dimensions by adding dimension(s) on the left of the existing dimensions.
+    - For example, if `a -> (3, 3)` and `b -> (3,)`, then broadcasting will add a dimension to the left so that `b -> (1, 3)`;
+    - If `a -> (2, 2, 2)` and `b -> (2, 2)`, then broadcasting will add a dimension to the left so that `b -> (1, 2, 2)`;
+    - If `a -> (3, 2, 2)` and `b -> (2,)`, then broadcasting will add two dimensions to the left so that `b -> (1, 1, 2)` (you can also see this process as going through *Step 1* twice).
+
+
+* *Step 2:* When the two arrays have the same dimension but different shapes, NumPy will try to expand dimensions where the shape index is 1.
+    - For example, if `a -> (1, 3)` and `b -> (3, 1)`, then broadcasting will expand dimensions with shape 1 in both `a` and `b` so that `a -> (3, 3)` and `b -> (3, 3)`;
+    - If `a -> (2, 2, 2)` and  `b -> (1, 2, 2)`, then broadcasting will expand the first dimension of `b` so that `b -> (2, 2, 2)`;
+    - If `a -> (3, 2, 2)` and `b -> (1, 1, 2)`, then broadcasting will expand `b` on all dimensions with shape 1 so that `b -> (3, 2, 2)`.
+
+Here are code examples for broadcasting higher dimensional arrays
+
+```{code-cell} python3
+# a -> (2, 2, 2) and  b -> (1, 2, 2)
+
+a = np.array(
+    [[[1, 2], 
+      [2, 3]], 
+
+     [[2, 3], 
+      [3, 4]]])
+print(f'the shape of array a is {a.shape}')
+
+b = np.array(
+    [[1,7],
+     [7,1]])
+print(f'the shape of array b is {b.shape}')
+
+a + b
+```
+
+```{code-cell} python3
+# a -> (3, 2, 2) and b -> (2,)
+
+a = np.array(
+    [[[1, 2], 
+      [3, 4]],
+
+     [[4, 5], 
+      [6, 7]],
+
+     [[7, 8], 
+      [9, 10]]])
+print(f'the shape of array a is {a.shape}')
+
+b = np.array([3, 6])
+print(f'the shape of array b is {b.shape}')
+
+a + b
+```
+
+* *Step 3:* After Step 1 and 2, if the two arrays still do not match, a `ValueError` will be raised. For example, suppose `a -> (2, 2, 3)` and `b -> (2, 2)`
+    - By *Step 1*, `b` will be expanded to `b -> (1, 2, 2)`;
+    - By *Step 2*, `b` will be expanded to `b -> (2, 2, 2)`;
+    - We can see that they do not match each other after the first two steps. Thus, a `ValueError` will be raised
+
+```{code-cell} python3
+---
+tags: [raises-exception]
+---
+a = np.array(
+    [[[1, 2, 3], 
+      [2, 3, 4]], 
+     
+     [[2, 3, 4], 
+      [3, 4, 5]]])
+print(f'the shape of array a is {a.shape}')
+
+b = np.array(
+    [[1,7], 
+     [7,1]])
+print(f'the shape of array b is {b.shape}')
+
+a + b
+```
+
+## Mutability and Copying Arrays
 
 NumPy arrays are mutable data types, like Python lists.
 
@@ -521,7 +976,7 @@ It means that we pass around only pointers to data, rather than making copies.
 
 Making copies is expensive in terms of both speed and memory.
 
-#### Making Copies
+### Making Copies
 
 It is of course possible to make `b` an independent copy of `a` when required.
 
@@ -734,8 +1189,10 @@ Now write a new function that does the same job, but uses NumPy arrays and array
 
 (Such functionality is already implemented as `np.poly1d`, but for the sake of the exercise don't use this class)
 
-* Hint: Use `np.cumprod()`
-
+```{hint}
+:class: dropdown
+Use `np.cumprod()`
+```
 ```{exercise-end}
 ```
 
@@ -807,7 +1264,12 @@ It helps to sketch the intervals on paper.
 
 Your exercise is to speed it up using NumPy, avoiding explicit loops
 
-* Hint: Use `np.searchsorted` and `np.cumsum`
+```{hint}
+:class: dropdown
+
+Use `np.searchsorted` and `np.cumsum`
+
+```
 
 If you can, implement the functionality as a class called `DiscreteRV`, where
 
@@ -981,6 +1443,131 @@ fig, ax = plt.subplots()
 X = np.random.randn(1000)
 F = ECDF(X)
 F.plot(ax)
+```
+
+```{solution-end}
+```
+
+
+```{exercise-start}
+:label: np_ex4
+```
+
+Recall that [broadcasting](broadcasting) in Numpy can help us conduct element-wise operations on arrays with different number of dimensions without using `for` loops.
+
+In this exercise, try to use `for` loops to replicate the result of the following broadcasting operations.
+
+**Part1**: Try to replicate this simple example using `for` loops and compare your results with the broadcasting operation below.
+
+```{code-cell} python3
+
+np.random.seed(123)
+x = np.random.randn(4, 4)
+y = np.random.randn(4)
+A = x / y
+```
+
+Here is the output
+
+```{code-cell} python3
+---
+tags: [hide-output]
+---
+print(A)
+```
+
+**Part2**: Move on to replicate the result of the following broadcasting operation. Meanwhile, compare the speeds of broadcasting and the `for` loop you implement.
+
+```{code-cell} python3
+import quantecon as qe
+
+np.random.seed(123)
+x = np.random.randn(1000, 100, 100)
+y = np.random.randn(100)
+
+qe.tic()
+B = x / y
+qe.toc()
+```
+
+Here is the output
+
+```{code-cell} python3
+---
+tags: [hide-output]
+---
+print(B)
+```
+
+```{exercise-end}
+```
+
+
+```{solution-start} np_ex4
+:class: dropdown
+```
+
+**Part 1 Solution**
+
+```{code-cell} python3
+np.random.seed(123)
+x = np.random.randn(4, 4)
+y = np.random.randn(4)
+
+C = np.empty_like(x)
+n = len(x)
+for i in range(n):
+    for j in range(n):
+        C[i, j] = x[i, j] / y[j]
+```
+
+Compare the results to check your answer
+
+```{code-cell} python3
+---
+tags: [hide-output]
+---
+print(C)
+```
+
+You can also use `array_equal()` to check your answer
+
+```{code-cell} python3
+print(np.array_equal(A, C))
+```
+
+
+**Part 2 Solution**
+
+```{code-cell} python3
+
+np.random.seed(123)
+x = np.random.randn(1000, 100, 100)
+y = np.random.randn(100)
+
+qe.tic()
+D = np.empty_like(x)
+d1, d2, d3 = x.shape
+for i in range(d1):
+    for j in range(d2):
+        for k in range(d3):
+            D[i, j, k] = x[i, j, k] / y[k]
+qe.toc()
+```
+
+Note that the `for` loop takes much longer than the broadcasting operation.
+
+Compare the results to check your answer
+
+```{code-cell} python3
+---
+tags: [hide-output]
+---
+print(D)
+```
+
+```{code-cell} python3
+print(np.array_equal(B, D))
 ```
 
 ```{solution-end}
