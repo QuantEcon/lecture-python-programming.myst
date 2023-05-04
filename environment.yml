@@ -2,13 +2,19 @@ name: quantecon
 channels:
   - default
 dependencies:
-  - python=3.9
-  - anaconda=2022.05
+  - python=3.10
+  - anaconda=2023.03
   - pip
   - pip:
-    - jupyter-book
-    - sphinxext-rediraffe
-    - sphinx-exercise
-    - ghp-import
-    - sphinxcontrib-youtube
-    - sphinx-togglebutton
+    - jupyter-book==0.15.1
+    - quantecon-book-theme==0.5.0
+    - sphinx-tojupyter==0.3.0
+    - sphinxext-rediraffe==0.2.7
+    - sphinx-exercise==0.4.1
+    - ghp-import==2.1.0
+    - sphinxcontrib-youtube==1.2.0
+    - sphinx-togglebutton==0.3.2
+    - arviz==0.13.0
+    - kaleido
+    # Docker Requirements
+    - pytz
