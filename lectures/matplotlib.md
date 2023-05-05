@@ -352,7 +352,97 @@ draw_graphs(style='dark_background')
 
 You can use the function to experiment with other styles in the list.
 
-If you are interested, you can even create [your own style sheets](https://matplotlib.org/stable/tutorials/introductory/customizing.html#defining-your-own-style).
+If you are interested, you can even create your own style sheets.
+
+Parameters for your style sheets are stored in a dictionary-like variable `plt.rcParams`
+
+```{code-cell} python3
+---
+tags: [hide-output]
+---
+ 
+print(plt.rcParams.keys())
+
+```
+
+There are many parameters you could set for your style sheets.
+
+Set parameters for your style sheet by: 
+
+1. creating your own [`matplotlibrc` file](https://matplotlib.org/stable/tutorials/introductory/customizing.html#defining-your-own-style), or
+2. updating values stored in the dictionary-like variable `plt.rcParams`
+
+Let's change the style of our overlaid density lines using the second method
+
+```{code-cell} python3
+from cycler import cycler
+
+# set to the default style sheet
+plt.style.use('default')
+
+# You can update single values using keys:
+
+# Set the font style to italic
+plt.rcParams['font.style'] = 'italic'
+
+# Update linewidth
+plt.rcParams['lines.linewidth'] = 2
+
+
+# You can also update many values at once using the update() method:
+
+parameters = {
+
+    # Change default figure size
+    'figure.figsize': (5, 4),
+
+    # Add horizontal grid lines
+    'axes.grid': True,
+    'axes.grid.axis': 'y',
+
+    # Update colors for density lines
+    'axes.prop_cycle': cycler('color', 
+                            ['dimgray', 'slategrey', 'darkgray'])
+}
+
+plt.rcParams.update(parameters)
+
+
+```
+
+```{note} 
+
+These settings are `global`. 
+
+Any plot generated after changing parameters in `.rcParams` will be affected by the setting.
+
+```
+
+```{code-cell} python3
+fig, ax = plt.subplots()
+x = np.linspace(-4, 4, 150)
+for i in range(3):
+    m, s = uniform(-1, 1), uniform(1, 2)
+    y = norm.pdf(x, loc=m, scale=s)
+    current_label = f'$\mu = {m:.2}$'
+    ax.plot(x, y, linewidth=2, alpha=0.6, label=current_label)
+ax.legend()
+plt.show()
+```
+
+Apply the `default` style sheet again to change your style back to default
+
+```{code-cell} python3
+
+plt.style.use('default')
+
+# Reset default figure size
+plt.rcParams['figure.figsize'] = (10, 6)
+
+```
+
+Here are [more examples](https://www.datafantic.com/the-magic-of-matplotlib-stylesheets/) on how to change these parameters.
+
 
 ## Further Reading
 

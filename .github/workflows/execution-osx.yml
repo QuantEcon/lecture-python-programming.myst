@@ -11,7 +11,7 @@ jobs:
       fail-fast: false
       matrix:
         os: ["macos-latest"]
-        python-version: ["3.9"]
+        python-version: ["3.10"]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -24,6 +24,10 @@ jobs:
         run: |
           conda install anaconda
           pip install jupyter-book sphinx-multitoc-numbering quantecon-book-theme sphinxext-rediraffe sphinx-tojupyter sphinx-exercise sphinx-togglebutton
+      - name: Install Jax [CPU]
+        shell: bash -l {0}
+        run: |
+          pip install "jax[CPU]"
       - name: Build Lectures (+ Execution Checks)
         shell: bash -l {0}
         run: jb build lectures --path-output=./ -W --keep-going

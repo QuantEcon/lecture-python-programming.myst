@@ -56,13 +56,6 @@ vertical axis.)
 We'll do this in several different ways, each time learning something more
 about Python.
 
-We run the following command first, which helps ensure that plots appear in the
-notebook if you run it on your own machine.
-
-```{code-cell} ipython
-%matplotlib inline
-```
-
 ## Version 1
 
 (ourfirstprog)=
@@ -521,10 +514,11 @@ Use a `for` loop to step through the $\alpha$ values.
 
 If you can, add a legend, to help distinguish between the three time series.
 
-Hints:
+```{hint}
+:class: dropdown
 
 * If you call the `plot()` function multiple times before calling `show()`, all of the lines you produce will end up on the same figure.
-* For the legend, noted that the expression `'foo' + str(42)` evaluates to `'foo42'`.
+* For the legend, noted that suppose `var = 42`, the expression `f'foo{var}'` evaluates to `'foo42'`.
 ```
 
 ```{exercise-end}
@@ -550,10 +544,11 @@ plt.legend()
 plt.show()
 ```
 
-Note: `f'$\\alpha = {α}$'` in the solution is an application of [f-String](https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings), which allows you to use `{}` to contain an expression. 
+```{note}
+`f'$\\alpha = {α}$'` in the solution is an application of [f-String](https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings), which allows you to use `{}` to contain an expression. 
 
 The contained expression will be evaluated, and the result will be placed into the string.
-
+```
 
 ```{solution-end}
 ```
@@ -692,11 +687,15 @@ Use no imports besides
 import numpy as np
 ```
 
+```{hint}
+:class: dropdown
+
 Your hints are as follows:
 
 * If $U$ is a bivariate uniform random variable on the unit square $(0, 1)^2$, then the probability that $U$ lies in a subset $B$ of $(0,1)^2$ is equal to the area of $B$.
 * If $U_1,\ldots,U_n$ are IID copies of $U$, then, as $n$ gets large, the fraction that falls in $B$, converges to the probability of landing in $B$.
 * For a circle, $area = \pi * radius^2$.
+```
 
 ```{exercise-end}
 ```

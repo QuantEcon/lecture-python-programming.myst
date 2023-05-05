@@ -18,7 +18,7 @@ kernelspec:
 </div>
 ```
 
-# Debugging
+# Debugging and Handling Errors
 
 ```{index} single: Debugging
 ```
@@ -43,9 +43,20 @@ Hey, we all used to do that.
 
 But once you start writing larger programs you'll need a better system.
 
+You may also want to handle potential errors in your code as they occur.
+
+In this lecture, we will discuss how to debug our programs and improve error handling.
+
+## Debugging
+
+```{index} single: Debugging
+```
+
 Debugging tools for Python vary across platforms, IDEs and editors.
 
-Here we'll focus on Jupyter and leave you to explore other settings.
+For example, a [visual debugger](https://jupyterlab.readthedocs.io/en/stable/user/debugger.html) is available in JupyterLab.
+
+Here we'll focus on Jupyter Notebook and leave you to explore other settings.
 
 We'll need the following imports
 
@@ -56,11 +67,7 @@ import matplotlib.pyplot as plt
 plt.rcParams['figure.figsize'] = (10,6)
 ```
 
-## Debugging
-
-```{index} single: Debugging
-```
-
+(debug_magic)= 
 ### The `debug` Magic
 
 Let's consider a simple (and rather contrived) example
@@ -243,7 +250,7 @@ Then we printed the value of `x` to see what was happening with that variable.
 
 To exit from the debugger, use `q`.
 
-## Other Useful Magics
+### Other Useful Magics
 
 In this lecture, we used the `%debug` IPython magic.
 
@@ -255,3 +262,293 @@ There are many other useful magics:
 
 The full list of magics is [here](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
 
+
+## Handling Errors
+
+```{index} single: Python; Handling Errors
+```
+
+Sometimes it's possible to anticipate bugs and errors as we're writing code.
+
+For example, the unbiased sample variance of sample $y_1, \ldots, y_n$
+is defined as
+
+$$
+s^2 := \frac{1}{n-1} \sum_{i=1}^n (y_i - \bar y)^2
+\qquad \bar y = \text{ sample mean}
+$$
+
+This can be calculated in NumPy using `np.var`.
+
+But if you were writing a function to handle such a calculation, you might
+anticipate a divide-by-zero error when the sample size is one.
+
+One possible action is to do nothing --- the program will just crash, and spit out an error message.
+
+But sometimes it's worth writing your code in a way that anticipates and deals with runtime errors that you think might arise.
+
+Why?
+
+* Because the debugging information provided by the interpreter is often less useful than what can be provided by a well written error message.
+* Because errors that cause execution to stop interrupt workflows.
+* Because it reduces confidence in your code on the part of your users (if you are writing for others).
+
+
+In this section, we'll discuss different types of errors in Python and techniques to handle potential errors in our programs.
+
+### Errors in Python
+
+We have seen `AttributeError` and `NameError` in {any}`our previous examples <debug_magic>`.
+
+In Python, there are two types of errors -- syntax errors and exceptions.
+
+```{index} single: Python; Exceptions
+```
+
+Here's an example of a common error type
+
+```{code-cell} python3
+---
+tags: [raises-exception]
+---
+def f:
+```
+
+Since illegal syntax cannot be executed, a syntax error terminates execution of the program.
+
+Here's a different kind of error, unrelated to syntax
+
+```{code-cell} python3
+---
+tags: [raises-exception]
+---
+1 / 0
+```
+
+Here's another
+
+```{code-cell} python3
+---
+tags: [raises-exception]
+---
+x1 = y1
+```
+
+And another
+
+```{code-cell} python3
+---
+tags: [raises-exception]
+---
+'foo' + 6
+```
+
+And another
+
+```{code-cell} python3
+---
+tags: [raises-exception]
+---
+X = []
+x = X[0]
+```
+
+On each occasion, the interpreter informs us of the error type
+
+* `NameError`, `TypeError`, `IndexError`, `ZeroDivisionError`, etc.
+
+In Python, these errors are called *exceptions*.
+
+### Assertions
+
+```{index} single: Python; Assertions
+```
+
+Sometimes errors can be avoided by checking whether your program runs as expected.
+
+A relatively easy way to handle checks is with the `assert` keyword.
+
+For example, pretend for a moment that the `np.var` function doesn't
+exist and we need to write our own
+
+```{code-cell} python3
+def var(y):
+    n = len(y)
+    assert n > 1, 'Sample size must be greater than one.'
+    return np.sum((y - y.mean())**2) / float(n-1)
+```
+
+If we run this with an array of length one, the program will terminate and
+print our error message
+
+```{code-cell} python3
+---
+tags: [raises-exception]
+---
+var([1])
+```
+
+The advantage is that we can
+
+* fail early, as soon as we know there will be a problem
+* supply specific information on why a program is failing
+
+### Handling Errors During Runtime
+
+```{index} single: Python; Runtime Errors
+```
+
+The approach used above is a bit limited, because it always leads to
+termination.
+
+Sometimes we can handle errors more gracefully, by treating special cases.
+
+Let's look at how this is done.
+
+#### Catching Exceptions
+
+We can catch and deal with exceptions using `try` -- `except` blocks.
+
+Here's a simple example
+
+```{code-cell} python3
+def f(x):
+    try:
+        return 1.0 / x
+    except ZeroDivisionError:
+        print('Error: division by zero.  Returned None')
+    return None
+```
+
+When we call `f` we get the following output
+
+```{code-cell} python3
+f(2)
+```
+
+```{code-cell} python3
+f(0)
+```
+
+```{code-cell} python3
+f(0.0)
+```
+
+The error is caught and execution of the program is not terminated.
+
+Note that other error types are not caught.
+
+If we are worried the user might pass in a string, we can catch that error too
+
+```{code-cell} python3
+def f(x):
+    try:
+        return 1.0 / x
+    except ZeroDivisionError:
+        print('Error: Division by zero.  Returned None')
+    except TypeError:
+        print(f'Error: x cannot be of type {type(x)}.  Returned None')
+    return None
+```
+
+Here's what happens
+
+```{code-cell} python3
+f(2)
+```
+
+```{code-cell} python3
+f(0)
+```
+
+```{code-cell} python3
+f('foo')
+```
+
+If we feel lazy we can catch these errors together
+
+```{code-cell} python3
+def f(x):
+    try:
+        return 1.0 / x
+    except:
+        print(f'Error.  An issue has occurred with x = {x} of type: {type(x)}')
+    return None
+```
+
+Here's what happens
+
+```{code-cell} python3
+f(2)
+```
+
+```{code-cell} python3
+f(0)
+```
+
+```{code-cell} python3
+f('foo')
+```
+
+In general it's better to be specific.
+
+
+## Exercises
+
+```{exercise-start}
+:label: debug_ex1
+```
+
+Suppose we have a text file `numbers.txt` containing the following lines
+
+```{code-block} none
+:class: no-execute
+
+prices
+3
+8
+
+7
+21
+```
+
+Using `try` -- `except`, write a program to read in the contents of the file and sum the numbers, ignoring lines without numbers.
+
+You can use the `open()` function we learnt {any}`before<iterators>` to open `numbers.txt`.
+```{exercise-end}
+```
+
+
+```{solution-start} debug_ex1
+:class: dropdown
+```
+
+Let's save the data first
+
+```{code-cell} python3
+%%file numbers.txt
+prices
+3
+8
+
+7
+21
+```
+
+```{code-cell} python3
+f = open('numbers.txt')
+
+total = 0.0
+for line in f:
+    try:
+        total += float(line)
+    except ValueError:
+        pass
+
+f.close()
+
+print(total)
+```
+
+```{solution-end}
+```
