@@ -13,7 +13,7 @@ kernelspec:
 
 # JAX
 
-```{adminition} New website
+```{admonition} New website
 :class: warning
 
 This lecture has been moved to a new lecture series that is focused on using
