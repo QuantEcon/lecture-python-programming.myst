@@ -16,8 +16,7 @@ kernelspec:
 ```{admonition} New website
 :class: warning
 
-This lecture has been moved to a new lecture series that is focused on using
-[JAX](https://github.com/google/jax) to accelerate execution in economic applications.
+We have replaced this lecture with a new lecture series on quantitative economics using JAX:
 
-The [lecture is now available here](https://jax.quantecon.org/jax_intro.html)
+See [Quantitative Economics with JAX](https://jax.quantecon.org)
 ```
