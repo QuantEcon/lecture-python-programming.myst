@@ -228,9 +228,6 @@ You can change the shell or open a new instance through the dropdown menu on the
 :figclass: auto
 ```
 
-```{note}
-Note that Anaconda/Conda, by default, can be accessed through the Command Prompt and Anaconda PowerShell in Windows, not the Windows PowerShell.
-```
 VS Code helps you manage conda environments without using the command line.
 
 Open the Command Palette (CTRL + SHIFT + P or from the dropdown menu under View tab) and search for ```Python: Select Interpreter```.
