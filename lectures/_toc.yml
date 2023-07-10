@@ -6,6 +6,7 @@ parts:
   chapters:
   - file: about_py
   - file: getting_started
+  - file: workspace
   - file: python_by_example
   - file: functions
   - file: python_essentials

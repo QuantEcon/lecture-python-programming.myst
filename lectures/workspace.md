@@ -26,24 +26,28 @@ kernelspec:
 ```
 ## Overview
 
+So far, we have explored the use of Jupyter notebooks in writing and executing Python code. 
+
+While they are efficient and adaptable when working with short pieces of code, notebooks are not the best choice for longer programs and scripts. 
+
+We will explore the use of Python scripts as an alternative. 
+
+The Jupyter Lab and Visual Studio Code (VS Code) development environments are then introduced along with a primer on version control (Git).
+
 In this lecture, you will learn to
 - work with Python scripts
-- set up different development environments
+- set up multiple development environments
 - get started with GitHub
 
 ```{note}
 Going forward, it is assumed that you have an Anaconda environment up and running.
 ```
 
-You may want to create a new conda environment if you haven't done so already.
+You may want to [create a new conda environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands) if you haven't done so already.
 
-## Working with Python Files
+## Working with Python Files 
 
-So far, you have explored the use of Jupyter notebooks in writing and executing Python code. 
-
-While they are efficient and adaptable when working with short pieces of code, they are not the best choice for longer programs and scripts. 
-
-Hence, Python files are used - by convention, they have a ```.py``` suffix. 
+Python files are used when writing long, reusable blocks of code - by convention, they have a ```.py``` suffix. 
 
 Let us begin by working with the following example.
 
@@ -209,6 +213,26 @@ You can also install extensions from the Extensions tab.
 ```{figure} /_static/lecture_specific/workspace/vs_code_extensions.png
 :figclass: auto
 ```
+To run a ```.py``` file, 
+
+1. open a Terminal from the launcher and proceed as earlier.
+2. click on the Run button on the top right corner of the editor.
+
+```{figure} /_static/lecture_specific/workspace/vs_code_run.png
+:figclass: auto
+```
+Jupyter notebooks (```.ipynb``` files) can be worked on in VS Code.
+
+Make sure to install the Jupyter extension from the Extensions tab before you try to open a Jupyter notebook.
+
+Create a new file (in the file Explorer tab) and save it with the ```.ipynb``` extension.
+
+Choose a kernel/environment to run the notebook in by clicking on the Select Kernel button on the top right corner of the editor.
+
+```{figure} /_static/lecture_specific/workspace/vs_code_kernels.png
+:figclass: auto
+```
+
 VS Code also has excellent version control functionality through the Source Control tab.
 
 ```{figure} /_static/lecture_specific/workspace/vs_code_git.png
