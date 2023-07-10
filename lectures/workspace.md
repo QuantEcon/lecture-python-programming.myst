@@ -215,8 +215,8 @@ You can also install extensions from the Extensions tab.
 ```
 To run a ```.py``` file, 
 
-1. open a Terminal from the launcher and proceed as earlier.
-2. click on the Run button on the top right corner of the editor.
+- open a Terminal from the launcher and proceed as earlier.
+- click on the Run button on the top right corner of the editor.
 
 ```{figure} /_static/lecture_specific/workspace/vs_code_run.png
 :figclass: auto
