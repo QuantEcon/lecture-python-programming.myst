@@ -39,7 +39,6 @@ sphinx:
         google_analytics_id: G-X7DH1M2DPY
       launch_buttons:
         notebook_interface        : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
-        binderhub_url             : https://mybinder.org  # The URL of the BinderHub (e.g., https://mybinder.org)
         colab_url                 : https://colab.research.google.com
         thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
