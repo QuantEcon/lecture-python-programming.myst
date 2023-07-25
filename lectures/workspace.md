@@ -18,7 +18,7 @@ kernelspec:
 </div>
 ```
 
-# Working with Python
+# Python Development: Writing Longer Programs
 
 
 ```{contents} Contents
@@ -30,13 +30,13 @@ So far, we have explored the use of Jupyter notebooks in writing and executing P
 
 While they are efficient and adaptable when working with short pieces of code, notebooks are not the best choice for longer programs and scripts. 
 
-We will explore the use of Python scripts as an alternative. 
+We will explore the use of Python scripts as an alternative. - (structured and more serious)
 
 The Jupyter Lab and Visual Studio Code (VS Code) development environments are then introduced along with a primer on version control (Git).
 
 In this lecture, you will learn to
 - work with Python scripts
-- set up multiple development environments
+- set up various development environments
 - get started with GitHub
 
 ```{note}
@@ -74,7 +74,7 @@ The code is first saved locally on the computer before it is executed. Generally
 ```
 > python <path to file>
 ``` 
-is used, though arguments can be passed to it when necessary. 
+is used, though arguments can be passed to it when necessary. (remove command, add explicit statement about variability of commands)
 
 The command is executed on the console of your choice - here, your Anaconda Prompt might be appropriate.
 
