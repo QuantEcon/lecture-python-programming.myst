@@ -4,12 +4,16 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.4
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
+
+```{code-cell} ipython3
+!pip install sympy==1.12
+```
 
 +++ {"user_expressions": []}
 
@@ -40,6 +44,7 @@ Let’s first import the library and initialize the printer for symbolic output
 from sympy import *
 from sympy.plotting import plot, plot3d_parametric_line, plot3d
 from sympy.solvers.inequalities import reduce_rational_inequalities
+from sympy.stats import Poisson, Exponential, Binomial, density, moment, E
 
 import numpy as np
 
@@ -60,6 +65,8 @@ Before we start manipulating the symbols, we initialize some symbols to work wit
 ```{code-cell} ipython3
 x, y, z = symbols('x y z')
 ```
+
++++ {"user_expressions": []}
 
 Symbols are the basic units for symbolic computation in SymPy.
 
@@ -121,6 +128,8 @@ Another way to solve this equation is to use `solveset`.
 ```{code-cell} ipython3
 solveset(expr, x, domain=S.Naturals)
 ```
+
++++ {"user_expressions": []}
 
 ```{note}
 [Solvers](https://docs.sympy.org/latest/modules/solvers/index.html) is an important module with tools to solve different types of equations. 
@@ -281,6 +290,8 @@ solow
 solve(solow, k)
 ```
 
++++ {"user_expressions": []}
+
 ### Inequalities and logic
 
 SymPy also allows users to define inequalities and set operators and provides a wide range of [operations](https://docs.sympy.org/latest/modules/solvers/inequalities.html).
@@ -311,7 +322,7 @@ sum_xy
 
 +++ {"user_expressions": []}
 
-To evaluate the sum, we can `lamdify` the formula.
+To evaluate the sum, we can [`lamdify`](https://docs.sympy.org/latest/modules/utilities/lambdify.html#sympy.utilities.lambdify.lambdify) the formula.
 
 The lamdified expression can take numeric values as input for $x$ and $y$ and compute the result
 
@@ -334,8 +345,8 @@ $$
 $$
 
 ```{code-cell} ipython3
-r, D = symbols('r D')
-
+D = symbols('D')
+r = Symbol('r', positive=True)
 Dt = Sum('(1 - r)^i * D', (i, 0, oo))
 Dt
 ```
@@ -353,7 +364,8 @@ Dt.doit()
 Simplifying the expression above gives
 
 ```{code-cell} ipython3
-simplify(Dt.doit())
+result = simplify(Dt.doit())
+result
 ```
 
 +++ {"user_expressions": []}
@@ -380,6 +392,8 @@ pmf = λ**x * exp(-λ)/factorial(x)
 pmf
 ```
 
++++ {"user_expressions": []}
+
 We can verify if the distribution follows the fundamental property of probability distribution:
 
 $$
@@ -390,6 +404,8 @@ $$
 sum_pmf = Sum(pmf, (x, 0, oo))
 sum_pmf.doit()
 ```
+
++++ {"user_expressions": []}
 
 The expectation of the distribution is:
 
@@ -402,13 +418,19 @@ fx = Sum(x*pmf, (x, 0, oo))
 fx.doit()
 ```
 
-```{note}
++++ {"user_expressions": []}
 
 SymPy offers a statistics module called [`Stats`](https://docs.sympy.org/latest/modules/stats.html).
 
 `Stats` module offers built-in distributions and functions on probability distributions.
 
-The operation above can also be computed using `Stats` module.
+The computation above can also be condensed into one line using `Stats` module
+
+```{code-cell} ipython3
+# Using sympy.stats.Poisson() method
+λ = Symbol("λ", positive = True)
+X = Poisson("x", λ)
+E(X)
 ```
 
 +++ {"user_expressions": []}
@@ -420,7 +442,7 @@ SymPy allows us to perform various calculus operations, such as differentiation 
 
 ### Limits
 
-We can compute limits for a given function using the `limit` function
+We can compute limits for a given expression using the `limit` function
 
 ```{code-cell} ipython3
 ---
@@ -428,7 +450,7 @@ mystnb:
   image:
     width: 3%
 ---
-# Define a function
+# Define an expression
 f = x ** 2 / (x - 1)
 
 # Compute the limit
@@ -440,7 +462,7 @@ lim
 
 ### Derivatives
 
-We can differentiate any SymPy expression using `diff(func, var)`
+We can differentiate any SymPy expression using `diff(expr, var)`
 
 ```{code-cell} ipython3
 ---
@@ -470,6 +492,8 @@ indef_int = integrate(df, x)
 indef_int
 ```
 
++++ {"user_expressions": []}
+
 Let's use this function to compute the moment-generating function of [exponential distribution](https://en.wikipedia.org/wiki/Exponential_distribution) with the probability density function:
 
 $$
@@ -477,16 +501,35 @@ f(x) = \lambda e^{-\lambda x}, \quad x \ge 0
 $$
 
 ```{code-cell} ipython3
-λ, x = symbols('lambda x')
+λ = Symbol('lambda', positive=True)
+x = Symbol('x', positive=True)
 pdf = λ * exp(-λ*x)
 pdf
 ```
 
 ```{code-cell} ipython3
-t = symbols('t')
-moment_n = integrate(exp(t * x) * pdf, (x, 0, oo))
-simplify(moment_n)
+t = Symbol('t', positive=True)
+moment_t = integrate(exp(t * x) * pdf, (x, 0, oo))
+simplify(moment_t)
 ```
+
++++ {"user_expressions": []}
+
+Note that we can also use `Stats` module to compute the moment
+
+```{code-cell} ipython3
+X = Exponential(x, λ)
+```
+
+```{code-cell} ipython3
+moment(X, 1)
+```
+
+```{code-cell} ipython3
+E(X**t)
+```
+
++++ {"user_expressions": []}
 
 Using `integrate` function, we can derive the cumulative density function of the exponential distribution with $\lambda = 0.5$
 
@@ -514,6 +557,8 @@ p.title = 'A Simple Plot'
 p.show()
 ```
 
++++ {"user_expressions": []}
+
 Similar to Matplotlib, SymPy provides an interface to customize the graph
 
 ```{code-cell} ipython3
@@ -527,6 +572,8 @@ plot_f.append(plot_df[0])
 plot_f.show()
 ```
 
++++ {"user_expressions": []}
+
 It also supports plotting implicit functions and visualizing inequalities
 
 ```{code-cell} ipython3
@@ -536,6 +583,8 @@ p = plot_implicit(Eq((1/x + 1/y)**2, 1))
 ```{code-cell} ipython3
 p = plot_implicit(And(2*x + 5*y <= 30, 4*x + 2*y >= 20), (x, -1, 10), (y, -10, 10))
 ```
+
++++ {"user_expressions": []}
 
 It also supports visualizations in three-dimensional space
 
@@ -681,9 +730,9 @@ as $x$ approaches to $0$
 :class: dropdown
 ```
 
-+++
++++ {"user_expressions": []}
 
-Let's define the function first
+Let's define the expression first
 
 ```{code-cell} ipython3
 f_upper = y**x - 1
@@ -692,12 +741,16 @@ f = f_upper/f_lower
 f
 ```
 
++++ {"user_expressions": []}
+
 Sympy is smart enough to solve this limit
 
 ```{code-cell} ipython3
 lim = limit(f, x, 0)
 lim
 ```
+
++++ {"user_expressions": []}
 
 We compare the result suggested by L'Hôpital's rule
 
@@ -706,6 +759,8 @@ lim = limit(diff(f_upper, x)/
             diff(f_lower, x), x, 0)
 lim
 ```
+
++++ {"user_expressions": []}
 
 ```{solution-end}
 ```
@@ -738,6 +793,8 @@ bino_dist = binomial_factor * ((θ**x)*(1-θ)**(n-x))
 bino_dist
 ```
 
++++ {"user_expressions": []}
+
 Now we compute the log-likelihood function and solve for the result
 
 ```{code-cell} ipython3
@@ -752,6 +809,8 @@ log_bino_diff
 ```{code-cell} ipython3
 solve(Eq(log_bino_diff, 0), θ)[0]
 ```
+
++++ {"user_expressions": []}
 
 ```{solution-end}
 ```
@@ -790,7 +849,7 @@ Compute the Pareto optimal allocation of the economy with $\alpha = \beta = 0.5$
 :class: dropdown
 ```
 
-+++
++++ {"user_expressions": []}
 
 Here is one solution
 
@@ -828,6 +887,8 @@ sol
 sol.subs({α: 0.5, β: 0.5})
 ```
 
++++ {"user_expressions": []}
+
 We can visualize contract curves with Cobb-Douglas utility functions
 
 ```{code-cell} ipython3
@@ -850,12 +911,14 @@ for param in params:
 p.show()
 ```
 
++++ {"user_expressions": []}
+
 Extra tasks: 
 
 - Can you think of a way to draw the same graph using `numpy`? 
 - How difficult will it be to write a `numpy` implementation?
 
-+++
++++ {"user_expressions": []}
 
 ```{solution-end}
 ```
