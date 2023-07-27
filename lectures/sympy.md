@@ -313,7 +313,7 @@ sum_xy
 
 To evaluate the sum, we can `lamdify` the formula.
 
-The lamdified expression can take vectors as input for $x$ and $y$ and compute the result
+The lamdified expression can take numeric values as input for $x$ and $y$ and compute the result
 
 ```{code-cell} ipython3
 sum_xy = lambdify([x, y], sum_xy)
