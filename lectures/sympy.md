@@ -143,7 +143,7 @@ eq
 
 +++ {"user_expressions": []}
 
-Solving this expression with respect to x gives the same output as solving the expression directly
+Solving this equation with respect to x gives the same output as solving the expression directly
 
 ```{code-cell} ipython3
 solve(eq, x)
