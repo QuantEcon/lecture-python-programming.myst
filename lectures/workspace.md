@@ -26,15 +26,13 @@ kernelspec:
 ```
 ## Overview
 
-So far, we have explored the use of Jupyter notebooks in writing and executing Python code. 
+So far, we have explored the use of Jupyter Notebooks in writing and executing Python code. 
 
-While they are efficient and adaptable when working with short pieces of code, notebooks are not the best choice for longer programs and scripts. 
+While they are efficient and adaptable when working with short pieces of code, Notebooks are not the best choice for longer programs and scripts. 
 
-We will explore the use of Python scripts as an alternative. 
+While Jupyter Notebooks can help execute chunks of code one at a time, scripts allow for long pieces of code to be written and executed in a single go. 
 
-Python scripts are files that contain Python code and are executed in the terminal. 
-
-While Jupyter notebooks can help execute chunks of code one at a time, scripts allow for long pieces of code to be written and executed in a single go. 
+We will explore the use of Python scripts as an alternative.  
 
 The Jupyter Lab and Visual Studio Code (VS Code) development environments are then introduced along with a primer on version control (Git).
 
@@ -45,11 +43,11 @@ In this lecture, you will learn to
 
 ```{note}
 Going forward, it is assumed that you have an Anaconda environment up and running.
-```
 
 You may want to [create a new conda environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands) if you haven't done so already.
+```
 
-## Working with Python Files 
+## Working with Python files 
 
 Python files are used when writing long, reusable blocks of code - by convention, they have a ```.py``` suffix. 
 
@@ -113,18 +111,18 @@ This allows you to split your code into chuncks and structure your codebase bett
 
 Look into the use of [modules](https://docs.python.org/3/tutorial/modules.html) and [packages](https://docs.python.org/3/tutorial/modules.html#packages) for more information on importing functionality.
 
-## Development Environments
+## Development environments
 
 A development environment is a one stop workspace where you can 
 - edit and run your code
 - test and debug 
 - manage project files
 
-This lecture takes you through the workings of two development environments. 
+This lecture takes you through the workings of two development environments.
 
-## A Step Forward from Jupyter Notebooks: JupyterLab
+## A step forward from Jupyter Notebooks: JupyterLab
 
-JupyterLab is a browser based development environment for Jupyter notebooks, code scripts, and data files.
+JupyterLab is a browser based development environment for Jupyter Notebooks, code scripts, and data files.
 
 You can [try JupyterLab in the browser](https://jupyter.org/try#jupyterlab) if you want to test it out before installing it locally.
 
@@ -134,7 +132,7 @@ You can install JupyterLab using pip
 > pip install jupyterlab
 ``` 
 
-and launch it in the browser, similar to Jupyter notebooks.
+and launch it in the browser, similar to Jupyter Notebooks.
 
 ```
 > jupyter-lab
@@ -154,7 +152,7 @@ The following interface should open up on your default browser automatically - i
 
 Click on 
 
-- the Python 3 (ipykernel) button under Notebooks to open a new Jupyter notebook
+- the Python 3 (ipykernel) button under Notebooks to open a new Jupyter Notebook
 - the Python File button to open a new Python script (.py)
 
 You can always open this launcher tab by clicking the '+' button on the top.
@@ -177,11 +175,11 @@ Coming back to the example scripts from earlier, there are two ways to work with
 
 ### Using magic commands
 
-Jupyter notebooks and JupyterLab support the use of [magic commands](https://ipython.readthedocs.io/en/stable/interactive/magics.html) - commands that allow you to run code in other languages from within a notebook.
+Jupyter Notebooks and JupyterLab support the use of [magic commands](https://ipython.readthedocs.io/en/stable/interactive/magics.html) - commands that extend the capabilites of a standard Jupyter Notebook.
 
-The ```%run``` magic command allows you to run a Python script from within a notebook.
+The ```%run``` magic command allows you to run a Python script from within a Notebook.
 
-This is a convenient way to run scripts that you are working on in the same directory as your notebook and present the outputs within the notebook.
+This is a convenient way to run scripts that you are working on in the same directory as your Notebook and present the outputs within the Notebook.
 
 ```{figure} /_static/lecture_specific/workspace/jupyter_lab_py_run.png
 :figclass: auto
@@ -204,14 +202,14 @@ Open a terminal from the launcher and run the following command.
 ```{note}
 You can also run the script line by line by opening an ipykernel console either
 - from the launcher
-- by right clicking within the notebook and selecting Create Console for Editor
+- by right clicking within the Notebook and selecting Create Console for Editor
 
 Use Shift + Enter to run a line of code.
 
 More on ipykernel consoles [here](https://ipython.readthedocs.io/en/stable/interactive/reference.html#ipykernel).
 ```
 
-## A Walk through Visual Studio Code
+## A walk through Visual Studio Code
 
 Visual Studio Code (VS Code) is a code editor and development workspace that can run
 - in the [browser](https://vscode.dev/).
@@ -240,21 +238,17 @@ You can also install extensions from the Extensions tab.
 ```{figure} /_static/lecture_specific/workspace/vs_code_extensions.png
 :figclass: auto
 ```
-To run a ```.py``` file, 
-
-- open a Terminal from the launcher and proceed as earlier.
-- click on the Run button on the top right corner of the editor.
 
 ```{figure} /_static/lecture_specific/workspace/vs_code_run.png
 :figclass: auto
 ```
-Jupyter notebooks (```.ipynb``` files) can be worked on in VS Code.
+Jupyter Notebooks (```.ipynb``` files) can be worked on in VS Code.
 
-Make sure to install the Jupyter extension from the Extensions tab before you try to open a Jupyter notebook.
+Make sure to install the Jupyter extension from the Extensions tab before you try to open a Jupyter Notebook.
 
 Create a new file (in the file Explorer tab) and save it with the ```.ipynb``` extension.
 
-Choose a kernel/environment to run the notebook in by clicking on the Select Kernel button on the top right corner of the editor.
+Choose a kernel/environment to run the Notebook in by clicking on the Select Kernel button on the top right corner of the editor.
 
 ```{figure} /_static/lecture_specific/workspace/vs_code_kernels.png
 :figclass: auto
@@ -312,7 +306,13 @@ Here's an execution of the earlier code.
 :figclass: auto
 ```
 
-## Git Your Hands Dirty
+```{note}
+If you would like to develop packages and build tools using Python, you may want to look into [the use of Docker containers and VS Code](https://github.com/RamiKrispin/vscode-python).
+
+However, this is outside the focus of these lectures. 
+```
+
+## Git your hands dirty
 
 This section will familiarize you with git and GitHub.
 
