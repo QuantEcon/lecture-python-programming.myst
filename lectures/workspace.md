@@ -30,7 +30,11 @@ So far, we have explored the use of Jupyter notebooks in writing and executing P
 
 While they are efficient and adaptable when working with short pieces of code, notebooks are not the best choice for longer programs and scripts. 
 
-We will explore the use of Python scripts as an alternative. - (structured and more serious)
+We will explore the use of Python scripts as an alternative. 
+
+Python scripts are files that contain Python code and are executed in the terminal. 
+
+While Jupyter notebooks can help execute chunks of code one at a time, scripts allow for long pieces of code to be written and executed in a single go. 
 
 The Jupyter Lab and Visual Studio Code (VS Code) development environments are then introduced along with a primer on version control (Git).
 
@@ -69,20 +73,9 @@ plt.title('Sine Wave')
 plt.show()
 ```
 
-The code is first saved locally on the computer before it is executed. Generally, the command 
+The code is first saved locally on the computer before it is executed. 
 
-```
-> python <path to file>
-``` 
-is used, though arguments can be passed to it when necessary. (remove command, add explicit statement about variability of commands)
-
-The command is executed on the console of your choice - here, your Anaconda Prompt might be appropriate.
-
-Here's an execution of same code in a VS Code workspace (explored in detail later in this lecture).
-
-```{figure} /_static/lecture_specific/workspace/sine_wave.png
-:figclass: auto
-```
+As there are various ways to execute the code, we will explore them in the context of different development environments.
 
 One major advantage of using Python scripts lies in the fact that you can "import" functionality from other scripts into your current script or Jupyter Notebook. 
 
@@ -116,12 +109,6 @@ import sine_wave # Import the sine_wave script
 sine_wave.plot_wave("Sine Wave - Called from the Second Script")
 ```
 
-Here's an execution of the above code.
-
-```{figure} /_static/lecture_specific/workspace/sine_wave_import.png
-:figclass: auto
-```
-
 This allows you to split your code into chuncks and structure your codebase better.
 
 Look into the use of [modules](https://docs.python.org/3/tutorial/modules.html) and [packages](https://docs.python.org/3/tutorial/modules.html#packages) for more information on importing functionality.
@@ -138,6 +125,8 @@ This lecture takes you through the workings of two development environments.
 ## A Step Forward from Jupyter Notebooks: JupyterLab
 
 JupyterLab is a browser based development environment for Jupyter notebooks, code scripts, and data files.
+
+You can [try JupyterLab in the browser](https://jupyter.org/try#jupyterlab) if you want to test it out before installing it locally.
 
 You can install JupyterLab using pip
 
@@ -184,6 +173,44 @@ You can install extensions that increase the functionality of JupyterLab by visi
 ```{figure} /_static/lecture_specific/workspace/extensions.png
 :figclass: auto
 ```
+Coming back to the example scripts from earlier, there are two ways to work with them in JupyterLab.
+
+### Using magic commands
+
+Jupyter notebooks and JupyterLab support the use of [magic commands](https://ipython.readthedocs.io/en/stable/interactive/magics.html) - commands that allow you to run code in other languages from within a notebook.
+
+The ```%run``` magic command allows you to run a Python script from within a notebook.
+
+This is a convenient way to run scripts that you are working on in the same directory as your notebook and present the outputs within the notebook.
+
+```{figure} /_static/lecture_specific/workspace/jupyter_lab_py_run.png
+:figclass: auto
+```
+
+### Using the terminal
+
+However, if you are looking into just running the ```.py``` file, it is sometimes easier to use the terminal.
+
+Open a terminal from the launcher and run the following command.
+
+```
+> python <path to file.py>
+``` 
+
+```{figure} /_static/lecture_specific/workspace/jupyter_lab_py_run_term.png
+:figclass: auto
+```
+
+```{note}
+You can also run the script line by line by opening an ipykernel console either
+- from the launcher
+- by right clicking within the notebook and selecting Create Console for Editor
+
+Use Shift + Enter to run a line of code.
+
+More on ipykernel consoles [here](https://ipython.readthedocs.io/en/stable/interactive/reference.html#ipykernel).
+```
+
 ## A Walk through Visual Studio Code
 
 Visual Studio Code (VS Code) is a code editor and development workspace that can run
@@ -261,6 +288,29 @@ This loads existing environments.
 You can also create new environments using ```Python: Create Environment``` in the Command Palette.
 
 A new environment (.conda folder) is created in the the current working directory.
+
+Coming to the example scripts from earlier, there are again two ways to work with them in VS Code.
+
+### Using the run button
+
+You can run the script by clicking on the run button on the top right corner of the editor.
+
+```{figure} /_static/lecture_specific/workspace/vs_code_run_button.png
+:figclass: auto
+```
+This creates an ipykernel console and runs the script.
+
+### Using the terminal
+
+The command ```python <path to file.py>``` is executed on the console of your choice. 
+
+If you are using a Windows machine, you can either use the Anaconda Prompt or the Command Prompt - not the PowerShell.
+
+Here's an execution of the earlier code.
+
+```{figure} /_static/lecture_specific/workspace/sine_wave_import.png
+:figclass: auto
+```
 
 ## Git Your Hands Dirty
 
