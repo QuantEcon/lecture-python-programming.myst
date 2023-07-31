@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.4
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -54,6 +54,7 @@ Let’s first import the library and initialize the printer for symbolic output
 from sympy import *
 from sympy.plotting import plot, plot3d_parametric_line, plot3d
 from sympy.solvers.inequalities import reduce_rational_inequalities
+from sympy.stats import Poisson, Exponential, Binomial, density, moment, E
 
 import numpy as np
 
@@ -139,7 +140,7 @@ eq = Eq(expr, 0)
 eq
 ```
 
-Solving this expression with respect to x gives the same output as solving the expression directly
+Solving this equation with respect to x gives the same output as solving the expression directly
 
 ```{code-cell} ipython3
 solve(eq, x)
@@ -288,9 +289,9 @@ sum_xy = Sum(Indexed('x',i) * Indexed('y', j),
 sum_xy
 ```
 
-To evaluate the sum, we can `lamdify` the formula.
+To evaluate the sum, we can [`lamdify`](https://docs.sympy.org/latest/modules/utilities/lambdify.html#sympy.utilities.lambdify.lambdify) the formula.
 
-The lamdified expression can take vectors as input for $x$ and $y$ and compute the result
+The lamdified expression can take numeric values as input for $x$ and $y$ and compute the result
 
 ```{code-cell} ipython3
 sum_xy = lambdify([x, y], sum_xy)
@@ -309,8 +310,8 @@ $$
 $$
 
 ```{code-cell} ipython3
-r, D = symbols('r D')
-
+D = symbols('D')
+r = Symbol('r', positive=True)
 Dt = Sum('(1 - r)^i * D', (i, 0, oo))
 Dt
 ```
@@ -371,13 +372,17 @@ fx = Sum(x*pmf, (x, 0, oo))
 fx.doit()
 ```
 
-```{note}
-
 SymPy offers a statistics module called [`Stats`](https://docs.sympy.org/latest/modules/stats.html).
 
 `Stats` module offers built-in distributions and functions on probability distributions.
 
-The operation above can also be computed using `Stats` module.
+The computation above can also be condensed into one line using `Stats` module
+
+```{code-cell} ipython3
+# Using sympy.stats.Poisson() method
+λ = Symbol("λ", positive = True)
+X = Poisson("x", λ)
+E(X)
 ```
 
 ## Symbolic Calculus
@@ -387,7 +392,7 @@ SymPy allows us to perform various calculus operations, such as differentiation 
 
 ### Limits
 
-We can compute limits for a given function using the `limit` function
+We can compute limits for a given expression using the `limit` function
 
 ```{code-cell} ipython3
 ---
@@ -395,7 +400,7 @@ mystnb:
   image:
     width: 3%
 ---
-# Define a function
+# Define an expression
 f = x ** 2 / (x - 1)
 
 # Compute the limit
@@ -405,7 +410,7 @@ lim
 
 ### Derivatives
 
-We can differentiate any SymPy expression using `diff(func, var)`
+We can differentiate any SymPy expression using `diff(expr, var)`
 
 ```{code-cell} ipython3
 ---
@@ -440,15 +445,30 @@ f(x) = \lambda e^{-\lambda x}, \quad x \ge 0
 $$
 
 ```{code-cell} ipython3
-λ, x = symbols('lambda x')
+λ = Symbol('lambda', positive=True)
+x = Symbol('x', positive=True)
 pdf = λ * exp(-λ*x)
 pdf
 ```
 
 ```{code-cell} ipython3
-t = symbols('t')
-moment_n = integrate(exp(t * x) * pdf, (x, 0, oo))
-simplify(moment_n)
+t = Symbol('t', positive=True)
+moment_t = integrate(exp(t * x) * pdf, (x, 0, oo))
+simplify(moment_t)
+```
+
+Note that we can also use `Stats` module to compute the moment
+
+```{code-cell} ipython3
+X = Exponential(x, λ)
+```
+
+```{code-cell} ipython3
+moment(X, 1)
+```
+
+```{code-cell} ipython3
+E(X**t)
 ```
 
 Using `integrate` function, we can derive the cumulative density function of the exponential distribution with $\lambda = 0.5$
@@ -741,7 +761,6 @@ Compute the Pareto optimal allocation of the economy with $\alpha = \beta = 0.5$
 :class: dropdown
 ```
 
-
 Here is one solution
 
 ```{code-cell} ipython3
@@ -804,7 +823,6 @@ Extra tasks:
 
 - Can you think of a way to draw the same graph using `numpy`? 
 - How difficult will it be to write a `numpy` implementation?
-
 
 ```{solution-end}
 ```
