@@ -515,7 +515,8 @@ p = plot_implicit(Eq((1/x + 1/y)**2, 1))
 ```
 
 ```{code-cell} ipython3
-p = plot_implicit(And(2*x + 5*y <= 30, 4*x + 2*y >= 20), (x, -1, 10), (y, -10, 10))
+p = plot_implicit(And(2*x + 5*y <= 30, 4*x + 2*y >= 20),
+                     (x, -1, 10), (y, -10, 10))
 ```
 
 and visualizations in three-dimensional space
