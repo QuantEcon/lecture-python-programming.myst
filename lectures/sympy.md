@@ -11,15 +11,29 @@ kernelspec:
   name: python3
 ---
 
-+++ {"user_expressions": []}
+(sympy)=
+```{raw} jupyter
+<div id="qe-notebook-header" align="right" style="text-align:right;">
+        <a href="https://quantecon.org/" title="quantecon.org">
+                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
+        </a>
+</div>
+```
 
-# SymPy
+# {index}`SymPy <single: SymPy>`
+
+```{index} single: Python; SymPy
+```
+
+```{contents} Contents
+:depth: 2
+```
 
 ## Overview
 
 Unlike numerical libraries that deal with values, [SymPy](https://www.sympy.org/en/index.html) focuses on manipulating mathematical symbols and expressions directly.
 
-SymPy provides [a wide range of functionalities](https://www.sympy.org/en/features.html) including 
+SymPy provides [a wide range of features](https://www.sympy.org/en/features.html) including 
 
 - Symbolic Expression
 - Equation Solving
@@ -47,13 +61,9 @@ import numpy as np
 init_printing()
 ```
 
-+++ {"user_expressions": []}
-
 ## Symbolic algebra
 
 ### Symbols
-
-+++ {"user_expressions": []}
 
 Before we start manipulating the symbols, we initialize some symbols to work with
 
@@ -62,8 +72,6 @@ x, y, z = symbols('x y z')
 ```
 
 Symbols are the basic units for symbolic computation in SymPy.
-
-+++ {"user_expressions": []}
 
 ### Expressions
 
@@ -81,8 +89,6 @@ expr = (x + y) ** 2
 expr
 ```
 
-+++ {"user_expressions": []}
-
 We can expand this expression with the `expand` function
 
 ```{code-cell} ipython3
@@ -90,23 +96,17 @@ expand_expr = expand(expr)
 expand_expr
 ```
 
-+++ {"user_expressions": []}
-
 and factorize it back to the factored form with the `factor` function
 
 ```{code-cell} ipython3
 factor(expand_expr)
 ```
 
-+++ {"user_expressions": []}
-
 We can solve this expression
 
 ```{code-cell} ipython3
 solve(expr)
 ```
-
-+++ {"user_expressions": []}
 
 Note this is equivalent to solving the equation
 
@@ -128,8 +128,6 @@ solveset(expr, x, domain=S.Naturals)
 There are a variety of solvers available in SymPy depending on the nature of the problem.
 ```
 
-+++ {"user_expressions": []}
-
 ### Equations
 
 SymPy provides several functions to manipulate equations.
@@ -141,15 +139,11 @@ eq = Eq(expr, 0)
 eq
 ```
 
-+++ {"user_expressions": []}
-
 Solving this expression with respect to x gives the same output as solving the expression directly
 
 ```{code-cell} ipython3
 solve(eq, x)
 ```
-
-+++ {"user_expressions": []}
 
 SymPy can easily handle equations with multiple solutions
 
@@ -157,8 +151,6 @@ SymPy can easily handle equations with multiple solutions
 eq = Eq(expr, 1)
 solve(eq, x)
 ```
-
-+++ {"user_expressions": []}
 
 `solve` function can also combine multiple equations together and solve a system of equations
 
@@ -171,8 +163,6 @@ eq2
 solve([eq, eq2], [x, y])
 ```
 
-+++ {"user_expressions": []}
-
 We can also solve for the value of $y$ by simply substituting $x$ with $y$
 
 ```{code-cell} ipython3
@@ -183,8 +173,6 @@ expr_sub
 ```{code-cell} ipython3
 solve(Eq(expr_sub, 1))
 ```
-
-+++ {"user_expressions": []}
 
 Below is another example equation with symbol `x` and functions `sin`, `cos`, and `tan` using the `Eq` function
 
@@ -199,8 +187,6 @@ eq = Eq(cos(x) / (tan(x)/sin(x)), 0)
 eq
 ```
 
-+++ {"user_expressions": []}
-
 Now we simplify this equation using the `simplify` function
 
 ```{code-cell} ipython3
@@ -214,8 +200,6 @@ simplified_expr = simplify(eq)
 simplified_expr
 ```
 
-+++ {"user_expressions": []}
-
 We can solve equations using the `solve` function in SymPy
 
 ```{code-cell} ipython3
@@ -224,12 +208,11 @@ mystnb:
   image:
     width: 5.5%
 ---
+
 # Solve the equation
 sol = solve(eq, x)
 sol
 ```
-
-+++ {"user_expressions": []}
 
 SymPy can also handle more complex equations involving trigonometry and complex numbers.
 
@@ -244,8 +227,6 @@ euler
 ```{code-cell} ipython3
 simplify(euler)
 ```
-
-+++ {"user_expressions": []}
 
 #### Example: fixed point computation
 
@@ -293,8 +274,6 @@ reduce_inequalities([2*x + 5*y <= 30, 4*x + 2*y <= 20], [x])
 And(2*x + 5*y <= 30, x > 0)
 ```
 
-+++ {"user_expressions": []}
-
 ### Series
 
 Series are widely used in economics and statistics, from asset pricing to the expectation of discrete random variables.
@@ -309,8 +288,6 @@ sum_xy = Sum(Indexed('x',i) * Indexed('y', j),
 sum_xy
 ```
 
-+++ {"user_expressions": []}
-
 To evaluate the sum, we can `lamdify` the formula.
 
 The lamdified expression can take vectors as input for $x$ and $y$ and compute the result
@@ -321,13 +298,11 @@ grid = np.arange(0, 4, 1)
 sum_xy(grid, grid)
 ```
 
-+++ {"user_expressions": []}
-
 #### Example: bank deposits
 
 Imagine a bank with $D_0$ as the deposit at time $t$, it loans $(1-r)$ of its deposits and keeps a fraction $r$ as cash reserves.
 
-Its deposits at time is
+Its deposits at time $t$ is
 
 $$
 \sum_{i=0}^\infty (1-r)^i D_0
@@ -340,23 +315,17 @@ Dt = Sum('(1 - r)^i * D', (i, 0, oo))
 Dt
 ```
 
-+++ {"user_expressions": []}
-
 We can call `doit` method to evaluate the series
 
 ```{code-cell} ipython3
 Dt.doit()
 ```
 
-+++ {"user_expressions": []}
-
 Simplifying the expression above gives
 
 ```{code-cell} ipython3
 simplify(Dt.doit())
 ```
-
-+++ {"user_expressions": []}
 
 This is consistent with the solution we provided in our lecture on [geometric series](https://python.quantecon.org/geom_series.html#example-the-money-multiplier-in-fractional-reserve-banking).
 
@@ -411,8 +380,6 @@ SymPy offers a statistics module called [`Stats`](https://docs.sympy.org/latest/
 The operation above can also be computed using `Stats` module.
 ```
 
-+++ {"user_expressions": []}
-
 ## Symbolic Calculus
 
 SymPy allows us to perform various calculus operations, such as differentiation and integration.
@@ -436,8 +403,6 @@ lim = limit(f, x, 0)
 lim
 ```
 
-+++ {"user_expressions": []}
-
 ### Derivatives
 
 We can differentiate any SymPy expression using `diff(func, var)`
@@ -452,8 +417,6 @@ mystnb:
 df = diff(f, x)
 df
 ```
-
-+++ {"user_expressions": []}
 
 ### Integrals
 
@@ -499,8 +462,6 @@ lamda_pdf
 integrate(lamda_pdf, (x, 0, 4))
 ```
 
-+++ {"user_expressions": []}
-
 ## Plotting
 
 SymPy provides a powerful plotting feature. 
@@ -537,13 +498,11 @@ p = plot_implicit(Eq((1/x + 1/y)**2, 1))
 p = plot_implicit(And(2*x + 5*y <= 30, 4*x + 2*y >= 20), (x, -1, 10), (y, -10, 10))
 ```
 
-It also supports visualizations in three-dimensional space
+and visualizations in three-dimensional space
 
 ```{code-cell} ipython3
 p = plot3d(cos(2*x + y))
 ```
-
-+++ {"user_expressions": []}
 
 ## Applications
 
@@ -574,12 +533,13 @@ Let's define these symbols using sympy
 w, R, g, D, phi = symbols('w R g D phi')
 ```
 
-+++ {"user_expressions": []}
-
 ### Defining the Present Value Equations
-We calculate the present value of the earnings of a high school graduate and a college graduate. For a high school graduate, we sum the discounted wages from year 1 to $T = 4$. For a college graduate, we sum the discounted wages from year 5 to $T = 4$, considering the cost of college $D$ paid upfront
 
-+++ {"user_expressions": []}
+We calculate the present value of the earnings of a high school graduate and a college graduate. 
+
+For a high school graduate, we sum the discounted wages from year 1 to $T = 4$. 
+
+For a college graduate, we sum the discounted wages from year 5 to $T = 4$, considering the cost of college $D$ paid upfront
 
 $$
 PV_{\text{{highschool}}} = \frac{w}{R} + \frac{w*(1 + g)}{R^2} + \frac{w*(1 + g)^2}{R^3} + \frac{w*(1 + g)^3}{R^4}
@@ -601,9 +561,8 @@ PV_college = D + phi*w*(1 + g)**4/R + phi*w*(1 + g)**5 / \
     R**2 + phi*w*(1 + g)**6/R**3 + phi*w*(1 + g)**7/R**4
 ```
 
-+++ {"user_expressions": []}
-
 ### Defining the Indifference Equation
+
 The indifference equation represents the condition that a worker is indifferent between going to college or not. This is given by the equation $PV_h$ = $PV_c$
 
 ```{code-cell} ipython3
@@ -615,8 +574,6 @@ mystnb:
 # Define the indifference equation
 indifference_eq = Eq(PV_highschool, PV_college)
 ```
-
-+++ {"user_expressions": []}
 
 We can now solve the indifference equation for the wage gap $\phi$
 
@@ -633,8 +590,6 @@ solution = solve(indifference_eq, phi)
 solution = simplify(solution[0])
 solution
 ```
-
-+++ {"user_expressions": []}
 
 To compute a numerical value for $\phi$, we replace symbols $w$, $R$, $g$, and $D$ with specific numbers. 
 
@@ -653,11 +608,9 @@ solution_num = solution.subs({w: 1, R: 1.05, g: 0.02, D: 0.5})
 solution_num
 ```
 
-+++ {"user_expressions": []}
-
 The wage of a college graduate is approximately 0.797 times the wage of a high school graduate.
 
-+++ {"user_expressions": []}
+## Exercises
 
 ```{exercise}
 :label: sympy_ex1
@@ -680,8 +633,6 @@ as $x$ approaches to $0$
 ```{solution-start} sympy_ex1
 :class: dropdown
 ```
-
-+++
 
 Let's define the function first
 
@@ -790,7 +741,6 @@ Compute the Pareto optimal allocation of the economy with $\alpha = \beta = 0.5$
 :class: dropdown
 ```
 
-+++
 
 Here is one solution
 
@@ -855,7 +805,6 @@ Extra tasks:
 - Can you think of a way to draw the same graph using `numpy`? 
 - How difficult will it be to write a `numpy` implementation?
 
-+++
 
 ```{solution-end}
 ```
