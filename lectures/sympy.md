@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.4
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -57,6 +57,7 @@ from sympy.solvers.inequalities import reduce_rational_inequalities
 from sympy.stats import Poisson, Exponential, Binomial, density, moment, E
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 # Enable the best printer available
 init_printing(use_latex='mathjax')
@@ -553,7 +554,7 @@ w_ht
 The present value of the earnings after going to college is
 
 $$
-PV_{\text{{college}}} = \sum_{t=4}^T R^{-t} w_t^c = w_0^c (R^{-1} \gamma_c)^4  \left[ \frac{1 - (R^{-1} \gamma_c)^{T-3} }{1 - R^{-1} \gamma_c } \right] \equiv w_0^c A_c
+PV_{\text{{college}}} = \sum_{t=4}^T R^{-t} w_t^c
 $$
 
 It is the sum of the discounted earnings from the first year of graduation to the last year of work assuming the degree is obtained in the fourth year.
@@ -561,7 +562,7 @@ It is the sum of the discounted earnings from the first year of graduation to th
 The present value of the earnings from going to work after high school is
 
 $$
-PV_{\text{{highschool}}} = \sum_{t=0}^T R^{-t} w_t^h = w_0^h \left[ \frac{1 - (R^{-1} \gamma_h)^{T+1} }{1 - R^{-1} \gamma_h } \right] \equiv w_0^h A_h
+PV_{\text{{highschool}}} = \sum_{t=0}^T R^{-t} w_t^h
 $$
 
 It is the sum of the discounted earnings from the first year of work to the last year of work.
@@ -618,7 +619,7 @@ lambda_indiff = Lambda((R, wh0, wc0, γ_c, γ_h, D, T), indiff_sol)
 lambda_indiff
 ```
 
-We can use the following parameters to compute the value for $\phi$
+We use the following parameters to compute the value for $\phi$
 
 ```{code-cell} ipython3
 R_value = 1.05
@@ -628,12 +629,82 @@ wc0_value = 2
 D_value = 10
 T_value = 40
 
-lambda_indiff(R_value, wh0_value, wc0_value, γ_c_value, γ_h_value, D_value, T_value)
+lambda_indiff(R_value, wh0_value, wc0_value, 
+              γ_c_value, γ_h_value, D_value, 
+              T_value)
 ```
 
 Under this setting, we find college is more attractive to the person as $\phi < 1$.
 
-We can take a step further by taking the derivative of $\phi$ with respect to $D$ to compute the marginal effect of tuition fee on $\phi$
+Note that we can also use the `subs` method to substitute the values of the parameters
+
+```{code-cell} ipython3
+indiff_sol.subs({R: R_value, wh0: wh0_value, wc0: wc0_value, 
+                γ_c: γ_c_value, γ_h: γ_h_value, D: D_value, 
+                T: T_value})
+```
+
+It is also possible to use the [`evalf` method](https://docs.sympy.org/latest/modules/evalf.html) to get floating-point approximations
+
+```{code-cell} ipython3
+indiff_sol.evalf(subs={R: R_value, wh0: wh0_value, wc0: wc0_value, 
+                γ_c: γ_c_value, γ_h: γ_h_value, D: D_value, 
+                T: T_value})
+```
+
+Note how precision changes using different methods.
+
+We encourage readers to read more about how SymPy uses different methods to evaluate a function/expression.
+
+As a recap, we can `lambdify` a function to take a range of values.
+
+Let's say we want to know how $\phi$ changes with different time length $T$
+
+```{code-cell} ipython3
+indiff_sol_T = indiff_sol.subs({R: R_value, wh0: wh0_value, 
+                                wc0: wc0_value, γ_c: γ_c_value, 
+                                γ_h: γ_h_value, D: D_value})
+```
+
+```{code-cell} ipython3
+plt.plot(lambdify(T, indiff_sol_T)(np.arange(40, 100, 1)))
+plt.xlabel('T')
+plt.ylabel(r'$\phi$')
+plt.show()
+```
+
+It also enables us to see how $\phi$ changes with different time length $T$ and $D$
+
+```{code-cell} ipython3
+indiff_sol_TD = indiff_sol.subs({R: R_value, wh0: wh0_value, 
+                                wc0: wc0_value, γ_c: γ_c_value, 
+                                γ_h: γ_h_value})
+```
+
+```{code-cell} ipython3
+grid = np.meshgrid(np.arange(40, 100, 1), np.arange(0, 20, 1))
+```
+
+```{code-cell} ipython3
+ϕ_TR = lambdify([T, D], indiff_sol_TD)(grid[0], grid[1])
+```
+
+```{code-cell} ipython3
+fig = plt.figure()
+ax = plt.axes(projection ='3d')
+ax.set_box_aspect(aspect=None, zoom=0.85)
+
+ax.plot_surface(grid[0], grid[1],
+                ϕ_TR)
+ax.set_xlabel('T')
+ax.set_ylabel('D')
+ax.set_zlabel(r'$\phi$')
+plt.show()
+```
+
+We can see how $\phi$ flats out when we increase the time horizon as sollege graduates have higher salary.
+
+Let's take a step further by taking the derivative of $\phi$ with respect to $D$ to compute the marginal effect of tuition fee on $\phi$
 
 ```{code-cell} ipython3
 diff_D = lambda_indiff(R, wh0, wc0, γ_c, γ_h, D, T).diff(D)
@@ -647,7 +718,9 @@ simplify(diff_D)
 We can see that higher tuition fee gives more incentives for high school graduates to go to work directly.
 
 ```{code-cell} ipython3
-ϕ_D_func(R_value, wh0_value, wc0_value, γ_c_value, γ_h_value, D_value, T_value)
+ϕ_D_func(R_value, wh0_value, wc0_value, 
+         γ_c_value, γ_h_value, D_value, 
+         T_value)
 ```
 
 ## Exercises
