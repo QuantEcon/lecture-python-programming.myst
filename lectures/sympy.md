@@ -81,11 +81,6 @@ We can now use symbols `x`, `y`, and `z` to build expressions and equations.
 Here we build a simple expression first
 
 ```{code-cell} ipython3
----
-mystnb:
-  image:
-    width: 10%
----
 expr = (x + y) ** 2
 expr
 ```
@@ -178,11 +173,6 @@ solve(Eq(expr_sub, 1))
 Below is another example equation with symbol `x` and functions `sin`, `cos`, and `tan` using the `Eq` function
 
 ```{code-cell} ipython3
----
-mystnb:
-  image:
-    width: 17.5%
----
 # Create an equation
 eq = Eq(cos(x) / (tan(x)/sin(x)), 0)
 eq
@@ -191,11 +181,6 @@ eq
 Now we simplify this equation using the `simplify` function
 
 ```{code-cell} ipython3
----
-mystnb:
-  image:
-    width: 10%
----
 # Simplify an expression
 simplified_expr = simplify(eq)
 simplified_expr
@@ -204,12 +189,6 @@ simplified_expr
 We can solve equations using the `solve` function in SymPy
 
 ```{code-cell} ipython3
----
-mystnb:
-  image:
-    width: 5.5%
----
-
 # Solve the equation
 sol = solve(eq, x)
 sol
@@ -395,11 +374,6 @@ SymPy allows us to perform various calculus operations, such as differentiation 
 We can compute limits for a given expression using the `limit` function
 
 ```{code-cell} ipython3
----
-mystnb:
-  image:
-    width: 3%
----
 # Define an expression
 f = x ** 2 / (x - 1)
 
@@ -413,11 +387,6 @@ lim
 We can differentiate any SymPy expression using `diff(expr, var)`
 
 ```{code-cell} ipython3
----
-mystnb:
-  image:
-    width: 20%
----
 # Differentiate a function
 df = diff(f, x)
 df
@@ -428,11 +397,6 @@ df
 We can compute definite and indefinite integrals using `integrate` function
 
 ```{code-cell} ipython3
----
-mystnb:
-  image:
-    width: 12%
----
 # Calculate the indefinite integral
 indef_int = integrate(df, x)
 indef_int
@@ -571,11 +535,6 @@ PV_{\text{{college}}} = D + \frac{\phi * w * (1 + g)^4}{R} + \frac{\phi * w * (1
 $$
 
 ```{code-cell} ipython3
----
-mystnb:
-  image:
-    width: 17.5%
----
 # Define the present value equations
 PV_highschool = w/R + w*(1 + g)/R**2 + w*(1 + g)**2/R**3 + w*(1 + g)**3/R**4
 PV_college = D + phi*w*(1 + g)**4/R + phi*w*(1 + g)**5 / \
@@ -587,11 +546,6 @@ PV_college = D + phi*w*(1 + g)**4/R + phi*w*(1 + g)**5 / \
 The indifference equation represents the condition that a worker is indifferent between going to college or not. This is given by the equation $PV_h$ = $PV_c$
 
 ```{code-cell} ipython3
----
-mystnb:
-  image:
-    width: 17.5%
----
 # Define the indifference equation
 indifference_eq = Eq(PV_highschool, PV_college)
 ```
@@ -599,11 +553,6 @@ indifference_eq = Eq(PV_highschool, PV_college)
 We can now solve the indifference equation for the wage gap $\phi$
 
 ```{code-cell} ipython3
----
-mystnb:
-  image:
-    width: 65%
----
 # Solve for phi
 solution = solve(indifference_eq, phi)
 
@@ -619,11 +568,6 @@ Here we use $w = 1$, $R = 1.05$, $g = 0.02$, and $D = 0.5$.
 Substituting them into the equation, we find a specific value for $\phi$
 
 ```{code-cell} ipython3
----
-mystnb:
-  image:
-    width: 20%
----
 # Substitute specific values
 solution_num = solution.subs({w: 1, R: 1.05, g: 0.02, D: 0.5})
 solution_num
