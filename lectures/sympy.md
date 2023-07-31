@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.4
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -59,7 +59,7 @@ from sympy.stats import Poisson, Exponential, Binomial, density, moment, E
 import numpy as np
 
 # Enable the best printer available
-init_printing()
+init_printing(use_latex='mathjax')
 ```
 
 ## Symbolic algebra
@@ -491,89 +491,164 @@ p = plot3d(cos(2*x + y))
 
 ## Applications
 
-In this section, we apply SymPy to an economic model that explores the wage gap between college and high school graduates. 
+In this section, we apply SymPy to construct an equalizing differences model that explores the wage gap between college and high school graduates. 
+
+The idea of this example is to imagine a person deciding whether to be admitted into a college or entering the workforce after high school.
+
+The person is indifferent between the two options if the present value of the earnings from the two options are the same.
+
+For more details on the model, please visit [the lecture](https://intro.quantecon.org/equalizing_difference.html) in A First Course in Quantitative Economics with Python.
 
 ### Defining the Symbols
 
-The first step in symbolic computation is to define the symbols that represent the variables in our equations. In our model, we have the following variables:
+The first step in symbolic computation is to define the symbols that represent the variables. 
 
- * $R$ The gross rate of return on a one-period bond
+In our model, we need the following variables:
 
- * $t = 0, 1, 2, \ldots T$ Denote the years that a person either works or attends college
- 
- * $T$ denotes the last period that a person  works
- 
- * $w$ The wage of a high school graduate
- 
- * $g$ The growth rate of wages
+ * $R > 1$ be the gross rate of return on a one-period bond
 
- * $D$ The upfront monetary costs of going to college
+ * $t = 0, 1, 2, \ldots T$ denote the years that a person either works or attends college
  
- * $\phi$ The wage gap, defined as the ratio of the wage of a college graduate to the wage of a high school graduate
+ * $0$ denote the first period after high school that a person can go to work
  
-Let's define these symbols using sympy
+ * $T$ denote the last period that a person works
+ 
+ * $w_t^h$ be the wage at time $t$ of a high school graduate
+ 
+ * $w_t^c$ be the wage at time $t$ of a college graduate
+ 
+ * $\gamma_h > 1$ be the (gross) rate of growth of wages of a high school graduate, so that
+ $ w_t^h = w_0^h \gamma_h^t$
+ 
+ * $\gamma_c > 1$ be the (gross) rate of growth of wages of a  college  graduate, so that
+ $ w_t^c = w_0^c \gamma_c^t$
+
+Let's define these symbols using SymPy
 
 ```{code-cell} ipython3
 # Define the symbols
-w, R, g, D, phi = symbols('w R g D phi')
+R, wh0, wc0, γ_c, γ_h, t, T = symbols(
+    'R w^h_0 w^c_0 gamma_c gamma_h t T', positive=True)
+
+refine(γ_c, γ_c>1)
+refine(γ_h, γ_h>1)
+refine(R, R>1)
+
+# Define the wage for college 
+# and high school graduates at time t
+w_ct = wc0 * γ_c**t
+w_ht = wh0 * γ_h**t
+```
+
+```{code-cell} ipython3
+w_ct
+```
+
+```{code-cell} ipython3
+w_ht
 ```
 
 ### Defining the Present Value Equations
 
-We calculate the present value of the earnings of a high school graduate and a college graduate. 
-
-For a high school graduate, we sum the discounted wages from year 1 to $T = 4$. 
-
-For a college graduate, we sum the discounted wages from year 5 to $T = 4$, considering the cost of college $D$ paid upfront
+The present value of the earnings after going to college is
 
 $$
-PV_{\text{{highschool}}} = \frac{w}{R} + \frac{w*(1 + g)}{R^2} + \frac{w*(1 + g)^2}{R^3} + \frac{w*(1 + g)^3}{R^4}
+PV_{\text{{college}}} = \sum_{t=4}^T R^{-t} w_t^c = w_0^c (R^{-1} \gamma_c)^4  \left[ \frac{1 - (R^{-1} \gamma_c)^{T-3} }{1 - R^{-1} \gamma_c } \right] \equiv w_0^c A_c
 $$
 
+It is the sum of the discounted earnings from the first year of graduation to the last year of work assuming the degree is obtained in the fourth year.
+
+The present value of the earnings from going to work after high school is
+
 $$
-PV_{\text{{college}}} = D + \frac{\phi * w * (1 + g)^4}{R} + \frac{\phi * w * (1 + g)^5}{R^2} + \frac{\phi * w * (1 + g)^6}{R^3} + \frac{\phi * w * (1 + g)^7}{R^4}
+PV_{\text{{highschool}}} = \sum_{t=0}^T R^{-t} w_t^h = w_0^h \left[ \frac{1 - (R^{-1} \gamma_h)^{T+1} }{1 - R^{-1} \gamma_h } \right] \equiv w_0^h A_h
 $$
+
+It is the sum of the discounted earnings from the first year of work to the last year of work.
 
 ```{code-cell} ipython3
-# Define the present value equations
-PV_highschool = w/R + w*(1 + g)/R**2 + w*(1 + g)**2/R**3 + w*(1 + g)**3/R**4
-PV_college = D + phi*w*(1 + g)**4/R + phi*w*(1 + g)**5 / \
-    R**2 + phi*w*(1 + g)**6/R**3 + phi*w*(1 + g)**7/R**4
+PV_college = Sum(R**-t*w_ct, (t, 4, T))
+
+PV_highschool = Sum(R**-t*w_ht, (t, 0, T))
+```
+
+We can evaluate the sum using the `doit` method
+
+```{code-cell} ipython3
+PV_hs = simplify(PV_highschool.doit())
+PV_hs
+```
+
+```{code-cell} ipython3
+PV_c = simplify(PV_college.doit())
+PV_c
 ```
 
 ### Defining the Indifference Equation
 
-The indifference equation represents the condition that a worker is indifferent between going to college or not. This is given by the equation $PV_h$ = $PV_c$
+Now we introduce the symbol $\phi$ to represent the fraction of high school graduates who go to college and $D$ to represent the upfront monetary costs of going to college.
 
 ```{code-cell} ipython3
-# Define the indifference equation
-indifference_eq = Eq(PV_highschool, PV_college)
+D, ϕ = symbols('D phi', positive=True)
 ```
 
-We can now solve the indifference equation for the wage gap $\phi$
+We can solve for by solving the equation below with regards to $\phi$
+
+$$
+PV_{highschool} = \phi PV_{college} - D
+$$
+
+so that 
+
+$$
+\phi =\frac{PV_{highschool}}{PV_{college} - D}
+$$
 
 ```{code-cell} ipython3
-# Solve for phi
-solution = solve(indifference_eq, phi)
-
-# Simplify the solution
-solution = simplify(solution[0])
-solution
+indifference = Eq(PV_hs.args[1][0], 
+                  ϕ*PV_c.args[1][0] - D)
+indiff_sol = solve(indifference, ϕ)[0]
+indiff_sol
 ```
 
-To compute a numerical value for $\phi$, we replace symbols $w$, $R$, $g$, and $D$ with specific numbers. 
-
-Here we use $w = 1$, $R = 1.05$, $g = 0.02$, and $D = 0.5$. 
-
-Substituting them into the equation, we find a specific value for $\phi$
+Using `Lambda` function, we can specify the parameters of the equation
 
 ```{code-cell} ipython3
-# Substitute specific values
-solution_num = solution.subs({w: 1, R: 1.05, g: 0.02, D: 0.5})
-solution_num
+lambda_indiff = Lambda((R, wh0, wc0, γ_c, γ_h, D, T), indiff_sol)
+lambda_indiff
 ```
 
-The wage of a college graduate is approximately 0.797 times the wage of a high school graduate.
+We can use the following parameters to compute the value for $\phi$
+
+```{code-cell} ipython3
+R_value = 1.05
+γ_c_value, γ_h_value = 1.01, 1.01
+wh0_value = 1
+wc0_value = 2
+D_value = 10
+T_value = 40
+
+lambda_indiff(R_value, wh0_value, wc0_value, γ_c_value, γ_h_value, D_value, T_value)
+```
+
+Under this setting, we find college is more attractive to the person as $\phi < 1$.
+
+We can take a step further by taking the derivative of $\phi$ with respect to $D$ to compute the marginal effect of tuition fee on $\phi$
+
+```{code-cell} ipython3
+diff_D = lambda_indiff(R, wh0, wc0, γ_c, γ_h, D, T).diff(D)
+simplify(diff_D)
+```
+
+```{code-cell} ipython3
+ϕ_D_func = Lambda((R, wh0, wc0, γ_c, γ_h, D, T), diff_D)
+```
+
+We can see that higher tuition fee gives more incentives for high school graduates to go to work directly.
+
+```{code-cell} ipython3
+ϕ_D_func(R_value, wh0_value, wc0_value, γ_c_value, γ_h_value, D_value, T_value)
+```
 
 ## Exercises
 
