@@ -157,8 +157,6 @@ Click on
 
 You can always open this launcher tab by clicking the '+' button on the top.
 
-To run a ```.py``` file, open a Terminal from the launcher and proceed as earlier.
-
 All the files and folders in your working directory can be found in the File Browser (tab on the left).
 
 You can create new files and folders using the buttons available at the top of the File Browser tab. 
@@ -172,6 +170,9 @@ You can install extensions that increase the functionality of JupyterLab by visi
 :figclass: auto
 ```
 Coming back to the example scripts from earlier, there are two ways to work with them in JupyterLab.
+
+- Using magic commands
+- Using the terminal
 
 ### Using magic commands
 
@@ -238,10 +239,6 @@ You can also install extensions from the Extensions tab.
 ```{figure} /_static/lecture_specific/workspace/vs_code_extensions.png
 :figclass: auto
 ```
-
-```{figure} /_static/lecture_specific/workspace/vs_code_run.png
-:figclass: auto
-```
 Jupyter Notebooks (```.ipynb``` files) can be worked on in VS Code.
 
 Make sure to install the Jupyter extension from the Extensions tab before you try to open a Jupyter Notebook.
@@ -285,9 +282,18 @@ A new environment (.conda folder) is created in the the current working director
 
 Coming to the example scripts from earlier, there are again two ways to work with them in VS Code.
 
+- Using the run button
+- Using the terminal
+
 ### Using the run button
 
 You can run the script by clicking on the run button on the top right corner of the editor.
+
+```{figure} /_static/lecture_specific/workspace/vs_code_run.png
+:figclass: auto
+```
+
+You can also run the script interactively by selecting the **Run Current File in Interactive Window** option from the dropdown.
 
 ```{figure} /_static/lecture_specific/workspace/vs_code_run_button.png
 :figclass: auto
@@ -298,7 +304,7 @@ This creates an ipykernel console and runs the script.
 
 The command ```python <path to file.py>``` is executed on the console of your choice. 
 
-If you are using a Windows machine, you can either use the Anaconda Prompt or the Command Prompt - not the PowerShell.
+If you are using a Windows machine, you can either use the Anaconda Prompt or the Command Prompt - but, generally not the PowerShell.
 
 Here's an execution of the earlier code.
 

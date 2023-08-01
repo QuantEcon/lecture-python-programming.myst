@@ -384,6 +384,10 @@ Now we `Shift+Enter` to produce this
 
 ### Debugging Code
 
+Debugging is the process of identifying and removing errors from a program. 
+
+You will spend a lot of time debugging code, so it is important to [learn how to do it effectively](https://www.freecodecamp.org/news/what-is-debugging-how-to-debug-code/).
+
 If you are using a newer version of Jupyter, you should see a bug icon on the right end of the toolbar.
 
 ```{figure} /_static/lecture_specific/getting_started/debug.png
@@ -422,6 +426,16 @@ The notebooks you see on that site are **static** html representations.
 To run one, download it as an `ipynb` file by clicking on the download icon at the top right.
 
 Save it somewhere, navigate to it from the Jupyter dashboard and then run as discussed above.
+
+```{note}
+If you are interested in sharing notebooks containing interactive content, you might want to check out [Binder](https://mybinder.org/).
+
+To collaborate with other people on notebooks, you might want to check out
+- [Google Colab](https://colab.research.google.com/)
+- [Kaggle](https://www.kaggle.com/kernels)
+
+To keep the code private and to use the familiar JupyterLab and Notebook interface, look into the [JupyterLab Real-Time Collaboration extension](https://jupyterlab-realtime-collaboration.readthedocs.io/en/latest/).
+```
 
 ### QuantEcon Notes
 
