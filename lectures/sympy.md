@@ -105,7 +105,7 @@ We can solve this expression
 solve(expr)
 ```
 
-Note this is equivalent to solving the equation
+Note this is equivalent to solving the following equation for `x`
 
 $$
 (x + y)^2 = 0 
@@ -136,7 +136,7 @@ eq = Eq(expr, 0)
 eq
 ```
 
-Solving this equation with respect to x gives the same output as solving the expression directly
+Solving this equation with respect to $x$ gives the same output as solving the expression directly
 
 ```{code-cell} ipython3
 solve(eq, x)
@@ -187,7 +187,7 @@ simplified_expr = simplify(eq)
 simplified_expr
 ```
 
-We can solve equations using the `solve` function in SymPy
+Again, we use the `solve` function to solve this equation
 
 ```{code-cell} ipython3
 # Solve the equation
@@ -213,7 +213,7 @@ If you are interested, we encourage you to read the lecture on [trigonometry and
 
 #### Example: fixed point computation
 
-Fixed point computation is a common problem in economics and finance.
+Fixed point computation is frequently used in economics and finance.
 
 Here we solve the fixed point of the Solow-Swan growth dynamics:
 
@@ -293,12 +293,12 @@ $$
 \sum_{i=0}^\infty (1-r)^i D_0
 $$
 
-Let's use SymPy to compute the deposits at time $t$
+Let's compute the deposits at time $t$
 
 ```{code-cell} ipython3
-D = symbols('D')
+D = symbols('D_0')
 r = Symbol('r', positive=True)
-Dt = Sum('(1 - r)^i * D', (i, 0, oo))
+Dt = Sum('(1 - r)^i * D_0', (i, 0, oo))
 Dt
 ```
 
@@ -319,7 +319,7 @@ This is consistent with the solution in the lecture on [geometric series](https:
 
 #### Example: discrete random variable
 
-Here we use SymPy to compute the expectation of a discrete random variable.
+In the following example, we compute the expectation of a discrete random variable.
 
 Let's define a discrete random variable $X$ following a [Poisson distribution](https://en.wikipedia.org/wiki/Poisson_distribution):
 
@@ -365,8 +365,9 @@ SymPy includes a statistics module called [`Stats`](https://docs.sympy.org/lates
 The computation above can also be condensed into one line using the expectation function `E` in the `Stats` module
 
 ```{code-cell} ipython3
-# Using sympy.stats.Poisson() method
 λ = Symbol("λ", positive = True)
+
+# Using sympy.stats.Poisson() method
 X = Poisson("x", λ)
 E(X)
 ```
@@ -391,10 +392,10 @@ lim
 
 ### Derivatives
 
-We can differentiate any SymPy expression using `diff(expr, var)`
+We can differentiate any SymPy expression using the `diff` function
 
 ```{code-cell} ipython3
-# Differentiate a function
+# Differentiate a function with respect to x
 df = diff(f, x)
 df
 ```
@@ -512,10 +513,10 @@ p = plot_implicit(And(2*x + 5*y <= 30, 4*x + 2*y >= 20),
 and visualizations in three-dimensional space
 
 ```{code-cell} ipython3
-p = plot3d(cos(2*x + y))
+p = plot3d(cos(2*x + y), zlabel='')
 ```
 
-## Applications
+## Application: Equalizing Differences Model
 
 In this section, we apply SymPy to construct an equalizing differences model that explores the choice between going to college and working directly after high school. 
 
@@ -702,7 +703,7 @@ We encourage readers to read more about how SymPy uses different methods to eval
 
 As a recap, we can `lambdify` a function to take a range of values.
 
-For instance, we want to know how $\phi$ changes with different time lengths $T$ (this is expected years of work)
+For instance, we want to know how $\phi$ changes with different time lengths $T$ (expected years of work)
 
 ```{code-cell} ipython3
 indiff_sol_T = indiff_sol.subs({R: R_value, 
@@ -714,8 +715,8 @@ indiff_sol_T = indiff_sol.subs({R: R_value,
 ```
 
 ```{code-cell} ipython3
-plt.plot(np.arange(40, 60, 1),
-         lambdify(T, indiff_sol_T)(np.arange(40, 60, 1)))
+plt.plot(np.arange(10, 60, 1),
+         lambdify(T, indiff_sol_T)(np.arange(10, 60, 1)))
 plt.xlabel('T')
 plt.ylabel(r'$\phi$')
 plt.show()
@@ -734,8 +735,8 @@ indiff_sol_TD = indiff_sol.subs({R: R_value,
 What if we want to know how $\phi$ changes with different tuition fees $D$ and $T$?
 
 ```{code-cell} ipython3
-grid = np.meshgrid(np.arange(40, 80, 1), 
-                   np.arange(0, 40, 1))
+grid = np.meshgrid(np.arange(10, 60, 1), 
+                   np.arange(0, 60, 1))
 ```
 
 ```{code-cell} ipython3
@@ -757,6 +758,8 @@ plt.show()
 ```
 
 We can see how $\phi$ flats out when we increase the time horizon as college graduates have higher salary at different levels of tuition fee.
+
+A student facing a shorter expected working period and higher tuition fee prefers to work directly after high school.
 
 Let's take a step further by taking the derivative of $\phi$ with respect to $D$ to compute the marginal effect of tuition fee on $\phi$
 
@@ -889,9 +892,9 @@ solve(Eq(log_bino_diff, 0), θ)[0]
 ```{exercise}
 :label: sympy_ex3
 
-Imagine a pure exchange economy with two consumers ($a$ and $b$) and two goods ($x$ and $y$).
+Imagine a pure exchange economy with two people ($a$ and $b$) and two goods recorded as proportions ($x$ and $y$).
 
-The two consumers can trade goods with each other according to their preferences.
+They can trade goods with each other according to their preferences.
 
 Assume that the utility functions of the consumers are given by
 
