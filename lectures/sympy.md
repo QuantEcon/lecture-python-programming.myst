@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.4
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -54,12 +54,12 @@ Let’s first import the library and initialize the printer for symbolic output
 from sympy import *
 from sympy.plotting import plot, plot3d_parametric_line, plot3d
 from sympy.solvers.inequalities import reduce_rational_inequalities
-from sympy.stats import Poisson, Exponential, Binomial, density, moment, E
+from sympy.stats import Poisson, Exponential, Binomial, density, moment, E, cdf
 
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Enable the best printer available
+# Enable the mathjax printer
 init_printing(use_latex='mathjax')
 ```
 
@@ -82,7 +82,7 @@ We can now use symbols `x`, `y`, and `z` to build expressions and equations.
 Here we build a simple expression first
 
 ```{code-cell} ipython3
-expr = (x + y) ** 2
+expr = (x+y) ** 2
 expr
 ```
 
@@ -142,7 +142,7 @@ Solving this equation with respect to x gives the same output as solving the exp
 solve(eq, x)
 ```
 
-SymPy can easily handle equations with multiple solutions
+SymPy can handle equations with multiple solutions
 
 ```{code-cell} ipython3
 eq = Eq(expr, 1)
@@ -171,7 +171,7 @@ expr_sub
 solve(Eq(expr_sub, 1))
 ```
 
-Below is another example equation with symbol `x` and functions `sin`, `cos`, and `tan` using the `Eq` function
+Below is another example equation with the symbol `x` and functions `sin`, `cos`, and `tan` using the `Eq` function
 
 ```{code-cell} ipython3
 # Create an equation
@@ -209,6 +209,8 @@ euler
 simplify(euler)
 ```
 
+If you are interested, we encourage you to read the lecture on [trigonometry and complex numbers](https://python.quantecon.org/complex_and_trig.html).
+
 #### Example: fixed point computation
 
 Fixed point computation is a common problem in economics and finance.
@@ -230,12 +232,12 @@ $$
 This can be easily computed in SymPy
 
 ```{code-cell} ipython3
-A, s, k, α, δ = symbols('A s k α δ')
+A, s, k, α, δ = symbols('A s k_t α δ')
 ```
 
 ```{code-cell} ipython3
 # Define Solow-Swan growth dynamics
-solow = Eq(s*A*k**α + (1 - δ) * k, k)
+solow = Eq(s*A*k**α + (1-δ)*k, k)
 solow
 ```
 
@@ -259,19 +261,19 @@ And(2*x + 5*y <= 30, x > 0)
 
 Series are widely used in economics and statistics, from asset pricing to the expectation of discrete random variables.
 
-We can construct a simple series of summations using `Sum` function
+We can construct a simple series of summations using `Sum` function and `Indexed` symbols
 
 ```{code-cell} ipython3
 x, y, i, j = symbols("x y i j")
-sum_xy = Sum(Indexed('x',i) * Indexed('y', j), 
+sum_xy = Sum(Indexed('x', i)*Indexed('y', j), 
             (i, 0, 3),
             (j, 0, 3))
 sum_xy
 ```
 
-To evaluate the sum, we can [`lamdify`](https://docs.sympy.org/latest/modules/utilities/lambdify.html#sympy.utilities.lambdify.lambdify) the formula.
+To evaluate the sum, we can [`lambdify`](https://docs.sympy.org/latest/modules/utilities/lambdify.html#sympy.utilities.lambdify.lambdify) the formula.
 
-The lamdified expression can take numeric values as input for $x$ and $y$ and compute the result
+The lambdified expression can take numeric values as input for $x$ and $y$ and compute the result
 
 ```{code-cell} ipython3
 sum_xy = lambdify([x, y], sum_xy)
@@ -281,13 +283,17 @@ sum_xy(grid, grid)
 
 #### Example: bank deposits
 
-Imagine a bank with $D_0$ as the deposit at time $t$, it loans $(1-r)$ of its deposits and keeps a fraction $r$ as cash reserves.
+Imagine a bank with $D_0$ as the deposit at time $t$.
 
-Its deposits at time $t$ is
+It loans $(1-r)$ of its deposits and keeps a fraction $r$ as cash reserves.
+
+Its deposits over an infinite time horizon can be written as
 
 $$
 \sum_{i=0}^\infty (1-r)^i D_0
 $$
+
+Let's use SymPy to compute the deposits at time $t$
 
 ```{code-cell} ipython3
 D = symbols('D')
@@ -308,14 +314,14 @@ Simplifying the expression above gives
 simplify(Dt.doit())
 ```
 
-This is consistent with the solution we provided in our lecture on [geometric series](https://python.quantecon.org/geom_series.html#example-the-money-multiplier-in-fractional-reserve-banking).
+This is consistent with the solution in the lecture on [geometric series](https://python.quantecon.org/geom_series.html#example-the-money-multiplier-in-fractional-reserve-banking).
 
 
 #### Example: discrete random variable
 
-We can also use SymPy to compute the expectation of a discrete random variable.
+Here we use SymPy to compute the expectation of a discrete random variable.
 
-Let's define a discrete random variable $X$ with [Poisson distribution](https://en.wikipedia.org/wiki/Poisson_distribution):
+Let's define a discrete random variable $X$ following a [Poisson distribution](https://en.wikipedia.org/wiki/Poisson_distribution):
 
 $$
 f(x) = \frac{\lambda^x e^{-\lambda}}{x!}, \quad x = 0, 1, 2, \ldots
@@ -326,7 +332,7 @@ $$
 
 # We refine the symbol x to positive integers
 x = Symbol('x', integer=True, positive=True)
-pmf = λ**x * exp(-λ)/factorial(x)
+pmf = λ**x * exp(-λ) / factorial(x)
 pmf
 ```
 
@@ -352,11 +358,11 @@ fx = Sum(x*pmf, (x, 0, oo))
 fx.doit()
 ```
 
-SymPy offers a statistics module called [`Stats`](https://docs.sympy.org/latest/modules/stats.html).
+SymPy includes a statistics module called [`Stats`](https://docs.sympy.org/latest/modules/stats.html).
 
 `Stats` module offers built-in distributions and functions on probability distributions.
 
-The computation above can also be condensed into one line using `Stats` module
+The computation above can also be condensed into one line using the expectation function `E` in the `Stats` module
 
 ```{code-cell} ipython3
 # Using sympy.stats.Poisson() method
@@ -367,7 +373,7 @@ E(X)
 
 ## Symbolic Calculus
 
-SymPy allows us to perform various calculus operations, such as differentiation and integration.
+SymPy allows us to perform various calculus operations, such as limits, differentiation, and integration.
 
 
 ### Limits
@@ -376,7 +382,7 @@ We can compute limits for a given expression using the `limit` function
 
 ```{code-cell} ipython3
 # Define an expression
-f = x ** 2 / (x - 1)
+f = x**2 / (x-1)
 
 # Compute the limit
 lim = limit(f, x, 0)
@@ -395,7 +401,7 @@ df
 
 ### Integrals
 
-We can compute definite and indefinite integrals using `integrate` function
+We can compute definite and indefinite integrals using the `integrate` function
 
 ```{code-cell} ipython3
 # Calculate the indefinite integral
@@ -418,7 +424,7 @@ pdf
 
 ```{code-cell} ipython3
 t = Symbol('t', positive=True)
-moment_t = integrate(exp(t * x) * pdf, (x, 0, oo))
+moment_t = integrate(exp(t*x) * pdf, (x, 0, oo))
 simplify(moment_t)
 ```
 
@@ -436,15 +442,32 @@ moment(X, 1)
 E(X**t)
 ```
 
-Using `integrate` function, we can derive the cumulative density function of the exponential distribution with $\lambda = 0.5$
+Using the `integrate` function, we can derive the cumulative density function of the exponential distribution with $\lambda = 0.5$
 
 ```{code-cell} ipython3
-lamda_pdf = pdf.subs(λ, 1/2)
-lamda_pdf
+λ_pdf = pdf.subs(λ, 1/2)
+λ_pdf
 ```
 
 ```{code-cell} ipython3
-integrate(lamda_pdf, (x, 0, 4))
+integrate(λ_pdf, (x, 0, 4))
+```
+
+Using `cdf` in `Stats` module gives the same solution
+
+```{code-cell} ipython3
+cdf(X, 1/2)
+```
+
+```{code-cell} ipython3
+# Plug in a value for z 
+λ_cdf = cdf(X, 1/2)(4)
+λ_cdf
+```
+
+```{code-cell} ipython3
+# Substitute λ
+λ_cdf.subs({λ: 1/2})
 ```
 
 ## Plotting
@@ -464,10 +487,12 @@ Similar to Matplotlib, SymPy provides an interface to customize the graph
 
 ```{code-cell} ipython3
 plot_f = plot(f, (x, -10, 10), 
-              xlabel='', ylabel='', legend = True, show = False)
+              xlabel='', ylabel='', 
+              legend = True, show = False)
 plot_f[0].label = 'f(x)'
 df = diff(f)
-plot_df = plot(df, (x, -10, 10), legend = True, show = False)
+plot_df = plot(df, (x, -10, 10), 
+            legend = True, show = False)
 plot_df[0].label = 'f\'(x)'
 plot_f.append(plot_df[0])
 plot_f.show()
@@ -492,13 +517,13 @@ p = plot3d(cos(2*x + y))
 
 ## Applications
 
-In this section, we apply SymPy to construct an equalizing differences model that explores the wage gap between college and high school graduates. 
+In this section, we apply SymPy to construct an equalizing differences model that explores the choice between going to college and working directly after high school. 
 
-The idea of this example is to imagine a person deciding whether to be admitted into a college or entering the workforce after high school.
+In this example, imagine a student deciding whether to be admitted into a college or entering the workforce after high school.
 
-The person is indifferent between the two options if the present value of the earnings from the two options are the same.
+The student is indifferent between the two options if the present values of the earnings from the two options are the same.
 
-For more details on the model, please visit [the lecture](https://intro.quantecon.org/equalizing_difference.html) in A First Course in Quantitative Economics with Python.
+For more details on the model, please visit [the lecture](https://intro.quantecon.org/equalizing_difference.html) on equalizing differences model.
 
 ### Defining the Symbols
 
@@ -510,19 +535,17 @@ In our model, we need the following variables:
 
  * $t = 0, 1, 2, \ldots T$ denote the years that a person either works or attends college
  
- * $0$ denote the first period after high school that a person can go to work
+ * $0$ denotes the first period after high school that a person can go to work
  
- * $T$ denote the last period that a person works
+ * $T$ denotes the last period that a person works
  
  * $w_t^h$ be the wage at time $t$ of a high school graduate
  
  * $w_t^c$ be the wage at time $t$ of a college graduate
  
- * $\gamma_h > 1$ be the (gross) rate of growth of wages of a high school graduate, so that
- $ w_t^h = w_0^h \gamma_h^t$
+ * $\gamma_h > 1$ be the (gross) rate of growth of wages of a high school graduate, so that wage for high school graduates at time $t$ is $ w_t^h = w_0^h \gamma_h^t$
  
- * $\gamma_c > 1$ be the (gross) rate of growth of wages of a  college  graduate, so that
- $ w_t^c = w_0^c \gamma_c^t$
+ * $\gamma_c > 1$ be the (gross) rate of growth of wages of a  college  graduate, so that wage for college graduates at time $t$ is $ w_t^c = w_0^c \gamma_c^t$
 
 Let's define these symbols using SymPy
 
@@ -557,7 +580,7 @@ $$
 PV_{\text{{college}}} = \sum_{t=4}^T R^{-t} w_t^c
 $$
 
-It is the sum of the discounted earnings from the first year of graduation to the last year of work assuming the degree is obtained in the fourth year.
+It is the sum of the discounted earnings from the first year of graduation to the last year of work assuming the degree is obtained in the fourth year and no salary is earned while in the college.
 
 The present value of the earnings from going to work after high school is
 
@@ -565,12 +588,16 @@ $$
 PV_{\text{{highschool}}} = \sum_{t=0}^T R^{-t} w_t^h
 $$
 
-It is the sum of the discounted earnings from the first year of work to the last year of work.
+It is the sum of the discounted earnings from the first year after high school to the last year of work.
 
 ```{code-cell} ipython3
-PV_college = Sum(R**-t*w_ct, (t, 4, T))
+PV_college = Sum(R**-t * w_ct, (t, 4, T))
+PV_college
+```
 
-PV_highschool = Sum(R**-t*w_ht, (t, 0, T))
+```{code-cell} ipython3
+PV_highschool = Sum(R**-t * w_ht, (t, 0, T))
+PV_highschool
 ```
 
 We can evaluate the sum using the `doit` method
@@ -605,6 +632,14 @@ $$
 \phi =\frac{PV_{highschool}}{PV_{college} - D}
 $$
 
+- When $\phi$ is greater than 1, the person will choose to go to work.
+
+- When $\phi$ is less than 1, the person will choose to go to college.
+
+- When $\phi$ is equal to 1, the person is indifferent between going to college and going to work.
+
+Let's solve for $\phi$ using SymPy
+
 ```{code-cell} ipython3
 indifference = Eq(PV_hs.args[1][0], 
                   ϕ*PV_c.args[1][0] - D)
@@ -615,7 +650,8 @@ indiff_sol
 Using `Lambda` function, we can specify the parameters of the equation
 
 ```{code-cell} ipython3
-lambda_indiff = Lambda((R, wh0, wc0, γ_c, γ_h, D, T), indiff_sol)
+lambda_indiff = Lambda((R, wh0, wc0, γ_c, γ_h, D, T), 
+                indiff_sol)
 lambda_indiff
 ```
 
@@ -639,17 +675,25 @@ Under this setting, we find college is more attractive to the person as $\phi < 
 Note that we can also use the `subs` method to substitute the values of the parameters
 
 ```{code-cell} ipython3
-indiff_sol.subs({R: R_value, wh0: wh0_value, wc0: wc0_value, 
-                γ_c: γ_c_value, γ_h: γ_h_value, D: D_value, 
+indiff_sol.subs({R: R_value, 
+                wh0: wh0_value, 
+                wc0: wc0_value, 
+                γ_c: γ_c_value, 
+                γ_h: γ_h_value, 
+                D: D_value, 
                 T: T_value})
 ```
 
-It is also possible to use the [`evalf` method](https://docs.sympy.org/latest/modules/evalf.html) to get floating-point approximations
+It is also possible to use the [`evalf`](https://docs.sympy.org/latest/modules/evalf.html) method to get floating-point approximations
 
 ```{code-cell} ipython3
-indiff_sol.evalf(subs={R: R_value, wh0: wh0_value, wc0: wc0_value, 
-                γ_c: γ_c_value, γ_h: γ_h_value, D: D_value, 
-                T: T_value})
+indiff_sol.evalf(subs={R: R_value, 
+                      wh0: wh0_value, 
+                      wc0: wc0_value, 
+                      γ_c: γ_c_value, 
+                      γ_h: γ_h_value, 
+                      D: D_value, 
+                      T: T_value})
 ```
 
 Note how precision changes using different methods.
@@ -658,31 +702,40 @@ We encourage readers to read more about how SymPy uses different methods to eval
 
 As a recap, we can `lambdify` a function to take a range of values.
 
-Let's say we want to know how $\phi$ changes with different time length $T$
+For instance, we want to know how $\phi$ changes with different time lengths $T$ (this is expected years of work)
 
 ```{code-cell} ipython3
-indiff_sol_T = indiff_sol.subs({R: R_value, wh0: wh0_value, 
-                                wc0: wc0_value, γ_c: γ_c_value, 
-                                γ_h: γ_h_value, D: D_value})
+indiff_sol_T = indiff_sol.subs({R: R_value, 
+                                wh0: wh0_value, 
+                                wc0: wc0_value, 
+                                γ_c: γ_c_value, 
+                                γ_h: γ_h_value, 
+                                D: D_value})
 ```
 
 ```{code-cell} ipython3
-plt.plot(lambdify(T, indiff_sol_T)(np.arange(40, 100, 1)))
+plt.plot(np.arange(40, 60, 1),
+         lambdify(T, indiff_sol_T)(np.arange(40, 60, 1)))
 plt.xlabel('T')
 plt.ylabel(r'$\phi$')
 plt.show()
 ```
 
-It also enables us to see how $\phi$ changes with different time length $T$ and $D$
+As $T$ increases, $\phi$ decreases favoring attending college.
 
 ```{code-cell} ipython3
-indiff_sol_TD = indiff_sol.subs({R: R_value, wh0: wh0_value, 
-                                wc0: wc0_value, γ_c: γ_c_value, 
+indiff_sol_TD = indiff_sol.subs({R: R_value, 
+                                wh0: wh0_value, 
+                                wc0: wc0_value, 
+                                γ_c: γ_c_value, 
                                 γ_h: γ_h_value})
 ```
 
+What if we want to know how $\phi$ changes with different tuition fees $D$ and $T$?
+
 ```{code-cell} ipython3
-grid = np.meshgrid(np.arange(40, 100, 1), np.arange(0, 20, 1))
+grid = np.meshgrid(np.arange(40, 80, 1), 
+                   np.arange(0, 40, 1))
 ```
 
 ```{code-cell} ipython3
@@ -694,7 +747,8 @@ fig = plt.figure()
 ax = plt.axes(projection ='3d')
 ax.set_box_aspect(aspect=None, zoom=0.85)
 
-ax.plot_surface(grid[0], grid[1],
+ax.plot_surface(grid[0], 
+                grid[1],
                 ϕ_TR)
 ax.set_xlabel('T')
 ax.set_ylabel('D')
@@ -702,25 +756,27 @@ ax.set_zlabel(r'$\phi$')
 plt.show()
 ```
 
-We can see how $\phi$ flats out when we increase the time horizon as sollege graduates have higher salary.
+We can see how $\phi$ flats out when we increase the time horizon as college graduates have higher salary at different levels of tuition fee.
 
 Let's take a step further by taking the derivative of $\phi$ with respect to $D$ to compute the marginal effect of tuition fee on $\phi$
 
 ```{code-cell} ipython3
-diff_D = lambda_indiff(R, wh0, wc0, γ_c, γ_h, D, T).diff(D)
+diff_D = lambda_indiff(R, wh0, wc0, 
+                       γ_c, γ_h, D, T).diff(D)
 simplify(diff_D)
 ```
 
 ```{code-cell} ipython3
-ϕ_D_func = Lambda((R, wh0, wc0, γ_c, γ_h, D, T), diff_D)
+diff_D_func = Lambda((R, wh0, wc0, 
+                      γ_c, γ_h, D, T), diff_D)
 ```
 
 We can see that higher tuition fee gives more incentives for high school graduates to go to work directly.
 
 ```{code-cell} ipython3
-ϕ_D_func(R_value, wh0_value, wc0_value, 
-         γ_c_value, γ_h_value, D_value, 
-         T_value)
+diff_D_func(R_value, wh0_value, wc0_value, 
+            γ_c_value, γ_h_value, D_value, 
+            T_value)
 ```
 
 ## Exercises
@@ -777,11 +833,21 @@ lim
 ```{exercise}
 :label: sympy_ex2
 
-Maximum likelihood estimation (MLE) is a method to estimate the parameters of a statistical model. 
+[Maximum likelihood estimation (MLE)](https://python.quantecon.org/mle.html) is a method to estimate the parameters of a statistical model. 
 
 It usually involves maximizing a log-likelihood function and solving the first-order derivative.
 
-In this exercise, we use SymPy to compute the MLE of a binomial distribution.
+The binomial distribution is given by
+
+$$
+f(x; n, θ) = \frac{n!}{x!(n-x)!}θ^x(1-θ)^{n-x}
+$$
+
+where $n$ is the number of trials and $x$ is the number of successes.
+
+Assume we observed a series of binary outcomes with $x$ successes out of $n$ trials.
+
+Compute the MLE of $θ$ using SymPy
 ```
 
 ```{solution-start} sympy_ex2
@@ -793,7 +859,7 @@ First, we define the binomial distribution
 ```{code-cell} ipython3
 n, x, θ = symbols('n x θ')
 
-binomial_factor = (factorial(n))/ (factorial(x) *factorial(n-r))
+binomial_factor = (factorial(n)) / (factorial(x)*factorial(n-r))
 binomial_factor
 ```
 
@@ -823,7 +889,9 @@ solve(Eq(log_bino_diff, 0), θ)[0]
 ```{exercise}
 :label: sympy_ex3
 
-Imagine a pure exchange economy with two consumers ($a$ and $b$)and two goods ($x$ and $y$).
+Imagine a pure exchange economy with two consumers ($a$ and $b$) and two goods ($x$ and $y$).
+
+The two consumers can trade goods with each other according to their preferences.
 
 Assume that the utility functions of the consumers are given by
 
@@ -839,15 +907,15 @@ where $\alpha, \beta \in (0, 1)$.
 
 In this exercise, we are interested in the Pareto optimal allocation of goods $x$ and $y$.
 
-Note that A point is Pareto efficient when the allocation is optimal for one person given the allocation for the other person.
+Note that a point is Pareto efficient when the allocation is optimal for one person given the allocation for the other person.
 
 In terms of marginal utility:
 
 $$
-\frac{\frac{\partial u_a}{\partial x}}{\frac{\partial u_a}{\partial y}}=\frac{\frac{\partial u_b}{\partial x}}{\frac{\partial u_b}{\partial y}}
+\frac{\frac{\partial u_a}{\partial x}}{\frac{\partial u_a}{\partial y}} = \frac{\frac{\partial u_b}{\partial x}}{\frac{\partial u_b}{\partial y}}
 $$
 
-Compute the Pareto optimal allocation of the economy with $\alpha = \beta = 0.5$ using SymPy
+Compute the Pareto optimal allocations of the economy (contract curves) with $\alpha = \beta = 0.5$ using SymPy
 ```
 
 ```{solution-start} sympy_ex3
@@ -859,23 +927,24 @@ Here is one solution
 ```{code-cell} ipython3
 # Define symbols and utility functions
 x, y, α, β = symbols('x, y, α, β')
-a = x**α * y**(1-α)
-b = (1 - x)**β * (1 - y)**(1 - β)
+u_a = x**α * y**(1-α)
+u_b = (1 - x)**β * (1 - y)**(1 - β)
 ```
 
 ```{code-cell} ipython3
-a
+u_a
 ```
 
 ```{code-cell} ipython3
-b
+u_b
 ```
 
 ```{code-cell} ipython3
 # A point is Pareto efficient when the allocation is optimal 
 # for one person given the allocation for the other person
 
-pareto = Eq(diff(a, x)/diff(a, y), diff(b, x)/diff(b, y))
+pareto = Eq(diff(u_a, x)/diff(u_a, y), 
+            diff(u_b, x)/diff(u_b, y))
 pareto
 ```
 
@@ -902,12 +971,13 @@ params = [{α: 0.5, β: 0.5},
           {α: 0.8, β: 0.1},
           {α: 0.9, β: 0.8},
           {α: 0.8, β: 0.4},
-          {α: 0.9, β: 0.1},]
+          {α: 0.9, β: 0.1}]
 
 p = plot(xlabel='x', ylabel='y', show=False)
 
 for param in params:
-    p_add = plot(sol.subs(param), (x, 0, 1), show=False)
+    p_add = plot(sol.subs(param), (x, 0, 1), 
+                 show=False)
     p.append(p_add[0])
 p.show()
 ```
