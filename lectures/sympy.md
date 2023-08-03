@@ -757,7 +757,7 @@ ax.set_zlabel(r'$\phi$')
 plt.show()
 ```
 
-We can see how $\phi$ flats out when we increase the time horizon as college graduates have higher salary at different levels of tuition fee.
+We can see how $\phi$ flattens out when we increase the time horizon as college graduates have higher salary at different levels of tuition fee.
 
 A student facing a shorter expected working period and higher tuition fee prefers to work directly after high school.
 
