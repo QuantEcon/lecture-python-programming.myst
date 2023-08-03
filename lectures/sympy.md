@@ -336,7 +336,7 @@ pmf = λ**x * exp(-λ) / factorial(x)
 pmf
 ```
 
-We can verify if the distribution follows the fundamental property of probability distribution:
+We can verify if the sum of probabilities for all possible values equals $1$:
 
 $$
 \sum_{x=0}^{\infty} f(x) = 1
@@ -697,9 +697,7 @@ indiff_sol.evalf(subs={R: R_value,
                       T: T_value})
 ```
 
-Note how precision changes using different methods.
-
-We encourage readers to read more about how SymPy uses different methods to evaluate a function/expression.
+It is useful to be aware that precision can be different depending on the method used to evaluate a function or solve an expression. 
 
 As a recap, we can `lambdify` a function to take a range of values.
 
