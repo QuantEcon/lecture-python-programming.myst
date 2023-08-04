@@ -16,5 +16,6 @@ dependencies:
     - sphinx-togglebutton==0.3.2
     - arviz==0.13.0
     - kaleido
+    - requests
     # Docker Requirements
     - pytz
