@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.4
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -35,16 +35,16 @@ Unlike numerical libraries that deal with values, [SymPy](https://www.sympy.org/
 
 SymPy provides [a wide range of features](https://www.sympy.org/en/features.html) including 
 
-- Symbolic Expression
-- Equation Solving
-- Simplification
-- Calculus
-- Matrices
-- Discrete Math, etc.
+- symbolic expression
+- equation solving
+- simplification
+- calculus
+- matrices
+- discrete math, etc.
 
-These functions make SymPy a popular open-source alternative to other proprietary symbolic computation software such as Mathematica.
+These functions make SymPy a popular open-source alternative to other proprietary symbolic computational software such as Mathematica.
 
-In this lecture, we will explore some of the functionalities of SymPy and demonstrate how to use basic SymPy functions to solve economic models.
+In this lecture, we will explore some of the functionality of SymPy and demonstrate how to use basic SymPy functions to solve economic models.
 
 ## Getting Started
 
@@ -67,7 +67,7 @@ init_printing(use_latex='mathjax')
 
 ### Symbols
 
-Before we start manipulating the symbols, we initialize some symbols to work with
+First we initialize some symbols to work with
 
 ```{code-cell} ipython3
 x, y, z = symbols('x y z')
@@ -110,14 +110,6 @@ Note this is equivalent to solving the following equation for `x`
 $$
 (x + y)^2 = 0 
 $$
-
-Another way to solve this equation is to use `solveset`.
-
-`solveset` allows users to define the domain of `x` in the evaluation and output a set as a solution
-
-```{code-cell} ipython3
-solveset(expr, x, domain=S.Naturals)
-```
 
 ```{note}
 [Solvers](https://docs.sympy.org/latest/modules/solvers/index.html) is an important module with tools to solve different types of equations. 
@@ -223,7 +215,9 @@ $$
 
 where $k_t$ is the capital stock, $f$ is a production function, $\delta$ is a rate of depreciation.
 
-With $f(k) = Ak^a$, we can show the unique fixed point of the dynamics using pen and paper:
+We are interested in calculating the fixed point of this dynamics, i.e., the value of $k$ such that $k_{t+1} = k_t$.
+
+With $f(k) = Ak^\alpha$, we can show the unique fixed point of the dynamics $k^*$ using pen and paper:
 
 $$
 k^*:=\left(\frac{s A}{\delta}\right)^{1 /(1-\alpha)}
@@ -232,8 +226,14 @@ $$
 This can be easily computed in SymPy
 
 ```{code-cell} ipython3
-A, s, k, α, δ = symbols('A s k_t α δ')
+A, s, k, α, δ = symbols('A s k^* α δ')
 ```
+
+Now we solve for the fixed point $k^*$
+
+$$
+k^* = sA(k^*)^{\alpha}+(1-\delta) k^*
+$$
 
 ```{code-cell} ipython3
 # Define Solow-Swan growth dynamics
@@ -302,7 +302,7 @@ Dt = Sum('(1 - r)^i * D_0', (i, 0, oo))
 Dt
 ```
 
-We can call `doit` method to evaluate the series
+We can call the `doit` method to evaluate the series
 
 ```{code-cell} ipython3
 Dt.doit()
@@ -358,9 +358,9 @@ fx = Sum(x*pmf, (x, 0, oo))
 fx.doit()
 ```
 
-SymPy includes a statistics module called [`Stats`](https://docs.sympy.org/latest/modules/stats.html).
+SymPy includes a statistics submodule called [`Stats`](https://docs.sympy.org/latest/modules/stats.html).
 
-`Stats` module offers built-in distributions and functions on probability distributions.
+`Stats` offers built-in distributions and functions on probability distributions.
 
 The computation above can also be condensed into one line using the expectation function `E` in the `Stats` module
 
@@ -516,269 +516,100 @@ and visualizations in three-dimensional space
 p = plot3d(cos(2*x + y), zlabel='')
 ```
 
-## Application: Equalizing Differences Model
+## Application: Two-person Exchange Economy
 
-In this section, we apply SymPy to construct an equalizing differences model that explores the choice between going to college and working directly after high school. 
+Imagine a pure exchange economy with two people ($a$ and $b$) and two goods recorded as proportions ($x$ and $y$).
 
-In this example, imagine a student deciding whether to be admitted into a college or entering the workforce after high school.
+They can trade goods with each other according to their preferences.
 
-The student is indifferent between the two options if the present values of the earnings from the two options are the same.
-
-For more details on the model, please visit [the lecture](https://intro.quantecon.org/equalizing_difference.html) on equalizing differences model.
-
-### Defining the Symbols
-
-The first step in symbolic computation is to define the symbols that represent the variables. 
-
-In our model, we need the following variables:
-
- * $R > 1$ be the gross rate of return on a one-period bond
-
- * $t = 0, 1, 2, \ldots T$ denote the years that a person either works or attends college
- 
- * $0$ denotes the first period after high school that a person can go to work
- 
- * $T$ denotes the last period that a person works
- 
- * $w_t^h$ be the wage at time $t$ of a high school graduate
- 
- * $w_t^c$ be the wage at time $t$ of a college graduate
- 
- * $\gamma_h > 1$ be the (gross) rate of growth of wages of a high school graduate, so that wage for high school graduates at time $t$ is $ w_t^h = w_0^h \gamma_h^t$
- 
- * $\gamma_c > 1$ be the (gross) rate of growth of wages of a  college  graduate, so that wage for college graduates at time $t$ is $ w_t^c = w_0^c \gamma_c^t$
-
-Let's define these symbols using SymPy
-
-```{code-cell} ipython3
-# Define the symbols
-R, wh0, wc0, γ_c, γ_h, t, T = symbols(
-    'R w^h_0 w^c_0 gamma_c gamma_h t T', positive=True)
-
-refine(γ_c, γ_c>1)
-refine(γ_h, γ_h>1)
-refine(R, R>1)
-
-# Define the wage for college 
-# and high school graduates at time t
-w_ct = wc0 * γ_c**t
-w_ht = wh0 * γ_h**t
-```
-
-```{code-cell} ipython3
-w_ct
-```
-
-```{code-cell} ipython3
-w_ht
-```
-
-### Defining the Present Value Equations
-
-The present value of the earnings after going to college is
+Assume that the utility functions of the consumers are given by
 
 $$
-PV_{\text{{college}}} = \sum_{t=4}^T R^{-t} w_t^c
+u_a(x, y) = x^{\alpha} y^{1-\alpha}
 $$
 
-It is the sum of the discounted earnings from the first year of graduation to the last year of work assuming the degree is obtained in the fourth year and no salary is earned while in the college.
-
-The present value of the earnings from going to work after high school is
-
 $$
-PV_{\text{{highschool}}} = \sum_{t=0}^T R^{-t} w_t^h
+u_b(x, y) = (1 - x)^{\beta} (1 - y)^{1-\beta}
 $$
 
-It is the sum of the discounted earnings from the first year after high school to the last year of work.
+where $\alpha, \beta \in (0, 1)$.
+
+First we define the symbols and utility functions
 
 ```{code-cell} ipython3
-PV_college = Sum(R**-t * w_ct, (t, 4, T))
-PV_college
+# Define symbols and utility functions
+x, y, α, β = symbols('x, y, α, β')
+u_a = x**α * y**(1-α)
+u_b = (1 - x)**β * (1 - y)**(1 - β)
 ```
 
 ```{code-cell} ipython3
-PV_highschool = Sum(R**-t * w_ht, (t, 0, T))
-PV_highschool
-```
-
-We can evaluate the sum using the `doit` method
-
-```{code-cell} ipython3
-PV_hs = simplify(PV_highschool.doit())
-PV_hs
+u_a
 ```
 
 ```{code-cell} ipython3
-PV_c = simplify(PV_college.doit())
-PV_c
+u_b
 ```
 
-### Defining the Indifference Equation
+We are interested in the Pareto optimal allocation of goods $x$ and $y$.
 
-Now we introduce the symbol $\phi$ to represent the fraction of high school graduates who go to college and $D$ to represent the upfront monetary costs of going to college.
+Note that a point is Pareto efficient when the allocation is optimal for one person given the allocation for the other person.
 
-```{code-cell} ipython3
-D, ϕ = symbols('D phi', positive=True)
-```
-
-We can solve for by solving the equation below with regards to $\phi$
+In terms of marginal utility:
 
 $$
-PV_{highschool} = \phi PV_{college} - D
+\frac{\frac{\partial u_a}{\partial x}}{\frac{\partial u_a}{\partial y}} = \frac{\frac{\partial u_b}{\partial x}}{\frac{\partial u_b}{\partial y}}
 $$
 
-so that 
-
-$$
-\phi =\frac{PV_{highschool}}{PV_{college} - D}
-$$
-
-- When $\phi$ is greater than 1, the person will choose to go to work.
-
-- When $\phi$ is less than 1, the person will choose to go to college.
-
-- When $\phi$ is equal to 1, the person is indifferent between going to college and going to work.
-
-Let's solve for $\phi$ using SymPy
-
 ```{code-cell} ipython3
-indifference = Eq(PV_hs.args[1][0], 
-                  ϕ*PV_c.args[1][0] - D)
-indiff_sol = solve(indifference, ϕ)[0]
-indiff_sol
-```
+# A point is Pareto efficient when the allocation is optimal 
+# for one person given the allocation for the other person
 
-Using `Lambda` function, we can specify the parameters of the equation
-
-```{code-cell} ipython3
-lambda_indiff = Lambda((R, wh0, wc0, γ_c, γ_h, D, T), 
-                indiff_sol)
-lambda_indiff
-```
-
-We use the following parameters to compute the value for $\phi$
-
-```{code-cell} ipython3
-R_value = 1.05
-γ_c_value, γ_h_value = 1.01, 1.01
-wh0_value = 1
-wc0_value = 2
-D_value = 10
-T_value = 40
-
-lambda_indiff(R_value, wh0_value, wc0_value, 
-              γ_c_value, γ_h_value, D_value, 
-              T_value)
-```
-
-Under this setting, we find college is more attractive to the person as $\phi < 1$.
-
-Note that we can also use the `subs` method to substitute the values of the parameters
-
-```{code-cell} ipython3
-indiff_sol.subs({R: R_value, 
-                wh0: wh0_value, 
-                wc0: wc0_value, 
-                γ_c: γ_c_value, 
-                γ_h: γ_h_value, 
-                D: D_value, 
-                T: T_value})
-```
-
-It is also possible to use the [`evalf`](https://docs.sympy.org/latest/modules/evalf.html) method to get floating-point approximations
-
-```{code-cell} ipython3
-indiff_sol.evalf(subs={R: R_value, 
-                      wh0: wh0_value, 
-                      wc0: wc0_value, 
-                      γ_c: γ_c_value, 
-                      γ_h: γ_h_value, 
-                      D: D_value, 
-                      T: T_value})
-```
-
-It is useful to be aware that precision can be different depending on the method used to evaluate a function or solve an expression. 
-
-As a recap, we can `lambdify` a function to take a range of values.
-
-For instance, we want to know how $\phi$ changes with different time lengths $T$ (expected years of work)
-
-```{code-cell} ipython3
-indiff_sol_T = indiff_sol.subs({R: R_value, 
-                                wh0: wh0_value, 
-                                wc0: wc0_value, 
-                                γ_c: γ_c_value, 
-                                γ_h: γ_h_value, 
-                                D: D_value})
+pareto = Eq(diff(u_a, x)/diff(u_a, y), 
+            diff(u_b, x)/diff(u_b, y))
+pareto
 ```
 
 ```{code-cell} ipython3
-plt.plot(np.arange(10, 60, 1),
-         lambdify(T, indiff_sol_T)(np.arange(10, 60, 1)))
-plt.xlabel('T')
-plt.ylabel(r'$\phi$')
-plt.show()
+# Solve the equation
+sol = solve(pareto, y)[0]
+sol
 ```
 
-As $T$ increases, $\phi$ decreases favoring attending college.
+Let's compute the Pareto optimal allocations of the economy (contract curves) with $\alpha = \beta = 0.5$ using SymPy
 
 ```{code-cell} ipython3
-indiff_sol_TD = indiff_sol.subs({R: R_value, 
-                                wh0: wh0_value, 
-                                wc0: wc0_value, 
-                                γ_c: γ_c_value, 
-                                γ_h: γ_h_value})
+# Substitute α = 0.5 and β = 0.5
+sol.subs({α: 0.5, β: 0.5})
 ```
 
-What if we want to know how $\phi$ changes with different tuition fees $D$ and $T$?
+We can use this result to visualize more contract curves under different parameters
 
 ```{code-cell} ipython3
-grid = np.meshgrid(np.arange(10, 60, 1), 
-                   np.arange(0, 60, 1))
+# Plot a range of αs and βs
+params = [{α: 0.5, β: 0.5}, 
+          {α: 0.1, β: 0.9},
+          {α: 0.1, β: 0.8},
+          {α: 0.8, β: 0.9},
+          {α: 0.4, β: 0.8}, 
+          {α: 0.8, β: 0.1},
+          {α: 0.9, β: 0.8},
+          {α: 0.8, β: 0.4},
+          {α: 0.9, β: 0.1}]
+
+p = plot(xlabel='x', ylabel='y', show=False)
+
+for param in params:
+    p_add = plot(sol.subs(param), (x, 0, 1), 
+                 show=False)
+    p.append(p_add[0])
+p.show()
 ```
 
-```{code-cell} ipython3
-ϕ_TR = lambdify([T, D], indiff_sol_TD)(grid[0], grid[1])
-```
+We invite you to play with the parameters and see how the contract curves change and think about the following two questions:
 
-```{code-cell} ipython3
-fig = plt.figure()
-ax = plt.axes(projection ='3d')
-ax.set_box_aspect(aspect=None, zoom=0.85)
-
-ax.plot_surface(grid[0], 
-                grid[1],
-                ϕ_TR)
-ax.set_xlabel('T')
-ax.set_ylabel('D')
-ax.set_zlabel(r'$\phi$')
-plt.show()
-```
-
-We can see how $\phi$ flattens out when we increase the time horizon as college graduates have higher salary at different levels of tuition fee.
-
-A student facing a shorter expected working period and higher tuition fee prefers to work directly after high school.
-
-Let's take a step further by taking the derivative of $\phi$ with respect to $D$ to compute the marginal effect of tuition fee on $\phi$
-
-```{code-cell} ipython3
-diff_D = lambda_indiff(R, wh0, wc0, 
-                       γ_c, γ_h, D, T).diff(D)
-simplify(diff_D)
-```
-
-```{code-cell} ipython3
-diff_D_func = Lambda((R, wh0, wc0, 
-                      γ_c, γ_h, D, T), diff_D)
-```
-
-We can see that higher tuition fee gives more incentives for high school graduates to go to work directly.
-
-```{code-cell} ipython3
-diff_D_func(R_value, wh0_value, wc0_value, 
-            γ_c_value, γ_h_value, D_value, 
-            T_value)
-```
+- Can you think of a way to draw the same graph using `numpy`? 
+- How difficult will it be to write a `numpy` implementation?
 
 ## Exercises
 
@@ -883,110 +714,6 @@ log_bino_diff
 ```{code-cell} ipython3
 solve(Eq(log_bino_diff, 0), θ)[0]
 ```
-
-```{solution-end}
-```
-
-```{exercise}
-:label: sympy_ex3
-
-Imagine a pure exchange economy with two people ($a$ and $b$) and two goods recorded as proportions ($x$ and $y$).
-
-They can trade goods with each other according to their preferences.
-
-Assume that the utility functions of the consumers are given by
-
-$$
-u_a(x, y) = x^{\alpha} y^{1-\alpha}
-$$
-
-$$
-u_b(x, y) = (1 - x)^{\beta} (1 - y)^{1-\beta}
-$$
-
-where $\alpha, \beta \in (0, 1)$.
-
-In this exercise, we are interested in the Pareto optimal allocation of goods $x$ and $y$.
-
-Note that a point is Pareto efficient when the allocation is optimal for one person given the allocation for the other person.
-
-In terms of marginal utility:
-
-$$
-\frac{\frac{\partial u_a}{\partial x}}{\frac{\partial u_a}{\partial y}} = \frac{\frac{\partial u_b}{\partial x}}{\frac{\partial u_b}{\partial y}}
-$$
-
-Compute the Pareto optimal allocations of the economy (contract curves) with $\alpha = \beta = 0.5$ using SymPy
-```
-
-```{solution-start} sympy_ex3
-:class: dropdown
-```
-
-Here is one solution
-
-```{code-cell} ipython3
-# Define symbols and utility functions
-x, y, α, β = symbols('x, y, α, β')
-u_a = x**α * y**(1-α)
-u_b = (1 - x)**β * (1 - y)**(1 - β)
-```
-
-```{code-cell} ipython3
-u_a
-```
-
-```{code-cell} ipython3
-u_b
-```
-
-```{code-cell} ipython3
-# A point is Pareto efficient when the allocation is optimal 
-# for one person given the allocation for the other person
-
-pareto = Eq(diff(u_a, x)/diff(u_a, y), 
-            diff(u_b, x)/diff(u_b, y))
-pareto
-```
-
-```{code-cell} ipython3
-# Solve the equation
-sol = solve(pareto, y)[0]
-sol
-```
-
-```{code-cell} ipython3
-# Substitute α = 0.5 and β = 0.5
-sol.subs({α: 0.5, β: 0.5})
-```
-
-We can visualize contract curves with Cobb-Douglas utility functions
-
-```{code-cell} ipython3
-# Plot a range of αs and βs
-params = [{α: 0.5, β: 0.5}, 
-          {α: 0.1, β: 0.9},
-          {α: 0.1, β: 0.8},
-          {α: 0.8, β: 0.9},
-          {α: 0.4, β: 0.8}, 
-          {α: 0.8, β: 0.1},
-          {α: 0.9, β: 0.8},
-          {α: 0.8, β: 0.4},
-          {α: 0.9, β: 0.1}]
-
-p = plot(xlabel='x', ylabel='y', show=False)
-
-for param in params:
-    p_add = plot(sol.subs(param), (x, 0, 1), 
-                 show=False)
-    p.append(p_add[0])
-p.show()
-```
-
-Extra tasks: 
-
-- Can you think of a way to draw the same graph using `numpy`? 
-- How difficult will it be to write a `numpy` implementation?
 
 ```{solution-end}
 ```
