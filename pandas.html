@@ -71,7 +71,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/quantecon-book-theme.279dae03c5caae754d20501e3fa00bbf.css" />
+    <link rel="stylesheet" type="text/css" href="_static/quantecon-book-theme.5378fd3a70a129d690fd5fc99fb75ef7.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -98,7 +98,7 @@
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
-    <script src="_static/quantecon-book-theme.15b0c36fffe88f468997fa7b698991d3.js"></script>
+    <script src="_static/quantecon-book-theme.ef2ef6c3e8da75e1e736fb5fce08cde6.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -117,7 +117,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="13. Numba" href="numba.html" />
+    <link rel="next" title="13. SymPy" href="sympy.html" />
     <link rel="prev" title="11. SciPy" href="scipy.html" />
 
 <!-- Normal Meta Tags -->
@@ -261,86 +261,73 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pandas_datareader-0.10.0-py3-none-any.whl (109 kB)
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/109.5 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">109.5/109.5 kB</span> <span class=" -Color -Color-Red">5.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">109.5/109.5 kB</span> <span class=" -Color -Color-Red">7.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: pandas&gt;=0.23 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from pandas-datareader) (1.5.3)
+Requirement already satisfied: requests&gt;=2.19.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from pandas-datareader) (2.31.0)
+Requirement already satisfied: lxml in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from pandas-datareader) (4.9.1)
+Requirement already satisfied: python-dateutil&gt;=2.8.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (2.8.2)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (2023.3)
+Requirement already satisfied: numpy&gt;=1.21.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (1.23.5)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: lxml in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from pandas-datareader) (4.9.1)
-Requirement already satisfied: requests&gt;=2.19.0 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from pandas-datareader) (2.28.1)
-Requirement already satisfied: pandas&gt;=0.23 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from pandas-datareader) (1.5.3)
-Requirement already satisfied: python-dateutil&gt;=2.8.1 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (2.8.2)
-Requirement already satisfied: pytz&gt;=2020.1 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (2023.3)
-Requirement already satisfied: numpy&gt;=1.21.0 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (1.23.5)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2022.12.7)
-Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2.0.4)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (1.26.14)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (3.4)
-Requirement already satisfied: six&gt;=1.5 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from python-dateutil&gt;=2.8.1-&gt;pandas&gt;=0.23-&gt;pandas-datareader) (1.16.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (1.26.14)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2022.12.7)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2.0.4)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (3.4)
+Requirement already satisfied: six&gt;=1.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from python-dateutil&gt;=2.8.1-&gt;pandas&gt;=0.23-&gt;pandas-datareader) (1.16.0)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pandas-datareader
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed pandas-datareader-0.10.0
-<span class=" -Color -Color-Yellow">WARNING: Running pip as the &#39;root&#39; user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv</span>
-
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting yfinance
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading yfinance-0.2.18-py2.py3-none-any.whl (60 kB)
-?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/60.3 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">60.3/60.3 kB</span> <span class=" -Color -Color-Red">4.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: lxml&gt;=4.9.1 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from yfinance) (4.9.1)
-Requirement already satisfied: appdirs&gt;=1.4.4 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from yfinance) (1.4.4)
-Requirement already satisfied: pandas&gt;=1.3.0 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from yfinance) (1.5.3)
-Requirement already satisfied: requests&gt;=2.26 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from yfinance) (2.28.1)
-Requirement already satisfied: pytz&gt;=2022.5 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from yfinance) (2023.3)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading yfinance-0.2.28-py2.py3-none-any.whl (65 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/65.3 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">65.3/65.3 kB</span> <span class=" -Color -Color-Red">6.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: appdirs&gt;=1.4.4 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from yfinance) (1.4.4)
+Requirement already satisfied: requests&gt;=2.31 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from yfinance) (2.31.0)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting frozendict&gt;=2.3.4
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading frozendict-2.3.8-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (115 kB)
+  Downloading frozendict-2.3.8-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (115 kB)
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/115.3 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">115.3/115.3 kB</span> <span class=" -Color -Color-Red">14.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hRequirement already satisfied: beautifulsoup4&gt;=4.11.1 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from yfinance) (4.11.1)
-Collecting html5lib&gt;=1.1
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">115.3/115.3 kB</span> <span class=" -Color -Color-Red">20.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: lxml&gt;=4.9.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from yfinance) (4.9.1)
+Requirement already satisfied: pandas&gt;=1.3.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from yfinance) (1.5.3)
+Requirement already satisfied: numpy&gt;=1.16.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from yfinance) (1.23.5)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading html5lib-1.1-py2.py3-none-any.whl (112 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting multitasking&gt;=0.0.7
+  Downloading multitasking-0.0.11-py3-none-any.whl (8.5 kB)
+Requirement already satisfied: pytz&gt;=2022.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from yfinance) (2023.3)
+Requirement already satisfied: beautifulsoup4&gt;=4.11.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from yfinance) (4.11.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting html5lib&gt;=1.1
+  Downloading html5lib-1.1-py2.py3-none-any.whl (112 kB)
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/112.2 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">112.2/112.2 kB</span> <span class=" -Color -Color-Red">20.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hRequirement already satisfied: cryptography&gt;=3.3.2 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from yfinance) (39.0.1)
-Collecting multitasking&gt;=0.0.7
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">112.2/112.2 kB</span> <span class=" -Color -Color-Red">25.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: soupsieve&gt;1.2 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from beautifulsoup4&gt;=4.11.1-&gt;yfinance) (2.3.2.post1)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading multitasking-0.0.11-py3-none-any.whl (8.5 kB)
-Requirement already satisfied: numpy&gt;=1.16.5 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from yfinance) (1.23.5)
-Requirement already satisfied: soupsieve&gt;1.2 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from beautifulsoup4&gt;=4.11.1-&gt;yfinance) (2.3.2.post1)
-Requirement already satisfied: cffi&gt;=1.12 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from cryptography&gt;=3.3.2-&gt;yfinance) (1.15.1)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.9 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from html5lib&gt;=1.1-&gt;yfinance) (1.16.0)
-Requirement already satisfied: webencodings in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from html5lib&gt;=1.1-&gt;yfinance) (0.5.1)
-Requirement already satisfied: python-dateutil&gt;=2.8.1 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from pandas&gt;=1.3.0-&gt;yfinance) (2.8.2)
-Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.26-&gt;yfinance) (2.0.4)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.26-&gt;yfinance) (2022.12.7)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.26-&gt;yfinance) (3.4)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.26-&gt;yfinance) (1.26.14)
-Requirement already satisfied: pycparser in /opt/conda/envs/quantecon/lib/python3.10/site-packages (from cffi&gt;=1.12-&gt;cryptography&gt;=3.3.2-&gt;yfinance) (2.21)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: webencodings in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from html5lib&gt;=1.1-&gt;yfinance) (0.5.1)
+Requirement already satisfied: six&gt;=1.9 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from html5lib&gt;=1.1-&gt;yfinance) (1.16.0)
+Requirement already satisfied: python-dateutil&gt;=2.8.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from pandas&gt;=1.3.0-&gt;yfinance) (2.8.2)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.31-&gt;yfinance) (3.4)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.31-&gt;yfinance) (2.0.4)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.31-&gt;yfinance) (1.26.14)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/share/miniconda3/envs/quantecon/lib/python3.10/site-packages (from requests&gt;=2.31-&gt;yfinance) (2022.12.7)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: multitasking, html5lib, frozendict, yfinance
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed frozendict-2.3.8 html5lib-1.1 multitasking-0.0.11 yfinance-0.2.18
-<span class=" -Color -Color-Yellow">WARNING: Running pip as the &#39;root&#39; user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv</span>
-
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed frozendict-2.3.8 html5lib-1.1 multitasking-0.0.11 yfinance-0.2.28
 </pre></div>
 </div>
 </div>
@@ -401,10 +388,10 @@ place</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   -0.624895
-1    1.238807
-2   -0.906348
-3   -0.044271
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.904207
+1    0.831598
+2   -0.514073
+3   -1.933848
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -421,10 +408,10 @@ operations</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    -62.489539
-1    123.880673
-2    -90.634808
-3     -4.427070
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     90.420733
+1     83.159771
+2    -51.407331
+3   -193.384767
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -437,10 +424,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.624895
-1    1.238807
-2    0.906348
-3    0.044271
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.904207
+1    0.831598
+2    0.514073
+3    1.933848
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -456,13 +443,13 @@ Name: daily returns, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    4.000000
-mean    -0.084177
-std      0.952229
-min     -0.906348
-25%     -0.695259
-50%     -0.334583
-75%      0.276499
-max      1.238807
+mean    -0.178029
+std      1.339951
+min     -1.933848
+25%     -0.869017
+50%      0.158762
+75%      0.849750
+max      0.904207
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -477,10 +464,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN   -0.624895
-AAPL    1.238807
-MSFT   -0.906348
-GOOG   -0.044271
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN    0.904207
+AAPL    0.831598
+MSFT   -0.514073
+GOOG   -1.933848
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -497,7 +484,7 @@ type—in this case, floats).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.6248953905965455
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.904207334149641
 </pre></div>
 </div>
 </div>
@@ -511,9 +498,9 @@ type—in this case, floats).</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN    0.000000
-AAPL    1.238807
-MSFT   -0.906348
-GOOG   -0.044271
+AAPL    0.831598
+MSFT   -0.514073
+GOOG   -1.933848
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -3561,7 +3548,7 @@ this URL into your browser (note that this requires an internet connection)</p>
   <tbody>
     <tr>
       <th>count</th>
-      <td>904.0</td>
+      <td>907.0</td>
     </tr>
     <tr>
       <th>mean</th>
@@ -4482,6 +4469,11 @@ Name: 2021-12-30 00:00:00, dtype: float64
    12. Pandas
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sympy.html">
+   13. SymPy
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -4491,17 +4483,17 @@ Name: 2021-12-30 00:00:00, dtype: float64
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="numba.html">
-   13. Numba
+   14. Numba
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="parallelization.html">
-   14. Parallelization
+   15. Parallelization
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   15. JAX
+   16. JAX
   </a>
  </li>
 </ul>
@@ -4513,17 +4505,17 @@ Name: 2021-12-30 00:00:00, dtype: float64
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   16. Writing Good Code
+   17. Writing Good Code
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   17. More Language Features
+   18. More Language Features
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   18. Debugging and Handling Errors
+   19. Debugging and Handling Errors
   </a>
  </li>
 </ul>
@@ -4535,12 +4527,12 @@ Name: 2021-12-30 00:00:00, dtype: float64
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   19. Troubleshooting
+   20. Troubleshooting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   20. Execution Statistics
+   21. Execution Statistics
   </a>
  </li>
 </ul>
@@ -4563,15 +4555,15 @@ Name: 2021-12-30 00:00:00, dtype: float64
                     <li data-tippy-content="Table of Contents" class="btn__sidebar"><i data-feather="menu"></i></li>
                     <li data-tippy-content="Home"><a href="intro.html"><i data-feather="home"></i></a></li>
                     <li class="btn__qelogo"><a href="https://quantecon.org" title=""><span class="show-for-sr">QuantEcon</span></a></li>
-                    <!-- <li class="btn__search">
-                        <form action="search.html" method="get">
-                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search..." aria-label="Search..." autocomplete="off">
-                            <i data-feather="search"></i>
-                        </form>
-                    </li> -->
                 </ul>
 
                 <ul class="qe-toolbar__links">
+                    <li class="btn__search">
+                        <form action="search.html" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search..." aria-label="Search..." autocomplete="off" accesskey="k">
+                            <i data-feather="search" id="search-icon"></i>
+                        </form>
+                    </li>
                     <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
@@ -4579,7 +4571,7 @@ Name: 2021-12-30 00:00:00, dtype: float64
                     <li data-tippy-content="Download Notebook"><a href="/_notebooks/pandas.ipynb" download><i data-feather="download-cloud"></i></a></li>
                     <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
                         <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
-                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/tree/master/lectures/pandas.md" download><i data-feather="github"></i></a></li>
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/blob/main/lectures/pandas.md" download><i data-feather="github"></i></a></li>
                 </ul>
 
             </div>
@@ -4608,8 +4600,6 @@ Name: 2021-12-30 00:00:00, dtype: float64
                 <span class="label">Public</span>
                 <select id="launcher-public-input">
                 
-                    <option value="https://mybinder.org/v2/gh/QuantEcon/lecture-python-programming.notebooks/master?urlpath=tree/pandas.ipynb">BinderHub</option>
-                
                     <option value="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.notebooks/blob/master/pandas.ipynb">Colab</option>
                 
                 </select>
@@ -4621,7 +4611,7 @@ Name: 2021-12-30 00:00:00, dtype: float64
                 <i class="fas fa-check-circle"></i>
             </li>
             </ul>
-            <p class="launch"><a href="https://mybinder.org/v2/gh/QuantEcon/lecture-python-programming.notebooks/master?urlpath=tree/pandas.ipynb" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
+            <p class="launch"><a href="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.notebooks/blob/master/pandas.ipynb" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
             <script>
                 // QuantEcon Notebook Launcher
                 const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');

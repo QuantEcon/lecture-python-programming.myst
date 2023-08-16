@@ -1,0 +1,1657 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>13. SymPy &#8212; Python Programming for Economics and Finance</title>
+    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    
+        <script>
+            MathJax = {
+            loader: {load: ['[tex]/boldsymbol', '[tex]/textmacros']},
+            tex: {
+                packages: {'[+]': ['boldsymbol', 'textmacros']},
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                processEscapes: true,
+                macros: {
+                    "argmax" : "arg\\,max",
+                    "argmin" : "arg\\,min",
+                    "col"    : "col",
+                    "Span"   :  "span",
+                    "epsilon": "\\varepsilon",
+                    "EE": "\\mathbb{E}",
+                    "PP": "\\mathbb{P}",
+                    "RR": "\\mathbb{R}",
+                    "NN": "\\mathbb{N}",
+                    "ZZ": "\\mathbb{Z}",
+                    "aA": "\\mathcal{A}",
+                    "bB": "\\mathcal{B}",
+                    "cC": "\\mathcal{C}",
+                    "dD": "\\mathcal{D}",
+                    "eE": "\\mathcal{E}",
+                    "fF": "\\mathcal{F}",
+                    "gG": "\\mathcal{G}",
+                    "hH": "\\mathcal{H}",
+                }
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 0.92,
+                displayAlign: "center",
+            },
+            };
+        </script>
+    
+    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/quantecon-book-theme.5378fd3a70a129d690fd5fc99fb75ef7.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script src="_static/quantecon-book-theme.ef2ef6c3e8da75e1e736fb5fce08cde6.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sympy';</script>
+    <link rel="canonical" href="https://python.quantecon.org/sympy.html" />
+    <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="14. Numba" href="numba.html" />
+    <link rel="prev" title="12. Pandas" href="pandas.html" />
+
+<!-- Normal Meta Tags -->
+<meta name="author" context="Thomas J. Sargent &amp; John Stachurski" />
+<meta name="keywords" content="Python, QuantEcon, Quantitative Economics, Economics, Sloan, Alfred P. Sloan Foundation, Tom J. Sargent, John Stachurski" />
+<meta name="description" content=This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski. />
+
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@quantecon" />
+<meta name="twitter:title" content="SymPy"/>
+<meta name="twitter:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.">
+<meta name="twitter:creator" content="@quantecon">
+<meta name="twitter:image" content="https://assets.quantecon.org/img/qe-twitter-logo.png">
+
+<!-- Opengraph tags -->
+<meta property="og:title" content="SymPy" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://python.quantecon.org/sympy.html" />
+<meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
+<meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
+<meta property="og:site_name" content="Python Programming for Economics and Finance" />
+<meta name="theme-color" content="#ffffff" />
+
+  </head>
+<body>
+
+
+    <span id="top"></span>
+
+    <div class="qe-wrapper">
+
+        <div class="qe-main">
+
+            <div class="qe-page" id=sympy>
+
+                <div class="qe-page__toc">
+
+                    <div class="inner">
+
+                        
+                        <div class="qe-page__toc-header">
+                            On this page
+                        </div>
+
+
+                        <nav id="bd-toc-nav" class="qe-page__toc-nav">
+                            <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">13.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">13.2. Getting Started</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-algebra">13.3. Symbolic algebra</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symbols">13.3.1. Symbols</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions">13.3.2. Expressions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equations">13.3.3. Equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-fixed-point-computation">13.3.3.1. Example: fixed point computation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inequalities-and-logic">13.3.4. Inequalities and logic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#series">13.3.5. Series</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-bank-deposits">13.3.5.1. Example: bank deposits</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-discrete-random-variable">13.3.5.2. Example: discrete random variable</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-calculus">13.4. Symbolic Calculus</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limits">13.4.1. Limits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivatives">13.4.2. Derivatives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integrals">13.4.3. Integrals</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">13.5. Plotting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-two-person-exchange-economy">13.6. Application: Two-person Exchange Economy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">13.7. Exercises</a></li>
+</ul>
+                            <p class="logo">
+                                
+                                    
+                                    <a href=https://quantecon.org><img src="_static/qe-logo.png" class="logo" alt="logo"></a>
+                                    
+                                
+                            </p>
+
+                            <p class="powered">Powered by <a href="https://jupyterbook.org/">Jupyter Book</a></p>
+
+                        </nav>
+
+                        <div class="qe-page__toc-footer">
+                            
+                            
+                            <p><a href="#top"><strong>Back to top</strong></a></p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="qe-page__header">
+
+                    <div class="qe-page__header-copy">
+
+                        <p class="qe-page__header-heading"><a href="intro.html">Python Programming for Economics and Finance</a></p>
+
+                        <p class="qe-page__header-subheading">SymPy</p>
+
+                    </div>
+
+                    <p class="qe-page__header-authors">Thomas J. Sargent & John Stachurski</p>
+
+                </div> <!-- .page__header -->
+
+
+
+                
+                <main class="qe-page__content" role="main">
+                    
+                    <div>
+                        
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><a class="toc-backref" href="#id2"><span class="section-number">13. </span><span class="target" id="index-0"></span>SymPy</a><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<div class="contents topic" id="contents">
+<span id="index-1"></span><p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id1" id="id2">SymPy</a></p>
+<ul>
+<li><p><a class="reference internal" href="#overview" id="id3">Overview</a></p></li>
+<li><p><a class="reference internal" href="#getting-started" id="id4">Getting Started</a></p></li>
+<li><p><a class="reference internal" href="#symbolic-algebra" id="id5">Symbolic algebra</a></p></li>
+<li><p><a class="reference internal" href="#symbolic-calculus" id="id6">Symbolic Calculus</a></p></li>
+<li><p><a class="reference internal" href="#plotting" id="id7">Plotting</a></p></li>
+<li><p><a class="reference internal" href="#application-two-person-exchange-economy" id="id8">Application: Two-person Exchange Economy</a></p></li>
+<li><p><a class="reference internal" href="#exercises" id="id9">Exercises</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="overview">
+<h2><a class="toc-backref" href="#id3"><span class="section-number">13.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>Unlike numerical libraries that deal with values, <a class="reference external" href="https://www.sympy.org/en/index.html">SymPy</a> focuses on manipulating mathematical symbols and expressions directly.</p>
+<p>SymPy provides <a class="reference external" href="https://www.sympy.org/en/features.html">a wide range of features</a> including</p>
+<ul class="simple">
+<li><p>symbolic expression</p></li>
+<li><p>equation solving</p></li>
+<li><p>simplification</p></li>
+<li><p>calculus</p></li>
+<li><p>matrices</p></li>
+<li><p>discrete math, etc.</p></li>
+</ul>
+<p>These functions make SymPy a popular open-source alternative to other proprietary symbolic computational software such as Mathematica.</p>
+<p>In this lecture, we will explore some of the functionality of SymPy and demonstrate how to use basic SymPy functions to solve economic models.</p>
+</section>
+<section id="getting-started">
+<h2><a class="toc-backref" href="#id4"><span class="section-number">13.2. </span>Getting Started</a><a class="headerlink" href="#getting-started" title="Permalink to this heading">#</a></h2>
+<p>Let’s first import the library and initialize the printer for symbolic output</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">sympy.plotting</span> <span class="kn">import</span> <span class="n">plot</span><span class="p">,</span> <span class="n">plot3d_parametric_line</span><span class="p">,</span> <span class="n">plot3d</span>
+<span class="kn">from</span> <span class="nn">sympy.solvers.inequalities</span> <span class="kn">import</span> <span class="n">reduce_rational_inequalities</span>
+<span class="kn">from</span> <span class="nn">sympy.stats</span> <span class="kn">import</span> <span class="n">Poisson</span><span class="p">,</span> <span class="n">Exponential</span><span class="p">,</span> <span class="n">Binomial</span><span class="p">,</span> <span class="n">density</span><span class="p">,</span> <span class="n">moment</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">cdf</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Enable the mathjax printer</span>
+<span class="n">init_printing</span><span class="p">(</span><span class="n">use_latex</span><span class="o">=</span><span class="s1">&#39;mathjax&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="symbolic-algebra">
+<h2><a class="toc-backref" href="#id5"><span class="section-number">13.3. </span>Symbolic algebra</a><a class="headerlink" href="#symbolic-algebra" title="Permalink to this heading">#</a></h2>
+<section id="symbols">
+<h3><span class="section-number">13.3.1. </span>Symbols<a class="headerlink" href="#symbols" title="Permalink to this heading">#</a></h3>
+<p>First we initialize some symbols to work with</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x y z&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Symbols are the basic units for symbolic computation in SymPy.</p>
+</section>
+<section id="expressions">
+<h3><span class="section-number">13.3.2. </span>Expressions<a class="headerlink" href="#expressions" title="Permalink to this heading">#</a></h3>
+<p>We can now use symbols <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">z</span></code> to build expressions and equations.</p>
+<p>Here we build a simple expression first</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="n">expr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left(x + y\right)^{2}\]</div>
+</div>
+</div>
+<p>We can expand this expression with the <code class="docutils literal notranslate"><span class="pre">expand</span></code> function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expand_expr</span> <span class="o">=</span> <span class="n">expand</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+<span class="n">expand_expr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x^{2} + 2 x y + y^{2}\]</div>
+</div>
+</div>
+<p>and factorize it back to the factored form with the <code class="docutils literal notranslate"><span class="pre">factor</span></code> function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factor</span><span class="p">(</span><span class="n">expand_expr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left(x + y\right)^{2}\]</div>
+</div>
+</div>
+<p>We can solve this expression</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solve</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left[ \left\{ x : - y\right\}\right]\]</div>
+</div>
+</div>
+<p>Note this is equivalent to solving the following equation for <code class="docutils literal notranslate"><span class="pre">x</span></code></p>
+<div class="math notranslate nohighlight">
+\[
+(x + y)^2 = 0 
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference external" href="https://docs.sympy.org/latest/modules/solvers/index.html">Solvers</a> is an important module with tools to solve different types of equations.</p>
+<p>There are a variety of solvers available in SymPy depending on the nature of the problem.</p>
+</div>
+</section>
+<section id="equations">
+<h3><span class="section-number">13.3.3. </span>Equations<a class="headerlink" href="#equations" title="Permalink to this heading">#</a></h3>
+<p>SymPy provides several functions to manipulate equations.</p>
+<p>Let’s develop an equation with the expression we defined before</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">eq</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left(x + y\right)^{2} = 0\]</div>
+</div>
+</div>
+<p>Solving this equation with respect to <span class="math notranslate nohighlight">\(x\)</span> gives the same output as solving the expression directly</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solve</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left[ - y\right]\]</div>
+</div>
+</div>
+<p>SymPy can handle equations with multiple solutions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">solve</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left[ 1 - y, \  - y - 1\right]\]</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">solve</span></code> function can also combine multiple equations together and solve a system of equations</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eq2</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">eq2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x = y\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solve</span><span class="p">([</span><span class="n">eq</span><span class="p">,</span> <span class="n">eq2</span><span class="p">],</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left[ \left( - \frac{1}{2}, \  - \frac{1}{2}\right), \  \left( \frac{1}{2}, \  \frac{1}{2}\right)\right]\]</div>
+</div>
+</div>
+<p>We can also solve for the value of <span class="math notranslate nohighlight">\(y\)</span> by simply substituting <span class="math notranslate nohighlight">\(x\)</span> with <span class="math notranslate nohighlight">\(y\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expr_sub</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">expr_sub</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 4 y^{2}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solve</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">expr_sub</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left[ - \frac{1}{2}, \  \frac{1}{2}\right]\]</div>
+</div>
+</div>
+<p>Below is another example equation with the symbol <code class="docutils literal notranslate"><span class="pre">x</span></code> and functions <code class="docutils literal notranslate"><span class="pre">sin</span></code>, <code class="docutils literal notranslate"><span class="pre">cos</span></code>, and <code class="docutils literal notranslate"><span class="pre">tan</span></code> using the <code class="docutils literal notranslate"><span class="pre">Eq</span></code> function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create an equation</span>
+<span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">tan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">eq</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{\sin{\left(x \right)} \cos{\left(x \right)}}{\tan{\left(x \right)}} = 0\]</div>
+</div>
+</div>
+<p>Now we simplify this equation using the <code class="docutils literal notranslate"><span class="pre">simplify</span></code> function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simplify an expression</span>
+<span class="n">simplified_expr</span> <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">eq</span><span class="p">)</span>
+<span class="n">simplified_expr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \cos^{2}{\left(x \right)} = 0\]</div>
+</div>
+</div>
+<p>Again, we use the <code class="docutils literal notranslate"><span class="pre">solve</span></code> function to solve this equation</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solve the equation</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">sol</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left[ \frac{\pi}{2}, \  \frac{3 \pi}{2}\right]\]</div>
+</div>
+</div>
+<p>SymPy can also handle more complex equations involving trigonometry and complex numbers.</p>
+<p>We demonstrate this using <a class="reference external" href="https://en.wikipedia.org/wiki/Euler%27s_formula">Euler’s formula</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># &#39;I&#39; represents the imaginary number i </span>
+<span class="n">euler</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">I</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">euler</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle i \sin{\left(x \right)} + \cos{\left(x \right)}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simplify</span><span class="p">(</span><span class="n">euler</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle e^{i x}\]</div>
+</div>
+</div>
+<p>If you are interested, we encourage you to read the lecture on <a class="reference external" href="https://python.quantecon.org/complex_and_trig.html">trigonometry and complex numbers</a>.</p>
+<section id="example-fixed-point-computation">
+<h4><span class="section-number">13.3.3.1. </span>Example: fixed point computation<a class="headerlink" href="#example-fixed-point-computation" title="Permalink to this heading">#</a></h4>
+<p>Fixed point computation is frequently used in economics and finance.</p>
+<p>Here we solve the fixed point of the Solow-Swan growth dynamics:</p>
+<div class="math notranslate nohighlight">
+\[
+k_{t+1}=s f\left(k_t\right)+(1-\delta) k_t, \quad t=0,1, \ldots
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(k_t\)</span> is the capital stock, <span class="math notranslate nohighlight">\(f\)</span> is a production function, <span class="math notranslate nohighlight">\(\delta\)</span> is a rate of depreciation.</p>
+<p>We are interested in calculating the fixed point of this dynamics, i.e., the value of <span class="math notranslate nohighlight">\(k\)</span> such that <span class="math notranslate nohighlight">\(k_{t+1} = k_t\)</span>.</p>
+<p>With <span class="math notranslate nohighlight">\(f(k) = Ak^\alpha\)</span>, we can show the unique fixed point of the dynamics <span class="math notranslate nohighlight">\(k^*\)</span> using pen and paper:</p>
+<div class="math notranslate nohighlight">
+\[
+k^*:=\left(\frac{s A}{\delta}\right)^{1 /(1-\alpha)}
+\]</div>
+<p>This can be easily computed in SymPy</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">α</span><span class="p">,</span> <span class="n">δ</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;A s k^* α δ&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we solve for the fixed point <span class="math notranslate nohighlight">\(k^*\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+k^* = sA(k^*)^{\alpha}+(1-\delta) k^*
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define Solow-Swan growth dynamics</span>
+<span class="n">solow</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">s</span><span class="o">*</span><span class="n">A</span><span class="o">*</span><span class="n">k</span><span class="o">**</span><span class="n">α</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">δ</span><span class="p">)</span><span class="o">*</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<span class="n">solow</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle A \left(k^{*}\right)^{α} s + k^{*} \left(1 - δ\right) = k^{*}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solve</span><span class="p">(</span><span class="n">solow</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left[ \left(\frac{A s}{δ}\right)^{- \frac{1}{α - 1}}\right]\]</div>
+</div>
+</div>
+</section>
+</section>
+<section id="inequalities-and-logic">
+<h3><span class="section-number">13.3.4. </span>Inequalities and logic<a class="headerlink" href="#inequalities-and-logic" title="Permalink to this heading">#</a></h3>
+<p>SymPy also allows users to define inequalities and set operators and provides a wide range of <a class="reference external" href="https://docs.sympy.org/latest/modules/solvers/inequalities.html">operations</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reduce_inequalities</span><span class="p">([</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">],</span> <span class="p">[</span><span class="n">x</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x \leq 5 - \frac{y}{2} \wedge x \leq 15 - \frac{5 y}{2} \wedge -\infty &lt; x\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">And</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2 x + 5 y \leq 30 \wedge x &gt; 0\]</div>
+</div>
+</div>
+</section>
+<section id="series">
+<h3><span class="section-number">13.3.5. </span>Series<a class="headerlink" href="#series" title="Permalink to this heading">#</a></h3>
+<p>Series are widely used in economics and statistics, from asset pricing to the expectation of discrete random variables.</p>
+<p>We can construct a simple series of summations using <code class="docutils literal notranslate"><span class="pre">Sum</span></code> function and <code class="docutils literal notranslate"><span class="pre">Indexed</span></code> symbols</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x y i j&quot;</span><span class="p">)</span>
+<span class="n">sum_xy</span> <span class="o">=</span> <span class="n">Sum</span><span class="p">(</span><span class="n">Indexed</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">Indexed</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">j</span><span class="p">),</span> 
+            <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+            <span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">sum_xy</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \sum_{\substack{0 \leq i \leq 3\\0 \leq j \leq 3}} {x}_{i} {y}_{j}\end{split}\]</div>
+</div>
+</div>
+<p>To evaluate the sum, we can <a class="reference external" href="https://docs.sympy.org/latest/modules/utilities/lambdify.html#sympy.utilities.lambdify.lambdify"><code class="docutils literal notranslate"><span class="pre">lambdify</span></code></a> the formula.</p>
+<p>The lambdified expression can take numeric values as input for <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> and compute the result</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sum_xy</span> <span class="o">=</span> <span class="n">lambdify</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">sum_xy</span><span class="p">)</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">sum_xy</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">grid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36
+</pre></div>
+</div>
+</div>
+</div>
+<section id="example-bank-deposits">
+<h4><span class="section-number">13.3.5.1. </span>Example: bank deposits<a class="headerlink" href="#example-bank-deposits" title="Permalink to this heading">#</a></h4>
+<p>Imagine a bank with <span class="math notranslate nohighlight">\(D_0\)</span> as the deposit at time <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p>It loans <span class="math notranslate nohighlight">\((1-r)\)</span> of its deposits and keeps a fraction <span class="math notranslate nohighlight">\(r\)</span> as cash reserves.</p>
+<p>Its deposits over an infinite time horizon can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{i=0}^\infty (1-r)^i D_0
+\]</div>
+<p>Let’s compute the deposits at time <span class="math notranslate nohighlight">\(t\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;D_0&#39;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">Dt</span> <span class="o">=</span> <span class="n">Sum</span><span class="p">(</span><span class="s1">&#39;(1 - r)^i * D_0&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">oo</span><span class="p">))</span>
+<span class="n">Dt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \sum_{i=0}^{\infty} D_{0} \left(1 - r\right)^{i}\]</div>
+</div>
+</div>
+<p>We can call the <code class="docutils literal notranslate"><span class="pre">doit</span></code> method to evaluate the series</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Dt</span><span class="o">.</span><span class="n">doit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle D_{0} \left(\begin{cases} \frac{1}{r} &amp; \text{for}\: \left|{r - 1}\right| &lt; 1 \\\sum_{i=0}^{\infty} \left(1 - r\right)^{i} &amp; \text{otherwise} \end{cases}\right)\end{split}\]</div>
+</div>
+</div>
+<p>Simplifying the expression above gives</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simplify</span><span class="p">(</span><span class="n">Dt</span><span class="o">.</span><span class="n">doit</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \begin{cases} \frac{D_{0}}{r} &amp; \text{for}\: r &gt; 0 \wedge r &lt; 2 \\D_{0} \sum_{i=0}^{\infty} \left(1 - r\right)^{i} &amp; \text{otherwise} \end{cases}\end{split}\]</div>
+</div>
+</div>
+<p>This is consistent with the solution in the lecture on <a class="reference external" href="https://python.quantecon.org/geom_series.html#example-the-money-multiplier-in-fractional-reserve-banking">geometric series</a>.</p>
+</section>
+<section id="example-discrete-random-variable">
+<h4><span class="section-number">13.3.5.2. </span>Example: discrete random variable<a class="headerlink" href="#example-discrete-random-variable" title="Permalink to this heading">#</a></h4>
+<p>In the following example, we compute the expectation of a discrete random variable.</p>
+<p>Let’s define a discrete random variable <span class="math notranslate nohighlight">\(X\)</span> following a <a class="reference external" href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisson distribution</a>:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \frac{\lambda^x e^{-\lambda}}{x!}, \quad x = 0, 1, 2, \ldots
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">λ</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;lambda&#39;</span><span class="p">)</span>
+
+<span class="c1"># We refine the symbol x to positive integers</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">integer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pmf</span> <span class="o">=</span> <span class="n">λ</span><span class="o">**</span><span class="n">x</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">λ</span><span class="p">)</span> <span class="o">/</span> <span class="n">factorial</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">pmf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{\lambda^{x} e^{- \lambda}}{x!}\]</div>
+</div>
+</div>
+<p>We can verify if the sum of probabilities for all possible values equals <span class="math notranslate nohighlight">\(1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{x=0}^{\infty} f(x) = 1
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sum_pmf</span> <span class="o">=</span> <span class="n">Sum</span><span class="p">(</span><span class="n">pmf</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">oo</span><span class="p">))</span>
+<span class="n">sum_pmf</span><span class="o">.</span><span class="n">doit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1\]</div>
+</div>
+</div>
+<p>The expectation of the distribution is:</p>
+<div class="math notranslate nohighlight">
+\[
+E(X) = \sum_{x=0}^{\infty} x f(x) 
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fx</span> <span class="o">=</span> <span class="n">Sum</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">pmf</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">oo</span><span class="p">))</span>
+<span class="n">fx</span><span class="o">.</span><span class="n">doit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \lambda\]</div>
+</div>
+</div>
+<p>SymPy includes a statistics submodule called <a class="reference external" href="https://docs.sympy.org/latest/modules/stats.html"><code class="docutils literal notranslate"><span class="pre">Stats</span></code></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Stats</span></code> offers built-in distributions and functions on probability distributions.</p>
+<p>The computation above can also be condensed into one line using the expectation function <code class="docutils literal notranslate"><span class="pre">E</span></code> in the <code class="docutils literal notranslate"><span class="pre">Stats</span></code> module</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">λ</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;λ&quot;</span><span class="p">,</span> <span class="n">positive</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Using sympy.stats.Poisson() method</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">Poisson</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">λ</span><span class="p">)</span>
+<span class="n">E</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle λ\]</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="symbolic-calculus">
+<h2><a class="toc-backref" href="#id6"><span class="section-number">13.4. </span>Symbolic Calculus</a><a class="headerlink" href="#symbolic-calculus" title="Permalink to this heading">#</a></h2>
+<p>SymPy allows us to perform various calculus operations, such as limits, differentiation, and integration.</p>
+<section id="limits">
+<h3><span class="section-number">13.4.1. </span>Limits<a class="headerlink" href="#limits" title="Permalink to this heading">#</a></h3>
+<p>We can compute limits for a given expression using the <code class="docutils literal notranslate"><span class="pre">limit</span></code> function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define an expression</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Compute the limit</span>
+<span class="n">lim</span> <span class="o">=</span> <span class="n">limit</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">lim</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0\]</div>
+</div>
+</div>
+</section>
+<section id="derivatives">
+<h3><span class="section-number">13.4.2. </span>Derivatives<a class="headerlink" href="#derivatives" title="Permalink to this heading">#</a></h3>
+<p>We can differentiate any SymPy expression using the <code class="docutils literal notranslate"><span class="pre">diff</span></code> function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Differentiate a function with respect to x</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle - \frac{x^{2}}{\left(x - 1\right)^{2}} + \frac{2 x}{x - 1}\]</div>
+</div>
+</div>
+</section>
+<section id="integrals">
+<h3><span class="section-number">13.4.3. </span>Integrals<a class="headerlink" href="#integrals" title="Permalink to this heading">#</a></h3>
+<p>We can compute definite and indefinite integrals using the <code class="docutils literal notranslate"><span class="pre">integrate</span></code> function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the indefinite integral</span>
+<span class="n">indef_int</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">indef_int</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x + \frac{1}{x - 1}\]</div>
+</div>
+</div>
+<p>Let’s use this function to compute the moment-generating function of <a class="reference external" href="https://en.wikipedia.org/wiki/Exponential_distribution">exponential distribution</a> with the probability density function:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \lambda e^{-\lambda x}, \quad x \ge 0
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">λ</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;lambda&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pdf</span> <span class="o">=</span> <span class="n">λ</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">λ</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="n">pdf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \lambda e^{- \lambda x}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">moment_t</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">pdf</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">oo</span><span class="p">))</span>
+<span class="n">simplify</span><span class="p">(</span><span class="n">moment_t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \begin{cases} \frac{\lambda}{\lambda - t} &amp; \text{for}\: \lambda &gt; t \wedge \frac{\lambda}{t} \neq 1 \\\lambda \int\limits_{0}^{\infty} e^{x \left(- \lambda + t\right)}\, dx &amp; \text{otherwise} \end{cases}\end{split}\]</div>
+</div>
+</div>
+<p>Note that we can also use <code class="docutils literal notranslate"><span class="pre">Stats</span></code> module to compute the moment</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">Exponential</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">λ</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moment</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{1}{\lambda}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E</span><span class="p">(</span><span class="n">X</span><span class="o">**</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \lambda^{- t} \Gamma\left(t + 1\right)\]</div>
+</div>
+</div>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">integrate</span></code> function, we can derive the cumulative density function of the exponential distribution with <span class="math notranslate nohighlight">\(\lambda = 0.5\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">λ_pdf</span> <span class="o">=</span> <span class="n">pdf</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">λ</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">λ_pdf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.5 e^{- 0.5 x}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integrate</span><span class="p">(</span><span class="n">λ_pdf</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.864664716763387\]</div>
+</div>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">cdf</span></code> in <code class="docutils literal notranslate"><span class="pre">Stats</span></code> module gives the same solution</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cdf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left( z \mapsto \begin{cases} 1 - e^{- z \lambda} &amp; \text{for}\: z \geq 0 \\0 &amp; \text{otherwise} \end{cases} \right)\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plug in a value for z </span>
+<span class="n">λ_cdf</span> <span class="o">=</span> <span class="n">cdf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">λ_cdf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1 - e^{- 4 \lambda}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Substitute λ</span>
+<span class="n">λ_cdf</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">λ</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.864664716763387\]</div>
+</div>
+</div>
+</section>
+</section>
+<section id="plotting">
+<h2><a class="toc-backref" href="#id7"><span class="section-number">13.5. </span>Plotting</a><a class="headerlink" href="#plotting" title="Permalink to this heading">#</a></h2>
+<p>SymPy provides a powerful plotting feature.</p>
+<p>First we plot a simple function using the <code class="docutils literal notranslate"><span class="pre">plot</span></code> function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))))</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;A Simple Plot&#39;</span>
+<span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/850dd194f9f84b0c01c162e8dbee1113c85f76e16403f42465412637badc698e.png" src="_images/850dd194f9f84b0c01c162e8dbee1113c85f76e16403f42465412637badc698e.png" />
+</div>
+</div>
+<p>Similar to Matplotlib, SymPy provides an interface to customize the graph</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_f</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> 
+              <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> 
+              <span class="n">legend</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">show</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">plot_f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;f(x)&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">plot_df</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> 
+            <span class="n">legend</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">show</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">plot_df</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;f</span><span class="se">\&#39;</span><span class="s1">(x)&#39;</span>
+<span class="n">plot_f</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">plot_df</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plot_f</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9676fcf5682b7ad691602109e7528f11142798c50e28da94d4724e8594fe2eae.png" src="_images/9676fcf5682b7ad691602109e7528f11142798c50e28da94d4724e8594fe2eae.png" />
+</div>
+</div>
+<p>It also supports plotting implicit functions and visualizing inequalities</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">plot_implicit</span><span class="p">(</span><span class="n">Eq</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b436dfd039bc4a78dfc7be7c4d25fb29110fe335b886821910965d872ab09045.png" src="_images/b436dfd039bc4a78dfc7be7c4d25fb29110fe335b886821910965d872ab09045.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">plot_implicit</span><span class="p">(</span><span class="n">And</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">),</span>
+                     <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/82a2dcad8b3f1ec04486571ae5aa0fd357eb3812b6fd06839d62ffec05263db3.png" src="_images/82a2dcad8b3f1ec04486571ae5aa0fd357eb3812b6fd06839d62ffec05263db3.png" />
+</div>
+</div>
+<p>and visualizations in three-dimensional space</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">plot3d</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">),</span> <span class="n">zlabel</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7516268767d6de37c2200ddd0a859bd670529f61f181d7254450700e37458472.png" src="_images/7516268767d6de37c2200ddd0a859bd670529f61f181d7254450700e37458472.png" />
+</div>
+</div>
+</section>
+<section id="application-two-person-exchange-economy">
+<h2><a class="toc-backref" href="#id8"><span class="section-number">13.6. </span>Application: Two-person Exchange Economy</a><a class="headerlink" href="#application-two-person-exchange-economy" title="Permalink to this heading">#</a></h2>
+<p>Imagine a pure exchange economy with two people (<span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>) and two goods recorded as proportions (<span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>).</p>
+<p>They can trade goods with each other according to their preferences.</p>
+<p>Assume that the utility functions of the consumers are given by</p>
+<div class="math notranslate nohighlight">
+\[
+u_a(x, y) = x^{\alpha} y^{1-\alpha}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+u_b(x, y) = (1 - x)^{\beta} (1 - y)^{1-\beta}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha, \beta \in (0, 1)\)</span>.</p>
+<p>First we define the symbols and utility functions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define symbols and utility functions</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">α</span><span class="p">,</span> <span class="n">β</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x, y, α, β&#39;</span><span class="p">)</span>
+<span class="n">u_a</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="n">α</span> <span class="o">*</span> <span class="n">y</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">α</span><span class="p">)</span>
+<span class="n">u_b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="n">β</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">β</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u_a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x^{α} y^{1 - α}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u_b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left(1 - x\right)^{β} \left(1 - y\right)^{1 - β}\]</div>
+</div>
+</div>
+<p>We are interested in the Pareto optimal allocation of goods <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<p>Note that a point is Pareto efficient when the allocation is optimal for one person given the allocation for the other person.</p>
+<p>In terms of marginal utility:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\frac{\partial u_a}{\partial x}}{\frac{\partial u_a}{\partial y}} = \frac{\frac{\partial u_b}{\partial x}}{\frac{\partial u_b}{\partial y}}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A point is Pareto efficient when the allocation is optimal </span>
+<span class="c1"># for one person given the allocation for the other person</span>
+
+<span class="n">pareto</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">diff</span><span class="p">(</span><span class="n">u_a</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">diff</span><span class="p">(</span><span class="n">u_a</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> 
+            <span class="n">diff</span><span class="p">(</span><span class="n">u_b</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">diff</span><span class="p">(</span><span class="n">u_b</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+<span class="n">pareto</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{y y^{1 - α} y^{α - 1} α}{x \left(1 - α\right)} = - \frac{β \left(1 - y\right) \left(1 - y\right)^{1 - β} \left(1 - y\right)^{β - 1}}{\left(1 - x\right) \left(β - 1\right)}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solve the equation</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">pareto</span><span class="p">,</span> <span class="n">y</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">sol</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{x β \left(α - 1\right)}{x α - x β + α β - α}\]</div>
+</div>
+</div>
+<p>Let’s compute the Pareto optimal allocations of the economy (contract curves) with <span class="math notranslate nohighlight">\(\alpha = \beta = 0.5\)</span> using SymPy</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Substitute α = 0.5 and β = 0.5</span>
+<span class="n">sol</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">α</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">β</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1.0 x\]</div>
+</div>
+</div>
+<p>We can use this result to visualize more contract curves under different parameters</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot a range of αs and βs</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">[{</span><span class="n">α</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">β</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span> 
+          <span class="p">{</span><span class="n">α</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">β</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">},</span>
+          <span class="p">{</span><span class="n">α</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">β</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">},</span>
+          <span class="p">{</span><span class="n">α</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">β</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">},</span>
+          <span class="p">{</span><span class="n">α</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">β</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">},</span> 
+          <span class="p">{</span><span class="n">α</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">β</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span>
+          <span class="p">{</span><span class="n">α</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span> <span class="n">β</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">},</span>
+          <span class="p">{</span><span class="n">α</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">β</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">},</span>
+          <span class="p">{</span><span class="n">α</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span> <span class="n">β</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">}]</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+    <span class="n">p_add</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">param</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> 
+                 <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p_add</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/88cd772b0a850fbbf3e33f07c183c33630ff27678c5a7a8ba709056a5f98099f.png" src="_images/88cd772b0a850fbbf3e33f07c183c33630ff27678c5a7a8ba709056a5f98099f.png" />
+</div>
+</div>
+<p>We invite you to play with the parameters and see how the contract curves change and think about the following two questions:</p>
+<ul class="simple">
+<li><p>Can you think of a way to draw the same graph using <code class="docutils literal notranslate"><span class="pre">numpy</span></code>?</p></li>
+<li><p>How difficult will it be to write a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> implementation?</p></li>
+</ul>
+</section>
+<section id="exercises">
+<h2><a class="toc-backref" href="#id9"><span class="section-number">13.7. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<div class="exercise admonition" id="sympy_ex1">
+
+<p class="admonition-title"><span class="caption-number">Exercise 13.1 </span></p>
+<section id="exercise-content">
+<p>L’Hôpital’s rule states that for two functions <span class="math notranslate nohighlight">\(f(x)\)</span> and <span class="math notranslate nohighlight">\(g(x)\)</span>, if <span class="math notranslate nohighlight">\(\lim_{x \to a} f(x) = \lim_{x \to a} g(x) = 0\)</span> or <span class="math notranslate nohighlight">\(\pm \infty\)</span>, then</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)}
+\]</div>
+<p>Use SymPy to verify L’Hôpital’s rule for the following functions</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \frac{y^x - 1}{x}
+\]</div>
+<p>as <span class="math notranslate nohighlight">\(x\)</span> approaches to <span class="math notranslate nohighlight">\(0\)</span></p>
+</section>
+</div>
+<div class="solution dropdown admonition" id="sympy-solution-1">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#sympy_ex1"> Exercise 13.1</a></p>
+<section id="solution-content">
+<p>Let’s define the function first</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_upper</span> <span class="o">=</span> <span class="n">y</span><span class="o">**</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">f_lower</span> <span class="o">=</span> <span class="n">x</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">f_upper</span><span class="o">/</span><span class="n">f_lower</span>
+<span class="n">f</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{y^{x} - 1}{x}\]</div>
+</div>
+</div>
+<p>Sympy is smart enough to solve this limit</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lim</span> <span class="o">=</span> <span class="n">limit</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">lim</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \log{\left(y \right)}\]</div>
+</div>
+</div>
+<p>We compare the result suggested by L’Hôpital’s rule</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lim</span> <span class="o">=</span> <span class="n">limit</span><span class="p">(</span><span class="n">diff</span><span class="p">(</span><span class="n">f_upper</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="o">/</span>
+            <span class="n">diff</span><span class="p">(</span><span class="n">f_lower</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">lim</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \log{\left(y \right)}\]</div>
+</div>
+</div>
+</section>
+</div>
+<div class="exercise admonition" id="sympy_ex2">
+
+<p class="admonition-title"><span class="caption-number">Exercise 13.2 </span></p>
+<section id="exercise-content">
+<p><a class="reference external" href="https://python.quantecon.org/mle.html">Maximum likelihood estimation (MLE)</a> is a method to estimate the parameters of a statistical model.</p>
+<p>It usually involves maximizing a log-likelihood function and solving the first-order derivative.</p>
+<p>The binomial distribution is given by</p>
+<div class="math notranslate nohighlight">
+\[
+f(x; n, θ) = \frac{n!}{x!(n-x)!}θ^x(1-θ)^{n-x}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(n\)</span> is the number of trials and <span class="math notranslate nohighlight">\(x\)</span> is the number of successes.</p>
+<p>Assume we observed a series of binary outcomes with <span class="math notranslate nohighlight">\(x\)</span> successes out of <span class="math notranslate nohighlight">\(n\)</span> trials.</p>
+<p>Compute the MLE of <span class="math notranslate nohighlight">\(θ\)</span> using SymPy</p>
+</section>
+</div>
+<div class="solution dropdown admonition" id="sympy-solution-3">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#sympy_ex2"> Exercise 13.2</a></p>
+<section id="solution-content">
+<p>First, we define the binomial distribution</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">θ</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;n x θ&#39;</span><span class="p">)</span>
+
+<span class="n">binomial_factor</span> <span class="o">=</span> <span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">r</span><span class="p">))</span>
+<span class="n">binomial_factor</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{n!}{x! \left(n - r\right)!}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bino_dist</span> <span class="o">=</span> <span class="n">binomial_factor</span> <span class="o">*</span> <span class="p">((</span><span class="n">θ</span><span class="o">**</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">θ</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
+<span class="n">bino_dist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{θ^{x} \left(1 - θ\right)^{n - x} n!}{x! \left(n - r\right)!}\]</div>
+</div>
+</div>
+<p>Now we compute the log-likelihood function and solve for the result</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_bino_dist</span> <span class="o">=</span> <span class="n">log</span><span class="p">(</span><span class="n">bino_dist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_bino_diff</span> <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">diff</span><span class="p">(</span><span class="n">log_bino_dist</span><span class="p">,</span> <span class="n">θ</span><span class="p">))</span>
+<span class="n">log_bino_diff</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{n θ - x}{θ \left(θ - 1\right)}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solve</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">log_bino_diff</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">θ</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{x}{n}\]</div>
+</div>
+</div>
+</section>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                    </div>
+                    
+                </main> <!-- .page__content -->
+                
+
+
+                <footer class="qe-page__footer">
+
+                    <p><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"></a></p>
+
+                    <p>Creative Commons License &ndash; This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International.</p>
+
+                </footer> <!-- .page__footer -->
+
+            </div> <!-- .page -->
+
+            
+
+            
+            <div class="qe-sidebar bd-sidebar inactive" id="site-navigation">
+
+                <div class="qe-sidebar__header">
+
+
+                    Contents
+
+                </div>
+
+                <nav class="qe-sidebar__nav" id="qe-sidebar-nav" aria-label="Main navigation">
+                    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_py.html">
+   1. About Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started.html">
+   2. Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_by_example.html">
+   3. An Introductory Example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   4. Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_essentials.html">
+   5. Python Essentials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="oop_intro.html">
+   6. OOP I: Objects and Names
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_oop.html">
+   7. OOP II: Building Classes
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  The Scientific Libraries
+ </span>
+</p>
+<ul class="current nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="need_for_speed.html">
+   8. Python for Scientific Computing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy.html">
+   9. NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matplotlib.html">
+   10. Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scipy.html">
+   11. SciPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   12. Pandas
+  </a>
+ </li>
+ <li class="toctree-l1 current active active">
+  <a class="current reference internal" href="#">
+   13. SymPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  High Performance Computing
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="numba.html">
+   14. Numba
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parallelization.html">
+   15. Parallelization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jax_intro.html">
+   16. JAX
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Advanced Python Programming
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="writing_good_code.html">
+   17. Writing Good Code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_advanced_features.html">
+   18. More Language Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="debugging.html">
+   19. Debugging and Handling Errors
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   20. Troubleshooting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="status.html">
+   21. Execution Statistics
+  </a>
+ </li>
+</ul>
+
+                </nav>
+
+                <div class="qe-sidebar__footer">
+
+                </div>
+
+            </div> <!-- .sidebar -->
+            
+        </div> <!-- .main -->
+
+        <div class="qe-toolbar">
+
+            <div class="qe-toolbar__inner">
+
+                <ul class="qe-toolbar__main">
+                    <li data-tippy-content="Table of Contents" class="btn__sidebar"><i data-feather="menu"></i></li>
+                    <li data-tippy-content="Home"><a href="intro.html"><i data-feather="home"></i></a></li>
+                    <li class="btn__qelogo"><a href="https://quantecon.org" title=""><span class="show-for-sr">QuantEcon</span></a></li>
+                </ul>
+
+                <ul class="qe-toolbar__links">
+                    <li class="btn__search">
+                        <form action="search.html" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search..." aria-label="Search..." autocomplete="off" accesskey="k">
+                            <i data-feather="search" id="search-icon"></i>
+                        </form>
+                    </li>
+                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
+                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
+                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
+                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                    <li data-tippy-content="Download Notebook"><a href="/_notebooks/sympy.ipynb" download><i data-feather="download-cloud"></i></a></li>
+                    <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
+                        <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/blob/main/lectures/sympy.md" download><i data-feather="github"></i></a></li>
+                </ul>
+
+            </div>
+
+        </div> <!-- .toolbar -->
+        <div id="downloadPDFModal" style="display: none;">
+            <ul class="pdf-options" style="display: block;">
+                <li class="download-pdf-book" onClick="window.print()">
+                    <p>Lecture (PDF)</p>
+                </li>
+                <li class="download-pdf-file">
+                    <a href="/_pdf/quantecon-python-programming.pdf" download><p>Book (PDF)</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="settingsModal" style="display: none;">
+            <p class="modal-title"> Notebook Launcher </p>
+            <div class="modal-desc">
+            <p>
+                Choose public or private cloud service for "Launch" button.
+            </p>
+            </div>
+            <p class="modal-subtitle">Select a server</p>
+            <ul class="modal-servers">
+            <li class="active launcher-public">
+                <span class="label">Public</span>
+                <select id="launcher-public-input">
+                
+                    <option value="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.notebooks/blob/master/sympy.ipynb">Colab</option>
+                
+                </select>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            <li class="launcher-private">
+                <span class="label">Private</span>
+                <input type="text" id="launcher-private-input" data-repourl="https://github.com/QuantEcon/lecture-python-programming.notebooks" data-urlpath="tree/lecture-python-programming.notebooks/sympy.ipynb" data-branch=master>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            </ul>
+            <p class="launch"><a href="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.notebooks/blob/master/sympy.ipynb" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
+            <script>
+                // QuantEcon Notebook Launcher
+                const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');
+                // Highlight the server type if previous selection exists
+                if (typeof localStorage.launcherType !== 'undefined') {
+                  for (var i = 0; i < launcherTypeElements.length; i++) {
+                    launcherTypeElements[i].classList.remove('active');
+                    if ( launcherTypeElements[i].classList.contains(localStorage.launcherType) ) {
+                      launcherTypeElements[i].classList.add('active');
+                    }
+                  }
+                }
+                // Highlight server type on click and set local storage value
+                for (var i = 0; i < launcherTypeElements.length; i++) {
+                  launcherTypeElements[i].addEventListener('click', function() {
+                    for (var j = 0; j < launcherTypeElements.length; j++) {
+                      launcherTypeElements[j].classList.remove('active');
+                    }
+                    this.classList.add('active');
+                    if ( this.classList.contains('launcher-private') ) {
+                      localStorage.launcherType = 'launcher-private';
+                    } else if ( this.classList.contains('launcher-public') ) {
+                      localStorage.launcherType = 'launcher-public';
+                    }
+                    setLaunchServer();
+                  })
+                }
+                const launcherPublic = document.getElementById('launcher-public-input');
+                const launcherPrivate = document.getElementById('launcher-private-input');
+                const pageName = "sympy";
+                const repoURL = "https://github.com/QuantEcon/lecture-python-programming.notebooks";
+                const urlPath = "tree/lecture-python-programming.notebooks/sympy.ipynb";
+                const branch = "master"
+                const launchNotebookLink = document.getElementById('advancedLaunchButton');
+
+                // Highlight public server option if previous selection exists
+                if (typeof localStorage.launcherPublic !== 'undefined') {
+                  launcherPublic.value = localStorage.launcherPublic;
+                }
+                // Update local storage upon public server selection
+                launcherPublic.addEventListener('change', (event) => {
+                  setLaunchServer();
+                });
+                // Populate private server input if previous entry exists
+                if (typeof localStorage.launcherPrivate !== 'undefined') {
+                  launcherPrivate.value = localStorage.launcherPrivate;
+                }
+                // Update local storage when a private server is entered
+                launcherPrivate.addEventListener('input', (event) => {
+                  setLaunchServer();
+                });
+
+                // Function to update the "Launch Notebook" link href
+                function setLaunchServer() {
+                  launchNotebookLink.removeAttribute("style")
+                  if ( localStorage.launcherType == 'launcher-private' ) {
+                    let repoPrefix = "/jupyter/hub/user-redirect/git-pull?repo=" + repoURL + "&branch=" + branch + "&urlpath=" + urlPath;
+                    launcherPrivateValue = launcherPrivate.value
+                    if (!launcherPrivateValue) {
+                        launchNotebookLink.removeAttribute("href")
+                        launchNotebookLink.style.background = "grey"
+                        return
+                    }
+                    localStorage.launcherPrivate = launcherPrivateValue;
+                    privateServer = localStorage.launcherPrivate.replace(/\/$/, "")
+                    if (!privateServer.includes("http")) {
+                        privateServer = "http://" + privateServer
+                    }
+                    launchNotebookLinkURL = privateServer + repoPrefix;
+                  } else if ( localStorage.launcherType == 'launcher-public' ) {
+                    launcherPublicValue = launcherPublic.options[launcherPublic.selectedIndex].value;
+                    localStorage.launcherPublic = launcherPublicValue;
+                    launchNotebookLinkURL = localStorage.launcherPublic;
+                  }
+                  if (launchNotebookLinkURL) launchNotebookLink.href = launchNotebookLinkURL;
+                }
+                // Check if user has previously selected a server
+                if ( (typeof localStorage.launcherPrivate !== 'undefined') || (typeof localStorage.launcherPublic !== 'undefined') ) {
+                  setLaunchServer();
+                }
+                </script>
+
+        </div>
+
+    </div> <!-- .wrapper-->
+  </body>
+</html>
