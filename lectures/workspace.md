@@ -18,7 +18,7 @@ kernelspec:
 </div>
 ```
 
-# Python Development: Writing Longer Programs
+# Writing Longer Programs
 
 
 ```{contents} Contents
@@ -30,7 +30,7 @@ So far, we have explored the use of Jupyter Notebooks in writing and executing P
 
 While they are efficient and adaptable when working with short pieces of code, Notebooks are not the best choice for longer programs and scripts. 
 
-While Jupyter Notebooks can help execute chunks of code one at a time, scripts allow for long pieces of code to be written and executed in a single go. 
+Jupyter Notebooks are well suited to interactive computing (i.e. data science workflows) and can help execute chunks of code one at a time. Text files and scripts allow for long pieces of code to be written and executed in a single go.
 
 We will explore the use of Python scripts as an alternative.  
 
