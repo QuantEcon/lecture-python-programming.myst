@@ -370,7 +370,7 @@ There are many parameters you could set for your style sheets.
 
 Set parameters for your style sheet by: 
 
-1. creating your own [`matplotlibrc` file](https://matplotlib.org/stable/tutorials/introductory/customizing.html#defining-your-own-style), or
+1. creating your own [`matplotlibrc` file](https://matplotlib.org/stable/users/explain/customizing.html), or
 2. updating values stored in the dictionary-like variable `plt.rcParams`
 
 Let's change the style of our overlaid density lines using the second method
