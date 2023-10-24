@@ -272,6 +272,8 @@ def mean(data):
 data = np.array([2.3, 3.1, 4.3, 5.9, 2.1, 3.8, 2.2])
 n_resamples = 10
 
+print('Type of function:', type(mean))
+
 #Error
 try:
     bootstrap(data, mean, n_resamples)
@@ -285,6 +287,8 @@ But Numba recognizes JIT-compiled functions
 @njit
 def mean(data):
     return np.mean(data)
+
+print('Type of function:', type(mean))
 
 %time bootstrap(data, mean, n_resamples)
 ```
