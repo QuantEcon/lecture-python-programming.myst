@@ -257,8 +257,6 @@ When Numba cannot infer all type information, it will raise an error.
 For example, in the case below, Numba is unable to determine the type of function `mean` when compiling the function `bootstrap`
 
 ```{code-cell} ipython3
-:tags: [raises-exception, hide-output]
-
 @njit
 def bootstrap(data, statistics, n):
     bootstrap_stat = np.empty(n)
@@ -273,14 +271,17 @@ def mean(data):
 
 data = np.array([2.3, 3.1, 4.3, 5.9, 2.1, 3.8, 2.2])
 n_resamples = 10
-bootstrap(data, mean, n_resamples)
+
+#Error
+try:
+    bootstrap(data, mean, n_resamples)
+except Exception as e:
+    print(e)
 ```
 
 But Numba recognizes JIT-compiled functions
 
 ```{code-cell} ipython3
-:tags: []
-
 @njit
 def mean(data):
     return np.mean(data)
@@ -291,12 +292,12 @@ def mean(data):
 We can check the signature of the JIT-compiled function
 
 ```{code-cell} ipython3
-:tags: []
-
 bootstrap.signatures
 ```
 
 It shows that the function `bootstrap` takes one `float64` floating point array, one function called `mean` and an `int64` integer.
+
+Now let's see what happens when we change the inputs.
 
 Running it again with a larger integer for `n` and a different set of data does not change the signature of the function.
 
@@ -308,27 +309,25 @@ bootstrap.signatures
 
 As expected, the second run is much faster.
 
-Let's try to change the data again and use integer arrays as data
+Let's try to change the data again and use an integer array as data
 
 ```{code-cell} ipython3
-:tags: []
-
 data = np.array([1, 2, 3, 4, 5], dtype=np.int64)
 %time bootstrap(data, mean, 100)
 bootstrap.signatures
 ```
 
-Note that a second signature is added into the signature of `bootstrap` with `int64` array as the first argument.
+Note that a second signature with an `int64` array as the first argument is added into the signature of `bootstrap` function.
 
-The runtime is the same as if we ran the function for the first time.
+The runtime is slower as if we ran the function for the first time.
 
-It suggests that Numba needs to recompile as the type changes.
+It suggests that Numba recompiles this function as the type changes.
 
-Overall, type inference is what helps Numba to achieve its performance, but it also limits what Numba supports.
+Overall, type inference helps Numba to achieve its performance, but it also limits what Numba supports as we have shown in the function example.
+
+In fact, this limitation means that Numba does not support everything in Python and scientific libraries we learned before.
 
 You can refer to the list of supported Python and Numpy features [here](https://numba.pydata.org/numba-doc/dev/reference/pysupported.html).
-
-+++
 
 ## Compiling Classes
 
