@@ -185,6 +185,7 @@ def f(x):
 
 Functions without a return statement automatically return the special Python object `None`.
 
+(pos_args)=
 ### Keyword Arguments
 
 ```{index} single: Python; keyword arguments

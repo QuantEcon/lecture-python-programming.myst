@@ -17,6 +17,12 @@ latex:
 sphinx:
   extra_extensions: [sphinx_multitoc_numbering, sphinxext.rediraffe, sphinx_tojupyter, sphinx_exercise, sphinx_togglebutton]
   config:
+    # false-positive links
+    linkcheck_ignore: ['https://github.com/matplotlib/matplotlib/blob/v3.6.2/lib/matplotlib/axes/_axes.py#L1417-L1669',
+                       'https://ieeexplore.ieee.org/document/8757088',
+                       'https://www.sciencedirect.com/science/article/pii/S1477388021000177',
+                       'https://keras.io/',
+                       'https://data.oecd.org/']
     html_favicon: _static/lectures-favicon.ico
     html_theme: quantecon_book_theme
     html_static_path: ['_static']

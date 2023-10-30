@@ -301,7 +301,7 @@ In this section, we will explore how to use them and distinguish their use cases
 
 When we operate on a list of parameters, we often need to extract the content of the list as individual arguments instead of a collection when passing them into functions.
 
-Luckily, the `*` operator can help us to unpack lists and tuples into [*positional arguments*](https://63a3119f7a9a1a12f59e7803--epic-agnesi-957267.netlify.app/functions.html#keyword-arguments) in function calls.
+Luckily, the `*` operator can help us to unpack lists and tuples into [*positional arguments*](pos_args) in function calls.
 
 To make things concrete, consider the following examples:
 

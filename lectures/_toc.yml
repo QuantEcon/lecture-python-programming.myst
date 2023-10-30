@@ -19,6 +19,7 @@ parts:
   - file: matplotlib
   - file: scipy
   - file: pandas
+  - file: sympy
 - caption: High Performance Computing
   numbered: true
   chapters:
