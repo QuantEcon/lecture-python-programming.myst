@@ -319,7 +319,8 @@ def draw_graphs(style='default'):
         # and a line graph with random Y values
         axes[3].plot(x, rnormY, linewidth=2, alpha=0.7)
 
-    plt.suptitle(f'Style: {style}', fontsize=13)
+    style_name = style.split('-')[0]
+    plt.suptitle(f'Style: {style_name}', fontsize=13)
     plt.show()
 
 ```
@@ -329,7 +330,7 @@ Let's see what some of the styles look like.
 First, we draw graphs with the style sheet `seaborn`
 
 ```{code-cell} python3
-draw_graphs(style='seaborn')
+draw_graphs(style='seaborn-v0_8')
 ```
 
 We can use `grayscale` to remove colors in plots
@@ -369,7 +370,7 @@ There are many parameters you could set for your style sheets.
 
 Set parameters for your style sheet by: 
 
-1. creating your own [`matplotlibrc` file](https://matplotlib.org/stable/tutorials/introductory/customizing.html#defining-your-own-style), or
+1. creating your own [`matplotlibrc` file](https://matplotlib.org/stable/users/explain/customizing.html), or
 2. updating values stored in the dictionary-like variable `plt.rcParams`
 
 Let's change the style of our overlaid density lines using the second method
