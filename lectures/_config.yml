@@ -27,7 +27,7 @@ sphinx:
     html_theme: quantecon_book_theme
     html_static_path: ['_static']
     html_theme_options:
-      dark_logo: _static/quantecon-logo-transparent.png
+      dark_logo: quantecon-logo-transparent.png
       header_organisation_url: https://quantecon.org
       header_organisation: QuantEcon
       repository_url: https://github.com/QuantEcon/lecture-python-programming.myst
