@@ -329,8 +329,6 @@ It suggests that Numba recompiles this function as the type changes.
 
 Overall, type inference helps Numba to achieve its performance, but it also limits what Numba supports as we have shown in the function example.
 
-In fact, this limitation means that Numba does not support everything in Python and scientific libraries as we learned before.
-
 You can refer to the list of supported Python and Numpy features [here](https://numba.pydata.org/numba-doc/dev/reference/pysupported.html).
 
 ## Compiling Classes
