@@ -299,7 +299,7 @@ We can check the signature of the JIT-compiled function
 bootstrap.signatures
 ```
 
-It shows that the function `bootstrap` takes one `float64` floating point array, one function called `mean` and an `int64` integer.
+The function `bootstrap` takes one `float64` floating point array, one function called `mean` and an `int64` integer.
 
 Now let's see what happens when we change the inputs.
 
@@ -321,13 +321,11 @@ data = np.array([1, 2, 3, 4, 5], dtype=np.int64)
 bootstrap.signatures
 ```
 
-Note that a second signature with an `int64` array as the first argument is added into the signature of `bootstrap` function.
+Note that a second signature with is added.
 
-The runtime is slower as if we ran the function for the first time.
+It also takes longer to run suggesting that Numba recompiles this function as the type changes.
 
-It suggests that Numba recompiles this function as the type changes.
-
-Overall, type inference helps Numba to achieve its performance, but it also limits what Numba supports as we have shown in the function example.
+Overall, type inference helps Numba to achieve its performance, but it also limits what Numba supports and sometimes requires careful type checks.
 
 You can refer to the list of supported Python and Numpy features [here](https://numba.pydata.org/numba-doc/dev/reference/pysupported.html).
 
