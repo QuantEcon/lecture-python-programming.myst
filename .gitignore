@@ -2,3 +2,6 @@ _build/
 __pycache__/
 .DS_Store
 dask-worker-space
+
+.vscode/
+.ipynb_checkpoints/

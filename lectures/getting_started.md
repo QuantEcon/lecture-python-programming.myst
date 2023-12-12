@@ -382,6 +382,42 @@ Now we `Shift+Enter` to produce this
 :figclass: auto
 ```
 
+### Debugging Code
+
+```{index} single: Jupyter Notebook; Debugging
+```
+
+Debugging is the process of identifying and removing errors from a program. 
+
+You will spend a lot of time debugging code, so it is important to [learn how to do it effectively](https://www.freecodecamp.org/news/what-is-debugging-how-to-debug-code/).
+
+If you are using a newer version of Jupyter, you should see a bug icon on the right end of the toolbar.
+
+```{figure} /_static/lecture_specific/getting_started/debug.png
+:scale: 80%
+:figclass: auto
+```
+
+Clicking this icon will enable the Jupyter debugger. 
+
+<!-- IDEA: This could be turned into a margin note once supported by quantecon-book-theme -->
+```{note}
+You may also need to open the Debugger Panel (View -> Debugger Panel).
+```
+
+You can set breakpoints by clicking on the line number of the cell you want to debug. 
+
+When you run the cell, the debugger will stop at the breakpoint.  
+
+You can then step through the code line by line using the buttons on the "Next" button on the CALLSTACK toolbar (located in the right hand window).
+
+<!-- IDEA: add a red square around the area of interest in the image -->
+```{figure} /_static/lecture_specific/getting_started/debugger_breakpoint.png
+:figclass: auto
+```
+
+You can explore more functionality of the debugger in the [Jupyter documentation](https://jupyterlab.readthedocs.io/en/latest/user/debugger.html).
+
 ### Sharing Notebooks
 
 ```{index} single: Jupyter Notebook; Sharing
@@ -399,6 +435,17 @@ The notebooks you see on that site are **static** html representations.
 To run one, download it as an `ipynb` file by clicking on the download icon at the top right.
 
 Save it somewhere, navigate to it from the Jupyter dashboard and then run as discussed above.
+
+```{note}
+If you are interested in sharing notebooks containing interactive content, you might want to check out [Binder](https://mybinder.org/).
+
+To collaborate with other people on notebooks, you might want to take a look at
+
+- [Google Colab](https://colab.research.google.com/)
+- [Kaggle](https://www.kaggle.com/kernels)
+
+To keep the code private and to use the familiar JupyterLab and Notebook interface, look into the [JupyterLab Real-Time Collaboration extension](https://jupyterlab-realtime-collaboration.readthedocs.io/en/latest/).
+```
 
 ### QuantEcon Notes
 
@@ -551,70 +598,6 @@ You should now be able to run a standard Jupyter notebook session.
 This is an alternative way to start the notebook that can also be handy.
 
 This can also work when you accidentally close the webpage as long as the kernel is still running.
-
-```{exercise-end}
-```
-
-```{exercise-start}
-:label: gs_ex2
-```
-
-```{index} single: Git
-```
-
-This exercise will familiarize you with git and GitHub.
-
-[Git](http://git-scm.com/) is a *version control system* --- a piece of software used to manage digital projects such as code libraries.
-
-In many cases, the associated collections of files --- called *repositories* --- are stored on [GitHub](https://github.com/).
-
-GitHub is a wonderland of collaborative coding projects.
-
-For example, it hosts many of the scientific libraries we'll be using later
-on, such as [this one](https://github.com/pydata/pandas).
-
-Git is the underlying software used to manage these projects.
-
-Git is an extremely powerful tool for distributed collaboration --- for
-example, we use it to share and synchronize all the source files for these
-lectures.
-
-There are two main flavors of Git
-
-1. the plain vanilla [command line Git](http://git-scm.com/downloads) version
-1. the various point-and-click GUI versions
-    * See, for example, the [GitHub version](https://desktop.github.com/) or Git GUI integrated into your IDE.
-
-As the 1st task, try
-
-1. Installing Git.
-1. Getting a copy of [QuantEcon.py](https://github.com/QuantEcon/QuantEcon.py) using Git.
-
-For example, if you've installed the command line version, open up a terminal and enter.
-
-```{code-block} bash
-:class: no-execute
-
-git clone https://github.com/QuantEcon/QuantEcon.py
-```
-(This is just `git clone` in front of the URL for the repository)
-
-This command will download all necessary components to rebuild the lecture you are reading now.
-
-As the 2nd task,
-
-1. Sign up to [GitHub](https://github.com/).
-1. Look into 'forking' GitHub repositories (forking means making your own copy of a GitHub repository, stored on GitHub).
-1. Fork [QuantEcon.py](https://github.com/QuantEcon/QuantEcon.py).
-1. Clone your fork to some local directory, make edits, commit them, and push them back up to your forked GitHub repo.
-1. If you made a valuable improvement, send us a [pull request](https://help.github.com/articles/about-pull-requests/)!
-
-For reading on these and other topics, try
-
-* [The official Git documentation](http://git-scm.com/doc).
-* Reading through the docs on [GitHub](https://docs.github.com/en).
-* [Pro Git Book](http://git-scm.com/book) by Scott Chacon and Ben Straub.
-* One of the thousands of Git tutorials on the Net.
 
 ```{exercise-end}
 ```

@@ -11,6 +11,7 @@ parts:
   - file: python_essentials
   - file: oop_intro
   - file: python_oop
+  - file: workspace 
 - caption: The Scientific Libraries
   numbered: true
   chapters:
