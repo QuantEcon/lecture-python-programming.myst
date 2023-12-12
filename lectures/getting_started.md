@@ -384,6 +384,9 @@ Now we `Shift+Enter` to produce this
 
 ### Debugging Code
 
+```{index} single: Jupyter Notebook; Debugging
+```
+
 Debugging is the process of identifying and removing errors from a program. 
 
 You will spend a lot of time debugging code, so it is important to [learn how to do it effectively](https://www.freecodecamp.org/news/what-is-debugging-how-to-debug-code/).
@@ -391,23 +394,29 @@ You will spend a lot of time debugging code, so it is important to [learn how to
 If you are using a newer version of Jupyter, you should see a bug icon on the right end of the toolbar.
 
 ```{figure} /_static/lecture_specific/getting_started/debug.png
+:scale: 80%
 :figclass: auto
 ```
+
 Clicking this icon will enable the Jupyter debugger. 
 
-You would also need to open the Debugger Panel (View -> Debugger Panel).
+<!-- IDEA: This could be turned into a margin note once supported by quantecon-book-theme -->
+```{note}
+You may also need to open the Debugger Panel (View -> Debugger Panel).
+```
 
 You can set breakpoints by clicking on the line number of the cell you want to debug. 
 
 When you run the cell, the debugger will stop at the breakpoint.  
 
-You can then step through the code line by line using the buttons on the "Next" button on the Callstack toolbar.
+You can then step through the code line by line using the buttons on the "Next" button on the CALLSTACK toolbar (located in the right hand window).
 
+<!-- IDEA: add a red square around the area of interest in the image -->
 ```{figure} /_static/lecture_specific/getting_started/debugger_breakpoint.png
 :figclass: auto
 ```
 
-You can explore the functionality of the debugger in detail at the [documentation](https://jupyterlab.readthedocs.io/en/latest/user/debugger.html).
+You can explore more functionality of the debugger in the [Jupyter documentation](https://jupyterlab.readthedocs.io/en/latest/user/debugger.html).
 
 ### Sharing Notebooks
 
@@ -430,7 +439,8 @@ Save it somewhere, navigate to it from the Jupyter dashboard and then run as dis
 ```{note}
 If you are interested in sharing notebooks containing interactive content, you might want to check out [Binder](https://mybinder.org/).
 
-To collaborate with other people on notebooks, you might want to check out
+To collaborate with other people on notebooks, you might want to take a look at
+
 - [Google Colab](https://colab.research.google.com/)
 - [Kaggle](https://www.kaggle.com/kernels)
 

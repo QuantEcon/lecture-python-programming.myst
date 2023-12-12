@@ -20,7 +20,6 @@ kernelspec:
 
 # Writing Longer Programs
 
-
 ```{contents} Contents
 :depth: 2
 ```
@@ -30,7 +29,9 @@ So far, we have explored the use of Jupyter Notebooks in writing and executing P
 
 While they are efficient and adaptable when working with short pieces of code, Notebooks are not the best choice for longer programs and scripts. 
 
-Jupyter Notebooks are well suited to interactive computing (i.e. data science workflows) and can help execute chunks of code one at a time. Text files and scripts allow for long pieces of code to be written and executed in a single go.
+Jupyter Notebooks are well suited to interactive computing (i.e. data science workflows) and can help execute chunks of code one at a time. 
+
+Text files and scripts allow for long pieces of code to be written and executed in a single go.
 
 We will explore the use of Python scripts as an alternative.  
 
@@ -49,10 +50,9 @@ You may want to [create a new conda environment](https://conda.io/projects/conda
 
 ## Working with Python files 
 
-Python files are used when writing long, reusable blocks of code - by convention, they have a ```.py``` suffix. 
+Python files are used when writing long, reusable blocks of code - by convention, they have a `.py` suffix. 
 
 Let us begin by working with the following example.
-
 
 ```{code-block} python
 :caption: sine_wave.py
@@ -107,7 +107,7 @@ import sine_wave # Import the sine_wave script
 sine_wave.plot_wave("Sine Wave - Called from the Second Script")
 ```
 
-This allows you to split your code into chuncks and structure your codebase better.
+This allows you to split your code into chunks and structure your codebase better.
 
 Look into the use of [modules](https://docs.python.org/3/tutorial/modules.html) and [packages](https://docs.python.org/3/tutorial/modules.html#packages) for more information on importing functionality.
 
@@ -176,9 +176,9 @@ Coming back to the example scripts from earlier, there are two ways to work with
 
 ### Using magic commands
 
-Jupyter Notebooks and JupyterLab support the use of [magic commands](https://ipython.readthedocs.io/en/stable/interactive/magics.html) - commands that extend the capabilites of a standard Jupyter Notebook.
+Jupyter Notebooks and JupyterLab support the use of [magic commands](https://ipython.readthedocs.io/en/stable/interactive/magics.html) - commands that extend the capabilities of a standard Jupyter Notebook.
 
-The ```%run``` magic command allows you to run a Python script from within a Notebook.
+The `%run` magic command allows you to run a Python script from within a Notebook.
 
 This is a convenient way to run scripts that you are working on in the same directory as your Notebook and present the outputs within the Notebook.
 
@@ -188,7 +188,7 @@ This is a convenient way to run scripts that you are working on in the same dire
 
 ### Using the terminal
 
-However, if you are looking into just running the ```.py``` file, it is sometimes easier to use the terminal.
+However, if you are looking into just running the `.py` file, it is sometimes easier to use the terminal.
 
 Open a terminal from the launcher and run the following command.
 
@@ -239,11 +239,11 @@ You can also install extensions from the Extensions tab.
 ```{figure} /_static/lecture_specific/workspace/vs_code_extensions.png
 :figclass: auto
 ```
-Jupyter Notebooks (```.ipynb``` files) can be worked on in VS Code.
+Jupyter Notebooks (`.ipynb` files) can be worked on in VS Code.
 
 Make sure to install the Jupyter extension from the Extensions tab before you try to open a Jupyter Notebook.
 
-Create a new file (in the file Explorer tab) and save it with the ```.ipynb``` extension.
+Create a new file (in the file Explorer tab) and save it with the `.ipynb` extension.
 
 Choose a kernel/environment to run the Notebook in by clicking on the Select Kernel button on the top right corner of the editor.
 
@@ -302,7 +302,7 @@ This creates an ipykernel console and runs the script.
 
 ### Using the terminal
 
-The command ```python <path to file.py>``` is executed on the console of your choice. 
+The command `python <path to file.py>` is executed on the console of your choice. 
 
 If you are using a Windows machine, you can either use the Anaconda Prompt or the Command Prompt - but, generally not the PowerShell.
 
