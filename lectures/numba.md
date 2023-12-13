@@ -321,9 +321,9 @@ data = np.array([1, 2, 3, 4, 5], dtype=np.int64)
 bootstrap.signatures
 ```
 
-Note that a second signature with is added.
+Note that a second signature is added.
 
-It also takes longer to run suggesting that Numba recompiles this function as the type changes.
+It also takes longer to run, suggesting that Numba recompiles this function as the type changes.
 
 Overall, type inference helps Numba to achieve its performance, but it also limits what Numba supports and sometimes requires careful type checks.
 
@@ -354,7 +354,7 @@ Notice that we also imported something called `float64`.
 
 This is a data type representing standard floating point numbers.
 
-We are importing it here because Numba needs a bit of extra help with types when it trys to deal with classes.
+We are importing it here because Numba needs a bit of extra help with types when it tries to deal with classes.
 
 Here's our code:
 
