@@ -27,7 +27,6 @@ sphinx:
     html_theme: quantecon_book_theme
     html_static_path: ['_static']
     html_theme_options:
-      dark_logo: _static/qe-logo-on-black.png
       header_organisation_url: https://quantecon.org
       header_organisation: QuantEcon
       repository_url: https://github.com/QuantEcon/lecture-python-programming.myst
@@ -36,6 +35,7 @@ sphinx:
       dark_logo: qe-logo-dark.png
       twitter_logo_url: https://assets.quantecon.org/img/qe-twitter-logo.png
       og_logo_url: https://assets.quantecon.org/img/qe-og-logo.png
+      mainpage_author_fontsize: 22
       description: This website presents a set of lectures on python programming for economics.
       keywords: Python, QuantEcon, Quantitative Economics, Economics, Sloan, Alfred P. Sloan Foundation, Tom J. Sargent, John Stachurski
       analytics:
