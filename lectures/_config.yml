@@ -27,6 +27,11 @@ sphinx:
     html_theme: quantecon_book_theme
     html_static_path: ['_static']
     html_theme_options:
+      authors:
+        - name: Thomas J. Sargent
+          url: http://www.tomsargent.com/
+        - name: John Stachurski
+          url: https://johnstachurski.net/      
       dark_logo: quantecon-logo-transparent.png
       header_organisation_url: https://quantecon.org
       header_organisation: QuantEcon
