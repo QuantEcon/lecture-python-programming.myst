@@ -1,0 +1,889 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>8. Writing Longer Programs &#8212; Python Programming for Economics and Finance</title>
+    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    
+        <script>
+            MathJax = {
+            loader: {load: ['[tex]/boldsymbol', '[tex]/textmacros']},
+            tex: {
+                packages: {'[+]': ['boldsymbol', 'textmacros']},
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                processEscapes: true,
+                macros: {
+                    "argmax" : "arg\\,max",
+                    "argmin" : "arg\\,min",
+                    "col"    : "col",
+                    "Span"   :  "span",
+                    "epsilon": "\\varepsilon",
+                    "EE": "\\mathbb{E}",
+                    "PP": "\\mathbb{P}",
+                    "RR": "\\mathbb{R}",
+                    "NN": "\\mathbb{N}",
+                    "ZZ": "\\mathbb{Z}",
+                    "aA": "\\mathcal{A}",
+                    "bB": "\\mathcal{B}",
+                    "cC": "\\mathcal{C}",
+                    "dD": "\\mathcal{D}",
+                    "eE": "\\mathcal{E}",
+                    "fF": "\\mathcal{F}",
+                    "gG": "\\mathcal{G}",
+                    "hH": "\\mathcal{H}",
+                }
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 0.92,
+                displayAlign: "center",
+            },
+            };
+        </script>
+    
+    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=8ccdddd742928a25ee5c13f3827fecc000146baa" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=b21c4b94ab1abd61a98d27e943717a00f8eaac64"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'workspace';</script>
+    <link rel="canonical" href="https://python.quantecon.org/workspace.html" />
+    <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="9. Python for Scientific Computing" href="need_for_speed.html" />
+    <link rel="prev" title="7. OOP II: Building Classes" href="python_oop.html" />
+
+<!-- Normal Meta Tags -->
+<meta name="author" context="Thomas J. Sargent &amp; John Stachurski" />
+<meta name="keywords" content="Python, QuantEcon, Quantitative Economics, Economics, Sloan, Alfred P. Sloan Foundation, Tom J. Sargent, John Stachurski" />
+<meta name="description" content=This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski. />
+
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@quantecon" />
+<meta name="twitter:title" content="Writing Longer Programs"/>
+<meta name="twitter:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.">
+<meta name="twitter:creator" content="@quantecon">
+<meta name="twitter:image" content="https://assets.quantecon.org/img/qe-twitter-logo.png">
+
+<!-- Opengraph tags -->
+<meta property="og:title" content="Writing Longer Programs" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://python.quantecon.org/workspace.html" />
+<meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
+<meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
+<meta property="og:site_name" content="Python Programming for Economics and Finance" />
+<meta name="theme-color" content="#ffffff" />
+
+  </head>
+<body>
+
+
+    <span id="top"></span>
+
+    <div class="qe-wrapper">
+
+        <div class="qe-main">
+
+            <div class="qe-page" id=workspace>
+
+                <div class="qe-page__toc">
+
+                    <div class="inner">
+
+                        
+                        <div class="qe-page__toc-header">
+                            On this page
+                        </div>
+
+
+                        <nav id="bd-toc-nav" class="qe-page__toc-nav">
+                            <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">8.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-python-files">8.2. Working with Python files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development-environments">8.3. Development environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-step-forward-from-jupyter-notebooks-jupyterlab">8.4. A step forward from Jupyter Notebooks: JupyterLab</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-magic-commands">8.4.1. Using magic commands</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-terminal">8.4.2. Using the terminal</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-walk-through-visual-studio-code">8.5. A walk through Visual Studio Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-run-button">8.5.1. Using the run button</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">8.5.2. Using the terminal</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-your-hands-dirty">8.6. Git your hands dirty</a></li>
+</ul>
+                            <p class="logo">
+                                
+                                    
+                                    <a href=https://quantecon.org><img src="_static/qe-logo.png" class="logo logo-img" alt="logo"></a>
+                                    
+                                    <a href=https://quantecon.org><img src="_static/quantecon-logo-transparent.png" class="dark-logo-img" alt="logo"></a>
+                                    
+                                    
+                                
+                            </p>
+
+                            <p class="powered">Powered by <a href="https://jupyterbook.org/">Jupyter Book</a></p>
+
+                        </nav>
+
+                        <div class="qe-page__toc-footer">
+                            
+                            
+                            <p><a href="#top"><strong>Back to top</strong></a></p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="qe-page__header">
+
+                    <div class="qe-page__header-copy">
+
+                        <p class="qe-page__header-heading"><a href="intro.html">Python Programming for Economics and Finance</a></p>
+
+                        <p class="qe-page__header-subheading">Writing Longer Programs</p>
+
+                    </div>
+
+                    <p class="qe-page__header-authors">Thomas J. Sargent & John Stachurski</p>
+
+                </div> <!-- .page__header -->
+
+
+
+                
+                <main class="qe-page__content" role="main">
+                    
+                    <div>
+                        
+  <section class="tex2jax_ignore mathjax_ignore" id="writing-longer-programs">
+<h1><a class="toc-backref" href="#id5"><span class="section-number">8. </span>Writing Longer Programs</a><a class="headerlink" href="#writing-longer-programs" title="Permalink to this heading">#</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#writing-longer-programs" id="id5">Writing Longer Programs</a></p>
+<ul>
+<li><p><a class="reference internal" href="#overview" id="id6">Overview</a></p></li>
+<li><p><a class="reference internal" href="#working-with-python-files" id="id7">Working with Python files</a></p></li>
+<li><p><a class="reference internal" href="#development-environments" id="id8">Development environments</a></p></li>
+<li><p><a class="reference internal" href="#a-step-forward-from-jupyter-notebooks-jupyterlab" id="id9">A step forward from Jupyter Notebooks: JupyterLab</a></p></li>
+<li><p><a class="reference internal" href="#a-walk-through-visual-studio-code" id="id10">A walk through Visual Studio Code</a></p></li>
+<li><p><a class="reference internal" href="#git-your-hands-dirty" id="id11">Git your hands dirty</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="overview">
+<h2><a class="toc-backref" href="#id6"><span class="section-number">8.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>So far, we have explored the use of Jupyter Notebooks in writing and executing Python code.</p>
+<p>While they are efficient and adaptable when working with short pieces of code, Notebooks are not the best choice for longer programs and scripts.</p>
+<p>Jupyter Notebooks are well suited to interactive computing (i.e. data science workflows) and can help execute chunks of code one at a time.</p>
+<p>Text files and scripts allow for long pieces of code to be written and executed in a single go.</p>
+<p>We will explore the use of Python scripts as an alternative.</p>
+<p>The Jupyter Lab and Visual Studio Code (VS Code) development environments are then introduced along with a primer on version control (Git).</p>
+<p>In this lecture, you will learn to</p>
+<ul class="simple">
+<li><p>work with Python scripts</p></li>
+<li><p>set up various development environments</p></li>
+<li><p>get started with GitHub</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Going forward, it is assumed that you have an Anaconda environment up and running.</p>
+<p>You may want to <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands">create a new conda environment</a> if you haven’t done so already.</p>
+</div>
+</section>
+<section id="working-with-python-files">
+<h2><a class="toc-backref" href="#id7"><span class="section-number">8.2. </span>Working with Python files</a><a class="headerlink" href="#working-with-python-files" title="Permalink to this heading">#</a></h2>
+<p>Python files are used when writing long, reusable blocks of code - by convention, they have a <code class="docutils literal notranslate"><span class="pre">.py</span></code> suffix.</p>
+<p>Let us begin by working with the following example.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-number">Listing 8.1 </span><span class="caption-text">sine_wave.py</span><a class="headerlink" href="#id2" title="Permalink to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos"> 2</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="linenos">10</span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sine Wave&#39;</span><span class="p">)</span>
+<span class="linenos">11</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>The code is first saved locally on the computer before it is executed.</p>
+<p>As there are various ways to execute the code, we will explore them in the context of different development environments.</p>
+<p>One major advantage of using Python scripts lies in the fact that you can “import” functionality from other scripts into your current script or Jupyter Notebook.</p>
+<p>Let’s rewrite the earlier code into a function.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-number">Listing 8.2 </span><span class="caption-text">sine_wave.py</span><a class="headerlink" href="#id3" title="Permalink to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos"> 2</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c1"># Define the plot_wave function.</span>
+<span class="linenos"> 5</span><span class="k">def</span> <span class="nf">plot_wave</span><span class="p">(</span><span class="n">title</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Sine Wave&#39;</span><span class="p">):</span>
+<span class="linenos"> 6</span>  <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="linenos"> 7</span>  <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span>  <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="linenos">10</span>  <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="linenos">11</span>  <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="linenos">12</span>  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="linenos">13</span>  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-number">Listing 8.3 </span><span class="caption-text">second_script.py</span><a class="headerlink" href="#id4" title="Permalink to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">import</span> <span class="nn">sine_wave</span> <span class="c1"># Import the sine_wave script</span>
+<span class="linenos">2</span> 
+<span class="linenos">3</span><span class="c1"># Call the plot_wave function.</span>
+<span class="linenos">4</span><span class="n">sine_wave</span><span class="o">.</span><span class="n">plot_wave</span><span class="p">(</span><span class="s2">&quot;Sine Wave - Called from the Second Script&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>This allows you to split your code into chunks and structure your codebase better.</p>
+<p>Look into the use of <a class="reference external" href="https://docs.python.org/3/tutorial/modules.html">modules</a> and <a class="reference external" href="https://docs.python.org/3/tutorial/modules.html#packages">packages</a> for more information on importing functionality.</p>
+</section>
+<section id="development-environments">
+<h2><a class="toc-backref" href="#id8"><span class="section-number">8.3. </span>Development environments</a><a class="headerlink" href="#development-environments" title="Permalink to this heading">#</a></h2>
+<p>A development environment is a one stop workspace where you can</p>
+<ul class="simple">
+<li><p>edit and run your code</p></li>
+<li><p>test and debug</p></li>
+<li><p>manage project files</p></li>
+</ul>
+<p>This lecture takes you through the workings of two development environments.</p>
+</section>
+<section id="a-step-forward-from-jupyter-notebooks-jupyterlab">
+<h2><a class="toc-backref" href="#id9"><span class="section-number">8.4. </span>A step forward from Jupyter Notebooks: JupyterLab</a><a class="headerlink" href="#a-step-forward-from-jupyter-notebooks-jupyterlab" title="Permalink to this heading">#</a></h2>
+<p>JupyterLab is a browser based development environment for Jupyter Notebooks, code scripts, and data files.</p>
+<p>You can <a class="reference external" href="https://jupyter.org/try#jupyterlab">try JupyterLab in the browser</a> if you want to test it out before installing it locally.</p>
+<p>You can install JupyterLab using pip</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">jupyterlab</span>
+</pre></div>
+</div>
+<p>and launch it in the browser, similar to Jupyter Notebooks.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">jupyter</span><span class="o">-</span><span class="n">lab</span>
+</pre></div>
+</div>
+<figure class="auto align-default">
+<img alt="_images/jupyter_lab_cmd.png" src="_images/jupyter_lab_cmd.png" />
+</figure>
+<p>You can see that the Jupyter Server is running on port 8888 on the localhost.</p>
+<p>The following interface should open up on your default browser automatically - if not, CTRL + Click the server URL.</p>
+<figure class="auto align-default">
+<img alt="_images/jupyter_lab.png" src="_images/jupyter_lab.png" />
+</figure>
+<p>Click on</p>
+<ul class="simple">
+<li><p>the Python 3 (ipykernel) button under Notebooks to open a new Jupyter Notebook</p></li>
+<li><p>the Python File button to open a new Python script (.py)</p></li>
+</ul>
+<p>You can always open this launcher tab by clicking the ‘+’ button on the top.</p>
+<p>All the files and folders in your working directory can be found in the File Browser (tab on the left).</p>
+<p>You can create new files and folders using the buttons available at the top of the File Browser tab.</p>
+<figure class="auto align-default">
+<img alt="_images/file_browser.png" src="_images/file_browser.png" />
+</figure>
+<p>You can install extensions that increase the functionality of JupyterLab by visiting the Extensions tab.</p>
+<figure class="auto align-default">
+<img alt="_images/extensions.png" src="_images/extensions.png" />
+</figure>
+<p>Coming back to the example scripts from earlier, there are two ways to work with them in JupyterLab.</p>
+<ul class="simple">
+<li><p>Using magic commands</p></li>
+<li><p>Using the terminal</p></li>
+</ul>
+<section id="using-magic-commands">
+<h3><span class="section-number">8.4.1. </span>Using magic commands<a class="headerlink" href="#using-magic-commands" title="Permalink to this heading">#</a></h3>
+<p>Jupyter Notebooks and JupyterLab support the use of <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">magic commands</a> - commands that extend the capabilities of a standard Jupyter Notebook.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">%run</span></code> magic command allows you to run a Python script from within a Notebook.</p>
+<p>This is a convenient way to run scripts that you are working on in the same directory as your Notebook and present the outputs within the Notebook.</p>
+<figure class="auto align-default">
+<img alt="_images/jupyter_lab_py_run.png" src="_images/jupyter_lab_py_run.png" />
+</figure>
+</section>
+<section id="using-the-terminal">
+<h3><span class="section-number">8.4.2. </span>Using the terminal<a class="headerlink" href="#using-the-terminal" title="Permalink to this heading">#</a></h3>
+<p>However, if you are looking into just running the <code class="docutils literal notranslate"><span class="pre">.py</span></code> file, it is sometimes easier to use the terminal.</p>
+<p>Open a terminal from the launcher and run the following command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">python</span> <span class="o">&lt;</span><span class="n">path</span> <span class="n">to</span> <span class="n">file</span><span class="o">.</span><span class="n">py</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<figure class="auto align-default">
+<img alt="_images/jupyter_lab_py_run_term.png" src="_images/jupyter_lab_py_run_term.png" />
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can also run the script line by line by opening an ipykernel console either</p>
+<ul class="simple">
+<li><p>from the launcher</p></li>
+<li><p>by right clicking within the Notebook and selecting Create Console for Editor</p></li>
+</ul>
+<p>Use Shift + Enter to run a line of code.</p>
+<p>More on ipykernel consoles <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/reference.html#ipykernel">here</a>.</p>
+</div>
+</section>
+</section>
+<section id="a-walk-through-visual-studio-code">
+<h2><a class="toc-backref" href="#id10"><span class="section-number">8.5. </span>A walk through Visual Studio Code</a><a class="headerlink" href="#a-walk-through-visual-studio-code" title="Permalink to this heading">#</a></h2>
+<p>Visual Studio Code (VS Code) is a code editor and development workspace that can run</p>
+<ul class="simple">
+<li><p>in the <a class="reference external" href="https://vscode.dev/">browser</a>.</p></li>
+<li><p>as a local <a class="reference external" href="https://code.visualstudio.com/docs/?dv=win">installation</a>.</p></li>
+</ul>
+<p>Both interfaces are identical.</p>
+<p>When you launch VS Code, you will see the following interface.</p>
+<figure class="auto align-default">
+<img alt="_images/vs_code_home.png" src="_images/vs_code_home.png" />
+</figure>
+<p>Explore how to customize VS Code to your liking through the guided walkthroughs.</p>
+<figure class="auto align-default">
+<img alt="_images/vs_code_walkthrough.png" src="_images/vs_code_walkthrough.png" />
+</figure>
+<p>When presented with the following prompt, go ahead an install all recommended extensions.</p>
+<figure class="auto align-default">
+<img alt="_images/vs_code_install_ext.png" src="_images/vs_code_install_ext.png" />
+</figure>
+<p>You can also install extensions from the Extensions tab.</p>
+<figure class="auto align-default">
+<img alt="_images/vs_code_extensions.png" src="_images/vs_code_extensions.png" />
+</figure>
+<p>Jupyter Notebooks (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> files) can be worked on in VS Code.</p>
+<p>Make sure to install the Jupyter extension from the Extensions tab before you try to open a Jupyter Notebook.</p>
+<p>Create a new file (in the file Explorer tab) and save it with the <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> extension.</p>
+<p>Choose a kernel/environment to run the Notebook in by clicking on the Select Kernel button on the top right corner of the editor.</p>
+<figure class="auto align-default">
+<img alt="_images/vs_code_kernels.png" src="_images/vs_code_kernels.png" />
+</figure>
+<p>VS Code also has excellent version control functionality through the Source Control tab.</p>
+<figure class="auto align-default">
+<img alt="_images/vs_code_git.png" src="_images/vs_code_git.png" />
+</figure>
+<p>Link your GitHub account to VS Code to push and pull changes to and from your repositories.</p>
+<p>Further discussions about version control can be found in the next section.</p>
+<p>To open a new Terminal in VS Code, click on the Terminal tab and select New Terminal.</p>
+<p>VS Code opens a new Terminal in the same directory you are working in - a PowerShell in Windows and a Bash in Linux.</p>
+<p>You can change the shell or open a new instance through the dropdown menu on the right end of the terminal tab.</p>
+<figure class="auto align-default">
+<img alt="_images/vs_code_terminal_opts.png" src="_images/vs_code_terminal_opts.png" />
+</figure>
+<p>VS Code helps you manage conda environments without using the command line.</p>
+<p>Open the Command Palette (CTRL + SHIFT + P or from the dropdown menu under View tab) and search for <code class="docutils literal notranslate"><span class="pre">Python:</span> <span class="pre">Select</span> <span class="pre">Interpreter</span></code>.</p>
+<p>This loads existing environments.</p>
+<p>You can also create new environments using <code class="docutils literal notranslate"><span class="pre">Python:</span> <span class="pre">Create</span> <span class="pre">Environment</span></code> in the Command Palette.</p>
+<p>A new environment (.conda folder) is created in the the current working directory.</p>
+<p>Coming to the example scripts from earlier, there are again two ways to work with them in VS Code.</p>
+<ul class="simple">
+<li><p>Using the run button</p></li>
+<li><p>Using the terminal</p></li>
+</ul>
+<section id="using-the-run-button">
+<h3><span class="section-number">8.5.1. </span>Using the run button<a class="headerlink" href="#using-the-run-button" title="Permalink to this heading">#</a></h3>
+<p>You can run the script by clicking on the run button on the top right corner of the editor.</p>
+<figure class="auto align-default">
+<img alt="_images/vs_code_run.png" src="_images/vs_code_run.png" />
+</figure>
+<p>You can also run the script interactively by selecting the <strong>Run Current File in Interactive Window</strong> option from the dropdown.</p>
+<figure class="auto align-default">
+<img alt="_images/vs_code_run_button.png" src="_images/vs_code_run_button.png" />
+</figure>
+<p>This creates an ipykernel console and runs the script.</p>
+</section>
+<section id="id1">
+<h3><span class="section-number">8.5.2. </span>Using the terminal<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>The command <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">&lt;path</span> <span class="pre">to</span> <span class="pre">file.py&gt;</span></code> is executed on the console of your choice.</p>
+<p>If you are using a Windows machine, you can either use the Anaconda Prompt or the Command Prompt - but, generally not the PowerShell.</p>
+<p>Here’s an execution of the earlier code.</p>
+<figure class="auto align-default">
+<img alt="_images/sine_wave_import.png" src="_images/sine_wave_import.png" />
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you would like to develop packages and build tools using Python, you may want to look into <a class="reference external" href="https://github.com/RamiKrispin/vscode-python">the use of Docker containers and VS Code</a>.</p>
+<p>However, this is outside the focus of these lectures.</p>
+</div>
+</section>
+</section>
+<section id="git-your-hands-dirty">
+<h2><a class="toc-backref" href="#id11"><span class="section-number">8.6. </span>Git your hands dirty</a><a class="headerlink" href="#git-your-hands-dirty" title="Permalink to this heading">#</a></h2>
+<p>This section will familiarize you with git and GitHub.</p>
+<p><a class="reference external" href="http://git-scm.com/">Git</a> is a <em>version control system</em> — a piece of software used to manage digital projects such as code libraries.</p>
+<p>In many cases, the associated collections of files — called <em>repositories</em> — are stored on <a class="reference external" href="https://github.com/">GitHub</a>.</p>
+<p>GitHub is a wonderland of collaborative coding projects.</p>
+<p>For example, it hosts many of the scientific libraries we’ll be using later
+on, such as <a class="reference external" href="https://github.com/pydata/pandas">this one</a>.</p>
+<p>Git is the underlying software used to manage these projects.</p>
+<p>Git is an extremely powerful tool for distributed collaboration — for
+example, we use it to share and synchronize all the source files for these
+lectures.</p>
+<p>There are two main flavors of Git</p>
+<ol class="arabic simple">
+<li><p>the plain vanilla <a class="reference external" href="http://git-scm.com/downloads">command line Git</a> version</p></li>
+<li><p>the various point-and-click GUI versions</p>
+<ul class="simple">
+<li><p>See, for example, the <a class="reference external" href="https://desktop.github.com/">GitHub version</a> or Git GUI integrated into your IDE.</p></li>
+</ul>
+</li>
+</ol>
+<p>In case you already haven’t, try</p>
+<ol class="arabic simple">
+<li><p>Installing Git.</p></li>
+<li><p>Getting a copy of <a class="reference external" href="https://github.com/QuantEcon/QuantEcon.py">QuantEcon.py</a> using Git.</p></li>
+</ol>
+<p>For example, if you’ve installed the command line version, open up a terminal and enter.</p>
+<div class="no-execute highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/QuantEcon/QuantEcon.py
+</pre></div>
+</div>
+<p>(This is just <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> in front of the URL for the repository)</p>
+<p>This command will download all necessary components to rebuild the lecture you are reading now.</p>
+<p>As the 2nd task,</p>
+<ol class="arabic simple">
+<li><p>Sign up to <a class="reference external" href="https://github.com/">GitHub</a>.</p></li>
+<li><p>Look into ‘forking’ GitHub repositories (forking means making your own copy of a GitHub repository, stored on GitHub).</p></li>
+<li><p>Fork <a class="reference external" href="https://github.com/QuantEcon/QuantEcon.py">QuantEcon.py</a>.</p></li>
+<li><p>Clone your fork to some local directory, make edits, commit them, and push them back up to your forked GitHub repo.</p></li>
+<li><p>If you made a valuable improvement, send us a <a class="reference external" href="https://help.github.com/articles/about-pull-requests/">pull request</a>!</p></li>
+</ol>
+<p>For reading on these and other topics, try</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://git-scm.com/doc">The official Git documentation</a>.</p></li>
+<li><p>Reading through the docs on <a class="reference external" href="https://docs.github.com/en">GitHub</a>.</p></li>
+<li><p><a class="reference external" href="http://git-scm.com/book">Pro Git Book</a> by Scott Chacon and Ben Straub.</p></li>
+<li><p>One of the thousands of Git tutorials on the Net.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                    </div>
+                    
+                </main> <!-- .page__content -->
+                
+
+
+                <footer class="qe-page__footer">
+
+                    <p><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"></a></p>
+
+                    <p>Creative Commons License &ndash; This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International.</p>
+
+                </footer> <!-- .page__footer -->
+
+            </div> <!-- .page -->
+
+            
+
+            
+            <div class="qe-sidebar bd-sidebar inactive" id="site-navigation">
+
+                <div class="qe-sidebar__header">
+
+
+                    Contents
+
+                </div>
+
+                <nav class="qe-sidebar__nav" id="qe-sidebar-nav" aria-label="Main navigation">
+                    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_py.html">
+   1. About Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started.html">
+   2. Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_by_example.html">
+   3. An Introductory Example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   4. Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_essentials.html">
+   5. Python Essentials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="oop_intro.html">
+   6. OOP I: Objects and Names
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_oop.html">
+   7. OOP II: Building Classes
+  </a>
+ </li>
+ <li class="toctree-l1 current active active">
+  <a class="current reference internal" href="#">
+   8. Writing Longer Programs
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  The Scientific Libraries
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="need_for_speed.html">
+   9. Python for Scientific Computing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy.html">
+   10. NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matplotlib.html">
+   11. Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scipy.html">
+   12. SciPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   13. Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sympy.html">
+   14. SymPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  High Performance Computing
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="numba.html">
+   15. Numba
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parallelization.html">
+   16. Parallelization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jax_intro.html">
+   17. JAX
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Advanced Python Programming
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="writing_good_code.html">
+   18. Writing Good Code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_advanced_features.html">
+   19. More Language Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="debugging.html">
+   20. Debugging and Handling Errors
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   21. Troubleshooting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="status.html">
+   22. Execution Statistics
+  </a>
+ </li>
+</ul>
+
+                </nav>
+
+                <div class="qe-sidebar__footer">
+
+                </div>
+
+            </div> <!-- .sidebar -->
+            
+        </div> <!-- .main -->
+
+        <div class="qe-toolbar">
+
+            <div class="qe-toolbar__inner">
+
+                <ul class="qe-toolbar__main">
+                    <li data-tippy-content="Table of Contents" class="btn__sidebar"><i data-feather="menu"></i></li>
+                    <li data-tippy-content="Home"><a href="intro.html"><i data-feather="home"></i></a></li>
+                    <li class="btn__qelogo"><a href="https://quantecon.org" title=""><span class="show-for-sr">QuantEcon</span></a></li>
+                </ul>
+
+                <ul class="qe-toolbar__links">
+                    <li class="btn__search">
+                        <form action="search.html" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search..." aria-label="Search..." autocomplete="off" accesskey="k">
+                            <i data-feather="search" id="search-icon"></i>
+                        </form>
+                    </li>
+                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
+                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
+                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
+                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                    <li data-tippy-content="Download Notebook"><a href="/_notebooks/workspace.ipynb" download><i data-feather="download-cloud"></i></a></li>
+                    <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
+                        <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/blob/main/lectures/workspace.md" download><i data-feather="github"></i></a></li>
+                </ul>
+
+            </div>
+
+        </div> <!-- .toolbar -->
+        <div id="downloadPDFModal" style="display: none;">
+            <ul class="pdf-options" style="display: block;">
+                <li class="download-pdf-book" onClick="window.print()">
+                    <p>Lecture (PDF)</p>
+                </li>
+                <li class="download-pdf-file">
+                    <a href="/_pdf/quantecon-python-programming.pdf" download><p>Book (PDF)</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="settingsModal" style="display: none;">
+            <p class="modal-title"> Notebook Launcher </p>
+            <div class="modal-desc">
+            <p>
+                Choose public or private cloud service for "Launch" button.
+            </p>
+            </div>
+            <p class="modal-subtitle">Select a server</p>
+            <ul class="modal-servers">
+            <li class="active launcher-public">
+                <span class="label">Public</span>
+                <select id="launcher-public-input">
+                
+                    <option value="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.notebooks/blob/master/workspace.ipynb">Colab</option>
+                
+                </select>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            <li class="launcher-private">
+                <span class="label">Private</span>
+                <input type="text" id="launcher-private-input" data-repourl="https://github.com/QuantEcon/lecture-python-programming.notebooks" data-urlpath="tree/lecture-python-programming.notebooks/workspace.ipynb" data-branch=master>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            </ul>
+            <p class="launch"><a href="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.notebooks/blob/master/workspace.ipynb" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
+            <script>
+                // QuantEcon Notebook Launcher
+                const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');
+                // Highlight the server type if previous selection exists
+                if (typeof localStorage.launcherType !== 'undefined') {
+                  for (var i = 0; i < launcherTypeElements.length; i++) {
+                    launcherTypeElements[i].classList.remove('active');
+                    if ( launcherTypeElements[i].classList.contains(localStorage.launcherType) ) {
+                      launcherTypeElements[i].classList.add('active');
+                    }
+                  }
+                }
+                // Highlight server type on click and set local storage value
+                for (var i = 0; i < launcherTypeElements.length; i++) {
+                  launcherTypeElements[i].addEventListener('click', function() {
+                    for (var j = 0; j < launcherTypeElements.length; j++) {
+                      launcherTypeElements[j].classList.remove('active');
+                    }
+                    this.classList.add('active');
+                    if ( this.classList.contains('launcher-private') ) {
+                      localStorage.launcherType = 'launcher-private';
+                    } else if ( this.classList.contains('launcher-public') ) {
+                      localStorage.launcherType = 'launcher-public';
+                    }
+                    setLaunchServer();
+                  })
+                }
+                const launcherPublic = document.getElementById('launcher-public-input');
+                const launcherPrivate = document.getElementById('launcher-private-input');
+                const pageName = "workspace";
+                const repoURL = "https://github.com/QuantEcon/lecture-python-programming.notebooks";
+                const urlPath = "tree/lecture-python-programming.notebooks/workspace.ipynb";
+                const branch = "master"
+                const launchNotebookLink = document.getElementById('advancedLaunchButton');
+
+                // Highlight public server option if previous selection exists
+                if (typeof localStorage.launcherPublic !== 'undefined') {
+                  launcherPublic.value = localStorage.launcherPublic;
+                }
+                // Update local storage upon public server selection
+                launcherPublic.addEventListener('change', (event) => {
+                  setLaunchServer();
+                });
+                // Populate private server input if previous entry exists
+                if (typeof localStorage.launcherPrivate !== 'undefined') {
+                  launcherPrivate.value = localStorage.launcherPrivate;
+                }
+                // Update local storage when a private server is entered
+                launcherPrivate.addEventListener('input', (event) => {
+                  setLaunchServer();
+                });
+
+                // Function to update the "Launch Notebook" link href
+                function setLaunchServer() {
+                  launchNotebookLink.removeAttribute("style")
+                  if ( localStorage.launcherType == 'launcher-private' ) {
+                    let repoPrefix = "/jupyter/hub/user-redirect/git-pull?repo=" + repoURL + "&branch=" + branch + "&urlpath=" + urlPath;
+                    launcherPrivateValue = launcherPrivate.value
+                    if (!launcherPrivateValue) {
+                        launchNotebookLink.removeAttribute("href")
+                        launchNotebookLink.style.background = "grey"
+                        return
+                    }
+                    localStorage.launcherPrivate = launcherPrivateValue;
+                    privateServer = localStorage.launcherPrivate.replace(/\/$/, "")
+                    if (!privateServer.includes("http")) {
+                        privateServer = "http://" + privateServer
+                    }
+                    launchNotebookLinkURL = privateServer + repoPrefix;
+                  } else if ( localStorage.launcherType == 'launcher-public' ) {
+                    launcherPublicValue = launcherPublic.options[launcherPublic.selectedIndex].value;
+                    localStorage.launcherPublic = launcherPublicValue;
+                    launchNotebookLinkURL = localStorage.launcherPublic;
+                  }
+                  if (launchNotebookLinkURL) launchNotebookLink.href = launchNotebookLinkURL;
+                }
+                // Check if user has previously selected a server
+                if ( (typeof localStorage.launcherPrivate !== 'undefined') || (typeof localStorage.launcherPublic !== 'undefined') ) {
+                  setLaunchServer();
+                }
+                </script>
+
+        </div>
+
+    </div> <!-- .wrapper-->
+  </body>
+</html>

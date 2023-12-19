@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -60,18 +60,18 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=cb2d6eee9712fbd5cbf7cbc2d6baf81f7f9a9912" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=8ccdddd742928a25ee5c13f3827fecc000146baa" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -80,9 +80,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -97,7 +97,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=b7d60282c7125f74e59bac03c2323864e0e32e1c"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=b21c4b94ab1abd61a98d27e943717a00f8eaac64"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
@@ -192,8 +192,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#other-content">2.4.3.3. Other Content</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sharing-notebooks">2.4.4. Sharing Notebooks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantecon-notes">2.4.5. QuantEcon Notes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-code">2.4.4. Debugging Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sharing-notebooks">2.4.5. Sharing Notebooks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantecon-notes">2.4.6. QuantEcon Notes</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-libraries">2.5. Installing Libraries</a></li>
@@ -210,7 +211,10 @@ const thebe_selector_output = ".output, .cell_output"
                             <p class="logo">
                                 
                                     
-                                    <a href=https://quantecon.org><img src="_static/qe-logo.png" class="logo" alt="logo"></a>
+                                    <a href=https://quantecon.org><img src="_static/qe-logo.png" class="logo logo-img" alt="logo"></a>
+                                    
+                                    <a href=https://quantecon.org><img src="_static/quantecon-logo-transparent.png" class="dark-logo-img" alt="logo"></a>
+                                    
                                     
                                 
                             </p>
@@ -552,16 +556,49 @@ are writing <a class="reference external" href="http://daringfireball.net/projec
 </figure>
 </section>
 </section>
+<section id="debugging-code">
+<h3><span class="section-number">2.4.4. </span>Debugging Code<a class="headerlink" href="#debugging-code" title="Permalink to this heading">#</a></h3>
+<p id="index-9">Debugging is the process of identifying and removing errors from a program.</p>
+<p>You will spend a lot of time debugging code, so it is important to <a class="reference external" href="https://www.freecodecamp.org/news/what-is-debugging-how-to-debug-code/">learn how to do it effectively</a>.</p>
+<p>If you are using a newer version of Jupyter, you should see a bug icon on the right end of the toolbar.</p>
+<figure class="auto align-default">
+<a class="reference internal image-reference" href="_images/debug.png"><img alt="_images/debug.png" src="_images/debug.png" style="width: 930.4000000000001px; height: 187.20000000000002px;" /></a>
+</figure>
+<p>Clicking this icon will enable the Jupyter debugger.</p>
+<!-- IDEA: This could be turned into a margin note once supported by quantecon-book-theme -->
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may also need to open the Debugger Panel (View -&gt; Debugger Panel).</p>
+</div>
+<p>You can set breakpoints by clicking on the line number of the cell you want to debug.</p>
+<p>When you run the cell, the debugger will stop at the breakpoint.</p>
+<p>You can then step through the code line by line using the buttons on the “Next” button on the CALLSTACK toolbar (located in the right hand window).</p>
+<!-- IDEA: add a red square around the area of interest in the image -->
+<figure class="auto align-default">
+<img alt="_images/debugger_breakpoint.png" src="_images/debugger_breakpoint.png" />
+</figure>
+<p>You can explore more functionality of the debugger in the <a class="reference external" href="https://jupyterlab.readthedocs.io/en/latest/user/debugger.html">Jupyter documentation</a>.</p>
+</section>
 <section id="sharing-notebooks">
-<h3><span class="section-number">2.4.4. </span>Sharing Notebooks<a class="headerlink" href="#sharing-notebooks" title="Permalink to this heading">#</a></h3>
-<span class="target" id="index-9"></span><p id="index-10">Notebook files are just text files structured in <a class="reference external" href="https://en.wikipedia.org/wiki/JSON">JSON</a> and typically ending with <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>.</p>
+<h3><span class="section-number">2.4.5. </span>Sharing Notebooks<a class="headerlink" href="#sharing-notebooks" title="Permalink to this heading">#</a></h3>
+<span class="target" id="index-10"></span><p id="index-11">Notebook files are just text files structured in <a class="reference external" href="https://en.wikipedia.org/wiki/JSON">JSON</a> and typically ending with <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>.</p>
 <p>You can share them in the usual way that you share files — or by using web services such as <a class="reference external" href="http://nbviewer.jupyter.org/">nbviewer</a>.</p>
 <p>The notebooks you see on that site are <strong>static</strong> html representations.</p>
 <p>To run one, download it as an <code class="docutils literal notranslate"><span class="pre">ipynb</span></code> file by clicking on the download icon at the top right.</p>
 <p>Save it somewhere, navigate to it from the Jupyter dashboard and then run as discussed above.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are interested in sharing notebooks containing interactive content, you might want to check out <a class="reference external" href="https://mybinder.org/">Binder</a>.</p>
+<p>To collaborate with other people on notebooks, you might want to take a look at</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://colab.research.google.com/">Google Colab</a></p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/kernels">Kaggle</a></p></li>
+</ul>
+<p>To keep the code private and to use the familiar JupyterLab and Notebook interface, look into the <a class="reference external" href="https://jupyterlab-realtime-collaboration.readthedocs.io/en/latest/">JupyterLab Real-Time Collaboration extension</a>.</p>
+</div>
 </section>
 <section id="quantecon-notes">
-<h3><span class="section-number">2.4.5. </span>QuantEcon Notes<a class="headerlink" href="#quantecon-notes" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.4.6. </span>QuantEcon Notes<a class="headerlink" href="#quantecon-notes" title="Permalink to this heading">#</a></h3>
 <p>QuantEcon has its own site for sharing Jupyter notebooks related
 to economics – <a class="reference external" href="http://notes.quantecon.org/">QuantEcon Notes</a>.</p>
 <p>Notebooks submitted to QuantEcon Notes can be shared with a link, and are open
@@ -570,7 +607,7 @@ to comments and votes by the community.</p>
 </section>
 <section id="installing-libraries">
 <h2><a class="toc-backref" href="#id8"><span class="section-number">2.5. </span>Installing Libraries</a><a class="headerlink" href="#installing-libraries" title="Permalink to this heading">#</a></h2>
-<span class="target" id="gs-qe"></span><p id="index-11">Most of the libraries we need come in Anaconda.</p>
+<span class="target" id="gs-qe"></span><p id="index-12">Most of the libraries we need come in Anaconda.</p>
 <p>Other libraries can be installed with <code class="docutils literal notranslate"><span class="pre">pip</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
 <p>One library we’ll be using is <a class="reference external" href="http://quantecon.org/quantecon-py">QuantEcon.py</a>.</p>
 <p id="gs-install-qe">You can install <a class="reference external" href="http://quantecon.org/quantecon-py">QuantEcon.py</a> by
@@ -627,8 +664,8 @@ following questions:</p>
 <li><p>How should you modify or edit it?</p></li>
 </ol>
 <section id="option-1-jupyterlab">
-<h4><span class="section-number">2.6.1.1. </span>Option 1: <span class="target" id="index-12"></span>JupyterLab<a class="headerlink" href="#option-1-jupyterlab" title="Permalink to this heading">#</a></h4>
-<p id="index-13"><a class="reference external" href="https://github.com/jupyterlab/jupyterlab">JupyterLab</a> is an integrated development environment built on top of Jupyter notebooks.</p>
+<h4><span class="section-number">2.6.1.1. </span>Option 1: <span class="target" id="index-13"></span>JupyterLab<a class="headerlink" href="#option-1-jupyterlab" title="Permalink to this heading">#</a></h4>
+<p id="index-14"><a class="reference external" href="https://github.com/jupyterlab/jupyterlab">JupyterLab</a> is an integrated development environment built on top of Jupyter notebooks.</p>
 <p>With JupyterLab you can edit and run <code class="docutils literal notranslate"><span class="pre">*.py</span></code> files as well as Jupyter notebooks.</p>
 <p>To start JupyterLab, search for it in the applications menu or type <code class="docutils literal notranslate"><span class="pre">jupyter-lab</span></code> in a terminal.</p>
 <p>Now you should be able to open, edit and run the file <code class="docutils literal notranslate"><span class="pre">foo.py</span></code> created above by opening it in JupyterLab.</p>
@@ -670,57 +707,6 @@ you started it.</p>
 <p>You should now be able to run a standard Jupyter notebook session.</p>
 <p>This is an alternative way to start the notebook that can also be handy.</p>
 <p>This can also work when you accidentally close the webpage as long as the kernel is still running.</p>
-</section>
-</div>
-<div class="exercise admonition" id="gs_ex2">
-
-<p class="admonition-title"><span class="caption-number">Exercise 2.2 </span></p>
-<section id="exercise-content">
-<p id="index-14">This exercise will familiarize you with git and GitHub.</p>
-<p><a class="reference external" href="http://git-scm.com/">Git</a> is a <em>version control system</em> — a piece of software used to manage digital projects such as code libraries.</p>
-<p>In many cases, the associated collections of files — called <em>repositories</em> — are stored on <a class="reference external" href="https://github.com/">GitHub</a>.</p>
-<p>GitHub is a wonderland of collaborative coding projects.</p>
-<p>For example, it hosts many of the scientific libraries we’ll be using later
-on, such as <a class="reference external" href="https://github.com/pydata/pandas">this one</a>.</p>
-<p>Git is the underlying software used to manage these projects.</p>
-<p>Git is an extremely powerful tool for distributed collaboration — for
-example, we use it to share and synchronize all the source files for these
-lectures.</p>
-<p>There are two main flavors of Git</p>
-<ol class="arabic simple">
-<li><p>the plain vanilla <a class="reference external" href="http://git-scm.com/downloads">command line Git</a> version</p></li>
-<li><p>the various point-and-click GUI versions</p>
-<ul class="simple">
-<li><p>See, for example, the <a class="reference external" href="https://desktop.github.com/">GitHub version</a> or Git GUI integrated into your IDE.</p></li>
-</ul>
-</li>
-</ol>
-<p>As the 1st task, try</p>
-<ol class="arabic simple">
-<li><p>Installing Git.</p></li>
-<li><p>Getting a copy of <a class="reference external" href="https://github.com/QuantEcon/QuantEcon.py">QuantEcon.py</a> using Git.</p></li>
-</ol>
-<p>For example, if you’ve installed the command line version, open up a terminal and enter.</p>
-<div class="no-execute highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/QuantEcon/QuantEcon.py
-</pre></div>
-</div>
-<p>(This is just <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> in front of the URL for the repository)</p>
-<p>This command will download all necessary components to rebuild the lecture you are reading now.</p>
-<p>As the 2nd task,</p>
-<ol class="arabic simple">
-<li><p>Sign up to <a class="reference external" href="https://github.com/">GitHub</a>.</p></li>
-<li><p>Look into ‘forking’ GitHub repositories (forking means making your own copy of a GitHub repository, stored on GitHub).</p></li>
-<li><p>Fork <a class="reference external" href="https://github.com/QuantEcon/QuantEcon.py">QuantEcon.py</a>.</p></li>
-<li><p>Clone your fork to some local directory, make edits, commit them, and push them back up to your forked GitHub repo.</p></li>
-<li><p>If you made a valuable improvement, send us a <a class="reference external" href="https://help.github.com/articles/about-pull-requests/">pull request</a>!</p></li>
-</ol>
-<p>For reading on these and other topics, try</p>
-<ul class="simple">
-<li><p><a class="reference external" href="http://git-scm.com/doc">The official Git documentation</a>.</p></li>
-<li><p>Reading through the docs on <a class="reference external" href="https://docs.github.com/en">GitHub</a>.</p></li>
-<li><p><a class="reference external" href="http://git-scm.com/book">Pro Git Book</a> by Scott Chacon and Ben Straub.</p></li>
-<li><p>One of the thousands of Git tutorials on the Net.</p></li>
-</ul>
 </section>
 </div>
 </section>
@@ -816,6 +802,11 @@ lectures.</p>
    7. OOP II: Building Classes
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="workspace.html">
+   8. Writing Longer Programs
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -825,32 +816,32 @@ lectures.</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="need_for_speed.html">
-   8. Python for Scientific Computing
+   9. Python for Scientific Computing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="numpy.html">
-   9. NumPy
+   10. NumPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matplotlib.html">
-   10. Matplotlib
+   11. Matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="scipy.html">
-   11. SciPy
+   12. SciPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pandas.html">
-   12. Pandas
+   13. Pandas
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   13. SymPy
+   14. SymPy
   </a>
  </li>
 </ul>
@@ -862,17 +853,17 @@ lectures.</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="numba.html">
-   14. Numba
+   15. Numba
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="parallelization.html">
-   15. Parallelization
+   16. Parallelization
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   16. JAX
+   17. JAX
   </a>
  </li>
 </ul>
@@ -884,17 +875,17 @@ lectures.</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   17. Writing Good Code
+   18. Writing Good Code
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   18. More Language Features
+   19. More Language Features
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   19. Debugging and Handling Errors
+   20. Debugging and Handling Errors
   </a>
  </li>
 </ul>
@@ -906,12 +897,12 @@ lectures.</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   20. Troubleshooting
+   21. Troubleshooting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   21. Execution Statistics
+   22. Execution Statistics
   </a>
  </li>
 </ul>

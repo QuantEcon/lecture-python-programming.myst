@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>12. Pandas &#8212; Python Programming for Economics and Finance</title>
+    <title>13. Pandas &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
@@ -60,18 +60,18 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=cb2d6eee9712fbd5cbf7cbc2d6baf81f7f9a9912" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=8ccdddd742928a25ee5c13f3827fecc000146baa" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -80,9 +80,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -97,7 +97,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=b7d60282c7125f74e59bac03c2323864e0e32e1c"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=b21c4b94ab1abd61a98d27e943717a00f8eaac64"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
@@ -118,8 +118,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="13. SymPy" href="sympy.html" />
-    <link rel="prev" title="11. SciPy" href="scipy.html" />
+    <link rel="next" title="14. SymPy" href="sympy.html" />
+    <link rel="prev" title="12. SciPy" href="scipy.html" />
 
 <!-- Normal Meta Tags -->
 <meta name="author" context="Thomas J. Sargent &amp; John Stachurski" />
@@ -167,27 +167,30 @@ const thebe_selector_output = ".output, .cell_output"
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">12.1. Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series">12.2. Series</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframes">12.3. DataFrames</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-data-by-position">12.3.1. Select Data by Position</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-data-by-conditions">12.3.2. Select Data by Conditions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-method">12.3.3. Apply Method</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-changes-in-dataframes">12.3.4. Make Changes in DataFrames</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standardization-and-visualization">12.3.5. Standardization and Visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">13.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series">13.2. Series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframes">13.3. DataFrames</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-data-by-position">13.3.1. Select Data by Position</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-data-by-conditions">13.3.2. Select Data by Conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-method">13.3.3. Apply Method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-changes-in-dataframes">13.3.4. Make Changes in DataFrames</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standardization-and-visualization">13.3.5. Standardization and Visualization</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#on-line-data-sources">12.4. On-Line Data Sources</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-data-with-requests">12.4.1. Accessing Data with requests</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-pandas-datareader-and-yfinance-to-access-data">12.4.2. Using pandas_datareader and yfinance to Access Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#on-line-data-sources">13.4. On-Line Data Sources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-data-with-requests">13.4.1. Accessing Data with requests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-pandas-datareader-and-yfinance-to-access-data">13.4.2. Using pandas_datareader and yfinance to Access Data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">12.5. Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">13.5. Exercises</a></li>
 </ul>
                             <p class="logo">
                                 
                                     
-                                    <a href=https://quantecon.org><img src="_static/qe-logo.png" class="logo" alt="logo"></a>
+                                    <a href=https://quantecon.org><img src="_static/qe-logo.png" class="logo logo-img" alt="logo"></a>
+                                    
+                                    <a href=https://quantecon.org><img src="_static/quantecon-logo-transparent.png" class="dark-logo-img" alt="logo"></a>
+                                    
                                     
                                 
                             </p>
@@ -228,7 +231,7 @@ const thebe_selector_output = ".output, .cell_output"
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="pandas">
-<h1><a class="toc-backref" href="#id2"><span class="section-number">12. </span><span class="target" id="index-0"></span>Pandas</a><a class="headerlink" href="#pandas" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id2"><span class="section-number">13. </span><span class="target" id="index-0"></span>Pandas</a><a class="headerlink" href="#pandas" title="Permalink to this heading">#</a></h1>
 <div class="contents topic" id="contents">
 <span id="index-1"></span><p class="topic-title">Contents</p>
 <ul class="simple">
@@ -262,9 +265,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pandas_datareader-0.10.0-py3-none-any.whl (109 kB)
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/109.5 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">109.5/109.5 kB</span> <span class=" -Color -Color-Red">5.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">109.5/109.5 kB</span> <span class=" -Color -Color-Red">10.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25hRequirement already satisfied: lxml in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from pandas-datareader) (4.9.3)
 Requirement already satisfied: pandas&gt;=0.23 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from pandas-datareader) (2.0.3)
 Requirement already satisfied: requests&gt;=2.19.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from pandas-datareader) (2.31.0)
@@ -274,13 +275,13 @@ Requirement already satisfied: requests&gt;=2.19.0 in /usr/share/miniconda3/envs
 Requirement already satisfied: pytz&gt;=2020.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (2023.3.post1)
 Requirement already satisfied: tzdata&gt;=2022.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (2023.3)
 Requirement already satisfied: numpy&gt;=1.21.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from pandas&gt;=0.23-&gt;pandas-datareader) (1.24.3)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2.0.4)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2.0.4)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (3.4)
 Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (1.26.16)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from requests&gt;=2.19.0-&gt;pandas-datareader) (2023.7.22)
-Requirement already satisfied: six&gt;=1.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas&gt;=0.23-&gt;pandas-datareader) (1.16.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas&gt;=0.23-&gt;pandas-datareader) (1.16.0)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pandas-datareader
@@ -290,10 +291,10 @@ Requirement already satisfied: six&gt;=1.5 in /usr/share/miniconda3/envs/quantec
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting yfinance
-  Obtaining dependency information for yfinance from https://files.pythonhosted.org/packages/e6/b3/388ab967a387cc92926f70e97688dd9a7189b29a0773db815ffc5289e2b5/yfinance-0.2.31-py2.py3-none-any.whl.metadata
+  Obtaining dependency information for yfinance from https://files.pythonhosted.org/packages/09/82/5a5eee685095a6c1f8968db75bba8536baa8046c970be25e1ac91a843839/yfinance-0.2.33-py2.py3-none-any.whl.metadata
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading yfinance-0.2.31-py2.py3-none-any.whl.metadata (11 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading yfinance-0.2.33-py2.py3-none-any.whl.metadata (11 kB)
 Requirement already satisfied: pandas&gt;=1.3.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from yfinance) (2.0.3)
 Requirement already satisfied: numpy&gt;=1.16.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from yfinance) (1.24.3)
 Requirement already satisfied: requests&gt;=2.31 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from yfinance) (2.31.0)
@@ -301,19 +302,19 @@ Collecting multitasking&gt;=0.0.7 (from yfinance)
   Downloading multitasking-0.0.11-py3-none-any.whl (8.5 kB)
 Requirement already satisfied: lxml&gt;=4.9.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from yfinance) (4.9.3)
 Requirement already satisfied: appdirs&gt;=1.4.4 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from yfinance) (1.4.4)
+Requirement already satisfied: pytz&gt;=2022.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from yfinance) (2023.3.post1)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pytz&gt;=2022.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from yfinance) (2023.3.post1)
-Collecting frozendict&gt;=2.3.4 (from yfinance)
-  Downloading frozendict-2.3.8-py311-none-any.whl (14 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting frozendict&gt;=2.3.4 (from yfinance)
+  Obtaining dependency information for frozendict&gt;=2.3.4 from https://files.pythonhosted.org/packages/b6/2c/e391d6d57bbd837d383a6b69b54ecb4768d75b31d8bc7a380b4b4afe4cb2/frozendict-2.3.10-py3-none-any.whl.metadata
+  Downloading frozendict-2.3.10-py3-none-any.whl.metadata (20 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting peewee&gt;=3.16.2 (from yfinance)
-  Downloading peewee-3.16.3.tar.gz (928 kB)
-?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/928.0 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">928.0/928.0 kB</span> <span class=" -Color -Color-Red">36.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+  Downloading peewee-3.17.0.tar.gz (2.9 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/2.9 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">2.9/2.9 MB</span> <span class=" -Color -Color-Red">142.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.9/2.9 MB</span> <span class=" -Color -Color-Red">85.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
@@ -340,12 +341,12 @@ Collecting frozendict&gt;=2.3.4 (from yfinance)
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
 ?25hRequirement already satisfied: beautifulsoup4&gt;=4.11.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from yfinance) (4.12.2)
-Collecting html5lib&gt;=1.1 (from yfinance)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading html5lib-1.1-py2.py3-none-any.whl (112 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting html5lib&gt;=1.1 (from yfinance)
+  Downloading html5lib-1.1-py2.py3-none-any.whl (112 kB)
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/112.2 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">112.2/112.2 kB</span> <span class=" -Color -Color-Red">38.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">112.2/112.2 kB</span> <span class=" -Color -Color-Red">47.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25hRequirement already satisfied: soupsieve&gt;1.2 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from beautifulsoup4&gt;=4.11.1-&gt;yfinance) (2.4)
 Requirement already satisfied: six&gt;=1.9 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from html5lib&gt;=1.1-&gt;yfinance) (1.16.0)
 Requirement already satisfied: webencodings in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from html5lib&gt;=1.1-&gt;yfinance) (0.5.1)
@@ -359,13 +360,11 @@ Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /usr/share/miniconda3
 Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from requests&gt;=2.31-&gt;yfinance) (2023.7.22)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading yfinance-0.2.31-py2.py3-none-any.whl (65 kB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/65.6 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">65.6/65.6 kB</span> <span class=" -Color -Color-Red">24.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building wheels for collected packages: peewee
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading yfinance-0.2.33-py2.py3-none-any.whl (69 kB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/69.0 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">69.0/69.0 kB</span> <span class=" -Color -Color-Red">33.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading frozendict-2.3.10-py3-none-any.whl (14 kB)
+Building wheels for collected packages: peewee
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for peewee (pyproject.toml) ... ?25l-
@@ -378,22 +377,24 @@ Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/share/miniconda3/en
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-?25h  Created wheel for peewee: filename=peewee-3.16.3-cp311-cp311-linux_x86_64.whl size=298221 sha256=16992a944aeef54e5dd097322ce23a79676e51333c348f6fc53acad397b92ddd
-  Stored in directory: /home/runner/.cache/pip/wheels/71/3b/27/57acb9258fc0c3744c912061f8bb9a94dac6a27579a4e8a12b
+?25h  Created wheel for peewee: filename=peewee-3.17.0-cp311-cp311-linux_x86_64.whl size=271614 sha256=7f6f3a9cc7f244c17f21b4fae1d0b432a7968bb8ba74211d346d45c8ceca4ca8
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Stored in directory: /home/runner/.cache/pip/wheels/02/20/23/74a10d0cd31f5d41c19b92ddf4c138ceff01b9f4675f19dbf5
 Successfully built peewee
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: peewee, multitasking, html5lib, frozendict, yfinance
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed frozendict-2.3.8 html5lib-1.1 multitasking-0.0.11 peewee-3.16.3 yfinance-0.2.31
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed frozendict-2.3.10 html5lib-1.1 multitasking-0.0.11 peewee-3.17.0 yfinance-0.2.33
 </pre></div>
 </div>
 </div>
 </details>
 </div>
 <section id="overview">
-<h2><a class="toc-backref" href="#id3"><span class="section-number">12.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3"><span class="section-number">13.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="http://pandas.pydata.org/">Pandas</a> is a package of fast, efficient data analysis tools for Python.</p>
 <p>Its popularity has surged in recent years, coincident with the rise
 of fields such as data science and machine learning.</p>
@@ -436,7 +437,7 @@ place</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is a two-dimensional object for storing related columns of data.</p>
 </section>
 <section id="series">
-<h2><a class="toc-backref" href="#id4"><span class="section-number">12.2. </span>Series</a><a class="headerlink" href="#series" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4"><span class="section-number">13.2. </span>Series</a><a class="headerlink" href="#series" title="Permalink to this heading">#</a></h2>
 <p id="index-2">Let’s start with Series.</p>
 <p>We begin by creating a series of four random observations</p>
 <div class="cell docutils container">
@@ -447,10 +448,10 @@ place</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1.727735
-1   -0.779648
-2    0.866982
-3    2.174311
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1.275029
+1    0.165879
+2   -2.168757
+3    1.094866
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -467,10 +468,10 @@ operations</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    172.773502
-1    -77.964821
-2     86.698247
-3    217.431089
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    127.502919
+1     16.587940
+2   -216.875682
+3    109.486582
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -483,10 +484,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1.727735
-1    0.779648
-2    0.866982
-3    2.174311
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1.275029
+1    0.165879
+2    2.168757
+3    1.094866
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -502,13 +503,13 @@ Name: daily returns, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    4.000000
-mean     0.997345
-std      1.302999
-min     -0.779648
-25%      0.455325
-50%      1.297359
-75%      1.839379
-max      2.174311
+mean     0.091754
+std      1.583433
+min     -2.168757
+25%     -0.417780
+50%      0.630373
+75%      1.139907
+max      1.275029
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -523,10 +524,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN    1.727735
-AAPL   -0.779648
-MSFT    0.866982
-GOOG    2.174311
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN    1.275029
+AAPL    0.165879
+MSFT   -2.168757
+GOOG    1.094866
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -543,7 +544,7 @@ type—in this case, floats).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.7277350194377472
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2750291901804136
 </pre></div>
 </div>
 </div>
@@ -557,9 +558,9 @@ type—in this case, floats).</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN    0.000000
-AAPL   -0.779648
-MSFT    0.866982
-GOOG    2.174311
+AAPL    0.165879
+MSFT   -2.168757
+GOOG    1.094866
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -579,7 +580,7 @@ Name: daily returns, dtype: float64
 </div>
 </section>
 <section id="dataframes">
-<h2><a class="toc-backref" href="#id5"><span class="section-number">12.3. </span>DataFrames</a><a class="headerlink" href="#dataframes" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5"><span class="section-number">13.3. </span>DataFrames</a><a class="headerlink" href="#dataframes" title="Permalink to this heading">#</a></h2>
 <p id="index-3">While a <code class="docutils literal notranslate"><span class="pre">Series</span></code> is a single column of data, a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is several columns, one for each variable.</p>
 <p>In essence, a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> in pandas is analogous to a (highly optimized) Excel spreadsheet.</p>
 <p>Thus, it is a powerful tool for representing and analyzing data that are naturally organized into rows and columns, often with descriptive indexes for individual rows and individual columns.</p>
@@ -753,7 +754,7 @@ Name: daily returns, dtype: float64
 </div></div></div>
 </div>
 <section id="select-data-by-position">
-<h3><span class="section-number">12.3.1. </span>Select Data by Position<a class="headerlink" href="#select-data-by-position" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.3.1. </span>Select Data by Position<a class="headerlink" href="#select-data-by-position" title="Permalink to this heading">#</a></h3>
 <p>In practice, one thing that we do all the time is to find, select and work with a subset of the data of our interests.</p>
 <p>We can select particular rows using standard Python array slicing notation</p>
 <div class="cell docutils container">
@@ -1014,7 +1015,7 @@ Name: daily returns, dtype: float64
 </div>
 </section>
 <section id="select-data-by-conditions">
-<h3><span class="section-number">12.3.2. </span>Select Data by Conditions<a class="headerlink" href="#select-data-by-conditions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.3.2. </span>Select Data by Conditions<a class="headerlink" href="#select-data-by-conditions" title="Permalink to this heading">#</a></h3>
 <p>Instead of indexing rows and columns using integers and names, we can also obtain a sub-dataframe of our interests that satisfies certain (potentially complicated) conditions.</p>
 <p>This section demonstrates various ways to do that.</p>
 <p>The most straightforward way is with the <code class="docutils literal notranslate"><span class="pre">[]</span></code> operator.</p>
@@ -1657,7 +1658,7 @@ Name: POP, dtype: bool
 </div>
 </section>
 <section id="apply-method">
-<h3><span class="section-number">12.3.3. </span>Apply Method<a class="headerlink" href="#apply-method" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.3.3. </span>Apply Method<a class="headerlink" href="#apply-method" title="Permalink to this heading">#</a></h3>
 <p>Another widely used Pandas method is <code class="docutils literal notranslate"><span class="pre">df.apply()</span></code>.</p>
 <p>It applies a function to each row/column and returns a series.</p>
 <p>This function can be some built-in functions like the <code class="docutils literal notranslate"><span class="pre">max</span></code> function, a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function, or a user-defined function.</p>
@@ -1941,7 +1942,7 @@ dtype: float64
 </div>
 </section>
 <section id="make-changes-in-dataframes">
-<h3><span class="section-number">12.3.4. </span>Make Changes in DataFrames<a class="headerlink" href="#make-changes-in-dataframes" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.3.4. </span>Make Changes in DataFrames<a class="headerlink" href="#make-changes-in-dataframes" title="Permalink to this heading">#</a></h3>
 <p>The ability to make changes in dataframes is important to generate a clean dataset for future analysis.</p>
 <p><strong>1.</strong> We can use <code class="docutils literal notranslate"><span class="pre">df.where()</span></code> conveniently to “keep” the rows we have selected and replace the rest rows with any other values</p>
 <div class="cell docutils container">
@@ -2875,7 +2876,7 @@ dtype: float64
 <p>There are also more <a class="reference external" href="https://scikit-learn.org/stable/modules/impute.html">advanced tools</a> in python to impute missing values.</p>
 </section>
 <section id="standardization-and-visualization">
-<h3><span class="section-number">12.3.5. </span>Standardization and Visualization<a class="headerlink" href="#standardization-and-visualization" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.3.5. </span>Standardization and Visualization<a class="headerlink" href="#standardization-and-visualization" title="Permalink to this heading">#</a></h3>
 <p>Let’s imagine that we’re only interested in the population (<code class="docutils literal notranslate"><span class="pre">POP</span></code>) and total GDP (<code class="docutils literal notranslate"><span class="pre">tcgdp</span></code>).</p>
 <p>One way to strip the data frame <code class="docutils literal notranslate"><span class="pre">df</span></code> down to only these variables is to overwrite the dataframe using the selection method described above</p>
 <div class="cell docutils container">
@@ -3420,7 +3421,7 @@ dtype: float64
 </section>
 </section>
 <section id="on-line-data-sources">
-<h2><a class="toc-backref" href="#id6"><span class="section-number">12.4. </span>On-Line Data Sources</a><a class="headerlink" href="#on-line-data-sources" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6"><span class="section-number">13.4. </span>On-Line Data Sources</a><a class="headerlink" href="#on-line-data-sources" title="Permalink to this heading">#</a></h2>
 <p id="index-4">Python makes it straightforward to query online databases programmatically.</p>
 <p>An important database for economists is <a class="reference external" href="https://research.stlouisfed.org/fred2/">FRED</a> — a vast collection of time series data maintained by the St. Louis Fed.</p>
 <p>For example, suppose that we are interested in the <a class="reference external" href="https://research.stlouisfed.org/fred2/series/UNRATE">unemployment rate</a>.</p>
@@ -3435,7 +3436,7 @@ this URL into your browser (note that this requires an internet connection)</p>
 <p>This can be done with a variety of methods.</p>
 <p>We start with a relatively low-level method and then return to pandas.</p>
 <section id="accessing-data-with-requests">
-<h3><span class="section-number">12.4.1. </span>Accessing Data with <span class="target" id="index-5"></span>requests<a class="headerlink" href="#accessing-data-with-requests" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.4.1. </span>Accessing Data with <span class="target" id="index-5"></span>requests<a class="headerlink" href="#accessing-data-with-requests" title="Permalink to this heading">#</a></h3>
 <p id="index-6">One option is to use <a class="reference external" href="https://requests.readthedocs.io/en/master/">requests</a>, a standard Python library for requesting data over the Internet.</p>
 <p>To begin, try the following code on your computer</p>
 <div class="cell docutils container">
@@ -3607,7 +3608,7 @@ this URL into your browser (note that this requires an internet connection)</p>
   <tbody>
     <tr>
       <th>count</th>
-      <td>909.0</td>
+      <td>911.0</td>
     </tr>
     <tr>
       <th>mean</th>
@@ -3659,7 +3660,7 @@ this URL into your browser (note that this requires an internet connection)</p>
 <p>Pandas has <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">a wide variety</a> of top-level methods that we can use to read, excel, json, parquet or plug straight into a database server.</p>
 </section>
 <section id="using-pandas-datareader-and-yfinance-to-access-data">
-<h3><span class="section-number">12.4.2. </span>Using <span class="target" id="index-7"></span>pandas_datareader and <span class="target" id="index-8"></span>yfinance to Access Data<a class="headerlink" href="#using-pandas-datareader-and-yfinance-to-access-data" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.4.2. </span>Using <span class="target" id="index-7"></span>pandas_datareader and <span class="target" id="index-8"></span>yfinance to Access Data<a class="headerlink" href="#using-pandas-datareader-and-yfinance-to-access-data" title="Permalink to this heading">#</a></h3>
 <p id="index-9">The maker of pandas has also authored a library called
 <a class="reference external" href="https://pandas-datareader.readthedocs.io/en/latest/">pandas_datareader</a> that
 gives programmatic access to many data sources straight from the Jupyter notebook.</p>
@@ -3698,10 +3699,10 @@ available for working with world bank data such as <a class="reference external"
 </section>
 </section>
 <section id="exercises">
-<h2><a class="toc-backref" href="#id7"><span class="section-number">12.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id7"><span class="section-number">13.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <div class="exercise admonition" id="pd_ex1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 12.1 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 13.1 </span></p>
 <section id="exercise-content">
 <p>With these imports:</p>
 <div class="cell docutils container">
@@ -3767,7 +3768,7 @@ available for working with world bank data such as <a class="reference external"
 </div>
 <div class="solution dropdown admonition" id="pandas-solution-1">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#pd_ex1"> Exercise 12.1</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#pd_ex1"> Exercise 13.1</a></p>
 <section id="solution-content">
 <p>There are a few ways to approach this problem using Pandas to calculate
 the percentage change.</p>
@@ -3839,7 +3840,7 @@ Name: 2021-12-30 00:00:00, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_4855/232489783.py:1: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2390/232489783.py:1: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
@@ -3853,9 +3854,9 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 <div class="exercise admonition" id="pd_ex2">
 
-<p class="admonition-title"><span class="caption-number">Exercise 12.2 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 13.2 </span></p>
 <section id="exercise-content">
-<p>Using the method <code class="docutils literal notranslate"><span class="pre">read_data</span></code> introduced in <a class="reference internal" href="#pd_ex1"><span class="std std-numref">Exercise 12.1</span></a>, write a program to obtain year-on-year percentage change for the following indices:</p>
+<p>Using the method <code class="docutils literal notranslate"><span class="pre">read_data</span></code> introduced in <a class="reference internal" href="#pd_ex1"><span class="std std-numref">Exercise 13.1</span></a>, write a program to obtain year-on-year percentage change for the following indices:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indices_list</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;^GSPC&#39;</span><span class="p">:</span> <span class="s1">&#39;S&amp;P 500&#39;</span><span class="p">,</span>
@@ -3874,9 +3875,9 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 <div class="solution dropdown admonition" id="pandas-solution-3">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#pd_ex2"> Exercise 12.2</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#pd_ex2"> Exercise 13.2</a></p>
 <section id="solution-content">
-<p>Following the work you did in <a class="reference internal" href="#pd_ex1"><span class="std std-numref">Exercise 12.1</span></a>, you can query the data using <code class="docutils literal notranslate"><span class="pre">read_data</span></code> by updating the start and end dates accordingly.</p>
+<p>Following the work you did in <a class="reference internal" href="#pd_ex1"><span class="std std-numref">Exercise 13.1</span></a>, you can query the data using <code class="docutils literal notranslate"><span class="pre">read_data</span></code> by updating the start and end dates accordingly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indices_data</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span>
@@ -4503,6 +4504,11 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
    7. OOP II: Building Classes
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="workspace.html">
+   8. Writing Longer Programs
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -4512,32 +4518,32 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <ul class="current nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="need_for_speed.html">
-   8. Python for Scientific Computing
+   9. Python for Scientific Computing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="numpy.html">
-   9. NumPy
+   10. NumPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matplotlib.html">
-   10. Matplotlib
+   11. Matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="scipy.html">
-   11. SciPy
+   12. SciPy
   </a>
  </li>
  <li class="toctree-l1 current active active">
   <a class="current reference internal" href="#">
-   12. Pandas
+   13. Pandas
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   13. SymPy
+   14. SymPy
   </a>
  </li>
 </ul>
@@ -4549,17 +4555,17 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="numba.html">
-   14. Numba
+   15. Numba
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="parallelization.html">
-   15. Parallelization
+   16. Parallelization
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   16. JAX
+   17. JAX
   </a>
  </li>
 </ul>
@@ -4571,17 +4577,17 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   17. Writing Good Code
+   18. Writing Good Code
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   18. More Language Features
+   19. More Language Features
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   19. Debugging and Handling Errors
+   20. Debugging and Handling Errors
   </a>
  </li>
 </ul>
@@ -4593,12 +4599,12 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   20. Troubleshooting
+   21. Troubleshooting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   21. Execution Statistics
+   22. Execution Statistics
   </a>
  </li>
 </ul>

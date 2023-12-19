@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>11. SciPy &#8212; Python Programming for Economics and Finance</title>
+    <title>12. SciPy &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
@@ -60,18 +60,18 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=cb2d6eee9712fbd5cbf7cbc2d6baf81f7f9a9912" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=8ccdddd742928a25ee5c13f3827fecc000146baa" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -80,9 +80,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -97,7 +97,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=b7d60282c7125f74e59bac03c2323864e0e32e1c"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=b21c4b94ab1abd61a98d27e943717a00f8eaac64"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
@@ -120,8 +120,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="12. Pandas" href="pandas.html" />
-    <link rel="prev" title="10. Matplotlib" href="matplotlib.html" />
+    <link rel="next" title="13. Pandas" href="pandas.html" />
+    <link rel="prev" title="11. Matplotlib" href="matplotlib.html" />
 
 <!-- Normal Meta Tags -->
 <meta name="author" context="Thomas J. Sargent &amp; John Stachurski" />
@@ -169,34 +169,37 @@ const thebe_selector_output = ".output, .cell_output"
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">11.1. Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy-versus-numpy">11.2. SciPy versus NumPy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics">11.3. Statistics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-variables-and-distributions">11.3.1. Random Variables and Distributions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-syntax">11.3.2. Alternative Syntax</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-goodies-in-scipy-stats">11.3.3. Other Goodies in scipy.stats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">12.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy-versus-numpy">12.2. SciPy versus NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics">12.3. Statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-variables-and-distributions">12.3.1. Random Variables and Distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-syntax">12.3.2. Alternative Syntax</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-goodies-in-scipy-stats">12.3.3. Other Goodies in scipy.stats</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#roots-and-fixed-points">11.4. Roots and Fixed Points</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bisection">11.4.1. Bisection</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-newton-raphson-method">11.4.2. The Newton-Raphson Method</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hybrid-methods">11.4.3. Hybrid Methods</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariate-root-finding">11.4.4. Multivariate Root-Finding</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-points">11.4.5. Fixed Points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#roots-and-fixed-points">12.4. Roots and Fixed Points</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bisection">12.4.1. Bisection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-newton-raphson-method">12.4.2. The Newton-Raphson Method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hybrid-methods">12.4.3. Hybrid Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariate-root-finding">12.4.4. Multivariate Root-Finding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-points">12.4.5. Fixed Points</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization">11.5. Optimization</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariate-optimization">11.5.1. Multivariate Optimization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization">12.5. Optimization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariate-optimization">12.5.1. Multivariate Optimization</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration">11.6. Integration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-algebra">11.7. Linear Algebra</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">11.8. Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration">12.6. Integration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-algebra">12.7. Linear Algebra</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">12.8. Exercises</a></li>
 </ul>
                             <p class="logo">
                                 
                                     
-                                    <a href=https://quantecon.org><img src="_static/qe-logo.png" class="logo" alt="logo"></a>
+                                    <a href=https://quantecon.org><img src="_static/qe-logo.png" class="logo logo-img" alt="logo"></a>
+                                    
+                                    <a href=https://quantecon.org><img src="_static/quantecon-logo-transparent.png" class="dark-logo-img" alt="logo"></a>
+                                    
                                     
                                 
                             </p>
@@ -237,7 +240,7 @@ const thebe_selector_output = ".output, .cell_output"
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="scipy">
-<h1><a class="toc-backref" href="#id1"><span class="section-number">11. </span><span class="target" id="index-0"></span>SciPy</a><a class="headerlink" href="#scipy" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id1"><span class="section-number">12. </span><span class="target" id="index-0"></span>SciPy</a><a class="headerlink" href="#scipy" title="Permalink to this heading">#</a></h1>
 <div class="contents topic" id="contents">
 <span id="index-1"></span><p class="topic-title">Contents</p>
 <ul class="simple">
@@ -256,7 +259,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </div>
 <section id="overview">
-<h2><a class="toc-backref" href="#id2"><span class="section-number">11.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2"><span class="section-number">12.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="http://www.scipy.org">SciPy</a> builds on top of NumPy to provide common tools for scientific programming such as</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/linalg.html">linear algebra</a></p></li>
@@ -274,7 +277,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>In this lecture, we aim only to highlight some useful parts of the package.</p>
 </section>
 <section id="scipy-versus-numpy">
-<h2><a class="toc-backref" href="#id3"><span class="section-number">11.2. </span><span class="target" id="index-2"></span>SciPy versus <span class="target" id="index-3"></span>NumPy</a><a class="headerlink" href="#scipy-versus-numpy" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3"><span class="section-number">12.2. </span><span class="target" id="index-2"></span>SciPy versus <span class="target" id="index-3"></span>NumPy</a><a class="headerlink" href="#scipy-versus-numpy" title="Permalink to this heading">#</a></h2>
 <p>SciPy is a package that contains various tools that are built on top of NumPy, using its array data type and related functionality.</p>
 <p>In fact, when we import SciPy we also get NumPy, as can be seen from this excerpt the SciPy initialization file:</p>
 <div class="cell docutils container">
@@ -305,7 +308,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Let’s explore some of the major sub-packages.</p>
 </section>
 <section id="statistics">
-<h2><a class="toc-backref" href="#id4"><span class="section-number">11.3. </span>Statistics</a><a class="headerlink" href="#statistics" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4"><span class="section-number">12.3. </span>Statistics</a><a class="headerlink" href="#statistics" title="Permalink to this heading">#</a></h2>
 <p id="index-4">The <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> subpackage supplies</p>
 <ul class="simple">
 <li><p>numerous random variable objects (densities, cumulative distributions, random sampling, etc.)</p></li>
@@ -313,7 +316,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>some statistical tests</p></li>
 </ul>
 <section id="random-variables-and-distributions">
-<h3><span class="section-number">11.3.1. </span>Random Variables and Distributions<a class="headerlink" href="#random-variables-and-distributions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.3.1. </span>Random Variables and Distributions<a class="headerlink" href="#random-variables-and-distributions" title="Permalink to this heading">#</a></h3>
 <p>Recall that <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> provides functions for generating random variables</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -322,14 +325,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.59928291, 0.56917109, 0.70687012])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.82611127, 0.51305663, 0.31157534])
 </pre></div>
 </div>
 </div>
 </div>
 <p>This generates a draw from the distribution with the density function below when <code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">5,</span> <span class="pre">5</span></code></p>
 <div class="math notranslate nohighlight" id="equation-betadist2">
-<span class="eqno">(11.1)<a class="headerlink" href="#equation-betadist2" title="Permalink to this equation">#</a></span>\[f(x; a, b) = \frac{x^{(a - 1)} (1 - x)^{(b - 1)}}
+<span class="eqno">(12.1)<a class="headerlink" href="#equation-betadist2" title="Permalink to this equation">#</a></span>\[f(x; a, b) = \frac{x^{(a - 1)} (1 - x)^{(b - 1)}}
     {\int_0^1 u^{(a - 1)} (1 - u)^{(b - 1)} du}
     \qquad (0 \leq x \leq 1)\]</div>
 <p>Sometimes we need access to the density itself, or the cdf, the quantiles, etc.</p>
@@ -354,7 +357,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/680526191916fd2293569d73a68ab68dc5b88bcd5dd67b3a955964f06f28620f.png" src="_images/680526191916fd2293569d73a68ab68dc5b88bcd5dd67b3a955964f06f28620f.png" />
+<img alt="_images/0dec33e80f7cea34d2667126d3b9a9616017b99c8b6df4f6e15ee71881b35d4a.png" src="_images/0dec33e80f7cea34d2667126d3b9a9616017b99c8b6df4f6e15ee71881b35d4a.png" />
 </div>
 </div>
 <p>The object <code class="docutils literal notranslate"><span class="pre">q</span></code> that represents the distribution has additional useful methods, including</p>
@@ -403,7 +406,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="math notranslate nohighlight">\(X\)</span> into <span class="math notranslate nohighlight">\(Y = c + d X\)</span>.</p>
 </section>
 <section id="alternative-syntax">
-<h3><span class="section-number">11.3.2. </span>Alternative Syntax<a class="headerlink" href="#alternative-syntax" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.3.2. </span>Alternative Syntax<a class="headerlink" href="#alternative-syntax" title="Permalink to this heading">#</a></h3>
 <p>There is an alternative way of calling the methods described above.</p>
 <p>For example, the code that generates the figure above can be replaced by</p>
 <div class="cell docutils container">
@@ -419,12 +422,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5da6a21fcf88f90d35cb080756d45927b4c9f8a315a60d539e06304afd04cd68.png" src="_images/5da6a21fcf88f90d35cb080756d45927b4c9f8a315a60d539e06304afd04cd68.png" />
+<img alt="_images/ffe5035500ab04c118ba7551f3d8fbfb9524e3bd3124e0b34b147a74a684ad13.png" src="_images/ffe5035500ab04c118ba7551f3d8fbfb9524e3bd3124e0b34b147a74a684ad13.png" />
 </div>
 </div>
 </section>
 <section id="other-goodies-in-scipy-stats">
-<h3><span class="section-number">11.3.3. </span>Other Goodies in scipy.stats<a class="headerlink" href="#other-goodies-in-scipy-stats" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.3.3. </span>Other Goodies in scipy.stats<a class="headerlink" href="#other-goodies-in-scipy-stats" title="Permalink to this heading">#</a></h3>
 <p>There are a variety of statistical functions in <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.</p>
 <p>For example, <code class="docutils literal notranslate"><span class="pre">scipy.stats.linregress</span></code> implements simple linear regression</p>
 <div class="cell docutils container">
@@ -439,7 +442,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.9865891296605074, -0.017215319469326945)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.9945250936272352, -0.0004787982927113993)
 </pre></div>
 </div>
 </div>
@@ -448,11 +451,11 @@ const thebe_selector_output = ".output, .cell_output"
 </section>
 </section>
 <section id="roots-and-fixed-points">
-<h2><a class="toc-backref" href="#id5"><span class="section-number">11.4. </span>Roots and Fixed Points</a><a class="headerlink" href="#roots-and-fixed-points" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5"><span class="section-number">12.4. </span>Roots and Fixed Points</a><a class="headerlink" href="#roots-and-fixed-points" title="Permalink to this heading">#</a></h2>
 <p>A <strong>root</strong> or <strong>zero</strong> of a real function <span class="math notranslate nohighlight">\(f\)</span> on <span class="math notranslate nohighlight">\([a,b]\)</span> is an <span class="math notranslate nohighlight">\(x \in [a, b]\)</span> such that <span class="math notranslate nohighlight">\(f(x)=0\)</span>.</p>
 <p>For example, if we plot the function</p>
 <div class="math notranslate nohighlight" id="equation-root-f">
-<span class="eqno">(11.2)<a class="headerlink" href="#equation-root-f" title="Permalink to this equation">#</a></span>\[f(x) = \sin(4 (x - 1/4)) + x + x^{20} - 1\]</div>
+<span class="eqno">(12.2)<a class="headerlink" href="#equation-root-f" title="Permalink to this equation">#</a></span>\[f(x) = \sin(4 (x - 1/4)) + x + x^{20} - 1\]</div>
 <p>with <span class="math notranslate nohighlight">\(x \in [0,1]\)</span> we get</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -476,7 +479,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The unique root is approximately 0.408.</p>
 <p>Let’s consider some numerical techniques for finding roots.</p>
 <section id="bisection">
-<h3><span class="section-number">11.4.1. </span><span class="target" id="index-5"></span>Bisection<a class="headerlink" href="#bisection" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.4.1. </span><span class="target" id="index-5"></span>Bisection<a class="headerlink" href="#bisection" title="Permalink to this heading">#</a></h3>
 <p id="index-6">One of the most common algorithms for numerical root-finding is <em>bisection</em>.</p>
 <p>To understand the idea, recall the well-known game where</p>
 <ul class="simple">
@@ -513,7 +516,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>Let’s test it using the function <span class="math notranslate nohighlight">\(f\)</span> defined in <a class="reference internal" href="#equation-root-f">(11.2)</a></p>
+<p>Let’s test it using the function <span class="math notranslate nohighlight">\(f\)</span> defined in <a class="reference internal" href="#equation-root-f">(12.2)</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bisect</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -527,7 +530,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Not surprisingly, SciPy provides its own bisection function.</p>
-<p>Let’s test it using the same function <span class="math notranslate nohighlight">\(f\)</span> defined in <a class="reference internal" href="#equation-root-f">(11.2)</a></p>
+<p>Let’s test it using the same function <span class="math notranslate nohighlight">\(f\)</span> defined in <a class="reference internal" href="#equation-root-f">(12.2)</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">bisect</span>
@@ -544,7 +547,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </section>
 <section id="the-newton-raphson-method">
-<h3><span class="section-number">11.4.2. </span>The <span class="target" id="index-7"></span>Newton-Raphson Method<a class="headerlink" href="#the-newton-raphson-method" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.4.2. </span>The <span class="target" id="index-7"></span>Newton-Raphson Method<a class="headerlink" href="#the-newton-raphson-method" title="Permalink to this heading">#</a></h3>
 <p id="index-8">Another very common root-finding algorithm is the <a class="reference external" href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton-Raphson method</a>.</p>
 <p>In SciPy this algorithm is implemented by <code class="docutils literal notranslate"><span class="pre">scipy.optimize.newton</span></code>.</p>
 <p>Unlike bisection, the Newton-Raphson method uses local slope information in an attempt to increase the speed of convergence.</p>
@@ -559,7 +562,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4082935042793568
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.40829350427935673
 </pre></div>
 </div>
 </div>
@@ -579,7 +582,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </section>
 <section id="hybrid-methods">
-<h3><span class="section-number">11.4.3. </span>Hybrid Methods<a class="headerlink" href="#hybrid-methods" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.4.3. </span>Hybrid Methods<a class="headerlink" href="#hybrid-methods" title="Permalink to this heading">#</a></h3>
 <p>A general principle of numerical methods is as follows:</p>
 <ul class="simple">
 <li><p>If you have specific knowledge about a given problem, you might be able to exploit it to generate efficiency.</p></li>
@@ -615,7 +618,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>28 µs ± 360 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20.4 µs ± 54.9 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -627,19 +630,19 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>95 µs ± 2.88 µs per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>80 µs ± 256 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="multivariate-root-finding">
-<h3><span class="section-number">11.4.4. </span>Multivariate Root-Finding<a class="headerlink" href="#multivariate-root-finding" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.4.4. </span>Multivariate Root-Finding<a class="headerlink" href="#multivariate-root-finding" title="Permalink to this heading">#</a></h3>
 <p id="index-9">Use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.fsolve</span></code>, a wrapper for a hybrid method in MINPACK.</p>
 <p>See the <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fsolve.html">documentation</a> for details.</p>
 </section>
 <section id="fixed-points">
-<h3><span class="section-number">11.4.5. </span>Fixed Points<a class="headerlink" href="#fixed-points" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.4.5. </span>Fixed Points<a class="headerlink" href="#fixed-points" title="Permalink to this heading">#</a></h3>
 <p>A <strong>fixed point</strong> of a real function <span class="math notranslate nohighlight">\(f\)</span> on <span class="math notranslate nohighlight">\([a,b]\)</span> is an <span class="math notranslate nohighlight">\(x \in [a, b]\)</span> such that <span class="math notranslate nohighlight">\(f(x)=x\)</span>.</p>
 <p id="index-10">SciPy has a function for finding (scalar) fixed points too</p>
 <div class="cell docutils container">
@@ -661,7 +664,7 @@ the fixed point of a function <span class="math notranslate nohighlight">\(f\)</
 </section>
 </section>
 <section id="optimization">
-<h2><a class="toc-backref" href="#id6"><span class="section-number">11.5. </span><span class="target" id="index-11"></span>Optimization</a><a class="headerlink" href="#optimization" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6"><span class="section-number">12.5. </span><span class="target" id="index-11"></span>Optimization</a><a class="headerlink" href="#optimization" title="Permalink to this heading">#</a></h2>
 <p id="index-12">Most numerical packages provide only functions for <em>minimization</em>.</p>
 <p>Maximization can be performed by recalling that the maximizer of a function <span class="math notranslate nohighlight">\(f\)</span> on domain <span class="math notranslate nohighlight">\(D\)</span> is
 the minimizer of <span class="math notranslate nohighlight">\(-f\)</span> on <span class="math notranslate nohighlight">\(D\)</span>.</p>
@@ -684,14 +687,14 @@ the minimizer of <span class="math notranslate nohighlight">\(-f\)</span> on <sp
 </div>
 </div>
 <section id="multivariate-optimization">
-<h3><span class="section-number">11.5.1. </span>Multivariate Optimization<a class="headerlink" href="#multivariate-optimization" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.5.1. </span>Multivariate Optimization<a class="headerlink" href="#multivariate-optimization" title="Permalink to this heading">#</a></h3>
 <p id="index-13">Multivariate local optimizers include <code class="docutils literal notranslate"><span class="pre">minimize</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin_powell</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin_cg</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin_bfgs</span></code>, and <code class="docutils literal notranslate"><span class="pre">fmin_ncg</span></code>.</p>
 <p>Constrained multivariate local optimizers include <code class="docutils literal notranslate"><span class="pre">fmin_l_bfgs_b</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin_tnc</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin_cobyla</span></code>.</p>
 <p>See the <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/optimize.html">documentation</a> for details.</p>
 </section>
 </section>
 <section id="integration">
-<h2><a class="toc-backref" href="#id7"><span class="section-number">11.6. </span><span class="target" id="index-14"></span>Integration</a><a class="headerlink" href="#integration" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id7"><span class="section-number">12.6. </span><span class="target" id="index-14"></span>Integration</a><a class="headerlink" href="#integration" title="Permalink to this heading">#</a></h2>
 <p id="index-15">Most numerical integration methods work by computing the integral of an approximating polynomial.</p>
 <p>The resulting error depends on how well the polynomial fits the integrand, which in turn depends on how “regular” the integrand is.</p>
 <p>In SciPy, the relevant module for numerical integration is <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code>.</p>
@@ -718,14 +721,14 @@ the minimizer of <span class="math notranslate nohighlight">\(-f\)</span> on <sp
 <p>See the <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/integrate.html">documentation</a> for more details.</p>
 </section>
 <section id="linear-algebra">
-<h2><a class="toc-backref" href="#id8"><span class="section-number">11.7. </span><span class="target" id="index-16"></span>Linear Algebra</a><a class="headerlink" href="#linear-algebra" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id8"><span class="section-number">12.7. </span><span class="target" id="index-16"></span>Linear Algebra</a><a class="headerlink" href="#linear-algebra" title="Permalink to this heading">#</a></h2>
 <p id="index-17">We saw that NumPy provides a module for linear algebra called <code class="docutils literal notranslate"><span class="pre">linalg</span></code>.</p>
 <p>SciPy also provides a module for linear algebra with the same name.</p>
 <p>The latter is not an exact superset of the former, but overall it has more functionality.</p>
 <p>We leave you to investigate the <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/linalg.html">set of available routines</a>.</p>
 </section>
 <section id="exercises">
-<h2><a class="toc-backref" href="#id9"><span class="section-number">11.8. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id9"><span class="section-number">12.8. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <p>The first few exercises concern pricing a European call option under the
 assumption of risk neutrality.  The price satisfies</p>
 <div class="math notranslate nohighlight">
@@ -744,7 +747,7 @@ P = \beta^n \mathbb E \max\{ S_n - K, 0 \}
 <p>The price is the expectation of the payoff, discounted to current value.</p>
 <div class="exercise admonition" id="sp_ex01">
 
-<p class="admonition-title"><span class="caption-number">Exercise 11.1 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 12.1 </span></p>
 <section id="exercise-content">
 <p>Suppose that <span class="math notranslate nohighlight">\(S_n\)</span> has the <a class="reference external" href="https://en.wikipedia.org/wiki/Log-normal_distribution">log-normal</a> distribution with parameters <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span>.  Let <span class="math notranslate nohighlight">\(f\)</span> denote the density of this distribution.  Then</p>
 <div class="math notranslate nohighlight">
@@ -765,7 +768,7 @@ g(x) = \beta^n  \max\{x - K, 0\} f(x)
 </div>
 <div class="solution dropdown admonition" id="scipy-solution-1">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#sp_ex01"> Exercise 11.1</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#sp_ex01"> Exercise 12.1</a></p>
 <section id="solution-content">
 <p>Here’s one possible solution</p>
 <div class="cell docutils container">
@@ -796,14 +799,14 @@ g(x) = \beta^n  \max\{x - K, 0\} f(x)
 </div>
 <div class="exercise admonition" id="sp_ex02">
 
-<p class="admonition-title"><span class="caption-number">Exercise 11.2 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 12.2 </span></p>
 <section id="exercise-content">
 <p>In order to get the option price, compute the integral of this function numerically using <code class="docutils literal notranslate"><span class="pre">quad</span></code> from <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code>.</p>
 </section>
 </div>
 <div class="solution dropdown admonition" id="scipy-solution-3">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#sp_ex02"> Exercise 11.2</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#sp_ex02"> Exercise 12.2</a></p>
 <section id="solution-content">
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -822,7 +825,7 @@ g(x) = \beta^n  \max\{x - K, 0\} f(x)
 </div>
 <div class="exercise admonition" id="sp_ex03">
 
-<p class="admonition-title"><span class="caption-number">Exercise 11.3 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 12.3 </span></p>
 <section id="exercise-content">
 <p>Try to get a similar result using Monte Carlo to compute the expectation term in the option price, rather than <code class="docutils literal notranslate"><span class="pre">quad</span></code>.</p>
 <p>In particular, use the fact that if <span class="math notranslate nohighlight">\(S_n^1, \ldots, S_n^M\)</span> are independent
@@ -838,7 +841,7 @@ large numbers,</p>
 </div>
 <div class="solution dropdown admonition" id="scipy-solution-5">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#sp_ex03"> Exercise 11.3</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#sp_ex03"> Exercise 12.3</a></p>
 <section id="solution-content">
 <p>Here is one solution:</p>
 <div class="cell docutils container">
@@ -852,7 +855,7 @@ large numbers,</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Monte Carlo option price is 15.187386
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Monte Carlo option price is 15.181879
 </pre></div>
 </div>
 </div>
@@ -861,16 +864,16 @@ large numbers,</p>
 </div>
 <div class="exercise admonition" id="sp_ex1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 11.4 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 12.4 </span></p>
 <section id="exercise-content">
 <p>In <a class="reference internal" href="functions.html#functions"><span class="std std-ref">this lecture</span></a>, we discussed the concept of <a class="reference internal" href="functions.html#recursive-functions"><span class="std std-ref">recursive function calls</span></a>.</p>
 <p>Try to write a recursive implementation of the homemade bisection function <a class="reference internal" href="#bisect-func"><span class="std std-ref">described above</span></a>.</p>
-<p>Test it on the function <a class="reference internal" href="#equation-root-f">(11.2)</a>.</p>
+<p>Test it on the function <a class="reference internal" href="#equation-root-f">(12.2)</a>.</p>
 </section>
 </div>
 <div class="solution dropdown admonition" id="scipy-solution-7">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#sp_ex1"> Exercise 11.4</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#sp_ex1"> Exercise 12.4</a></p>
 <section id="solution-content">
 <p>Here’s a reasonable solution:</p>
 <div class="cell docutils container">
@@ -1019,6 +1022,11 @@ Current mid point = 0.40826416015625
    7. OOP II: Building Classes
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="workspace.html">
+   8. Writing Longer Programs
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -1028,32 +1036,32 @@ Current mid point = 0.40826416015625
 <ul class="current nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="need_for_speed.html">
-   8. Python for Scientific Computing
+   9. Python for Scientific Computing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="numpy.html">
-   9. NumPy
+   10. NumPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matplotlib.html">
-   10. Matplotlib
+   11. Matplotlib
   </a>
  </li>
  <li class="toctree-l1 current active active">
   <a class="current reference internal" href="#">
-   11. SciPy
+   12. SciPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pandas.html">
-   12. Pandas
+   13. Pandas
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   13. SymPy
+   14. SymPy
   </a>
  </li>
 </ul>
@@ -1065,17 +1073,17 @@ Current mid point = 0.40826416015625
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="numba.html">
-   14. Numba
+   15. Numba
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="parallelization.html">
-   15. Parallelization
+   16. Parallelization
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   16. JAX
+   17. JAX
   </a>
  </li>
 </ul>
@@ -1087,17 +1095,17 @@ Current mid point = 0.40826416015625
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   17. Writing Good Code
+   18. Writing Good Code
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   18. More Language Features
+   19. More Language Features
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   19. Debugging and Handling Errors
+   20. Debugging and Handling Errors
   </a>
  </li>
 </ul>
@@ -1109,12 +1117,12 @@ Current mid point = 0.40826416015625
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   20. Troubleshooting
+   21. Troubleshooting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   21. Execution Statistics
+   22. Execution Statistics
   </a>
  </li>
 </ul>
