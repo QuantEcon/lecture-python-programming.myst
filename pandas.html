@@ -71,7 +71,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=8ccdddd742928a25ee5c13f3827fecc000146baa" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=b09b2da44b9015b4fa76ea072fa2d8f7faee5492" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -97,7 +97,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=b21c4b94ab1abd61a98d27e943717a00f8eaac64"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=eed9c059a3ee152aae2353ec732f0a6d12e6aa07"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
@@ -218,8 +218,19 @@ const thebe_selector_output = ".output, .cell_output"
                         <p class="qe-page__header-subheading">Pandas</p>
 
                     </div>
+                    <!-- length 2, since its a string and empty dict has length 2 - {} -->
+                        <p class="qe-page__header-authors" font-size="18">
+                            
+                                
+                                    <a href="http://www.tomsargent.com/" target="_blank"><span>Thomas J. Sargent</span></a>
+                                
+                            
+                                
+                                    and <a href="https://johnstachurski.net/" target="_blank"><span>John Stachurski</span></a>
+                                
+                            
+                        </p>
 
-                    <p class="qe-page__header-authors">Thomas J. Sargent & John Stachurski</p>
 
                 </div> <!-- .page__header -->
 
@@ -265,7 +276,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pandas_datareader-0.10.0-py3-none-any.whl (109 kB)
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/109.5 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">109.5/109.5 kB</span> <span class=" -Color -Color-Red">10.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">109.5/109.5 kB</span> <span class=" -Color -Color-Red">7.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25hRequirement already satisfied: lxml in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from pandas-datareader) (4.9.3)
 Requirement already satisfied: pandas&gt;=0.23 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from pandas-datareader) (2.0.3)
 Requirement already satisfied: requests&gt;=2.19.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from pandas-datareader) (2.31.0)
@@ -299,7 +310,9 @@ Requirement already satisfied: pandas&gt;=1.3.0 in /usr/share/miniconda3/envs/qu
 Requirement already satisfied: numpy&gt;=1.16.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from yfinance) (1.24.3)
 Requirement already satisfied: requests&gt;=2.31 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from yfinance) (2.31.0)
 Collecting multitasking&gt;=0.0.7 (from yfinance)
-  Downloading multitasking-0.0.11-py3-none-any.whl (8.5 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading multitasking-0.0.11-py3-none-any.whl (8.5 kB)
 Requirement already satisfied: lxml&gt;=4.9.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from yfinance) (4.9.3)
 Requirement already satisfied: appdirs&gt;=1.4.4 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from yfinance) (1.4.4)
 Requirement already satisfied: pytz&gt;=2022.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from yfinance) (2023.3.post1)
@@ -308,13 +321,15 @@ Requirement already satisfied: pytz&gt;=2022.5 in /usr/share/miniconda3/envs/qua
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting frozendict&gt;=2.3.4 (from yfinance)
   Obtaining dependency information for frozendict&gt;=2.3.4 from https://files.pythonhosted.org/packages/b6/2c/e391d6d57bbd837d383a6b69b54ecb4768d75b31d8bc7a380b4b4afe4cb2/frozendict-2.3.10-py3-none-any.whl.metadata
   Downloading frozendict-2.3.10-py3-none-any.whl.metadata (20 kB)
+Collecting peewee&gt;=3.16.2 (from yfinance)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting peewee&gt;=3.16.2 (from yfinance)
-  Downloading peewee-3.17.0.tar.gz (2.9 MB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading peewee-3.17.0.tar.gz (2.9 MB)
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/2.9 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">2.9/2.9 MB</span> <span class=" -Color -Color-Red">142.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.9/2.9 MB</span> <span class=" -Color -Color-Red">85.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━ <span class=" -Color -Color-Green">2.5/2.9 MB</span> <span class=" -Color -Color-Red">74.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.9/2.9 MB</span> <span class=" -Color -Color-Red">59.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
@@ -346,7 +361,7 @@ Requirement already satisfied: pytz&gt;=2022.5 in /usr/share/miniconda3/envs/qua
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting html5lib&gt;=1.1 (from yfinance)
   Downloading html5lib-1.1-py2.py3-none-any.whl (112 kB)
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/112.2 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">112.2/112.2 kB</span> <span class=" -Color -Color-Red">47.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">112.2/112.2 kB</span> <span class=" -Color -Color-Red">50.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25hRequirement already satisfied: soupsieve&gt;1.2 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from beautifulsoup4&gt;=4.11.1-&gt;yfinance) (2.4)
 Requirement already satisfied: six&gt;=1.9 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from html5lib&gt;=1.1-&gt;yfinance) (1.16.0)
 Requirement already satisfied: webencodings in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from html5lib&gt;=1.1-&gt;yfinance) (0.5.1)
@@ -362,7 +377,7 @@ Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/share/miniconda3/en
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading yfinance-0.2.33-py2.py3-none-any.whl (69 kB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/69.0 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">69.0/69.0 kB</span> <span class=" -Color -Color-Red">33.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">69.0/69.0 kB</span> <span class=" -Color -Color-Red">32.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25hDownloading frozendict-2.3.10-py3-none-any.whl (14 kB)
 Building wheels for collected packages: peewee
 </pre></div>
@@ -377,10 +392,8 @@ Building wheels for collected packages: peewee
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-?25h  Created wheel for peewee: filename=peewee-3.17.0-cp311-cp311-linux_x86_64.whl size=271614 sha256=7f6f3a9cc7f244c17f21b4fae1d0b432a7968bb8ba74211d346d45c8ceca4ca8
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Stored in directory: /home/runner/.cache/pip/wheels/02/20/23/74a10d0cd31f5d41c19b92ddf4c138ceff01b9f4675f19dbf5
+?25h  Created wheel for peewee: filename=peewee-3.17.0-cp311-cp311-linux_x86_64.whl size=271614 sha256=2dcae69c176be229a87a08c824c1be7f4cc082badb14ee6d118b2521de919223
+  Stored in directory: /home/runner/.cache/pip/wheels/02/20/23/74a10d0cd31f5d41c19b92ddf4c138ceff01b9f4675f19dbf5
 Successfully built peewee
 </pre></div>
 </div>
@@ -448,10 +461,10 @@ place</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1.275029
-1    0.165879
-2   -2.168757
-3    1.094866
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   -0.720017
+1   -0.210659
+2   -0.262305
+3    0.848900
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -468,10 +481,10 @@ operations</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    127.502919
-1     16.587940
-2   -216.875682
-3    109.486582
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   -72.001671
+1   -21.065885
+2   -26.230458
+3    84.889974
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -484,10 +497,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1.275029
-1    0.165879
-2    2.168757
-3    1.094866
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.720017
+1    0.210659
+2    0.262305
+3    0.848900
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -503,13 +516,13 @@ Name: daily returns, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    4.000000
-mean     0.091754
-std      1.583433
-min     -2.168757
-25%     -0.417780
-50%      0.630373
-75%      1.139907
-max      1.275029
+mean    -0.086020
+std      0.663987
+min     -0.720017
+25%     -0.376733
+50%     -0.236482
+75%      0.054231
+max      0.848900
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -524,10 +537,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN    1.275029
-AAPL    0.165879
-MSFT   -2.168757
-GOOG    1.094866
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN   -0.720017
+AAPL   -0.210659
+MSFT   -0.262305
+GOOG    0.848900
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -544,7 +557,7 @@ type—in this case, floats).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2750291901804136
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.7200167069505793
 </pre></div>
 </div>
 </div>
@@ -558,9 +571,9 @@ type—in this case, floats).</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN    0.000000
-AAPL    0.165879
-MSFT   -2.168757
-GOOG    1.094866
+AAPL   -0.210659
+MSFT   -0.262305
+GOOG    0.848900
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -3692,7 +3705,7 @@ available for working with world bank data such as <a class="reference external"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ba59b5e0b2001607944e00d9a15b374e1594e356d0d19ea24cbad9f9519e0f78.png" src="_images/ba59b5e0b2001607944e00d9a15b374e1594e356d0d19ea24cbad9f9519e0f78.png" />
+<img alt="_images/5450f387466267bf9b3f14b51efa5009da566c9214bf8fa49b2f26ea3d6a3124.png" src="_images/5450f387466267bf9b3f14b51efa5009da566c9214bf8fa49b2f26ea3d6a3124.png" />
 </div>
 </div>
 <p>The <a class="reference external" href="https://pandas-datareader.readthedocs.io/en/latest/index.html">documentation</a> provides more details on how to access various data sources.</p>
@@ -3840,7 +3853,7 @@ Name: 2021-12-30 00:00:00, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2390/232489783.py:1: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2259/232489783.py:1: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy

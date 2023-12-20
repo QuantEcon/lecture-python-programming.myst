@@ -71,7 +71,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=8ccdddd742928a25ee5c13f3827fecc000146baa" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=b09b2da44b9015b4fa76ea072fa2d8f7faee5492" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -97,7 +97,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=b21c4b94ab1abd61a98d27e943717a00f8eaac64"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=eed9c059a3ee152aae2353ec732f0a6d12e6aa07"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
@@ -229,8 +229,19 @@ const thebe_selector_output = ".output, .cell_output"
                         <p class="qe-page__header-subheading">NumPy</p>
 
                     </div>
+                    <!-- length 2, since its a string and empty dict has length 2 - {} -->
+                        <p class="qe-page__header-authors" font-size="18">
+                            
+                                
+                                    <a href="http://www.tomsargent.com/" target="_blank"><span>Thomas J. Sargent</span></a>
+                                
+                            
+                                
+                                    and <a href="https://johnstachurski.net/" target="_blank"><span>John Stachurski</span></a>
+                                
+                            
+                        </p>
 
-                    <p class="qe-page__header-authors">Thomas J. Sargent & John Stachurski</p>
 
                 </div> <!-- .page__header -->
 
@@ -1739,7 +1750,7 @@ the shape of array b is (2, 2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.43322766,  0.00595254, -1.50683986])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.54890232, -0.63618665, -0.94948789])
 </pre></div>
 </div>
 </div>
@@ -1753,7 +1764,7 @@ the shape of array b is (2, 2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        ,  0.00595254, -1.50683986])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        , -0.63618665, -0.94948789])
 </pre></div>
 </div>
 </div>
@@ -1777,7 +1788,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.7799277 , -0.41807585,  0.32421524])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.17144282,  1.25599012,  0.94965095])
 </pre></div>
 </div>
 </div>
@@ -1790,7 +1801,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.7799277 , -0.41807585,  0.32421524])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.17144282,  1.25599012,  0.94965095])
 </pre></div>
 </div>
 </div>
@@ -1816,7 +1827,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.7799277 , -0.41807585,  0.32421524])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.17144282,  1.25599012,  0.94965095])
 </pre></div>
 </div>
 </div>
@@ -1901,7 +1912,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.11559157,  1.75818501, -1.86144942, -0.82141863])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.4410515 , -0.65186216, -0.64465183,  0.8134109 ])
 </pre></div>
 </div>
 </div>
@@ -1913,7 +1924,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 0, 0])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 1])
 </pre></div>
 </div>
 </div>
@@ -1927,7 +1938,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 0, 0])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 1])
 </pre></div>
 </div>
 </div>
@@ -2057,7 +2068,7 @@ through its sub-packages.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.056
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.045
 </pre></div>
 </div>
 </div>
@@ -2369,7 +2380,7 @@ from QuantEcon and added in a plot method</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2a1121496ed1a4df551597893db34e28366771aba32cd06b3f979da089e1c361.png" src="_images/2a1121496ed1a4df551597893db34e28366771aba32cd06b3f979da089e1c361.png" />
+<img alt="_images/ca6c68b8cec2e5d1c7e157ccb9563da3c4f4b5f64f983d1461caef22848937c8.png" src="_images/ca6c68b8cec2e5d1c7e157ccb9563da3c4f4b5f64f983d1461caef22848937c8.png" />
 </div>
 </div>
 </section>
@@ -2432,7 +2443,7 @@ from QuantEcon and added in a plot method</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.01
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.012865066528320312
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.012936592102050781
 </pre></div>
 </div>
 </div>
@@ -2616,10 +2627,10 @@ from QuantEcon and added in a plot method</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:3.76
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:3.59
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.767493963241577
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.5994060039520264
 </pre></div>
 </div>
 </div>

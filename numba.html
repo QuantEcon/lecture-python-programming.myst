@@ -71,7 +71,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=8ccdddd742928a25ee5c13f3827fecc000146baa" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=b09b2da44b9015b4fa76ea072fa2d8f7faee5492" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -97,7 +97,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=b21c4b94ab1abd61a98d27e943717a00f8eaac64"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=eed9c059a3ee152aae2353ec732f0a6d12e6aa07"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
@@ -224,8 +224,19 @@ const thebe_selector_output = ".output, .cell_output"
                         <p class="qe-page__header-subheading">Numba</p>
 
                     </div>
+                    <!-- length 2, since its a string and empty dict has length 2 - {} -->
+                        <p class="qe-page__header-authors" font-size="18">
+                            
+                                
+                                    <a href="http://www.tomsargent.com/" target="_blank"><span>Thomas J. Sargent</span></a>
+                                
+                            
+                                
+                                    and <a href="https://johnstachurski.net/" target="_blank"><span>John Stachurski</span></a>
+                                
+                            
+                        </p>
 
-                    <p class="qe-page__header-authors">Thomas J. Sargent & John Stachurski</p>
 
                 </div> <!-- .page__header -->
 
@@ -276,10 +287,10 @@ Requirement already satisfied: scipy&gt;=1.5.0 in /usr/share/miniconda3/envs/qua
 Requirement already satisfied: sympy in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from quantecon) (1.11.1)
 Requirement already satisfied: llvmlite&lt;0.41,&gt;=0.40.0dev0 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from numba&gt;=0.49.0-&gt;quantecon) (0.40.0)
 Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from requests-&gt;quantecon) (2.0.4)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from requests-&gt;quantecon) (3.4)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from requests-&gt;quantecon) (1.26.16)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from requests-&gt;quantecon) (3.4)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from requests-&gt;quantecon) (1.26.16)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from requests-&gt;quantecon) (2023.7.22)
 Requirement already satisfied: mpmath&gt;=0.19 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from sympy-&gt;quantecon) (1.3.0)
 </pre></div>
@@ -387,7 +398,7 @@ JIT-compilation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:3.30
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:3.29
 </pre></div>
 </div>
 </div>
@@ -402,7 +413,7 @@ JIT-compilation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.19
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.20
 </pre></div>
 </div>
 </div>
@@ -430,7 +441,7 @@ JIT-compilation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>128.03251042473892
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>128.11253329868106
 </pre></div>
 </div>
 </div>
@@ -501,8 +512,8 @@ moment, and <em>then</em> compile the function.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 62 ms, sys: 7.88 ms, total: 69.8 ms
-Wall time: 69.4 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 65.9 ms, sys: 4.11 ms, total: 70 ms
+Wall time: 69.7 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.1       , 0.36      , 0.9216    , ..., 0.98112405, 0.07407858,
@@ -557,9 +568,9 @@ Wall time: 69.4 ms
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed in nopython mode pipeline (step: nopython frontend)
 <span class=" -Color -Color-Bold">non-precise type pyobject</span>
-<span class=" -Color -Color-Bold">During: typing of argument at /tmp/ipykernel_2309/2092422549.py (1)</span>
+<span class=" -Color -Color-Bold">During: typing of argument at /tmp/ipykernel_2182/2092422549.py (1)</span>
 
-<span class=" -Color -Color-Bold">File &quot;../../../../../../tmp/ipykernel_2309/2092422549.py&quot;, line 1:</span>
+<span class=" -Color -Color-Bold">File &quot;../../../../../../tmp/ipykernel_2182/2092422549.py&quot;, line 1:</span>
 <span class=" -Color -Color-Bold">&lt;source missing, REPL/exec in use?&gt;</span> 
 
 This error may have been caused by the following argument(s):
@@ -585,12 +596,12 @@ This error may have been caused by the following argument(s):
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Type of function: &lt;class &#39;numba.core.registry.CPUDispatcher&#39;&gt;
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 280 ms, sys: 47.9 ms, total: 328 ms
-Wall time: 328 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 277 ms, sys: 55.9 ms, total: 333 ms
+Wall time: 333 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.97142857, 2.95714286, 3.27142857, 3.44285714, 2.61428571,
-       3.94285714, 3.9       , 2.88571429, 3.31428571, 3.27142857])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.54285714, 3.74285714, 3.57142857, 2.45714286, 3.15714286,
+       3.57142857, 3.61428571, 3.6       , 3.62857143, 3.94285714])
 </pre></div>
 </div>
 </div>
@@ -604,7 +615,7 @@ Wall time: 328 ms
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(Array(float64, 1, &#39;C&#39;, False, aligned=True),
-  type(CPUDispatcher(&lt;function mean at 0x7fe06cb67060&gt;)),
+  type(CPUDispatcher(&lt;function mean at 0x7fbccc96d620&gt;)),
   int64)]
 </pre></div>
 </div>
@@ -622,12 +633,12 @@ Wall time: 328 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 36 µs, sys: 0 ns, total: 36 µs
-Wall time: 39.3 µs
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 41 µs, sys: 3 µs, total: 44 µs
+Wall time: 47.2 µs
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(Array(float64, 1, &#39;C&#39;, False, aligned=True),
-  type(CPUDispatcher(&lt;function mean at 0x7fe06cb67060&gt;)),
+  type(CPUDispatcher(&lt;function mean at 0x7fbccc96d620&gt;)),
   int64)]
 </pre></div>
 </div>
@@ -644,15 +655,15 @@ Wall time: 39.3 µs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 582 ms, sys: 51.8 ms, total: 634 ms
-Wall time: 634 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 623 ms, sys: 39.7 ms, total: 662 ms
+Wall time: 663 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(Array(float64, 1, &#39;C&#39;, False, aligned=True),
-  type(CPUDispatcher(&lt;function mean at 0x7fe06cb67060&gt;)),
+  type(CPUDispatcher(&lt;function mean at 0x7fbccc96d620&gt;)),
   int64),
  (Array(int64, 1, &#39;C&#39;, False, aligned=True),
-  type(CPUDispatcher(&lt;function mean at 0x7fe06cb67060&gt;)),
+  type(CPUDispatcher(&lt;function mean at 0x7fbccc96d620&gt;)),
   int64)]
 </pre></div>
 </div>
@@ -901,11 +912,11 @@ Monte Carlo.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 141 ms, sys: 4.06 ms, total: 145 ms
-Wall time: 145 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 148 ms, sys: 3.99 ms, total: 152 ms
+Wall time: 152 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.144336
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.138976
 </pre></div>
 </div>
 </div>
@@ -917,11 +928,11 @@ Wall time: 145 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.7 ms, sys: 7.02 ms, total: 10.7 ms
-Wall time: 10.7 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 10.9 ms, sys: 0 ns, total: 10.9 ms
+Wall time: 10.8 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.13994
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.142884
 </pre></div>
 </div>
 </div>
@@ -1009,7 +1020,7 @@ state is about 0.666</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.667979
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.668802
 </pre></div>
 </div>
 </div>
@@ -1025,10 +1036,10 @@ state is about 0.666</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.38
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.39
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3855736255645752
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.39469242095947266
 </pre></div>
 </div>
 </div>
@@ -1050,7 +1061,7 @@ state is about 0.666</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.668512
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.667323
 </pre></div>
 </div>
 </div>
@@ -1068,7 +1079,7 @@ state is about 0.666</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.00
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007861614227294922
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007478237152099609
 </pre></div>
 </div>
 </div>
