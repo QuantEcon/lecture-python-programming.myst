@@ -39,7 +39,6 @@ Deeper concepts will be covered in later lectures.
 
 You should have read the {doc}`lecture <getting_started>` on getting started with Python before beginning this one.
 
-
 ## The Task: Plotting a White Noise Process
 
 Suppose we want to simulate and plot the white noise
@@ -98,27 +97,35 @@ np.sqrt(4)
 np.log(4)
 ```
 
+We could also use the following syntax:
+
+```{code-cell} python3
+import numpy
+
+numpy.sqrt(4)
+```
+
+But the former method (using the short name `np`) is convenient and more standard.
 
 #### Why So Many Imports?
 
-Python programs typically require multiple import statements.
+Python programs typically require several import statements.
 
-The reason is that the core language is deliberately kept small, so that it's easy to learn, maintain and improve.
+The reason is that the core language is deliberately kept small, so that it's easy to learn and maintain.
 
 When you want to do something interesting with Python, you almost always need
 to import additional functionality.
-
 
 #### Packages
 
 ```{index} single: Python; Packages
 ```
 
-As stated above, NumPy is a Python package.
+As stated above, NumPy is a Python *package*.
 
 Packages are used by developers to organize code they wish to share.
 
-In fact, a **package** is just a directory containing
+In fact, a package is just a directory containing
 
 1. files with Python code --- called **modules** in Python speak
 1. possibly some compiled code that can be accessed by Python (e.g., functions compiled from C or FORTRAN code)
@@ -236,7 +243,7 @@ Let's study some parts of this program in more detail.
 
 Consider the statement `ϵ_values = []`, which creates an empty list.
 
-Lists are a native Python data structure used to group a collection of objects. 
+Lists are a *native Python data structure* used to group a collection of objects. 
 
 Items in lists are ordered, and duplicates are allowed in lists.
 
@@ -260,11 +267,11 @@ x.append(2.5)
 x
 ```
 
-Here `append()` is what's called a **method**, which is a function "attached to" an object---in this case, the list `x`.
+Here `append()` is what's called a *method*, which is a function "attached to" an object---in this case, the list `x`.
 
 We'll learn all about methods {doc}`later on <oop_intro>`, but just to give you some idea, 
 
-* Python objects such as lists, strings, etc. all have methods that are used to manipulate data contained in the object.
+* Python objects such as lists, strings, etc. all have methods that are used to manipulate the data contained in the object.
 * String objects have [string methods](https://docs.python.org/3/library/stdtypes.html#string-methods), list objects have [list methods](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists), etc.
 
 Another useful list method is `pop()`
@@ -306,7 +313,7 @@ for i in range(ts_length):
 
 Python executes the two indented lines `ts_length` times before moving on.
 
-These two lines are called a **code block**, since they comprise the "block" of code that we are looping over.
+These two lines are called a `code block`, since they comprise the "block" of code that we are looping over.
 
 Unlike most other languages, Python knows the extent of the code block *only from indentation*.
 
@@ -334,6 +341,8 @@ The Python interpreter performs the following:
 
 * For each element of the `sequence`, it "binds" the name `variable_name` to that element and then executes the code block.
 
+The `sequence` object can in fact be a very general object, as we'll see
+soon enough.
 
 ### A Comment on Indentation
 
@@ -342,7 +351,7 @@ The Python interpreter performs the following:
 
 In discussing the `for` loop, we explained that the code blocks being looped over are delimited by indentation.
 
-In fact, in Python, *all* code blocks (i.e., those occurring inside loops, if clauses, function definitions, etc.) are delimited by indentation.
+In fact, in Python, **all** code blocks (i.e., those occurring inside loops, if clauses, function definitions, etc.) are delimited by indentation.
 
 Thus, unlike most other languages, whitespace in Python code affects the output of the program.
 
@@ -357,8 +366,8 @@ On the other hand, it takes a bit of care to get right, so please remember:
     * `for i in range(10):`
     * `if x > y:`
     * `while x < 100:`
-    * etc. 
-* All lines in a code block must have the same amount of indentation.
+    * etc., etc.
+* All lines in a code block **must have the same amount of indentation**.
 * The Python standard is 4 spaces, and that's what you should use.
 
 ### While Loops

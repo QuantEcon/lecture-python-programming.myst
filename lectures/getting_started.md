@@ -55,15 +55,28 @@ The easiest way to get started coding in Python is by running it in the cloud.
 
 (That is, by using a remote server that already has Python installed.)
 
-One option that's both free and reliable is [Google Colab](https://colab.research.google.com/).
+There are many options for doing this, both free and paid.
 
-Colab also has the advantage of providing GPUs, which we will make use of in
-more advanced lectures.
+At present [Google Colab](https://colab.research.google.com/) seems to be the
+most reliable.
 
-Tutorials on how to get started with Google Colab can be found by web and video searches.
+Colab offers a free tier and also has the advantage of providing GPUs.
 
-Most of our lectures include a "Launch notebook" button (with a play icon) on the top
-right connects you to an executable version on Colab.
+The free-tier GPUs are adequate and better ones can be accessed by signing up
+for Colab Pro.
+
+Tutorials on how to get started with Google Colab can be found by searching.
+
+Written examples include
+
+* [Google Colab Tutorial for Beginners](https://pub.towardsai.net/google-colab-tutorial-for-beginners-834595494d44)
+* [Intro to Google
+  Colab](https://levelup.gitconnected.com/google-colab-what-is-it-how-to-use-it-and-why-should-i-care-721bb8a88c90)
+
+Videos on the same topic can be found by searching on Youtube.
+
+Most of our lectures include a "Launch notebook" (play icon) button on the top
+right that allows you to easily run them in Colab.
 
 
 ## Local Install
@@ -73,7 +86,7 @@ plan to do a substantial amount of Python programming.
 
 At the same time, local installs require more work than a cloud option like Colab.
 
-The rest of this lecture runs you through the some details associated with local installs.
+The rest of this lecture runs you through the details.
 
 
 ### The Anaconda Distribution
@@ -90,7 +103,7 @@ Hence the best approach for our purposes is to install a Python distribution tha
 1. the core Python language **and**
 1. compatible versions of the most popular scientific libraries.
 
-The best such distribution is [Anaconda Python](https://www.anaconda.com/).
+The best such distribution is [Anaconda](https://www.anaconda.com/products/distribution).
 
 Anaconda is
 
@@ -99,7 +112,7 @@ Anaconda is
 * comprehensive
 * completely unrelated to the [Nicki Minaj song of the same name](https://www.youtube.com/watch?v=LDZX4ooRsWs)
 
-Anaconda also comes with a package management system to organize your code libraries.
+Anaconda also comes with a great package management system to organize your code libraries.
 
 **All of what follows assumes that you adopt this recommendation!**
 
@@ -113,7 +126,8 @@ To install Anaconda, [download](https://www.anaconda.com/download/) the binary a
 
 Important points:
 
-* Make sure you install the correct version for your OS.
+* Install the latest version!
+* Find the correct distribution for your system.
 * If you are asked during the installation process whether you'd like to make Anaconda your default Python installation, say yes.
 
 ### Updating Anaconda

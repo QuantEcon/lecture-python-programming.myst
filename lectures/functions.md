@@ -29,36 +29,39 @@ kernelspec:
 
 ## Overview
 
-Functions are an extremely useful construct provided by almost all programming.
+One construct that's extremely useful and provided by almost all programming
+languages is **functions**.
 
 We have already met several functions, such as
 
 * the `sqrt()` function from NumPy and
 * the built-in `print()` function
 
-In this lecture we'll 
+In this lecture we'll treat functions systematically and begin to learn just how
+useful and important they are.
 
-1. treat functions systematically and cover syntax and use-cases, and
-2. learn to do is build our own user-defined functions.
+One of the things we will learn to do is build our own user-defined functions
 
 We will use the following imports.
 
 ```{code-cell} ipython
+%matplotlib inline
 import numpy as np
 import matplotlib.pyplot as plt
+plt.rcParams['figure.figsize'] = (10,6)
 ```
 
 ## Function Basics
 
 A function is a named section of a program that implements a specific task.
 
-Many functions exist already and we can use them as is.
+Many functions exist already and we can use them off the shelf.
 
 First we review these functions and then discuss how we can build our own.
 
 ### Built-In Functions
 
-Python has a number of **built-in** functions that are available without `import`.
+Python has a number of *built-in* functions that are available without `import`.
 
 We have already met some
 
@@ -78,42 +81,58 @@ str(22)
 type(22)
 ```
 
-The full list of Python built-ins is [here](https://docs.python.org/library/functions.html).
+Two more useful built-in functions are `any()` and `all()`
 
+```{code-cell} python3
+bools = False, True, True
+all(bools)  # True if all are True and False otherwise
+```
+
+```{code-cell} python3
+any(bools)  # False if all are False and True otherwise
+```
+
+The full list of Python built-ins is [here](https://docs.python.org/library/functions.html).
 
 ### Third Party Functions
 
 If the built-in functions don't cover what we need, we either need to import
 functions or create our own.
 
-Examples of importing and using functions were given in the {doc}`previous lecture <python_by_example>`
+Examples of importing and using functions
+were given in the {doc}`previous lecture <python_by_example>`
 
 Here's another one, which tests whether a given year is a leap year:
 
 ```{code-cell} python3
 import calendar
-calendar.isleap(2024)
+
+calendar.isleap(2020)
 ```
 
 ## Defining Functions
 
-In many instances it's useful to be able to define our own functions.
+In many instances, it is useful to be able to define our own functions.
+
+This will become clearer as you see more examples.
 
 Let's start by discussing how it's done.
 
 ### Basic Syntax
 
-Here's a very simple Python function, that implements the mathematical function $f(x) = 2 x + 1$
+Here's a very simple Python function, that implements the mathematical function
+$f(x) = 2 x + 1$
 
 ```{code-cell} python3
 def f(x):
     return 2 * x + 1
 ```
 
-Now that we've defined this function, let's *call* it and check whether it does what we expect:
+Now that we've *defined* this function, let's *call* it and check whether it
+does what we expect:
 
 ```{code-cell} python3
-f(1)   
+f(1)
 ```
 
 ```{code-cell} python3
@@ -127,10 +146,12 @@ exercise.)
 
 ```{code-cell} python3
 def new_abs_function(x):
+
     if x < 0:
         abs_value = -x
     else:
         abs_value = x
+
     return abs_value
 ```
 
@@ -150,7 +171,6 @@ print(new_abs_function(3))
 print(new_abs_function(-3))
 ```
 
-
 Note that a function can have arbitrarily many `return` statements (including zero).
 
 Execution of the function terminates when the first return is hit, allowing
@@ -162,9 +182,6 @@ def f(x):
         return 'negative'
     return 'nonnegative'
 ```
-
-(Writing functions with multiple return statements is typically discouraged, as
-it can make logic hard to follow.)
 
 Functions without a return statement automatically return the special Python object `None`.
 
@@ -189,7 +206,7 @@ This is called a *keyword argument*, with `label` being the keyword.
 Non-keyword arguments are called *positional arguments*, since their meaning
 is determined by order
 
-* `plot(x, 'b-')` differs from `plot('b-', x)`
+* `plot(x, 'b-', label="white noise")` is different from `plot('b-', x, label="white noise")`
 
 Keyword arguments are particularly useful when a function has a lot of arguments, in which case it's hard to remember the right order.
 
@@ -414,10 +431,7 @@ function*---as we did above.
 ```{index} single: Python; Recursion
 ```
 
-This is an advanced topic that you should feel free to skip.
-
-At the same time, it's a neat idea that you should learn it at some stage of
-your programming career.
+This is not something that you will use every day, but it is still useful --- you should learn it at some stage.
 
 Basically, a recursive function is a function that calls itself.
 
@@ -477,8 +491,20 @@ We will only consider $n$ as a positive integer here.
 There are functions to compute this in various modules, but let's
 write our own version as an exercise.
 
-In particular, write a function `factorial` such that `factorial(n)` returns $n!$
+1. In particular, write a function `factorial` such that `factorial(n)` returns $n!$
 for any positive integer $n$.
+
+2. In addition, try to add a new argument for your function.
+The argument takes a function `f` that transforms n to $f(n) = n^2 + 1$ if n is even, and $f(n) = n^2$ if n is odd. 
+The default value should be $f(n) = n$.
+
+For example
+
+- The default case `factorial(3)` should return $3!$
+- `factorial(3,f)` should return $9!$
+- `factorial(2,f)` should return $5!$
+
+Try to use lambda expressions to define the function `f`.
 
 ```{exercise-end}
 ```
@@ -488,7 +514,7 @@ for any positive integer $n$.
 :class: dropdown
 ```
 
-Here's one solution:
+Here's one solution for part 1
 
 ```{code-cell} python3
 def factorial(n):
@@ -500,6 +526,28 @@ def factorial(n):
 factorial(4)
 ```
 
+Adding the lambda expression
+
+```{code-cell} python3
+def factorial(n,f = lambda x: x):
+    k = 1
+    for i in range(f(n)):
+        k = k * (i + 1)
+    return k
+
+
+factorial(9) # default
+```
+
+```{code-cell} python3
+f = lambda x: x**2 + 1 if x % 2 == 0 else x**2
+
+factorial(3, f) # odd (equivalent to factorial(9))
+```
+
+```{code-cell} python3
+factorial(2, f) # even (equivalent to factorial(5))
+```
 
 ```{solution-end}
 ```
@@ -624,6 +672,10 @@ draw_new(3)
 
 In the following exercises, we will write recursive functions together.
 
+We will use more advanced syntaxes such as {any}`list comprehensions <list_comprehensions>` to test our solutions against a list of inputs.
+
+If you are not familiar with these concepts, feel free to come back later.
+
 
 ```{exercise-start}
 :label: func_ex4
@@ -673,7 +725,7 @@ print([x(i) for i in range(10)])
 :label: func_ex5
 ```
 
-Rewrite the function `factorial()` in from [Exercise 1](factorial_exercise) using recursion.
+For this exercise, rewrite the function `factorial(n)` in **[exercise 1](factorial_exercise)** using recursion.
 
 ```{exercise-end}
 ```
@@ -691,12 +743,23 @@ def recursion_factorial(n):
    else:
        return n * recursion_factorial(n-1)
 ```
+Here's a simplified solution
 
-Let's test it
+```{code-cell} python3
+def recursion_factorial_simplified(n):
+    return n * recursion_factorial(n-1) if n != 1 else n
+```
+
+Let's test them
 
 ```{code-cell} python3
 print([recursion_factorial(i) for i in range(1, 10)])
 ```
+
+```{code-cell} python3
+print([recursion_factorial_simplified(i) for i in range(1, 10)])
+```
+
 
 ```{solution-end}
 ```
