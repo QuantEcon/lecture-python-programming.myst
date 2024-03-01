@@ -5,3 +5,7 @@ dask-worker-space
 
 .vscode/
 .ipynb_checkpoints/
+
+lectures/mathfoo.py
+lectures/mod.py
+lectures/test.py
