@@ -27,15 +27,17 @@ The traditional programming paradigm (think Fortran, C, MATLAB, etc.) is called 
 It works as follows
 
 * The program has a state corresponding to the values of its variables.
-* Functions are called to act on these data.
-* Data are passed back and forth via function calls.
+* Functions are called to act on and transform the state.
+* Final outputs are produced via a sequence of function calls.
 
 Two other important paradigms are [object-oriented programming](https://en.wikipedia.org/wiki/Object-oriented_programming) (OOP) and [functional programming](https://en.wikipedia.org/wiki/Functional_programming).
 
 
-In the OOP paradigm data and functions are "bundled together" into "objects" (and functions in this context are referred to as **methods**).
+In the OOP paradigm, data and functions are bundled together into "objects" --- and functions in this context are referred to as **methods**.
 
-* think of a Python list that contains data and exposes methods such as `append()` and `count()`
+Methods are called on to transform the data contained in the object.
+
+* Think of a Python list that contains data and has methods such as `append()` and `pop()` that transform the data.
 
 Functional programming languages are built on the idea of composing functions.
 
@@ -55,7 +57,12 @@ By this we mean that, in Python, *everything is an object*.
 
 In this lecture, we explain what that statement means and why it matters.
 
+We'll make use of the following third party library
 
+
+```{code-cell} python3
+!pip install rich
+```
 
 
 ## Objects
@@ -200,7 +207,7 @@ These attributes are important, so let's discuss them in-depth.
 
 Methods are *functions that are bundled with objects*.
 
-Formally, methods are attributes of objects that are callable (i.e., can be called as functions)
+Formally, methods are attributes of objects that are **callable** -- i.e., attributes that can be called as functions
 
 ```{code-cell} python3
 x = ['foo', 'bar']
@@ -250,13 +257,82 @@ x
 
 (If you wanted to you could modify the `__setitem__` method, so that square bracket assignment does something totally different)
 
+## Inspection Using Rich
+
+There's a nice package called [rich](https://github.com/Textualize/rich) that
+helps us view the contents of an object.
+
+For example,
+
+```{code-cell} python3
+from rich import inspect
+x = 10
+inspect(10)
+```
+If we want to see the methods as well, we can use
+
+```{code-cell} python3
+inspect(10, methods=True)
+```
+
+In fact there are still more methods, as you can see if you execute `inspect(10, all=True)`.
+
+## A Little Mystery
+
+In this lecture we claimed that Python is object oriented.
+
+But here's an example that looks more procedural.
+
+```{code-cell} python3
+x = ['a', 'b']
+m = len(x)
+m
+```
+
+If Python is object oriented, why don't we use `x.len()`?    Isn't this
+inconsistent?
+
+The answers are related to the fact that Python aims for consistent style.
+
+In Python, it is common for users to build custom objects --- we discuss how to
+do this [later](python_oop).
+
+It's quite common for users to add methods to their that measure the length of
+the object, suitably defined.
+
+When naming such a method, natural choices are `len()` and `length()`.
+
+If some users choose `len()` and others choose `length()`, then the style will
+be inconsistent and harder to remember.
+
+To avoid this, the creator of Python chose to have some built-in functions
+like `len()`, to make clear that `len()` is the convention.
+
+Now, having said all of this, Python still is object oriented under the hood.
+
+In fact, the list `x` discussed above has a method called `__len__()`.
+
+All that the function `len()` does is call this method.  
+
+In other words, the following code is equivalent:
+
+```{code-cell} python3
+x = ['a', 'b']
+len(x)
+```
+and
+
+```{code-cell} python3
+x = ['a', 'b']
+x.__len__()
+```
+
 
 ## Summary
 
-Messages in this lecture are clear:
+The message in this lecture is clear:
 
 * In Python, *everything in memory is treated as an object*.
-* Zero, one or many names can be bound to a given object.
 
 This includes not just lists, strings, etc., but also less obvious things, such as
 
@@ -291,45 +367,35 @@ You can use `callable()` to test whether an attribute of an object can be called
 :class: dropdown
 ```
 
-Firstly, we need to find all attributes of a boolean object.
-
-You can use one of the following ways:
-
-*1.* You can call the `.__dir__()` method
+Firstly, we need to find all attributes of `True`, which can be done via
 
 ```{code-cell} python3
 print(sorted(True.__dir__()))
 ```
 
-*2.* You can use the built-in function `dir()`
+or
 
 ```{code-cell} python3
 print(sorted(dir(True)))
 ```
 
-*3.* Since the boolean data type is a primitive type, you can also find it in the built-in namespace
+Since the boolean data type is a primitive type, you can also find it in the built-in namespace
 
 ```{code-cell} python3
 print(dir(__builtins__.bool))
 ```
 
-Next, we can use a `for` loop to filter out attributes that are callable
+Here we use a `for` loop to filter out attributes that are callable
 
 ```{code-cell} python3
-attrls = dir(__builtins__.bool)
-callablels = list()
+attributes = dir(__builtins__.bool)
+callablels = []
 
-for i in attrls:
+for attribute in attributes:
   # Use eval() to evaluate a string as an expression
-  if callable(eval(f'True.{i}')):
-    callablels.append(i)
+  if callable(eval(f'True.{attribute}')):
+    callablels.append(attribute)
 print(callablels)
-```
-
-Here is a one-line solution
-
-```{code-cell} python3
-print([i for i in attrls if callable(eval(f'True.{i}'))])
 ```
 
 

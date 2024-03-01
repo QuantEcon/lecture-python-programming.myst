@@ -18,7 +18,7 @@ kernelspec:
 </div>
 ```
 
-# OOP I: Names and Namespaces
+# Names and Namespaces
 
 ## Overview
 
