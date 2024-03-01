@@ -451,36 +451,30 @@ First,
 * The global namespace `{}` is created.
 
 ```{figure} /_static/lecture_specific/oop_intro/global.png
-:figclass: auto
 ```
 
 * The function object is created, and `g` is bound to it within the global namespace.
 * The name `a` is bound to `0`, again in the global namespace.
 
 ```{figure} /_static/lecture_specific/oop_intro/global2.png
-:figclass: auto
 ```
 
 Next `g` is called via `y = g(10)`, leading to the following sequence of actions
 
 * The local namespace for the function is created.
 * Local names `x` and `a` are bound, so that the local namespace becomes `{'x': 10, 'a': 1}`.
+* Note that the global `a` was not affected by the local `a`.
 
-    * Note that the global `a` was not affected by the local `a`.
 ```{figure} /_static/lecture_specific/oop_intro/local1.png
-:figclass: auto
 ```
 
 
 
 * Statement `x = x + a` uses the local `a` and local `x` to compute `x + a`, and binds local name `x` to the result. 
-
-
 * This value is returned, and `y` is bound to it in the global namespace.
 * Local `x` and `a` are discarded (and the local namespace is deallocated).
 
 ```{figure} /_static/lecture_specific/oop_intro/local_return.png
-:figclass: auto
 ```
 
 
@@ -528,13 +522,11 @@ Here's what happens
 * `f` is registered as a function in the global namespace
 
 ```{figure} /_static/lecture_specific/oop_intro/mutable1.png
-:figclass: auto
 ```
 
 * `x` bound to `[1]` in the global namespace
 
 ```{figure} /_static/lecture_specific/oop_intro/mutable2.png
-:figclass: auto
 ```
 
 * The call `f(x)`
@@ -542,7 +534,6 @@ Here's what happens
     * Adds `x` to the local namespace, bound to `[1]`
 
 ```{figure} /_static/lecture_specific/oop_intro/mutable3.png
-:figclass: auto
 ```
 
 ```{note}
@@ -567,26 +558,23 @@ print(f(x), x)
     * Returns the list `[2]`
 
 ```{figure} /_static/lecture_specific/oop_intro/mutable4.png
-:figclass: auto
 ```
 * The local namespace is deallocated, and the local `x` is lost
 
 ```{figure} /_static/lecture_specific/oop_intro/mutable5.png
-:figclass: auto
 ```
 
 If you want to modify the local `x` and the global `x` separately, you can create a [*copy*](https://docs.python.org/3/library/copy.html) of the list and assign the copy to the local `x`. 
 
 We will leave this for you to explore.
 
-
 ## Summary
 
 Messages in this lecture are clear:
 
-  * In Python, *everything in memory is treated as an object*.
-  * Zero, one or many names can be bound to a given object.
-  * Every name resides within a scope defined by its namespace.
+* In Python, *everything in memory is treated as an object*.
+* Zero, one or many names can be bound to a given object.
+* Every name resides within a scope defined by its namespace.
 
 This includes not just lists, strings, etc., but also less obvious things, such as
 
