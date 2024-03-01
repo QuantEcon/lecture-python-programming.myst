@@ -18,18 +18,7 @@ kernelspec:
 </div>
 ```
 
-<style>
-  .auto {
-    width: 100%;
-    height: auto;
-    } 
-</style>
-
 # OOP I: Names and Objects
-
-```{contents} Contents
-:depth: 2
-```
 
 ## Overview
 
@@ -714,8 +703,8 @@ Next `g` is called via `y = g(10)`, leading to the following sequence of actions
 ```
 
 
-(mutable_vs_immutable)=
-### {index}`Mutable <single: Mutable>` Versus {index}`Immutable <single: Immutable>` Parameters
+(mutable_vs_immutable2)=
+### {index}`Mutable <single: Mutable>` versus {index}`Immutable <single: Immutable>` parameters
 
 This is a good time to say a little more about mutable vs immutable objects.
 

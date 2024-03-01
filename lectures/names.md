@@ -9,7 +9,7 @@ kernelspec:
   name: python3
 ---
 
-(oop_intro)=
+(oop_names)=
 ```{raw} jupyter
 <div id="qe-notebook-header" align="right" style="text-align:right;">
         <a href="https://quantecon.org/" title="quantecon.org">
@@ -18,18 +18,7 @@ kernelspec:
 </div>
 ```
 
-<style>
-  .auto {
-    width: 100%;
-    height: auto;
-    } 
-</style>
-
 # OOP I: Names and Namespaces
-
-```{contents} Contents
-:depth: 2
-```
 
 ## Overview
 
@@ -42,7 +31,7 @@ handling names is elegant and interesting.
 In addition, you will save yourself many hours of debugging if you have a good
 understanding of how names work in Python.
 
-(name_res)=
+(var_names)=
 ## Variable Names in Python
 
 ```{index} single: Python; Variable Names
