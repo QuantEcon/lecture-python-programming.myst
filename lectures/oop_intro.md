@@ -295,7 +295,7 @@ inconsistent?
 The answers are related to the fact that Python aims for consistent style.
 
 In Python, it is common for users to build custom objects --- we discuss how to
-do this {doc}`lecture <python_oop>`.
+do this [later](python_oop)`.
 
 It's quite common for users to add methods to their that measure the length of
 the object, suitably defined.
