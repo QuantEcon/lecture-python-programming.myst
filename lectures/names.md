@@ -75,20 +75,20 @@ After binding the name `g` to the same object, we can use it anywhere we would u
 
 What happens when the number of names bound to an object goes to zero?
 
-Here's an example of this situation, where the name `x` is first bound to one object and then rebound to another
+Here's an example of this situation, where the name `x` is first bound to one object and then **rebound** to another
 
 ```{code-cell} python3
 x = 'foo'
 id(x)
+x = 'bar'  
+id(x)
 ```
 
-```{code-cell} python3
-x = 'bar'  # No names bound to the first object
-```
+In this case, after we rebind `x` to `'bar'`, no names bound are to the first object `'foo'`.
 
-What happens here is that the first object is garbage collected.
+This is a trigger for `'foo'` to be garbage collected.
 
-In other words, the memory slot that stores that object is deallocated, and returned to the operating system.
+In other words, the memory slot that stores that object is deallocated and returned to the operating system.
 
 Garbage collection is actually an active research area in computer science.
 
@@ -151,7 +151,7 @@ mathfoo.pi
 
 These two different bindings of `pi` exist in different namespaces, each one implemented as a dictionary.
 
-We can look at the dictionary directly, using `module_name.__dict__`
+If you wish, you can look at the dictionary directly, using `module_name.__dict__`.
 
 ```{code-cell} python3
 import math
@@ -162,7 +162,7 @@ math.__dict__.items()
 ```{code-cell} python3
 import mathfoo
 
-mathfoo.__dict__.items()
+mathfoo.__dict__
 ```
 
 As you know, we access elements of the namespace using the dotted attribute notation
@@ -171,10 +171,10 @@ As you know, we access elements of the namespace using the dotted attribute nota
 math.pi
 ```
 
-In fact this is entirely equivalent to `math.__dict__['pi']`
+This is entirely equivalent to `math.__dict__['pi']`
 
 ```{code-cell} python3
-math.__dict__['pi'] == math.pi
+math.__dict__['pi'] 
 ```
 
 ## Viewing Namespaces
@@ -524,7 +524,7 @@ Here's what happens
 ```{figure} /_static/lecture_specific/oop_intro/mutable1.png
 ```
 
-* `x` bound to `[1]` in the global namespace
+* `x` is bound to `[1]` in the global namespace
 
 ```{figure} /_static/lecture_specific/oop_intro/mutable2.png
 ```

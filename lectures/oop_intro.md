@@ -277,9 +277,11 @@ inspect(10, methods=True)
 
 In fact there are still more methods, as you can see if you execute `inspect(10, all=True)`.
 
+
+
 ## A Little Mystery
 
-In this lecture we claimed that Python is object oriented.
+In this lecture we claimed that Python is, at heart, an object oriented language.
 
 But here's an example that looks more procedural.
 
@@ -289,13 +291,12 @@ m = len(x)
 m
 ```
 
-If Python is object oriented, why don't we use `x.len()`?    Isn't this
-inconsistent?
+If Python is object oriented, why don't we use `x.len()`?    
 
-The answers are related to the fact that Python aims for consistent style.
+The answer is related to the fact that Python aims for readability and consistent style.
 
 In Python, it is common for users to build custom objects --- we discuss how to
-do this [later](python_oop)`.
+do this {doc}`later <python_oop>`.
 
 It's quite common for users to add methods to their that measure the length of
 the object, suitably defined.
@@ -305,10 +306,10 @@ When naming such a method, natural choices are `len()` and `length()`.
 If some users choose `len()` and others choose `length()`, then the style will
 be inconsistent and harder to remember.
 
-To avoid this, the creator of Python chose to have some built-in functions
-like `len()`, to make clear that `len()` is the convention.
+To avoid this, the creator of Python chose to add 
+`len()` as a built-in function, to help emphasize that `len()` is the convention.
 
-Now, having said all of this, Python still is object oriented under the hood.
+Now, having said all of this, Python *is* still object oriented under the hood.
 
 In fact, the list `x` discussed above has a method called `__len__()`.
 
@@ -341,7 +342,8 @@ This includes not just lists, strings, etc., but also less obvious things, such 
 * files opened for reading or writing
 * integers, etc.
 
-
+Remember that everything is an object will help you interact with your programs
+and write clear Pythonic code.
 
 ## Exercises
 
