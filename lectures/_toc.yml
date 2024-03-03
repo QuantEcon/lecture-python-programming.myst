@@ -10,6 +10,7 @@ parts:
   - file: functions
   - file: python_essentials
   - file: oop_intro
+  - file: names
   - file: python_oop
   - file: workspace 
 - caption: The Scientific Libraries
