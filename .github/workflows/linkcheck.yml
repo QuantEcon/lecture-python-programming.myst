@@ -16,9 +16,9 @@ jobs:
         python-version: ["3.11"]
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Anaconda
-        uses: conda-incubator/setup-miniconda@v2
+        uses: conda-incubator/setup-miniconda@v3
         with:
           auto-update-conda: true
           auto-activate-base: true
@@ -27,7 +27,7 @@ jobs:
           environment-file: environment.yml
           activate-environment: quantecon
       - name: Download "build" folder (cache)
-        uses: dawidd6/action-download-artifact@v2
+        uses: dawidd6/action-download-artifact@v3
         with:
           workflow: cache.yml
           branch: main
@@ -37,7 +37,7 @@ jobs:
         shell: bash -l {0}
         run: jb build lectures --path-output=./ --builder=custom --custom-builder=linkcheck
       - name: Upload Link Checker Reports
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: linkcheck-reports
