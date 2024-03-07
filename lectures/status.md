@@ -19,3 +19,16 @@ This table contains the latest execution statistics.
 (status:machine-details)=
 
 These lectures are built on `linux` instances through `github actions`. 
+
+These lectures are using the following python version
+
+```{code-cell} ipython
+!python --version
+```
+
+and the following package versions
+
+```{code-cell} ipython
+:tags: [hide-output]
+!conda list
+```
