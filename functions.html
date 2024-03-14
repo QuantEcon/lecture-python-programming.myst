@@ -60,15 +60,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=b09b2da44b9015b4fa76ea072fa2d8f7faee5492" type="text/css" />
@@ -80,9 +80,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -269,23 +269,22 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <section id="overview">
 <h2><a class="toc-backref" href="#id3"><span class="section-number">4.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
-<p>One construct that’s extremely useful and provided by almost all programming
-languages is <strong>functions</strong>.</p>
+<p>Functions are an extremely useful construct provided by almost all programming.</p>
 <p>We have already met several functions, such as</p>
 <ul class="simple">
 <li><p>the <code class="docutils literal notranslate"><span class="pre">sqrt()</span></code> function from NumPy and</p></li>
 <li><p>the built-in <code class="docutils literal notranslate"><span class="pre">print()</span></code> function</p></li>
 </ul>
-<p>In this lecture we’ll treat functions systematically and begin to learn just how
-useful and important they are.</p>
-<p>One of the things we will learn to do is build our own user-defined functions</p>
+<p>In this lecture we’ll</p>
+<ol class="arabic simple">
+<li><p>treat functions systematically and cover syntax and use-cases, and</p></li>
+<li><p>learn to do is build our own user-defined functions.</p></li>
+</ol>
 <p>We will use the following imports.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -294,11 +293,11 @@ useful and important they are.</p>
 <section id="function-basics">
 <h2><a class="toc-backref" href="#id4"><span class="section-number">4.2. </span>Function Basics</a><a class="headerlink" href="#function-basics" title="Permalink to this heading">#</a></h2>
 <p>A function is a named section of a program that implements a specific task.</p>
-<p>Many functions exist already and we can use them off the shelf.</p>
+<p>Many functions exist already and we can use them as is.</p>
 <p>First we review these functions and then discuss how we can build our own.</p>
 <section id="built-in-functions">
 <h3><span class="section-number">4.2.1. </span>Built-In Functions<a class="headerlink" href="#built-in-functions" title="Permalink to this heading">#</a></h3>
-<p>Python has a number of <em>built-in</em> functions that are available without <code class="docutils literal notranslate"><span class="pre">import</span></code>.</p>
+<p>Python has a number of <strong>built-in</strong> functions that are available without <code class="docutils literal notranslate"><span class="pre">import</span></code>.</p>
 <p>We have already met some</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -348,46 +347,18 @@ useful and important they are.</p>
 </div>
 </div>
 </div>
-<p>Two more useful built-in functions are <code class="docutils literal notranslate"><span class="pre">any()</span></code> and <code class="docutils literal notranslate"><span class="pre">all()</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bools</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span>
-<span class="nb">all</span><span class="p">(</span><span class="n">bools</span><span class="p">)</span>  <span class="c1"># True if all are True and False otherwise</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">any</span><span class="p">(</span><span class="n">bools</span><span class="p">)</span>  <span class="c1"># False if all are False and True otherwise</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</div>
 <p>The full list of Python built-ins is <a class="reference external" href="https://docs.python.org/library/functions.html">here</a>.</p>
 </section>
 <section id="third-party-functions">
 <h3><span class="section-number">4.2.2. </span>Third Party Functions<a class="headerlink" href="#third-party-functions" title="Permalink to this heading">#</a></h3>
 <p>If the built-in functions don’t cover what we need, we either need to import
 functions or create our own.</p>
-<p>Examples of importing and using functions
-were given in the <a class="reference internal" href="python_by_example.html"><span class="doc">previous lecture</span></a></p>
+<p>Examples of importing and using functions were given in the <a class="reference internal" href="python_by_example.html"><span class="doc">previous lecture</span></a></p>
 <p>Here’s another one, which tests whether a given year is a leap year:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">calendar</span>
-
-<span class="n">calendar</span><span class="o">.</span><span class="n">isleap</span><span class="p">(</span><span class="mi">2020</span><span class="p">)</span>
+<span class="n">calendar</span><span class="o">.</span><span class="n">isleap</span><span class="p">(</span><span class="mi">2024</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -401,13 +372,11 @@ were given in the <a class="reference internal" href="python_by_example.html"><s
 </section>
 <section id="defining-functions">
 <h2><a class="toc-backref" href="#id5"><span class="section-number">4.3. </span>Defining Functions</a><a class="headerlink" href="#defining-functions" title="Permalink to this heading">#</a></h2>
-<p>In many instances, it is useful to be able to define our own functions.</p>
-<p>This will become clearer as you see more examples.</p>
+<p>In many instances it’s useful to be able to define our own functions.</p>
 <p>Let’s start by discussing how it’s done.</p>
 <section id="basic-syntax">
 <h3><span class="section-number">4.3.1. </span>Basic Syntax<a class="headerlink" href="#basic-syntax" title="Permalink to this heading">#</a></h3>
-<p>Here’s a very simple Python function, that implements the mathematical function
-<span class="math notranslate nohighlight">\(f(x) = 2 x + 1\)</span></p>
+<p>Here’s a very simple Python function, that implements the mathematical function <span class="math notranslate nohighlight">\(f(x) = 2 x + 1\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -416,11 +385,10 @@ were given in the <a class="reference internal" href="python_by_example.html"><s
 </div>
 </div>
 </div>
-<p>Now that we’ve <em>defined</em> this function, let’s <em>call</em> it and check whether it
-does what we expect:</p>
+<p>Now that we’ve defined this function, let’s <em>call</em> it and check whether it does what we expect:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>   
 </pre></div>
 </div>
 </div>
@@ -448,12 +416,10 @@ exercise.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">new_abs_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-
     <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">abs_value</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">abs_value</span> <span class="o">=</span> <span class="n">x</span>
-
     <span class="k">return</span> <span class="n">abs_value</span>
 </pre></div>
 </div>
@@ -495,6 +461,8 @@ code like the following example</p>
 </div>
 </div>
 </div>
+<p>(Writing functions with multiple return statements is typically discouraged, as
+it can make logic hard to follow.)</p>
 <p>Functions without a return statement automatically return the special Python object <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </section>
 <section id="keyword-arguments">
@@ -508,7 +476,7 @@ code like the following example</p>
 <p>Non-keyword arguments are called <em>positional arguments</em>, since their meaning
 is determined by order</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">plot(x,</span> <span class="pre">'b-',</span> <span class="pre">label=&quot;white</span> <span class="pre">noise&quot;)</span></code> is different from <code class="docutils literal notranslate"><span class="pre">plot('b-',</span> <span class="pre">x,</span> <span class="pre">label=&quot;white</span> <span class="pre">noise&quot;)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">plot(x,</span> <span class="pre">'b-')</span></code> differs from <code class="docutils literal notranslate"><span class="pre">plot('b-',</span> <span class="pre">x)</span></code></p></li>
 </ul>
 <p>Keyword arguments are particularly useful when a function has a lot of arguments, in which case it’s hard to remember the right order.</p>
 <p>You can adopt keyword arguments in user-defined functions with no difficulty.</p>
@@ -633,7 +601,7 @@ a function in the following sections.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e9cf6370a658669e4be555c94f8bfd8f51b0005e7c1ea9261b309f7414d25483.png" src="_images/e9cf6370a658669e4be555c94f8bfd8f51b0005e7c1ea9261b309f7414d25483.png" />
+<img alt="_images/5e64261f451371e55f8ce9e948f9236a10101c411aa1f9e3ac6483e6ecc33ff1.png" src="_images/5e64261f451371e55f8ce9e948f9236a10101c411aa1f9e3ac6483e6ecc33ff1.png" />
 </div>
 </div>
 <p>We will break this program into two parts:</p>
@@ -663,7 +631,7 @@ a function in the following sections.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9da85d833d627e8dd767ae65bca14a1469ad81a81e8fb56e6f206e232b8eb050.png" src="_images/9da85d833d627e8dd767ae65bca14a1469ad81a81e8fb56e6f206e232b8eb050.png" />
+<img alt="_images/311476350c4782fb0c5cc0130265a139dcdea2b3a7e28ea4d5cafc4cfaa926d7.png" src="_images/311476350c4782fb0c5cc0130265a139dcdea2b3a7e28ea4d5cafc4cfaa926d7.png" />
 </div>
 </div>
 <p>When the interpreter gets to the expression <code class="docutils literal notranslate"><span class="pre">generate_data(100)</span></code>, it executes the function body with <code class="docutils literal notranslate"><span class="pre">n</span></code> set equal to 100.</p>
@@ -693,7 +661,7 @@ a function in the following sections.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/63664f2d07e83f80d295e92578137871de060820edee3322c556264252527c91.png" src="_images/63664f2d07e83f80d295e92578137871de060820edee3322c556264252527c91.png" />
+<img alt="_images/5de193da03bd7d343120afeb523bafc14b8e22e075236aa72558434261b75e1c.png" src="_images/5de193da03bd7d343120afeb523bafc14b8e22e075236aa72558434261b75e1c.png" />
 </div>
 </div>
 <p>Hopefully, the syntax of the if/else clause is self-explanatory, with indentation again delimiting the extent of the code blocks.</p>
@@ -726,7 +694,7 @@ a function in the following sections.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b99f33620568be93578d86fe82474c0a8445e825f34b38b02b7e212d12b5fd33.png" src="_images/b99f33620568be93578d86fe82474c0a8445e825f34b38b02b7e212d12b5fd33.png" />
+<img alt="_images/6d7f41f64ae153799c42ccb550daeb533fcb8d5820e498b5b40b8423185ab8a3.png" src="_images/6d7f41f64ae153799c42ccb550daeb533fcb8d5820e498b5b40b8423185ab8a3.png" />
 </div>
 </div>
 <p>Now, when we call the function <code class="docutils literal notranslate"><span class="pre">generate_data()</span></code>, we pass <code class="docutils literal notranslate"><span class="pre">np.random.uniform</span></code>
@@ -771,7 +739,9 @@ function</em>—as we did above.</p>
 </section>
 <section id="recursive-function-calls-advanced">
 <span id="recursive-functions"></span><h2><a class="toc-backref" href="#id7"><span class="section-number">4.5. </span>Recursive Function Calls (Advanced)</a><a class="headerlink" href="#recursive-function-calls-advanced" title="Permalink to this heading">#</a></h2>
-<p id="index-4">This is not something that you will use every day, but it is still useful — you should learn it at some stage.</p>
+<p id="index-4">This is an advanced topic that you should feel free to skip.</p>
+<p>At the same time, it’s a neat idea that you should learn it at some stage of
+your programming career.</p>
 <p>Basically, a recursive function is a function that calls itself.</p>
 <p>For example, consider the problem of computing <span class="math notranslate nohighlight">\(x_t\)</span> for some t when</p>
 <div class="math notranslate nohighlight" id="equation-xseqdoub">
@@ -824,27 +794,15 @@ function</em>—as we did above.</p>
 <p>We will only consider <span class="math notranslate nohighlight">\(n\)</span> as a positive integer here.</p>
 <p>There are functions to compute this in various modules, but let’s
 write our own version as an exercise.</p>
-<ol class="arabic simple">
-<li><p>In particular, write a function <code class="docutils literal notranslate"><span class="pre">factorial</span></code> such that <code class="docutils literal notranslate"><span class="pre">factorial(n)</span></code> returns <span class="math notranslate nohighlight">\(n!\)</span>
-for any positive integer <span class="math notranslate nohighlight">\(n\)</span>.</p></li>
-<li><p>In addition, try to add a new argument for your function.
-The argument takes a function <code class="docutils literal notranslate"><span class="pre">f</span></code> that transforms n to <span class="math notranslate nohighlight">\(f(n) = n^2 + 1\)</span> if n is even, and <span class="math notranslate nohighlight">\(f(n) = n^2\)</span> if n is odd.
-The default value should be <span class="math notranslate nohighlight">\(f(n) = n\)</span>.</p></li>
-</ol>
-<p>For example</p>
-<ul class="simple">
-<li><p>The default case <code class="docutils literal notranslate"><span class="pre">factorial(3)</span></code> should return <span class="math notranslate nohighlight">\(3!\)</span></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">factorial(3,f)</span></code> should return <span class="math notranslate nohighlight">\(9!\)</span></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">factorial(2,f)</span></code> should return <span class="math notranslate nohighlight">\(5!\)</span></p></li>
-</ul>
-<p>Try to use lambda expressions to define the function <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
+<p>In particular, write a function <code class="docutils literal notranslate"><span class="pre">factorial</span></code> such that <code class="docutils literal notranslate"><span class="pre">factorial(n)</span></code> returns <span class="math notranslate nohighlight">\(n!\)</span>
+for any positive integer <span class="math notranslate nohighlight">\(n\)</span>.</p>
 </section>
 </div>
 <div class="solution dropdown admonition" id="functions-solution-1">
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#func_ex1"> Exercise 4.1</a></p>
 <section id="solution-content">
-<p>Here’s one solution for part 1</p>
+<p>Here’s one solution:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -859,52 +817,6 @@ The default value should be <span class="math notranslate nohighlight">\(f(n) = 
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24
-</pre></div>
-</div>
-</div>
-</div>
-<p>Adding the lambda expression</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">):</span>
-    <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">)):</span>
-        <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">k</span>
-
-
-<span class="n">factorial</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span> <span class="c1"># default</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>362880
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
-
-<span class="n">factorial</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="c1"># odd (equivalent to factorial(9))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>362880
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factorial</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="c1"># even (equivalent to factorial(5))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>120
 </pre></div>
 </div>
 </div>
@@ -946,7 +858,7 @@ The default value should be <span class="math notranslate nohighlight">\(f(n) = 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
 </pre></div>
 </div>
 </div>
@@ -999,18 +911,18 @@ The default value should be <span class="math notranslate nohighlight">\(f(n) = 
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+0
+0
+0
 0
 1
 2
-0
-0
-0
-0
-1
-2
+3
+4
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
 </div>
@@ -1039,17 +951,17 @@ The default value should be <span class="math notranslate nohighlight">\(f(n) = 
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
 0
+0
+0
 1
 2
-3
-3
-4
-4
-4
-4
+2
+2
+2
+2
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
 </pre></div>
 </div>
 </div>
@@ -1060,8 +972,6 @@ The default value should be <span class="math notranslate nohighlight">\(f(n) = 
 <section id="advanced-exercises">
 <h2><a class="toc-backref" href="#id9"><span class="section-number">4.7. </span>Advanced Exercises</a><a class="headerlink" href="#advanced-exercises" title="Permalink to this heading">#</a></h2>
 <p>In the following exercises, we will write recursive functions together.</p>
-<p>We will use more advanced syntaxes such as <a class="reference internal" href="python_essentials.html#list-comprehensions"><span class="std std-ref">list comprehensions</span></a> to test our solutions against a list of inputs.</p>
-<p>If you are not familiar with these concepts, feel free to come back later.</p>
 <div class="exercise admonition" id="func_ex4">
 
 <p class="admonition-title"><span class="caption-number">Exercise 4.4 </span></p>
@@ -1110,7 +1020,7 @@ The default value should be <span class="math notranslate nohighlight">\(f(n) = 
 
 <p class="admonition-title"><span class="caption-number">Exercise 4.5 </span></p>
 <section id="exercise-content">
-<p>For this exercise, rewrite the function <code class="docutils literal notranslate"><span class="pre">factorial(n)</span></code> in <strong><a class="reference internal" href="#factorial-exercise"><span class="std std-ref">exercise 1</span></a></strong> using recursion.</p>
+<p>Rewrite the function <code class="docutils literal notranslate"><span class="pre">factorial()</span></code> in from <a class="reference internal" href="#factorial-exercise"><span class="std std-ref">Exercise 1</span></a> using recursion.</p>
 </section>
 </div>
 <div class="solution dropdown admonition" id="functions-solution-9">
@@ -1129,31 +1039,10 @@ The default value should be <span class="math notranslate nohighlight">\(f(n) = 
 </div>
 </div>
 </div>
-<p>Here’s a simplified solution</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">recursion_factorial_simplified</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">recursion_factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">!=</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">n</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Let’s test them</p>
+<p>Let’s test it</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">([</span><span class="n">recursion_factorial</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 6, 24, 120, 720, 5040, 40320, 362880]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">([</span><span class="n">recursion_factorial_simplified</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)])</span>
 </pre></div>
 </div>
 </div>
@@ -1250,17 +1139,22 @@ The default value should be <span class="math notranslate nohighlight">\(f(n) = 
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="oop_intro.html">
-   6. OOP I: Objects and Names
+   6. OOP I: Objects and Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="names.html">
+   7. Names and Namespaces
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_oop.html">
-   7. OOP II: Building Classes
+   8. OOP II: Building Classes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="workspace.html">
-   8. Writing Longer Programs
+   9. Writing Longer Programs
   </a>
  </li>
 </ul>
@@ -1272,32 +1166,32 @@ The default value should be <span class="math notranslate nohighlight">\(f(n) = 
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="need_for_speed.html">
-   9. Python for Scientific Computing
+   10. Python for Scientific Computing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="numpy.html">
-   10. NumPy
+   11. NumPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matplotlib.html">
-   11. Matplotlib
+   12. Matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="scipy.html">
-   12. SciPy
+   13. SciPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pandas.html">
-   13. Pandas
+   14. Pandas
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   14. SymPy
+   15. SymPy
   </a>
  </li>
 </ul>
@@ -1309,17 +1203,17 @@ The default value should be <span class="math notranslate nohighlight">\(f(n) = 
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="numba.html">
-   15. Numba
+   16. Numba
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="parallelization.html">
-   16. Parallelization
+   17. Parallelization
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   17. JAX
+   18. JAX
   </a>
  </li>
 </ul>
@@ -1331,17 +1225,17 @@ The default value should be <span class="math notranslate nohighlight">\(f(n) = 
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   18. Writing Good Code
+   19. Writing Good Code
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   19. More Language Features
+   20. More Language Features
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   20. Debugging and Handling Errors
+   21. Debugging and Handling Errors
   </a>
  </li>
 </ul>
@@ -1353,12 +1247,12 @@ The default value should be <span class="math notranslate nohighlight">\(f(n) = 
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   21. Troubleshooting
+   22. Troubleshooting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   22. Execution Statistics
+   23. Execution Statistics
   </a>
  </li>
 </ul>

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>11. Matplotlib &#8212; Python Programming for Economics and Finance</title>
+    <title>12. Matplotlib &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
@@ -60,15 +60,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=b09b2da44b9015b4fa76ea072fa2d8f7faee5492" type="text/css" />
@@ -80,9 +80,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -120,8 +120,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="12. SciPy" href="scipy.html" />
-    <link rel="prev" title="10. NumPy" href="numpy.html" />
+    <link rel="next" title="13. SciPy" href="scipy.html" />
+    <link rel="prev" title="11. NumPy" href="numpy.html" />
 
 <!-- Normal Meta Tags -->
 <meta name="author" context="Thomas J. Sargent &amp; John Stachurski" />
@@ -169,26 +169,26 @@ const thebe_selector_output = ".output, .cell_output"
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">11.1. Overview</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib-s-split-personality">11.1.1. Matplotlib’s Split Personality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">12.1. Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib-s-split-personality">12.1.1. Matplotlib’s Split Personality</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-apis">11.2. The APIs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-matlab-style-api">11.2.1. The MATLAB-style API</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-object-oriented-api">11.2.2. The Object-Oriented API</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tweaks">11.2.3. Tweaks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-apis">12.2. The APIs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-matlab-style-api">12.2.1. The MATLAB-style API</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-object-oriented-api">12.2.2. The Object-Oriented API</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tweaks">12.2.3. Tweaks</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-features">11.3. More Features</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-plots-on-one-axis">11.3.1. Multiple Plots on One Axis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-subplots">11.3.2. Multiple Subplots</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-plots">11.3.3. 3D Plots</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-customizing-function">11.3.4. A Customizing Function</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#style-sheets">11.3.5. Style Sheets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-features">12.3. More Features</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-plots-on-one-axis">12.3.1. Multiple Plots on One Axis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-subplots">12.3.2. Multiple Subplots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-plots">12.3.3. 3D Plots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-customizing-function">12.3.4. A Customizing Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#style-sheets">12.3.5. Style Sheets</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">11.4. Further Reading</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">11.5. Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">12.4. Further Reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">12.5. Exercises</a></li>
 </ul>
                             <p class="logo">
                                 
@@ -248,7 +248,7 @@ const thebe_selector_output = ".output, .cell_output"
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><a class="toc-backref" href="#id2"><span class="section-number">11. </span><span class="target" id="index-0"></span>Matplotlib</a><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id2"><span class="section-number">12. </span><span class="target" id="index-0"></span>Matplotlib</a><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <div class="contents topic" id="contents">
 <span id="index-1"></span><p class="topic-title">Contents</p>
 <ul class="simple">
@@ -264,7 +264,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </div>
 <section id="overview">
-<h2><a class="toc-backref" href="#id3"><span class="section-number">11.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3"><span class="section-number">12.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>We’ve already generated quite a few figures in these lectures using <a class="reference external" href="http://matplotlib.org/">Matplotlib</a>.</p>
 <p>Matplotlib is an outstanding graphics library, designed for scientific computing, with</p>
 <ul class="simple">
@@ -275,7 +275,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>animation, etc.</p></li>
 </ul>
 <section id="matplotlib-s-split-personality">
-<h3><span class="section-number">11.1.1. </span>Matplotlib’s Split Personality<a class="headerlink" href="#matplotlib-s-split-personality" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.1.1. </span>Matplotlib’s Split Personality<a class="headerlink" href="#matplotlib-s-split-personality" title="Permalink to this heading">#</a></h3>
 <p>Matplotlib is unusual in that it offers two different interfaces to plotting.</p>
 <p>One is a simple MATLAB-style API (Application Programming Interface) that was written to help MATLAB refugees find a ready home.</p>
 <p>The other is a more “Pythonic” object-oriented API.</p>
@@ -284,9 +284,9 @@ const thebe_selector_output = ".output, .cell_output"
 </section>
 </section>
 <section id="the-apis">
-<h2><a class="toc-backref" href="#id4"><span class="section-number">11.2. </span>The APIs</a><a class="headerlink" href="#the-apis" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4"><span class="section-number">12.2. </span>The APIs</a><a class="headerlink" href="#the-apis" title="Permalink to this heading">#</a></h2>
 <section id="the-matlab-style-api">
-<span id="index-2"></span><h3><span class="section-number">11.2.1. </span>The MATLAB-style API<a class="headerlink" href="#the-matlab-style-api" title="Permalink to this heading">#</a></h3>
+<span id="index-2"></span><h3><span class="section-number">12.2.1. </span>The MATLAB-style API<a class="headerlink" href="#the-matlab-style-api" title="Permalink to this heading">#</a></h3>
 <p>Here’s the kind of easy example you might find in introductory treatments</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -304,7 +304,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1a1f5436c7d86e462e96f1eca6f84cc1544a5253d99221e663facea18b4d4a59.png" src="_images/1a1f5436c7d86e462e96f1eca6f84cc1544a5253d99221e663facea18b4d4a59.png" />
+<img alt="_images/79d774be045ccc80828976a91fc1ebb0ee6fdf91151dd996e5f4e114e9e9eea0.png" src="_images/79d774be045ccc80828976a91fc1ebb0ee6fdf91151dd996e5f4e114e9e9eea0.png" />
 </div>
 </div>
 <p>This is simple and convenient, but also somewhat limited and un-Pythonic.</p>
@@ -313,7 +313,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>This leads us to the alternative, object-oriented Matplotlib API.</p>
 </section>
 <section id="the-object-oriented-api">
-<h3><span class="section-number">11.2.2. </span>The Object-Oriented API<a class="headerlink" href="#the-object-oriented-api" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.2.2. </span>The Object-Oriented API<a class="headerlink" href="#the-object-oriented-api" title="Permalink to this heading">#</a></h3>
 <p>Here’s the code corresponding to the preceding figure using the object-oriented API</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -324,7 +324,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1a1f5436c7d86e462e96f1eca6f84cc1544a5253d99221e663facea18b4d4a59.png" src="_images/1a1f5436c7d86e462e96f1eca6f84cc1544a5253d99221e663facea18b4d4a59.png" />
+<img alt="_images/79d774be045ccc80828976a91fc1ebb0ee6fdf91151dd996e5f4e114e9e9eea0.png" src="_images/79d774be045ccc80828976a91fc1ebb0ee6fdf91151dd996e5f4e114e9e9eea0.png" />
 </div>
 </div>
 <p>Here the call <code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">ax</span> <span class="pre">=</span> <span class="pre">plt.subplots()</span></code> returns a pair, where</p>
@@ -337,7 +337,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>This will become more clear as we go along.</p>
 </section>
 <section id="tweaks">
-<h3><span class="section-number">11.2.3. </span>Tweaks<a class="headerlink" href="#tweaks" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.2.3. </span>Tweaks<a class="headerlink" href="#tweaks" title="Permalink to this heading">#</a></h3>
 <p>Here we’ve changed the line to red and added a legend</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -349,7 +349,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b6fb0d01f80436c469ac41a1af405bcb3b8cca49cb7718b1b2783b503ce33022.png" src="_images/b6fb0d01f80436c469ac41a1af405bcb3b8cca49cb7718b1b2783b503ce33022.png" />
+<img alt="_images/a3d6adcb8a4d0a718fd7aff537966a53b0327f6df4a62dc5399ba94aa007c073.png" src="_images/a3d6adcb8a4d0a718fd7aff537966a53b0327f6df4a62dc5399ba94aa007c073.png" />
 </div>
 </div>
 <p>We’ve also used <code class="docutils literal notranslate"><span class="pre">alpha</span></code> to make the line slightly transparent—which makes it look smoother.</p>
@@ -364,7 +364,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/99f670a9800a5a65e1344d0689edd96c1ff89acb9653b54048d03aa65b946d9c.png" src="_images/99f670a9800a5a65e1344d0689edd96c1ff89acb9653b54048d03aa65b946d9c.png" />
+<img alt="_images/2c1a99fa4e65c45f07198d27f969cd6e6c18e60a48b65839b078583e503a3d32.png" src="_images/2c1a99fa4e65c45f07198d27f969cd6e6c18e60a48b65839b078583e503a3d32.png" />
 </div>
 </div>
 <p>If everything is properly configured, then adding LaTeX is trivial</p>
@@ -378,7 +378,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/eca08394ecb5386659fadc3fa315a67b9ced005e6df589249c769996cf7db9cb.png" src="_images/eca08394ecb5386659fadc3fa315a67b9ced005e6df589249c769996cf7db9cb.png" />
+<img alt="_images/e3d5bae34aa6763c00339dc9eb1a0aba804dc7921be6f8a68ccfa75bcd2e0e45.png" src="_images/e3d5bae34aa6763c00339dc9eb1a0aba804dc7921be6f8a68ccfa75bcd2e0e45.png" />
 </div>
 </div>
 <p>Controlling the ticks, adding titles and so on is also straightforward</p>
@@ -394,18 +394,18 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9684f969391eb133b10ff210e7baed8c9c255df0ddbea47212d9aafdca40d5e3.png" src="_images/9684f969391eb133b10ff210e7baed8c9c255df0ddbea47212d9aafdca40d5e3.png" />
+<img alt="_images/a33379e86b113128bcd87301003bdf92a77e40f33a9885fc8127b4e2a7d2afc3.png" src="_images/a33379e86b113128bcd87301003bdf92a77e40f33a9885fc8127b4e2a7d2afc3.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="more-features">
-<h2><a class="toc-backref" href="#id5"><span class="section-number">11.3. </span>More Features</a><a class="headerlink" href="#more-features" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5"><span class="section-number">12.3. </span>More Features</a><a class="headerlink" href="#more-features" title="Permalink to this heading">#</a></h2>
 <p>Matplotlib has a huge array of functions and features, which you can discover
 over time as you have need for them.</p>
 <p>We mention just a few.</p>
 <section id="multiple-plots-on-one-axis">
-<h3><span class="section-number">11.3.1. </span>Multiple Plots on One Axis<a class="headerlink" href="#multiple-plots-on-one-axis" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.3.1. </span>Multiple Plots on One Axis<a class="headerlink" href="#multiple-plots-on-one-axis" title="Permalink to this heading">#</a></h3>
 <p id="index-3">It’s straightforward to generate multiple plots on the same axes.</p>
 <p>Here’s an example that randomly generates three normal densities and adds a label with their mean</p>
 <div class="cell docutils container">
@@ -426,12 +426,12 @@ over time as you have need for them.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e83e0623284ae557db0686e8fb6786b0ee165bd3df87fb05648b89b37320219e.png" src="_images/e83e0623284ae557db0686e8fb6786b0ee165bd3df87fb05648b89b37320219e.png" />
+<img alt="_images/1d0106b1ec46615e1b196019c24f393269b601a5f3a433f3a520a99c90887d87.png" src="_images/1d0106b1ec46615e1b196019c24f393269b601a5f3a433f3a520a99c90887d87.png" />
 </div>
 </div>
 </section>
 <section id="multiple-subplots">
-<h3><span class="section-number">11.3.2. </span>Multiple Subplots<a class="headerlink" href="#multiple-subplots" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.3.2. </span>Multiple Subplots<a class="headerlink" href="#multiple-subplots" title="Permalink to this heading">#</a></h3>
 <p id="index-4">Sometimes we want multiple subplots in one figure.</p>
 <p>Here’s an example that generates 6 histograms</p>
 <div class="cell docutils container">
@@ -450,12 +450,12 @@ over time as you have need for them.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c482d5a6a0eed1b2d2090aa7d87cffe5716d5339f11c9fb7d0ee986b7cfebe63.png" src="_images/c482d5a6a0eed1b2d2090aa7d87cffe5716d5339f11c9fb7d0ee986b7cfebe63.png" />
+<img alt="_images/6d7ee797d4b6f996e3458d41072ddedcbb7701bfc3bead0dd7184dac024932d4.png" src="_images/6d7ee797d4b6f996e3458d41072ddedcbb7701bfc3bead0dd7184dac024932d4.png" />
 </div>
 </div>
 </section>
 <section id="d-plots">
-<h3><span class="section-number">11.3.3. </span>3D Plots<a class="headerlink" href="#d-plots" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.3.3. </span>3D Plots<a class="headerlink" href="#d-plots" title="Permalink to this heading">#</a></h3>
 <p id="index-5">Matplotlib does a nice job of 3D plots — here is one example</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -485,12 +485,12 @@ over time as you have need for them.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/909667604afe0bcd62e2186f48f007f863add4ea2ff91a40c4954008f5a35f0b.png" src="_images/909667604afe0bcd62e2186f48f007f863add4ea2ff91a40c4954008f5a35f0b.png" />
+<img alt="_images/6011f5b69a14d7ef5375b3b36ad4c3585607c9ea91d3a08459ae1dfeed5f88bd.png" src="_images/6011f5b69a14d7ef5375b3b36ad4c3585607c9ea91d3a08459ae1dfeed5f88bd.png" />
 </div>
 </div>
 </section>
 <section id="a-customizing-function">
-<h3><span class="section-number">11.3.4. </span>A Customizing Function<a class="headerlink" href="#a-customizing-function" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.3.4. </span>A Customizing Function<a class="headerlink" href="#a-customizing-function" title="Permalink to this heading">#</a></h3>
 <p>Perhaps you will find a set of customizations that you regularly use.</p>
 <p>Suppose we usually prefer our axes to go through the origin, and to have a grid.</p>
 <p>Here’s a nice example from <a class="reference external" href="https://github.com/xcthulhu">Matthew Doty</a> of how the object-oriented API can be used to build a custom <code class="docutils literal notranslate"><span class="pre">subplots</span></code> function that implements these changes.</p>
@@ -521,7 +521,7 @@ over time as you have need for them.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1e19840de0d821caaafed37ccd6152848c6e9210f23ada7b7fd065acd628e023.png" src="_images/1e19840de0d821caaafed37ccd6152848c6e9210f23ada7b7fd065acd628e023.png" />
+<img alt="_images/9d72a8759db17f9a7928454481384238ff34b1ddca216811fbf5a78055d67823.png" src="_images/9d72a8759db17f9a7928454481384238ff34b1ddca216811fbf5a78055d67823.png" />
 </div>
 </div>
 <p>The custom <code class="docutils literal notranslate"><span class="pre">subplots</span></code> function</p>
@@ -532,7 +532,7 @@ over time as you have need for them.</p>
 </ol>
 </section>
 <section id="style-sheets">
-<h3><span class="section-number">11.3.5. </span>Style Sheets<a class="headerlink" href="#style-sheets" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.3.5. </span>Style Sheets<a class="headerlink" href="#style-sheets" title="Permalink to this heading">#</a></h3>
 <p>Another useful feature in Matplotlib is <a class="reference external" href="https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html">style sheets</a>.</p>
 <p>We can use style sheets to create plots with uniform styles.</p>
 <p>We can find a list of available styles by printing the attribute <code class="docutils literal notranslate"><span class="pre">plt.style.available</span></code></p>
@@ -600,7 +600,7 @@ over time as you have need for them.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b4f5d253c4b2f8ad25e7c4a0577a224aab7b37d644891bdbb788e2d99e4dbdb6.png" src="_images/b4f5d253c4b2f8ad25e7c4a0577a224aab7b37d644891bdbb788e2d99e4dbdb6.png" />
+<img alt="_images/e6638ffb9068daea4e4aa31e2c1349d6a096a40e719bfda6431fe8fb8b38ab30.png" src="_images/e6638ffb9068daea4e4aa31e2c1349d6a096a40e719bfda6431fe8fb8b38ab30.png" />
 </div>
 </div>
 <p>We can use <code class="docutils literal notranslate"><span class="pre">grayscale</span></code> to remove colors in plots</p>
@@ -611,7 +611,7 @@ over time as you have need for them.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b5da17e7c3379a5882d0d67838bce59ea4aee9949a0a4735db38a6114f36bbeb.png" src="_images/b5da17e7c3379a5882d0d67838bce59ea4aee9949a0a4735db38a6114f36bbeb.png" />
+<img alt="_images/ba6d2e4ad73282d670686ee3b766bb11aaee4433aa9031b63860e1a8190efbda.png" src="_images/ba6d2e4ad73282d670686ee3b766bb11aaee4433aa9031b63860e1a8190efbda.png" />
 </div>
 </div>
 <p>Here is what <code class="docutils literal notranslate"><span class="pre">ggplot</span></code> looks like</p>
@@ -622,7 +622,7 @@ over time as you have need for them.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8844c74edcba657da9899a006d4cba3ae9d984d6d91d9f9dd0f2b11249796e09.png" src="_images/8844c74edcba657da9899a006d4cba3ae9d984d6d91d9f9dd0f2b11249796e09.png" />
+<img alt="_images/55acb6dba0f333c6d2a2f3516da37bdaa597e35eae9f0f01b755bbb794c8864c.png" src="_images/55acb6dba0f333c6d2a2f3516da37bdaa597e35eae9f0f01b755bbb794c8864c.png" />
 </div>
 </div>
 <p>We can also use the style <code class="docutils literal notranslate"><span class="pre">dark_background</span></code></p>
@@ -633,7 +633,7 @@ over time as you have need for them.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/deeae25d68a3b14b2123e1c22b0131d2db9b0f41ab1d9f6c138238901db28584.png" src="_images/deeae25d68a3b14b2123e1c22b0131d2db9b0f41ab1d9f6c138238901db28584.png" />
+<img alt="_images/f7ba923d2fe668554ea4cc6ca6107078bd3403f2d48a962b4cb324c25c230bad.png" src="_images/f7ba923d2fe668554ea4cc6ca6107078bd3403f2d48a962b4cb324c25c230bad.png" />
 </div>
 </div>
 <p>You can use the function to experiment with other styles in the list.</p>
@@ -897,8 +897,10 @@ over time as you have need for them.</p>
           &#39;lines.scale_dashes&#39;: True,
           &#39;lines.solid_capstyle&#39;: &lt;CapStyle.round: &#39;round&#39;&gt;,
           &#39;lines.solid_joinstyle&#39;: &lt;JoinStyle.round: &#39;round&#39;&gt;,
+          &#39;macosx.window_mode&#39;: &#39;system&#39;,
           &#39;markers.fillstyle&#39;: &#39;full&#39;,
           &#39;mathtext.bf&#39;: &#39;sans:bold&#39;,
+          &#39;mathtext.bfit&#39;: &#39;sans:italic:bold&#39;,
           &#39;mathtext.cal&#39;: &#39;cursive&#39;,
           &#39;mathtext.default&#39;: &#39;it&#39;,
           &#39;mathtext.fallback&#39;: &#39;cm&#39;,
@@ -976,6 +978,7 @@ over time as you have need for them.</p>
           &#39;xtick.major.top&#39;: True,
           &#39;xtick.major.width&#39;: 1.0,
           &#39;xtick.minor.bottom&#39;: True,
+          &#39;xtick.minor.ndivs&#39;: &#39;auto&#39;,
           &#39;xtick.minor.pad&#39;: 3.4,
           &#39;xtick.minor.size&#39;: 0.0,
           &#39;xtick.minor.top&#39;: True,
@@ -997,6 +1000,7 @@ over time as you have need for them.</p>
           &#39;ytick.major.size&#39;: 0.0,
           &#39;ytick.major.width&#39;: 1.0,
           &#39;ytick.minor.left&#39;: True,
+          &#39;ytick.minor.ndivs&#39;: &#39;auto&#39;,
           &#39;ytick.minor.pad&#39;: 3.4,
           &#39;ytick.minor.right&#39;: True,
           &#39;ytick.minor.size&#39;: 0.0,
@@ -1072,7 +1076,7 @@ over time as you have need for them.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/544b10d10e165f25438737a0ccf4694b760dfd3d658e09fe7ac33e5776b9030d.png" src="_images/544b10d10e165f25438737a0ccf4694b760dfd3d658e09fe7ac33e5776b9030d.png" />
+<img alt="_images/979eb900d7dd8a050100c3e4e89485690727ad0e2b8c8f47d47f8fa64c2d55b5.png" src="_images/979eb900d7dd8a050100c3e4e89485690727ad0e2b8c8f47d47f8fa64c2d55b5.png" />
 </div>
 </div>
 <p>Apply the <code class="docutils literal notranslate"><span class="pre">default</span></code> style sheet again to change your style back to default</p>
@@ -1090,7 +1094,7 @@ over time as you have need for them.</p>
 </section>
 </section>
 <section id="further-reading">
-<h2><a class="toc-backref" href="#id6"><span class="section-number">11.4. </span>Further Reading</a><a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6"><span class="section-number">12.4. </span>Further Reading</a><a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>The <a class="reference external" href="http://matplotlib.org/gallery.html">Matplotlib gallery</a> provides many examples.</p></li>
 <li><p>A nice <a class="reference external" href="http://scipy-lectures.org/intro/matplotlib/index.html">Matplotlib tutorial</a> by Nicolas Rougier, Mike Muller and Gael Varoquaux.</p></li>
@@ -1100,10 +1104,10 @@ switching between plot styles.</p></li>
 </ul>
 </section>
 <section id="exercises">
-<h2><a class="toc-backref" href="#id7"><span class="section-number">11.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id7"><span class="section-number">12.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <div class="exercise admonition" id="mpl_ex1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 11.1 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 12.1 </span></p>
 <section id="exercise-content">
 <p>Plot the function</p>
 <div class="math notranslate nohighlight">
@@ -1120,7 +1124,7 @@ f(x) = \cos(\pi \theta x) \exp(-x)
 </div>
 <div class="solution dropdown admonition" id="matplotlib-solution-1">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#mpl_ex1"> Exercise 11.1</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#mpl_ex1"> Exercise 12.1</a></p>
 <section id="solution-content">
 <p>Here’s one solution</p>
 <div class="cell docutils container">
@@ -1140,7 +1144,7 @@ f(x) = \cos(\pi \theta x) \exp(-x)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d3a4f35a221b6b2a4c092a37d4b53a45caf388ace375e643ff9288dfb00cabef.png" src="_images/d3a4f35a221b6b2a4c092a37d4b53a45caf388ace375e643ff9288dfb00cabef.png" />
+<img alt="_images/924a763b0e9db06294a5aab1823c67d86c59221af6f291b8b878f3b3afce69de.png" src="_images/924a763b0e9db06294a5aab1823c67d86c59221af6f291b8b878f3b3afce69de.png" />
 </div>
 </div>
 </section>
@@ -1230,17 +1234,22 @@ f(x) = \cos(\pi \theta x) \exp(-x)
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="oop_intro.html">
-   6. OOP I: Objects and Names
+   6. OOP I: Objects and Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="names.html">
+   7. Names and Namespaces
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_oop.html">
-   7. OOP II: Building Classes
+   8. OOP II: Building Classes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="workspace.html">
-   8. Writing Longer Programs
+   9. Writing Longer Programs
   </a>
  </li>
 </ul>
@@ -1252,32 +1261,32 @@ f(x) = \cos(\pi \theta x) \exp(-x)
 <ul class="current nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="need_for_speed.html">
-   9. Python for Scientific Computing
+   10. Python for Scientific Computing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="numpy.html">
-   10. NumPy
+   11. NumPy
   </a>
  </li>
  <li class="toctree-l1 current active active">
   <a class="current reference internal" href="#">
-   11. Matplotlib
+   12. Matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="scipy.html">
-   12. SciPy
+   13. SciPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pandas.html">
-   13. Pandas
+   14. Pandas
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   14. SymPy
+   15. SymPy
   </a>
  </li>
 </ul>
@@ -1289,17 +1298,17 @@ f(x) = \cos(\pi \theta x) \exp(-x)
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="numba.html">
-   15. Numba
+   16. Numba
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="parallelization.html">
-   16. Parallelization
+   17. Parallelization
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   17. JAX
+   18. JAX
   </a>
  </li>
 </ul>
@@ -1311,17 +1320,17 @@ f(x) = \cos(\pi \theta x) \exp(-x)
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   18. Writing Good Code
+   19. Writing Good Code
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   19. More Language Features
+   20. More Language Features
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   20. Debugging and Handling Errors
+   21. Debugging and Handling Errors
   </a>
  </li>
 </ul>
@@ -1333,12 +1342,12 @@ f(x) = \cos(\pi \theta x) \exp(-x)
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   21. Troubleshooting
+   22. Troubleshooting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   22. Execution Statistics
+   23. Execution Statistics
   </a>
  </li>
 </ul>

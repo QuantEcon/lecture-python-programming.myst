@@ -60,15 +60,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=b09b2da44b9015b4fa76ea072fa2d8f7faee5492" type="text/css" />
@@ -80,9 +80,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -303,7 +303,7 @@ about Python.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/422cdda28ee16f842d39c3e5493c69c1b2906a1a077e447a0a5ad99e31799b83.png" src="_images/422cdda28ee16f842d39c3e5493c69c1b2906a1a077e447a0a5ad99e31799b83.png" />
+<img alt="_images/ea327400474753dbc0f983d05fa468aee497e770230caabbf2afb5620823506f.png" src="_images/ea327400474753dbc0f983d05fa468aee497e770230caabbf2afb5620823506f.png" />
 </div>
 </div>
 <p>Let’s break this program down and see how it works.</p>
@@ -344,34 +344,18 @@ libraries.</p>
 </div>
 </div>
 </div>
-<p>We could also use the following syntax:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
-
-<span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0
-</pre></div>
-</div>
-</div>
-</div>
-<p>But the former method (using the short name <code class="docutils literal notranslate"><span class="pre">np</span></code>) is convenient and more standard.</p>
 <section id="why-so-many-imports">
 <h4><span class="section-number">3.3.1.1. </span>Why So Many Imports?<a class="headerlink" href="#why-so-many-imports" title="Permalink to this heading">#</a></h4>
-<p>Python programs typically require several import statements.</p>
-<p>The reason is that the core language is deliberately kept small, so that it’s easy to learn and maintain.</p>
+<p>Python programs typically require multiple import statements.</p>
+<p>The reason is that the core language is deliberately kept small, so that it’s easy to learn, maintain and improve.</p>
 <p>When you want to do something interesting with Python, you almost always need
 to import additional functionality.</p>
 </section>
 <section id="packages">
 <h4><span class="section-number">3.3.1.2. </span>Packages<a class="headerlink" href="#packages" title="Permalink to this heading">#</a></h4>
-<p id="index-1">As stated above, NumPy is a Python <em>package</em>.</p>
+<p id="index-1">As stated above, NumPy is a Python package.</p>
 <p>Packages are used by developers to organize code they wish to share.</p>
-<p>In fact, a package is just a directory containing</p>
+<p>In fact, a <strong>package</strong> is just a directory containing</p>
 <ol class="arabic simple">
 <li><p>files with Python code — called <strong>modules</strong> in Python speak</p></li>
 <li><p>possibly some compiled code that can be accessed by Python (e.g., functions compiled from C or FORTRAN code)</p></li>
@@ -443,7 +427,7 @@ after the import statements are</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6154208dd6c726533dc35427512aa99141b1ce968ff66197a88113f9f4e13da7.png" src="_images/6154208dd6c726533dc35427512aa99141b1ce968ff66197a88113f9f4e13da7.png" />
+<img alt="_images/4f0b181375455ce48b8a2c4305822035286fbc56f30cbe655ecd3129dab48167.png" src="_images/4f0b181375455ce48b8a2c4305822035286fbc56f30cbe655ecd3129dab48167.png" />
 </div>
 </div>
 <p>The first line generates 100 (quasi) independent standard normals and stores
@@ -476,7 +460,7 @@ somewhat artificial.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0cf3dc7b3cf6b5b87a40a5ab41585f10ebeb6ec390468f24c59a37475f688a8f.png" src="_images/0cf3dc7b3cf6b5b87a40a5ab41585f10ebeb6ec390468f24c59a37475f688a8f.png" />
+<img alt="_images/6f2f0eeabf9dae9d621d81ff0eb796820bd929147b3fbc0f55d7419af37d692d.png" src="_images/6f2f0eeabf9dae9d621d81ff0eb796820bd929147b3fbc0f55d7419af37d692d.png" />
 </div>
 </div>
 <p>In brief,</p>
@@ -492,7 +476,7 @@ somewhat artificial.</p>
 <section id="lists">
 <span id="lists-ref"></span><h3><span class="section-number">3.4.2. </span>Lists<a class="headerlink" href="#lists" title="Permalink to this heading">#</a></h3>
 <p id="index-3">Consider the statement <code class="docutils literal notranslate"><span class="pre">ϵ_values</span> <span class="pre">=</span> <span class="pre">[]</span></code>, which creates an empty list.</p>
-<p>Lists are a <em>native Python data structure</em> used to group a collection of objects.</p>
+<p>Lists are a native Python data structure used to group a collection of objects.</p>
 <p>Items in lists are ordered, and duplicates are allowed in lists.</p>
 <p>For example, try</p>
 <div class="cell docutils container">
@@ -535,10 +519,10 @@ somewhat artificial.</p>
 </div>
 </div>
 </div>
-<p>Here <code class="docutils literal notranslate"><span class="pre">append()</span></code> is what’s called a <em>method</em>, which is a function “attached to” an object—in this case, the list <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>Here <code class="docutils literal notranslate"><span class="pre">append()</span></code> is what’s called a <strong>method</strong>, which is a function “attached to” an object—in this case, the list <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <p>We’ll learn all about methods <a class="reference internal" href="oop_intro.html"><span class="doc">later on</span></a>, but just to give you some idea,</p>
 <ul class="simple">
-<li><p>Python objects such as lists, strings, etc. all have methods that are used to manipulate the data contained in the object.</p></li>
+<li><p>Python objects such as lists, strings, etc. all have methods that are used to manipulate data contained in the object.</p></li>
 <li><p>String objects have <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#string-methods">string methods</a>, list objects have <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">list methods</a>, etc.</p></li>
 </ul>
 <p>Another useful list method is <code class="docutils literal notranslate"><span class="pre">pop()</span></code></p>
@@ -617,7 +601,7 @@ somewhat artificial.</p>
 </div>
 </div>
 <p>Python executes the two indented lines <code class="docutils literal notranslate"><span class="pre">ts_length</span></code> times before moving on.</p>
-<p>These two lines are called a <code class="docutils literal notranslate"><span class="pre">code</span> <span class="pre">block</span></code>, since they comprise the “block” of code that we are looping over.</p>
+<p>These two lines are called a <strong>code block</strong>, since they comprise the “block” of code that we are looping over.</p>
 <p>Unlike most other languages, Python knows the extent of the code block <em>only from indentation</em>.</p>
 <p>In our program, indentation decreases after line <code class="docutils literal notranslate"><span class="pre">ϵ_values.append(e)</span></code>, telling Python that this line marks the lower limit of the code block.</p>
 <p>More on indentation below—for now, let’s look at another example of a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</p>
@@ -647,13 +631,11 @@ loop of the form</p>
 <ul class="simple">
 <li><p>For each element of the <code class="docutils literal notranslate"><span class="pre">sequence</span></code>, it “binds” the name <code class="docutils literal notranslate"><span class="pre">variable_name</span></code> to that element and then executes the code block.</p></li>
 </ul>
-<p>The <code class="docutils literal notranslate"><span class="pre">sequence</span></code> object can in fact be a very general object, as we’ll see
-soon enough.</p>
 </section>
 <section id="a-comment-on-indentation">
 <h3><span class="section-number">3.4.4. </span>A Comment on Indentation<a class="headerlink" href="#a-comment-on-indentation" title="Permalink to this heading">#</a></h3>
 <p id="index-5">In discussing the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, we explained that the code blocks being looped over are delimited by indentation.</p>
-<p>In fact, in Python, <strong>all</strong> code blocks (i.e., those occurring inside loops, if clauses, function definitions, etc.) are delimited by indentation.</p>
+<p>In fact, in Python, <em>all</em> code blocks (i.e., those occurring inside loops, if clauses, function definitions, etc.) are delimited by indentation.</p>
 <p>Thus, unlike most other languages, whitespace in Python code affects the output of the program.</p>
 <p>Once you get used to it, this is a good thing: It</p>
 <ul class="simple">
@@ -667,10 +649,10 @@ soon enough.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">range(10):</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y:</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">100:</span></code></p></li>
-<li><p>etc., etc.</p></li>
+<li><p>etc.</p></li>
 </ul>
 </li>
-<li><p>All lines in a code block <strong>must have the same amount of indentation</strong>.</p></li>
+<li><p>All lines in a code block must have the same amount of indentation.</p></li>
 <li><p>The Python standard is 4 spaces, and that’s what you should use.</p></li>
 </ul>
 </section>
@@ -693,7 +675,7 @@ soon enough.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8d467b70e3251af5dcf6b6f31a54e7f759af2b5f43f470b425e8021cd6054a7f.png" src="_images/8d467b70e3251af5dcf6b6f31a54e7f759af2b5f43f470b425e8021cd6054a7f.png" />
+<img alt="_images/f059d204946408bf7d6bbdb9e6e5618ef1be8bda9de63c5e2688e39ffd7cee97.png" src="_images/f059d204946408bf7d6bbdb9e6e5618ef1be8bda9de63c5e2688e39ffd7cee97.png" />
 </div>
 </div>
 <p>A while loop will keep executing the code block delimited by indentation until the condition (<code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">ts_length</span></code>) is satisfied.</p>
@@ -745,7 +727,7 @@ array.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7e1ea0e9ee22f6af6e5fb5930563ce0136b9be126a010f43e098ffcce15f01f2.png" src="_images/7e1ea0e9ee22f6af6e5fb5930563ce0136b9be126a010f43e098ffcce15f01f2.png" />
+<img alt="_images/93de75740a78ac585e8c14da2bd93dec9f7e486d84b689a4ed3045f5c786ab7b.png" src="_images/93de75740a78ac585e8c14da2bd93dec9f7e486d84b689a4ed3045f5c786ab7b.png" />
 </div>
 </div>
 <p>The statement <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">np.empty(T+1)</span></code> allocates storage in memory for <code class="docutils literal notranslate"><span class="pre">T+1</span></code>
@@ -807,7 +789,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3e9ded9791985bfce2e23e78d830f51eda72cfc22792af4c042568eff1aea856.png" src="_images/3e9ded9791985bfce2e23e78d830f51eda72cfc22792af4c042568eff1aea856.png" />
+<img alt="_images/e50c31f935a8ec91f12fb9985a3305c62db1f72298e72d8912307e30f2f2a682.png" src="_images/e50c31f935a8ec91f12fb9985a3305c62db1f72298e72d8912307e30f2f2a682.png" />
 </div>
 </div>
 </section>
@@ -851,7 +833,7 @@ one for each of the cases <span class="math notranslate nohighlight">\(\alpha=0\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e2f76adfc69b0dc32cb085c644cb80ed472a7dd2244370d25cb08b7c6deb0af4.png" src="_images/e2f76adfc69b0dc32cb085c644cb80ed472a7dd2244370d25cb08b7c6deb0af4.png" />
+<img alt="_images/03d14cab58b80b673b1e33e418c614d2fcf4b1955cc94281dd12b737defbf61b.png" src="_images/03d14cab58b80b673b1e33e418c614d2fcf4b1955cc94281dd12b737defbf61b.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -898,7 +880,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5112afbdff61c6d49756cf9ca79ccffc092d76b72e7fa640df5be7d705bcc4f0.png" src="_images/5112afbdff61c6d49756cf9ca79ccffc092d76b72e7fa640df5be7d705bcc4f0.png" />
+<img alt="_images/3778955d46518755260a0bc1b6b27352b0ee969ba00a53892802eacf018e7928.png" src="_images/3778955d46518755260a0bc1b6b27352b0ee969ba00a53892802eacf018e7928.png" />
 </div>
 </div>
 </section>
@@ -968,7 +950,7 @@ to compute the absolute value.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/251562c4df22a6725c80ee2d2b4a40cffd405ac425b998165d5a1399859b7c94.png" src="_images/251562c4df22a6725c80ee2d2b4a40cffd405ac425b998165d5a1399859b7c94.png" />
+<img alt="_images/cb2ba0b82142813d8fd4748c04a35d36cac73a4fa011bcaaa24a99bed3f697ea.png" src="_images/cb2ba0b82142813d8fd4748c04a35d36cac73a4fa011bcaaa24a99bed3f697ea.png" />
 </div>
 </div>
 <p>Here’s a shorter way to write the same thing:</p>
@@ -989,7 +971,7 @@ to compute the absolute value.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7bd95126c06598f89b147761206a393788fa3e479a34080eb1afc64cf9529420.png" src="_images/7bd95126c06598f89b147761206a393788fa3e479a34080eb1afc64cf9529420.png" />
+<img alt="_images/f182c17419e346083eccc84c1b9d403c1a461b9c6fca8c733a53d68a553fa20a.png" src="_images/f182c17419e346083eccc84c1b9d403c1a461b9c6fca8c733a53d68a553fa20a.png" />
 </div>
 </div>
 </section>
@@ -1059,7 +1041,7 @@ fraction that falls into the circle.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.143436
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.144588
 </pre></div>
 </div>
 </div>
@@ -1151,17 +1133,22 @@ fraction that falls into the circle.</p>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="oop_intro.html">
-   6. OOP I: Objects and Names
+   6. OOP I: Objects and Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="names.html">
+   7. Names and Namespaces
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_oop.html">
-   7. OOP II: Building Classes
+   8. OOP II: Building Classes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="workspace.html">
-   8. Writing Longer Programs
+   9. Writing Longer Programs
   </a>
  </li>
 </ul>
@@ -1173,32 +1160,32 @@ fraction that falls into the circle.</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="need_for_speed.html">
-   9. Python for Scientific Computing
+   10. Python for Scientific Computing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="numpy.html">
-   10. NumPy
+   11. NumPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matplotlib.html">
-   11. Matplotlib
+   12. Matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="scipy.html">
-   12. SciPy
+   13. SciPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pandas.html">
-   13. Pandas
+   14. Pandas
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   14. SymPy
+   15. SymPy
   </a>
  </li>
 </ul>
@@ -1210,17 +1197,17 @@ fraction that falls into the circle.</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="numba.html">
-   15. Numba
+   16. Numba
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="parallelization.html">
-   16. Parallelization
+   17. Parallelization
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   17. JAX
+   18. JAX
   </a>
  </li>
 </ul>
@@ -1232,17 +1219,17 @@ fraction that falls into the circle.</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   18. Writing Good Code
+   19. Writing Good Code
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   19. More Language Features
+   20. More Language Features
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   20. Debugging and Handling Errors
+   21. Debugging and Handling Errors
   </a>
  </li>
 </ul>
@@ -1254,12 +1241,12 @@ fraction that falls into the circle.</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   21. Troubleshooting
+   22. Troubleshooting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   22. Execution Statistics
+   23. Execution Statistics
   </a>
  </li>
 </ul>

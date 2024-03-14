@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>6. OOP I: Objects and Names &#8212; Python Programming for Economics and Finance</title>
+    <title>6. OOP I: Objects and Methods &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
@@ -60,15 +60,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=b09b2da44b9015b4fa76ea072fa2d8f7faee5492" type="text/css" />
@@ -80,9 +80,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -118,7 +118,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="7. OOP II: Building Classes" href="python_oop.html" />
+    <link rel="next" title="7. Names and Namespaces" href="names.html" />
     <link rel="prev" title="5. Python Essentials" href="python_essentials.html" />
 
 <!-- Normal Meta Tags -->
@@ -129,13 +129,13 @@ const thebe_selector_output = ".output, .cell_output"
 <!-- Twitter tags -->
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@quantecon" />
-<meta name="twitter:title" content="OOP I: Objects and Names"/>
+<meta name="twitter:title" content="OOP I: Objects and Methods"/>
 <meta name="twitter:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.">
 <meta name="twitter:creator" content="@quantecon">
 <meta name="twitter:image" content="https://assets.quantecon.org/img/qe-twitter-logo.png">
 
 <!-- Opengraph tags -->
-<meta property="og:title" content="OOP I: Objects and Names" />
+<meta property="og:title" content="OOP I: Objects and Methods" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://python.quantecon.org/oop_intro.html" />
 <meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
@@ -167,10 +167,7 @@ const thebe_selector_output = ".output, .cell_output"
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">6.1. Overview</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-and-oop">6.1.1. Python and OOP</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">6.1. Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objects">6.2. Objects</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type">6.2.1. Type</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identity">6.2.2. Identity</a></li>
@@ -178,20 +175,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">6.2.4. Methods</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#names-and-name-resolution">6.3. Names and Name Resolution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-names-in-python">6.3.1. Variable Names in Python</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#namespaces">6.3.2. Namespaces</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-namespaces">6.3.3. Viewing Namespaces</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-sessions">6.3.4. Interactive Sessions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-global-namespace">6.3.5. The Global Namespace</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-namespaces">6.3.6. Local Namespaces</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-builtins-namespace">6.3.7. The <code class="docutils literal notranslate"><span class="pre">__builtins__</span></code> Namespace</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#name-resolution">6.3.8. Name Resolution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mutable-versus-immutable-parameters">6.3.9. Mutable Versus Immutable Parameters</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">6.4. Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">6.5. Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspection-using-rich">6.3. Inspection Using Rich</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-little-mystery">6.4. A Little Mystery</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">6.5. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">6.6. Exercises</a></li>
 </ul>
                             <p class="logo">
                                 
@@ -224,7 +211,7 @@ const thebe_selector_output = ".output, .cell_output"
 
                         <p class="qe-page__header-heading"><a href="intro.html">Python Programming for Economics and Finance</a></p>
 
-                        <p class="qe-page__header-subheading">OOP I: Objects and Names</p>
+                        <p class="qe-page__header-subheading">OOP I: Objects and Methods</p>
 
                     </div>
                     <!-- length 2, since its a string and empty dict has length 2 - {} -->
@@ -250,53 +237,53 @@ const thebe_selector_output = ".output, .cell_output"
                     
                     <div>
                         
-  <style>
-  .auto {
-    width: 100%;
-    height: auto;
-    } 
-</style>
-<section class="tex2jax_ignore mathjax_ignore" id="oop-i-objects-and-names">
-<h1><a class="toc-backref" href="#id4"><span class="section-number">6. </span>OOP I: Objects and Names</a><a class="headerlink" href="#oop-i-objects-and-names" title="Permalink to this heading">#</a></h1>
-<div class="contents topic" id="contents">
-<p class="topic-title">Contents</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#oop-i-objects-and-names" id="id4">OOP I: Objects and Names</a></p>
-<ul>
-<li><p><a class="reference internal" href="#overview" id="id5">Overview</a></p></li>
-<li><p><a class="reference internal" href="#objects" id="id6">Objects</a></p></li>
-<li><p><a class="reference internal" href="#names-and-name-resolution" id="id7">Names and Name Resolution</a></p></li>
-<li><p><a class="reference internal" href="#summary" id="id8">Summary</a></p></li>
-<li><p><a class="reference internal" href="#exercises" id="id9">Exercises</a></p></li>
-</ul>
-</li>
-</ul>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="oop-i-objects-and-methods">
+<h1><span class="section-number">6. </span>OOP I: Objects and Methods<a class="headerlink" href="#oop-i-objects-and-methods" title="Permalink to this heading">#</a></h1>
 <section id="overview">
-<h2><a class="toc-backref" href="#id5"><span class="section-number">6.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Object-oriented_programming">Object-oriented programming</a> (OOP) is one of the major paradigms in programming.</p>
-<p>The traditional programming paradigm (think Fortran, C, MATLAB, etc.) is called <em>procedural</em>.</p>
+<h2><span class="section-number">6.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>The traditional programming paradigm (think Fortran, C, MATLAB, etc.) is called <a class="reference external" href="https://en.wikipedia.org/wiki/Procedural_programming">procedural</a>.</p>
 <p>It works as follows</p>
 <ul class="simple">
 <li><p>The program has a state corresponding to the values of its variables.</p></li>
-<li><p>Functions are called to act on these data.</p></li>
-<li><p>Data are passed back and forth via function calls.</p></li>
+<li><p>Functions are called to act on and transform the state.</p></li>
+<li><p>Final outputs are produced via a sequence of function calls.</p></li>
 </ul>
-<p>In contrast, in the OOP paradigm</p>
+<p>Two other important paradigms are <a class="reference external" href="https://en.wikipedia.org/wiki/Object-oriented_programming">object-oriented programming</a> (OOP) and <a class="reference external" href="https://en.wikipedia.org/wiki/Functional_programming">functional programming</a>.</p>
+<p>In the OOP paradigm, data and functions are bundled together into “objects” — and functions in this context are referred to as <strong>methods</strong>.</p>
+<p>Methods are called on to transform the data contained in the object.</p>
 <ul class="simple">
-<li><p>data and functions are “bundled together” into “objects”</p></li>
+<li><p>Think of a Python list that contains data and has methods such as <code class="docutils literal notranslate"><span class="pre">append()</span></code> and <code class="docutils literal notranslate"><span class="pre">pop()</span></code> that transform the data.</p></li>
 </ul>
-<p>(Functions in this context are referred to as <strong>methods</strong>)</p>
-<section id="python-and-oop">
-<h3><span class="section-number">6.1.1. </span>Python and OOP<a class="headerlink" href="#python-and-oop" title="Permalink to this heading">#</a></h3>
-<p>Python is a pragmatic language that blends object-oriented and procedural styles, rather than taking a purist approach.</p>
-<p>However, at a foundational level, Python <em>is</em> object-oriented.</p>
-<p>In particular, in Python, <em>everything is an object</em>.</p>
+<p>Functional programming languages are built on the idea of composing functions.</p>
+<ul class="simple">
+<li><p>Influential examples include <a class="reference external" href="https://en.wikipedia.org/wiki/Common_Lisp">Lisp</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Haskell">Haskell</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Elixir_(programming_language)">Elixir</a>.</p></li>
+</ul>
+<p>So which of these categories does Python fit into?</p>
+<p>Actually Python is a pragmatic language that blends object-oriented, functional and procedural styles, rather than taking a purist approach.</p>
+<p>On one hand, this allows Python and its users to cherry pick nice aspects of different paradigms.</p>
+<p>On the other hand, the lack of purity might at times lead to some confusion.</p>
+<p>Fortunately this confusion is minimized if you understand that, at a foundational level, Python <em>is</em> object-oriented.</p>
+<p>By this we mean that, in Python, <em>everything is an object</em>.</p>
 <p>In this lecture, we explain what that statement means and why it matters.</p>
-</section>
+<p>We’ll make use of the following third party library</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>rich
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: rich in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (13.3.5)
+Requirement already satisfied: markdown-it-py&lt;3.0.0,&gt;=2.2.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from rich) (2.2.0)
+Requirement already satisfied: pygments&lt;3.0.0,&gt;=2.13.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from rich) (2.15.1)
+Requirement already satisfied: mdurl~=0.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from markdown-it-py&lt;3.0.0,&gt;=2.2.0-&gt;rich) (0.1.0)
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="objects">
-<h2><a class="toc-backref" href="#id6"><span class="section-number">6.2. </span>Objects</a><a class="headerlink" href="#objects" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.2. </span>Objects<a class="headerlink" href="#objects" title="Permalink to this heading">#</a></h2>
 <p id="index-0">In Python, an <em>object</em> is a collection of data and instructions held in computer memory that consists of</p>
 <ol class="arabic simple">
 <li><p>a type</p></li>
@@ -372,7 +359,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="s1">&#39;300&#39;</span> <span class="o">+</span> <span class="mi">400</span>
 
 <span class="ne">TypeError</span>: can only concatenate str (not &quot;int&quot;) to str
@@ -418,7 +405,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140472214388432
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140181894978064
 </pre></div>
 </div>
 </div>
@@ -430,7 +417,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140472214388240
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140181830886864
 </pre></div>
 </div>
 </div>
@@ -492,7 +479,7 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
 <section id="methods">
 <span id="id3"></span><h3><span class="section-number">6.2.4. </span>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h3>
 <p id="index-4">Methods are <em>functions that are bundled with objects</em>.</p>
-<p>Formally, methods are attributes of objects that are callable (i.e., can be called as functions)</p>
+<p>Formally, methods are attributes of objects that are <strong>callable</strong> – i.e., attributes that can be called as functions</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">]</span>
@@ -593,760 +580,136 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
 <p>(If you wanted to you could modify the <code class="docutils literal notranslate"><span class="pre">__setitem__</span></code> method, so that square bracket assignment does something totally different)</p>
 </section>
 </section>
-<section id="names-and-name-resolution">
-<span id="name-res"></span><h2><a class="toc-backref" href="#id7"><span class="section-number">6.3. </span>Names and Name Resolution</a><a class="headerlink" href="#names-and-name-resolution" title="Permalink to this heading">#</a></h2>
-<section id="variable-names-in-python">
-<h3><span class="section-number">6.3.1. </span>Variable Names in Python<a class="headerlink" href="#variable-names-in-python" title="Permalink to this heading">#</a></h3>
-<p id="index-5">Consider the Python statement</p>
+<section id="inspection-using-rich">
+<h2><span class="section-number">6.3. </span>Inspection Using Rich<a class="headerlink" href="#inspection-using-rich" title="Permalink to this heading">#</a></h2>
+<p>There’s a nice package called <a class="reference external" href="https://github.com/Textualize/rich">rich</a> that
+helps us view the contents of an object.</p>
+<p>For example,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We now know that when this statement is executed, Python creates an object of
-type <code class="docutils literal notranslate"><span class="pre">int</span></code> in your computer’s memory, containing</p>
-<ul class="simple">
-<li><p>the value <code class="docutils literal notranslate"><span class="pre">42</span></code></p></li>
-<li><p>some associated attributes</p></li>
-</ul>
-<p>But what is <code class="docutils literal notranslate"><span class="pre">x</span></code> itself?</p>
-<p>In Python, <code class="docutils literal notranslate"><span class="pre">x</span></code> is called a <em>name</em>, and the statement <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">42</span></code> <em>binds</em> the name <code class="docutils literal notranslate"><span class="pre">x</span></code> to the integer object we have just discussed.</p>
-<p>Under the hood, this process of binding names to objects is implemented as a dictionary—more about this in a moment.</p>
-<p>There is no problem binding two or more names to the one object, regardless of what that object is</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>      <span class="c1"># Create a function called f</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>   <span class="c1"># that prints any string it&#39;s passed</span>
-
-<span class="n">g</span> <span class="o">=</span> <span class="n">f</span>
-<span class="nb">id</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rich</span> <span class="kn">import</span> <span class="n">inspect</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">inspect</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">╭────── </span><span style="color: #000080; text-decoration-color: #000080; font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">class</span><span style="color: #000000; text-decoration-color: #000000"> </span><span style="color: #008000; text-decoration-color: #008000">'int'</span><span style="color: #000080; text-decoration-color: #000080; font-weight: bold">&gt;</span><span style="color: #000080; text-decoration-color: #000080"> ───────╮</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span> <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">int</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">([</span><span style="color: #008080; text-decoration-color: #008080">x</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">])</span><span style="color: #008080; text-decoration-color: #008080"> -&gt; integer</span>        <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span> <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">int</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080">x, </span><span style="color: #808000; text-decoration-color: #808000">base</span><span style="color: #008080; text-decoration-color: #008080">=</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">)</span><span style="color: #008080; text-decoration-color: #008080"> -&gt; integer</span> <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>                            <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span> <span style="color: #008000; text-decoration-color: #008000">╭────────────────────────╮</span> <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span> <span style="color: #008000; text-decoration-color: #008000">│</span> <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>                     <span style="color: #008000; text-decoration-color: #008000">│</span> <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span> <span style="color: #008000; text-decoration-color: #008000">╰────────────────────────╯</span> <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>                            <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span> <span style="color: #808000; text-decoration-color: #808000; font-style: italic">denominator</span> = <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>            <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>        <span style="color: #808000; text-decoration-color: #808000; font-style: italic">imag</span> = <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>            <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>   <span style="color: #808000; text-decoration-color: #808000; font-style: italic">numerator</span> = <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>           <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>        <span style="color: #808000; text-decoration-color: #808000; font-style: italic">real</span> = <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>           <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">╰────────────────────────────╯</span>
+</pre>
+</div></div>
 </div>
-</div>
-</div>
+<p>If we want to see the methods as well, we can use</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inspect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>test
-</pre></div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">╭───────────────────────────────────────────────── </span><span style="color: #000080; text-decoration-color: #000080; font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">class</span><span style="color: #000000; text-decoration-color: #000000"> </span><span style="color: #008000; text-decoration-color: #008000">'int'</span><span style="color: #000080; text-decoration-color: #000080; font-weight: bold">&gt;</span><span style="color: #000080; text-decoration-color: #000080"> ─────────────────────────────────────────────────╮</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span> <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">int</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">([</span><span style="color: #008080; text-decoration-color: #008080">x</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">])</span><span style="color: #008080; text-decoration-color: #008080"> -&gt; integer</span>                                                                                             <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span> <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">int</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080">x, </span><span style="color: #808000; text-decoration-color: #808000">base</span><span style="color: #008080; text-decoration-color: #008080">=</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">)</span><span style="color: #008080; text-decoration-color: #008080"> -&gt; integer</span>                                                                                      <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>                                                                                                                 <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span> <span style="color: #008000; text-decoration-color: #008000">╭─────────────────────────────────────────────────────────────────────────────────────────────────────────────╮</span> <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span> <span style="color: #008000; text-decoration-color: #008000">│</span> <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>                                                                                                          <span style="color: #008000; text-decoration-color: #008000">│</span> <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span> <span style="color: #008000; text-decoration-color: #008000">╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────╯</span> <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>                                                                                                                 <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>      <span style="color: #808000; text-decoration-color: #808000; font-style: italic">denominator</span> = <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>                                                                                            <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>             <span style="color: #808000; text-decoration-color: #808000; font-style: italic">imag</span> = <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>                                                                                            <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>        <span style="color: #808000; text-decoration-color: #808000; font-style: italic">numerator</span> = <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>                                                                                           <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>             <span style="color: #808000; text-decoration-color: #808000; font-style: italic">real</span> = <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>                                                                                           <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span> <span style="color: #808000; text-decoration-color: #808000; font-style: italic">as_integer_ratio</span> = <span style="color: #00ffff; text-decoration-color: #00ffff; font-style: italic">def </span><span style="color: #800000; text-decoration-color: #800000; font-weight: bold">as_integer_ratio</span><span style="font-weight: bold">()</span>: <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">Return integer ratio.</span>                                                <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>        <span style="color: #808000; text-decoration-color: #808000; font-style: italic">bit_count</span> = <span style="color: #00ffff; text-decoration-color: #00ffff; font-style: italic">def </span><span style="color: #800000; text-decoration-color: #800000; font-weight: bold">bit_count</span><span style="font-weight: bold">()</span>: <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">Number of ones in the binary representation of the absolute value of self.</span>  <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>       <span style="color: #808000; text-decoration-color: #808000; font-style: italic">bit_length</span> = <span style="color: #00ffff; text-decoration-color: #00ffff; font-style: italic">def </span><span style="color: #800000; text-decoration-color: #800000; font-weight: bold">bit_length</span><span style="font-weight: bold">()</span>: <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">Number of bits necessary to represent self in binary.</span>                      <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>        <span style="color: #808000; text-decoration-color: #808000; font-style: italic">conjugate</span> = <span style="color: #00ffff; text-decoration-color: #00ffff; font-style: italic">def </span><span style="color: #800000; text-decoration-color: #800000; font-weight: bold">conjugate</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">...</span><span style="font-weight: bold">)</span> <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">Returns self, the complex conjugate of any int.</span>                           <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>       <span style="color: #808000; text-decoration-color: #808000; font-style: italic">from_bytes</span> = <span style="color: #00ffff; text-decoration-color: #00ffff; font-style: italic">def </span><span style="color: #800000; text-decoration-color: #800000; font-weight: bold">from_bytes</span><span style="font-weight: bold">(</span>bytes, <span style="color: #808000; text-decoration-color: #808000">byteorder</span>=<span style="color: #008000; text-decoration-color: #008000">'big'</span>, *, <span style="color: #808000; text-decoration-color: #808000">signed</span>=<span style="color: #ff0000; text-decoration-color: #ff0000; font-style: italic">False</span><span style="font-weight: bold">)</span>: <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">Return the integer represented by </span>  <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>                    <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">the given array of bytes.</span>                                                                    <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>         <span style="color: #808000; text-decoration-color: #808000; font-style: italic">to_bytes</span> = <span style="color: #00ffff; text-decoration-color: #00ffff; font-style: italic">def </span><span style="color: #800000; text-decoration-color: #800000; font-weight: bold">to_bytes</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">length</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #808000; text-decoration-color: #808000">byteorder</span>=<span style="color: #008000; text-decoration-color: #008000">'big'</span>, *, <span style="color: #808000; text-decoration-color: #808000">signed</span>=<span style="color: #ff0000; text-decoration-color: #ff0000; font-style: italic">False</span><span style="font-weight: bold">)</span>: <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">Return an array of bytes </span>          <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>                    <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">representing an integer.</span>                                                                     <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯</span>
+</pre>
+</div></div>
 </div>
-</div>
-</div>
-<p>In the first step, a function object is created, and the name <code class="docutils literal notranslate"><span class="pre">f</span></code> is bound to it.</p>
-<p>After binding the name <code class="docutils literal notranslate"><span class="pre">g</span></code> to the same object, we can use it anywhere we would use <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
-<p>What happens when the number of names bound to an object goes to zero?</p>
-<p>Here’s an example of this situation, where the name <code class="docutils literal notranslate"><span class="pre">x</span></code> is first bound to one object and then rebound to another</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
-<span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140472239369648
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span>  <span class="c1"># No names bound to the first object</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>What happens here is that the first object is garbage collected.</p>
-<p>In other words, the memory slot that stores that object is deallocated, and returned to the operating system.</p>
-<p>Garbage collection is actually an active research area in computer science.</p>
-<p>You can <a class="reference external" href="https://rushter.com/blog/python-garbage-collector/">read more on garbage collection</a> if you are interested.</p>
+<p>In fact there are still more methods, as you can see if you execute <code class="docutils literal notranslate"><span class="pre">inspect(10,</span> <span class="pre">all=True)</span></code>.</p>
 </section>
-<section id="namespaces">
-<h3><span class="section-number">6.3.2. </span>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this heading">#</a></h3>
-<p id="index-6">Recall from the preceding discussion that the statement</p>
+<section id="a-little-mystery">
+<h2><span class="section-number">6.4. </span>A Little Mystery<a class="headerlink" href="#a-little-mystery" title="Permalink to this heading">#</a></h2>
+<p>In this lecture we claimed that Python is, at heart, an object oriented language.</p>
+<p>But here’s an example that looks more procedural.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>binds the name <code class="docutils literal notranslate"><span class="pre">x</span></code> to the integer object on the right-hand side.</p>
-<p>We also mentioned that this process of binding <code class="docutils literal notranslate"><span class="pre">x</span></code> to the correct object is implemented as a dictionary.</p>
-<p>This dictionary is called a <em>namespace</em>.</p>
-<p><strong>Definition:</strong> A namespace is a symbol table that maps names to objects in memory.</p>
-<p>Python uses multiple namespaces, creating them on the fly as necessary.</p>
-<p>For example, every time we import a module, Python creates a namespace for that module.</p>
-<p>To see this in action, suppose we write a script <code class="docutils literal notranslate"><span class="pre">mathfoo.py</span></code> with a single line</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> mathfoo.py
-<span class="n">pi</span> <span class="o">=</span> <span class="s1">&#39;foobar&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
+<span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">m</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing mathfoo.py
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now we start the Python interpreter and import it</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mathfoo</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Next let’s import the <code class="docutils literal notranslate"><span class="pre">math</span></code> module from the standard library</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Both of these modules have an attribute called <code class="docutils literal notranslate"><span class="pre">pi</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">pi</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141592653589793
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mathfoo</span><span class="o">.</span><span class="n">pi</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;foobar&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<p>These two different bindings of <code class="docutils literal notranslate"><span class="pre">pi</span></code> exist in different namespaces, each one implemented as a dictionary.</p>
-<p>We can look at the dictionary directly, using <code class="docutils literal notranslate"><span class="pre">module_name.__dict__</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-
-<span class="n">math</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math&#39;), (&#39;__doc__&#39;, &#39;This module provides access to the mathematical functions\ndefined by the C standard.&#39;), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7fc23f2bba50&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math&#39;, loader=&lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7fc23f2bba50&gt;, origin=&#39;/usr/share/miniconda3/envs/quantecon/lib/python3.11/lib-dynload/math.cpython-311-x86_64-linux-gnu.so&#39;)), (&#39;acos&#39;, &lt;built-in function acos&gt;), (&#39;acosh&#39;, &lt;built-in function acosh&gt;), (&#39;asin&#39;, &lt;built-in function asin&gt;), (&#39;asinh&#39;, &lt;built-in function asinh&gt;), (&#39;atan&#39;, &lt;built-in function atan&gt;), (&#39;atan2&#39;, &lt;built-in function atan2&gt;), (&#39;atanh&#39;, &lt;built-in function atanh&gt;), (&#39;cbrt&#39;, &lt;built-in function cbrt&gt;), (&#39;ceil&#39;, &lt;built-in function ceil&gt;), (&#39;copysign&#39;, &lt;built-in function copysign&gt;), (&#39;cos&#39;, &lt;built-in function cos&gt;), (&#39;cosh&#39;, &lt;built-in function cosh&gt;), (&#39;degrees&#39;, &lt;built-in function degrees&gt;), (&#39;dist&#39;, &lt;built-in function dist&gt;), (&#39;erf&#39;, &lt;built-in function erf&gt;), (&#39;erfc&#39;, &lt;built-in function erfc&gt;), (&#39;exp&#39;, &lt;built-in function exp&gt;), (&#39;exp2&#39;, &lt;built-in function exp2&gt;), (&#39;expm1&#39;, &lt;built-in function expm1&gt;), (&#39;fabs&#39;, &lt;built-in function fabs&gt;), (&#39;factorial&#39;, &lt;built-in function factorial&gt;), (&#39;floor&#39;, &lt;built-in function floor&gt;), (&#39;fmod&#39;, &lt;built-in function fmod&gt;), (&#39;frexp&#39;, &lt;built-in function frexp&gt;), (&#39;fsum&#39;, &lt;built-in function fsum&gt;), (&#39;gamma&#39;, &lt;built-in function gamma&gt;), (&#39;gcd&#39;, &lt;built-in function gcd&gt;), (&#39;hypot&#39;, &lt;built-in function hypot&gt;), (&#39;isclose&#39;, &lt;built-in function isclose&gt;), (&#39;isfinite&#39;, &lt;built-in function isfinite&gt;), (&#39;isinf&#39;, &lt;built-in function isinf&gt;), (&#39;isnan&#39;, &lt;built-in function isnan&gt;), (&#39;isqrt&#39;, &lt;built-in function isqrt&gt;), (&#39;lcm&#39;, &lt;built-in function lcm&gt;), (&#39;ldexp&#39;, &lt;built-in function ldexp&gt;), (&#39;lgamma&#39;, &lt;built-in function lgamma&gt;), (&#39;log&#39;, &lt;built-in function log&gt;), (&#39;log1p&#39;, &lt;built-in function log1p&gt;), (&#39;log10&#39;, &lt;built-in function log10&gt;), (&#39;log2&#39;, &lt;built-in function log2&gt;), (&#39;modf&#39;, &lt;built-in function modf&gt;), (&#39;pow&#39;, &lt;built-in function pow&gt;), (&#39;radians&#39;, &lt;built-in function radians&gt;), (&#39;remainder&#39;, &lt;built-in function remainder&gt;), (&#39;sin&#39;, &lt;built-in function sin&gt;), (&#39;sinh&#39;, &lt;built-in function sinh&gt;), (&#39;sqrt&#39;, &lt;built-in function sqrt&gt;), (&#39;tan&#39;, &lt;built-in function tan&gt;), (&#39;tanh&#39;, &lt;built-in function tanh&gt;), (&#39;trunc&#39;, &lt;built-in function trunc&gt;), (&#39;prod&#39;, &lt;built-in function prod&gt;), (&#39;perm&#39;, &lt;built-in function perm&gt;), (&#39;comb&#39;, &lt;built-in function comb&gt;), (&#39;nextafter&#39;, &lt;built-in function nextafter&gt;), (&#39;ulp&#39;, &lt;built-in function ulp&gt;), (&#39;__file__&#39;, &#39;/usr/share/miniconda3/envs/quantecon/lib/python3.11/lib-dynload/math.cpython-311-x86_64-linux-gnu.so&#39;), (&#39;pi&#39;, 3.141592653589793), (&#39;e&#39;, 2.718281828459045), (&#39;tau&#39;, 6.283185307179586), (&#39;inf&#39;, inf), (&#39;nan&#39;, nan)])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mathfoo</span>
-
-<span class="n">mathfoo</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;mathfoo&#39;), (&#39;__doc__&#39;, None), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.SourceFileLoader object at 0x7fc23fb7b350&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;mathfoo&#39;, loader=&lt;_frozen_importlib_external.SourceFileLoader object at 0x7fc23fb7b350&gt;, origin=&#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures/mathfoo.py&#39;)), (&#39;__file__&#39;, &#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures/mathfoo.py&#39;), (&#39;__cached__&#39;, &#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures/__pycache__/mathfoo.cpython-311.pyc&#39;), (&#39;__builtins__&#39;, {&#39;__name__&#39;: &#39;builtins&#39;, &#39;__doc__&#39;: &quot;Built-in functions, types, exceptions, and other objects.\n\nThis module provides direct access to all &#39;built-in&#39;\nidentifiers of Python; for example, builtins.len is\nthe full name for the built-in function len().\n\nThis module is not normally accessed explicitly by most\napplications, but can be useful in modules that provide\nobjects with the same name as a built-in value, but in\nwhich the built-in of that name is also needed.&quot;, &#39;__package__&#39;: &#39;&#39;, &#39;__loader__&#39;: &lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;, &#39;__spec__&#39;: ModuleSpec(name=&#39;builtins&#39;, loader=&lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;, origin=&#39;built-in&#39;), &#39;__build_class__&#39;: &lt;built-in function __build_class__&gt;, &#39;__import__&#39;: &lt;built-in function __import__&gt;, &#39;abs&#39;: &lt;built-in function abs&gt;, &#39;all&#39;: &lt;built-in function all&gt;, &#39;any&#39;: &lt;built-in function any&gt;, &#39;ascii&#39;: &lt;built-in function ascii&gt;, &#39;bin&#39;: &lt;built-in function bin&gt;, &#39;breakpoint&#39;: &lt;built-in function breakpoint&gt;, &#39;callable&#39;: &lt;built-in function callable&gt;, &#39;chr&#39;: &lt;built-in function chr&gt;, &#39;compile&#39;: &lt;built-in function compile&gt;, &#39;delattr&#39;: &lt;built-in function delattr&gt;, &#39;dir&#39;: &lt;built-in function dir&gt;, &#39;divmod&#39;: &lt;built-in function divmod&gt;, &#39;eval&#39;: &lt;built-in function eval&gt;, &#39;exec&#39;: &lt;built-in function exec&gt;, &#39;format&#39;: &lt;built-in function format&gt;, &#39;getattr&#39;: &lt;built-in function getattr&gt;, &#39;globals&#39;: &lt;built-in function globals&gt;, &#39;hasattr&#39;: &lt;built-in function hasattr&gt;, &#39;hash&#39;: &lt;built-in function hash&gt;, &#39;hex&#39;: &lt;built-in function hex&gt;, &#39;id&#39;: &lt;built-in function id&gt;, &#39;input&#39;: &lt;bound method Kernel.raw_input of &lt;ipykernel.ipkernel.IPythonKernel object at 0x7fc23c5f0790&gt;&gt;, &#39;isinstance&#39;: &lt;built-in function isinstance&gt;, &#39;issubclass&#39;: &lt;built-in function issubclass&gt;, &#39;iter&#39;: &lt;built-in function iter&gt;, &#39;aiter&#39;: &lt;built-in function aiter&gt;, &#39;len&#39;: &lt;built-in function len&gt;, &#39;locals&#39;: &lt;built-in function locals&gt;, &#39;max&#39;: &lt;built-in function max&gt;, &#39;min&#39;: &lt;built-in function min&gt;, &#39;next&#39;: &lt;built-in function next&gt;, &#39;anext&#39;: &lt;built-in function anext&gt;, &#39;oct&#39;: &lt;built-in function oct&gt;, &#39;ord&#39;: &lt;built-in function ord&gt;, &#39;pow&#39;: &lt;built-in function pow&gt;, &#39;print&#39;: &lt;built-in function print&gt;, &#39;repr&#39;: &lt;built-in function repr&gt;, &#39;round&#39;: &lt;built-in function round&gt;, &#39;setattr&#39;: &lt;built-in function setattr&gt;, &#39;sorted&#39;: &lt;built-in function sorted&gt;, &#39;sum&#39;: &lt;built-in function sum&gt;, &#39;vars&#39;: &lt;built-in function vars&gt;, &#39;None&#39;: None, &#39;Ellipsis&#39;: Ellipsis, &#39;NotImplemented&#39;: NotImplemented, &#39;False&#39;: False, &#39;True&#39;: True, &#39;bool&#39;: &lt;class &#39;bool&#39;&gt;, &#39;memoryview&#39;: &lt;class &#39;memoryview&#39;&gt;, &#39;bytearray&#39;: &lt;class &#39;bytearray&#39;&gt;, &#39;bytes&#39;: &lt;class &#39;bytes&#39;&gt;, &#39;classmethod&#39;: &lt;class &#39;classmethod&#39;&gt;, &#39;complex&#39;: &lt;class &#39;complex&#39;&gt;, &#39;dict&#39;: &lt;class &#39;dict&#39;&gt;, &#39;enumerate&#39;: &lt;class &#39;enumerate&#39;&gt;, &#39;filter&#39;: &lt;class &#39;filter&#39;&gt;, &#39;float&#39;: &lt;class &#39;float&#39;&gt;, &#39;frozenset&#39;: &lt;class &#39;frozenset&#39;&gt;, &#39;property&#39;: &lt;class &#39;property&#39;&gt;, &#39;int&#39;: &lt;class &#39;int&#39;&gt;, &#39;list&#39;: &lt;class &#39;list&#39;&gt;, &#39;map&#39;: &lt;class &#39;map&#39;&gt;, &#39;object&#39;: &lt;class &#39;object&#39;&gt;, &#39;range&#39;: &lt;class &#39;range&#39;&gt;, &#39;reversed&#39;: &lt;class &#39;reversed&#39;&gt;, &#39;set&#39;: &lt;class &#39;set&#39;&gt;, &#39;slice&#39;: &lt;class &#39;slice&#39;&gt;, &#39;staticmethod&#39;: &lt;class &#39;staticmethod&#39;&gt;, &#39;str&#39;: &lt;class &#39;str&#39;&gt;, &#39;super&#39;: &lt;class &#39;super&#39;&gt;, &#39;tuple&#39;: &lt;class &#39;tuple&#39;&gt;, &#39;type&#39;: &lt;class &#39;type&#39;&gt;, &#39;zip&#39;: &lt;class &#39;zip&#39;&gt;, &#39;__debug__&#39;: True, &#39;BaseException&#39;: &lt;class &#39;BaseException&#39;&gt;, &#39;BaseExceptionGroup&#39;: &lt;class &#39;BaseExceptionGroup&#39;&gt;, &#39;Exception&#39;: &lt;class &#39;Exception&#39;&gt;, &#39;GeneratorExit&#39;: &lt;class &#39;GeneratorExit&#39;&gt;, &#39;KeyboardInterrupt&#39;: &lt;class &#39;KeyboardInterrupt&#39;&gt;, &#39;SystemExit&#39;: &lt;class &#39;SystemExit&#39;&gt;, &#39;ArithmeticError&#39;: &lt;class &#39;ArithmeticError&#39;&gt;, &#39;AssertionError&#39;: &lt;class &#39;AssertionError&#39;&gt;, &#39;AttributeError&#39;: &lt;class &#39;AttributeError&#39;&gt;, &#39;BufferError&#39;: &lt;class &#39;BufferError&#39;&gt;, &#39;EOFError&#39;: &lt;class &#39;EOFError&#39;&gt;, &#39;ImportError&#39;: &lt;class &#39;ImportError&#39;&gt;, &#39;LookupError&#39;: &lt;class &#39;LookupError&#39;&gt;, &#39;MemoryError&#39;: &lt;class &#39;MemoryError&#39;&gt;, &#39;NameError&#39;: &lt;class &#39;NameError&#39;&gt;, &#39;OSError&#39;: &lt;class &#39;OSError&#39;&gt;, &#39;ReferenceError&#39;: &lt;class &#39;ReferenceError&#39;&gt;, &#39;RuntimeError&#39;: &lt;class &#39;RuntimeError&#39;&gt;, &#39;StopAsyncIteration&#39;: &lt;class &#39;StopAsyncIteration&#39;&gt;, &#39;StopIteration&#39;: &lt;class &#39;StopIteration&#39;&gt;, &#39;SyntaxError&#39;: &lt;class &#39;SyntaxError&#39;&gt;, &#39;SystemError&#39;: &lt;class &#39;SystemError&#39;&gt;, &#39;TypeError&#39;: &lt;class &#39;TypeError&#39;&gt;, &#39;ValueError&#39;: &lt;class &#39;ValueError&#39;&gt;, &#39;Warning&#39;: &lt;class &#39;Warning&#39;&gt;, &#39;FloatingPointError&#39;: &lt;class &#39;FloatingPointError&#39;&gt;, &#39;OverflowError&#39;: &lt;class &#39;OverflowError&#39;&gt;, &#39;ZeroDivisionError&#39;: &lt;class &#39;ZeroDivisionError&#39;&gt;, &#39;BytesWarning&#39;: &lt;class &#39;BytesWarning&#39;&gt;, &#39;DeprecationWarning&#39;: &lt;class &#39;DeprecationWarning&#39;&gt;, &#39;EncodingWarning&#39;: &lt;class &#39;EncodingWarning&#39;&gt;, &#39;FutureWarning&#39;: &lt;class &#39;FutureWarning&#39;&gt;, &#39;ImportWarning&#39;: &lt;class &#39;ImportWarning&#39;&gt;, &#39;PendingDeprecationWarning&#39;: &lt;class &#39;PendingDeprecationWarning&#39;&gt;, &#39;ResourceWarning&#39;: &lt;class &#39;ResourceWarning&#39;&gt;, &#39;RuntimeWarning&#39;: &lt;class &#39;RuntimeWarning&#39;&gt;, &#39;SyntaxWarning&#39;: &lt;class &#39;SyntaxWarning&#39;&gt;, &#39;UnicodeWarning&#39;: &lt;class &#39;UnicodeWarning&#39;&gt;, &#39;UserWarning&#39;: &lt;class &#39;UserWarning&#39;&gt;, &#39;BlockingIOError&#39;: &lt;class &#39;BlockingIOError&#39;&gt;, &#39;ChildProcessError&#39;: &lt;class &#39;ChildProcessError&#39;&gt;, &#39;ConnectionError&#39;: &lt;class &#39;ConnectionError&#39;&gt;, &#39;FileExistsError&#39;: &lt;class &#39;FileExistsError&#39;&gt;, &#39;FileNotFoundError&#39;: &lt;class &#39;FileNotFoundError&#39;&gt;, &#39;InterruptedError&#39;: &lt;class &#39;InterruptedError&#39;&gt;, &#39;IsADirectoryError&#39;: &lt;class &#39;IsADirectoryError&#39;&gt;, &#39;NotADirectoryError&#39;: &lt;class &#39;NotADirectoryError&#39;&gt;, &#39;PermissionError&#39;: &lt;class &#39;PermissionError&#39;&gt;, &#39;ProcessLookupError&#39;: &lt;class &#39;ProcessLookupError&#39;&gt;, &#39;TimeoutError&#39;: &lt;class &#39;TimeoutError&#39;&gt;, &#39;IndentationError&#39;: &lt;class &#39;IndentationError&#39;&gt;, &#39;IndexError&#39;: &lt;class &#39;IndexError&#39;&gt;, &#39;KeyError&#39;: &lt;class &#39;KeyError&#39;&gt;, &#39;ModuleNotFoundError&#39;: &lt;class &#39;ModuleNotFoundError&#39;&gt;, &#39;NotImplementedError&#39;: &lt;class &#39;NotImplementedError&#39;&gt;, &#39;RecursionError&#39;: &lt;class &#39;RecursionError&#39;&gt;, &#39;UnboundLocalError&#39;: &lt;class &#39;UnboundLocalError&#39;&gt;, &#39;UnicodeError&#39;: &lt;class &#39;UnicodeError&#39;&gt;, &#39;BrokenPipeError&#39;: &lt;class &#39;BrokenPipeError&#39;&gt;, &#39;ConnectionAbortedError&#39;: &lt;class &#39;ConnectionAbortedError&#39;&gt;, &#39;ConnectionRefusedError&#39;: &lt;class &#39;ConnectionRefusedError&#39;&gt;, &#39;ConnectionResetError&#39;: &lt;class &#39;ConnectionResetError&#39;&gt;, &#39;TabError&#39;: &lt;class &#39;TabError&#39;&gt;, &#39;UnicodeDecodeError&#39;: &lt;class &#39;UnicodeDecodeError&#39;&gt;, &#39;UnicodeEncodeError&#39;: &lt;class &#39;UnicodeEncodeError&#39;&gt;, &#39;UnicodeTranslateError&#39;: &lt;class &#39;UnicodeTranslateError&#39;&gt;, &#39;ExceptionGroup&#39;: &lt;class &#39;ExceptionGroup&#39;&gt;, &#39;EnvironmentError&#39;: &lt;class &#39;OSError&#39;&gt;, &#39;IOError&#39;: &lt;class &#39;OSError&#39;&gt;, &#39;open&#39;: &lt;built-in function open&gt;, &#39;copyright&#39;: Copyright (c) 2001-2023 Python Software Foundation.
-All Rights Reserved.
-
-Copyright (c) 2000 BeOpen.com.
-All Rights Reserved.
-
-Copyright (c) 1995-2001 Corporation for National Research Initiatives.
-All Rights Reserved.
-
-Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.
-All Rights Reserved., &#39;credits&#39;:     Thanks to CWI, CNRI, BeOpen.com, Zope Corporation and a cast of thousands
-    for supporting Python development.  See www.python.org for more information., &#39;license&#39;: Type license() to see the full license text, &#39;help&#39;: Type help() for interactive help, or help(object) for help about object., &#39;execfile&#39;: &lt;function execfile at 0x7fc23cb258a0&gt;, &#39;runfile&#39;: &lt;function runfile at 0x7fc23ca48e00&gt;, &#39;__IPYTHON__&#39;: True, &#39;display&#39;: &lt;function display at 0x7fc23dc2f420&gt;, &#39;get_ipython&#39;: &lt;bound method InteractiveShell.get_ipython of &lt;ipykernel.zmqshell.ZMQInteractiveShell object at 0x7fc23c5f1590&gt;&gt;}), (&#39;pi&#39;, &#39;foobar&#39;)])
-</pre></div>
-</div>
-</div>
-</div>
-<p>As you know, we access elements of the namespace using the dotted attribute notation</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">pi</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141592653589793
-</pre></div>
-</div>
-</div>
-</div>
-<p>In fact this is entirely equivalent to <code class="docutils literal notranslate"><span class="pre">math.__dict__['pi']</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;pi&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="viewing-namespaces">
-<h3><span class="section-number">6.3.3. </span>Viewing Namespaces<a class="headerlink" href="#viewing-namespaces" title="Permalink to this heading">#</a></h3>
-<p>As we saw above, the <code class="docutils literal notranslate"><span class="pre">math</span></code> namespace can be printed by typing <code class="docutils literal notranslate"><span class="pre">math.__dict__</span></code>.</p>
-<p>Another way to see its contents is to type <code class="docutils literal notranslate"><span class="pre">vars(math)</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">vars</span><span class="p">(</span><span class="n">math</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math&#39;), (&#39;__doc__&#39;, &#39;This module provides access to the mathematical functions\ndefined by the C standard.&#39;), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7fc23f2bba50&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math&#39;, loader=&lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7fc23f2bba50&gt;, origin=&#39;/usr/share/miniconda3/envs/quantecon/lib/python3.11/lib-dynload/math.cpython-311-x86_64-linux-gnu.so&#39;)), (&#39;acos&#39;, &lt;built-in function acos&gt;), (&#39;acosh&#39;, &lt;built-in function acosh&gt;), (&#39;asin&#39;, &lt;built-in function asin&gt;), (&#39;asinh&#39;, &lt;built-in function asinh&gt;), (&#39;atan&#39;, &lt;built-in function atan&gt;), (&#39;atan2&#39;, &lt;built-in function atan2&gt;), (&#39;atanh&#39;, &lt;built-in function atanh&gt;), (&#39;cbrt&#39;, &lt;built-in function cbrt&gt;), (&#39;ceil&#39;, &lt;built-in function ceil&gt;), (&#39;copysign&#39;, &lt;built-in function copysign&gt;), (&#39;cos&#39;, &lt;built-in function cos&gt;), (&#39;cosh&#39;, &lt;built-in function cosh&gt;), (&#39;degrees&#39;, &lt;built-in function degrees&gt;), (&#39;dist&#39;, &lt;built-in function dist&gt;), (&#39;erf&#39;, &lt;built-in function erf&gt;), (&#39;erfc&#39;, &lt;built-in function erfc&gt;), (&#39;exp&#39;, &lt;built-in function exp&gt;), (&#39;exp2&#39;, &lt;built-in function exp2&gt;), (&#39;expm1&#39;, &lt;built-in function expm1&gt;), (&#39;fabs&#39;, &lt;built-in function fabs&gt;), (&#39;factorial&#39;, &lt;built-in function factorial&gt;), (&#39;floor&#39;, &lt;built-in function floor&gt;), (&#39;fmod&#39;, &lt;built-in function fmod&gt;), (&#39;frexp&#39;, &lt;built-in function frexp&gt;), (&#39;fsum&#39;, &lt;built-in function fsum&gt;), (&#39;gamma&#39;, &lt;built-in function gamma&gt;), (&#39;gcd&#39;, &lt;built-in function gcd&gt;), (&#39;hypot&#39;, &lt;built-in function hypot&gt;), (&#39;isclose&#39;, &lt;built-in function isclose&gt;), (&#39;isfinite&#39;, &lt;built-in function isfinite&gt;), (&#39;isinf&#39;, &lt;built-in function isinf&gt;), (&#39;isnan&#39;, &lt;built-in function isnan&gt;), (&#39;isqrt&#39;, &lt;built-in function isqrt&gt;), (&#39;lcm&#39;, &lt;built-in function lcm&gt;), (&#39;ldexp&#39;, &lt;built-in function ldexp&gt;), (&#39;lgamma&#39;, &lt;built-in function lgamma&gt;), (&#39;log&#39;, &lt;built-in function log&gt;), (&#39;log1p&#39;, &lt;built-in function log1p&gt;), (&#39;log10&#39;, &lt;built-in function log10&gt;), (&#39;log2&#39;, &lt;built-in function log2&gt;), (&#39;modf&#39;, &lt;built-in function modf&gt;), (&#39;pow&#39;, &lt;built-in function pow&gt;), (&#39;radians&#39;, &lt;built-in function radians&gt;), (&#39;remainder&#39;, &lt;built-in function remainder&gt;), (&#39;sin&#39;, &lt;built-in function sin&gt;), (&#39;sinh&#39;, &lt;built-in function sinh&gt;), (&#39;sqrt&#39;, &lt;built-in function sqrt&gt;), (&#39;tan&#39;, &lt;built-in function tan&gt;), (&#39;tanh&#39;, &lt;built-in function tanh&gt;), (&#39;trunc&#39;, &lt;built-in function trunc&gt;), (&#39;prod&#39;, &lt;built-in function prod&gt;), (&#39;perm&#39;, &lt;built-in function perm&gt;), (&#39;comb&#39;, &lt;built-in function comb&gt;), (&#39;nextafter&#39;, &lt;built-in function nextafter&gt;), (&#39;ulp&#39;, &lt;built-in function ulp&gt;), (&#39;__file__&#39;, &#39;/usr/share/miniconda3/envs/quantecon/lib/python3.11/lib-dynload/math.cpython-311-x86_64-linux-gnu.so&#39;), (&#39;pi&#39;, 3.141592653589793), (&#39;e&#39;, 2.718281828459045), (&#39;tau&#39;, 6.283185307179586), (&#39;inf&#39;, inf), (&#39;nan&#39;, nan)])
-</pre></div>
-</div>
-</div>
-</div>
-<p>If you just want to see the names, you can type</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show the first 10 names</span>
-<span class="nb">dir</span><span class="p">(</span><span class="n">math</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__doc__&#39;,
- &#39;__file__&#39;,
- &#39;__loader__&#39;,
- &#39;__name__&#39;,
- &#39;__package__&#39;,
- &#39;__spec__&#39;,
- &#39;acos&#39;,
- &#39;acosh&#39;,
- &#39;asin&#39;,
- &#39;asinh&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<p>Notice the special names <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> and <code class="docutils literal notranslate"><span class="pre">__name__</span></code>.</p>
-<p>These are initialized in the namespace when any module is imported</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">__doc__</span></code> is the doc string of the module</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">__name__</span></code> is the name of the module</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This module provides access to the mathematical functions
-defined by the C standard.
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="vm">__name__</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;math&#39;
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="interactive-sessions">
-<h3><span class="section-number">6.3.4. </span>Interactive Sessions<a class="headerlink" href="#interactive-sessions" title="Permalink to this heading">#</a></h3>
-<p id="index-7">In Python, <strong>all</strong> code executed by the interpreter runs in some module.</p>
-<p>What about commands typed at the prompt?</p>
-<p>These are also regarded as being executed within a module — in this case, a module called <code class="docutils literal notranslate"><span class="pre">__main__</span></code>.</p>
-<p>To check this, we can look at the current module name via the value of <code class="docutils literal notranslate"><span class="pre">__name__</span></code> given at the prompt</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>__main__
-</pre></div>
-</div>
-</div>
-</div>
-<p>When we run a script using IPython’s <code class="docutils literal notranslate"><span class="pre">run</span></code> command, the contents of the file are executed as part of <code class="docutils literal notranslate"><span class="pre">__main__</span></code> too.</p>
-<p>To see this, let’s create a file <code class="docutils literal notranslate"><span class="pre">mod.py</span></code> that prints its own <code class="docutils literal notranslate"><span class="pre">__name__</span></code> attribute</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> mod.py
-<span class="nb">print</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing mod.py
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now let’s look at two different ways of running it in IPython</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mod</span>  <span class="c1"># Standard import</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mod
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> mod.py  # Run interactively
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>__main__
-</pre></div>
-</div>
-</div>
-</div>
-<p>In the second case, the code is executed as part of <code class="docutils literal notranslate"><span class="pre">__main__</span></code>, so <code class="docutils literal notranslate"><span class="pre">__name__</span></code> is equal to <code class="docutils literal notranslate"><span class="pre">__main__</span></code>.</p>
-<p>To see the contents of the namespace of <code class="docutils literal notranslate"><span class="pre">__main__</span></code> we use <code class="docutils literal notranslate"><span class="pre">vars()</span></code> rather than <code class="docutils literal notranslate"><span class="pre">vars(__main__)</span></code>.</p>
-<p>If you do this in IPython, you will see a whole lot of variables that IPython
-needs, and has initialized when you started up your session.</p>
-<p>If you prefer to see only the variables you have initialized, use <code class="docutils literal notranslate"><span class="pre">%whos</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="o">%</span><span class="k">whos</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable   Type        Data/Info
---------------------------------
-f          function    &lt;function f at 0x7fc238477880&gt;
-g          function    &lt;function f at 0x7fc238477880&gt;
-math       module      &lt;module &#39;math&#39; from &#39;/usr&lt;...&gt;311-x86_64-linux-gnu.so&#39;&gt;
-mathfoo    module      &lt;module &#39;mathfoo&#39; from &#39;/&lt;...&gt;yst/lectures/mathfoo.py&#39;&gt;
-mod        module      &lt;module &#39;mod&#39; from &#39;/home&lt;...&gt;ng.myst/lectures/mod.py&#39;&gt;
-np         module      &lt;module &#39;numpy&#39; from &#39;/us&lt;...&gt;kages/numpy/__init__.py&#39;&gt;
-s          str         This is a string
-x          int         2
-y          int         3
-z          float       2.5
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="the-global-namespace">
-<h3><span class="section-number">6.3.5. </span>The Global Namespace<a class="headerlink" href="#the-global-namespace" title="Permalink to this heading">#</a></h3>
-<p id="index-8">Python documentation often makes reference to the “global namespace”.</p>
-<p>The global namespace is <em>the namespace of the module currently being executed</em>.</p>
-<p>For example, suppose that we start the interpreter and begin making assignments.</p>
-<p>We are now working in the module <code class="docutils literal notranslate"><span class="pre">__main__</span></code>, and hence the namespace for <code class="docutils literal notranslate"><span class="pre">__main__</span></code> is the global namespace.</p>
-<p>Next, we import a module called <code class="docutils literal notranslate"><span class="pre">amodule</span></code></p>
-<div class="no-execute highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">amodule</span>
-</pre></div>
-</div>
-<p>At this point, the interpreter creates a namespace for the module <code class="docutils literal notranslate"><span class="pre">amodule</span></code> and starts executing commands in the module.</p>
-<p>While this occurs, the namespace <code class="docutils literal notranslate"><span class="pre">amodule.__dict__</span></code> is the global namespace.</p>
-<p>Once execution of the module finishes, the interpreter returns to the module from where the import statement was made.</p>
-<p>In this case it’s <code class="docutils literal notranslate"><span class="pre">__main__</span></code>, so the namespace of <code class="docutils literal notranslate"><span class="pre">__main__</span></code> again becomes the global namespace.</p>
-</section>
-<section id="local-namespaces">
-<h3><span class="section-number">6.3.6. </span>Local Namespaces<a class="headerlink" href="#local-namespaces" title="Permalink to this heading">#</a></h3>
-<p id="index-9">Important fact: When we call a function, the interpreter creates a <em>local namespace</em> for that function, and registers the variables in that namespace.</p>
-<p>The reason for this will be explained in just a moment.</p>
-<p>Variables in the local namespace are called <em>local variables</em>.</p>
-<p>After the function returns, the namespace is deallocated and lost.</p>
-<p>While the function is executing, we can view the contents of the local namespace with <code class="docutils literal notranslate"><span class="pre">locals()</span></code>.</p>
-<p>For example, consider</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now let’s call the function</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;x&#39;: 1, &#39;a&#39;: 2}
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 </div>
 </div>
-<p>You can see the local namespace of <code class="docutils literal notranslate"><span class="pre">f</span></code> before it is destroyed.</p>
-</section>
-<section id="the-builtins-namespace">
-<h3><span class="section-number">6.3.7. </span>The <code class="docutils literal notranslate"><span class="pre">__builtins__</span></code> Namespace<a class="headerlink" href="#the-builtins-namespace" title="Permalink to this heading">#</a></h3>
-<p id="index-10">We have been using various built-in functions, such as <code class="docutils literal notranslate"><span class="pre">max(),</span> <span class="pre">dir(),</span> <span class="pre">str(),</span> <span class="pre">list(),</span> <span class="pre">len(),</span> <span class="pre">range(),</span> <span class="pre">type()</span></code>, etc.</p>
-<p>How does access to these names work?</p>
-<ul class="simple">
-<li><p>These definitions are stored in a module called <code class="docutils literal notranslate"><span class="pre">__builtin__</span></code>.</p></li>
-<li><p>They have their own namespace called <code class="docutils literal notranslate"><span class="pre">__builtins__</span></code>.</p></li>
-</ul>
+<p>If Python is object oriented, why don’t we use <code class="docutils literal notranslate"><span class="pre">x.len()</span></code>?</p>
+<p>The answer is related to the fact that Python aims for readability and consistent style.</p>
+<p>In Python, it is common for users to build custom objects — we discuss how to
+do this <a class="reference internal" href="python_oop.html"><span class="doc">later</span></a>.</p>
+<p>It’s quite common for users to add methods to their that measure the length of
+the object, suitably defined.</p>
+<p>When naming such a method, natural choices are <code class="docutils literal notranslate"><span class="pre">len()</span></code> and <code class="docutils literal notranslate"><span class="pre">length()</span></code>.</p>
+<p>If some users choose <code class="docutils literal notranslate"><span class="pre">len()</span></code> and others choose <code class="docutils literal notranslate"><span class="pre">length()</span></code>, then the style will
+be inconsistent and harder to remember.</p>
+<p>To avoid this, the creator of Python chose to add
+<code class="docutils literal notranslate"><span class="pre">len()</span></code> as a built-in function, to help emphasize that <code class="docutils literal notranslate"><span class="pre">len()</span></code> is the convention.</p>
+<p>Now, having said all of this, Python <em>is</em> still object oriented under the hood.</p>
+<p>In fact, the list <code class="docutils literal notranslate"><span class="pre">x</span></code> discussed above has a method called <code class="docutils literal notranslate"><span class="pre">__len__()</span></code>.</p>
+<p>All that the function <code class="docutils literal notranslate"><span class="pre">len()</span></code> does is call this method.</p>
+<p>In other words, the following code is equivalent:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show the first 10 names in `__main__`</span>
-<span class="nb">dir</span><span class="p">()[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;In&#39;, &#39;Out&#39;, &#39;_&#39;, &#39;_1&#39;, &#39;_10&#39;, &#39;_11&#39;, &#39;_12&#39;, &#39;_13&#39;, &#39;_14&#39;, &#39;_15&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 </div>
 </div>
+<p>and</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show the first 10 names in `__builtins__`</span>
-<span class="nb">dir</span><span class="p">(</span><span class="n">__builtins__</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
+<span class="n">x</span><span class="o">.</span><span class="fm">__len__</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;ArithmeticError&#39;,
- &#39;AssertionError&#39;,
- &#39;AttributeError&#39;,
- &#39;BaseException&#39;,
- &#39;BaseExceptionGroup&#39;,
- &#39;BlockingIOError&#39;,
- &#39;BrokenPipeError&#39;,
- &#39;BufferError&#39;,
- &#39;BytesWarning&#39;,
- &#39;ChildProcessError&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 </div>
 </div>
-<p>We can access elements of the namespace as follows</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">__builtins__</span><span class="o">.</span><span class="n">max</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function max&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<p>But <code class="docutils literal notranslate"><span class="pre">__builtins__</span></code> is special, because we can always access them directly as well</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">max</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function max&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">__builtins__</span><span class="o">.</span><span class="n">max</span> <span class="o">==</span> <span class="nb">max</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</div>
-<p>The next section explains how this works …</p>
-</section>
-<section id="name-resolution">
-<h3><span class="section-number">6.3.8. </span>Name Resolution<a class="headerlink" href="#name-resolution" title="Permalink to this heading">#</a></h3>
-<p id="index-11">Namespaces are great because they help us organize variable names.</p>
-<p>(Type <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">this</span></code> at the prompt and look at the last item that’s printed)</p>
-<p>However, we do need to understand how the Python interpreter works with multiple namespaces.</p>
-<p>Understanding the flow of execution will help us to check which variables are in scope and how to operate on them when writing and debugging programs.</p>
-<p>At any point of execution, there are in fact at least two namespaces that can be accessed directly.</p>
-<p>(“Accessed directly” means without using a dot, as in  <code class="docutils literal notranslate"><span class="pre">pi</span></code> rather than <code class="docutils literal notranslate"><span class="pre">math.pi</span></code>)</p>
-<p>These namespaces are</p>
-<ul class="simple">
-<li><p>The global namespace (of the module being executed)</p></li>
-<li><p>The builtin namespace</p></li>
-</ul>
-<p>If the interpreter is executing a function, then the directly accessible namespaces are</p>
-<ul class="simple">
-<li><p>The local namespace of the function</p></li>
-<li><p>The global namespace (of the module being executed)</p></li>
-<li><p>The builtin namespace</p></li>
-</ul>
-<p>Sometimes functions are defined within other functions, like so</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="k">def</span> <span class="nf">g</span><span class="p">():</span>
-        <span class="n">b</span> <span class="o">=</span> <span class="mi">4</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>
-    <span class="n">g</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Here <code class="docutils literal notranslate"><span class="pre">f</span></code> is the <em>enclosing function</em> for <code class="docutils literal notranslate"><span class="pre">g</span></code>, and each function gets its
-own namespaces.</p>
-<p>Now we can give the rule for how namespace resolution works:</p>
-<p>The order in which the interpreter searches for names is</p>
-<ol class="arabic simple">
-<li><p>the local namespace (if it exists)</p></li>
-<li><p>the hierarchy of enclosing namespaces (if they exist)</p></li>
-<li><p>the global namespace</p></li>
-<li><p>the builtin namespace</p></li>
-</ol>
-<p>If the name is not in any of these namespaces, the interpreter raises a <code class="docutils literal notranslate"><span class="pre">NameError</span></code>.</p>
-<p>This is called the <strong>LEGB rule</strong> (local, enclosing, global, builtin).</p>
-<p>Here’s an example that helps to illustrate.</p>
-<p>Visualizations here are created by <a class="reference external" href="https://github.com/lgpage/nbtutor">nbtutor</a> in a Jupyter notebook.</p>
-<p>They can help you better understand your program when you are learning a new language.</p>
-<p>Consider a script <code class="docutils literal notranslate"><span class="pre">test.py</span></code> that looks as follows</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> test.py
-<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">a</span>
-    <span class="k">return</span> <span class="n">x</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a = &quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s2">&quot;y = &quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing test.py
-</pre></div>
-</div>
-</div>
-</div>
-<p>What happens when we run this script?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> test.py
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a =  0 y =  11
-</pre></div>
-</div>
-</div>
-</div>
-<p>First,</p>
-<ul class="simple">
-<li><p>The global namespace <code class="docutils literal notranslate"><span class="pre">{}</span></code> is created.</p></li>
-</ul>
-<figure class="auto align-default">
-<img alt="_images/global.png" src="_images/global.png" />
-</figure>
-<ul class="simple">
-<li><p>The function object is created, and <code class="docutils literal notranslate"><span class="pre">g</span></code> is bound to it within the global namespace.</p></li>
-<li><p>The name <code class="docutils literal notranslate"><span class="pre">a</span></code> is bound to <code class="docutils literal notranslate"><span class="pre">0</span></code>, again in the global namespace.</p></li>
-</ul>
-<figure class="auto align-default">
-<img alt="_images/global2.png" src="_images/global2.png" />
-</figure>
-<p>Next <code class="docutils literal notranslate"><span class="pre">g</span></code> is called via <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">g(10)</span></code>, leading to the following sequence of actions</p>
-<ul class="simple">
-<li><p>The local namespace for the function is created.</p></li>
-<li><p>Local names <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">a</span></code> are bound, so that the local namespace becomes <code class="docutils literal notranslate"><span class="pre">{'x':</span> <span class="pre">10,</span> <span class="pre">'a':</span> <span class="pre">1}</span></code>.</p>
-<ul>
-<li><p>Note that the global <code class="docutils literal notranslate"><span class="pre">a</span></code> was not affected by the local <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p></li>
-</ul>
-</li>
-</ul>
-<figure class="auto align-default">
-<img alt="_images/local1.png" src="_images/local1.png" />
-</figure>
-<ul class="simple">
-<li><p>Statement <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">a</span></code> uses the local <code class="docutils literal notranslate"><span class="pre">a</span></code> and local <code class="docutils literal notranslate"><span class="pre">x</span></code> to compute <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">a</span></code>, and binds local name <code class="docutils literal notranslate"><span class="pre">x</span></code> to the result.</p></li>
-<li><p>This value is returned, and <code class="docutils literal notranslate"><span class="pre">y</span></code> is bound to it in the global namespace.</p></li>
-<li><p>Local <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">a</span></code> are discarded (and the local namespace is deallocated).</p></li>
-</ul>
-<figure class="auto align-default">
-<img alt="_images/local_return.png" src="_images/local_return.png" />
-</figure>
-</section>
-<section id="mutable-versus-immutable-parameters">
-<span id="mutable-vs-immutable"></span><h3><span class="section-number">6.3.9. </span><span class="target" id="index-12"></span>Mutable Versus <span class="target" id="index-13"></span>Immutable Parameters<a class="headerlink" href="#mutable-versus-immutable-parameters" title="Permalink to this heading">#</a></h3>
-<p>This is a good time to say a little more about mutable vs immutable objects.</p>
-<p>Consider the code segment</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">x</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 1
-</pre></div>
-</div>
-</div>
-</div>
-<p>We now understand what will happen here: The code prints <code class="docutils literal notranslate"><span class="pre">2</span></code> as the value of <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code> as the value of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p>First <code class="docutils literal notranslate"><span class="pre">f</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code> are registered in the global namespace.</p>
-<p>The call <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> creates a local namespace and adds <code class="docutils literal notranslate"><span class="pre">x</span></code> to it, bound to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
-<p>Next, this local <code class="docutils literal notranslate"><span class="pre">x</span></code> is rebound to the new integer object <code class="docutils literal notranslate"><span class="pre">2</span></code>, and this value is returned.</p>
-<p>None of this affects the global <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p>However, it’s a different story when we use a <strong>mutable</strong> data type such as a list</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">x</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2] [2]
-</pre></div>
-</div>
-</div>
-</div>
-<p>This prints <code class="docutils literal notranslate"><span class="pre">[2]</span></code> as the value of <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> and <em>same</em> for <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p>Here’s what happens</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">f</span></code> is registered as a function in the global namespace</p></li>
-</ul>
-<figure class="auto align-default">
-<img alt="_images/mutable1.png" src="_images/mutable1.png" />
-</figure>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> bound to <code class="docutils literal notranslate"><span class="pre">[1]</span></code> in the global namespace</p></li>
-</ul>
-<figure class="auto align-default">
-<img alt="_images/mutable2.png" src="_images/mutable2.png" />
-</figure>
-<ul class="simple">
-<li><p>The call <code class="docutils literal notranslate"><span class="pre">f(x)</span></code></p>
-<ul>
-<li><p>Creates a local namespace</p></li>
-<li><p>Adds <code class="docutils literal notranslate"><span class="pre">x</span></code> to the local namespace, bound to <code class="docutils literal notranslate"><span class="pre">[1]</span></code></p></li>
-</ul>
-</li>
-</ul>
-<figure class="auto align-default">
-<img alt="_images/mutable3.png" src="_images/mutable3.png" />
-</figure>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The global <code class="docutils literal notranslate"><span class="pre">x</span></code> and the local <code class="docutils literal notranslate"><span class="pre">x</span></code> refer to the same <code class="docutils literal notranslate"><span class="pre">[1]</span></code></p>
-</div>
-<p>We can see the identity of local <code class="docutils literal notranslate"><span class="pre">x</span></code> and the identity of global <code class="docutils literal notranslate"><span class="pre">x</span></code> are the same</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;the identity of local x is </span><span class="si">{</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">x</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;the identity of global x is </span><span class="si">{</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the identity of global x is 140471461499776
-the identity of local x is 140471461499776
-[2] [2]
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>Within <code class="docutils literal notranslate"><span class="pre">f(x)</span></code></p>
-<ul>
-<li><p>The list <code class="docutils literal notranslate"><span class="pre">[1]</span></code> is modified to <code class="docutils literal notranslate"><span class="pre">[2]</span></code></p></li>
-<li><p>Returns the list <code class="docutils literal notranslate"><span class="pre">[2]</span></code></p></li>
-</ul>
-</li>
-</ul>
-<figure class="auto align-default">
-<img alt="_images/mutable4.png" src="_images/mutable4.png" />
-</figure>
-<ul class="simple">
-<li><p>The local namespace is deallocated, and the local <code class="docutils literal notranslate"><span class="pre">x</span></code> is lost</p></li>
-</ul>
-<figure class="auto align-default">
-<img alt="_images/mutable5.png" src="_images/mutable5.png" />
-</figure>
-<p>If you want to modify the local <code class="docutils literal notranslate"><span class="pre">x</span></code> and the global <code class="docutils literal notranslate"><span class="pre">x</span></code> separately, you can create a <a class="reference external" href="https://docs.python.org/3/library/copy.html"><em>copy</em></a> of the list and assign the copy to the local <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p>We will leave this for you to explore.</p>
-</section>
 </section>
 <section id="summary">
-<h2><a class="toc-backref" href="#id8"><span class="section-number">6.4. </span>Summary</a><a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
-<p>Messages in this lecture are clear:</p>
+<h2><span class="section-number">6.5. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<p>The message in this lecture is clear:</p>
 <ul class="simple">
 <li><p>In Python, <em>everything in memory is treated as an object</em>.</p></li>
-<li><p>Zero, one or many names can be bound to a given object.</p></li>
-<li><p>Every name resides within a scope defined by its namespace.</p></li>
 </ul>
 <p>This includes not just lists, strings, etc., but also less obvious things, such as</p>
 <ul class="simple">
@@ -1355,162 +718,18 @@ the identity of local x is 140471461499776
 <li><p>files opened for reading or writing</p></li>
 <li><p>integers, etc.</p></li>
 </ul>
-<p>Consider, for example, functions.</p>
-<p>When Python reads a function definition, it creates a <strong>function object</strong> and stores it in memory.</p>
-<p>The following code illustrates further this idea</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#reset the current namespace</span>
-<span class="o">%</span><span class="k">reset</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
-<span class="n">f</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.f(x)&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>function
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140472213439648
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;f&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can see that <code class="docutils literal notranslate"><span class="pre">f</span></code> has type, identity, attributes and so on—just like any other object.</p>
-<p>It also has methods.</p>
-<p>One example is the <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method, which just evaluates the function</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="fm">__call__</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
-</pre></div>
-</div>
-</div>
-</div>
-<p>Another is the <code class="docutils literal notranslate"><span class="pre">__dir__</span></code> method, which returns a list of attributes.</p>
-<p>We can also find <code class="docutils literal notranslate"><span class="pre">f</span></code> our current namespace</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;f&#39;</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</div>
-<p>Modules loaded into memory are also treated as objects</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-
-<span class="nb">id</span><span class="p">(</span><span class="n">math</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140472260240432
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can find <code class="docutils literal notranslate"><span class="pre">math</span></code> in our global namespace after the import</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;quit&#39;, &#39;open&#39;, &#39;math&#39;, &#39;get_ipython&#39;, &#39;f&#39;, &#39;exit&#39;, &#39;_oh&#39;, &#39;_iii&#39;, &#39;_ii&#39;, &#39;_ih&#39;, &#39;_i64&#39;, &#39;_i63&#39;, &#39;_i62&#39;, &#39;_i61&#39;, &#39;_i60&#39;, &#39;_i59&#39;, &#39;_i58&#39;, &#39;_i57&#39;, &#39;_i&#39;, &#39;_dh&#39;, &#39;__name__&#39;, &#39;__builtins__&#39;, &#39;__builtin__&#39;, &#39;___&#39;, &#39;__&#39;, &#39;_63&#39;, &#39;_62&#39;, &#39;_61&#39;, &#39;_60&#39;, &#39;_59&#39;, &#39;_58&#39;, &#39;_57&#39;, &#39;_&#39;, &#39;Out&#39;, &#39;In&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can also find all objects associated with the <code class="docutils literal notranslate"><span class="pre">math</span></code> module in the private namespace of <code class="docutils literal notranslate"><span class="pre">math</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">math</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__doc__&#39;, &#39;__file__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__spec__&#39;, &#39;acos&#39;, &#39;acosh&#39;, &#39;asin&#39;, &#39;asinh&#39;, &#39;atan&#39;, &#39;atan2&#39;, &#39;atanh&#39;, &#39;cbrt&#39;, &#39;ceil&#39;, &#39;comb&#39;, &#39;copysign&#39;, &#39;cos&#39;, &#39;cosh&#39;, &#39;degrees&#39;, &#39;dist&#39;, &#39;e&#39;, &#39;erf&#39;, &#39;erfc&#39;, &#39;exp&#39;, &#39;exp2&#39;, &#39;expm1&#39;, &#39;fabs&#39;, &#39;factorial&#39;, &#39;floor&#39;, &#39;fmod&#39;, &#39;frexp&#39;, &#39;fsum&#39;, &#39;gamma&#39;, &#39;gcd&#39;, &#39;hypot&#39;, &#39;inf&#39;, &#39;isclose&#39;, &#39;isfinite&#39;, &#39;isinf&#39;, &#39;isnan&#39;, &#39;isqrt&#39;, &#39;lcm&#39;, &#39;ldexp&#39;, &#39;lgamma&#39;, &#39;log&#39;, &#39;log10&#39;, &#39;log1p&#39;, &#39;log2&#39;, &#39;modf&#39;, &#39;nan&#39;, &#39;nextafter&#39;, &#39;perm&#39;, &#39;pi&#39;, &#39;pow&#39;, &#39;prod&#39;, &#39;radians&#39;, &#39;remainder&#39;, &#39;sin&#39;, &#39;sinh&#39;, &#39;sqrt&#39;, &#39;tan&#39;, &#39;tanh&#39;, &#39;tau&#39;, &#39;trunc&#39;, &#39;ulp&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can also directly import objects to our current namespace using <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">...</span> <span class="pre">import</span> <span class="pre">...</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">sqrt</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;sqrt&#39;, &#39;quit&#39;, &#39;pi&#39;, &#39;open&#39;, &#39;math&#39;, &#39;log&#39;, &#39;get_ipython&#39;, &#39;f&#39;, &#39;exit&#39;, &#39;_oh&#39;, &#39;_iii&#39;, &#39;_ii&#39;, &#39;_ih&#39;, &#39;_i66&#39;, &#39;_i65&#39;, &#39;_i64&#39;, &#39;_i63&#39;, &#39;_i62&#39;, &#39;_i61&#39;, &#39;_i60&#39;, &#39;_i59&#39;, &#39;_i58&#39;, &#39;_i57&#39;, &#39;_i&#39;, &#39;_dh&#39;, &#39;__name__&#39;, &#39;__builtins__&#39;, &#39;__builtin__&#39;, &#39;___&#39;, &#39;__&#39;, &#39;_63&#39;, &#39;_62&#39;, &#39;_61&#39;, &#39;_60&#39;, &#39;_59&#39;, &#39;_58&#39;, &#39;_57&#39;, &#39;_&#39;, &#39;Out&#39;, &#39;In&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can find these names appear in the current namespace now.</p>
-<p><em>This uniform treatment of data in Python (everything is an object) helps keep the language simple and consistent.</em></p>
+<p>Remember that everything is an object will help you interact with your programs
+and write clear Pythonic code.</p>
 </section>
 <section id="exercises">
-<h2><a class="toc-backref" href="#id9"><span class="section-number">6.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <div class="exercise admonition" id="oop_intro_ex1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 6.1 </span></p>
 <section id="exercise-content">
-<p>We have met the <a class="reference internal" href="python_essentials.html#boolean"><span class="std std-ref">boolean data type</span></a> previously.
-Using what we have learnt in this lecture, print a list of methods of boolean objects.</p>
+<p>We have met the <a class="reference internal" href="python_essentials.html#boolean"><span class="std std-ref">boolean data type</span></a> previously.</p>
+<p>Using what we have learnt in this lecture, print a list of methods of the
+boolean object <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="dropdown admonition hint">
 <p class="admonition-title">Hint</p>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">callable()</span></code> to test whether an attribute of an object can be called as a function</p>
@@ -1521,9 +740,7 @@ Using what we have learnt in this lecture, print a list of methods of boolean ob
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#oop_intro_ex1"> Exercise 6.1</a></p>
 <section id="solution-content">
-<p>Firstly, we need to find all attributes of a boolean object.</p>
-<p>You can use one of the following ways:</p>
-<p><em>1.</em> You can call the <code class="docutils literal notranslate"><span class="pre">.__dir__()</span></code> method</p>
+<p>Firstly, we need to find all attributes of <code class="docutils literal notranslate"><span class="pre">True</span></code>, which can be done via</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="kc">True</span><span class="o">.</span><span class="fm">__dir__</span><span class="p">()))</span>
@@ -1536,7 +753,7 @@ Using what we have learnt in this lecture, print a list of methods of boolean ob
 </div>
 </div>
 </div>
-<p><em>2.</em> You can use the built-in function <code class="docutils literal notranslate"><span class="pre">dir()</span></code></p>
+<p>or</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="kc">True</span><span class="p">)))</span>
@@ -1549,7 +766,7 @@ Using what we have learnt in this lecture, print a list of methods of boolean ob
 </div>
 </div>
 </div>
-<p><em>3.</em> Since the boolean data type is a primitive type, you can also find it in the built-in namespace</p>
+<p>Since the boolean data type is a primitive type, you can also find it in the built-in namespace</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">__builtins__</span><span class="o">.</span><span class="n">bool</span><span class="p">))</span>
@@ -1562,16 +779,16 @@ Using what we have learnt in this lecture, print a list of methods of boolean ob
 </div>
 </div>
 </div>
-<p>Next, we can use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to filter out attributes that are callable</p>
+<p>Here we use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to filter out attributes that are callable</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">attrls</span> <span class="o">=</span> <span class="nb">dir</span><span class="p">(</span><span class="n">__builtins__</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
-<span class="n">callablels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">attributes</span> <span class="o">=</span> <span class="nb">dir</span><span class="p">(</span><span class="n">__builtins__</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
+<span class="n">callablels</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">attrls</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">attributes</span><span class="p">:</span>
   <span class="c1"># Use eval() to evaluate a string as an expression</span>
-  <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;True.</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)):</span>
-    <span class="n">callablels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;True.</span><span class="si">{</span><span class="n">attribute</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)):</span>
+    <span class="n">callablels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">attribute</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">callablels</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1582,20 +799,6 @@ Using what we have learnt in this lecture, print a list of methods of boolean ob
 </div>
 </div>
 </div>
-<p>Here is a one-line solution</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">attrls</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;True.</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">))])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__abs__&#39;, &#39;__add__&#39;, &#39;__and__&#39;, &#39;__bool__&#39;, &#39;__ceil__&#39;, &#39;__class__&#39;, &#39;__delattr__&#39;, &#39;__dir__&#39;, &#39;__divmod__&#39;, &#39;__eq__&#39;, &#39;__float__&#39;, &#39;__floor__&#39;, &#39;__floordiv__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__getnewargs__&#39;, &#39;__getstate__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__index__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__int__&#39;, &#39;__invert__&#39;, &#39;__le__&#39;, &#39;__lshift__&#39;, &#39;__lt__&#39;, &#39;__mod__&#39;, &#39;__mul__&#39;, &#39;__ne__&#39;, &#39;__neg__&#39;, &#39;__new__&#39;, &#39;__or__&#39;, &#39;__pos__&#39;, &#39;__pow__&#39;, &#39;__radd__&#39;, &#39;__rand__&#39;, &#39;__rdivmod__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__rfloordiv__&#39;, &#39;__rlshift__&#39;, &#39;__rmod__&#39;, &#39;__rmul__&#39;, &#39;__ror__&#39;, &#39;__round__&#39;, &#39;__rpow__&#39;, &#39;__rrshift__&#39;, &#39;__rshift__&#39;, &#39;__rsub__&#39;, &#39;__rtruediv__&#39;, &#39;__rxor__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__sub__&#39;, &#39;__subclasshook__&#39;, &#39;__truediv__&#39;, &#39;__trunc__&#39;, &#39;__xor__&#39;, &#39;as_integer_ratio&#39;, &#39;bit_count&#39;, &#39;bit_length&#39;, &#39;conjugate&#39;, &#39;from_bytes&#39;, &#39;to_bytes&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<p>You can explore these methods and see what they are used for.</p>
 </section>
 </div>
 </section>
@@ -1683,17 +886,22 @@ Using what we have learnt in this lecture, print a list of methods of boolean ob
  </li>
  <li class="toctree-l1 current active active">
   <a class="current reference internal" href="#">
-   6. OOP I: Objects and Names
+   6. OOP I: Objects and Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="names.html">
+   7. Names and Namespaces
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_oop.html">
-   7. OOP II: Building Classes
+   8. OOP II: Building Classes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="workspace.html">
-   8. Writing Longer Programs
+   9. Writing Longer Programs
   </a>
  </li>
 </ul>
@@ -1705,32 +913,32 @@ Using what we have learnt in this lecture, print a list of methods of boolean ob
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="need_for_speed.html">
-   9. Python for Scientific Computing
+   10. Python for Scientific Computing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="numpy.html">
-   10. NumPy
+   11. NumPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matplotlib.html">
-   11. Matplotlib
+   12. Matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="scipy.html">
-   12. SciPy
+   13. SciPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pandas.html">
-   13. Pandas
+   14. Pandas
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   14. SymPy
+   15. SymPy
   </a>
  </li>
 </ul>
@@ -1742,17 +950,17 @@ Using what we have learnt in this lecture, print a list of methods of boolean ob
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="numba.html">
-   15. Numba
+   16. Numba
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="parallelization.html">
-   16. Parallelization
+   17. Parallelization
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   17. JAX
+   18. JAX
   </a>
  </li>
 </ul>
@@ -1764,17 +972,17 @@ Using what we have learnt in this lecture, print a list of methods of boolean ob
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   18. Writing Good Code
+   19. Writing Good Code
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   19. More Language Features
+   20. More Language Features
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   20. Debugging and Handling Errors
+   21. Debugging and Handling Errors
   </a>
  </li>
 </ul>
@@ -1786,12 +994,12 @@ Using what we have learnt in this lecture, print a list of methods of boolean ob
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   21. Troubleshooting
+   22. Troubleshooting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   22. Execution Statistics
+   23. Execution Statistics
   </a>
  </li>
 </ul>

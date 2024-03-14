@@ -1,0 +1,1519 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>7. Names and Namespaces &#8212; Python Programming for Economics and Finance</title>
+    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    
+        <script>
+            MathJax = {
+            loader: {load: ['[tex]/boldsymbol', '[tex]/textmacros']},
+            tex: {
+                packages: {'[+]': ['boldsymbol', 'textmacros']},
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                processEscapes: true,
+                macros: {
+                    "argmax" : "arg\\,max",
+                    "argmin" : "arg\\,min",
+                    "col"    : "col",
+                    "Span"   :  "span",
+                    "epsilon": "\\varepsilon",
+                    "EE": "\\mathbb{E}",
+                    "PP": "\\mathbb{P}",
+                    "RR": "\\mathbb{R}",
+                    "NN": "\\mathbb{N}",
+                    "ZZ": "\\mathbb{Z}",
+                    "aA": "\\mathcal{A}",
+                    "bB": "\\mathcal{B}",
+                    "cC": "\\mathcal{C}",
+                    "dD": "\\mathcal{D}",
+                    "eE": "\\mathcal{E}",
+                    "fF": "\\mathcal{F}",
+                    "gG": "\\mathcal{G}",
+                    "hH": "\\mathcal{H}",
+                }
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 0.92,
+                displayAlign: "center",
+            },
+            };
+        </script>
+    
+    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=b09b2da44b9015b4fa76ea072fa2d8f7faee5492" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=eed9c059a3ee152aae2353ec732f0a6d12e6aa07"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'names';</script>
+    <link rel="canonical" href="https://python.quantecon.org/names.html" />
+    <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="8. OOP II: Building Classes" href="python_oop.html" />
+    <link rel="prev" title="6. OOP I: Objects and Methods" href="oop_intro.html" />
+
+<!-- Normal Meta Tags -->
+<meta name="author" context="Thomas J. Sargent &amp; John Stachurski" />
+<meta name="keywords" content="Python, QuantEcon, Quantitative Economics, Economics, Sloan, Alfred P. Sloan Foundation, Tom J. Sargent, John Stachurski" />
+<meta name="description" content=This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski. />
+
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@quantecon" />
+<meta name="twitter:title" content="Names and Namespaces"/>
+<meta name="twitter:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.">
+<meta name="twitter:creator" content="@quantecon">
+<meta name="twitter:image" content="https://assets.quantecon.org/img/qe-twitter-logo.png">
+
+<!-- Opengraph tags -->
+<meta property="og:title" content="Names and Namespaces" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://python.quantecon.org/names.html" />
+<meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
+<meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
+<meta property="og:site_name" content="Python Programming for Economics and Finance" />
+<meta name="theme-color" content="#ffffff" />
+
+  </head>
+<body>
+
+
+    <span id="top"></span>
+
+    <div class="qe-wrapper">
+
+        <div class="qe-main">
+
+            <div class="qe-page" id=names>
+
+                <div class="qe-page__toc">
+
+                    <div class="inner">
+
+                        
+                        <div class="qe-page__toc-header">
+                            On this page
+                        </div>
+
+
+                        <nav id="bd-toc-nav" class="qe-page__toc-nav">
+                            <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">7.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-names-in-python">7.2. Variable Names in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#namespaces">7.3. Namespaces</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-namespaces">7.4. Viewing Namespaces</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-sessions">7.5. Interactive Sessions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-global-namespace">7.6. The Global Namespace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-namespaces">7.7. Local Namespaces</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-builtins-namespace">7.8. The <code class="docutils literal notranslate"><span class="pre">__builtins__</span></code> Namespace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#name-resolution">7.9. Name Resolution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mutable-versus-immutable-parameters">7.9.1. Mutable Versus Immutable Parameters</a></li>
+</ul>
+</li>
+</ul>
+                            <p class="logo">
+                                
+                                    
+                                    <a href=https://quantecon.org><img src="_static/qe-logo.png" class="logo logo-img" alt="logo"></a>
+                                    
+                                    <a href=https://quantecon.org><img src="_static/quantecon-logo-transparent.png" class="dark-logo-img" alt="logo"></a>
+                                    
+                                    
+                                
+                            </p>
+
+                            <p class="powered">Powered by <a href="https://jupyterbook.org/">Jupyter Book</a></p>
+
+                        </nav>
+
+                        <div class="qe-page__toc-footer">
+                            
+                            
+                            <p><a href="#top"><strong>Back to top</strong></a></p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="qe-page__header">
+
+                    <div class="qe-page__header-copy">
+
+                        <p class="qe-page__header-heading"><a href="intro.html">Python Programming for Economics and Finance</a></p>
+
+                        <p class="qe-page__header-subheading">Names and Namespaces</p>
+
+                    </div>
+                    <!-- length 2, since its a string and empty dict has length 2 - {} -->
+                        <p class="qe-page__header-authors" font-size="18">
+                            
+                                
+                                    <a href="http://www.tomsargent.com/" target="_blank"><span>Thomas J. Sargent</span></a>
+                                
+                            
+                                
+                                    and <a href="https://johnstachurski.net/" target="_blank"><span>John Stachurski</span></a>
+                                
+                            
+                        </p>
+
+
+                </div> <!-- .page__header -->
+
+
+
+                
+                <main class="qe-page__content" role="main">
+                    
+                    <div>
+                        
+  <section class="tex2jax_ignore mathjax_ignore" id="names-and-namespaces">
+<h1><span class="section-number">7. </span>Names and Namespaces<a class="headerlink" href="#names-and-namespaces" title="Permalink to this heading">#</a></h1>
+<section id="overview">
+<h2><span class="section-number">7.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>This lecture is all about variable names, how they can be used and how they are
+understood by the Python interpreter.</p>
+<p>This might sound a little dull but the model that Python has adopted for
+handling names is elegant and interesting.</p>
+<p>In addition, you will save yourself many hours of debugging if you have a good
+understanding of how names work in Python.</p>
+</section>
+<section id="variable-names-in-python">
+<span id="var-names"></span><h2><span class="section-number">7.2. </span>Variable Names in Python<a class="headerlink" href="#variable-names-in-python" title="Permalink to this heading">#</a></h2>
+<p id="index-0">Consider the Python statement</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now know that when this statement is executed, Python creates an object of
+type <code class="docutils literal notranslate"><span class="pre">int</span></code> in your computer’s memory, containing</p>
+<ul class="simple">
+<li><p>the value <code class="docutils literal notranslate"><span class="pre">42</span></code></p></li>
+<li><p>some associated attributes</p></li>
+</ul>
+<p>But what is <code class="docutils literal notranslate"><span class="pre">x</span></code> itself?</p>
+<p>In Python, <code class="docutils literal notranslate"><span class="pre">x</span></code> is called a <strong>name</strong>, and the statement <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">42</span></code> <strong>binds</strong> the name <code class="docutils literal notranslate"><span class="pre">x</span></code> to the integer object we have just discussed.</p>
+<p>Under the hood, this process of binding names to objects is implemented as a dictionary—more about this in a moment.</p>
+<p>There is no problem binding two or more names to the one object, regardless of what that object is</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>      <span class="c1"># Create a function called f</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>   <span class="c1"># that prints any string it&#39;s passed</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">f</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>test
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the first step, a function object is created, and the name <code class="docutils literal notranslate"><span class="pre">f</span></code> is bound to it.</p>
+<p>After binding the name <code class="docutils literal notranslate"><span class="pre">g</span></code> to the same object, we can use it anywhere we would use <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
+<p>What happens when the number of names bound to an object goes to zero?</p>
+<p>Here’s an example of this situation, where the name <code class="docutils literal notranslate"><span class="pre">x</span></code> is first bound to one object and then <strong>rebound</strong> to another</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span>  
+<span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140596568529392
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this case, after we rebind <code class="docutils literal notranslate"><span class="pre">x</span></code> to <code class="docutils literal notranslate"><span class="pre">'bar'</span></code>, no names bound are to the first object <code class="docutils literal notranslate"><span class="pre">'foo'</span></code>.</p>
+<p>This is a trigger for <code class="docutils literal notranslate"><span class="pre">'foo'</span></code> to be garbage collected.</p>
+<p>In other words, the memory slot that stores that object is deallocated and returned to the operating system.</p>
+<p>Garbage collection is actually an active research area in computer science.</p>
+<p>You can <a class="reference external" href="https://rushter.com/blog/python-garbage-collector/">read more on garbage collection</a> if you are interested.</p>
+</section>
+<section id="namespaces">
+<h2><span class="section-number">7.3. </span>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this heading">#</a></h2>
+<p id="index-1">Recall from the preceding discussion that the statement</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>binds the name <code class="docutils literal notranslate"><span class="pre">x</span></code> to the integer object on the right-hand side.</p>
+<p>We also mentioned that this process of binding <code class="docutils literal notranslate"><span class="pre">x</span></code> to the correct object is implemented as a dictionary.</p>
+<p>This dictionary is called a namespace.</p>
+<div class="admonition-definition admonition">
+<p class="admonition-title">Definition</p>
+<p>A <strong>namespace</strong> is a symbol table that maps names to objects in memory.</p>
+</div>
+<p>Python uses multiple namespaces, creating them on the fly as necessary.</p>
+<p>For example, every time we import a module, Python creates a namespace for that module.</p>
+<p>To see this in action, suppose we write a script <code class="docutils literal notranslate"><span class="pre">mathfoo.py</span></code> with a single line</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> mathfoo.py
+<span class="n">pi</span> <span class="o">=</span> <span class="s1">&#39;foobar&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing mathfoo.py
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we start the Python interpreter and import it</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mathfoo</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next let’s import the <code class="docutils literal notranslate"><span class="pre">math</span></code> module from the standard library</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Both of these modules have an attribute called <code class="docutils literal notranslate"><span class="pre">pi</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141592653589793
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mathfoo</span><span class="o">.</span><span class="n">pi</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;foobar&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>These two different bindings of <code class="docutils literal notranslate"><span class="pre">pi</span></code> exist in different namespaces, each one implemented as a dictionary.</p>
+<p>If you wish, you can look at the dictionary directly, using <code class="docutils literal notranslate"><span class="pre">module_name.__dict__</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">math</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math&#39;), (&#39;__doc__&#39;, &#39;This module provides access to the mathematical functions\ndefined by the C standard.&#39;), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7fdf31e882d0&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math&#39;, loader=&lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7fdf31e882d0&gt;, origin=&#39;/usr/share/miniconda3/envs/quantecon/lib/python3.11/lib-dynload/math.cpython-311-x86_64-linux-gnu.so&#39;)), (&#39;acos&#39;, &lt;built-in function acos&gt;), (&#39;acosh&#39;, &lt;built-in function acosh&gt;), (&#39;asin&#39;, &lt;built-in function asin&gt;), (&#39;asinh&#39;, &lt;built-in function asinh&gt;), (&#39;atan&#39;, &lt;built-in function atan&gt;), (&#39;atan2&#39;, &lt;built-in function atan2&gt;), (&#39;atanh&#39;, &lt;built-in function atanh&gt;), (&#39;cbrt&#39;, &lt;built-in function cbrt&gt;), (&#39;ceil&#39;, &lt;built-in function ceil&gt;), (&#39;copysign&#39;, &lt;built-in function copysign&gt;), (&#39;cos&#39;, &lt;built-in function cos&gt;), (&#39;cosh&#39;, &lt;built-in function cosh&gt;), (&#39;degrees&#39;, &lt;built-in function degrees&gt;), (&#39;dist&#39;, &lt;built-in function dist&gt;), (&#39;erf&#39;, &lt;built-in function erf&gt;), (&#39;erfc&#39;, &lt;built-in function erfc&gt;), (&#39;exp&#39;, &lt;built-in function exp&gt;), (&#39;exp2&#39;, &lt;built-in function exp2&gt;), (&#39;expm1&#39;, &lt;built-in function expm1&gt;), (&#39;fabs&#39;, &lt;built-in function fabs&gt;), (&#39;factorial&#39;, &lt;built-in function factorial&gt;), (&#39;floor&#39;, &lt;built-in function floor&gt;), (&#39;fmod&#39;, &lt;built-in function fmod&gt;), (&#39;frexp&#39;, &lt;built-in function frexp&gt;), (&#39;fsum&#39;, &lt;built-in function fsum&gt;), (&#39;gamma&#39;, &lt;built-in function gamma&gt;), (&#39;gcd&#39;, &lt;built-in function gcd&gt;), (&#39;hypot&#39;, &lt;built-in function hypot&gt;), (&#39;isclose&#39;, &lt;built-in function isclose&gt;), (&#39;isfinite&#39;, &lt;built-in function isfinite&gt;), (&#39;isinf&#39;, &lt;built-in function isinf&gt;), (&#39;isnan&#39;, &lt;built-in function isnan&gt;), (&#39;isqrt&#39;, &lt;built-in function isqrt&gt;), (&#39;lcm&#39;, &lt;built-in function lcm&gt;), (&#39;ldexp&#39;, &lt;built-in function ldexp&gt;), (&#39;lgamma&#39;, &lt;built-in function lgamma&gt;), (&#39;log&#39;, &lt;built-in function log&gt;), (&#39;log1p&#39;, &lt;built-in function log1p&gt;), (&#39;log10&#39;, &lt;built-in function log10&gt;), (&#39;log2&#39;, &lt;built-in function log2&gt;), (&#39;modf&#39;, &lt;built-in function modf&gt;), (&#39;pow&#39;, &lt;built-in function pow&gt;), (&#39;radians&#39;, &lt;built-in function radians&gt;), (&#39;remainder&#39;, &lt;built-in function remainder&gt;), (&#39;sin&#39;, &lt;built-in function sin&gt;), (&#39;sinh&#39;, &lt;built-in function sinh&gt;), (&#39;sqrt&#39;, &lt;built-in function sqrt&gt;), (&#39;tan&#39;, &lt;built-in function tan&gt;), (&#39;tanh&#39;, &lt;built-in function tanh&gt;), (&#39;trunc&#39;, &lt;built-in function trunc&gt;), (&#39;prod&#39;, &lt;built-in function prod&gt;), (&#39;perm&#39;, &lt;built-in function perm&gt;), (&#39;comb&#39;, &lt;built-in function comb&gt;), (&#39;nextafter&#39;, &lt;built-in function nextafter&gt;), (&#39;ulp&#39;, &lt;built-in function ulp&gt;), (&#39;__file__&#39;, &#39;/usr/share/miniconda3/envs/quantecon/lib/python3.11/lib-dynload/math.cpython-311-x86_64-linux-gnu.so&#39;), (&#39;pi&#39;, 3.141592653589793), (&#39;e&#39;, 2.718281828459045), (&#39;tau&#39;, 6.283185307179586), (&#39;inf&#39;, inf), (&#39;nan&#39;, nan)])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mathfoo</span>
+
+<span class="n">mathfoo</span><span class="o">.</span><span class="vm">__dict__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__name__&#39;: &#39;mathfoo&#39;,
+ &#39;__doc__&#39;: None,
+ &#39;__package__&#39;: &#39;&#39;,
+ &#39;__loader__&#39;: &lt;_frozen_importlib_external.SourceFileLoader at 0x7fdf323f3310&gt;,
+ &#39;__spec__&#39;: ModuleSpec(name=&#39;mathfoo&#39;, loader=&lt;_frozen_importlib_external.SourceFileLoader object at 0x7fdf323f3310&gt;, origin=&#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures/mathfoo.py&#39;),
+ &#39;__file__&#39;: &#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures/mathfoo.py&#39;,
+ &#39;__cached__&#39;: &#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures/__pycache__/mathfoo.cpython-311.pyc&#39;,
+ &#39;__builtins__&#39;: {&#39;__name__&#39;: &#39;builtins&#39;,
+  &#39;__doc__&#39;: &quot;Built-in functions, types, exceptions, and other objects.\n\nThis module provides direct access to all &#39;built-in&#39;\nidentifiers of Python; for example, builtins.len is\nthe full name for the built-in function len().\n\nThis module is not normally accessed explicitly by most\napplications, but can be useful in modules that provide\nobjects with the same name as a built-in value, but in\nwhich the built-in of that name is also needed.&quot;,
+  &#39;__package__&#39;: &#39;&#39;,
+  &#39;__loader__&#39;: _frozen_importlib.BuiltinImporter,
+  &#39;__spec__&#39;: ModuleSpec(name=&#39;builtins&#39;, loader=&lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;, origin=&#39;built-in&#39;),
+  &#39;__build_class__&#39;: &lt;function __build_class__&gt;,
+  &#39;__import__&#39;: &lt;function __import__(name, globals=None, locals=None, fromlist=(), level=0)&gt;,
+  &#39;abs&#39;: &lt;function abs(x, /)&gt;,
+  &#39;all&#39;: &lt;function all(iterable, /)&gt;,
+  &#39;any&#39;: &lt;function any(iterable, /)&gt;,
+  &#39;ascii&#39;: &lt;function ascii(obj, /)&gt;,
+  &#39;bin&#39;: &lt;function bin(number, /)&gt;,
+  &#39;breakpoint&#39;: &lt;function breakpoint&gt;,
+  &#39;callable&#39;: &lt;function callable(obj, /)&gt;,
+  &#39;chr&#39;: &lt;function chr(i, /)&gt;,
+  &#39;compile&#39;: &lt;function compile(source, filename, mode, flags=0, dont_inherit=False, optimize=-1, *, _feature_version=-1)&gt;,
+  &#39;delattr&#39;: &lt;function delattr(obj, name, /)&gt;,
+  &#39;dir&#39;: &lt;function dir&gt;,
+  &#39;divmod&#39;: &lt;function divmod(x, y, /)&gt;,
+  &#39;eval&#39;: &lt;function eval(source, globals=None, locals=None, /)&gt;,
+  &#39;exec&#39;: &lt;function exec(source, globals=None, locals=None, /, *, closure=None)&gt;,
+  &#39;format&#39;: &lt;function format(value, format_spec=&#39;&#39;, /)&gt;,
+  &#39;getattr&#39;: &lt;function getattr&gt;,
+  &#39;globals&#39;: &lt;function globals()&gt;,
+  &#39;hasattr&#39;: &lt;function hasattr(obj, name, /)&gt;,
+  &#39;hash&#39;: &lt;function hash(obj, /)&gt;,
+  &#39;hex&#39;: &lt;function hex(number, /)&gt;,
+  &#39;id&#39;: &lt;function id(obj, /)&gt;,
+  &#39;input&#39;: &lt;bound method Kernel.raw_input of &lt;ipykernel.ipkernel.IPythonKernel object at 0x7fdf2f0f0090&gt;&gt;,
+  &#39;isinstance&#39;: &lt;function isinstance(obj, class_or_tuple, /)&gt;,
+  &#39;issubclass&#39;: &lt;function issubclass(cls, class_or_tuple, /)&gt;,
+  &#39;iter&#39;: &lt;function iter&gt;,
+  &#39;aiter&#39;: &lt;function aiter(async_iterable, /)&gt;,
+  &#39;len&#39;: &lt;function len(obj, /)&gt;,
+  &#39;locals&#39;: &lt;function locals()&gt;,
+  &#39;max&#39;: &lt;function max&gt;,
+  &#39;min&#39;: &lt;function min&gt;,
+  &#39;next&#39;: &lt;function next&gt;,
+  &#39;anext&#39;: &lt;function anext&gt;,
+  &#39;oct&#39;: &lt;function oct(number, /)&gt;,
+  &#39;ord&#39;: &lt;function ord(c, /)&gt;,
+  &#39;pow&#39;: &lt;function pow(base, exp, mod=None)&gt;,
+  &#39;print&#39;: &lt;function print(*args, sep=&#39; &#39;, end=&#39;\n&#39;, file=None, flush=False)&gt;,
+  &#39;repr&#39;: &lt;function repr(obj, /)&gt;,
+  &#39;round&#39;: &lt;function round(number, ndigits=None)&gt;,
+  &#39;setattr&#39;: &lt;function setattr(obj, name, value, /)&gt;,
+  &#39;sorted&#39;: &lt;function sorted(iterable, /, *, key=None, reverse=False)&gt;,
+  &#39;sum&#39;: &lt;function sum(iterable, /, start=0)&gt;,
+  &#39;vars&#39;: &lt;function vars&gt;,
+  &#39;None&#39;: None,
+  &#39;Ellipsis&#39;: Ellipsis,
+  &#39;NotImplemented&#39;: NotImplemented,
+  &#39;False&#39;: False,
+  &#39;True&#39;: True,
+  &#39;bool&#39;: bool,
+  &#39;memoryview&#39;: memoryview,
+  &#39;bytearray&#39;: bytearray,
+  &#39;bytes&#39;: bytes,
+  &#39;classmethod&#39;: classmethod,
+  &#39;complex&#39;: complex,
+  &#39;dict&#39;: dict,
+  &#39;enumerate&#39;: enumerate,
+  &#39;filter&#39;: filter,
+  &#39;float&#39;: float,
+  &#39;frozenset&#39;: frozenset,
+  &#39;property&#39;: property,
+  &#39;int&#39;: int,
+  &#39;list&#39;: list,
+  &#39;map&#39;: map,
+  &#39;object&#39;: object,
+  &#39;range&#39;: range,
+  &#39;reversed&#39;: reversed,
+  &#39;set&#39;: set,
+  &#39;slice&#39;: slice,
+  &#39;staticmethod&#39;: staticmethod,
+  &#39;str&#39;: str,
+  &#39;super&#39;: super,
+  &#39;tuple&#39;: tuple,
+  &#39;type&#39;: type,
+  &#39;zip&#39;: zip,
+  &#39;__debug__&#39;: True,
+  &#39;BaseException&#39;: BaseException,
+  &#39;BaseExceptionGroup&#39;: BaseExceptionGroup,
+  &#39;Exception&#39;: Exception,
+  &#39;GeneratorExit&#39;: GeneratorExit,
+  &#39;KeyboardInterrupt&#39;: KeyboardInterrupt,
+  &#39;SystemExit&#39;: SystemExit,
+  &#39;ArithmeticError&#39;: ArithmeticError,
+  &#39;AssertionError&#39;: AssertionError,
+  &#39;AttributeError&#39;: AttributeError,
+  &#39;BufferError&#39;: BufferError,
+  &#39;EOFError&#39;: EOFError,
+  &#39;ImportError&#39;: ImportError,
+  &#39;LookupError&#39;: LookupError,
+  &#39;MemoryError&#39;: MemoryError,
+  &#39;NameError&#39;: NameError,
+  &#39;OSError&#39;: OSError,
+  &#39;ReferenceError&#39;: ReferenceError,
+  &#39;RuntimeError&#39;: RuntimeError,
+  &#39;StopAsyncIteration&#39;: StopAsyncIteration,
+  &#39;StopIteration&#39;: StopIteration,
+  &#39;SyntaxError&#39;: SyntaxError,
+  &#39;SystemError&#39;: SystemError,
+  &#39;TypeError&#39;: TypeError,
+  &#39;ValueError&#39;: ValueError,
+  &#39;Warning&#39;: Warning,
+  &#39;FloatingPointError&#39;: FloatingPointError,
+  &#39;OverflowError&#39;: OverflowError,
+  &#39;ZeroDivisionError&#39;: ZeroDivisionError,
+  &#39;BytesWarning&#39;: BytesWarning,
+  &#39;DeprecationWarning&#39;: DeprecationWarning,
+  &#39;EncodingWarning&#39;: EncodingWarning,
+  &#39;FutureWarning&#39;: FutureWarning,
+  &#39;ImportWarning&#39;: ImportWarning,
+  &#39;PendingDeprecationWarning&#39;: PendingDeprecationWarning,
+  &#39;ResourceWarning&#39;: ResourceWarning,
+  &#39;RuntimeWarning&#39;: RuntimeWarning,
+  &#39;SyntaxWarning&#39;: SyntaxWarning,
+  &#39;UnicodeWarning&#39;: UnicodeWarning,
+  &#39;UserWarning&#39;: UserWarning,
+  &#39;BlockingIOError&#39;: BlockingIOError,
+  &#39;ChildProcessError&#39;: ChildProcessError,
+  &#39;ConnectionError&#39;: ConnectionError,
+  &#39;FileExistsError&#39;: FileExistsError,
+  &#39;FileNotFoundError&#39;: FileNotFoundError,
+  &#39;InterruptedError&#39;: InterruptedError,
+  &#39;IsADirectoryError&#39;: IsADirectoryError,
+  &#39;NotADirectoryError&#39;: NotADirectoryError,
+  &#39;PermissionError&#39;: PermissionError,
+  &#39;ProcessLookupError&#39;: ProcessLookupError,
+  &#39;TimeoutError&#39;: TimeoutError,
+  &#39;IndentationError&#39;: IndentationError,
+  &#39;IndexError&#39;: IndexError,
+  &#39;KeyError&#39;: KeyError,
+  &#39;ModuleNotFoundError&#39;: ModuleNotFoundError,
+  &#39;NotImplementedError&#39;: NotImplementedError,
+  &#39;RecursionError&#39;: RecursionError,
+  &#39;UnboundLocalError&#39;: UnboundLocalError,
+  &#39;UnicodeError&#39;: UnicodeError,
+  &#39;BrokenPipeError&#39;: BrokenPipeError,
+  &#39;ConnectionAbortedError&#39;: ConnectionAbortedError,
+  &#39;ConnectionRefusedError&#39;: ConnectionRefusedError,
+  &#39;ConnectionResetError&#39;: ConnectionResetError,
+  &#39;TabError&#39;: TabError,
+  &#39;UnicodeDecodeError&#39;: UnicodeDecodeError,
+  &#39;UnicodeEncodeError&#39;: UnicodeEncodeError,
+  &#39;UnicodeTranslateError&#39;: UnicodeTranslateError,
+  &#39;ExceptionGroup&#39;: ExceptionGroup,
+  &#39;EnvironmentError&#39;: OSError,
+  &#39;IOError&#39;: OSError,
+  &#39;open&#39;: &lt;function io.open(file, mode=&#39;r&#39;, buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)&gt;,
+  &#39;copyright&#39;: Copyright (c) 2001-2023 Python Software Foundation.
+  All Rights Reserved.
+  
+  Copyright (c) 2000 BeOpen.com.
+  All Rights Reserved.
+  
+  Copyright (c) 1995-2001 Corporation for National Research Initiatives.
+  All Rights Reserved.
+  
+  Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.
+  All Rights Reserved.,
+  &#39;credits&#39;:     Thanks to CWI, CNRI, BeOpen.com, Zope Corporation and a cast of thousands
+      for supporting Python development.  See www.python.org for more information.,
+  &#39;license&#39;: Type license() to see the full license text,
+  &#39;help&#39;: Type help() for interactive help, or help(object) for help about object.,
+  &#39;execfile&#39;: &lt;function _pydev_bundle._pydev_execfile.execfile(file, glob=None, loc=None)&gt;,
+  &#39;runfile&#39;: &lt;function _pydev_bundle.pydev_umd.runfile(filename, args=None, wdir=None, namespace=None)&gt;,
+  &#39;__IPYTHON__&#39;: True,
+  &#39;display&#39;: &lt;function IPython.core.display_functions.display(*objs, include=None, exclude=None, metadata=None, transient=None, display_id=None, raw=False, clear=False, **kwargs)&gt;,
+  &#39;get_ipython&#39;: &lt;bound method InteractiveShell.get_ipython of &lt;ipykernel.zmqshell.ZMQInteractiveShell object at 0x7fdf2f0f17d0&gt;&gt;},
+ &#39;pi&#39;: &#39;foobar&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you know, we access elements of the namespace using the dotted attribute notation</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141592653589793
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is entirely equivalent to <code class="docutils literal notranslate"><span class="pre">math.__dict__['pi']</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;pi&#39;</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141592653589793
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="viewing-namespaces">
+<h2><span class="section-number">7.4. </span>Viewing Namespaces<a class="headerlink" href="#viewing-namespaces" title="Permalink to this heading">#</a></h2>
+<p>As we saw above, the <code class="docutils literal notranslate"><span class="pre">math</span></code> namespace can be printed by typing <code class="docutils literal notranslate"><span class="pre">math.__dict__</span></code>.</p>
+<p>Another way to see its contents is to type <code class="docutils literal notranslate"><span class="pre">vars(math)</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">vars</span><span class="p">(</span><span class="n">math</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math&#39;), (&#39;__doc__&#39;, &#39;This module provides access to the mathematical functions\ndefined by the C standard.&#39;), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7fdf31e882d0&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math&#39;, loader=&lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7fdf31e882d0&gt;, origin=&#39;/usr/share/miniconda3/envs/quantecon/lib/python3.11/lib-dynload/math.cpython-311-x86_64-linux-gnu.so&#39;)), (&#39;acos&#39;, &lt;built-in function acos&gt;), (&#39;acosh&#39;, &lt;built-in function acosh&gt;), (&#39;asin&#39;, &lt;built-in function asin&gt;), (&#39;asinh&#39;, &lt;built-in function asinh&gt;), (&#39;atan&#39;, &lt;built-in function atan&gt;), (&#39;atan2&#39;, &lt;built-in function atan2&gt;), (&#39;atanh&#39;, &lt;built-in function atanh&gt;), (&#39;cbrt&#39;, &lt;built-in function cbrt&gt;), (&#39;ceil&#39;, &lt;built-in function ceil&gt;), (&#39;copysign&#39;, &lt;built-in function copysign&gt;), (&#39;cos&#39;, &lt;built-in function cos&gt;), (&#39;cosh&#39;, &lt;built-in function cosh&gt;), (&#39;degrees&#39;, &lt;built-in function degrees&gt;), (&#39;dist&#39;, &lt;built-in function dist&gt;), (&#39;erf&#39;, &lt;built-in function erf&gt;), (&#39;erfc&#39;, &lt;built-in function erfc&gt;), (&#39;exp&#39;, &lt;built-in function exp&gt;), (&#39;exp2&#39;, &lt;built-in function exp2&gt;), (&#39;expm1&#39;, &lt;built-in function expm1&gt;), (&#39;fabs&#39;, &lt;built-in function fabs&gt;), (&#39;factorial&#39;, &lt;built-in function factorial&gt;), (&#39;floor&#39;, &lt;built-in function floor&gt;), (&#39;fmod&#39;, &lt;built-in function fmod&gt;), (&#39;frexp&#39;, &lt;built-in function frexp&gt;), (&#39;fsum&#39;, &lt;built-in function fsum&gt;), (&#39;gamma&#39;, &lt;built-in function gamma&gt;), (&#39;gcd&#39;, &lt;built-in function gcd&gt;), (&#39;hypot&#39;, &lt;built-in function hypot&gt;), (&#39;isclose&#39;, &lt;built-in function isclose&gt;), (&#39;isfinite&#39;, &lt;built-in function isfinite&gt;), (&#39;isinf&#39;, &lt;built-in function isinf&gt;), (&#39;isnan&#39;, &lt;built-in function isnan&gt;), (&#39;isqrt&#39;, &lt;built-in function isqrt&gt;), (&#39;lcm&#39;, &lt;built-in function lcm&gt;), (&#39;ldexp&#39;, &lt;built-in function ldexp&gt;), (&#39;lgamma&#39;, &lt;built-in function lgamma&gt;), (&#39;log&#39;, &lt;built-in function log&gt;), (&#39;log1p&#39;, &lt;built-in function log1p&gt;), (&#39;log10&#39;, &lt;built-in function log10&gt;), (&#39;log2&#39;, &lt;built-in function log2&gt;), (&#39;modf&#39;, &lt;built-in function modf&gt;), (&#39;pow&#39;, &lt;built-in function pow&gt;), (&#39;radians&#39;, &lt;built-in function radians&gt;), (&#39;remainder&#39;, &lt;built-in function remainder&gt;), (&#39;sin&#39;, &lt;built-in function sin&gt;), (&#39;sinh&#39;, &lt;built-in function sinh&gt;), (&#39;sqrt&#39;, &lt;built-in function sqrt&gt;), (&#39;tan&#39;, &lt;built-in function tan&gt;), (&#39;tanh&#39;, &lt;built-in function tanh&gt;), (&#39;trunc&#39;, &lt;built-in function trunc&gt;), (&#39;prod&#39;, &lt;built-in function prod&gt;), (&#39;perm&#39;, &lt;built-in function perm&gt;), (&#39;comb&#39;, &lt;built-in function comb&gt;), (&#39;nextafter&#39;, &lt;built-in function nextafter&gt;), (&#39;ulp&#39;, &lt;built-in function ulp&gt;), (&#39;__file__&#39;, &#39;/usr/share/miniconda3/envs/quantecon/lib/python3.11/lib-dynload/math.cpython-311-x86_64-linux-gnu.so&#39;), (&#39;pi&#39;, 3.141592653589793), (&#39;e&#39;, 2.718281828459045), (&#39;tau&#39;, 6.283185307179586), (&#39;inf&#39;, inf), (&#39;nan&#39;, nan)])
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you just want to see the names, you can type</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show the first 10 names</span>
+<span class="nb">dir</span><span class="p">(</span><span class="n">math</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__doc__&#39;,
+ &#39;__file__&#39;,
+ &#39;__loader__&#39;,
+ &#39;__name__&#39;,
+ &#39;__package__&#39;,
+ &#39;__spec__&#39;,
+ &#39;acos&#39;,
+ &#39;acosh&#39;,
+ &#39;asin&#39;,
+ &#39;asinh&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice the special names <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> and <code class="docutils literal notranslate"><span class="pre">__name__</span></code>.</p>
+<p>These are initialized in the namespace when any module is imported</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__doc__</span></code> is the doc string of the module</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__name__</span></code> is the name of the module</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This module provides access to the mathematical functions
+defined by the C standard.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="vm">__name__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;math&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="interactive-sessions">
+<h2><span class="section-number">7.5. </span>Interactive Sessions<a class="headerlink" href="#interactive-sessions" title="Permalink to this heading">#</a></h2>
+<p id="index-2">In Python, <strong>all</strong> code executed by the interpreter runs in some module.</p>
+<p>What about commands typed at the prompt?</p>
+<p>These are also regarded as being executed within a module — in this case, a module called <code class="docutils literal notranslate"><span class="pre">__main__</span></code>.</p>
+<p>To check this, we can look at the current module name via the value of <code class="docutils literal notranslate"><span class="pre">__name__</span></code> given at the prompt</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>__main__
+</pre></div>
+</div>
+</div>
+</div>
+<p>When we run a script using IPython’s <code class="docutils literal notranslate"><span class="pre">run</span></code> command, the contents of the file are executed as part of <code class="docutils literal notranslate"><span class="pre">__main__</span></code> too.</p>
+<p>To see this, let’s create a file <code class="docutils literal notranslate"><span class="pre">mod.py</span></code> that prints its own <code class="docutils literal notranslate"><span class="pre">__name__</span></code> attribute</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> mod.py
+<span class="nb">print</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing mod.py
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s look at two different ways of running it in IPython</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mod</span>  <span class="c1"># Standard import</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mod
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> mod.py  # Run interactively
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>__main__
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the second case, the code is executed as part of <code class="docutils literal notranslate"><span class="pre">__main__</span></code>, so <code class="docutils literal notranslate"><span class="pre">__name__</span></code> is equal to <code class="docutils literal notranslate"><span class="pre">__main__</span></code>.</p>
+<p>To see the contents of the namespace of <code class="docutils literal notranslate"><span class="pre">__main__</span></code> we use <code class="docutils literal notranslate"><span class="pre">vars()</span></code> rather than <code class="docutils literal notranslate"><span class="pre">vars(__main__)</span></code>.</p>
+<p>If you do this in IPython, you will see a whole lot of variables that IPython
+needs, and has initialized when you started up your session.</p>
+<p>If you prefer to see only the variables you have initialized, use <code class="docutils literal notranslate"><span class="pre">%whos</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="o">%</span><span class="k">whos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable   Type        Data/Info
+--------------------------------
+f          function    &lt;function f at 0x7fdf2f0eaca0&gt;
+g          function    &lt;function f at 0x7fdf2f0eaca0&gt;
+math       module      &lt;module &#39;math&#39; from &#39;/usr&lt;...&gt;311-x86_64-linux-gnu.so&#39;&gt;
+mathfoo    module      &lt;module &#39;mathfoo&#39; from &#39;/&lt;...&gt;yst/lectures/mathfoo.py&#39;&gt;
+mod        module      &lt;module &#39;mod&#39; from &#39;/home&lt;...&gt;ng.myst/lectures/mod.py&#39;&gt;
+np         module      &lt;module &#39;numpy&#39; from &#39;/us&lt;...&gt;kages/numpy/__init__.py&#39;&gt;
+x          int         2
+y          int         3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-global-namespace">
+<h2><span class="section-number">7.6. </span>The Global Namespace<a class="headerlink" href="#the-global-namespace" title="Permalink to this heading">#</a></h2>
+<p id="index-3">Python documentation often makes reference to the “global namespace”.</p>
+<p>The global namespace is <em>the namespace of the module currently being executed</em>.</p>
+<p>For example, suppose that we start the interpreter and begin making assignments.</p>
+<p>We are now working in the module <code class="docutils literal notranslate"><span class="pre">__main__</span></code>, and hence the namespace for <code class="docutils literal notranslate"><span class="pre">__main__</span></code> is the global namespace.</p>
+<p>Next, we import a module called <code class="docutils literal notranslate"><span class="pre">amodule</span></code></p>
+<div class="no-execute highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">amodule</span>
+</pre></div>
+</div>
+<p>At this point, the interpreter creates a namespace for the module <code class="docutils literal notranslate"><span class="pre">amodule</span></code> and starts executing commands in the module.</p>
+<p>While this occurs, the namespace <code class="docutils literal notranslate"><span class="pre">amodule.__dict__</span></code> is the global namespace.</p>
+<p>Once execution of the module finishes, the interpreter returns to the module from where the import statement was made.</p>
+<p>In this case it’s <code class="docutils literal notranslate"><span class="pre">__main__</span></code>, so the namespace of <code class="docutils literal notranslate"><span class="pre">__main__</span></code> again becomes the global namespace.</p>
+</section>
+<section id="local-namespaces">
+<h2><span class="section-number">7.7. </span>Local Namespaces<a class="headerlink" href="#local-namespaces" title="Permalink to this heading">#</a></h2>
+<p id="index-4">Important fact: When we call a function, the interpreter creates a <em>local namespace</em> for that function, and registers the variables in that namespace.</p>
+<p>The reason for this will be explained in just a moment.</p>
+<p>Variables in the local namespace are called <em>local variables</em>.</p>
+<p>After the function returns, the namespace is deallocated and lost.</p>
+<p>While the function is executing, we can view the contents of the local namespace with <code class="docutils literal notranslate"><span class="pre">locals()</span></code>.</p>
+<p>For example, consider</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s call the function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;x&#39;: 1, &#39;a&#39;: 2}
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can see the local namespace of <code class="docutils literal notranslate"><span class="pre">f</span></code> before it is destroyed.</p>
+</section>
+<section id="the-builtins-namespace">
+<h2><span class="section-number">7.8. </span>The <code class="docutils literal notranslate"><span class="pre">__builtins__</span></code> Namespace<a class="headerlink" href="#the-builtins-namespace" title="Permalink to this heading">#</a></h2>
+<p id="index-5">We have been using various built-in functions, such as <code class="docutils literal notranslate"><span class="pre">max(),</span> <span class="pre">dir(),</span> <span class="pre">str(),</span> <span class="pre">list(),</span> <span class="pre">len(),</span> <span class="pre">range(),</span> <span class="pre">type()</span></code>, etc.</p>
+<p>How does access to these names work?</p>
+<ul class="simple">
+<li><p>These definitions are stored in a module called <code class="docutils literal notranslate"><span class="pre">__builtin__</span></code>.</p></li>
+<li><p>They have their own namespace called <code class="docutils literal notranslate"><span class="pre">__builtins__</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show the first 10 names in `__main__`</span>
+<span class="nb">dir</span><span class="p">()[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;In&#39;, &#39;Out&#39;, &#39;_&#39;, &#39;_10&#39;, &#39;_11&#39;, &#39;_12&#39;, &#39;_13&#39;, &#39;_14&#39;, &#39;_15&#39;, &#39;_16&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show the first 10 names in `__builtins__`</span>
+<span class="nb">dir</span><span class="p">(</span><span class="n">__builtins__</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;ArithmeticError&#39;,
+ &#39;AssertionError&#39;,
+ &#39;AttributeError&#39;,
+ &#39;BaseException&#39;,
+ &#39;BaseExceptionGroup&#39;,
+ &#39;BlockingIOError&#39;,
+ &#39;BrokenPipeError&#39;,
+ &#39;BufferError&#39;,
+ &#39;BytesWarning&#39;,
+ &#39;ChildProcessError&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can access elements of the namespace as follows</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">__builtins__</span><span class="o">.</span><span class="n">max</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function max&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>But <code class="docutils literal notranslate"><span class="pre">__builtins__</span></code> is special, because we can always access them directly as well</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">max</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function max&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">__builtins__</span><span class="o">.</span><span class="n">max</span> <span class="o">==</span> <span class="nb">max</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>The next section explains how this works …</p>
+</section>
+<section id="name-resolution">
+<h2><span class="section-number">7.9. </span>Name Resolution<a class="headerlink" href="#name-resolution" title="Permalink to this heading">#</a></h2>
+<p id="index-6">Namespaces are great because they help us organize variable names.</p>
+<p>(Type <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">this</span></code> at the prompt and look at the last item that’s printed)</p>
+<p>However, we do need to understand how the Python interpreter works with multiple namespaces.</p>
+<p>Understanding the flow of execution will help us to check which variables are in scope and how to operate on them when writing and debugging programs.</p>
+<p>At any point of execution, there are in fact at least two namespaces that can be accessed directly.</p>
+<p>(“Accessed directly” means without using a dot, as in  <code class="docutils literal notranslate"><span class="pre">pi</span></code> rather than <code class="docutils literal notranslate"><span class="pre">math.pi</span></code>)</p>
+<p>These namespaces are</p>
+<ul class="simple">
+<li><p>The global namespace (of the module being executed)</p></li>
+<li><p>The builtin namespace</p></li>
+</ul>
+<p>If the interpreter is executing a function, then the directly accessible namespaces are</p>
+<ul class="simple">
+<li><p>The local namespace of the function</p></li>
+<li><p>The global namespace (of the module being executed)</p></li>
+<li><p>The builtin namespace</p></li>
+</ul>
+<p>Sometimes functions are defined within other functions, like so</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">def</span> <span class="nf">g</span><span class="p">():</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="mi">4</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>
+    <span class="n">g</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here <code class="docutils literal notranslate"><span class="pre">f</span></code> is the <em>enclosing function</em> for <code class="docutils literal notranslate"><span class="pre">g</span></code>, and each function gets its
+own namespaces.</p>
+<p>Now we can give the rule for how namespace resolution works:</p>
+<p>The order in which the interpreter searches for names is</p>
+<ol class="arabic simple">
+<li><p>the local namespace (if it exists)</p></li>
+<li><p>the hierarchy of enclosing namespaces (if they exist)</p></li>
+<li><p>the global namespace</p></li>
+<li><p>the builtin namespace</p></li>
+</ol>
+<p>If the name is not in any of these namespaces, the interpreter raises a <code class="docutils literal notranslate"><span class="pre">NameError</span></code>.</p>
+<p>This is called the <strong>LEGB rule</strong> (local, enclosing, global, builtin).</p>
+<p>Here’s an example that helps to illustrate.</p>
+<p>Visualizations here are created by <a class="reference external" href="https://github.com/lgpage/nbtutor">nbtutor</a> in a Jupyter notebook.</p>
+<p>They can help you better understand your program when you are learning a new language.</p>
+<p>Consider a script <code class="docutils literal notranslate"><span class="pre">test.py</span></code> that looks as follows</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> test.py
+<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">a</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a = &quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s2">&quot;y = &quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing test.py
+</pre></div>
+</div>
+</div>
+</div>
+<p>What happens when we run this script?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> test.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a =  0 y =  11
+</pre></div>
+</div>
+</div>
+</div>
+<p>First,</p>
+<ul class="simple">
+<li><p>The global namespace <code class="docutils literal notranslate"><span class="pre">{}</span></code> is created.</p></li>
+</ul>
+<figure class="align-default">
+<img alt="_images/global.png" src="_images/global.png" />
+</figure>
+<ul class="simple">
+<li><p>The function object is created, and <code class="docutils literal notranslate"><span class="pre">g</span></code> is bound to it within the global namespace.</p></li>
+<li><p>The name <code class="docutils literal notranslate"><span class="pre">a</span></code> is bound to <code class="docutils literal notranslate"><span class="pre">0</span></code>, again in the global namespace.</p></li>
+</ul>
+<figure class="align-default">
+<img alt="_images/global2.png" src="_images/global2.png" />
+</figure>
+<p>Next <code class="docutils literal notranslate"><span class="pre">g</span></code> is called via <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">g(10)</span></code>, leading to the following sequence of actions</p>
+<ul class="simple">
+<li><p>The local namespace for the function is created.</p></li>
+<li><p>Local names <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">a</span></code> are bound, so that the local namespace becomes <code class="docutils literal notranslate"><span class="pre">{'x':</span> <span class="pre">10,</span> <span class="pre">'a':</span> <span class="pre">1}</span></code>.</p></li>
+</ul>
+<p>Note that the global <code class="docutils literal notranslate"><span class="pre">a</span></code> was not affected by the local <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
+<figure class="align-default">
+<img alt="_images/local1.png" src="_images/local1.png" />
+</figure>
+<ul class="simple">
+<li><p>Statement <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">a</span></code> uses the local <code class="docutils literal notranslate"><span class="pre">a</span></code> and local <code class="docutils literal notranslate"><span class="pre">x</span></code> to compute <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">a</span></code>, and binds local name <code class="docutils literal notranslate"><span class="pre">x</span></code> to the result.</p></li>
+<li><p>This value is returned, and <code class="docutils literal notranslate"><span class="pre">y</span></code> is bound to it in the global namespace.</p></li>
+<li><p>Local <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">a</span></code> are discarded (and the local namespace is deallocated).</p></li>
+</ul>
+<figure class="align-default">
+<img alt="_images/local_return.png" src="_images/local_return.png" />
+</figure>
+<section id="mutable-versus-immutable-parameters">
+<span id="mutable-vs-immutable"></span><h3><span class="section-number">7.9.1. </span><span class="target" id="index-7"></span>Mutable Versus <span class="target" id="index-8"></span>Immutable Parameters<a class="headerlink" href="#mutable-versus-immutable-parameters" title="Permalink to this heading">#</a></h3>
+<p>This is a good time to say a little more about mutable vs immutable objects.</p>
+<p>Consider the code segment</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 1
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now understand what will happen here: The code prints <code class="docutils literal notranslate"><span class="pre">2</span></code> as the value of <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code> as the value of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>First <code class="docutils literal notranslate"><span class="pre">f</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code> are registered in the global namespace.</p>
+<p>The call <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> creates a local namespace and adds <code class="docutils literal notranslate"><span class="pre">x</span></code> to it, bound to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<p>Next, this local <code class="docutils literal notranslate"><span class="pre">x</span></code> is rebound to the new integer object <code class="docutils literal notranslate"><span class="pre">2</span></code>, and this value is returned.</p>
+<p>None of this affects the global <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>However, it’s a different story when we use a <strong>mutable</strong> data type such as a list</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2] [2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>This prints <code class="docutils literal notranslate"><span class="pre">[2]</span></code> as the value of <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> and <em>same</em> for <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>Here’s what happens</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">f</span></code> is registered as a function in the global namespace</p></li>
+</ul>
+<figure class="align-default">
+<img alt="_images/mutable1.png" src="_images/mutable1.png" />
+</figure>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> is bound to <code class="docutils literal notranslate"><span class="pre">[1]</span></code> in the global namespace</p></li>
+</ul>
+<figure class="align-default">
+<img alt="_images/mutable2.png" src="_images/mutable2.png" />
+</figure>
+<ul class="simple">
+<li><p>The call <code class="docutils literal notranslate"><span class="pre">f(x)</span></code></p>
+<ul>
+<li><p>Creates a local namespace</p></li>
+<li><p>Adds <code class="docutils literal notranslate"><span class="pre">x</span></code> to the local namespace, bound to <code class="docutils literal notranslate"><span class="pre">[1]</span></code></p></li>
+</ul>
+</li>
+</ul>
+<figure class="align-default">
+<img alt="_images/mutable3.png" src="_images/mutable3.png" />
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The global <code class="docutils literal notranslate"><span class="pre">x</span></code> and the local <code class="docutils literal notranslate"><span class="pre">x</span></code> refer to the same <code class="docutils literal notranslate"><span class="pre">[1]</span></code></p>
+</div>
+<p>We can see the identity of local <code class="docutils literal notranslate"><span class="pre">x</span></code> and the identity of global <code class="docutils literal notranslate"><span class="pre">x</span></code> are the same</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;the identity of local x is </span><span class="si">{</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;the identity of global x is </span><span class="si">{</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the identity of global x is 140596508490944
+the identity of local x is 140596508490944
+[2] [2]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Within <code class="docutils literal notranslate"><span class="pre">f(x)</span></code></p>
+<ul>
+<li><p>The list <code class="docutils literal notranslate"><span class="pre">[1]</span></code> is modified to <code class="docutils literal notranslate"><span class="pre">[2]</span></code></p></li>
+<li><p>Returns the list <code class="docutils literal notranslate"><span class="pre">[2]</span></code></p></li>
+</ul>
+</li>
+</ul>
+<figure class="align-default">
+<img alt="_images/mutable4.png" src="_images/mutable4.png" />
+</figure>
+<ul class="simple">
+<li><p>The local namespace is deallocated, and the local <code class="docutils literal notranslate"><span class="pre">x</span></code> is lost</p></li>
+</ul>
+<figure class="align-default">
+<img alt="_images/mutable5.png" src="_images/mutable5.png" />
+</figure>
+<p>If you want to modify the local <code class="docutils literal notranslate"><span class="pre">x</span></code> and the global <code class="docutils literal notranslate"><span class="pre">x</span></code> separately, you can create a <a class="reference external" href="https://docs.python.org/3/library/copy.html"><em>copy</em></a> of the list and assign the copy to the local <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>We will leave this for you to explore.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                    </div>
+                    
+                </main> <!-- .page__content -->
+                
+
+
+                <footer class="qe-page__footer">
+
+                    <p><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"></a></p>
+
+                    <p>Creative Commons License &ndash; This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International.</p>
+
+                </footer> <!-- .page__footer -->
+
+            </div> <!-- .page -->
+
+            
+
+            
+            <div class="qe-sidebar bd-sidebar inactive" id="site-navigation">
+
+                <div class="qe-sidebar__header">
+
+
+                    Contents
+
+                </div>
+
+                <nav class="qe-sidebar__nav" id="qe-sidebar-nav" aria-label="Main navigation">
+                    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_py.html">
+   1. About Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started.html">
+   2. Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_by_example.html">
+   3. An Introductory Example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   4. Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_essentials.html">
+   5. Python Essentials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="oop_intro.html">
+   6. OOP I: Objects and Methods
+  </a>
+ </li>
+ <li class="toctree-l1 current active active">
+  <a class="current reference internal" href="#">
+   7. Names and Namespaces
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_oop.html">
+   8. OOP II: Building Classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="workspace.html">
+   9. Writing Longer Programs
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  The Scientific Libraries
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="need_for_speed.html">
+   10. Python for Scientific Computing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy.html">
+   11. NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matplotlib.html">
+   12. Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scipy.html">
+   13. SciPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   14. Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sympy.html">
+   15. SymPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  High Performance Computing
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="numba.html">
+   16. Numba
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parallelization.html">
+   17. Parallelization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jax_intro.html">
+   18. JAX
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Advanced Python Programming
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="writing_good_code.html">
+   19. Writing Good Code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_advanced_features.html">
+   20. More Language Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="debugging.html">
+   21. Debugging and Handling Errors
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   22. Troubleshooting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="status.html">
+   23. Execution Statistics
+  </a>
+ </li>
+</ul>
+
+                </nav>
+
+                <div class="qe-sidebar__footer">
+
+                </div>
+
+            </div> <!-- .sidebar -->
+            
+        </div> <!-- .main -->
+
+        <div class="qe-toolbar">
+
+            <div class="qe-toolbar__inner">
+
+                <ul class="qe-toolbar__main">
+                    <li data-tippy-content="Table of Contents" class="btn__sidebar"><i data-feather="menu"></i></li>
+                    <li data-tippy-content="Home"><a href="intro.html"><i data-feather="home"></i></a></li>
+                    <li class="btn__qelogo"><a href="https://quantecon.org" title=""><span class="show-for-sr">QuantEcon</span></a></li>
+                </ul>
+
+                <ul class="qe-toolbar__links">
+                    <li class="btn__search">
+                        <form action="search.html" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search..." aria-label="Search..." autocomplete="off" accesskey="k">
+                            <i data-feather="search" id="search-icon"></i>
+                        </form>
+                    </li>
+                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
+                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
+                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
+                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                    <li data-tippy-content="Download Notebook"><a href="/_notebooks/names.ipynb" download><i data-feather="download-cloud"></i></a></li>
+                    <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
+                        <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/blob/main/lectures/names.md" download><i data-feather="github"></i></a></li>
+                </ul>
+
+            </div>
+
+        </div> <!-- .toolbar -->
+        <div id="downloadPDFModal" style="display: none;">
+            <ul class="pdf-options" style="display: block;">
+                <li class="download-pdf-book" onClick="window.print()">
+                    <p>Lecture (PDF)</p>
+                </li>
+                <li class="download-pdf-file">
+                    <a href="/_pdf/quantecon-python-programming.pdf" download><p>Book (PDF)</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="settingsModal" style="display: none;">
+            <p class="modal-title"> Notebook Launcher </p>
+            <div class="modal-desc">
+            <p>
+                Choose public or private cloud service for "Launch" button.
+            </p>
+            </div>
+            <p class="modal-subtitle">Select a server</p>
+            <ul class="modal-servers">
+            <li class="active launcher-public">
+                <span class="label">Public</span>
+                <select id="launcher-public-input">
+                
+                    <option value="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.notebooks/blob/master/names.ipynb">Colab</option>
+                
+                </select>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            <li class="launcher-private">
+                <span class="label">Private</span>
+                <input type="text" id="launcher-private-input" data-repourl="https://github.com/QuantEcon/lecture-python-programming.notebooks" data-urlpath="tree/lecture-python-programming.notebooks/names.ipynb" data-branch=master>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            </ul>
+            <p class="launch"><a href="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.notebooks/blob/master/names.ipynb" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
+            <script>
+                // QuantEcon Notebook Launcher
+                const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');
+                // Highlight the server type if previous selection exists
+                if (typeof localStorage.launcherType !== 'undefined') {
+                  for (var i = 0; i < launcherTypeElements.length; i++) {
+                    launcherTypeElements[i].classList.remove('active');
+                    if ( launcherTypeElements[i].classList.contains(localStorage.launcherType) ) {
+                      launcherTypeElements[i].classList.add('active');
+                    }
+                  }
+                }
+                // Highlight server type on click and set local storage value
+                for (var i = 0; i < launcherTypeElements.length; i++) {
+                  launcherTypeElements[i].addEventListener('click', function() {
+                    for (var j = 0; j < launcherTypeElements.length; j++) {
+                      launcherTypeElements[j].classList.remove('active');
+                    }
+                    this.classList.add('active');
+                    if ( this.classList.contains('launcher-private') ) {
+                      localStorage.launcherType = 'launcher-private';
+                    } else if ( this.classList.contains('launcher-public') ) {
+                      localStorage.launcherType = 'launcher-public';
+                    }
+                    setLaunchServer();
+                  })
+                }
+                const launcherPublic = document.getElementById('launcher-public-input');
+                const launcherPrivate = document.getElementById('launcher-private-input');
+                const pageName = "names";
+                const repoURL = "https://github.com/QuantEcon/lecture-python-programming.notebooks";
+                const urlPath = "tree/lecture-python-programming.notebooks/names.ipynb";
+                const branch = "master"
+                const launchNotebookLink = document.getElementById('advancedLaunchButton');
+
+                // Highlight public server option if previous selection exists
+                if (typeof localStorage.launcherPublic !== 'undefined') {
+                  launcherPublic.value = localStorage.launcherPublic;
+                }
+                // Update local storage upon public server selection
+                launcherPublic.addEventListener('change', (event) => {
+                  setLaunchServer();
+                });
+                // Populate private server input if previous entry exists
+                if (typeof localStorage.launcherPrivate !== 'undefined') {
+                  launcherPrivate.value = localStorage.launcherPrivate;
+                }
+                // Update local storage when a private server is entered
+                launcherPrivate.addEventListener('input', (event) => {
+                  setLaunchServer();
+                });
+
+                // Function to update the "Launch Notebook" link href
+                function setLaunchServer() {
+                  launchNotebookLink.removeAttribute("style")
+                  if ( localStorage.launcherType == 'launcher-private' ) {
+                    let repoPrefix = "/jupyter/hub/user-redirect/git-pull?repo=" + repoURL + "&branch=" + branch + "&urlpath=" + urlPath;
+                    launcherPrivateValue = launcherPrivate.value
+                    if (!launcherPrivateValue) {
+                        launchNotebookLink.removeAttribute("href")
+                        launchNotebookLink.style.background = "grey"
+                        return
+                    }
+                    localStorage.launcherPrivate = launcherPrivateValue;
+                    privateServer = localStorage.launcherPrivate.replace(/\/$/, "")
+                    if (!privateServer.includes("http")) {
+                        privateServer = "http://" + privateServer
+                    }
+                    launchNotebookLinkURL = privateServer + repoPrefix;
+                  } else if ( localStorage.launcherType == 'launcher-public' ) {
+                    launcherPublicValue = launcherPublic.options[launcherPublic.selectedIndex].value;
+                    localStorage.launcherPublic = launcherPublicValue;
+                    launchNotebookLinkURL = localStorage.launcherPublic;
+                  }
+                  if (launchNotebookLinkURL) launchNotebookLink.href = launchNotebookLinkURL;
+                }
+                // Check if user has previously selected a server
+                if ( (typeof localStorage.launcherPrivate !== 'undefined') || (typeof localStorage.launcherPublic !== 'undefined') ) {
+                  setLaunchServer();
+                }
+                </script>
+
+        </div>
+
+    </div> <!-- .wrapper-->
+  </body>
+</html>

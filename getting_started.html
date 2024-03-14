@@ -60,15 +60,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=b09b2da44b9015b4fa76ea072fa2d8f7faee5492" type="text/css" />
@@ -80,9 +80,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -308,29 +308,19 @@ const thebe_selector_output = ".output, .cell_output"
 <h2><a class="toc-backref" href="#id5"><span class="section-number">2.2. </span>Python in the Cloud</a><a class="headerlink" href="#python-in-the-cloud" title="Permalink to this heading">#</a></h2>
 <p>The easiest way to get started coding in Python is by running it in the cloud.</p>
 <p>(That is, by using a remote server that already has Python installed.)</p>
-<p>There are many options for doing this, both free and paid.</p>
-<p>At present <a class="reference external" href="https://colab.research.google.com/">Google Colab</a> seems to be the
-most reliable.</p>
-<p>Colab offers a free tier and also has the advantage of providing GPUs.</p>
-<p>The free-tier GPUs are adequate and better ones can be accessed by signing up
-for Colab Pro.</p>
-<p>Tutorials on how to get started with Google Colab can be found by searching.</p>
-<p>Written examples include</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://pub.towardsai.net/google-colab-tutorial-for-beginners-834595494d44">Google Colab Tutorial for Beginners</a></p></li>
-<li><p><a class="reference external" href="https://levelup.gitconnected.com/google-colab-what-is-it-how-to-use-it-and-why-should-i-care-721bb8a88c90">Intro to Google
-Colab</a></p></li>
-</ul>
-<p>Videos on the same topic can be found by searching on Youtube.</p>
-<p>Most of our lectures include a “Launch notebook” (play icon) button on the top
-right that allows you to easily run them in Colab.</p>
+<p>One option that’s both free and reliable is <a class="reference external" href="https://colab.research.google.com/">Google Colab</a>.</p>
+<p>Colab also has the advantage of providing GPUs, which we will make use of in
+more advanced lectures.</p>
+<p>Tutorials on how to get started with Google Colab can be found by web and video searches.</p>
+<p>Most of our lectures include a “Launch notebook” button (with a play icon) on the top
+right connects you to an executable version on Colab.</p>
 </section>
 <section id="local-install">
 <h2><a class="toc-backref" href="#id6"><span class="section-number">2.3. </span>Local Install</a><a class="headerlink" href="#local-install" title="Permalink to this heading">#</a></h2>
 <p>Local installs are preferable if you have access to a suitable machine and
 plan to do a substantial amount of Python programming.</p>
 <p>At the same time, local installs require more work than a cloud option like Colab.</p>
-<p>The rest of this lecture runs you through the details.</p>
+<p>The rest of this lecture runs you through the some details associated with local installs.</p>
 <section id="the-anaconda-distribution">
 <h3><span class="section-number">2.3.1. </span>The Anaconda Distribution<a class="headerlink" href="#the-anaconda-distribution" title="Permalink to this heading">#</a></h3>
 <p>The <a class="reference external" href="https://www.python.org/downloads/">core Python package</a> is easy to install but <em>not</em> what you should choose for these lectures.</p>
@@ -344,7 +334,7 @@ plan to do a substantial amount of Python programming.</p>
 <li><p>the core Python language <strong>and</strong></p></li>
 <li><p>compatible versions of the most popular scientific libraries.</p></li>
 </ol>
-<p>The best such distribution is <a class="reference external" href="https://www.anaconda.com/products/distribution">Anaconda</a>.</p>
+<p>The best such distribution is <a class="reference external" href="https://www.anaconda.com/">Anaconda Python</a>.</p>
 <p>Anaconda is</p>
 <ul class="simple">
 <li><p>very popular</p></li>
@@ -352,7 +342,7 @@ plan to do a substantial amount of Python programming.</p>
 <li><p>comprehensive</p></li>
 <li><p>completely unrelated to the <a class="reference external" href="https://www.youtube.com/watch?v=LDZX4ooRsWs">Nicki Minaj song of the same name</a></p></li>
 </ul>
-<p>Anaconda also comes with a great package management system to organize your code libraries.</p>
+<p>Anaconda also comes with a package management system to organize your code libraries.</p>
 <p><strong>All of what follows assumes that you adopt this recommendation!</strong></p>
 </section>
 <section id="installing-anaconda">
@@ -360,8 +350,7 @@ plan to do a substantial amount of Python programming.</p>
 <p id="index-1">To install Anaconda, <a class="reference external" href="https://www.anaconda.com/download/">download</a> the binary and follow the instructions.</p>
 <p>Important points:</p>
 <ul class="simple">
-<li><p>Install the latest version!</p></li>
-<li><p>Find the correct distribution for your system.</p></li>
+<li><p>Make sure you install the correct version for your OS.</p></li>
 <li><p>If you are asked during the installation process whether you’d like to make Anaconda your default Python installation, say yes.</p></li>
 </ul>
 </section>
@@ -512,7 +501,7 @@ plan to do a substantial amount of Python programming.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/eb0f5e75faf5e42592fb9062141327d01de4571b255126f1dbaa5c8131d37cc9.png" src="_images/eb0f5e75faf5e42592fb9062141327d01de4571b255126f1dbaa5c8131d37cc9.png" />
+<img alt="_images/655c5f8a564fafbb579f408637a2fb55a8559fefad9e066598f00dd0c1e81582.png" src="_images/655c5f8a564fafbb579f408637a2fb55a8559fefad9e066598f00dd0c1e81582.png" />
 </div>
 </div>
 <p>Don’t worry about the details for now — let’s just run it and see what happens.</p>
@@ -805,17 +794,22 @@ you started it.</p>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="oop_intro.html">
-   6. OOP I: Objects and Names
+   6. OOP I: Objects and Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="names.html">
+   7. Names and Namespaces
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_oop.html">
-   7. OOP II: Building Classes
+   8. OOP II: Building Classes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="workspace.html">
-   8. Writing Longer Programs
+   9. Writing Longer Programs
   </a>
  </li>
 </ul>
@@ -827,32 +821,32 @@ you started it.</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="need_for_speed.html">
-   9. Python for Scientific Computing
+   10. Python for Scientific Computing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="numpy.html">
-   10. NumPy
+   11. NumPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matplotlib.html">
-   11. Matplotlib
+   12. Matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="scipy.html">
-   12. SciPy
+   13. SciPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pandas.html">
-   13. Pandas
+   14. Pandas
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   14. SymPy
+   15. SymPy
   </a>
  </li>
 </ul>
@@ -864,17 +858,17 @@ you started it.</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="numba.html">
-   15. Numba
+   16. Numba
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="parallelization.html">
-   16. Parallelization
+   17. Parallelization
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   17. JAX
+   18. JAX
   </a>
  </li>
 </ul>
@@ -886,17 +880,17 @@ you started it.</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   18. Writing Good Code
+   19. Writing Good Code
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   19. More Language Features
+   20. More Language Features
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   20. Debugging and Handling Errors
+   21. Debugging and Handling Errors
   </a>
  </li>
 </ul>
@@ -908,12 +902,12 @@ you started it.</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   21. Troubleshooting
+   22. Troubleshooting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   22. Execution Statistics
+   23. Execution Statistics
   </a>
  </li>
 </ul>
