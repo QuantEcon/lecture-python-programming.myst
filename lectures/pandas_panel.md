@@ -29,7 +29,7 @@ kernelspec:
 
 ## Overview
 
-In an {doc}`earlier lecture on pandas <pyprog:pandas>`, we looked at working with simple data sets.
+In an {doc}`earlier lecture on pandas <pandas>`, we looked at working with simple data sets.
 
 Econometricians often need to work with more complex data sets, such as panels.
 
