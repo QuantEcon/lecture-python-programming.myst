@@ -48,6 +48,31 @@ sphinx:
         notebook_interface        : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
         colab_url                 : https://colab.research.google.com
         thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
+      intersphinx_mapping:
+        pyprog:
+          - https://python-programming.quantecon.org/
+          - null
+        intro: 
+          - https://intro.quantecon.org/
+          - null
+        dle:
+          - https://quantecon.github.io/lecture-dle/
+          - null
+        dps:
+          - https://quantecon.github.io/lecture-dps/
+          - null
+        eqm:
+          - https://quantecon.github.io/lecture-eqm/
+          - null
+        stats:
+          - https://quantecon.github.io/lecture-stats/
+          - null
+        tools:
+          - https://quantecon.github.io/lecture-tools-techniques/
+          - null
+        dynam:
+          - https://quantecon.github.io/lecture-dynamics/
+          - null
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
     rediraffe_redirects:
       index_toc.md: intro.md
