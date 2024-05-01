@@ -442,9 +442,6 @@ plt.rcParams['figure.figsize'] = (10, 6)
 
 ```
 
-Here are [more examples](https://www.datafantic.com/the-magic-of-matplotlib-stylesheets/) on how to change these parameters.
-
-
 ## Further Reading
 
 * The [Matplotlib gallery](http://matplotlib.org/gallery.html) provides many examples.

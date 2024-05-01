@@ -206,8 +206,6 @@ You can also run the script line by line by opening an ipykernel console either
 - by right clicking within the Notebook and selecting Create Console for Editor
 
 Use Shift + Enter to run a line of code.
-
-More on ipykernel consoles [here](https://ipython.readthedocs.io/en/stable/interactive/reference.html#ipykernel).
 ```
 
 ## A walk through Visual Studio Code
