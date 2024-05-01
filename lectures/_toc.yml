@@ -21,6 +21,7 @@ parts:
   - file: matplotlib
   - file: scipy
   - file: pandas
+  - file: pandas_panel
   - file: sympy
 - caption: High Performance Computing
   numbered: true
