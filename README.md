@@ -1,14 +1,16 @@
-# lecture-python-programming.myst
+# Python Programming for Economics and Finance
 
-Source files for https://python-programming.quantecon.org
+This website presents a set of lectures on Python programming for economics and finance.
 
-## GH-PAGES
+## Jupyter notebooks
 
-This repository is hosted on Github Pages:
+Jupyter notebook versions of each lecture are available for download
+via the website.
 
-https://quantecon.github.io/lecture-python-programming.myst/
+## Contributions
 
-with a custom domain
+To comment on the lectures please add to or open an issue in the issue tracker (see above).
 
-https://python-programming.quantecon.org
+We welcome pull requests!  
 
+Please read the [QuantEcon style guide](https://manual.quantecon.org/intro.html) first, so that you can match our style.
