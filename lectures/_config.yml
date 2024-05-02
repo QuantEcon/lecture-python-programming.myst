@@ -17,7 +17,7 @@ latex:
 sphinx:
   extra_extensions: [sphinx_multitoc_numbering, sphinxext.rediraffe, sphinx_tojupyter, sphinx_exercise, sphinx_togglebutton]
   config:
-    bibtex_reference_style: author_year
+    # bibtex_reference_style: author_year #TODO: enable if bibtex bibliography is used in series
     # false-positive links
     linkcheck_ignore: ['https://github.com/matplotlib/matplotlib/blob/v3.6.2/lib/matplotlib/axes/_axes.py#L1417-L1669',
                        'https://ieeexplore.ieee.org/document/8757088',
