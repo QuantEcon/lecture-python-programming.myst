@@ -314,7 +314,7 @@ Simplifying the expression above gives
 simplify(Dt.doit())
 ```
 
-This is consistent with the solution in the lecture on [geometric series](https://python.quantecon.org/geom_series.html#example-the-money-multiplier-in-fractional-reserve-banking).
+This is consistent with the solution in the lecture on [geometric series](https://intro.quantecon.org/geom_series.html#example-the-money-multiplier-in-fractional-reserve-banking).
 
 
 #### Example: discrete random variable

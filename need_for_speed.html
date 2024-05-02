@@ -307,15 +307,13 @@ addressing the following questions:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting quantecon
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading quantecon-0.7.1-py3-none-any.whl.metadata (4.0 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading quantecon-0.7.2-py3-none-any.whl.metadata (4.9 kB)
 Requirement already satisfied: numba&gt;=0.49.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from quantecon) (0.59.0)
 Requirement already satisfied: numpy&gt;=1.17.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from quantecon) (1.26.4)
 Requirement already satisfied: requests in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from quantecon) (2.31.0)
 Requirement already satisfied: scipy&gt;=1.5.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from quantecon) (1.11.4)
 Requirement already satisfied: sympy in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from quantecon) (1.12)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: llvmlite&lt;0.43,&gt;=0.42.0dev0 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from numba&gt;=0.49.0-&gt;quantecon) (0.42.0)
+Requirement already satisfied: llvmlite&lt;0.43,&gt;=0.42.0dev0 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from numba&gt;=0.49.0-&gt;quantecon) (0.42.0)
 Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from requests-&gt;quantecon) (2.0.4)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from requests-&gt;quantecon) (3.4)
 Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from requests-&gt;quantecon) (2.0.7)
@@ -323,16 +321,19 @@ Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/share/miniconda3/en
 Requirement already satisfied: mpmath&gt;=0.19 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from sympy-&gt;quantecon) (1.3.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading quantecon-0.7.1-py3-none-any.whl (214 kB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/214.8 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">214.8/214.8 kB</span> <span class=" -Color -Color-Red">11.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading quantecon-0.7.2-py3-none-any.whl (215 kB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/215.4 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">92.2/215.4 kB</span> <span class=" -Color -Color-Red">3.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">215.4/215.4 kB</span> <span class=" -Color -Color-Red">4.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: quantecon
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed quantecon-0.7.1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed quantecon-0.7.2
 </pre></div>
 </div>
 </div>
@@ -566,8 +567,8 @@ square and then sum a large number of random variables:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 283 ms, sys: 385 µs, total: 284 ms
-Wall time: 283 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 286 ms, sys: 291 µs, total: 287 ms
+Wall time: 286 ms
 </pre></div>
 </div>
 </div>
@@ -583,8 +584,8 @@ Wall time: 283 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 9.22 ms, sys: 275 µs, total: 9.5 ms
-Wall time: 9.25 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 9.16 ms, sys: 297 µs, total: 9.46 ms
+Wall time: 8.97 ms
 </pre></div>
 </div>
 </div>
@@ -710,7 +711,7 @@ a = 3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.45 s, sys: 1.5 ms, total: 1.45 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.44 s, sys: 1.77 ms, total: 1.44 s
 Wall time: 1.35 s
 </pre></div>
 </div>
@@ -727,8 +728,8 @@ Wall time: 1.35 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 10.5 ms, sys: 11.7 ms, total: 22.2 ms
-Wall time: 21.8 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 21.5 ms, sys: 0 ns, total: 21.5 ms
+Wall time: 21.1 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9999819641085747
@@ -895,8 +896,13 @@ which can generate extremely fast and efficient code.</p>
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="pandas_panel.html">
+   15. Pandas for Panel Data
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   15. SymPy
+   16. SymPy
   </a>
  </li>
 </ul>
@@ -908,17 +914,17 @@ which can generate extremely fast and efficient code.</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="numba.html">
-   16. Numba
+   17. Numba
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="parallelization.html">
-   17. Parallelization
+   18. Parallelization
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   18. JAX
+   19. JAX
   </a>
  </li>
 </ul>
@@ -930,17 +936,17 @@ which can generate extremely fast and efficient code.</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   19. Writing Good Code
+   20. Writing Good Code
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   20. More Language Features
+   21. More Language Features
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   21. Debugging and Handling Errors
+   22. Debugging and Handling Errors
   </a>
  </li>
 </ul>
@@ -952,12 +958,12 @@ which can generate extremely fast and efficient code.</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   22. Troubleshooting
+   23. Troubleshooting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   23. Execution Statistics
+   24. Execution Statistics
   </a>
  </li>
 </ul>

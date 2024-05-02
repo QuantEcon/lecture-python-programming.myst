@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>21. Debugging and Handling Errors &#8212; Python Programming for Economics and Finance</title>
+    <title>22. Debugging and Handling Errors &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
@@ -120,8 +120,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="22. Troubleshooting" href="troubleshooting.html" />
-    <link rel="prev" title="20. More Language Features" href="python_advanced_features.html" />
+    <link rel="next" title="23. Troubleshooting" href="troubleshooting.html" />
+    <link rel="prev" title="21. More Language Features" href="python_advanced_features.html" />
 
 <!-- Normal Meta Tags -->
 <meta name="author" context="Thomas J. Sargent &amp; John Stachurski" />
@@ -169,23 +169,23 @@ const thebe_selector_output = ".output, .cell_output"
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">21.1. Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">21.2. Debugging</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-debug-magic">21.2.1. The <code class="docutils literal notranslate"><span class="pre">debug</span></code> Magic</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-a-break-point">21.2.2. Setting a Break Point</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-magics">21.2.3. Other Useful Magics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">22.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">22.2. Debugging</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-debug-magic">22.2.1. The <code class="docutils literal notranslate"><span class="pre">debug</span></code> Magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-a-break-point">22.2.2. Setting a Break Point</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-magics">22.2.3. Other Useful Magics</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-errors">21.3. Handling Errors</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#errors-in-python">21.3.1. Errors in Python</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assertions">21.3.2. Assertions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-errors-during-runtime">21.3.3. Handling Errors During Runtime</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catching-exceptions">21.3.3.1. Catching Exceptions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-errors">22.3. Handling Errors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#errors-in-python">22.3.1. Errors in Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assertions">22.3.2. Assertions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-errors-during-runtime">22.3.3. Handling Errors During Runtime</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catching-exceptions">22.3.3.1. Catching Exceptions</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">21.4. Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">22.4. Exercises</a></li>
 </ul>
                             <p class="logo">
                                 
@@ -245,7 +245,7 @@ const thebe_selector_output = ".output, .cell_output"
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="debugging-and-handling-errors">
-<h1><a class="toc-backref" href="#id2"><span class="section-number">21. </span>Debugging and Handling Errors</a><a class="headerlink" href="#debugging-and-handling-errors" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id2"><span class="section-number">22. </span>Debugging and Handling Errors</a><a class="headerlink" href="#debugging-and-handling-errors" title="Permalink to this heading">#</a></h1>
 <div class="contents topic" id="contents">
 <span id="index-0"></span><p class="topic-title">Contents</p>
 <ul class="simple">
@@ -265,7 +265,7 @@ Therefore, if you write the code as cleverly as possible, you are, by definition
 not smart enough to debug it.” – Brian Kernighan</p>
 </div></blockquote>
 <section id="overview">
-<h2><a class="toc-backref" href="#id3"><span class="section-number">21.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3"><span class="section-number">22.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>Are you one of those programmers who fills their code with <code class="docutils literal notranslate"><span class="pre">print</span></code> statements when trying to debug their programs?</p>
 <p>Hey, we all used to do that.</p>
 <p>(OK, sometimes we still do that…)</p>
@@ -274,7 +274,7 @@ not smart enough to debug it.” – Brian Kernighan</p>
 <p>In this lecture, we will discuss how to debug our programs and improve error handling.</p>
 </section>
 <section id="id1">
-<h2><a class="toc-backref" href="#id4"><span class="section-number">21.2. </span>Debugging</a><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4"><span class="section-number">22.2. </span>Debugging</a><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p id="index-1">Debugging tools for Python vary across platforms, IDEs and editors.</p>
 <p>For example, a <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/user/debugger.html">visual debugger</a> is available in JupyterLab.</p>
 <p>Here we’ll focus on Jupyter Notebook and leave you to explore other settings.</p>
@@ -290,7 +290,7 @@ not smart enough to debug it.” – Brian Kernighan</p>
 </div>
 </div>
 <section id="the-debug-magic">
-<span id="debug-magic"></span><h3><span class="section-number">21.2.1. </span>The <code class="docutils literal notranslate"><span class="pre">debug</span></code> Magic<a class="headerlink" href="#the-debug-magic" title="Permalink to this heading">#</a></h3>
+<span id="debug-magic"></span><h3><span class="section-number">22.2.1. </span>The <code class="docutils literal notranslate"><span class="pre">debug</span></code> Magic<a class="headerlink" href="#the-debug-magic" title="Permalink to this heading">#</a></h3>
 <p>Let’s consider a simple (and rather contrived) example</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
@@ -431,7 +431,7 @@ online help</p>
 </div>
 </section>
 <section id="setting-a-break-point">
-<h3><span class="section-number">21.2.2. </span>Setting a Break Point<a class="headerlink" href="#setting-a-break-point" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">22.2.2. </span>Setting a Break Point<a class="headerlink" href="#setting-a-break-point" title="Permalink to this heading">#</a></h3>
 <p>The preceding approach is handy but sometimes insufficient.</p>
 <p>Consider the following modified version of our function above</p>
 <div class="cell tag_raises-exception docutils container">
@@ -485,7 +485,7 @@ online help</p>
 <p>To exit from the debugger, use <code class="docutils literal notranslate"><span class="pre">q</span></code>.</p>
 </section>
 <section id="other-useful-magics">
-<h3><span class="section-number">21.2.3. </span>Other Useful Magics<a class="headerlink" href="#other-useful-magics" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">22.2.3. </span>Other Useful Magics<a class="headerlink" href="#other-useful-magics" title="Permalink to this heading">#</a></h3>
 <p>In this lecture, we used the <code class="docutils literal notranslate"><span class="pre">%debug</span></code> IPython magic.</p>
 <p>There are many other useful magics:</p>
 <ul class="simple">
@@ -497,7 +497,7 @@ online help</p>
 </section>
 </section>
 <section id="handling-errors">
-<h2><a class="toc-backref" href="#id5"><span class="section-number">21.3. </span>Handling Errors</a><a class="headerlink" href="#handling-errors" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5"><span class="section-number">22.3. </span>Handling Errors</a><a class="headerlink" href="#handling-errors" title="Permalink to this heading">#</a></h2>
 <p id="index-2">Sometimes it’s possible to anticipate bugs and errors as we’re writing code.</p>
 <p>For example, the unbiased sample variance of sample <span class="math notranslate nohighlight">\(y_1, \ldots, y_n\)</span>
 is defined as</p>
@@ -519,7 +519,7 @@ anticipate a divide-by-zero error when the sample size is one.</p>
 </ul>
 <p>In this section, we’ll discuss different types of errors in Python and techniques to handle potential errors in our programs.</p>
 <section id="errors-in-python">
-<h3><span class="section-number">21.3.1. </span>Errors in Python<a class="headerlink" href="#errors-in-python" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">22.3.1. </span>Errors in Python<a class="headerlink" href="#errors-in-python" title="Permalink to this heading">#</a></h3>
 <p>We have seen <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> and <code class="docutils literal notranslate"><span class="pre">NameError</span></code> in <a class="reference internal" href="#debug-magic"><span class="std std-ref">our previous examples</span></a>.</p>
 <p>In Python, there are two types of errors – syntax errors and exceptions.</p>
 <p id="index-3">Here’s an example of a common error type</p>
@@ -620,7 +620,7 @@ anticipate a divide-by-zero error when the sample size is one.</p>
 <p>In Python, these errors are called <em>exceptions</em>.</p>
 </section>
 <section id="assertions">
-<h3><span class="section-number">21.3.2. </span>Assertions<a class="headerlink" href="#assertions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">22.3.2. </span>Assertions<a class="headerlink" href="#assertions" title="Permalink to this heading">#</a></h3>
 <p id="index-4">Sometimes errors can be avoided by checking whether your program runs as expected.</p>
 <p>A relatively easy way to handle checks is with the <code class="docutils literal notranslate"><span class="pre">assert</span></code> keyword.</p>
 <p>For example, pretend for a moment that the <code class="docutils literal notranslate"><span class="pre">np.var</span></code> function doesn’t
@@ -667,13 +667,13 @@ print our error message</p>
 </ul>
 </section>
 <section id="handling-errors-during-runtime">
-<h3><span class="section-number">21.3.3. </span>Handling Errors During Runtime<a class="headerlink" href="#handling-errors-during-runtime" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">22.3.3. </span>Handling Errors During Runtime<a class="headerlink" href="#handling-errors-during-runtime" title="Permalink to this heading">#</a></h3>
 <p id="index-5">The approach used above is a bit limited, because it always leads to
 termination.</p>
 <p>Sometimes we can handle errors more gracefully, by treating special cases.</p>
 <p>Let’s look at how this is done.</p>
 <section id="catching-exceptions">
-<h4><span class="section-number">21.3.3.1. </span>Catching Exceptions<a class="headerlink" href="#catching-exceptions" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">22.3.3.1. </span>Catching Exceptions<a class="headerlink" href="#catching-exceptions" title="Permalink to this heading">#</a></h4>
 <p>We can catch and deal with exceptions using <code class="docutils literal notranslate"><span class="pre">try</span></code> – <code class="docutils literal notranslate"><span class="pre">except</span></code> blocks.</p>
 <p>Here’s a simple example</p>
 <div class="cell docutils container">
@@ -834,10 +834,10 @@ termination.</p>
 </section>
 </section>
 <section id="exercises">
-<h2><a class="toc-backref" href="#id6"><span class="section-number">21.4. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6"><span class="section-number">22.4. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <div class="exercise admonition" id="debug_ex1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 21.1 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 22.1 </span></p>
 <section id="exercise-content">
 <p>Suppose we have a text file <code class="docutils literal notranslate"><span class="pre">numbers.txt</span></code> containing the following lines</p>
 <div class="no-execute highlight-none notranslate"><div class="highlight"><pre><span></span>prices
@@ -854,7 +854,7 @@ termination.</p>
 </div>
 <div class="solution dropdown admonition" id="debugging-solution-1">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#debug_ex1"> Exercise 21.1</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#debug_ex1"> Exercise 22.1</a></p>
 <section id="solution-content">
 <p>Let’s save the data first</p>
 <div class="cell docutils container">
@@ -1036,8 +1036,13 @@ termination.</p>
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="pandas_panel.html">
+   15. Pandas for Panel Data
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   15. SymPy
+   16. SymPy
   </a>
  </li>
 </ul>
@@ -1049,17 +1054,17 @@ termination.</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="numba.html">
-   16. Numba
+   17. Numba
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="parallelization.html">
-   17. Parallelization
+   18. Parallelization
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   18. JAX
+   19. JAX
   </a>
  </li>
 </ul>
@@ -1071,17 +1076,17 @@ termination.</p>
 <ul class="current nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   19. Writing Good Code
+   20. Writing Good Code
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   20. More Language Features
+   21. More Language Features
   </a>
  </li>
  <li class="toctree-l1 current active active">
   <a class="current reference internal" href="#">
-   21. Debugging and Handling Errors
+   22. Debugging and Handling Errors
   </a>
  </li>
 </ul>
@@ -1093,12 +1098,12 @@ termination.</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   22. Troubleshooting
+   23. Troubleshooting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   23. Execution Statistics
+   24. Execution Statistics
   </a>
  </li>
 </ul>
