@@ -23,10 +23,6 @@ kernelspec:
 ```{index} single: Python; Introductory Example
 ```
 
-```{contents} Contents
-:depth: 2
-```
-
 ## Overview
 
 We're now ready to start learning the Python language itself.

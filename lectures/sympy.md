@@ -25,10 +25,6 @@ kernelspec:
 ```{index} single: Python; SymPy
 ```
 
-```{contents} Contents
-:depth: 2
-```
-
 ## Overview
 
 Unlike numerical libraries that deal with values, [SymPy](https://www.sympy.org/en/index.html) focuses on manipulating mathematical symbols and expressions directly.

@@ -23,10 +23,6 @@ kernelspec:
 ```{index} single: Python; Object-Oriented Programming
 ```
 
-```{contents} Contents
-:depth: 2
-```
-
 ## Overview
 
 In an {doc}`earlier lecture <oop_intro>`, we learned some foundations of object-oriented programming.
@@ -61,10 +57,8 @@ It takes a little while to get used to the syntax so we'll provide plenty of exa
 We'll use the following imports:
 
 ```{code-cell} ipython
-%matplotlib inline
 import numpy as np
 import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = (10,6)
 ```
 
 ## OOP Review
