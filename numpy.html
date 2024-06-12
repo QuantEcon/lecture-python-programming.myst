@@ -56,19 +56,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=b09b2da44b9015b4fa76ea072fa2d8f7faee5492" type="text/css" />
@@ -80,9 +80,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -253,29 +253,12 @@ const thebe_selector_output = ".output, .cell_output"
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="numpy">
-<h1><a class="toc-backref" href="#id3"><span class="section-number">11. </span><span class="target" id="index-0"></span>NumPy</a><a class="headerlink" href="#numpy" title="Permalink to this heading">#</a></h1>
-<div class="contents topic" id="contents">
-<span id="index-1"></span><p class="topic-title">Contents</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#numpy" id="id3">NumPy</a></p>
-<ul>
-<li><p><a class="reference internal" href="#overview" id="id4">Overview</a></p></li>
-<li><p><a class="reference internal" href="#numpy-arrays" id="id5">NumPy Arrays</a></p></li>
-<li><p><a class="reference internal" href="#arithmetic-operations" id="id6">Arithmetic Operations</a></p></li>
-<li><p><a class="reference internal" href="#matrix-multiplication" id="id7">Matrix Multiplication</a></p></li>
-<li><p><a class="reference internal" href="#broadcasting" id="id8">Broadcasting</a></p></li>
-<li><p><a class="reference internal" href="#mutability-and-copying-arrays" id="id9">Mutability and Copying Arrays</a></p></li>
-<li><p><a class="reference internal" href="#additional-functionality" id="id10">Additional Functionality</a></p></li>
-<li><p><a class="reference internal" href="#exercises" id="id11">Exercises</a></p></li>
-</ul>
-</li>
-</ul>
-</div>
-<blockquote class="epigraph">
+<h1><span class="section-number">11. </span><span class="target" id="index-0"></span>NumPy<a class="headerlink" href="#numpy" title="Permalink to this heading">#</a></h1>
+<blockquote class="epigraph" id="index-1">
 <div><p>“Let’s be clear: the work of science has nothing whatever to do with consensus.  Consensus is the business of politics. Science, on the contrary, requires only one investigator who happens to be right, which means that he or she has results that are verifiable by reference to the real world. In science consensus is irrelevant. What is relevant is reproducible results.” – Michael Crichton</p>
 </div></blockquote>
 <section id="overview">
-<h2><a class="toc-backref" href="#id4"><span class="section-number">11.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/NumPy">NumPy</a> is a first-rate library for numerical programming</p>
 <ul class="simple">
 <li><p>Widely used in academia, finance and industry.</p></li>
@@ -295,7 +278,7 @@ const thebe_selector_output = ".output, .cell_output"
 </section>
 </section>
 <section id="numpy-arrays">
-<span id="numpy-array"></span><h2><a class="toc-backref" href="#id5"><span class="section-number">11.2. </span>NumPy Arrays</a><a class="headerlink" href="#numpy-arrays" title="Permalink to this heading">#</a></h2>
+<span id="numpy-array"></span><h2><span class="section-number">11.2. </span>NumPy Arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this heading">#</a></h2>
 <p id="index-2">The essential problem that NumPy solves is fast array processing.</p>
 <p>The most important structure that NumPy defines is an array data type formally called a <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html">numpy.ndarray</a>.</p>
 <p>NumPy arrays power a large proportion of the scientific Python ecosystem.</p>
@@ -978,7 +961,7 @@ or <code class="docutils literal notranslate"><span class="pre">np.genfromtxt</s
 </section>
 </section>
 <section id="arithmetic-operations">
-<h2><a class="toc-backref" href="#id6"><span class="section-number">11.3. </span>Arithmetic Operations</a><a class="headerlink" href="#arithmetic-operations" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.3. </span>Arithmetic Operations<a class="headerlink" href="#arithmetic-operations" title="Permalink to this heading">#</a></h2>
 <p id="index-7">The operators <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code> and <code class="docutils literal notranslate"><span class="pre">**</span></code> all act <em>elementwise</em> on arrays</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1077,7 +1060,7 @@ or <code class="docutils literal notranslate"><span class="pre">np.genfromtxt</s
 <p id="numpy-matrix-multiplication">In particular, <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">*</span> <span class="pre">B</span></code> is <em>not</em> the matrix product, it is an element-wise product.</p>
 </section>
 <section id="matrix-multiplication">
-<h2><a class="toc-backref" href="#id7"><span class="section-number">11.4. </span>Matrix Multiplication</a><a class="headerlink" href="#matrix-multiplication" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.4. </span>Matrix Multiplication<a class="headerlink" href="#matrix-multiplication" title="Permalink to this heading">#</a></h2>
 <span class="target" id="index-8"></span><p id="index-9">With Anaconda’s scientific Python package based around Python 3.5 and above,
 one can use the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> symbol for matrix multiplication, as follows:</p>
 <div class="cell docutils container">
@@ -1141,7 +1124,7 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 <p>Since we are post-multiplying, the tuple is treated as a column vector.</p>
 </section>
 <section id="broadcasting">
-<span id="id2"></span><h2><a class="toc-backref" href="#id8"><span class="section-number">11.5. </span>Broadcasting</a><a class="headerlink" href="#broadcasting" title="Permalink to this heading">#</a></h2>
+<span id="id2"></span><h2><span class="section-number">11.5. </span>Broadcasting<a class="headerlink" href="#broadcasting" title="Permalink to this heading">#</a></h2>
 <p id="index-10">(This section extends an excellent discussion of broadcasting provided by <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/02.05-computation-on-arrays-broadcasting.html">Jake VanderPlas</a>.)</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1399,7 +1382,7 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2388/1097023243.py:5: DeprecationWarning: Conversion of an array with ndim &gt; 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2247/1097023243.py:5: DeprecationWarning: Conversion of an array with ndim &gt; 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
   result[i, j] = a[i, j] + b[i]
 </pre></div>
 </div>
@@ -1714,7 +1697,7 @@ the shape of array b is (2, 2)
 </div>
 </section>
 <section id="mutability-and-copying-arrays">
-<h2><a class="toc-backref" href="#id9"><span class="section-number">11.6. </span>Mutability and Copying Arrays</a><a class="headerlink" href="#mutability-and-copying-arrays" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.6. </span>Mutability and Copying Arrays<a class="headerlink" href="#mutability-and-copying-arrays" title="Permalink to this heading">#</a></h2>
 <p>NumPy arrays are mutable data types, like Python lists.</p>
 <p>In other words, their contents can be altered (mutated) in memory after initialization.</p>
 <p>We already saw examples above.</p>
@@ -1754,7 +1737,7 @@ the shape of array b is (2, 2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.30209656, 0.04419018, 0.15437871])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.2036584 , -0.96957897, -1.26771751])
 </pre></div>
 </div>
 </div>
@@ -1768,7 +1751,7 @@ the shape of array b is (2, 2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.        , 0.04419018, 0.15437871])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        , -0.96957897, -1.26771751])
 </pre></div>
 </div>
 </div>
@@ -1792,7 +1775,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.73655922, -2.01814849, -0.48363254])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.39947923,  0.4778035 , -1.67673237])
 </pre></div>
 </div>
 </div>
@@ -1805,7 +1788,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.73655922, -2.01814849, -0.48363254])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.39947923,  0.4778035 , -1.67673237])
 </pre></div>
 </div>
 </div>
@@ -1831,7 +1814,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.73655922, -2.01814849, -0.48363254])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.39947923,  0.4778035 , -1.67673237])
 </pre></div>
 </div>
 </div>
@@ -1840,7 +1823,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </section>
 </section>
 <section id="additional-functionality">
-<h2><a class="toc-backref" href="#id10"><span class="section-number">11.7. </span>Additional Functionality</a><a class="headerlink" href="#additional-functionality" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.7. </span>Additional Functionality<a class="headerlink" href="#additional-functionality" title="Permalink to this heading">#</a></h2>
 <p>Let’s look at some other useful things we can do with NumPy.</p>
 <section id="vectorized-functions">
 <h3><span class="section-number">11.7.1. </span>Vectorized Functions<a class="headerlink" href="#vectorized-functions" title="Permalink to this heading">#</a></h3>
@@ -1916,7 +1899,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.16311055,  1.94784883, -0.64513779,  0.77970593])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.0979133 ,  0.09020231,  0.32140692, -1.01858405])
 </pre></div>
 </div>
 </div>
@@ -1928,7 +1911,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 0, 1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 1, 0])
 </pre></div>
 </div>
 </div>
@@ -1942,7 +1925,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 0, 1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 1, 0])
 </pre></div>
 </div>
 </div>
@@ -2072,7 +2055,7 @@ through its sub-packages.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.958
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.999
 </pre></div>
 </div>
 </div>
@@ -2111,7 +2094,7 @@ through its sub-packages.</p>
 </section>
 </section>
 <section id="exercises">
-<h2><a class="toc-backref" href="#id11"><span class="section-number">11.8. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.8. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -2384,7 +2367,7 @@ from QuantEcon and added in a plot method</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b917ca62474043f97a74104118e4b5dcaf8ef55dcf16e7a8893bd710c71d6d32.png" src="_images/b917ca62474043f97a74104118e4b5dcaf8ef55dcf16e7a8893bd710c71d6d32.png" />
+<img alt="_images/d7125368f0ecc7ee0d5e1bd8ca677ece2b1e45376de97e743a835ac5b0956583.png" src="_images/d7125368f0ecc7ee0d5e1bd8ca677ece2b1e45376de97e743a835ac5b0956583.png" />
 </div>
 </div>
 </section>
@@ -2447,7 +2430,7 @@ from QuantEcon and added in a plot method</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.01
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.012928485870361328
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.012235403060913086
 </pre></div>
 </div>
 </div>
@@ -2631,10 +2614,10 @@ from QuantEcon and added in a plot method</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:3.78
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:3.71
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.786907434463501
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.7131974697113037
 </pre></div>
 </div>
 </div>

@@ -56,19 +56,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=b09b2da44b9015b4fa76ea072fa2d8f7faee5492" type="text/css" />
@@ -80,9 +80,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -248,23 +248,9 @@ const thebe_selector_output = ".output, .cell_output"
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="oop-ii-building-classes">
-<h1><a class="toc-backref" href="#id1"><span class="section-number">8. </span><span class="target" id="index-0"></span>OOP II: Building Classes</a><a class="headerlink" href="#oop-ii-building-classes" title="Permalink to this heading">#</a></h1>
-<div class="contents topic" id="contents">
-<span id="index-1"></span><p class="topic-title">Contents</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#oop-ii-building-classes" id="id1">OOP II: Building Classes</a></p>
-<ul>
-<li><p><a class="reference internal" href="#overview" id="id2">Overview</a></p></li>
-<li><p><a class="reference internal" href="#oop-review" id="id3">OOP Review</a></p></li>
-<li><p><a class="reference internal" href="#defining-your-own-classes" id="id4">Defining Your Own Classes</a></p></li>
-<li><p><a class="reference internal" href="#special-methods" id="id5">Special Methods</a></p></li>
-<li><p><a class="reference internal" href="#exercises" id="id6">Exercises</a></p></li>
-</ul>
-</li>
-</ul>
-</div>
+<h1><span class="section-number">8. </span><span class="target" id="index-0"></span>OOP II: Building Classes<a class="headerlink" href="#oop-ii-building-classes" title="Permalink to this heading">#</a></h1>
 <section id="overview">
-<h2><a class="toc-backref" href="#id2"><span class="section-number">8.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<span id="index-1"></span><h2><span class="section-number">8.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>In an <a class="reference internal" href="oop_intro.html"><span class="doc">earlier lecture</span></a>, we learned some foundations of object-oriented programming.</p>
 <p>The objectives of this lecture are</p>
 <ul class="simple">
@@ -293,17 +279,15 @@ const thebe_selector_output = ".output, .cell_output"
 <p>We’ll use the following imports:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="oop-review">
-<h2><a class="toc-backref" href="#id3"><span class="section-number">8.2. </span>OOP Review</a><a class="headerlink" href="#oop-review" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.2. </span>OOP Review<a class="headerlink" href="#oop-review" title="Permalink to this heading">#</a></h2>
 <p>OOP is supported in many languages:</p>
 <ul class="simple">
 <li><p>JAVA and Ruby are relatively pure OOP.</p></li>
@@ -387,7 +371,7 @@ const thebe_selector_output = ".output, .cell_output"
 </section>
 </section>
 <section id="defining-your-own-classes">
-<h2><a class="toc-backref" href="#id4"><span class="section-number">8.3. </span>Defining Your Own Classes</a><a class="headerlink" href="#defining-your-own-classes" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.3. </span>Defining Your Own Classes<a class="headerlink" href="#defining-your-own-classes" title="Permalink to this heading">#</a></h2>
 <p id="index-3">Let’s build some simple classes to start off.</p>
 <p id="oop-consumer-class">Before we do so, in order to indicate some of the power of Classes, we’ll define two functions that we’ll call <code class="docutils literal notranslate"><span class="pre">earn</span></code> and <code class="docutils literal notranslate"><span class="pre">spend</span></code>.</p>
 <div class="cell docutils container">
@@ -603,7 +587,7 @@ the class definition</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__module__&#39;: &#39;__main__&#39;, &#39;__init__&#39;: &lt;function Consumer.__init__ at 0x7fe37bdd2480&gt;, &#39;earn&#39;: &lt;function Consumer.earn at 0x7fe37bdd25c0&gt;, &#39;spend&#39;: &lt;function Consumer.spend at 0x7fe37bdd2660&gt;, &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__doc__&#39;: None}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__module__&#39;: &#39;__main__&#39;, &#39;__init__&#39;: &lt;function Consumer.__init__ at 0x7fb6733832e0&gt;, &#39;earn&#39;: &lt;function Consumer.earn at 0x7fb673383420&gt;, &#39;spend&#39;: &lt;function Consumer.spend at 0x7fb6733834c0&gt;, &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__doc__&#39;: None}
 </pre></div>
 </div>
 </div>
@@ -878,7 +862,7 @@ supply curves  with and without taxes</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b7487a5d826b2e36c802a8df412c1f87ce86db95fdaf333b599d2abcbd9832ec.png" src="_images/b7487a5d826b2e36c802a8df412c1f87ce86db95fdaf333b599d2abcbd9832ec.png" />
+<img alt="_images/e6fa6dc830f2421da2f98a2934fd2579555b5b38ff0824b5a2978288900e7b0c.png" src="_images/e6fa6dc830f2421da2f98a2934fd2579555b5b38ff0824b5a2978288900e7b0c.png" />
 </div>
 </div>
 <p>The next program provides a function that</p>
@@ -983,7 +967,7 @@ supply curves  with and without taxes</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d1ee11a1a952d3d1fa0b612b5d5a2e1706dfb3275040cf2160b7873bd8fff2b2.png" src="_images/d1ee11a1a952d3d1fa0b612b5d5a2e1706dfb3275040cf2160b7873bd8fff2b2.png" />
+<img alt="_images/350de443124dffdc5286e528b2a9c8e0713ed9c8c9a62a2b5f791c8724029377.png" src="_images/350de443124dffdc5286e528b2a9c8e0713ed9c8c9a62a2b5f791c8724029377.png" />
 </div>
 </div>
 <p>The next piece of code provides a bifurcation diagram</p>
@@ -1005,7 +989,7 @@ supply curves  with and without taxes</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a66700ceccfc2edd1a7dd65afbed4f65be279fa63cefd43a3864a7c1b14cba5c.png" src="_images/a66700ceccfc2edd1a7dd65afbed4f65be279fa63cefd43a3864a7c1b14cba5c.png" />
+<img alt="_images/1a411e848e14e76b584d245b8c44d313e38dd4445e8dca3edf39dc9187fdf453.png" src="_images/1a411e848e14e76b584d245b8c44d313e38dd4445e8dca3edf39dc9187fdf453.png" />
 </div>
 </div>
 <p>On the horizontal axis is the parameter <span class="math notranslate nohighlight">\(r\)</span> in <a class="reference internal" href="#equation-quadmap2">(8.2)</a>.</p>
@@ -1022,7 +1006,7 @@ axis.</p>
 </section>
 </section>
 <section id="special-methods">
-<h2><a class="toc-backref" href="#id5"><span class="section-number">8.4. </span>Special Methods</a><a class="headerlink" href="#special-methods" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.4. </span>Special Methods<a class="headerlink" href="#special-methods" title="Permalink to this heading">#</a></h2>
 <p id="index-5">Python provides special methods that come in handy.</p>
 <p>For example, recall that lists and tuples have a notion of length and that this length can be queried via the <code class="docutils literal notranslate"><span class="pre">len</span></code> function</p>
 <div class="cell docutils container">
@@ -1093,7 +1077,7 @@ your user-defined object, use the <code class="docutils literal notranslate"><sp
 <p>Exercise 1 provides a more useful example.</p>
 </section>
 <section id="exercises">
-<h2><a class="toc-backref" href="#id6"><span class="section-number">8.5. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <div class="exercise admonition" id="oop_ex1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 8.1 </span></p>
@@ -1164,8 +1148,8 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6
-0.478
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8
+0.526
 </pre></div>
 </div>
 </div>

@@ -56,19 +56,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=b09b2da44b9015b4fa76ea072fa2d8f7faee5492" type="text/css" />
@@ -80,9 +80,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -251,26 +251,9 @@ const thebe_selector_output = ".output, .cell_output"
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="scipy">
-<h1><a class="toc-backref" href="#id1"><span class="section-number">13. </span><span class="target" id="index-0"></span>SciPy</a><a class="headerlink" href="#scipy" title="Permalink to this heading">#</a></h1>
-<div class="contents topic" id="contents">
-<span id="index-1"></span><p class="topic-title">Contents</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#scipy" id="id1">SciPy</a></p>
-<ul>
-<li><p><a class="reference internal" href="#overview" id="id2">Overview</a></p></li>
-<li><p><a class="reference internal" href="#scipy-versus-numpy" id="id3">SciPy versus NumPy</a></p></li>
-<li><p><a class="reference internal" href="#statistics" id="id4">Statistics</a></p></li>
-<li><p><a class="reference internal" href="#roots-and-fixed-points" id="id5">Roots and Fixed Points</a></p></li>
-<li><p><a class="reference internal" href="#optimization" id="id6">Optimization</a></p></li>
-<li><p><a class="reference internal" href="#integration" id="id7">Integration</a></p></li>
-<li><p><a class="reference internal" href="#linear-algebra" id="id8">Linear Algebra</a></p></li>
-<li><p><a class="reference internal" href="#exercises" id="id9">Exercises</a></p></li>
-</ul>
-</li>
-</ul>
-</div>
+<h1><span class="section-number">13. </span><span class="target" id="index-0"></span>SciPy<a class="headerlink" href="#scipy" title="Permalink to this heading">#</a></h1>
 <section id="overview">
-<h2><a class="toc-backref" href="#id2"><span class="section-number">13.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<span id="index-1"></span><h2><span class="section-number">13.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="http://www.scipy.org">SciPy</a> builds on top of NumPy to provide common tools for scientific programming such as</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/linalg.html">linear algebra</a></p></li>
@@ -288,7 +271,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>In this lecture, we aim only to highlight some useful parts of the package.</p>
 </section>
 <section id="scipy-versus-numpy">
-<h2><a class="toc-backref" href="#id3"><span class="section-number">13.2. </span><span class="target" id="index-2"></span>SciPy versus <span class="target" id="index-3"></span>NumPy</a><a class="headerlink" href="#scipy-versus-numpy" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.2. </span><span class="target" id="index-2"></span>SciPy versus <span class="target" id="index-3"></span>NumPy<a class="headerlink" href="#scipy-versus-numpy" title="Permalink to this heading">#</a></h2>
 <p>SciPy is a package that contains various tools that are built on top of NumPy, using its array data type and related functionality.</p>
 <p>In fact, when we import SciPy we also get NumPy, as can be seen from this excerpt the SciPy initialization file:</p>
 <div class="cell docutils container">
@@ -319,7 +302,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Let’s explore some of the major sub-packages.</p>
 </section>
 <section id="statistics">
-<h2><a class="toc-backref" href="#id4"><span class="section-number">13.3. </span>Statistics</a><a class="headerlink" href="#statistics" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.3. </span>Statistics<a class="headerlink" href="#statistics" title="Permalink to this heading">#</a></h2>
 <p id="index-4">The <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> subpackage supplies</p>
 <ul class="simple">
 <li><p>numerous random variable objects (densities, cumulative distributions, random sampling, etc.)</p></li>
@@ -336,7 +319,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.56738907, 0.70948667, 0.2087733 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.6064866 , 0.49859138, 0.58722577])
 </pre></div>
 </div>
 </div>
@@ -351,10 +334,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Here’s an example of usage</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">beta</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">beta</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 
 <span class="n">q</span> <span class="o">=</span> <span class="n">beta</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>      <span class="c1"># Beta(a, b), with a = b = 5</span>
 <span class="n">obs</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>   <span class="c1"># 2000 observations</span>
@@ -368,7 +349,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c012d91a500d60cb36ae1fec51e71ec2a60f292bccaf9e5de783a4eb35f91d03.png" src="_images/c012d91a500d60cb36ae1fec51e71ec2a60f292bccaf9e5de783a4eb35f91d03.png" />
+<img alt="_images/ef43346beb1e0df0acfcd4e1378128dd40377862303ae9fae51458c499e5f73b.png" src="_images/ef43346beb1e0df0acfcd4e1378128dd40377862303ae9fae51458c499e5f73b.png" />
 </div>
 </div>
 <p>The object <code class="docutils literal notranslate"><span class="pre">q</span></code> that represents the distribution has additional useful methods, including</p>
@@ -433,7 +414,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8d7e4f68f632e3f1dada0791474f9bb72a59fc099a8a58143fc5f576d55eb1a8.png" src="_images/8d7e4f68f632e3f1dada0791474f9bb72a59fc099a8a58143fc5f576d55eb1a8.png" />
+<img alt="_images/5249d2c61d3abbf4e94e4787cae073cb1b419801bd55cf4212c20c34d30579bd.png" src="_images/5249d2c61d3abbf4e94e4787cae073cb1b419801bd55cf4212c20c34d30579bd.png" />
 </div>
 </div>
 </section>
@@ -453,7 +434,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.9945430677980924, -0.0060603081688428324)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.9959810682950492, 0.0002712676476570308)
 </pre></div>
 </div>
 </div>
@@ -462,7 +443,7 @@ const thebe_selector_output = ".output, .cell_output"
 </section>
 </section>
 <section id="roots-and-fixed-points">
-<h2><a class="toc-backref" href="#id5"><span class="section-number">13.4. </span>Roots and Fixed Points</a><a class="headerlink" href="#roots-and-fixed-points" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.4. </span>Roots and Fixed Points<a class="headerlink" href="#roots-and-fixed-points" title="Permalink to this heading">#</a></h2>
 <p>A <strong>root</strong> or <strong>zero</strong> of a real function <span class="math notranslate nohighlight">\(f\)</span> on <span class="math notranslate nohighlight">\([a,b]\)</span> is an <span class="math notranslate nohighlight">\(x \in [a, b]\)</span> such that <span class="math notranslate nohighlight">\(f(x)=0\)</span>.</p>
 <p>For example, if we plot the function</p>
 <div class="math notranslate nohighlight" id="equation-root-f">
@@ -484,7 +465,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/67a02add9c7ec5799e846e8dd1054a6161971d607633bb0ac596f9aa1b5728e8.png" src="_images/67a02add9c7ec5799e846e8dd1054a6161971d607633bb0ac596f9aa1b5728e8.png" />
+<img alt="_images/42d229d86a39056729da1c2066d6de3fde3f735e5e2f82c0708aa57cedc97c59.png" src="_images/42d229d86a39056729da1c2066d6de3fde3f735e5e2f82c0708aa57cedc97c59.png" />
 </div>
 </div>
 <p>The unique root is approximately 0.408.</p>
@@ -629,7 +610,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.6 µs ± 31.6 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.3 µs ± 179 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -641,7 +622,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>76.7 µs ± 214 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>74.6 µs ± 222 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -675,7 +656,7 @@ the fixed point of a function <span class="math notranslate nohighlight">\(f\)</
 </section>
 </section>
 <section id="optimization">
-<h2><a class="toc-backref" href="#id6"><span class="section-number">13.5. </span><span class="target" id="index-11"></span>Optimization</a><a class="headerlink" href="#optimization" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.5. </span><span class="target" id="index-11"></span>Optimization<a class="headerlink" href="#optimization" title="Permalink to this heading">#</a></h2>
 <p id="index-12">Most numerical packages provide only functions for <em>minimization</em>.</p>
 <p>Maximization can be performed by recalling that the maximizer of a function <span class="math notranslate nohighlight">\(f\)</span> on domain <span class="math notranslate nohighlight">\(D\)</span> is
 the minimizer of <span class="math notranslate nohighlight">\(-f\)</span> on <span class="math notranslate nohighlight">\(D\)</span>.</p>
@@ -705,7 +686,7 @@ the minimizer of <span class="math notranslate nohighlight">\(-f\)</span> on <sp
 </section>
 </section>
 <section id="integration">
-<h2><a class="toc-backref" href="#id7"><span class="section-number">13.6. </span><span class="target" id="index-14"></span>Integration</a><a class="headerlink" href="#integration" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.6. </span><span class="target" id="index-14"></span>Integration<a class="headerlink" href="#integration" title="Permalink to this heading">#</a></h2>
 <p id="index-15">Most numerical integration methods work by computing the integral of an approximating polynomial.</p>
 <p>The resulting error depends on how well the polynomial fits the integrand, which in turn depends on how “regular” the integrand is.</p>
 <p>In SciPy, the relevant module for numerical integration is <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code>.</p>
@@ -732,14 +713,14 @@ the minimizer of <span class="math notranslate nohighlight">\(-f\)</span> on <sp
 <p>See the <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/integrate.html">documentation</a> for more details.</p>
 </section>
 <section id="linear-algebra">
-<h2><a class="toc-backref" href="#id8"><span class="section-number">13.7. </span><span class="target" id="index-16"></span>Linear Algebra</a><a class="headerlink" href="#linear-algebra" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.7. </span><span class="target" id="index-16"></span>Linear Algebra<a class="headerlink" href="#linear-algebra" title="Permalink to this heading">#</a></h2>
 <p id="index-17">We saw that NumPy provides a module for linear algebra called <code class="docutils literal notranslate"><span class="pre">linalg</span></code>.</p>
 <p>SciPy also provides a module for linear algebra with the same name.</p>
 <p>The latter is not an exact superset of the former, but overall it has more functionality.</p>
 <p>We leave you to investigate the <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/linalg.html">set of available routines</a>.</p>
 </section>
 <section id="exercises">
-<h2><a class="toc-backref" href="#id9"><span class="section-number">13.8. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.8. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <p>The first few exercises concern pricing a European call option under the
 assumption of risk neutrality.  The price satisfies</p>
 <div class="math notranslate nohighlight">
@@ -803,7 +784,7 @@ g(x) = \beta^n  \max\{x - K, 0\} f(x)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/28ea1e40f4c612b67b184b33740bf641896c0f1e4bd6af42372da82a86064b5c.png" src="_images/28ea1e40f4c612b67b184b33740bf641896c0f1e4bd6af42372da82a86064b5c.png" />
+<img alt="_images/dcee8efbebd4f9308aa6e59ade4855695d87620eef3f5ab396d49cc1db5aaed5.png" src="_images/dcee8efbebd4f9308aa6e59ade4855695d87620eef3f5ab396d49cc1db5aaed5.png" />
 </div>
 </div>
 </section>
@@ -866,7 +847,7 @@ large numbers,</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Monte Carlo option price is 15.190518
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Monte Carlo option price is 15.182785
 </pre></div>
 </div>
 </div>

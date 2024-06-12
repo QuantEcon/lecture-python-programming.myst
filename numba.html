@@ -56,19 +56,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=b09b2da44b9015b4fa76ea072fa2d8f7faee5492" type="text/css" />
@@ -80,9 +80,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -248,24 +248,7 @@ const thebe_selector_output = ".output, .cell_output"
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="numba">
-<h1><a class="toc-backref" href="#id1"><span class="section-number">17. </span>Numba</a><a class="headerlink" href="#numba" title="Permalink to this heading">#</a></h1>
-<div class="contents topic" id="contents">
-<p class="topic-title">Contents</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#numba" id="id1">Numba</a></p>
-<ul>
-<li><p><a class="reference internal" href="#overview" id="id2">Overview</a></p></li>
-<li><p><a class="reference internal" href="#compiling-functions" id="id3">Compiling Functions</a></p></li>
-<li><p><a class="reference internal" href="#decorator-notation" id="id4">Decorator Notation</a></p></li>
-<li><p><a class="reference internal" href="#type-inference" id="id5">Type Inference</a></p></li>
-<li><p><a class="reference internal" href="#compiling-classes" id="id6">Compiling Classes</a></p></li>
-<li><p><a class="reference internal" href="#alternatives-to-numba" id="id7">Alternatives to Numba</a></p></li>
-<li><p><a class="reference internal" href="#summary-and-comments" id="id8">Summary and Comments</a></p></li>
-<li><p><a class="reference internal" href="#exercises" id="id9">Exercises</a></p></li>
-</ul>
-</li>
-</ul>
-</div>
+<h1><span class="section-number">17. </span>Numba<a class="headerlink" href="#numba" title="Permalink to this heading">#</a></h1>
 <p>In addition to what’s in Anaconda, this lecture will need the following libraries:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
@@ -282,7 +265,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (0.7.2)
 Requirement already satisfied: numba&gt;=0.49.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from quantecon) (0.59.0)
 Requirement already satisfied: numpy&gt;=1.17.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from quantecon) (1.26.4)
-Requirement already satisfied: requests in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from quantecon) (2.31.0)
+Requirement already satisfied: requests in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from quantecon) (2.32.3)
 Requirement already satisfied: scipy&gt;=1.5.0 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from quantecon) (1.11.4)
 Requirement already satisfied: sympy in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from quantecon) (1.12)
 Requirement already satisfied: llvmlite&lt;0.43,&gt;=0.42.0dev0 in /usr/share/miniconda3/envs/quantecon/lib/python3.11/site-packages (from numba&gt;=0.49.0-&gt;quantecon) (0.42.0)
@@ -303,17 +286,15 @@ versions are a <a class="reference internal" href="troubleshooting.html"><span c
 <p>Let’s start with some imports:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">quantecon</span> <span class="k">as</span> <span class="nn">qe</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="overview">
-<h2><a class="toc-backref" href="#id2"><span class="section-number">17.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>In an <a class="reference internal" href="need_for_speed.html"><span class="doc">earlier lecture</span></a> we learned about vectorization, which is one method to improve speed and efficiency in numerical work.</p>
 <p>Vectorization involves sending array processing
 operations in batch to efficient low-level code.</p>
@@ -331,7 +312,7 @@ solves many of these problems.</p>
 <p>This lecture introduces the main ideas.</p>
 </section>
 <section id="compiling-functions">
-<span id="numba-link"></span><h2><a class="toc-backref" href="#id3"><span class="section-number">17.2. </span><span class="target" id="index-0"></span>Compiling Functions</a><a class="headerlink" href="#compiling-functions" title="Permalink to this heading">#</a></h2>
+<span id="numba-link"></span><h2><span class="section-number">17.2. </span><span class="target" id="index-0"></span>Compiling Functions<a class="headerlink" href="#compiling-functions" title="Permalink to this heading">#</a></h2>
 <p id="index-1">As stated above, Numba’s primary use is compiling functions to fast native
 machine code during runtime.</p>
 <section id="an-example">
@@ -370,7 +351,7 @@ x_{t+1} = \alpha x_t (1 - x_t)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cb7be38717580c7a855d96eb26e5c1fefe07a05a67a460b091be6adce9f752bd.png" src="_images/cb7be38717580c7a855d96eb26e5c1fefe07a05a67a460b091be6adce9f752bd.png" />
+<img alt="_images/b794f5c011b4578a21e6694d0b6e507602fac085329b4d95beeab37f87c83248.png" src="_images/b794f5c011b4578a21e6694d0b6e507602fac085329b4d95beeab37f87c83248.png" />
 </div>
 </div>
 <p>To speed the function <code class="docutils literal notranslate"><span class="pre">qm</span></code> up using Numba, our first step is</p>
@@ -398,7 +379,7 @@ JIT-compilation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:3.34
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:3.41
 </pre></div>
 </div>
 </div>
@@ -413,7 +394,7 @@ JIT-compilation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.18
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.17
 </pre></div>
 </div>
 </div>
@@ -441,7 +422,7 @@ JIT-compilation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>129.14238246014506
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>133.815088909446
 </pre></div>
 </div>
 </div>
@@ -474,7 +455,7 @@ moment, and <em>then</em> compile the function.</p></li>
 </section>
 </section>
 <section id="decorator-notation">
-<h2><a class="toc-backref" href="#id4"><span class="section-number">17.3. </span>Decorator Notation</a><a class="headerlink" href="#decorator-notation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.3. </span>Decorator Notation<a class="headerlink" href="#decorator-notation" title="Permalink to this heading">#</a></h2>
 <p>In the code above we created a JIT compiled version of <code class="docutils literal notranslate"><span class="pre">qm</span></code> via the call</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -512,8 +493,8 @@ moment, and <em>then</em> compile the function.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 69.9 ms, sys: 68 µs, total: 69.9 ms
-Wall time: 69.6 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 65.2 ms, sys: 3.88 ms, total: 69.1 ms
+Wall time: 68.9 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.1       , 0.36      , 0.9216    , ..., 0.98112405, 0.07407858,
@@ -526,7 +507,7 @@ Wall time: 69.6 ms
 <p>In the <a class="reference internal" href="parallelization.html#parallel"><span class="std std-ref">following lecture on parallelization</span></a>, we will discuss how to use the <code class="docutils literal notranslate"><span class="pre">parallel</span></code> argument to achieve automatic parallelization.</p>
 </section>
 <section id="type-inference">
-<h2><a class="toc-backref" href="#id5"><span class="section-number">17.4. </span>Type Inference</a><a class="headerlink" href="#type-inference" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.4. </span>Type Inference<a class="headerlink" href="#type-inference" title="Permalink to this heading">#</a></h2>
 <p>Clearly type inference is a key part of JIT compilation.</p>
 <p>As you can imagine, inferring types is easier for simple Python objects (e.g., simple scalar data types such as floats and integers).</p>
 <p>Numba also plays well with NumPy arrays.</p>
@@ -568,9 +549,9 @@ Wall time: 69.6 ms
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed in nopython mode pipeline (step: nopython frontend)
 <span class=" -Color -Color-Bold">non-precise type pyobject</span>
-<span class=" -Color -Color-Bold">During: typing of argument at /tmp/ipykernel_2353/2092422549.py (1)</span>
+<span class=" -Color -Color-Bold">During: typing of argument at /tmp/ipykernel_2215/2092422549.py (1)</span>
 
-<span class=" -Color -Color-Bold">File &quot;../../../../../../tmp/ipykernel_2353/2092422549.py&quot;, line 1:</span>
+<span class=" -Color -Color-Bold">File &quot;../../../../../../tmp/ipykernel_2215/2092422549.py&quot;, line 1:</span>
 <span class=" -Color -Color-Bold">&lt;source missing, REPL/exec in use?&gt;</span> 
 
 This error may have been caused by the following argument(s):
@@ -596,12 +577,12 @@ This error may have been caused by the following argument(s):
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Type of function: &lt;class &#39;numba.core.registry.CPUDispatcher&#39;&gt;
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 280 ms, sys: 36.1 ms, total: 316 ms
-Wall time: 316 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 278 ms, sys: 44.2 ms, total: 322 ms
+Wall time: 323 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.84285714, 4.65714286, 3.28571429, 4.34285714, 3.12857143,
-       3.        , 3.        , 3.44285714, 2.67142857, 3.54285714])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.21428571, 3.8       , 2.7       , 4.        , 3.        ,
+       4.07142857, 3.57142857, 2.55714286, 2.9       , 2.85714286])
 </pre></div>
 </div>
 </div>
@@ -615,7 +596,7 @@ Wall time: 316 ms
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(Array(float64, 1, &#39;C&#39;, False, aligned=True),
-  type(CPUDispatcher(&lt;function mean at 0x7f4470b76a20&gt;)),
+  type(CPUDispatcher(&lt;function mean at 0x7f5144a36020&gt;)),
   int64)]
 </pre></div>
 </div>
@@ -633,12 +614,12 @@ Wall time: 316 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 35 µs, sys: 0 ns, total: 35 µs
-Wall time: 37.9 µs
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 36 µs, sys: 2 µs, total: 38 µs
+Wall time: 41 µs
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(Array(float64, 1, &#39;C&#39;, False, aligned=True),
-  type(CPUDispatcher(&lt;function mean at 0x7f4470b76a20&gt;)),
+  type(CPUDispatcher(&lt;function mean at 0x7f5144a36020&gt;)),
   int64)]
 </pre></div>
 </div>
@@ -655,15 +636,15 @@ Wall time: 37.9 µs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 612 ms, sys: 28 ms, total: 640 ms
-Wall time: 641 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 571 ms, sys: 68 ms, total: 639 ms
+Wall time: 638 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(Array(float64, 1, &#39;C&#39;, False, aligned=True),
-  type(CPUDispatcher(&lt;function mean at 0x7f4470b76a20&gt;)),
+  type(CPUDispatcher(&lt;function mean at 0x7f5144a36020&gt;)),
   int64),
  (Array(int64, 1, &#39;C&#39;, False, aligned=True),
-  type(CPUDispatcher(&lt;function mean at 0x7f4470b76a20&gt;)),
+  type(CPUDispatcher(&lt;function mean at 0x7f5144a36020&gt;)),
   int64)]
 </pre></div>
 </div>
@@ -675,7 +656,7 @@ Wall time: 641 ms
 <p>You can refer to the list of supported Python and Numpy features <a class="reference external" href="https://numba.pydata.org/numba-doc/dev/reference/pysupported.html">here</a>.</p>
 </section>
 <section id="compiling-classes">
-<h2><a class="toc-backref" href="#id6"><span class="section-number">17.5. </span>Compiling Classes</a><a class="headerlink" href="#compiling-classes" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.5. </span>Compiling Classes<a class="headerlink" href="#compiling-classes" title="Permalink to this heading">#</a></h2>
 <p>As mentioned above, at present Numba can only compile a subset of Python.</p>
 <p>However, that subset is ever expanding.</p>
 <p>For example, Numba is now quite effective at compiling classes.</p>
@@ -782,12 +763,12 @@ created in <a class="reference internal" href="python_oop.html"><span class="doc
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/482f4b93774281bf36347f51778f35ec4405e7afa1433d6d3eeac0808e96f7e1.png" src="_images/482f4b93774281bf36347f51778f35ec4405e7afa1433d6d3eeac0808e96f7e1.png" />
+<img alt="_images/7470db8fc678a1a4da0293e46d44ba9600052485b4834b6fd2cc7f462a6fa1d9.png" src="_images/7470db8fc678a1a4da0293e46d44ba9600052485b4834b6fd2cc7f462a6fa1d9.png" />
 </div>
 </div>
 </section>
 <section id="alternatives-to-numba">
-<h2><a class="toc-backref" href="#id7"><span class="section-number">17.6. </span>Alternatives to Numba</a><a class="headerlink" href="#alternatives-to-numba" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.6. </span>Alternatives to Numba<a class="headerlink" href="#alternatives-to-numba" title="Permalink to this heading">#</a></h2>
 <p id="index-2">There are additional options for accelerating Python loops.</p>
 <p>Here we quickly review them.</p>
 <p>However, we do so only for interest and completeness.</p>
@@ -816,7 +797,7 @@ to F2Py, among other things.</p>
 </section>
 </section>
 <section id="summary-and-comments">
-<h2><a class="toc-backref" href="#id8"><span class="section-number">17.7. </span>Summary and Comments</a><a class="headerlink" href="#summary-and-comments" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.7. </span>Summary and Comments<a class="headerlink" href="#summary-and-comments" title="Permalink to this heading">#</a></h2>
 <p>Let’s review the above and add some cautionary notes.</p>
 <section id="limitations">
 <h3><span class="section-number">17.7.1. </span>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">#</a></h3>
@@ -869,7 +850,7 @@ function.</p>
 </section>
 </section>
 <section id="exercises">
-<h2><a class="toc-backref" href="#id9"><span class="section-number">17.8. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.8. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <div class="exercise admonition" id="speed_ex1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 17.1 </span></p>
@@ -912,11 +893,11 @@ Monte Carlo.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 153 ms, sys: 18 µs, total: 153 ms
-Wall time: 152 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 145 ms, sys: 31 µs, total: 145 ms
+Wall time: 145 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.139924
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.140928
 </pre></div>
 </div>
 </div>
@@ -928,11 +909,11 @@ Wall time: 152 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 10.7 ms, sys: 0 ns, total: 10.7 ms
-Wall time: 10.6 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 11 ms, sys: 0 ns, total: 11 ms
+Wall time: 10.9 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141328
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.13996
 </pre></div>
 </div>
 </div>
@@ -1020,7 +1001,7 @@ state is about 0.666</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.665903
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.666127
 </pre></div>
 </div>
 </div>
@@ -1036,10 +1017,10 @@ state is about 0.666</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.43
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.39
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4316127300262451
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.39404845237731934
 </pre></div>
 </div>
 </div>
@@ -1061,7 +1042,7 @@ state is about 0.666</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.666665
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.665217
 </pre></div>
 </div>
 </div>
@@ -1079,7 +1060,7 @@ state is about 0.666</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.00
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007896661758422852
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007204532623291016
 </pre></div>
 </div>
 </div>

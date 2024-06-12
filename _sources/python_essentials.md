@@ -20,10 +20,6 @@ kernelspec:
 
 # Python Essentials
 
-```{contents} Contents
-:depth: 2
-```
-
 ## Overview
 
 We have covered a lot of material quite quickly, with a focus on examples.

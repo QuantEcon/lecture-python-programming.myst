@@ -56,19 +56,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=b09b2da44b9015b4fa76ea072fa2d8f7faee5492" type="text/css" />
@@ -80,9 +80,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -250,25 +250,9 @@ const thebe_selector_output = ".output, .cell_output"
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><a class="toc-backref" href="#id2"><span class="section-number">4. </span>Functions</a><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
-<div class="contents topic" id="contents">
-<span id="index-0"></span><p class="topic-title">Contents</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#id1" id="id2">Functions</a></p>
-<ul>
-<li><p><a class="reference internal" href="#overview" id="id3">Overview</a></p></li>
-<li><p><a class="reference internal" href="#function-basics" id="id4">Function Basics</a></p></li>
-<li><p><a class="reference internal" href="#defining-functions" id="id5">Defining Functions</a></p></li>
-<li><p><a class="reference internal" href="#applications" id="id6">Applications</a></p></li>
-<li><p><a class="reference internal" href="#recursive-function-calls-advanced" id="id7">Recursive Function Calls (Advanced)</a></p></li>
-<li><p><a class="reference internal" href="#exercises" id="id8">Exercises</a></p></li>
-<li><p><a class="reference internal" href="#advanced-exercises" id="id9">Advanced Exercises</a></p></li>
-</ul>
-</li>
-</ul>
-</div>
+<h1><span class="section-number">4. </span>Functions<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <section id="overview">
-<h2><a class="toc-backref" href="#id3"><span class="section-number">4.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<span id="index-0"></span><h2><span class="section-number">4.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>Functions are an extremely useful construct provided by almost all programming.</p>
 <p>We have already met several functions, such as</p>
 <ul class="simple">
@@ -291,7 +275,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </section>
 <section id="function-basics">
-<h2><a class="toc-backref" href="#id4"><span class="section-number">4.2. </span>Function Basics</a><a class="headerlink" href="#function-basics" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.2. </span>Function Basics<a class="headerlink" href="#function-basics" title="Permalink to this heading">#</a></h2>
 <p>A function is a named section of a program that implements a specific task.</p>
 <p>Many functions exist already and we can use them as is.</p>
 <p>First we review these functions and then discuss how we can build our own.</p>
@@ -371,7 +355,7 @@ functions or create our own.</p>
 </section>
 </section>
 <section id="defining-functions">
-<h2><a class="toc-backref" href="#id5"><span class="section-number">4.3. </span>Defining Functions</a><a class="headerlink" href="#defining-functions" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.3. </span>Defining Functions<a class="headerlink" href="#defining-functions" title="Permalink to this heading">#</a></h2>
 <p>In many instances it’s useful to be able to define our own functions.</p>
 <p>Let’s start by discussing how it’s done.</p>
 <section id="basic-syntax">
@@ -582,7 +566,7 @@ a function in the following sections.</p>
 </section>
 </section>
 <section id="applications">
-<h2><a class="toc-backref" href="#id6"><span class="section-number">4.4. </span>Applications</a><a class="headerlink" href="#applications" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.4. </span>Applications<a class="headerlink" href="#applications" title="Permalink to this heading">#</a></h2>
 <section id="random-draws">
 <h3><span class="section-number">4.4.1. </span>Random Draws<a class="headerlink" href="#random-draws" title="Permalink to this heading">#</a></h3>
 <p>Consider again this code from the <a class="reference internal" href="python_by_example.html"><span class="doc">previous lecture</span></a></p>
@@ -601,7 +585,7 @@ a function in the following sections.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8c362969df9a7b916cd44054df534b1ca0dae5eb15e0c14bdbc13b59778de687.png" src="_images/8c362969df9a7b916cd44054df534b1ca0dae5eb15e0c14bdbc13b59778de687.png" />
+<img alt="_images/b95a7b6b68ffec93945fe283c730839a2f12cf9a6828e2fd2c0a406e390a9c3d.png" src="_images/b95a7b6b68ffec93945fe283c730839a2f12cf9a6828e2fd2c0a406e390a9c3d.png" />
 </div>
 </div>
 <p>We will break this program into two parts:</p>
@@ -631,7 +615,7 @@ a function in the following sections.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ba82c07bcb2225f92d9eb94c1603c24a10aebb2d058d350d8a8546d4d777e074.png" src="_images/ba82c07bcb2225f92d9eb94c1603c24a10aebb2d058d350d8a8546d4d777e074.png" />
+<img alt="_images/b1e1c6e0541cdfe74c1a0543c5983e0ed821650d17a2d1aad57417ac1169d05d.png" src="_images/b1e1c6e0541cdfe74c1a0543c5983e0ed821650d17a2d1aad57417ac1169d05d.png" />
 </div>
 </div>
 <p>When the interpreter gets to the expression <code class="docutils literal notranslate"><span class="pre">generate_data(100)</span></code>, it executes the function body with <code class="docutils literal notranslate"><span class="pre">n</span></code> set equal to 100.</p>
@@ -661,7 +645,7 @@ a function in the following sections.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/55fada85529e9fdaf5813b4623533352e576ae18f42fa4384bb3654f7f1bf2ac.png" src="_images/55fada85529e9fdaf5813b4623533352e576ae18f42fa4384bb3654f7f1bf2ac.png" />
+<img alt="_images/8a8b7a84a49825b210b398a8d6574df92eb5f2ae1331e5be70718f6d44707d63.png" src="_images/8a8b7a84a49825b210b398a8d6574df92eb5f2ae1331e5be70718f6d44707d63.png" />
 </div>
 </div>
 <p>Hopefully, the syntax of the if/else clause is self-explanatory, with indentation again delimiting the extent of the code blocks.</p>
@@ -694,7 +678,7 @@ a function in the following sections.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b949364426c20f921df07b10676e3a9eba97e239b4ece5f65ab30f4a8dbfa175.png" src="_images/b949364426c20f921df07b10676e3a9eba97e239b4ece5f65ab30f4a8dbfa175.png" />
+<img alt="_images/99e6c2bb0b96c0c7e0c429bf7a47e70260dcd9f6afb6274acb41a762f4d60c54.png" src="_images/99e6c2bb0b96c0c7e0c429bf7a47e70260dcd9f6afb6274acb41a762f4d60c54.png" />
 </div>
 </div>
 <p>Now, when we call the function <code class="docutils literal notranslate"><span class="pre">generate_data()</span></code>, we pass <code class="docutils literal notranslate"><span class="pre">np.random.uniform</span></code>
@@ -738,7 +722,7 @@ function</em>—as we did above.</p>
 </section>
 </section>
 <section id="recursive-function-calls-advanced">
-<span id="recursive-functions"></span><h2><a class="toc-backref" href="#id7"><span class="section-number">4.5. </span>Recursive Function Calls (Advanced)</a><a class="headerlink" href="#recursive-function-calls-advanced" title="Permalink to this heading">#</a></h2>
+<span id="recursive-functions"></span><h2><span class="section-number">4.5. </span>Recursive Function Calls (Advanced)<a class="headerlink" href="#recursive-function-calls-advanced" title="Permalink to this heading">#</a></h2>
 <p id="index-4">This is an advanced topic that you should feel free to skip.</p>
 <p>At the same time, it’s a neat idea that you should learn it at some stage of
 your programming career.</p>
@@ -784,7 +768,7 @@ your programming career.</p>
 <p>We’ll meet less contrived applications of recursion later on.</p>
 </section>
 <section id="exercises">
-<span id="factorial-exercise"></span><h2><a class="toc-backref" href="#id8"><span class="section-number">4.6. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<span id="factorial-exercise"></span><h2><span class="section-number">4.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <div class="exercise admonition" id="func_ex1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 4.1 </span></p>
@@ -910,19 +894,19 @@ for any positive integer <span class="math notranslate nohighlight">\(n\)</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-0
-0
-1
-0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
 0
 1
+2
+3
+4
+5
 0
 0
 0
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
 </div>
@@ -949,16 +933,16 @@ for any positive integer <span class="math notranslate nohighlight">\(n\)</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+0
+1
+1
+1
+1
 2
-2
-2
-3
 3
 4
-5
-6
-6
+4
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
@@ -970,7 +954,7 @@ for any positive integer <span class="math notranslate nohighlight">\(n\)</span>
 </div>
 </section>
 <section id="advanced-exercises">
-<h2><a class="toc-backref" href="#id9"><span class="section-number">4.7. </span>Advanced Exercises</a><a class="headerlink" href="#advanced-exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.7. </span>Advanced Exercises<a class="headerlink" href="#advanced-exercises" title="Permalink to this heading">#</a></h2>
 <p>In the following exercises, we will write recursive functions together.</p>
 <div class="exercise admonition" id="func_ex4">
 

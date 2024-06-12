@@ -56,19 +56,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=b09b2da44b9015b4fa76ea072fa2d8f7faee5492" type="text/css" />
@@ -80,9 +80,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -245,27 +245,14 @@ const thebe_selector_output = ".output, .cell_output"
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="debugging-and-handling-errors">
-<h1><a class="toc-backref" href="#id2"><span class="section-number">22. </span>Debugging and Handling Errors</a><a class="headerlink" href="#debugging-and-handling-errors" title="Permalink to this heading">#</a></h1>
-<div class="contents topic" id="contents">
-<span id="index-0"></span><p class="topic-title">Contents</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#debugging-and-handling-errors" id="id2">Debugging and Handling Errors</a></p>
-<ul>
-<li><p><a class="reference internal" href="#overview" id="id3">Overview</a></p></li>
-<li><p><a class="reference internal" href="#id1" id="id4">Debugging</a></p></li>
-<li><p><a class="reference internal" href="#handling-errors" id="id5">Handling Errors</a></p></li>
-<li><p><a class="reference internal" href="#exercises" id="id6">Exercises</a></p></li>
-</ul>
-</li>
-</ul>
-</div>
-<blockquote class="epigraph">
+<h1><span class="section-number">22. </span>Debugging and Handling Errors<a class="headerlink" href="#debugging-and-handling-errors" title="Permalink to this heading">#</a></h1>
+<blockquote class="epigraph" id="index-0">
 <div><p>“Debugging is twice as hard as writing the code in the first place.
 Therefore, if you write the code as cleverly as possible, you are, by definition,
 not smart enough to debug it.” – Brian Kernighan</p>
 </div></blockquote>
 <section id="overview">
-<h2><a class="toc-backref" href="#id3"><span class="section-number">22.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">22.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>Are you one of those programmers who fills their code with <code class="docutils literal notranslate"><span class="pre">print</span></code> statements when trying to debug their programs?</p>
 <p>Hey, we all used to do that.</p>
 <p>(OK, sometimes we still do that…)</p>
@@ -274,17 +261,15 @@ not smart enough to debug it.” – Brian Kernighan</p>
 <p>In this lecture, we will discuss how to debug our programs and improve error handling.</p>
 </section>
 <section id="id1">
-<h2><a class="toc-backref" href="#id4"><span class="section-number">22.2. </span>Debugging</a><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">22.2. </span>Debugging<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p id="index-1">Debugging tools for Python vary across platforms, IDEs and editors.</p>
 <p>For example, a <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/user/debugger.html">visual debugger</a> is available in JupyterLab.</p>
 <p>Here we’ll focus on Jupyter Notebook and leave you to explore other settings.</p>
 <p>We’ll need the following imports</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -321,7 +306,7 @@ not smart enough to debug it.” – Brian Kernighan</p>
 <span class="ne">AttributeError</span>: &#39;numpy.ndarray&#39; object has no attribute &#39;plot&#39;
 </pre></div>
 </div>
-<img alt="_images/8931e88a3bd8aacdf0f64377cc2f870e24e0c375e381434265450b6aa18fd3ee.png" src="_images/8931e88a3bd8aacdf0f64377cc2f870e24e0c375e381434265450b6aa18fd3ee.png" />
+<img alt="_images/dd773b4fa978e0dd842912a5b9d2c43f3c07d26a487b4bbe8715e1ab77c6b549.png" src="_images/dd773b4fa978e0dd842912a5b9d2c43f3c07d26a487b4bbe8715e1ab77c6b549.png" />
 </div>
 </div>
 <p>This code is intended to plot the <code class="docutils literal notranslate"><span class="pre">log</span></code> function over the interval <span class="math notranslate nohighlight">\([1, 2]\)</span>.</p>
@@ -381,7 +366,7 @@ lost once that function terminates.</p>
 <span class="ne">AttributeError</span>: &#39;numpy.ndarray&#39; object has no attribute &#39;plot&#39;
 </pre></div>
 </div>
-<img alt="_images/8931e88a3bd8aacdf0f64377cc2f870e24e0c375e381434265450b6aa18fd3ee.png" src="_images/8931e88a3bd8aacdf0f64377cc2f870e24e0c375e381434265450b6aa18fd3ee.png" />
+<img alt="_images/dd773b4fa978e0dd842912a5b9d2c43f3c07d26a487b4bbe8715e1ab77c6b549.png" src="_images/dd773b4fa978e0dd842912a5b9d2c43f3c07d26a487b4bbe8715e1ab77c6b549.png" />
 </div>
 </div>
 <p>But this time we type in the following cell block</p>
@@ -447,7 +432,7 @@ online help</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5dbfab26af5fb1604223f21a0d60d5e59e08b7e2272c7f686fa0600d07e7452b.png" src="_images/5dbfab26af5fb1604223f21a0d60d5e59e08b7e2272c7f686fa0600d07e7452b.png" />
+<img alt="_images/184541e960970d9aa70ae230342834f77ba2dc6e8e98b31ad19094db09293e33.png" src="_images/184541e960970d9aa70ae230342834f77ba2dc6e8e98b31ad19094db09293e33.png" />
 </div>
 </div>
 <p>Here the original problem is fixed, but we’ve accidentally written
@@ -497,7 +482,7 @@ online help</p>
 </section>
 </section>
 <section id="handling-errors">
-<h2><a class="toc-backref" href="#id5"><span class="section-number">22.3. </span>Handling Errors</a><a class="headerlink" href="#handling-errors" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">22.3. </span>Handling Errors<a class="headerlink" href="#handling-errors" title="Permalink to this heading">#</a></h2>
 <p id="index-2">Sometimes it’s possible to anticipate bugs and errors as we’re writing code.</p>
 <p>For example, the unbiased sample variance of sample <span class="math notranslate nohighlight">\(y_1, \ldots, y_n\)</span>
 is defined as</p>
@@ -834,7 +819,7 @@ termination.</p>
 </section>
 </section>
 <section id="exercises">
-<h2><a class="toc-backref" href="#id6"><span class="section-number">22.4. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">22.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <div class="exercise admonition" id="debug_ex1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 22.1 </span></p>

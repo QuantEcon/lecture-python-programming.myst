@@ -56,19 +56,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=b09b2da44b9015b4fa76ea072fa2d8f7faee5492" type="text/css" />
@@ -80,9 +80,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -263,31 +263,15 @@ const thebe_selector_output = ".output, .cell_output"
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="python-essentials">
-<h1><a class="toc-backref" href="#id3"><span class="section-number">5. </span>Python Essentials</a><a class="headerlink" href="#python-essentials" title="Permalink to this heading">#</a></h1>
-<div class="contents topic" id="contents">
-<p class="topic-title">Contents</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#python-essentials" id="id3">Python Essentials</a></p>
-<ul>
-<li><p><a class="reference internal" href="#overview" id="id4">Overview</a></p></li>
-<li><p><a class="reference internal" href="#data-types" id="id5">Data Types</a></p></li>
-<li><p><a class="reference internal" href="#input-and-output" id="id6">Input and Output</a></p></li>
-<li><p><a class="reference internal" href="#iterating" id="id7">Iterating</a></p></li>
-<li><p><a class="reference internal" href="#comparisons-and-logical-operators" id="id8">Comparisons and Logical Operators</a></p></li>
-<li><p><a class="reference internal" href="#coding-style-and-documentation" id="id9">Coding Style and Documentation</a></p></li>
-<li><p><a class="reference internal" href="#exercises" id="id10">Exercises</a></p></li>
-</ul>
-</li>
-</ul>
-</div>
+<h1><span class="section-number">5. </span>Python Essentials<a class="headerlink" href="#python-essentials" title="Permalink to this heading">#</a></h1>
 <section id="overview">
-<h2><a class="toc-backref" href="#id4"><span class="section-number">5.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>We have covered a lot of material quite quickly, with a focus on examples.</p>
 <p>Now let’s cover some core features of Python in a more systematic way.</p>
 <p>This approach is less exciting but helps clear up some details.</p>
 </section>
 <section id="data-types">
-<h2><a class="toc-backref" href="#id5"><span class="section-number">5.2. </span>Data Types</a><a class="headerlink" href="#data-types" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.2. </span>Data Types<a class="headerlink" href="#data-types" title="Permalink to this heading">#</a></h2>
 <p id="index-0">Computer programs typically keep track of a range of data types.</p>
 <p>For example, <code class="docutils literal notranslate"><span class="pre">1.5</span></code> is a floating point number, while <code class="docutils literal notranslate"><span class="pre">1</span></code> is an integer.</p>
 <p>Programs need to distinguish between these two types for various reasons.</p>
@@ -714,7 +698,7 @@ usual set-theoretic operations</p>
 </section>
 </section>
 <section id="input-and-output">
-<h2><a class="toc-backref" href="#id6"><span class="section-number">5.3. </span>Input and Output</a><a class="headerlink" href="#input-and-output" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.3. </span>Input and Output<a class="headerlink" href="#input-and-output" title="Permalink to this heading">#</a></h2>
 <p id="index-5">Let’s briefly review reading and writing to text files, starting with writing</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -909,7 +893,7 @@ that you could experiment with.</p>
 </section>
 </section>
 <section id="iterating">
-<span id="iterating-version-1"></span><h2><a class="toc-backref" href="#id7"><span class="section-number">5.4. </span>Iterating</a><a class="headerlink" href="#iterating" title="Permalink to this heading">#</a></h2>
+<span id="iterating-version-1"></span><h2><span class="section-number">5.4. </span>Iterating<a class="headerlink" href="#iterating" title="Permalink to this heading">#</a></h2>
 <p id="index-7">One of the most important tasks in computing is stepping through a
 sequence of data and performing a given action.</p>
 <p>One of Python’s strengths is its simple, flexible interface to this kind of iteration via
@@ -1120,7 +1104,7 @@ right-hand side of the second line</p>
 </section>
 </section>
 <section id="comparisons-and-logical-operators">
-<h2><a class="toc-backref" href="#id8"><span class="section-number">5.5. </span>Comparisons and Logical Operators</a><a class="headerlink" href="#comparisons-and-logical-operators" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.5. </span>Comparisons and Logical Operators<a class="headerlink" href="#comparisons-and-logical-operators" title="Permalink to this heading">#</a></h2>
 <section id="comparisons">
 <h3><span class="section-number">5.5.1. </span>Comparisons<a class="headerlink" href="#comparisons" title="Permalink to this heading">#</a></h3>
 <p id="index-9">Many different kinds of expressions evaluate to one of the Boolean values (i.e., <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
@@ -1360,7 +1344,7 @@ right-hand side of the second line</p>
 </section>
 </section>
 <section id="coding-style-and-documentation">
-<h2><a class="toc-backref" href="#id9"><span class="section-number">5.6. </span>Coding Style and Documentation</a><a class="headerlink" href="#coding-style-and-documentation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6. </span>Coding Style and Documentation<a class="headerlink" href="#coding-style-and-documentation" title="Permalink to this heading">#</a></h2>
 <p>A consistent coding style and the use of
 documentation can make the code easier to understand and maintain.</p>
 <section id="python-style-guidelines-pep8">
@@ -1432,7 +1416,7 @@ first page.</p></li>
 </section>
 </section>
 <section id="exercises">
-<h2><a class="toc-backref" href="#id10"><span class="section-number">5.7. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <p>Solve the following exercises.</p>
 <p>(For some, the built-in function <code class="docutils literal notranslate"><span class="pre">sum()</span></code> comes in handy).</p>
 <div class="exercise admonition" id="pyess_ex1">

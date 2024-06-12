@@ -56,19 +56,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=b09b2da44b9015b4fa76ea072fa2d8f7faee5492" type="text/css" />
@@ -80,9 +80,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -251,24 +251,9 @@ const thebe_selector_output = ".output, .cell_output"
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="an-introductory-example">
-<h1><a class="toc-backref" href="#id1"><span class="section-number">3. </span>An Introductory Example</a><a class="headerlink" href="#an-introductory-example" title="Permalink to this heading">#</a></h1>
-<div class="contents topic" id="contents">
-<span id="index-0"></span><p class="topic-title">Contents</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#an-introductory-example" id="id1">An Introductory Example</a></p>
-<ul>
-<li><p><a class="reference internal" href="#overview" id="id2">Overview</a></p></li>
-<li><p><a class="reference internal" href="#the-task-plotting-a-white-noise-process" id="id3">The Task: Plotting a White Noise Process</a></p></li>
-<li><p><a class="reference internal" href="#version-1" id="id4">Version 1</a></p></li>
-<li><p><a class="reference internal" href="#alternative-implementations" id="id5">Alternative Implementations</a></p></li>
-<li><p><a class="reference internal" href="#another-application" id="id6">Another Application</a></p></li>
-<li><p><a class="reference internal" href="#exercises" id="id7">Exercises</a></p></li>
-</ul>
-</li>
-</ul>
-</div>
+<h1><span class="section-number">3. </span>An Introductory Example<a class="headerlink" href="#an-introductory-example" title="Permalink to this heading">#</a></h1>
 <section id="overview">
-<h2><a class="toc-backref" href="#id2"><span class="section-number">3.1. </span>Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<span id="index-0"></span><h2><span class="section-number">3.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>We’re now ready to start learning the Python language itself.</p>
 <p>In this lecture, we will write and then pick apart small Python programs.</p>
 <p>The objective is to introduce you to basic Python syntax and data structures.</p>
@@ -276,7 +261,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>You should have read the <a class="reference internal" href="getting_started.html"><span class="doc">lecture</span></a> on getting started with Python before beginning this one.</p>
 </section>
 <section id="the-task-plotting-a-white-noise-process">
-<h2><a class="toc-backref" href="#id3"><span class="section-number">3.2. </span>The Task: Plotting a White Noise Process</a><a class="headerlink" href="#the-task-plotting-a-white-noise-process" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.2. </span>The Task: Plotting a White Noise Process<a class="headerlink" href="#the-task-plotting-a-white-noise-process" title="Permalink to this heading">#</a></h2>
 <p>Suppose we want to simulate and plot the white noise
 process <span class="math notranslate nohighlight">\(\epsilon_0, \epsilon_1, \ldots, \epsilon_T\)</span>, where each draw <span class="math notranslate nohighlight">\(\epsilon_t\)</span> is independent standard normal.</p>
 <p>In other words, we want to generate figures that look something like this:</p>
@@ -289,7 +274,7 @@ vertical axis.)</p>
 about Python.</p>
 </section>
 <section id="version-1">
-<h2><a class="toc-backref" href="#id4"><span class="section-number">3.3. </span>Version 1</a><a class="headerlink" href="#version-1" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.3. </span>Version 1<a class="headerlink" href="#version-1" title="Permalink to this heading">#</a></h2>
 <p id="ourfirstprog">Here are a few lines of code that perform the task we set</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -303,7 +288,7 @@ about Python.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/76df6e2c52ea1f0860c13954db5eff2fae4a92ac1d22df1ea1e64ee7ec7d03e1.png" src="_images/76df6e2c52ea1f0860c13954db5eff2fae4a92ac1d22df1ea1e64ee7ec7d03e1.png" />
+<img alt="_images/366dfacdcff053397ee91e41e70f7e546b2ee75db39dada38975bf7ee85fd0f2.png" src="_images/366dfacdcff053397ee91e41e70f7e546b2ee75db39dada38975bf7ee85fd0f2.png" />
 </div>
 </div>
 <p>Let’s break this program down and see how it works.</p>
@@ -427,7 +412,7 @@ after the import statements are</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8566dfbadb3319466011039fff55a3da080ec7d37d64a30fde403cfd9c0f5c09.png" src="_images/8566dfbadb3319466011039fff55a3da080ec7d37d64a30fde403cfd9c0f5c09.png" />
+<img alt="_images/fc776f8615c4b21ed46009b92785620c976bc6a5c4a337283eaf66d0fdffe192.png" src="_images/fc776f8615c4b21ed46009b92785620c976bc6a5c4a337283eaf66d0fdffe192.png" />
 </div>
 </div>
 <p>The first line generates 100 (quasi) independent standard normals and stores
@@ -437,7 +422,7 @@ them in <code class="docutils literal notranslate"><span class="pre">ϵ_values</
 </section>
 </section>
 <section id="alternative-implementations">
-<h2><a class="toc-backref" href="#id5"><span class="section-number">3.4. </span>Alternative Implementations</a><a class="headerlink" href="#alternative-implementations" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.4. </span>Alternative Implementations<a class="headerlink" href="#alternative-implementations" title="Permalink to this heading">#</a></h2>
 <p>Let’s try writing some alternative versions of <a class="reference internal" href="#ourfirstprog"><span class="std std-ref">our first program</span></a>, which plotted IID draws from the standard normal distribution.</p>
 <p>The programs below are less efficient than the original one, and hence
 somewhat artificial.</p>
@@ -460,7 +445,7 @@ somewhat artificial.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a9e5a1e73a64cac45894bf51303b42542121d36cc0067082e727858453d15ce2.png" src="_images/a9e5a1e73a64cac45894bf51303b42542121d36cc0067082e727858453d15ce2.png" />
+<img alt="_images/17dd9c3eb41919fef1af0d7525aa1d3c6daa5e4d822a802f9f83c5d1dfb4db81.png" src="_images/17dd9c3eb41919fef1af0d7525aa1d3c6daa5e4d822a802f9f83c5d1dfb4db81.png" />
 </div>
 </div>
 <p>In brief,</p>
@@ -675,7 +660,7 @@ loop of the form</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3fc3f959539f314639fe9c59b3c404b66df180927f2c16ce2e3327e3da19f8bd.png" src="_images/3fc3f959539f314639fe9c59b3c404b66df180927f2c16ce2e3327e3da19f8bd.png" />
+<img alt="_images/5a23d487e42a839a1de3429767d65ab6da01f47ae3ba79652a83db135038c4fb.png" src="_images/5a23d487e42a839a1de3429767d65ab6da01f47ae3ba79652a83db135038c4fb.png" />
 </div>
 </div>
 <p>A while loop will keep executing the code block delimited by indentation until the condition (<code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">ts_length</span></code>) is satisfied.</p>
@@ -700,7 +685,7 @@ loop of the form</p>
 </section>
 </section>
 <section id="another-application">
-<h2><a class="toc-backref" href="#id6"><span class="section-number">3.5. </span>Another Application</a><a class="headerlink" href="#another-application" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.5. </span>Another Application<a class="headerlink" href="#another-application" title="Permalink to this heading">#</a></h2>
 <p>Let’s do one more application before we turn to exercises.</p>
 <p>In this application, we plot the balance of a bank account over time.</p>
 <p>There are no withdraws over the time period, the last date of which is denoted
@@ -740,7 +725,7 @@ operating system.</p>
 use in the exercises.</p>
 </section>
 <section id="exercises">
-<h2><a class="toc-backref" href="#id7"><span class="section-number">3.6. </span>Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <p>Now we turn to exercises.  It is important that you complete them before
 continuing, since they present new concepts we will need.</p>
 <div class="exercise admonition" id="pbe_ex1">
@@ -789,7 +774,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9e7f4991404fc25071d6cd0686c2679ed79d59836a7b348c67ce68175562732c.png" src="_images/9e7f4991404fc25071d6cd0686c2679ed79d59836a7b348c67ce68175562732c.png" />
+<img alt="_images/cf1f4b5c22378c5af786dfb61d74fa98e9f92d09b6bdfb198b4925e23403e202.png" src="_images/cf1f4b5c22378c5af786dfb61d74fa98e9f92d09b6bdfb198b4925e23403e202.png" />
 </div>
 </div>
 </section>
@@ -833,7 +818,7 @@ one for each of the cases <span class="math notranslate nohighlight">\(\alpha=0\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d25d9992e3bf5aaa89050c3d0a6564b09c339b2e11a22583119a627f7d06ac60.png" src="_images/d25d9992e3bf5aaa89050c3d0a6564b09c339b2e11a22583119a627f7d06ac60.png" />
+<img alt="_images/33ceab61a2ad1bcbea4cdddb076133db1794f2747bd0aff399ea2d7fbfaffd1a.png" src="_images/33ceab61a2ad1bcbea4cdddb076133db1794f2747bd0aff399ea2d7fbfaffd1a.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -880,7 +865,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0b347defeb9f31d6a65e1f9f5f6dbda4b49fb71fc1e28ceba7c6de5d0a0a82a2.png" src="_images/0b347defeb9f31d6a65e1f9f5f6dbda4b49fb71fc1e28ceba7c6de5d0a0a82a2.png" />
+<img alt="_images/50e7b2faa4e91b98aab7f5a10a74707069048ca82d6c82eab6fa4087d588f851.png" src="_images/50e7b2faa4e91b98aab7f5a10a74707069048ca82d6c82eab6fa4087d588f851.png" />
 </div>
 </div>
 </section>
@@ -950,7 +935,7 @@ to compute the absolute value.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/934d02fdad73d93352a5b6b3dab3e3c7135ac3e3c2c23a9a7b968866e6b9fb9b.png" src="_images/934d02fdad73d93352a5b6b3dab3e3c7135ac3e3c2c23a9a7b968866e6b9fb9b.png" />
+<img alt="_images/7bcfc3807699a857d90a32cce2b6cc8713d61ec36a776f9f4fcc7eb2f2414fe3.png" src="_images/7bcfc3807699a857d90a32cce2b6cc8713d61ec36a776f9f4fcc7eb2f2414fe3.png" />
 </div>
 </div>
 <p>Here’s a shorter way to write the same thing:</p>
@@ -971,7 +956,7 @@ to compute the absolute value.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b04fa2182d3c29ead88650f21da945e697712a9b3f2714b03ea313dafcb9de6c.png" src="_images/b04fa2182d3c29ead88650f21da945e697712a9b3f2714b03ea313dafcb9de6c.png" />
+<img alt="_images/7099e5e999323f0e3eb6622e731e993461f3e167260a990e925fb628128516e8.png" src="_images/7099e5e999323f0e3eb6622e731e993461f3e167260a990e925fb628128516e8.png" />
 </div>
 </div>
 </section>
@@ -1041,7 +1026,7 @@ fraction that falls into the circle.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.143392
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.138044
 </pre></div>
 </div>
 </div>
