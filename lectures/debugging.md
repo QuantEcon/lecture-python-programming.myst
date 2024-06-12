@@ -23,10 +23,6 @@ kernelspec:
 ```{index} single: Debugging
 ```
 
-```{contents} Contents
-:depth: 2
-```
-
 ```{epigraph}
 "Debugging is twice as hard as writing the code in the first place.
 Therefore, if you write the code as cleverly as possible, you are, by definition,
@@ -61,10 +57,8 @@ Here we'll focus on Jupyter Notebook and leave you to explore other settings.
 We'll need the following imports
 
 ```{code-cell} ipython
-%matplotlib inline
 import numpy as np
 import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = (10,6)
 ```
 
 (debug_magic)= 

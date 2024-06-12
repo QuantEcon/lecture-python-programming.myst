@@ -20,10 +20,6 @@ kernelspec:
 
 # More Language Features
 
-```{contents} Contents
-:depth: 2
-```
-
 ## Overview
 
 With this last lecture, our advice is to **skip it on first pass**, unless you have a burning desire to read it.

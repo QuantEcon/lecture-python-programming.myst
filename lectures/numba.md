@@ -22,10 +22,6 @@ kernelspec:
 
 # Numba
 
-```{contents} Contents
-:depth: 2
-```
-
 In addition to what's in Anaconda, this lecture will need the following libraries:
 
 ```{code-cell} ipython3
@@ -40,11 +36,9 @@ versions are a {doc}`common source of errors <troubleshooting>`.
 Let's start with some imports:
 
 ```{code-cell} ipython3
-%matplotlib inline
 import numpy as np
 import quantecon as qe
 import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = (10,6)
 ```
 
 ## Overview

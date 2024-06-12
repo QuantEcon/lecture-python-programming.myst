@@ -23,10 +23,6 @@ kernelspec:
 
 # About Python
 
-```{contents} Contents
-:depth: 2
-```
-
 ```{epigraph}
 "Python has gotten sufficiently weapons grade that we don’t descend into R
 anymore. Sorry, R people. I used to be one of you but we no longer descend
@@ -255,10 +251,8 @@ Its features include, among many other things:
 Here's some example code that generates and plots a random graph, with node color determined by the shortest path length from a central node.
 
 ```{code-cell} ipython
-%matplotlib inline
 import networkx as nx
 import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = (10,6)
 np.random.seed(1234)
 
 # Generate a random graph

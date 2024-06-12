@@ -20,10 +20,6 @@ kernelspec:
 
 # Troubleshooting
 
-```{contents} Contents
-:depth: 2
-```
-
 This page is for readers experiencing errors when running the code from the lectures.
 
 ## Fixing Your Local Environment

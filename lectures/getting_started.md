@@ -18,6 +18,8 @@ kernelspec:
 </div>
 ```
 
+<!-- TODO: Review this styling -->
+
 <style>
   .auto {
     width: 70%;
@@ -33,10 +35,6 @@ kernelspec:
 # Getting Started
 
 ```{index} single: Python
-```
-
-```{contents} Contents
-:depth: 2
 ```
 
 ## Overview
@@ -278,8 +276,6 @@ On that page, you'll see the following code
 ```{code-cell} ipython
 import numpy as np
 import matplotlib.pyplot as plt
-%matplotlib inline
-plt.rcParams['figure.figsize'] = (10,6)
 
 # Fixing random state for reproducibility
 np.random.seed(19680801)

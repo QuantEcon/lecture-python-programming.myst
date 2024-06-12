@@ -23,10 +23,6 @@ kernelspec:
 ```{index} single: Python; Pandas
 ```
 
-```{contents} Contents
-:depth: 2
-```
-
 In addition to what’s in Anaconda, this lecture will need the following libraries:
 
 ```{code-cell} ipython
@@ -69,11 +65,9 @@ Throughout the lecture, we will assume that the following imports have taken
 place
 
 ```{code-cell} ipython
-%matplotlib inline
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-plt.rcParams["figure.figsize"] = [10,8]  # Set default figure size
 import requests
 ```
 

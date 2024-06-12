@@ -20,9 +20,6 @@ kernelspec:
 
 # Writing Longer Programs
 
-```{contents} Contents
-:depth: 2
-```
 ## Overview
 
 So far, we have explored the use of Jupyter Notebooks in writing and executing Python code. 

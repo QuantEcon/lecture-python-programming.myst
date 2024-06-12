@@ -23,10 +23,6 @@ kernelspec:
 ```{index} single: Python; User-defined functions
 ```
 
-```{contents} Contents
-:depth: 2
-```
-
 ## Overview
 
 Functions are an extremely useful construct provided by almost all programming.
