@@ -3,8 +3,10 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.16.1
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -29,10 +31,9 @@ kernelspec:
 
 In addition to what’s in Anaconda, this lecture will need the following libraries:
 
-```{code-cell} ipython
----
-tags: [hide-output]
----
+```{code-cell} ipython3
+:tags: [hide-output]
+
 !pip install --upgrade pandas-datareader
 !pip install --upgrade yfinance
 ```
@@ -68,7 +69,7 @@ This lecture will provide a basic introduction to pandas.
 Throughout the lecture, we will assume that the following imports have taken
 place
 
-```{code-cell} ipython
+```{code-cell} ipython3
 %matplotlib inline
 import pandas as pd
 import numpy as np
@@ -93,7 +94,7 @@ Let's start with Series.
 
 We begin by creating a series of four random observations
 
-```{code-cell} python3
+```{code-cell} ipython3
 s = pd.Series(np.random.randn(4), name='daily returns')
 s
 ```
@@ -104,11 +105,11 @@ companies, and the values being daily returns on their shares.
 Pandas `Series` are built on top of NumPy arrays and support many similar
 operations
 
-```{code-cell} python3
+```{code-cell} ipython3
 s * 100
 ```
 
-```{code-cell} python3
+```{code-cell} ipython3
 np.abs(s)
 ```
 
@@ -116,13 +117,13 @@ But `Series` provide more than NumPy arrays.
 
 Not only do they have some additional (statistically oriented) methods
 
-```{code-cell} python3
+```{code-cell} ipython3
 s.describe()
 ```
 
 But their indices are more flexible
 
-```{code-cell} python3
+```{code-cell} ipython3
 s.index = ['AMZN', 'AAPL', 'MSFT', 'GOOG']
 s
 ```
@@ -133,16 +134,16 @@ type---in this case, floats).
 
 In fact, you can use much of the same syntax as Python dictionaries
 
-```{code-cell} python3
+```{code-cell} ipython3
 s['AMZN']
 ```
 
-```{code-cell} python3
+```{code-cell} ipython3
 s['AMZN'] = 0
 s
 ```
 
-```{code-cell} python3
+```{code-cell} ipython3
 'AAPL' in s
 ```
 
@@ -172,14 +173,14 @@ The dataset contains the following indicators
 
 We'll read this in from a URL using the `pandas` function `read_csv`.
 
-```{code-cell} python3
+```{code-cell} ipython3
 df = pd.read_csv('https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/pandas/data/test_pwt.csv')
 type(df)
 ```
 
 Here's the content of `test_pwt.csv`
 
-```{code-cell} python3
+```{code-cell} ipython3
 df
 ```
 
@@ -189,25 +190,25 @@ In practice, one thing that we do all the time is to find, select and work with 
 
 We can select particular rows using standard Python array slicing notation
 
-```{code-cell} python3
+```{code-cell} ipython3
 df[2:5]
 ```
 
 To select columns, we can pass a list containing the names of the desired columns represented as strings
 
-```{code-cell} python3
+```{code-cell} ipython3
 df[['country', 'tcgdp']]
 ```
 
 To select both rows and columns using integers, the `iloc` attribute should be used with the format `.iloc[rows, columns]`.
 
-```{code-cell} python3
+```{code-cell} ipython3
 df.iloc[2:5, 0:4]
 ```
 
 To select rows and columns using a mixture of integers and labels, the `loc` attribute can be used in a similar way
 
-```{code-cell} python3
+```{code-cell} ipython3
 df.loc[df.index[2:5], ['country', 'tcgdp']]
 ```
 
@@ -219,13 +220,13 @@ This section demonstrates various ways to do that.
 
 The most straightforward way is with the `[]` operator.
 
-```{code-cell} python3
+```{code-cell} ipython3
 df[df.POP >= 20000]
 ```
 
 To understand what is going on here, notice that `df.POP >= 20000` returns a series of boolean values.
 
-```{code-cell} python3
+```{code-cell} ipython3
 df.POP >= 20000
 ```
 
@@ -233,35 +234,35 @@ In this case, `df[___]` takes a series of boolean values and only returns rows w
 
 Take one more example,
 
-```{code-cell} python3
+```{code-cell} ipython3
 df[(df.country.isin(['Argentina', 'India', 'South Africa'])) & (df.POP > 40000)]
 ```
 
 However, there is another way of doing the same thing, which can be slightly faster for large dataframes, with more natural syntax.
 
-```{code-cell} python3
+```{code-cell} ipython3
 # the above is equivalent to 
 df.query("POP >= 20000")
 ```
 
-```{code-cell} python3
+```{code-cell} ipython3
 df.query("country in ['Argentina', 'India', 'South Africa'] and POP > 40000")
 ```
 
 We can also allow arithmetic operations between different columns.
 
-```{code-cell} python3
+```{code-cell} ipython3
 df[(df.cc + df.cg >= 80) & (df.POP <= 20000)]
 ```
 
-```{code-cell} python3
+```{code-cell} ipython3
 # the above is equivalent to 
 df.query("cc + cg >= 80 & POP <= 20000")
 ```
 
 For example, we can use the conditioning to select the country with the largest household consumption - gdp share `cc`.
 
-```{code-cell} python3
+```{code-cell} ipython3
 df.loc[df.cc == max(df.cc)]
 ```
 
@@ -269,10 +270,9 @@ When we only want to look at certain columns of a selected sub-dataframe, we can
 
 The first argument takes the condition, while the second argument takes a list of columns we want to return.
 
-```{code-cell} python3
+```{code-cell} ipython3
 df.loc[(df.cc + df.cg >= 80) & (df.POP <= 20000), ['country', 'year', 'POP']]
 ```
-
 
 **Application: Subsetting Dataframe**
 
@@ -284,7 +284,7 @@ Let's imagine that we're only interested in the population (`POP`) and total GDP
 
 One way to strip the data frame `df` down to only these variables is to overwrite the dataframe using the selection method described above
 
-```{code-cell} python3
+```{code-cell} ipython3
 df_subset = df[['country', 'POP', 'tcgdp']]
 df_subset
 ```
@@ -307,7 +307,7 @@ This function can be some built-in functions like the `max` function, a `lambda`
 
 Here is an example using the `max` function
 
-```{code-cell} python3
+```{code-cell} ipython3
 df[['year', 'POP', 'XRAT', 'tcgdp', 'cc', 'cg']].apply(max)
 ```
 
@@ -315,9 +315,9 @@ This line of code applies the `max` function to all selected columns.
 
 `lambda` function is often used with `df.apply()` method 
 
-A trivial example is to return itself for each row in the dataframe 
+A trivial example is to return itself for each row in the dataframe
 
-```{code-cell} python3
+```{code-cell} ipython3
 df.apply(lambda row: row, axis=1)
 ```
 
@@ -330,8 +330,7 @@ For the `.apply()` method
 
 We can use it together with `.loc[]` to do some more advanced selection.
 
-
-```{code-cell} python3
+```{code-cell} ipython3
 complexCondition = df.apply(
     lambda row: row.POP > 40000 if row.country in ['Argentina', 'India', 'South Africa'] else row.POP < 20000, 
     axis=1), ['country', 'year', 'POP', 'XRAT', 'tcgdp']
@@ -341,16 +340,15 @@ complexCondition = df.apply(
 
 In addition, it also defines a subset of variables of interest.
 
-```{code-cell} python3
+```{code-cell} ipython3
 complexCondition
 ```
 
 When we apply this condition to the dataframe, the result will be
 
-```{code-cell} python3
+```{code-cell} ipython3
 df.loc[complexCondition]
 ```
-
 
 ### Make Changes in DataFrames
 
@@ -359,21 +357,20 @@ The ability to make changes in dataframes is important to generate a clean datas
 
 **1.** We can use `df.where()` conveniently to "keep" the rows we have selected and replace the rest rows with any other values
 
-```{code-cell} python3
+```{code-cell} ipython3
 df.where(df.POP >= 20000, False)
 ```
 
-
 **2.** We can simply use `.loc[]` to specify the column that we want to modify, and assign values
 
-```{code-cell} python3
+```{code-cell} ipython3
 df.loc[df.cg == max(df.cg), 'cg'] = np.nan
 df
 ```
 
 **3.** We can use the `.apply()` method to modify *rows/columns as a whole*
 
-```{code-cell} python3
+```{code-cell} ipython3
 def update_row(row):
     # modify POP
     row.POP = np.nan if row.POP<= 10000 else row.POP
@@ -387,7 +384,7 @@ df.apply(update_row, axis=1)
 
 **4.** We can use the `.applymap()` method to modify all *individual entries* in the dataframe altogether.
 
-```{code-cell} python3
+```{code-cell} ipython3
 # Round all decimal numbers to 2 decimal places
 df.applymap(lambda x : round(x,2) if type(x)!=str else x)
 ```
@@ -398,7 +395,7 @@ Replacing missing values is an important step in data munging.
 
 Let's randomly insert some NaN values
 
-```{code-cell} python3
+```{code-cell} ipython3
 for idx in list(zip([0, 3, 5, 6], [3, 4, 6, 2])):
     df.iloc[idx] = np.nan
 
@@ -409,7 +406,7 @@ The `zip()` function here creates pairs of values from the two lists (i.e. [0,3]
 
 We can use the `.applymap()` method again to replace all missing values with 0
 
-```{code-cell} python3
+```{code-cell} ipython3
 # replace all NaN values by 0
 def replace_nan(x):
     if type(x)!=str:
@@ -424,7 +421,7 @@ Pandas also provides us with convenient methods to replace missing values.
 
 For example, single imputation using variable means can be easily done in pandas
 
-```{code-cell} python3
+```{code-cell} ipython3
 df = df.fillna(df.iloc[:,2:8].mean())
 df
 ```
@@ -439,7 +436,7 @@ Let's imagine that we're only interested in the population (`POP`) and total GDP
 
 One way to strip the data frame `df` down to only these variables is to overwrite the dataframe using the selection method described above
 
-```{code-cell} python3
+```{code-cell} ipython3
 df = df[['country', 'POP', 'tcgdp']]
 df
 ```
@@ -448,28 +445,28 @@ Here the index `0, 1,..., 7` is redundant because we can use the country names a
 
 To do this, we set the index to be the `country` variable in the dataframe
 
-```{code-cell} python3
+```{code-cell} ipython3
 df = df.set_index('country')
 df
 ```
 
 Let's give the columns slightly better names
 
-```{code-cell} python3
+```{code-cell} ipython3
 df.columns = 'population', 'total GDP'
 df
 ```
 
 The `population` variable is in thousands, let's revert to single units
 
-```{code-cell} python3
+```{code-cell} ipython3
 df['population'] = df['population'] * 1e3
 df
 ```
 
 Next, we're going to add a column showing real GDP per capita, multiplying by 1,000,000 as we go because total GDP is in millions
 
-```{code-cell} python3
+```{code-cell} ipython3
 df['GDP percap'] = df['total GDP'] * 1e6 / df['population']
 df
 ```
@@ -478,7 +475,7 @@ One of the nice things about pandas `DataFrame` and `Series` objects is that the
 
 For example, we can easily generate a bar plot of GDP per capita
 
-```{code-cell} python3
+```{code-cell} ipython3
 ax = df['GDP percap'].plot(kind='bar')
 ax.set_xlabel('country', fontsize=12)
 ax.set_ylabel('GDP per capita', fontsize=12)
@@ -487,14 +484,14 @@ plt.show()
 
 At the moment the data frame is ordered alphabetically on the countries---let's change it to GDP per capita
 
-```{code-cell} python3
+```{code-cell} ipython3
 df = df.sort_values(by='GDP percap', ascending=False)
 df
 ```
 
 Plotting as before now yields
 
-```{code-cell} python3
+```{code-cell} ipython3
 ax = df['GDP percap'].plot(kind='bar')
 ax.set_xlabel('country', fontsize=12)
 ax.set_ylabel('GDP per capita', fontsize=12)
@@ -538,7 +535,7 @@ One option is to use [requests](https://requests.readthedocs.io/en/master/), a s
 
 To begin, try the following code on your computer
 
-```{code-cell} python3
+```{code-cell} ipython3
 r = requests.get('http://research.stlouisfed.org/fred2/series/UNRATE/downloaddata/UNRATE.csv')
 ```
 
@@ -556,17 +553,17 @@ In the second case, you can either
 
 Assuming that all is working, you can now proceed to use the `source` object returned by the call `requests.get('http://research.stlouisfed.org/fred2/series/UNRATE/downloaddata/UNRATE.csv')`
 
-```{code-cell} python3
-url = 'http://research.stlouisfed.org/fred2/series/UNRATE/downloaddata/UNRATE.csv'
+```{code-cell} ipython3
+url = 'https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23e1e9f0&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1318&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=UNRATE&scale=left&cosd=1948-01-01&coed=2024-06-01&line_color=%234572a7&link_values=false&line_style=solid&mark_type=none&mw=3&lw=2&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2024-07-29&revision_date=2024-07-29&nd=1948-01-01'
 source = requests.get(url).content.decode().split("\n")
 source[0]
 ```
 
-```{code-cell} python3
+```{code-cell} ipython3
 source[1]
 ```
 
-```{code-cell} python3
+```{code-cell} ipython3
 source[2]
 ```
 
@@ -576,28 +573,28 @@ But this is unnecessary --- pandas' `read_csv` function can handle the task for 
 
 We use `parse_dates=True` so that pandas recognizes our dates column, allowing for simple date filtering
 
-```{code-cell} python3
+```{code-cell} ipython3
 data = pd.read_csv(url, index_col=0, parse_dates=True)
 ```
 
 The data has been read into a pandas DataFrame called `data` that we can now manipulate in the usual way
 
-```{code-cell} python3
+```{code-cell} ipython3
 type(data)
 ```
 
-```{code-cell} python3
+```{code-cell} ipython3
 data.head()  # A useful method to get a quick look at a data frame
 ```
 
-```{code-cell} python3
+```{code-cell} ipython3
 pd.set_option('display.precision', 1)
 data.describe()  # Your output might differ slightly
 ```
 
 We can also plot the unemployment rate from 2006 to 2012 as follows
 
-```{code-cell} python3
+```{code-cell} ipython3
 ax = data['2006':'2012'].plot(title='US Unemployment Rate', legend=False)
 ax.set_xlabel('year', fontsize=12)
 ax.set_ylabel('%', fontsize=12)
@@ -636,7 +633,7 @@ For example, [here's](http://data.worldbank.org/indicator/GC.DOD.TOTL.GD.ZS/coun
 
 The next code example fetches the data for you and plots time series for the US and Australia
 
-```{code-cell} python3
+```{code-cell} ipython3
 from pandas_datareader import wb
 
 govt_debt = wb.download(indicator='GC.DOD.TOTL.GD.ZS', country=['US', 'AU'], start=2005, end=2016).stack().unstack(0)
@@ -658,14 +655,14 @@ The [documentation](https://pandas-datareader.readthedocs.io/en/latest/index.htm
 
 With these imports:
 
-```{code-cell} python3
+```{code-cell} ipython3
 import datetime as dt
 import yfinance as yf
 ```
 
 Write a program to calculate the percentage price change over 2021 for the following shares:
 
-```{code-cell} python3
+```{code-cell} ipython3
 ticker_list = {'INTC': 'Intel',
                'MSFT': 'Microsoft',
                'IBM': 'IBM',
@@ -682,7 +679,7 @@ ticker_list = {'INTC': 'Intel',
 
 Here's the first part of the program
 
-```{code-cell} python3
+```{code-cell} ipython3
 def read_data(ticker_list,
           start=dt.datetime(2021, 1, 1),
           end=dt.datetime(2021, 12, 31)):
@@ -722,7 +719,7 @@ the percentage change.
 
 First, you can extract the data and perform the calculation such as:
 
-```{code-cell} python3
+```{code-cell} ipython3
 p1 = ticker.iloc[0]    #Get the first set of prices as a Series
 p2 = ticker.iloc[-1]   #Get the last set of prices as a Series
 price_change = (p2 - p1) / p1 * 100
@@ -732,7 +729,7 @@ price_change
 Alternatively you can use an inbuilt method `pct_change` and configure it to
 perform the correct calculation using `periods` argument.
 
-```{code-cell} python3
+```{code-cell} ipython3
 change = ticker.pct_change(periods=len(ticker)-1, axis='rows')*100
 price_change = change.iloc[-1]
 price_change
@@ -740,7 +737,7 @@ price_change
 
 Then to plot the chart
 
-```{code-cell} python3
+```{code-cell} ipython3
 price_change.sort_values(inplace=True)
 price_change = price_change.rename(index=ticker_list)
 fig, ax = plt.subplots(figsize=(10,8))
@@ -760,7 +757,7 @@ plt.show()
 
 Using the method `read_data` introduced in {ref}`pd_ex1`, write a program to obtain year-on-year percentage change for the following indices:
 
-```{code-cell} python3
+```{code-cell} ipython3
 indices_list = {'^GSPC': 'S&P 500',
                '^IXIC': 'NASDAQ',
                '^DJI': 'Dow Jones',
@@ -782,7 +779,7 @@ Complete the program to show summary statistics and plot the result as a time se
 
 Following the work you did in {ref}`pd_ex1`, you can query the data using `read_data` by updating the start and end dates accordingly.
 
-```{code-cell} python3
+```{code-cell} ipython3
 indices_data = read_data(
         indices_list,
         start=dt.datetime(1971, 1, 1),  #Common Start Date
@@ -792,7 +789,7 @@ indices_data = read_data(
 
 Then, extract the first and last set of prices per year as DataFrames and calculate the yearly returns such as:
 
-```{code-cell} python3
+```{code-cell} ipython3
 yearly_returns = pd.DataFrame()
 
 for index, name in indices_list.items():
@@ -806,13 +803,13 @@ yearly_returns
 
 Next, you can obtain summary statistics by using the method `describe`.
 
-```{code-cell} python3
+```{code-cell} ipython3
 yearly_returns.describe()
 ```
 
 Then, to plot the chart
 
-```{code-cell} python3
+```{code-cell} ipython3
 fig, axes = plt.subplots(2, 2, figsize=(10, 8))
 
 for iter_, ax in enumerate(axes.flatten()):            # Flatten 2-D array to 1-D array
@@ -828,4 +825,3 @@ plt.tight_layout()
 ```
 
 [^mung]: Wikipedia defines munging as cleaning data from one raw form into a structured, purged one.
-
