@@ -15,7 +15,7 @@ This website presents a set of lectures on Python programming for economics and 
 
 This is the first text in the series, which focuses on programming in Python.
 
-For an overview of the series, see [this page](https://quantecon.org/python-lectures/)
+For an overview of the series, see [this page](https://quantecon.org/lectures/)
 
 ```{tableofcontents}
 ```
