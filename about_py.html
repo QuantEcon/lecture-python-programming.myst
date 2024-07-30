@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>1. About Python &#8212; Python Programming for Economics and Finance</title>
+    <title>1. About These Lectures &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
@@ -60,12 +60,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
@@ -80,9 +80,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -131,13 +131,13 @@ const thebe_selector_output = ".output, .cell_output"
 <!-- Twitter tags -->
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@quantecon" />
-<meta name="twitter:title" content="About Python"/>
+<meta name="twitter:title" content="About These Lectures"/>
 <meta name="twitter:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.">
 <meta name="twitter:creator" content="@quantecon">
 <meta name="twitter:image" content="https://assets.quantecon.org/img/qe-twitter-logo.png">
 
 <!-- Opengraph tags -->
-<meta property="og:title" content="About Python" />
+<meta property="og:title" content="About These Lectures" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://python.quantecon.org/about_py.html" />
 <meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
@@ -169,19 +169,26 @@ const thebe_selector_output = ".output, .cell_output"
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">1.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">1.1. Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-t-i-just-use-chatgpt">1.1.1. Can’t I Just Use ChatGPT?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isn-t-matlab-better">1.1.2. Isn’t MATLAB Better?</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-python">1.2. What’s Python?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-uses">1.2.1. Common Uses</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-popularity">1.2.2. Relative Popularity</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#features">1.2.3. Features</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-and-design">1.2.4. Syntax and Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ai-connection">1.2.5. The AI Connection</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-programming">1.3. Scientific Programming</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-programming">1.3.1. Numerical Programming</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graphics">1.3.2. Graphics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#networks-and-graphs">1.3.3. Networks and Graphs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-scientific-libraries">1.3.4. Other Scientific Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-programming-with-python">1.3. Scientific Programming with Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">1.3.1. NumPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-alternatives">1.3.2. NumPy Alternatives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy">1.3.3. SciPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graphics">1.3.4. Graphics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#networks-and-graphs">1.3.5. Networks and Graphs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-scientific-libraries">1.3.6. Other Scientific Libraries</a></li>
 </ul>
 </li>
 </ul>
@@ -216,7 +223,7 @@ const thebe_selector_output = ".output, .cell_output"
 
                         <p class="qe-page__header-heading"><a href="intro.html">Python Programming for Economics and Finance</a></p>
 
-                        <p class="qe-page__header-subheading">About Python</p>
+                        <p class="qe-page__header-subheading">About These Lectures</p>
 
                     </div>
                     <!-- length 2, since its a string and empty dict has length 2 - {} -->
@@ -242,8 +249,8 @@ const thebe_selector_output = ".output, .cell_output"
                     
                     <div>
                         
-  <section class="tex2jax_ignore mathjax_ignore" id="about-python">
-<span id="index-0"></span><h1><span class="section-number">1. </span>About Python<a class="headerlink" href="#about-python" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="about-these-lectures">
+<span id="index-0"></span><h1><span class="section-number">1. </span>About These Lectures<a class="headerlink" href="#about-these-lectures" title="Permalink to this heading">#</a></h1>
 <blockquote class="epigraph">
 <div><p>“Python has gotten sufficiently weapons grade that we don’t descend into R
 anymore. Sorry, R people. I used to be one of you but we no longer descend
@@ -251,82 +258,206 @@ into R.” – Chris Wiggins</p>
 </div></blockquote>
 <section id="overview">
 <h2><span class="section-number">1.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>This lecture series will teach you to use Python for scientific computing, with
+a focus on economics and finance.</p>
+<p>The series is aimed at Python novices, although experienced users will also find useful content in later lectures.</p>
 <p>In this lecture we will</p>
 <ul class="simple">
-<li><p>outline what Python is</p></li>
-<li><p>compare it to some other languages</p></li>
-<li><p>showcase some of its abilities.</p></li>
+<li><p>introduce Python,</p></li>
+<li><p>showcase some of its abilities,</p></li>
+<li><p>discuss the connection between Python and AI,</p></li>
+<li><p>explain why Python is our favorite language for scientific computing, and</p></li>
+<li><p>point you to the next steps.</p></li>
 </ul>
-<p>At this stage, it’s <strong>not</strong> our intention that you try to replicate all you see.</p>
-<p>We will work through what follows at a slow pace later in the lecture series.</p>
-<p>Our only objective for this lecture is to give you some feel of what Python is, and what it can do.</p>
+<p>You do <strong>not</strong> need to understand everything you see in this lecture – we will work through the details slowly later in the lecture series.</p>
+<section id="can-t-i-just-use-chatgpt">
+<h3><span class="section-number">1.1.1. </span>Can’t I Just Use ChatGPT?<a class="headerlink" href="#can-t-i-just-use-chatgpt" title="Permalink to this heading">#</a></h3>
+<p>No!</p>
+<p>It’s tempting to think that in the age of AI we don’t need to learn how to code.</p>
+<p>And it’s true that AIs like <a class="reference external" href="https://chatgpt.com/">ChatGPT</a> and other LLMs are wonderful productivity tools for coders.</p>
+<p>In fact an AI can be a great companion for these lectures – try copy-pasting some code from this series and ask the AI to explain it to you.</p>
+<p>AIs will certainly help you write pieces of code that you can combine.</p>
+<p>But AIs cannot completely and reliably solve a new problem that they haven’t seen before!</p>
+<p>You will need to be the supervisor – and for that you need to be able to read, write, and understand computer code.</p>
+</section>
+<section id="isn-t-matlab-better">
+<h3><span class="section-number">1.1.2. </span>Isn’t MATLAB Better?<a class="headerlink" href="#isn-t-matlab-better" title="Permalink to this heading">#</a></h3>
+<p>No, no, and one hundred times no.</p>
+<p>For almost all modern problems, Python’s scientific libraries are now far in advance of MATLAB’s capabilities.</p>
+<p>We will explain the benefits of Python’s libraries throughout this lecture
+series, as well as in our later series on <a class="reference external" href="https://jax.quantecon.org/intro.html">JAX</a>.</p>
+<p>We will also explain how Python’s elegant design helps you write clean, efficient code.</p>
+<p>On top of these features, Python is more widely used, with a huge and helpful community, and free!</p>
+</section>
 </section>
 <section id="what-s-python">
 <h2><span class="section-number">1.2. </span>What’s Python?<a class="headerlink" href="#what-s-python" title="Permalink to this heading">#</a></h2>
-<p><a class="reference external" href="https://www.python.org">Python</a> is a general-purpose programming language conceived in 1989 by Dutch programmer <a class="reference external" href="https://en.wikipedia.org/wiki/Guido_van_Rossum">Guido van Rossum</a>.</p>
-<p>Python is free and open source, with development coordinated through the <a class="reference external" href="https://www.python.org/psf/">Python Software Foundation</a>.</p>
-<p>Python has experienced rapid adoption in the last decade and is now one of the <a class="reference external" href="https://www.tiobe.com/tiobe-index/">most popular programming languages</a>.</p>
+<p><a class="reference external" href="https://www.python.org">Python</a> is a general-purpose programming language conceived in 1989 by <a class="reference external" href="https://en.wikipedia.org/wiki/Guido_van_Rossum">Guido van Rossum</a>.</p>
+<p>Python is free and <a class="reference external" href="https://en.wikipedia.org/wiki/Open_source">open source</a>, with development coordinated through the <a class="reference external" href="https://www.python.org/psf/">Python Software Foundation</a>.</p>
+<p>This is important because it</p>
+<ul class="simple">
+<li><p>saves us money,</p></li>
+<li><p>means that Python is controlled by the community of users rather than a for-profit corporation, and</p></li>
+<li><p>encourages reproducibility and <a class="reference external" href="https://en.wikipedia.org/wiki/Open_science">open science</a>.</p></li>
+</ul>
 <section id="common-uses">
 <h3><span class="section-number">1.2.1. </span>Common Uses<a class="headerlink" href="#common-uses" title="Permalink to this heading">#</a></h3>
-<p><span class="target" id="index-1"></span>Python is a general-purpose language used in almost all application domains such as</p>
+<p><span class="target" id="index-1"></span>Python is a general-purpose language used in almost all application domains, including</p>
 <ul class="simple">
 <li><p>AI</p></li>
+<li><p>scientific computing</p></li>
 <li><p>communication</p></li>
 <li><p>web development</p></li>
 <li><p>CGI and graphical user interfaces</p></li>
 <li><p>game development</p></li>
 <li><p>resource planning</p></li>
-<li><p>multimedia, data science, security, etc., etc., etc.</p></li>
+<li><p>multimedia</p></li>
+<li><p>etc.</p></li>
 </ul>
-<p>Used and supported extensively by Internet services and high-tech companies including</p>
+<p>It is used and supported extensively by tech firms including</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.google.com/">Google</a></p></li>
+<li><p><a class="reference external" href="https://openai.com/">OpenAI</a></p></li>
 <li><p><a class="reference external" href="https://www.netflix.com/">Netflix</a></p></li>
 <li><p><a class="reference external" href="https://opensource.fb.com/">Meta</a></p></li>
 <li><p><a class="reference external" href="https://www.dropbox.com/">Dropbox</a></p></li>
 <li><p><a class="reference external" href="https://www.amazon.com/">Amazon</a></p></li>
 <li><p><a class="reference external" href="https://www.reddit.com/">Reddit</a></p></li>
+<li><p>etc.</p></li>
 </ul>
-<p>For reasons we will discuss, Python is particularly popular within the scientific community</p>
-<p>Meanwhile, Python is also very beginner-friendly and is found to be suitable for
-students learning programming and recommended to introduce computational methods
-to students in fields other than computer science.</p>
-<p>Python is also replacing familiar tools like Excel as an essential skill in the fields of finance and banking.</p>
 </section>
 <section id="relative-popularity">
 <h3><span class="section-number">1.2.2. </span>Relative Popularity<a class="headerlink" href="#relative-popularity" title="Permalink to this heading">#</a></h3>
-<p>The following chart, produced using Stack Overflow Trends, shows one measure of the relative popularity of Python</p>
+<p>Python is, without doubt, one of the <a class="reference external" href="https://www.tiobe.com/tiobe-index/">most popular programming languages</a>.</p>
+<p>Python libraries like <a class="reference external" href="https://pandas.pydata.org/">pandas</a> and <a class="reference external" href="https://pola.rs/">Polars</a> are replacing familiar tools like Excel and VBA as an essential skill in the fields of finance and banking.</p>
+<p>Moreover, Python is extremely popular within the scientific community – especially AI</p>
+<p>The following chart, produced using Stack Overflow Trends, provides some evidence.</p>
+<p>It shows the popularity of a Python AI library called <a class="reference external" href="https://pytorch.org/">PyTorch</a> relative to MATLAB.</p>
 <figure class="align-default">
-<img alt="_images/python_vs_matlab.png" src="_images/python_vs_matlab.png" />
+<img alt="_images/pytorch_vs_matlab.png" src="_images/pytorch_vs_matlab.png" />
 </figure>
-<p>The figure indicates not only that Python is widely used but also that adoption of Python has accelerated significantly since 2012.</p>
-<p>This is driven at least in part by uptake in the scientific domain, particularly in rapidly growing fields like data science and AI.</p>
+<p>The chart shows that MATLAB’s popularity has faded, while PyTorch is growing rapidly.</p>
+<p>Moreover, PyTorch is just one of the thousands of Python libraries available for scientic computing.</p>
 </section>
 <section id="features">
 <h3><span class="section-number">1.2.3. </span>Features<a class="headerlink" href="#features" title="Permalink to this heading">#</a></h3>
-<p>Python is a <a class="reference external" href="https://en.wikipedia.org/wiki/High-level_programming_language">high-level language</a> suitable for rapid development.</p>
-<p>It has a relatively small core language supported by many libraries.</p>
+<p>Python is a <a class="reference external" href="https://en.wikipedia.org/wiki/High-level_programming_language">high-level language</a>, which means it is relatively easy to read, write and debug.</p>
+<p>It has a relatively small core language that is easy to learn.</p>
+<p>This core is supported by many libraries, which you can learn to use as required.</p>
+<p>Python is very beginner-friendly</p>
+<ul class="simple">
+<li><p>suitable for students learning programming</p></li>
+<li><p>used in many undergraduate and graduate programs</p></li>
+</ul>
 <p>Other features of Python:</p>
 <ul class="simple">
 <li><p>multiple programming styles are supported (procedural, object-oriented, functional, etc.)</p></li>
-<li><p>it is interpreted rather than compiled.</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Interpreter_(computing)">interpreted</a> rather than <a class="reference external" href="https://en.wikipedia.org/wiki/Compiler">compiled</a> ahead of time.</p></li>
 </ul>
 </section>
 <section id="syntax-and-design">
 <h3><span class="section-number">1.2.4. </span>Syntax and Design<a class="headerlink" href="#syntax-and-design" title="Permalink to this heading">#</a></h3>
-<p id="index-2">One nice feature of Python is its elegant syntax — we’ll see many examples later on.</p>
-<p>Elegant code might sound superfluous but in fact it’s highly beneficial because it makes the syntax easy to read and easy to remember.</p>
-<p>Closely related to elegant syntax is an elegant design.</p>
-<p>Features like iterators, generators, decorators and list comprehensions make Python highly expressive, allowing you to get more done with less code.</p>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Namespace">Namespaces</a> improve productivity by cutting down on bugs and syntax errors.</p>
+<p id="index-2">One reason for Python’s popularity is its simple and elegant design — we’ll see many examples later on.</p>
+<p>To get a feeling for this, let’s look at an example.</p>
+<p>The code below is written in <a class="reference external" href="https://en.wikipedia.org/wiki/Java_(programming_language)">Java</a> rather than Python.</p>
+<p>You do <strong>not</strong> need to read and understand this code!</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.BufferedReader</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.io.FileReader</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.io.IOException</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CSVReader</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">filePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;data.csv&quot;</span><span class="p">;</span><span class="w"> </span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">line</span><span class="p">;</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">splitBy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">columnIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">BufferedReader</span><span class="w"> </span><span class="n">br</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileReader</span><span class="p">(</span><span class="n">filePath</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">br</span><span class="p">.</span><span class="na">readLine</span><span class="p">())</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">line</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="n">splitBy</span><span class="p">);</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">values</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">columnIndex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="kt">double</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Double</span><span class="p">.</span><span class="na">parseDouble</span><span class="p">(</span>
+<span class="w">                            </span><span class="n">values</span><span class="o">[</span><span class="n">columnIndex</span><span class="o">]</span>
+<span class="w">                        </span><span class="p">);</span>
+<span class="w">                        </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">                        </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="w">                    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">NumberFormatException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span>
+<span class="w">                            </span><span class="s">&quot;Skipping non-numeric value: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">                            </span><span class="n">values</span><span class="o">[</span><span class="n">columnIndex</span><span class="o">]</span>
+<span class="w">                        </span><span class="p">);</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">double</span><span class="w"> </span><span class="n">average</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">count</span><span class="p">;</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span>
+<span class="w">                </span><span class="s">&quot;Average of the second column: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">average</span>
+<span class="w">            </span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span>
+<span class="w">                </span><span class="s">&quot;No valid numeric data found in the second column.&quot;</span>
+<span class="w">            </span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This Java code opens an imaginary file called <code class="docutils literal notranslate"><span class="pre">data.csv</span></code> and computes the mean
+of the values in the second column.</p>
+<p>Even without knowing Java, you can see that the program is long and complex.</p>
+<p>Here’s Python code that does the same thing.</p>
+<p>Even if you don’t yet know Python, you can see that the code is simpler and
+easier to read.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="n">total</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">csv</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">IndexError</span><span class="p">):</span>
+            <span class="k">pass</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average: </span><span class="si">{</span><span class="n">total</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;No valid data&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The simplicity of Python and its neat design are a big factor in its popularity.</p>
+</section>
+<section id="the-ai-connection">
+<h3><span class="section-number">1.2.5. </span>The AI Connection<a class="headerlink" href="#the-ai-connection" title="Permalink to this heading">#</a></h3>
+<p>Unless you have been living under a rock and avoiding all contact with the
+modern world, you will know that AI is rapidly advancing.</p>
+<p>AI is already remarkably good at helping you write code, as discussed above.</p>
+<p>No doubt AI will take over many tasks currently performed by humans,
+just like other forms of machinery have done over the past few centuries.</p>
+<p>Python is playing a huge role in the advance of AI and machine learning.</p>
+<p>This means that tech firms are pouring money into development of extremely
+powerful Python libraries.</p>
+<p>Even if you don’t plan to work on AI and machine learning, you can benefit from
+learning to use some of these libraries for your own projects in economics,
+finance and other fields of science.</p>
+<p>These lectures will explain how.</p>
 </section>
 </section>
-<section id="scientific-programming">
-<h2><span class="section-number">1.3. </span>Scientific Programming<a class="headerlink" href="#scientific-programming" title="Permalink to this heading">#</a></h2>
-<p id="index-3">Python has become one of the core languages of scientific computing.</p>
-<p>It’s either the dominant player or a major player in</p>
+<section id="scientific-programming-with-python">
+<h2><span class="section-number">1.3. </span>Scientific Programming with Python<a class="headerlink" href="#scientific-programming-with-python" title="Permalink to this heading">#</a></h2>
+<p id="index-3">We have already discussed the importance of Python for AI, machine learning and data science</p>
+<p>Let’s take a look at the role of Python in other areas of scientific computing.</p>
+<p>Python is either the dominant player or a major player in</p>
 <ul class="simple">
-<li><p>AI, machine learning and data science</p></li>
 <li><p>astronomy</p></li>
 <li><p>chemistry</p></li>
 <li><p>computational biology</p></li>
@@ -334,27 +465,77 @@ to students in fields other than computer science.</p>
 <li><p>natural language processing</p></li>
 <li><p>etc.</p></li>
 </ul>
-<p>This section briefly showcases some examples of Python for scientific programming.</p>
-<ul class="simple">
-<li><p>All of these topics below will be covered in detail later on.</p></li>
-</ul>
-<section id="numerical-programming">
-<h3><span class="section-number">1.3.1. </span>Numerical Programming<a class="headerlink" href="#numerical-programming" title="Permalink to this heading">#</a></h3>
-<p id="index-4">Fundamental matrix and array processing capabilities are provided by the excellent <a class="reference external" href="http://www.numpy.org/">NumPy</a> library.</p>
-<p>NumPy provides the basic array data type plus some simple processing operations.</p>
-<p>For example, let’s build some arrays</p>
+<p>Use of Python is also rising in economics, finance, and adjacent fields like
+operations research – which were previously dominated by MATLAB / Excel / STATA / C / Fortran.</p>
+<p>This section briefly showcases some examples of Python for general scientific programming.</p>
+<section id="numpy">
+<h3><span class="section-number">1.3.1. </span>NumPy<a class="headerlink" href="#numpy" title="Permalink to this heading">#</a></h3>
+<p id="index-4">One of the most important parts of scientific computing is working with data.</p>
+<p>Data is often stored in matrices, vectors and arrays.</p>
+<p>We can create a simple array of numbers with pure Python as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">3.14</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">]</span>                    <span class="c1"># A Python list</span>
+<span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-3.14, 0, 3.14]
+</pre></div>
+</div>
+</div>
+</div>
+<p>This array is very small so it’s fine to work with pure Python.</p>
+<p>But when we want to work with larger arrays in real programs we need more efficiency and more tools.</p>
+<p>For this we need to use libraries for working with arrays.</p>
+<p>For Python, the most important matrix and array processing library is
+<a class="reference external" href="http://www.numpy.org/">NumPy</a> library.</p>
+<p>For example, let’s build a NumPy array with 100 elements</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>                     <span class="c1"># Load the library</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>    <span class="c1"># Create even grid from -π to π</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>                          <span class="c1"># Apply cosine to each element of a</span>
+<span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-3.14159265, -3.07812614, -3.01465962, -2.9511931 , -2.88772658,
+       -2.82426006, -2.76079354, -2.69732703, -2.63386051, -2.57039399,
+       -2.50692747, -2.44346095, -2.37999443, -2.31652792, -2.2530614 ,
+       -2.18959488, -2.12612836, -2.06266184, -1.99919533, -1.93572881,
+       -1.87226229, -1.80879577, -1.74532925, -1.68186273, -1.61839622,
+       -1.5549297 , -1.49146318, -1.42799666, -1.36453014, -1.30106362,
+       -1.23759711, -1.17413059, -1.11066407, -1.04719755, -0.98373103,
+       -0.92026451, -0.856798  , -0.79333148, -0.72986496, -0.66639844,
+       -0.60293192, -0.53946541, -0.47599889, -0.41253237, -0.34906585,
+       -0.28559933, -0.22213281, -0.1586663 , -0.09519978, -0.03173326,
+        0.03173326,  0.09519978,  0.1586663 ,  0.22213281,  0.28559933,
+        0.34906585,  0.41253237,  0.47599889,  0.53946541,  0.60293192,
+        0.66639844,  0.72986496,  0.79333148,  0.856798  ,  0.92026451,
+        0.98373103,  1.04719755,  1.11066407,  1.17413059,  1.23759711,
+        1.30106362,  1.36453014,  1.42799666,  1.49146318,  1.5549297 ,
+        1.61839622,  1.68186273,  1.74532925,  1.80879577,  1.87226229,
+        1.93572881,  1.99919533,  2.06266184,  2.12612836,  2.18959488,
+        2.2530614 ,  2.31652792,  2.37999443,  2.44346095,  2.50692747,
+        2.57039399,  2.63386051,  2.69732703,  2.76079354,  2.82426006,
+        2.88772658,  2.9511931 ,  3.01465962,  3.07812614,  3.14159265])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s transform this array by applying functions to it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>                          <span class="c1"># Apply cosine to each element of a</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>                          <span class="c1"># Apply sin to each element of a</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now let’s take the inner product</p>
+<p>Now we can easily take the inner product of <code class="docutils literal notranslate"><span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">c</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">@</span> <span class="n">c</span>
@@ -367,8 +548,31 @@ to students in fields other than computer science.</p>
 </div>
 </div>
 </div>
-<p>The number you see here might vary slightly but it’s essentially zero.</p>
-<p>(For older versions of Python and NumPy you need to use the <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html">np.dot</a> function)</p>
+<p>We can also do many other tasks, like</p>
+<ul class="simple">
+<li><p>compute the mean and variance of arrays</p></li>
+<li><p>build matrices and solve linear systems</p></li>
+<li><p>generate random arrays for simulation, etc.</p></li>
+</ul>
+<p>We will discuss the details later in the lecture series, where we cover NumPy in depth.</p>
+</section>
+<section id="numpy-alternatives">
+<h3><span class="section-number">1.3.2. </span>NumPy Alternatives<a class="headerlink" href="#numpy-alternatives" title="Permalink to this heading">#</a></h3>
+<p>While NumPy is still the king of array processing in Python, there are now
+important competitors.</p>
+<p>Libraries such as <a class="reference external" href="https://github.com/google/jax">JAX</a>, <a class="reference external" href="https://pytorch.org/">Pytorch</a>, and <a class="reference external" href="https://cupy.dev/">CuPy</a> also have
+built in array types and array operations that can be very fast and efficient.</p>
+<p>In fact these libraries are better at exploiting parallelization and fast hardware, as
+we’ll explain later in this series.</p>
+<p>However, you should still learn NumPy first because</p>
+<ul class="simple">
+<li><p>NumPy is simpler and provides a strong foundation, and</p></li>
+<li><p>libraries like JAX directly extend NumPy functionality and hence are easier to
+learn when you already know NumPy.</p></li>
+</ul>
+</section>
+<section id="scipy">
+<h3><span class="section-number">1.3.3. </span>SciPy<a class="headerlink" href="#scipy" title="Permalink to this heading">#</a></h3>
 <p>The <a class="reference external" href="http://www.scipy.org">SciPy</a> library is built on top of NumPy and provides additional functionality.</p>
 <p id="tuple-unpacking-example">For example, let’s calculate <span class="math notranslate nohighlight">\(\int_{-2}^2 \phi(z) dz\)</span> where <span class="math notranslate nohighlight">\(\phi\)</span> is the standard normal density.</p>
 <div class="cell docutils container">
@@ -398,10 +602,12 @@ to students in fields other than computer science.</p>
 <li><p><a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/signal.html">signal processing</a></p></li>
 </ul>
 <p>See them all <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/index.html">here</a>.</p>
+<p>Later we’ll discuss SciPy in more detail.</p>
 </section>
 <section id="graphics">
-<h3><span class="section-number">1.3.2. </span>Graphics<a class="headerlink" href="#graphics" title="Permalink to this heading">#</a></h3>
-<p id="index-5">The most popular and comprehensive Python library for creating figures and graphs is <a class="reference external" href="http://matplotlib.org/">Matplotlib</a>, with functionality including</p>
+<h3><span class="section-number">1.3.4. </span>Graphics<a class="headerlink" href="#graphics" title="Permalink to this heading">#</a></h3>
+<p id="index-5">A major strength of Python is data visualization.</p>
+<p>The most popular and comprehensive Python library for creating figures and graphs is <a class="reference external" href="http://matplotlib.org/">Matplotlib</a>, with functionality including</p>
 <ul class="simple">
 <li><p>plots, histograms, contour images, 3D graphs, bar charts etc.</p></li>
 <li><p>output in many formats (PDF, PNG, EPS, etc.)</p></li>
@@ -430,10 +636,20 @@ to students in fields other than computer science.</p>
 <p>You can visit the <a class="reference external" href="https://www.python-graph-gallery.com/">Python Graph Gallery</a> for more example plots drawn using a variety of libraries.</p>
 </section>
 <section id="networks-and-graphs">
-<h3><span class="section-number">1.3.3. </span>Networks and Graphs<a class="headerlink" href="#networks-and-graphs" title="Permalink to this heading">#</a></h3>
-<p>Python has many libraries for studying graphs.</p>
-<p id="index-6">One well-known example is <a class="reference external" href="http://networkx.github.io/">NetworkX</a>.
-Its features include, among many other things:</p>
+<h3><span class="section-number">1.3.5. </span>Networks and Graphs<a class="headerlink" href="#networks-and-graphs" title="Permalink to this heading">#</a></h3>
+<p>The study of networks and graphs becoming an important part of scientific work
+in economics, finance and other fields.</p>
+<p>For example, we are interesting in studying</p>
+<ul class="simple">
+<li><p>production networks</p></li>
+<li><p>networks of banks and financial institutions</p></li>
+<li><p>friendship and social networks</p></li>
+<li><p>etc.</p></li>
+</ul>
+<p>(We have a <a class="reference external" href="https://networks.quantecon.org/">book on economic networks</a> if you would like to learn more.)</p>
+<p>Python has many libraries for studying networks and graphs.</p>
+<p id="index-6">One well-known example is <a class="reference external" href="http://networkx.github.io/">NetworkX</a>.</p>
+<p>Its features include, among many other things:</p>
 <ul class="simple">
 <li><p>standard graph algorithms for analyzing networks</p></li>
 <li><p>plotting routines</p></li>
@@ -475,25 +691,25 @@ Its features include, among many other things:</p>
 </div>
 </section>
 <section id="other-scientific-libraries">
-<h3><span class="section-number">1.3.4. </span>Other Scientific Libraries<a class="headerlink" href="#other-scientific-libraries" title="Permalink to this heading">#</a></h3>
-<p>Here’s a short list of more important scientific libraries for Python.</p>
+<h3><span class="section-number">1.3.6. </span>Other Scientific Libraries<a class="headerlink" href="#other-scientific-libraries" title="Permalink to this heading">#</a></h3>
+<p>As discussed above, there are literally thousands of scientific libraries for
+Python.</p>
+<p>Some are small and do very specific tasks.</p>
+<p>Others are huge in terms of lines of code and investment from coders and tech
+firms.</p>
+<p>Here’s a short list of some important scientific libraries for Python not
+mentioned above.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://www.sympy.org/">SymPy</a> for symbolic algebra, including limits, derivatives and integrals</p></li>
-<li><p><a class="reference external" href="http://pandas.pydata.org/">pandas</a> for data maniputation</p></li>
 <li><p><a class="reference external" href="http://statsmodels.sourceforge.net/">statsmodels</a> for statistical routines</p></li>
 <li><p><a class="reference external" href="http://scikit-learn.org/">scikit-learn</a> for machine learning</p></li>
-<li><p><a class="reference external" href="https://github.com/google/jax">JAX</a> for automatic differentiation, accelerated linear algebra and GPU computing</p></li>
-<li><p><a class="reference external" href="https://pytorch.org/">PyTorch</a> for deep learning</p></li>
 <li><p><a class="reference external" href="https://keras.io/">Keras</a> for machine learning</p></li>
 <li><p><a class="reference external" href="https://pyro.ai/">Pyro</a> and <a class="reference external" href="https://pystan.readthedocs.org/en/latest/">PyStan</a> for Bayesian data analysis</p></li>
-<li><p><a class="reference external" href="https://lifelines.readthedocs.io/en/latest/">lifelines</a> for survival analysis</p></li>
 <li><p><a class="reference external" href="https://geopandas.org/en/stable/">GeoPandas</a> for spatial data analysis</p></li>
 <li><p><a class="reference external" href="https://docs.dask.org/en/stable/">Dask</a> for parallelization</p></li>
 <li><p><a class="reference external" href="http://numba.pydata.org/">Numba</a> for making Python run at the same speed as native machine code</p></li>
 <li><p><a class="reference external" href="https://www.cvxpy.org/">CVXPY</a> for convex optimization</p></li>
-<li><p><a class="reference external" href="http://www.pytables.org">PyTables</a> for managing large data sets</p></li>
 <li><p><a class="reference external" href="https://scikit-image.org/">scikit-image</a> and <a class="reference external" href="https://opencv.org/">OpenCV</a> for processing and analysing image data</p></li>
-<li><p><a class="reference external" href="https://mlflow.org/docs/latest/index.html">FLAML</a> for automated machine learning and hyperparameter tuning</p></li>
 <li><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">BeautifulSoup</a> for extracting data from HTML and XML files</p></li>
 </ul>
 <p>In this lecture series we will learn how to use many of these libraries for
@@ -559,7 +775,7 @@ scientific computing tasks in economics and finance.</p>
 <ul class="current nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1 current active active">
   <a class="current reference internal" href="#">
-   1. About Python
+   1. About These Lectures
   </a>
  </li>
  <li class="toctree-l1">
