@@ -34,17 +34,14 @@ into R." -- Chris Wiggins
 This lecture series will teach you to use Python for scientific computing, with
 a focus on economics and finance.
 
-### Contents
-
 The series is aimed at Python novices, although experienced users will also find useful content in later lectures.
-
 
 In this lecture we will
 
 * introduce Python,
 * showcase some of its abilities,
 * discuss the connection between Python and AI,
-* explain why you should be using it for scientific computing, and
+* explain why Python is our favorite language for scientific computing, and
 * point you to the next steps.
 
 You do **not** need to understand everything you see in this lecture -- we will work through the details slowly later in the lecture series.
@@ -78,7 +75,7 @@ series, as well as in our later series on [JAX](https://jax.quantecon.org/intro.
 
 We will also explain how Python's elegant design helps you write clean, efficient code.
 
-On top of these features, Python is more widely used, with a huge and helpful community, and its also free.
+On top of these features, Python is more widely used, with a huge and helpful community, and free!
 
 
 ## What's Python?
@@ -128,7 +125,9 @@ It is used and supported extensively by tech firms including
 
 Python is, without doubt, one of the [most popular programming languages](https://www.tiobe.com/tiobe-index/).
 
-For reasons we will discuss, Python is particularly popular within the scientific community -- especially AI
+Python libraries like [pandas](https://pandas.pydata.org/) and [Polars](https://pola.rs/) are replacing familiar tools like Excel and VBA as an essential skill in the fields of finance and banking.
+
+Moreover, Python is extremely popular within the scientific community -- especially AI
 
 The following chart, produced using Stack Overflow Trends, provides some evidence.
 
@@ -137,11 +136,10 @@ It shows the popularity of a Python AI library called [PyTorch](https://pytorch.
 ```{figure} /_static/lecture_specific/about_py/pytorch_vs_matlab.png
 ```
 
-Note that this is just one of the thousands of Python libraries available for scientic computing.
+The chart shows that MATLAB's popularity has faded, while PyTorch is growing rapidly.
 
-While some are for AI and deep learning, others perform simple but useful tasks.
+Moreover, PyTorch is just one of the thousands of Python libraries available for scientic computing.
 
-For example, Python libraries like [pandas](https://pandas.pydata.org/) and [Polars](https://pola.rs/) are replacing familiar tools like Excel and VBA as an essential skill in the fields of finance and banking.
 
 ### Features
 
@@ -368,7 +366,7 @@ We will discuss the details later in the lecture series, where we cover NumPy in
 While NumPy is still the king of array processing in Python, there are now
 important competitors.
 
-Libraries such as [JAX], [Pytorch], and [CuPy](https://cupy.dev/) also have
+Libraries such as [JAX](https://github.com/google/jax), [Pytorch](https://pytorch.org/), and [CuPy](https://cupy.dev/) also have
 built in array types and array operations that can be very fast and efficient.
 
 In fact these libraries are better at exploiting parallelization and fast hardware, as
