@@ -143,7 +143,7 @@ Moreover, PyTorch is just one of the thousands of Python libraries available for
 
 ### Features
 
-Python is a [high-level language](https://en.wikipedia.org/wiki/High-level_programming_language), which means it is to read, write and debug.
+Python is a [high-level language](https://en.wikipedia.org/wiki/High-level_programming_language), which means it is relatively easy to read, write and debug.
 
 It has a relatively small core language that is easy to learn.
 
