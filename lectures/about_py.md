@@ -178,7 +178,6 @@ You do **not** need to read and understand this code!
 
 
 ```{code-block} java
-:class: no-execute
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -241,7 +240,7 @@ Even if you don't yet know Python, you can see that the code is simpler and
 easier to read.
 
 ```{code-cell} python3
-:class: no-execute
+:tags: [skip-execution]
 
 import csv
 
