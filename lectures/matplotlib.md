@@ -23,10 +23,6 @@ kernelspec:
 ```{index} single: Python; Matplotlib
 ```
 
-```{contents} Contents
-:depth: 2
-```
-
 ## Overview
 
 We've already generated quite a few figures in these lectures using [Matplotlib](http://matplotlib.org/).
@@ -61,9 +57,7 @@ But first, let's discuss the difference.
 Here's the kind of easy example you might find in introductory treatments
 
 ```{code-cell} ipython
-%matplotlib inline
 import matplotlib.pyplot as plt
-plt.rcParams["figure.figsize"] = (10, 6) #set default figure size
 import numpy as np
 
 x = np.linspace(0, 10, 200)
@@ -441,9 +435,6 @@ plt.style.use('default')
 plt.rcParams['figure.figsize'] = (10, 6)
 
 ```
-
-Here are [more examples](https://www.datafantic.com/the-magic-of-matplotlib-stylesheets/) on how to change these parameters.
-
 
 ## Further Reading
 

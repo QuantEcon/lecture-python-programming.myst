@@ -20,10 +20,6 @@ kernelspec:
 
 # Parallelization
 
-```{contents} Contents
-:depth: 2
-```
-
 In addition to what's in Anaconda, this lecture will need the following libraries:
 
 ```{code-cell} ipython
@@ -61,11 +57,9 @@ In this lecture we discuss parallelization for scientific computing, with a focu
 Let's start with some imports:
 
 ```{code-cell} ipython
-%matplotlib inline
 import numpy as np
 import quantecon as qe
 import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = (10,6)
 ```
 
 ## Types of Parallelization

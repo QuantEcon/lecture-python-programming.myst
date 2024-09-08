@@ -14,8 +14,8 @@ jobs:
         python-version: ["3.11"]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      - uses: conda-incubator/setup-miniconda@v2
+        uses: actions/checkout@v4
+      - uses: conda-incubator/setup-miniconda@v3
         with:
           auto-update-conda: true
           python-version: ${{ matrix.python-version }}
@@ -32,7 +32,7 @@ jobs:
         shell: bash -l {0}
         run: jb build lectures --path-output=./ -W --keep-going
       - name: Upload Execution Reports
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: execution-reports

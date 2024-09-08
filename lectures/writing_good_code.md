@@ -23,10 +23,6 @@ kernelspec:
 ```{index} single: Models; Code style
 ```
 
-```{contents} Contents
-:depth: 2
-```
-
 ```{epigraph}
 "Any fool can write code that a computer can understand. Good programmers write code that humans can understand." -- Martin Fowler
 ```
@@ -75,10 +71,8 @@ The plots will be grouped into three subfigures.
 In each subfigure, two parameters are held fixed while another varies
 
 ```{code-cell} ipython
-%matplotlib inline
 import numpy as np
 import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = (10,6)
 
 # Allocate memory for time series
 k = np.empty(50)

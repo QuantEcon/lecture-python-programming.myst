@@ -21,11 +21,7 @@ kernelspec:
 ```{index} single: python
 ```
 
-# About Python
-
-```{contents} Contents
-:depth: 2
-```
+# About These Lectures
 
 ```{epigraph}
 "Python has gotten sufficiently weapons grade that we don’t descend into R
@@ -35,162 +31,354 @@ into R." -- Chris Wiggins
 
 ## Overview
 
+This lecture series will teach you to use Python for scientific computing, with
+a focus on economics and finance.
+
+The series is aimed at Python novices, although experienced users will also find useful content in later lectures.
+
 In this lecture we will
 
-* outline what Python is
-* compare it to some other languages
-* showcase some of its abilities.
+* introduce Python,
+* showcase some of its abilities,
+* discuss the connection between Python and AI,
+* explain why Python is our favorite language for scientific computing, and
+* point you to the next steps.
 
-At this stage, it's **not** our intention that you try to replicate all you see.
+You do **not** need to understand everything you see in this lecture -- we will work through the details slowly later in the lecture series.
 
-We will work through what follows at a slow pace later in the lecture series.
 
-Our only objective for this lecture is to give you some feel of what Python is, and what it can do.
+### Can't I Just Use ChatGPT?
+
+No!
+
+It's tempting to think that in the age of AI we don't need to learn how to code.
+
+And it's true that AIs like [ChatGPT](https://chatgpt.com/) and other LLMs are wonderful productivity tools for coders.
+
+In fact an AI can be a great companion for these lectures -- try copy-pasting some code from this series and ask the AI to explain it to you.
+
+AIs will certainly help you write pieces of code that you can combine.
+
+But AIs cannot completely and reliably solve a new problem that they haven't seen before!
+
+You will need to be the supervisor -- and for that you need to be able to read, write, and understand computer code.
+
+
+### Isn't MATLAB Better?
+
+No, no, and one hundred times no.
+
+For almost all modern problems, Python's scientific libraries are now far in advance of MATLAB's capabilities.
+
+We will explain the benefits of Python's libraries throughout this lecture
+series, as well as in our later series on [JAX](https://jax.quantecon.org/intro.html).
+
+We will also explain how Python's elegant design helps you write clean, efficient code.
+
+On top of these features, Python is more widely used, with a huge and helpful community, and free!
+
 
 ## What's Python?
 
-[Python](https://www.python.org) is a general-purpose programming language conceived in 1989 by Dutch programmer [Guido van Rossum](https://en.wikipedia.org/wiki/Guido_van_Rossum).
 
-Python is free and open source, with development coordinated through the [Python Software Foundation](https://www.python.org/psf/).
+[Python](https://www.python.org) is a general-purpose programming language conceived in 1989 by [Guido van Rossum](https://en.wikipedia.org/wiki/Guido_van_Rossum).
 
-Python has experienced rapid adoption in the last decade and is now one of the [most popular programming languages](https://pythoncircle.com/post/763/the-rising-popularity-of-python/).
+Python is free and [open source](https://en.wikipedia.org/wiki/Open_source), with development coordinated through the [Python Software Foundation](https://www.python.org/psf/).
+
+This is important because it
+
+* saves us money,
+* means that Python is controlled by the community of users rather than a for-profit corporation, and
+* encourages reproducibility and [open science](https://en.wikipedia.org/wiki/Open_science).
+
+
 
 ### Common Uses
 
-{index}`Python <single: Python; common uses>` is a general-purpose language used in almost all application domains such as
+{index}`Python <single: Python; common uses>` is a general-purpose language used in almost all application domains, including
 
-* communications
+* AI 
+* scientific computing
+* communication
 * web development
 * CGI and graphical user interfaces
 * game development
 * resource planning
-* multimedia, data science, security, etc., etc., etc.
+* multimedia
+* etc.
 
-Used and supported extensively by Internet services and high-tech companies including
+It is used and supported extensively by tech firms including
 
 * [Google](https://www.google.com/)
+* [OpenAI](https://openai.com/)
 * [Netflix](https://www.netflix.com/)
 * [Meta](https://opensource.fb.com/)
 * [Dropbox](https://www.dropbox.com/)
 * [Amazon](https://www.amazon.com/)
 * [Reddit](https://www.reddit.com/)
+* etc.
 
-For reasons we will discuss, Python is particularly popular within the scientific community and behind many scientific achievements in 
-* [Space Science](https://code.nasa.gov/?q=python)
-* [Particle Physics](https://home.cern/news/news/physics/speeding-machine-learning-particle-physics)
-* [Genetics](https://github.com/deepmind/alphafold)
 
-and practically all branches of academia.
 
-Meanwhile, Python is also very beginner-friendly and is found to be suitable for students learning programming and recommended to introduce computational methods to students in [fields other than computer science](https://www.sciencedirect.com/science/article/pii/S1477388021000177).
-
-Python is also [replacing familiar tools like Excel as an essential skill](https://www.efinancialcareers.com.au/news/2021/08/python-for-banking-jobs) in the fields of finance and banking.
 
 ### Relative Popularity
 
-The following chart, produced using Stack Overflow Trends, shows one measure of the relative popularity of Python
+Python is, without doubt, one of the [most popular programming languages](https://www.tiobe.com/tiobe-index/).
 
-```{figure} /_static/lecture_specific/about_py/python_vs_matlab.png
+Python libraries like [pandas](https://pandas.pydata.org/) and [Polars](https://pola.rs/) are replacing familiar tools like Excel and VBA as an essential skill in the fields of finance and banking.
+
+Moreover, Python is extremely popular within the scientific community -- especially AI
+
+The following chart, produced using Stack Overflow Trends, provides some evidence.
+
+It shows the popularity of a Python AI library called [PyTorch](https://pytorch.org/) relative to MATLAB.
+
+```{figure} /_static/lecture_specific/about_py/pytorch_vs_matlab.png
 ```
 
-The figure indicates not only that Python is widely used but also that adoption of Python has accelerated significantly since 2012.
+The chart shows that MATLAB's popularity has faded, while PyTorch is growing rapidly.
 
-We suspect this is driven at least in part by uptake in the scientific
-domain, particularly in rapidly growing fields like data science.
+Moreover, PyTorch is just one of the thousands of Python libraries available for scientic computing.
 
-For example, the popularity of [pandas](http://pandas.pydata.org/), a library for data analysis with Python has exploded, as seen here.
-
-(The corresponding time path for MATLAB is shown for comparison)
-
-```{figure} /_static/lecture_specific/about_py/pandas_vs_matlab.png
-```
-
-Note that pandas takes off in 2012, which is the same year that we see
-Python's popularity begin to spike in the first figure.
-
-Overall, it's clear that
-
-* Python is [one of the most popular programming languages worldwide](https://spectrum.ieee.org/top-programming-languages-2021).
-* Python is a major tool for scientific computing, accounting for a rapidly rising share of scientific work around the globe.
 
 ### Features
 
-Python is a [high-level language](https://en.wikipedia.org/wiki/High-level_programming_language) suitable for rapid development.
+Python is a [high-level language](https://en.wikipedia.org/wiki/High-level_programming_language), which means it is relatively easy to read, write and debug.
 
-It has a relatively small core language supported by many libraries.
+It has a relatively small core language that is easy to learn.
+
+This core is supported by many libraries, which you can learn to use as required.
+
+Python is very beginner-friendly 
+
+* suitable for students learning programming 
+* used in many undergraduate and graduate programs
 
 Other features of Python:
 
 * multiple programming styles are supported (procedural, object-oriented, functional, etc.)
-* it is interpreted rather than compiled.
+* [interpreted](https://en.wikipedia.org/wiki/Interpreter_(computing)) rather than [compiled](https://en.wikipedia.org/wiki/Compiler) ahead of time.
+
+
 
 ### Syntax and Design
 
 ```{index} single: Python; syntax and design
 ```
 
-One nice feature of Python is its elegant syntax --- we'll see many examples later on.
+One reason for Python's popularity is its simple and elegant design --- we'll see many examples later on.
 
-Elegant code might sound superfluous but in fact it's highly beneficial because it makes the syntax easy to read and easy to remember.
+To get a feeling for this, let's look at an example.
 
-Remembering how to read from files, sort dictionaries and other such routine tasks means that you don't need to break your flow in order to hunt down correct syntax.
+The code below is written in [Java](https://en.wikipedia.org/wiki/Java_(programming_language)) rather than Python.
 
-Closely related to elegant syntax is an elegant design.
+You do **not** need to read and understand this code!
 
-Features like iterators, generators, decorators and list comprehensions make Python highly expressive, allowing you to get more done with less code.
 
-[Namespaces](https://en.wikipedia.org/wiki/Namespace) improve productivity by cutting down on bugs and syntax errors.
+```{code-block} java
 
-## Scientific Programming
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class CSVReader {
+    public static void main(String[] args) {
+        String filePath = "data.csv"; 
+        String line;
+        String splitBy = ",";
+        int columnIndex = 1; 
+        double sum = 0;
+        int count = 0;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(splitBy);
+                if (values.length > columnIndex) {
+                    try {
+                        double value = Double.parseDouble(
+                            values[columnIndex]
+                        );
+                        sum += value;
+                        count++;
+                    } catch (NumberFormatException e) {
+                        System.out.println(
+                            "Skipping non-numeric value: " + 
+                            values[columnIndex]
+                        );
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (count > 0) {
+            double average = sum / count;
+            System.out.println(
+                "Average of the second column: " + average
+            );
+        } else {
+            System.out.println(
+                "No valid numeric data found in the second column."
+            );
+        }
+    }
+}
+
+```
+
+This Java code opens an imaginary file called `data.csv` and computes the mean
+of the values in the second column.
+
+Even without knowing Java, you can see that the program is long and complex.
+
+Here's Python code that does the same thing.
+
+Even if you don't yet know Python, you can see that the code is simpler and
+easier to read.
+
+```{code-cell} python3
+:tags: [skip-execution]
+
+import csv
+
+total, count = 0, 0
+with open(data.csv, mode='r') as file:
+    reader = csv.reader(file)
+    for row in reader:
+        try:
+            total += float(row[1])
+            count += 1
+        except (ValueError, IndexError):
+            pass
+print(f"Average: {total / count if count else 'No valid data'}")
+
+```
+
+The simplicity of Python and its neat design are a big factor in its popularity.
+
+
+### The AI Connection
+
+Unless you have been living under a rock and avoiding all contact with the
+modern world, you will know that AI is rapidly advancing.
+
+AI is already remarkably good at helping you write code, as discussed above.
+
+No doubt AI will take over many tasks currently performed by humans,
+just like other forms of machinery have done over the past few centuries.
+
+Python is playing a huge role in the advance of AI and machine learning.
+
+This means that tech firms are pouring money into development of extremely
+powerful Python libraries.
+
+Even if you don't plan to work on AI and machine learning, you can benefit from
+learning to use some of these libraries for your own projects in economics,
+finance and other fields of science.
+
+These lectures will explain how.
+
+
+## Scientific Programming with Python
 
 ```{index} single: scientific programming
 ```
 
-Python has become one of the core languages of scientific computing.
+We have already discussed the importance of Python for AI, machine learning and data science
 
-It's either the dominant player or a major player in
+Let's take a look at the role of Python in other areas of scientific computing.
 
-* [machine learning and data science](https://github.com/ml-tooling/best-of-ml-python)
-* [astronomy](http://www.astropy.org/)
-* [chemistry](http://chemlab.github.io/chemlab/)
-* [computational biology](http://biopython.org/wiki/Main_Page)
-* [meteorology](https://pypi.org/project/meteorology/)
-* [natural language processing](https://www.nltk.org/)
+Python is either the dominant player or a major player in
 
-Its popularity in economics is also beginning to rise.
+* astronomy
+* chemistry
+* computational biology
+* meteorology
+* natural language processing
+* etc.
 
-This section briefly showcases some examples of Python for scientific programming.
+Use of Python is also rising in economics, finance, and adjacent fields like
+operations research -- which were previously dominated by MATLAB / Excel / STATA / C / Fortran.
 
-* All of these topics below will be covered in detail later on.
+This section briefly showcases some examples of Python for general scientific programming.
 
-### Numerical Programming
+
+
+### NumPy
 
 ```{index} single: scientific programming; numeric
 ```
 
-Fundamental matrix and array processing capabilities are provided by the excellent [NumPy](http://www.numpy.org/) library.
+One of the most important parts of scientific computing is working with data.
 
-NumPy provides the basic array data type plus some simple processing operations.
+Data is often stored in matrices, vectors and arrays.
 
-For example, let's build some arrays
+We can create a simple array of numbers with pure Python as follows:
+
+```{code-cell} python3
+a = [-3.14, 0, 3.14]                    # A Python list
+a
+```
+
+This array is very small so it's fine to work with pure Python.
+
+But when we want to work with larger arrays in real programs we need more efficiency and more tools.
+
+For this we need to use libraries for working with arrays.
+
+For Python, the most important matrix and array processing library is
+[NumPy](http://www.numpy.org/) library.
+
+For example, let's build a NumPy array with 100 elements
 
 ```{code-cell} python3
 import numpy as np                     # Load the library
 
 a = np.linspace(-np.pi, np.pi, 100)    # Create even grid from -π to π
+a
+```
+
+Now let's transform this array by applying functions to it.
+
+```{code-cell} python3
 b = np.cos(a)                          # Apply cosine to each element of a
 c = np.sin(a)                          # Apply sin to each element of a
 ```
 
-Now let's take the inner product
+Now we can easily take the inner product of `b` and `c`.
 
 ```{code-cell} python3
 b @ c
 ```
 
-The number you see here might vary slightly but it's essentially zero.
+We can also do many other tasks, like 
 
-(For older versions of Python and NumPy you need to use the [np.dot](http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html) function)
+* compute the mean and variance of arrays
+* build matrices and solve linear systems
+* generate random arrays for simulation, etc.
+
+We will discuss the details later in the lecture series, where we cover NumPy in depth.
+
+
+### NumPy Alternatives
+
+While NumPy is still the king of array processing in Python, there are now
+important competitors.
+
+Libraries such as [JAX](https://github.com/google/jax), [Pytorch](https://pytorch.org/), and [CuPy](https://cupy.dev/) also have
+built in array types and array operations that can be very fast and efficient.
+
+In fact these libraries are better at exploiting parallelization and fast hardware, as
+we'll explain later in this series.
+
+However, you should still learn NumPy first because
+
+* NumPy is simpler and provides a strong foundation, and
+* libraries like JAX directly extend NumPy functionality and hence are easier to
+  learn when you already know NumPy.
+
+### SciPy
 
 The [SciPy](http://www.scipy.org) library is built on top of NumPy and provides additional functionality.
 
@@ -217,10 +405,15 @@ SciPy includes many of the standard routines used in
 
 See them all [here](http://docs.scipy.org/doc/scipy/reference/index.html).
 
+Later we'll discuss SciPy in more detail.
+
+
 ### Graphics
 
 ```{index} single: Matplotlib
 ```
+
+A major strength of Python is data visualization.
 
 The most popular and comprehensive Python library for creating figures and graphs is [Matplotlib](http://matplotlib.org/), with functionality including
 
@@ -256,136 +449,28 @@ Other graphics libraries include
 
 You can visit the [Python Graph Gallery](https://www.python-graph-gallery.com/) for more example plots drawn using a variety of libraries.
 
-### Symbolic Algebra
-
-It's useful to be able to manipulate symbolic expressions, as in Mathematica or Maple.
-
-```{index} single: SymPy
-```
-
-The [SymPy](http://www.sympy.org/) library provides this functionality from within the Python shell.
-
-```{code-cell} python3
-from sympy import Symbol
-
-x, y = Symbol('x'), Symbol('y')  # Treat 'x' and 'y' as algebraic symbols
-x + x + x + y
-```
-
-We can manipulate expressions
-
-```{code-cell} python3
-expression = (x + y)**2
-expression.expand()
-```
-
-solve polynomials
-
-```{code-cell} python3
-from sympy import solve
-
-solve(x**2 + x + 2)
-```
-
-and calculate limits, derivatives and integrals
-
-```{code-cell} python3
-from sympy import limit, sin, diff, integrate
-
-limit(1 / x, x, 0)
-```
-
-```{code-cell} python3
-limit(sin(x) / x, x, 0)
-```
-
-```{code-cell} python3
-diff(sin(x), x)
-```
-
-```{code-cell} python3
-integrate(sin(x) * x, x)
-```
-
-The beauty of importing this functionality into Python is that we are working within a fully fledged programming language.
-
-We can easily create tables of derivatives, generate LaTeX output, add that output to figures and so on.
-
-### Statistics
-
-Python's data manipulation and statistics libraries have improved rapidly over
-the last few years to tackle
-[specific problems in data science](https://ieeexplore.ieee.org/document/8757088).
-
-#### Pandas
-
-```{index} single: Pandas
-```
-
-One of the most popular libraries for working with data is [pandas](http://pandas.pydata.org/).
-
-Pandas is fast, efficient, flexible and well designed.
-
-Here's a simple example, using some dummy data generated with Numpy's excellent
-`random` functionality.
-
-```{code-cell} python3
-import pandas as pd
-np.random.seed(1234)
-
-data = np.random.randn(5, 2)  # 5x2 matrix of N(0, 1) random draws
-dates = pd.date_range('2010-12-28', periods=5)
-
-df = pd.DataFrame(data, columns=('price', 'weight'), index=dates)
-print(df)
-```
-
-```{code-cell} python3
-df.mean()
-```
-
-
-#### Other Useful Statistics and Data Science Libraries
-
-```{index} single: statsmodels
-```
-
-* [statsmodels](http://statsmodels.sourceforge.net/) --- various statistical routines
-
-```{index} single: scikit-learn
-```
-
-* [scikit-learn](http://scikit-learn.org/) --- Machine Learning in Python
-
-```{index} single: PyTorch
-```
-
-* [PyTorch](https://pytorch.org/) --- Deep learning framework in Python and other major competitors in the field including [TensorFlow](https://www.tensorflow.org/overview) and [Keras](https://keras.io/)
-
-```{index} single: Pyro
-```
-
-* [Pyro](https://pyro.ai/) and [PyStan](https://pystan.readthedocs.org/en/latest/) --- for Bayesian data analysis building on [Pytorch](https://pytorch.org/) and [stan](http://mc-stan.org/) respectively
-
-```{index} single: lifelines
-```
-
-* [lifelines](https://lifelines.readthedocs.io/en/latest/) --- for survival analysis
-
-```{index} single: GeoPandas
-```
-
-* [GeoPandas](https://geopandas.org/en/stable/) --- for spatial data analysis
-
 
 ### Networks and Graphs
 
-Python has many libraries for studying graphs.
+The study of networks and graphs becoming an important part of scientific work
+in economics, finance and other fields.
+
+For example, we are interesting in studying
+
+* production networks
+* networks of banks and financial institutions
+* friendship and social networks
+* etc.
+
+(We have a [book on economic networks](https://networks.quantecon.org/) if you would like to learn more.)
+
+Python has many libraries for studying networks and graphs.
 
 ```{index} single: NetworkX
 ```
 
 One well-known example is [NetworkX](http://networkx.github.io/).
+
 Its features include, among many other things:
 
 * standard graph algorithms for analyzing networks
@@ -394,10 +479,8 @@ Its features include, among many other things:
 Here's some example code that generates and plots a random graph, with node color determined by the shortest path length from a central node.
 
 ```{code-cell} ipython
-%matplotlib inline
 import networkx as nx
 import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = (10,6)
 np.random.seed(1234)
 
 # Generate a random graph
@@ -423,128 +506,34 @@ nx.draw_networkx_nodes(g,
 plt.show()
 ```
 
-### Cloud Computing
 
-```{index} single: cloud computing
-```
+### Other Scientific Libraries
 
-Running your Python code on massive servers in the cloud is becoming easier and easier.
+As discussed above, there are literally thousands of scientific libraries for
+Python.
 
-```{index} single: cloud computing; google colab
-```
+Some are small and do very specific tasks.
 
-An excellent example of the portability of python in a cloud computing environment is [Google Colab](https://colab.research.google.com/). It hosts the Jupyter notebook on cloud servers with no pre-configuration necessary to run Python code using cloud servers.
+Others are huge in terms of lines of code and investment from coders and tech
+firms.
 
+Here's a short list of some important scientific libraries for Python not
+mentioned above.
 
-There are also commercial applications of cloud computing using Python:
-
-```{index} single: cloud computing; anaconda enterprise
-```
-* [Anaconda Enterprise](https://www.anaconda.com/enterprise/)
-
-```{index} single: cloud computing; AWS
-```
-
-* [Amazon Web Services](https://aws.amazon.com/developer/language/python/?nc1=f_dr)
-
-```{index} single: cloud computing; Google Cloud
-```
-
-* [Google Cloud](https://cloud.google.com/)
-
-```{index} single: cloud computing; digital ocean
-```
-
-* [Digital Ocean](https://www.digitalocean.com/)
+* [SymPy](http://www.sympy.org/) for symbolic algebra, including limits, derivatives and integrals
+* [statsmodels](http://statsmodels.sourceforge.net/) for statistical routines
+* [scikit-learn](http://scikit-learn.org/) for machine learning 
+* [Keras](https://keras.io/) for machine learning
+* [Pyro](https://pyro.ai/) and [PyStan](https://pystan.readthedocs.org/en/latest/) for Bayesian data analysis 
+* [GeoPandas](https://geopandas.org/en/stable/) for spatial data analysis
+* [Dask](https://docs.dask.org/en/stable/) for parallelization
+* [Numba](http://numba.pydata.org/) for making Python run at the same speed as native machine code
+* [CVXPY](https://www.cvxpy.org/) for convex optimization 
+* [scikit-image](https://scikit-image.org/) and [OpenCV](https://opencv.org/) for processing and analysing image data
+* [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) for extracting data from HTML and XML files
 
 
-### Parallel Processing
+In this lecture series we will learn how to use many of these libraries for
+scientific computing tasks in economics and finance.
 
-```{index} single: parallel computing
-```
-
-Apart from the cloud computing options listed above, you might like to consider
-
-```{index} single: parallel computing; ipython
-```
-
-* [Parallel computing through IPython clusters](https://ipyparallel.readthedocs.io/en/latest/).
-
-
-```{index} single: parallel computing; Dask
-```
-
-* [Dask](https://docs.dask.org/en/stable/) parallelises PyData and Machine Learning in Python.
-
-```{index} single: parallel computing; pycuda
-```
-
-* GPU programming through [JAX](https://jax.readthedocs.io/en/latest/notebooks/quickstart.html), [PyCuda](https://wiki.tiker.net/PyCuda), [PyOpenCL](https://documen.tician.de/pyopencl/), [Rapids](https://rapids.ai/), etc.
-
-
-Here is more about [recent developments](https://pasc22.pasc-conference.org/program/papers/) in high-performance computing (HPC) in scientific computing and [how HPC helps researchers in different fields](https://pasc22.pasc-conference.org/program/keynote-presentations/). 
-
-(intfc)=
-### Other Developments
-
-There are many other interesting developments with scientific programming in Python.
-
-Some representative examples include
-
-```{index} single: scientific programming; Jupyter
-```
-
-* [Jupyter](http://jupyter.org/) --- Python in your browser with interactive code cells,  embedded images and other useful features.
-
-```{index} single: scientific programming; Numba
-```
-
-* [Numba](http://numba.pydata.org/) --- make Python run at the same speed as native machine code!
-
-```{index} single: scientific programming; CVXPY
-```
-
-* [CVXPY](https://www.cvxpy.org/) --- convex optimization in Python.
-
-
-```{index} single: scientific programming; PyTables
-```
-
-* [PyTables](http://www.pytables.org) --- manage large data sets.
-
-
-```{index} single: scientific programming; scikit-image
-```
-
-* [scikit-image](https://scikit-image.org/) and [OpenCV](https://opencv.org/) --- process and analyse scientific image data.
-
-
-```{index} single: scientific programming; mlflow
-```
-
-* [FLAML](https://mlflow.org/docs/latest/index.html) --- automate machine learning and hyperparameter tuning.
-
-
-```{index} single: scientific programming; BeautifulSoup
-```
-
-* [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) --- extract data from HTML and XML files.
-
-```{index} single: scientific programming; PyInstaller
-```
-
-* [PyInstaller](https://pyinstaller.org/en/stable/) --- create packaged app from python script.
-
-## Learn More
-
-* Browse some Python projects on [GitHub](https://github.com/trending?l=python).
-* Read more about [Python's history and rise in popularity](https://www.welcometothejungle.com/en/articles/btc-python-popular) and [version history](https://www.python.org/doc/versions/).
-* Have a look at [some of the Jupyter notebooks](http://nbviewer.jupyter.org/) people have shared on various scientific topics.
-
-```{index} single: Python; PyPI
-```
-
-* Visit the [Python Package Index](https://pypi.org/).
-* View some of the questions people are asking about Python on [Stackoverflow](http://stackoverflow.com/questions/tagged/python).
-* Keep up to date on what's happening in the Python community with the [Python subreddit](https://www.reddit.com:443/r/Python/).
 
