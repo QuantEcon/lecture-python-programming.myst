@@ -8,7 +8,7 @@ dependencies:
   - pip:
     - jupyter-book==1.0.3
     # - docutils==0.17.1
-    - git+https://github.com/QuantEcon/quantecon-book-theme@maint-22oct
+    - git+https://github.com/QuantEcon/quantecon-book-theme@main
     - sphinx-tojupyter==0.3.0
     - sphinxext-rediraffe==0.2.7
     - git+https://github.com/executablebooks/sphinx-exercise@maint-22oct
