@@ -39,15 +39,12 @@ jobs:
           workflow: cache.yml
           branch: main
           name: build-cache
-          path: lectures/_build
+          path: _build
       # Build HTML
       - name: Build HTML
         shell: bash -l {0}
         run: |
-          ls lectures/
-          ls lectures/_build/
-          ls lectures/_build/jupyter_execute
-          jb build lectures
+          ls _build
           jb build lectures --path-output ./ -n -W --keep-going
       # Build Assets (Download Notebooks and PDF via LaTeX)
       - name: Build Download Notebooks (sphinx-tojupyter)
