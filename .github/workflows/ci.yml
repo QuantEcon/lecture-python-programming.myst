@@ -39,7 +39,7 @@ jobs:
           workflow: cache.yml
           branch: main
           name: build-cache
-          path: _build
+          path: lectures/_build
       # Build HTML
       - name: Build HTML
         shell: bash -l {0}
