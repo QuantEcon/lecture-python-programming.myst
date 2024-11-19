@@ -8,10 +8,10 @@ dependencies:
   - pip:
     - jupyter-book==1.0.3
     # - docutils==0.17.1
-    - git+https://github.com/QuantEcon/quantecon-book-theme@fix-sphinx5
+    - quantecon-book-theme==0.7.4
     - sphinx-tojupyter==0.3.0
     - sphinxext-rediraffe==0.2.7
-    - git+https://github.com/executablebooks/sphinx-exercise@main
+    - sphinx-exercise==1.0.1
     - ghp-import==2.1.0
     - sphinxcontrib-youtube==1.3.0  #Version 1.3.0 is required as quantecon-book-theme is only compatible with sphinx<=5
     - sphinx-togglebutton==0.3.2
