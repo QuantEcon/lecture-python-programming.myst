@@ -7,7 +7,7 @@ dependencies:
   - pip
   - pip:
     - jupyter-book==1.0.3
-    - git+https://github.com/QuantEcon/quantecon-book-theme@update-libsass-win
+    - quantecon-book-theme==0.7.5
     - sphinx-tojupyter==0.3.0
     - sphinxext-rediraffe==0.2.7
     - sphinx-exercise==1.0.1
