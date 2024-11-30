@@ -121,7 +121,7 @@ This lecture takes you through the workings of two development environments.
 
 JupyterLab is a browser based development environment for Jupyter Notebooks, code scripts, and data files.
 
-You can [try JupyterLab in the browser](https://jupyter.org/try#jupyterlab) if you want to test it out before installing it locally.
+You can [try JupyterLab in the browser](https://jupyter.org/try-jupyter/lab/) if you want to test it out before installing it locally.
 
 You can install JupyterLab using pip
 

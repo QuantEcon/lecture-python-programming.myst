@@ -71,13 +71,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=f77998adf44a3f900caaca31caf410c810f6f245" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=bd0785fbb14d8d2bd4d9ae501d79ed8d3bc089ec" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -90,14 +90,15 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=eed9c059a3ee152aae2353ec732f0a6d12e6aa07"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=d6d86bce9979111653c4c495e33499e1796e172a"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
@@ -107,11 +108,7 @@
                 gtag('js', new Date());
                 gtag('config', 'G-X7DH1M2DPY');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -496,7 +493,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \left[ \frac{\pi}{2}, \  \frac{3 \pi}{2}\right]\]</div>
+\[\displaystyle \left[ - \frac{\pi}{2}, \  \frac{\pi}{2}\right]\]</div>
 </div>
 </div>
 <p>SymPy can also handle more complex equations involving trigonometry and complex numbers.</p>
@@ -965,7 +962,7 @@ f(x) = \lambda e^{-\lambda x}, \quad x \ge 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ec98bfd010264caba35ccce1f92c65f9747209133e4b783e3bcfaa24695e33e6.png" src="_images/ec98bfd010264caba35ccce1f92c65f9747209133e4b783e3bcfaa24695e33e6.png" />
+<img alt="_images/791899eecea84b2fcb9dc709943498365cb3877f294cac5ed01e896354bb1676.png" src="_images/791899eecea84b2fcb9dc709943498365cb3877f294cac5ed01e896354bb1676.png" />
 </div>
 </div>
 <p>Similar to Matplotlib, SymPy provides an interface to customize the graph</p>
@@ -985,7 +982,7 @@ f(x) = \lambda e^{-\lambda x}, \quad x \ge 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fb289415637db3f64a0be18c76650054e7276d9a41bc44c0756d1aa5c0bf5433.png" src="_images/fb289415637db3f64a0be18c76650054e7276d9a41bc44c0756d1aa5c0bf5433.png" />
+<img alt="_images/c2a773b11f3200e6dbbc908bc2477e79d025e2d43b54ee0432e905597f4c7c50.png" src="_images/c2a773b11f3200e6dbbc908bc2477e79d025e2d43b54ee0432e905597f4c7c50.png" />
 </div>
 </div>
 <p>It also supports plotting implicit functions and visualizing inequalities</p>
@@ -996,7 +993,7 @@ f(x) = \lambda e^{-\lambda x}, \quad x \ge 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5138214c69d982beed0977803f344c910cdc181fe416ccedc37ab90148c26170.png" src="_images/5138214c69d982beed0977803f344c910cdc181fe416ccedc37ab90148c26170.png" />
+<img alt="_images/d81ca42ef14653b2ba14a3660e740d170ad1d512bd115c8aec0bc2975a63a8f8.png" src="_images/d81ca42ef14653b2ba14a3660e740d170ad1d512bd115c8aec0bc2975a63a8f8.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1007,7 +1004,7 @@ f(x) = \lambda e^{-\lambda x}, \quad x \ge 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8e3640c630d27342dd9e06f89c1124826f35f6224caccc9ab115ac631a33bd44.png" src="_images/8e3640c630d27342dd9e06f89c1124826f35f6224caccc9ab115ac631a33bd44.png" />
+<img alt="_images/ffef7b82051f7a159700612afa7411fcde282db22906e1bcdd146cacaa9fc821.png" src="_images/ffef7b82051f7a159700612afa7411fcde282db22906e1bcdd146cacaa9fc821.png" />
 </div>
 </div>
 <p>and visualizations in three-dimensional space</p>
@@ -1018,7 +1015,7 @@ f(x) = \lambda e^{-\lambda x}, \quad x \ge 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7438cc84881e6db9c33e5c69e43f0a878880e3aa615248c56a99386fab48f753.png" src="_images/7438cc84881e6db9c33e5c69e43f0a878880e3aa615248c56a99386fab48f753.png" />
+<img alt="_images/7018c9bd921ee220d17e82e86fbaf99ed30243b71408f7bf9074bb532edb212f.png" src="_images/7018c9bd921ee220d17e82e86fbaf99ed30243b71408f7bf9074bb532edb212f.png" />
 </div>
 </div>
 </section>
@@ -1143,7 +1140,7 @@ u_b(x, y) = (1 - x)^{\beta} (1 - y)^{1-\beta}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9c918a23e3325473c68b8809e968056f66771e644717d33d8da32acfece4a79b.png" src="_images/9c918a23e3325473c68b8809e968056f66771e644717d33d8da32acfece4a79b.png" />
+<img alt="_images/66978957e93997a4fe5ad3d582005bcb689a85533b5c508bc38094236f745616.png" src="_images/66978957e93997a4fe5ad3d582005bcb689a85533b5c508bc38094236f745616.png" />
 </div>
 </div>
 <p>We invite you to play with the parameters and see how the contract curves change and think about the following two questions:</p>
@@ -1541,7 +1538,11 @@ f(x; n, θ) = \frac{n!}{x!(n-x)!}θ^x(1-θ)^{n-x}
                     <li data-tippy-content="Download Notebook"><a href="/_notebooks/sympy.ipynb" download><i data-feather="download-cloud"></i></a></li>
                     <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
                         <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
+                    <!--
+                    # Enable if looking for link to specific document hosted on GitHub
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/blob/main/lectures/sympy.md" download><i data-feather="github"></i></a></li>
+                    -->
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst" download><i data-feather="github"></i></a></li>
                 </ul>
 
             </div>

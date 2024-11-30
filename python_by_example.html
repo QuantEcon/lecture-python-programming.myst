@@ -71,13 +71,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=f77998adf44a3f900caaca31caf410c810f6f245" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=bd0785fbb14d8d2bd4d9ae501d79ed8d3bc089ec" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -90,14 +90,15 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=eed9c059a3ee152aae2353ec732f0a6d12e6aa07"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=d6d86bce9979111653c4c495e33499e1796e172a"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
@@ -107,11 +108,7 @@
                 gtag('js', new Date());
                 gtag('config', 'G-X7DH1M2DPY');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -288,7 +285,7 @@ about Python.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/30c6de1c791e4945721ecf086c101d720d2af92b39ba127b6e5c96dcf6579a2b.png" src="_images/30c6de1c791e4945721ecf086c101d720d2af92b39ba127b6e5c96dcf6579a2b.png" />
+<img alt="_images/1fe9c616e4a3299405d6214bda9cfc1c2e89ba8e7d1afd117fa967a27a3c8830.png" src="_images/1fe9c616e4a3299405d6214bda9cfc1c2e89ba8e7d1afd117fa967a27a3c8830.png" />
 </div>
 </div>
 <p>Let’s break this program down and see how it works.</p>
@@ -412,7 +409,7 @@ after the import statements are</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/122543d4fc24f02ed51f186ad9a55e5bde22f27e962d463768b66abf38ee61a9.png" src="_images/122543d4fc24f02ed51f186ad9a55e5bde22f27e962d463768b66abf38ee61a9.png" />
+<img alt="_images/904f94339a83f245e4f285f1bfaaf80b7f38fb9faeceaac31b677e3b5104e338.png" src="_images/904f94339a83f245e4f285f1bfaaf80b7f38fb9faeceaac31b677e3b5104e338.png" />
 </div>
 </div>
 <p>The first line generates 100 (quasi) independent standard normals and stores
@@ -445,7 +442,7 @@ somewhat artificial.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fa26afffe318228a4c8f76a072ee2b0f09e92d6b3baa69f98450fcea03d82625.png" src="_images/fa26afffe318228a4c8f76a072ee2b0f09e92d6b3baa69f98450fcea03d82625.png" />
+<img alt="_images/c40c9a036dc65b1bbb556519bbc0f5e2393ea8d5ffaa165c0a81a36726ec65b2.png" src="_images/c40c9a036dc65b1bbb556519bbc0f5e2393ea8d5ffaa165c0a81a36726ec65b2.png" />
 </div>
 </div>
 <p>In brief,</p>
@@ -660,7 +657,7 @@ loop of the form</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/07f9c8b107875f8e0222f1538b5ae8984b69213d781a5b506ef2f3d940accba9.png" src="_images/07f9c8b107875f8e0222f1538b5ae8984b69213d781a5b506ef2f3d940accba9.png" />
+<img alt="_images/c6f7f8daeec24bd828825875f0a87dc01e3bf5f01beaf9ed18bc78a88327596a.png" src="_images/c6f7f8daeec24bd828825875f0a87dc01e3bf5f01beaf9ed18bc78a88327596a.png" />
 </div>
 </div>
 <p>A while loop will keep executing the code block delimited by indentation until the condition (<code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">ts_length</span></code>) is satisfied.</p>
@@ -712,7 +709,7 @@ array.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1d6b429fab24ced6423b38d1f06803354ece9513c88d4211dfc3ef98269f714d.png" src="_images/1d6b429fab24ced6423b38d1f06803354ece9513c88d4211dfc3ef98269f714d.png" />
+<img alt="_images/6d762ab29ad138ebaa8a323de535e1c1b9a4be8c5281d2415b4869a54bc81eff.png" src="_images/6d762ab29ad138ebaa8a323de535e1c1b9a4be8c5281d2415b4869a54bc81eff.png" />
 </div>
 </div>
 <p>The statement <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">np.empty(T+1)</span></code> allocates storage in memory for <code class="docutils literal notranslate"><span class="pre">T+1</span></code>
@@ -774,7 +771,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ff77bf97f8a5194e2b008a11b42c3a4edc4ba48cc3a4057d68c9ed1098e64e1e.png" src="_images/ff77bf97f8a5194e2b008a11b42c3a4edc4ba48cc3a4057d68c9ed1098e64e1e.png" />
+<img alt="_images/ee98cdbd5526960312798370b6f4c6d9e4d996711713df34d618643ab0dccb39.png" src="_images/ee98cdbd5526960312798370b6f4c6d9e4d996711713df34d618643ab0dccb39.png" />
 </div>
 </div>
 </section>
@@ -818,7 +815,7 @@ one for each of the cases <span class="math notranslate nohighlight">\(\alpha=0\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ed2cb7dcd2f5cb8d163c6ea5bab5a44efa0d9f22112918d859588c17b9af4d1a.png" src="_images/ed2cb7dcd2f5cb8d163c6ea5bab5a44efa0d9f22112918d859588c17b9af4d1a.png" />
+<img alt="_images/3bcea5c51b10457e130df5daddaf0e823171ed6394b29fb87e205f1443e95c1d.png" src="_images/3bcea5c51b10457e130df5daddaf0e823171ed6394b29fb87e205f1443e95c1d.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -865,7 +862,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3b51b6edc32c020ff2de9a4c743c0d4ef3311c372505d2467af63002c6e9011a.png" src="_images/3b51b6edc32c020ff2de9a4c743c0d4ef3311c372505d2467af63002c6e9011a.png" />
+<img alt="_images/4f917b4a919ca7412e382ee6315eecdb1453f788ac5c0231206105d2eeece5ff.png" src="_images/4f917b4a919ca7412e382ee6315eecdb1453f788ac5c0231206105d2eeece5ff.png" />
 </div>
 </div>
 </section>
@@ -935,7 +932,7 @@ to compute the absolute value.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/27d649a909a1f7dc48360912e9795ac04c78585030f91bd4666d04e27458468e.png" src="_images/27d649a909a1f7dc48360912e9795ac04c78585030f91bd4666d04e27458468e.png" />
+<img alt="_images/389f2d88863e636c1475bad0e96bc519a70874051ffceca344a0c090e40df865.png" src="_images/389f2d88863e636c1475bad0e96bc519a70874051ffceca344a0c090e40df865.png" />
 </div>
 </div>
 <p>Here’s a shorter way to write the same thing:</p>
@@ -956,7 +953,7 @@ to compute the absolute value.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2090391c4bc453b8b854eb7bb737b8dd84e873a073ce4a38fc54e7f5ad466d2b.png" src="_images/2090391c4bc453b8b854eb7bb737b8dd84e873a073ce4a38fc54e7f5ad466d2b.png" />
+<img alt="_images/29fee41c97e789bd7b3479ede0fccea450b3e9875960b1d238e9bdeb0a2d0c0e.png" src="_images/29fee41c97e789bd7b3479ede0fccea450b3e9875960b1d238e9bdeb0a2d0c0e.png" />
 </div>
 </div>
 </section>
@@ -1026,7 +1023,7 @@ fraction that falls into the circle.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.138964
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141068
 </pre></div>
 </div>
 </div>
@@ -1275,7 +1272,11 @@ fraction that falls into the circle.</p>
                     <li data-tippy-content="Download Notebook"><a href="/_notebooks/python_by_example.ipynb" download><i data-feather="download-cloud"></i></a></li>
                     <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
                         <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
+                    <!--
+                    # Enable if looking for link to specific document hosted on GitHub
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/blob/main/lectures/python_by_example.md" download><i data-feather="github"></i></a></li>
+                    -->
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst" download><i data-feather="github"></i></a></li>
                 </ul>
 
             </div>

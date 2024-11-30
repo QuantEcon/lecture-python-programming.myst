@@ -71,13 +71,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=f77998adf44a3f900caaca31caf410c810f6f245" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=bd0785fbb14d8d2bd4d9ae501d79ed8d3bc089ec" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -90,14 +90,15 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=eed9c059a3ee152aae2353ec732f0a6d12e6aa07"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=d6d86bce9979111653c4c495e33499e1796e172a"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
@@ -107,11 +108,7 @@
                 gtag('js', new Date());
                 gtag('config', 'G-X7DH1M2DPY');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -585,7 +582,7 @@ a function in the following sections.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8e7f36b5e26f62ac77572f49346a8d60e97675a0fa5fffb05056ffc72260a8be.png" src="_images/8e7f36b5e26f62ac77572f49346a8d60e97675a0fa5fffb05056ffc72260a8be.png" />
+<img alt="_images/8ff9e48490ff338aeb8606058d57b19a34165e67c88ecfbbbe6aef2fd521ceaa.png" src="_images/8ff9e48490ff338aeb8606058d57b19a34165e67c88ecfbbbe6aef2fd521ceaa.png" />
 </div>
 </div>
 <p>We will break this program into two parts:</p>
@@ -615,7 +612,7 @@ a function in the following sections.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c27951b63f8c861ab8086928f627ab278ba47b34b5f9264d110e52665c0194e3.png" src="_images/c27951b63f8c861ab8086928f627ab278ba47b34b5f9264d110e52665c0194e3.png" />
+<img alt="_images/08982dd61904ced43db38ed9ae643d6b1d7e6d1a06d4d6074af3875190009c0e.png" src="_images/08982dd61904ced43db38ed9ae643d6b1d7e6d1a06d4d6074af3875190009c0e.png" />
 </div>
 </div>
 <p>When the interpreter gets to the expression <code class="docutils literal notranslate"><span class="pre">generate_data(100)</span></code>, it executes the function body with <code class="docutils literal notranslate"><span class="pre">n</span></code> set equal to 100.</p>
@@ -645,7 +642,7 @@ a function in the following sections.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f45b24c490764d4f39af5dd8b6d4b60da89fa96d6ba2e58dd2bc18e40f62a71d.png" src="_images/f45b24c490764d4f39af5dd8b6d4b60da89fa96d6ba2e58dd2bc18e40f62a71d.png" />
+<img alt="_images/ed21941fff9d7b8879a266f968e5360d6717d1fededf2486352b5fce1cca915e.png" src="_images/ed21941fff9d7b8879a266f968e5360d6717d1fededf2486352b5fce1cca915e.png" />
 </div>
 </div>
 <p>Hopefully, the syntax of the if/else clause is self-explanatory, with indentation again delimiting the extent of the code blocks.</p>
@@ -678,7 +675,7 @@ a function in the following sections.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8ac3d2613b1fdae2d6c8f1d96c9d102758d0157794c8ea72fbd67c865e2c5c71.png" src="_images/8ac3d2613b1fdae2d6c8f1d96c9d102758d0157794c8ea72fbd67c865e2c5c71.png" />
+<img alt="_images/768f770f00a19cfbcc3b4b051834224b73989bfd852c55b8f347c96076f54127.png" src="_images/768f770f00a19cfbcc3b4b051834224b73989bfd852c55b8f347c96076f54127.png" />
 </div>
 </div>
 <p>Now, when we call the function <code class="docutils literal notranslate"><span class="pre">generate_data()</span></code>, we pass <code class="docutils literal notranslate"><span class="pre">np.random.uniform</span></code>
@@ -842,7 +839,7 @@ for any positive integer <span class="math notranslate nohighlight">\(n\)</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 </div>
@@ -898,11 +895,11 @@ for any positive integer <span class="math notranslate nohighlight">\(n\)</span>
 0
 0
 0
-0
+1
 0
 0
 1
-0
+2
 0
 </pre></div>
 </div>
@@ -937,12 +934,12 @@ for any positive integer <span class="math notranslate nohighlight">\(n\)</span>
 2
 2
 2
-2
-2
+3
+3
+3
 3
 4
-4
-4
+5
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
@@ -1280,7 +1277,11 @@ for any positive integer <span class="math notranslate nohighlight">\(n\)</span>
                     <li data-tippy-content="Download Notebook"><a href="/_notebooks/functions.ipynb" download><i data-feather="download-cloud"></i></a></li>
                     <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
                         <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
+                    <!--
+                    # Enable if looking for link to specific document hosted on GitHub
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/blob/main/lectures/functions.md" download><i data-feather="github"></i></a></li>
+                    -->
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst" download><i data-feather="github"></i></a></li>
                 </ul>
 
             </div>

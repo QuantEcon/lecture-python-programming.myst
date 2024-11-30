@@ -71,13 +71,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=f77998adf44a3f900caaca31caf410c810f6f245" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=bd0785fbb14d8d2bd4d9ae501d79ed8d3bc089ec" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -90,14 +90,15 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=eed9c059a3ee152aae2353ec732f0a6d12e6aa07"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=d6d86bce9979111653c4c495e33499e1796e172a"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
@@ -107,11 +108,7 @@
                 gtag('js', new Date());
                 gtag('config', 'G-X7DH1M2DPY');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -1286,7 +1283,7 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/a197b54c97a272b219e55927b9a03e57b957df26c3e8ba865e8880b7a6c948f8.png" src="_images/a197b54c97a272b219e55927b9a03e57b957df26c3e8ba865e8880b7a6c948f8.png" />
+<img alt="_images/9a6f631b3ae5aeb441f4813ae430afc6816e94518a627a3409a22278d4494ec4.png" src="_images/9a6f631b3ae5aeb441f4813ae430afc6816e94518a627a3409a22278d4494ec4.png" />
 </div>
 </div>
 <p>How about <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">(3,</span> <span class="pre">1)</span></code>?</p>
@@ -1365,7 +1362,7 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/6dcf70b846d7b667477dee88cc0e281c819087aa4a8b0ca992891dfa782dcf6e.png" src="_images/6dcf70b846d7b667477dee88cc0e281c819087aa4a8b0ca992891dfa782dcf6e.png" />
+<img alt="_images/0f1e3b083603628b109e1b354cea989092d624fdd2e996fa2597aca03022b7fb.png" src="_images/0f1e3b083603628b109e1b354cea989092d624fdd2e996fa2597aca03022b7fb.png" />
 </div>
 </div>
 <p>The previous broadcasting operation is equivalent to the following <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</p>
@@ -1382,7 +1379,7 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2220/1097023243.py:5: DeprecationWarning: Conversion of an array with ndim &gt; 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2254/1097023243.py:5: DeprecationWarning: Conversion of an array with ndim &gt; 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
   result[i, j] = a[i, j] + b[i]
 </pre></div>
 </div>
@@ -1472,7 +1469,7 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/b5ec52b50e5a29a58619e7fe1c06839c87030c472dcc9d616954fb14f4723452.png" src="_images/b5ec52b50e5a29a58619e7fe1c06839c87030c472dcc9d616954fb14f4723452.png" />
+<img alt="_images/b702a303181ae68ef6ecf899f1c8fb21a9c0afe9b4ee41a0dbf3aaa7fb628f24.png" src="_images/b702a303181ae68ef6ecf899f1c8fb21a9c0afe9b4ee41a0dbf3aaa7fb628f24.png" />
 </div>
 </div>
 <p>While broadcasting is very useful, it can sometimes seem confusing.</p>
@@ -1550,7 +1547,7 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/b8b76d3aa337bd56f9ea128dd32a6a7501d8c7d72fc747d6d8e841fe472df15d.png" src="_images/b8b76d3aa337bd56f9ea128dd32a6a7501d8c7d72fc747d6d8e841fe472df15d.png" />
+<img alt="_images/beaf36b156c92ccd9bad0a1ef62a252f5f4c4b6c4663c52446e0a967dc1dcd2b.png" src="_images/beaf36b156c92ccd9bad0a1ef62a252f5f4c4b6c4663c52446e0a967dc1dcd2b.png" />
 </div>
 </div>
 <p>We can see that NumPy cannot expand the arrays to the same size.</p>
@@ -1737,7 +1734,7 @@ the shape of array b is (2, 2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.1229669 ,  0.19437942, -0.67475076])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.87769737, -1.6546385 , -1.02035921])
 </pre></div>
 </div>
 </div>
@@ -1751,7 +1748,7 @@ the shape of array b is (2, 2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        ,  0.19437942, -0.67475076])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        , -1.6546385 , -1.02035921])
 </pre></div>
 </div>
 </div>
@@ -1775,7 +1772,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.40781185, -1.43045806, -0.19023646])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.95211578, -1.07966769,  0.20851202])
 </pre></div>
 </div>
 </div>
@@ -1788,7 +1785,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.40781185, -1.43045806, -0.19023646])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.95211578, -1.07966769,  0.20851202])
 </pre></div>
 </div>
 </div>
@@ -1814,7 +1811,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.40781185, -1.43045806, -0.19023646])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.95211578, -1.07966769,  0.20851202])
 </pre></div>
 </div>
 </div>
@@ -1899,7 +1896,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.07291262, -0.01253922,  0.57261628, -0.02105357])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.01970568, -0.36048157,  1.27993131, -0.1979    ])
 </pre></div>
 </div>
 </div>
@@ -1911,7 +1908,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 1, 0])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 1, 0])
 </pre></div>
 </div>
 </div>
@@ -1925,7 +1922,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 1, 0])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 1, 0])
 </pre></div>
 </div>
 </div>
@@ -2055,7 +2052,7 @@ through its sub-packages.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.968
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.989
 </pre></div>
 </div>
 </div>
@@ -2367,7 +2364,7 @@ from QuantEcon and added in a plot method</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/dea1ffea956c009f80079dd5a5e4c66c12d459627b049c9f60524d3d4d9b2100.png" src="_images/dea1ffea956c009f80079dd5a5e4c66c12d459627b049c9f60524d3d4d9b2100.png" />
+<img alt="_images/34cab30ae9da6716b21c69ac1306c6f8f779b6f14ac84dcb497c826ed00ad51c.png" src="_images/34cab30ae9da6716b21c69ac1306c6f8f779b6f14ac84dcb497c826ed00ad51c.png" />
 </div>
 </div>
 </section>
@@ -2430,7 +2427,7 @@ from QuantEcon and added in a plot method</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.01
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.012674093246459961
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.012328624725341797
 </pre></div>
 </div>
 </div>
@@ -2614,10 +2611,10 @@ from QuantEcon and added in a plot method</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:3.55
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:3.50
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.55254864692688
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.5061800479888916
 </pre></div>
 </div>
 </div>
@@ -2982,7 +2979,11 @@ from QuantEcon and added in a plot method</p>
                     <li data-tippy-content="Download Notebook"><a href="/_notebooks/numpy.ipynb" download><i data-feather="download-cloud"></i></a></li>
                     <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
                         <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
+                    <!--
+                    # Enable if looking for link to specific document hosted on GitHub
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/blob/main/lectures/numpy.md" download><i data-feather="github"></i></a></li>
+                    -->
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst" download><i data-feather="github"></i></a></li>
                 </ul>
 
             </div>
