@@ -3,7 +3,7 @@ channels:
   - default
 dependencies:
   - python=3.12
-  - anaconda=2024.06
+  - anaconda=2024.10
   - pip
   - pip:
     - jupyter-book==1.0.3
