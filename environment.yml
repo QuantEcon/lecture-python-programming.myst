@@ -7,7 +7,7 @@ dependencies:
   - pip
   - pip:
     - jupyter-book==1.0.3
-    - quantecon-book-theme==0.7.5
+    - quantecon-book-theme==0.7.6
     - sphinx-tojupyter==0.3.0
     - sphinxext-rediraffe==0.2.7
     - sphinx-exercise==1.0.1
