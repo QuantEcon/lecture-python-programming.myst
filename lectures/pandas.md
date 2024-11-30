@@ -509,11 +509,7 @@ For example, suppose that we are interested in the [unemployment rate](https://r
 Via FRED, the entire series for the US civilian unemployment rate can be downloaded directly by entering
 this URL into your browser (note that this requires an internet connection)
 
-```{code-block} none
-https://research.stlouisfed.org/fred2/series/UNRATE/downloaddata/UNRATE.csv
-```
-
-(Equivalently, click here: [https://research.stlouisfed.org/fred2/series/UNRATE/downloaddata/UNRATE.csv](https://research.stlouisfed.org/fred2/series/UNRATE/downloaddata/UNRATE.csv))
+(To download the data as a csv, click here: [https://research.stlouisfed.org/fred2/series/UNRATE/downloaddata/UNRATE.csv](https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23e1e9f0&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1320&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=UNRATE&scale=left&cosd=1948-01-01&coed=2024-10-01&line_color=%234572a7&link_values=false&line_style=solid&mark_type=none&mw=3&lw=3&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2024-11-03&revision_date=2024-11-03&nd=1948-01-01))
 
 This request returns a CSV file, which will be handled by your default application for this class of files.
 
