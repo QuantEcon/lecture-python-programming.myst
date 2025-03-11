@@ -1474,6 +1474,17 @@ print(A)
 
 **Part2**: Move on to replicate the result of the following broadcasting operation. Meanwhile, compare the speeds of broadcasting and the `for` loop you implement.
 
+For this part of the exercise you can use the `tic`/`toc` functions from the `quantecon` library to time the execution. 
+
+Let's make sure this library is installed.
+
+```{code-cell} python3
+:tags: [hide-output]
+!pip install quantecon
+```
+
+Now we can import the quantecon package.
+
 ```{code-cell} python3
 import quantecon as qe
 
