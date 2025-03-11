@@ -259,7 +259,7 @@
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (0.7.2)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (0.8.0)
 Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (0.60.0)
 Requirement already satisfied: numpy&gt;=1.17.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (1.26.4)
 Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (2.32.3)
@@ -352,9 +352,9 @@ x_{t+1} = \alpha x_t (1 - x_t)
 <p>To speed the function <code class="docutils literal notranslate"><span class="pre">qm</span></code> up using Numba, our first step is</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">njit</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">jit</span>
 
-<span class="n">qm_numba</span> <span class="o">=</span> <span class="n">njit</span><span class="p">(</span><span class="n">qm</span><span class="p">)</span>
+<span class="n">qm_numba</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">qm</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -389,12 +389,12 @@ JIT-compilation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.23
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.25
 </pre></div>
 </div>
 </div>
 </div>
-<p>This is already a massive speed gain.</p>
+<p>This is already a very large speed gain.</p>
 <p>In fact, the next time and all subsequent times it runs even faster as the function has been compiled and is in memory:</p>
 <div class="cell docutils container" id="qm-numba-result">
 <div class="cell_input docutils container">
@@ -417,12 +417,12 @@ JIT-compilation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>138.38702623245348
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139.4817516911839
 </pre></div>
 </div>
 </div>
 </div>
-<p>This kind of speed gain is huge relative to how simple and clear the implementation is.</p>
+<p>This kind of speed gain is impressive relative to how simple and clear the modification is.</p>
 </section>
 <section id="how-and-when-it-works">
 <h3><span class="section-number">17.2.2. </span>How and When it Works<a class="headerlink" href="#how-and-when-it-works" title="Permalink to this heading">#</a></h3>
@@ -437,16 +437,17 @@ types.</p>
 <li><p>e.g., <code class="docutils literal notranslate"><span class="pre">x0</span></code> could be a NumPy array or a list, <code class="docutils literal notranslate"><span class="pre">n</span></code> could be an integer or a float, etc.</p></li>
 </ul>
 </li>
-<li><p>This makes it hard to <em>pre</em>-compile the function.</p></li>
-<li><p>However, when we do actually call the function, say by executing <code class="docutils literal notranslate"><span class="pre">qm(0.5,</span> <span class="pre">10)</span></code>,
+<li><p>This makes it hard to <em>pre</em>-compile the function (i.e., compile before runtime).</p></li>
+<li><p>However, when we do actually call the function, say by running <code class="docutils literal notranslate"><span class="pre">qm(0.5,</span> <span class="pre">10)</span></code>,
 the types of <code class="docutils literal notranslate"><span class="pre">x0</span></code> and <code class="docutils literal notranslate"><span class="pre">n</span></code> become clear.</p></li>
-<li><p>Moreover, the types of other variables in <code class="docutils literal notranslate"><span class="pre">qm</span></code> can be inferred once the input is known.</p></li>
+<li><p>Moreover, the types of other variables in <code class="docutils literal notranslate"><span class="pre">qm</span></code> can be inferred once the input types are known.</p></li>
 <li><p>So the strategy of Numba and other JIT compilers is to wait until this
 moment, and <em>then</em> compile the function.</p></li>
 </ul>
 <p>That’s why it is called “just-in-time” compilation.</p>
 <p>Note that, if you make the call <code class="docutils literal notranslate"><span class="pre">qm(0.5,</span> <span class="pre">10)</span></code> and then follow it with <code class="docutils literal notranslate"><span class="pre">qm(0.9,</span> <span class="pre">20)</span></code>, compilation only takes place on the first call.</p>
 <p>The compiled code is then cached and recycled as required.</p>
+<p>This is why, in the code above, <code class="docutils literal notranslate"><span class="pre">time3</span></code> is smaller than <code class="docutils literal notranslate"><span class="pre">time2</span></code>.</p>
 </section>
 </section>
 <section id="decorator-notation">
@@ -454,19 +455,19 @@ moment, and <em>then</em> compile the function.</p></li>
 <p>In the code above we created a JIT compiled version of <code class="docutils literal notranslate"><span class="pre">qm</span></code> via the call</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qm_numba</span> <span class="o">=</span> <span class="n">njit</span><span class="p">(</span><span class="n">qm</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qm_numba</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">qm</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>In practice this would typically be done using an alternative <em>decorator</em> syntax.</p>
-<p>(We will explain all about decorators in a <a class="reference internal" href="python_advanced_features.html"><span class="doc">later lecture</span></a> but you can skip the details at this stage.)</p>
+<p>(We discuss decorators in a <a class="reference internal" href="python_advanced_features.html"><span class="doc">separate lecture</span></a> but you can skip the details at this stage.)</p>
 <p>Let’s see how this is done.</p>
-<p>To target a function for JIT compilation we can put <code class="docutils literal notranslate"><span class="pre">&#64;njit</span></code> before the function definition.</p>
+<p>To target a function for JIT compilation we can put <code class="docutils literal notranslate"><span class="pre">&#64;jit</span></code> before the function definition.</p>
 <p>Here’s what this looks like for <code class="docutils literal notranslate"><span class="pre">qm</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@njit</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jit</span>
 <span class="k">def</span> <span class="nf">qm</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
@@ -477,7 +478,7 @@ moment, and <em>then</em> compile the function.</p></li>
 </div>
 </div>
 </div>
-<p>This is equivalent to <code class="docutils literal notranslate"><span class="pre">qm</span> <span class="pre">=</span> <span class="pre">njit(qm)</span></code>.</p>
+<p>This is equivalent to adding <code class="docutils literal notranslate"><span class="pre">qm</span> <span class="pre">=</span> <span class="pre">jit(qm)</span></code> after the function definition.</p>
 <p>The following now uses the jitted version:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -488,8 +489,8 @@ moment, and <em>then</em> compile the function.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 64.5 ms, sys: 4.02 ms, total: 68.5 ms
-Wall time: 68.2 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 69 ms, sys: 1.95 ms, total: 71 ms
+Wall time: 70.7 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.1       , 0.36      , 0.9216    , ..., 0.98112405, 0.07407858,
@@ -498,22 +499,41 @@ Wall time: 68.2 ms
 </div>
 </div>
 </div>
-<p>Numba provides several arguments for decorators to accelerate computation and cache functions <a class="reference external" href="https://numba.readthedocs.io/en/stable/user/performance-tips.html">here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span> 
+
+<span class="n">qm</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">100_000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 551 μs, sys: 0 ns, total: 551 μs
+Wall time: 553 μs
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.1       , 0.36      , 0.9216    , ..., 0.98112405, 0.07407858,
+       0.27436377])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Numba also provides several arguments for decorators to accelerate computation and cache functions – see <a class="reference external" href="https://numba.readthedocs.io/en/stable/user/performance-tips.html">here</a>.</p>
 <p>In the <a class="reference internal" href="parallelization.html#parallel"><span class="std std-ref">following lecture on parallelization</span></a>, we will discuss how to use the <code class="docutils literal notranslate"><span class="pre">parallel</span></code> argument to achieve automatic parallelization.</p>
 </section>
 <section id="type-inference">
 <h2><span class="section-number">17.4. </span>Type Inference<a class="headerlink" href="#type-inference" title="Permalink to this heading">#</a></h2>
-<p>Clearly type inference is a key part of JIT compilation.</p>
+<p>Successful type inference is a key part of JIT compilation.</p>
 <p>As you can imagine, inferring types is easier for simple Python objects (e.g., simple scalar data types such as floats and integers).</p>
 <p>Numba also plays well with NumPy arrays.</p>
 <p>In an ideal setting, Numba can infer all necessary type information.</p>
 <p>This allows it to generate native machine code, without having to call the Python runtime environment.</p>
 <p>In such a setting, Numba will be on par with machine code from low-level languages.</p>
 <p>When Numba cannot infer all type information, it will raise an error.</p>
-<p>For example, in the case below, Numba is unable to determine the type of function <code class="docutils literal notranslate"><span class="pre">mean</span></code> when compiling the function <code class="docutils literal notranslate"><span class="pre">bootstrap</span></code></p>
+<p>For example, in the (artificial) setting below, Numba is unable to determine the type of function <code class="docutils literal notranslate"><span class="pre">mean</span></code> when compiling the function <code class="docutils literal notranslate"><span class="pre">bootstrap</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@njit</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jit</span>
 <span class="k">def</span> <span class="nf">bootstrap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">statistics</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
     <span class="n">bootstrap_stat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -522,15 +542,14 @@ Wall time: 68.2 ms
         <span class="n">bootstrap_stat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">statistics</span><span class="p">(</span><span class="n">resample</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">bootstrap_stat</span>
 
+<span class="c1"># No decorator here.</span>
 <span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.3</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">5.9</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">])</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mf">2.3</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">5.9</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">))</span>
 <span class="n">n_resamples</span> <span class="o">=</span> <span class="mi">10</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Type of function:&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">mean</span><span class="p">))</span>
-
-<span class="c1">#Error</span>
+<span class="c1"># This code throws an error</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="n">bootstrap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">n_resamples</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
@@ -539,14 +558,11 @@ Wall time: 68.2 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Type of function: &lt;class &#39;function&#39;&gt;
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed in nopython mode pipeline (step: nopython frontend)
 <span class=" -Color -Color-Bold">non-precise type pyobject</span>
-<span class=" -Color -Color-Bold">During: typing of argument at /tmp/ipykernel_2221/2092422549.py (1)</span>
+<span class=" -Color -Color-Bold">During: typing of argument at /tmp/ipykernel_2358/3796191009.py (1)</span>
 
-<span class=" -Color -Color-Bold">File &quot;../../../../../../tmp/ipykernel_2221/2092422549.py&quot;, line 1:</span>
+<span class=" -Color -Color-Bold">File &quot;../../../../../../tmp/ipykernel_2358/3796191009.py&quot;, line 1:</span>
 <span class=" -Color -Color-Bold">&lt;source missing, REPL/exec in use?&gt;</span> 
 
 This error may have been caused by the following argument(s):
@@ -555,100 +571,28 @@ This error may have been caused by the following argument(s):
 </div>
 </div>
 </div>
-<p>But Numba recognizes JIT-compiled functions</p>
+<p>We can fix this error easily in this case by compiling <code class="docutils literal notranslate"><span class="pre">mean</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@njit</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jit</span>
 <span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Type of function:&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">mean</span><span class="p">))</span>
 
 <span class="o">%</span><span class="k">time</span> bootstrap(data, mean, n_resamples)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Type of function: &lt;class &#39;numba.core.registry.CPUDispatcher&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 293 ms, sys: 29 ms, total: 322 ms
+Wall time: 323 ms
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 282 ms, sys: 27.9 ms, total: 310 ms
-Wall time: 310 ms
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.15714286, 2.58571429, 3.44285714, 3.2       , 3.05714286,
-       3.17142857, 3.67142857, 3.31428571, 3.28571429, 3.68571429])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.71428571, 3.14285714, 3.32857143, 3.4       , 3.14285714,
+       3.51428571, 2.9       , 3.77142857, 3.81428571, 2.64285714])
 </pre></div>
 </div>
 </div>
 </div>
-<p>We can check the signature of the JIT-compiled function</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bootstrap</span><span class="o">.</span><span class="n">signatures</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(Array(float64, 1, &#39;C&#39;, False, aligned=True),
-  type(CPUDispatcher(&lt;function mean at 0x7fcd01795620&gt;)),
-  int64)]
-</pre></div>
-</div>
-</div>
-</div>
-<p>The function <code class="docutils literal notranslate"><span class="pre">bootstrap</span></code> takes one <code class="docutils literal notranslate"><span class="pre">float64</span></code> floating point array, one function called <code class="docutils literal notranslate"><span class="pre">mean</span></code> and an <code class="docutils literal notranslate"><span class="pre">int64</span></code> integer.</p>
-<p>Now let’s see what happens when we change the inputs.</p>
-<p>Running it again with a larger integer for <code class="docutils literal notranslate"><span class="pre">n</span></code> and a different set of data does not change the signature of the function.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">4.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">1.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.8</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">])</span>
-<span class="o">%</span><span class="k">time</span> bootstrap(data, mean, 100)
-<span class="n">bootstrap</span><span class="o">.</span><span class="n">signatures</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 37 μs, sys: 2 μs, total: 39 μs
-Wall time: 41 μs
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(Array(float64, 1, &#39;C&#39;, False, aligned=True),
-  type(CPUDispatcher(&lt;function mean at 0x7fcd01795620&gt;)),
-  int64)]
-</pre></div>
-</div>
-</div>
-</div>
-<p>As expected, the second run is much faster.</p>
-<p>Let’s try to change the data again and use an integer array as data</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
-<span class="o">%</span><span class="k">time</span> bootstrap(data, mean, 100)
-<span class="n">bootstrap</span><span class="o">.</span><span class="n">signatures</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 519 ms, sys: 35.8 ms, total: 555 ms
-Wall time: 556 ms
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(Array(float64, 1, &#39;C&#39;, False, aligned=True),
-  type(CPUDispatcher(&lt;function mean at 0x7fcd01795620&gt;)),
-  int64),
- (Array(int64, 1, &#39;C&#39;, False, aligned=True),
-  type(CPUDispatcher(&lt;function mean at 0x7fcd01795620&gt;)),
-  int64)]
-</pre></div>
-</div>
-</div>
-</div>
-<p>Note that a second signature is added.</p>
-<p>It also takes longer to run, suggesting that Numba recompiles this function as the type changes.</p>
-<p>Overall, type inference helps Numba to achieve its performance, but it also limits what Numba supports and sometimes requires careful type checks.</p>
-<p>You can refer to the list of supported Python and Numpy features <a class="reference external" href="https://numba.pydata.org/numba-doc/dev/reference/pysupported.html">here</a>.</p>
 </section>
 <section id="compiling-classes">
 <h2><span class="section-number">17.5. </span>Compiling Classes<a class="headerlink" href="#compiling-classes" title="Permalink to this heading">#</a></h2>
@@ -811,7 +755,7 @@ all variables to generate fast machine-level instructions.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="nd">@njit</span>
+<span class="nd">@jit</span>
 <span class="k">def</span> <span class="nf">add_a</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">x</span>
 
@@ -865,7 +809,7 @@ Monte Carlo.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">uniform</span>
 
-<span class="nd">@njit</span>
+<span class="nd">@jit</span>
 <span class="k">def</span> <span class="nf">calculate_pi</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">):</span>
     <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -888,11 +832,11 @@ Monte Carlo.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 213 ms, sys: 34 μs, total: 213 ms
-Wall time: 212 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 153 ms, sys: 53 μs, total: 153 ms
+Wall time: 153 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141168
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.142872
 </pre></div>
 </div>
 </div>
@@ -904,11 +848,11 @@ Wall time: 212 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 10.9 ms, sys: 0 ns, total: 10.9 ms
-Wall time: 10.8 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 11.2 ms, sys: 0 ns, total: 11.2 ms
+Wall time: 11.1 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.144308
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14248
 </pre></div>
 </div>
 </div>
@@ -996,7 +940,7 @@ state is about 0.666</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.666601
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.667956
 </pre></div>
 </div>
 </div>
@@ -1012,10 +956,10 @@ state is about 0.666</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.45
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.42
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.45053696632385254
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.42665886878967285
 </pre></div>
 </div>
 </div>
@@ -1023,7 +967,7 @@ state is about 0.666</p>
 <p>Next let’s implement a Numba version, which is easy</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compute_series_numba</span> <span class="o">=</span> <span class="n">njit</span><span class="p">(</span><span class="n">compute_series</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compute_series_numba</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">compute_series</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1037,7 +981,7 @@ state is about 0.666</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.666707
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6667
 </pre></div>
 </div>
 </div>
@@ -1055,7 +999,7 @@ state is about 0.666</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.00
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007447957992553711
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0074541568756103516
 </pre></div>
 </div>
 </div>
