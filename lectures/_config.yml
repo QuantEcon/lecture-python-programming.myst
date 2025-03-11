@@ -25,7 +25,8 @@ sphinx:
                        'https://keras.io/',
                        'https://data.oecd.org/',
                        'https://www.reddit.com/',
-                       'https://openai.com']
+                       'https://openai.com',
+                       'https://chatgpt.com/']
     html_favicon: _static/lectures-favicon.ico
     html_theme: quantecon_book_theme
     html_static_path: ['_static']
