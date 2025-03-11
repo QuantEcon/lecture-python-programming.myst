@@ -709,7 +709,7 @@ row, column = a.shape
 result = np.empty((3, 3))
 for i in range(row):
     for j in range(column):
-        result[i, j] = a[i, j] + b[i]
+        result[i, j] = a[i, j] + b[i,0]
 
 result
 ```
