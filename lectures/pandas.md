@@ -376,7 +376,7 @@ def update_row(row):
 df.apply(update_row, axis=1)
 ```
 
-**4.** We can use the `.applymap()` method to modify all *individual entries* in the dataframe altogether.
+**4.** We can use the `.map()` method to modify all *individual entries* in the dataframe altogether.
 
 ```{code-cell} ipython3
 # Round all decimal numbers to 2 decimal places
@@ -398,7 +398,7 @@ df
 
 The `zip()` function here creates pairs of values from the two lists (i.e. [0,3], [3,4] ...)
 
-We can use the `.applymap()` method again to replace all missing values with 0
+We can use the `.map()` method again to replace all missing values with 0
 
 ```{code-cell} ipython3
 # replace all NaN values by 0
@@ -617,11 +617,11 @@ wb.series.info('GC.DOD.TOTL.GD.ZS')
 
 ```{code-cell} ipython3
 govt_debt = wb.data.DataFrame('GC.DOD.TOTL.GD.ZS', economy=['USA','AUS'], time=range(2005,2016))
-govt_debt
+govt_debt = govt_debt.T    # move years from columns to rows for plotting
 ```
 
 ```{code-cell} ipython3
-govt_debt.plot();
+govt_debt.plot(xlabel='year', ylabel='Government debt (% of GDP)');
 ```
 
 ## Exercises
