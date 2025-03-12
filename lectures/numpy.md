@@ -1167,7 +1167,7 @@ For a comprehensive list of what's available in NumPy see [this documentation](h
 ```{index} single: Vectorization; Operations on Arrays
 ```
 
-We mentioned in an {doc}`previous lecture <>` that NumPy-based vectorization can
+We mentioned in an {doc}`previous lecture <need_for_speed>` that NumPy-based vectorization can
 accelerate scientific applications.
 
 In this section we try some speed comparisons to illustrate this fact.
