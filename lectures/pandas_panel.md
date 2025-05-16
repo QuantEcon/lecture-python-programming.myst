@@ -11,15 +11,6 @@ kernelspec:
   name: python3
 ---
 
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
-```
-
-(ppd)=
 # {index}`Pandas for Panel Data <single: Pandas for Panel Data>`
 
 ```{index} single: Python; Pandas
