@@ -207,7 +207,7 @@ While the odd global in small scripts is no big deal, we recommend that you teac
 
 For scientific computing, there is another good reason to avoid global variables.
 
-As {doc}`we've seen in previous lectures <numba>`, JIT compilation can generate excellent performance for scripting languages like Python.
+As [we've seen in previous lectures](numba.md), JIT compilation can generate excellent performance for scripting languages like Python.
 
 But the task of the compiler used for JIT compilation becomes harder when global variables are present.
 

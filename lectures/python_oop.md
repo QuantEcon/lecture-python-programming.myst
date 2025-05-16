@@ -16,7 +16,7 @@ kernelspec:
 
 ## Overview
 
-In an {doc}`earlier lecture <oop_intro>`, we learned some foundations of object-oriented programming.
+In an [earlier lecture](oop_intro.md), we learned some foundations of object-oriented programming.
 
 The objectives of this lecture are
 
@@ -68,7 +68,7 @@ Let's cover general OOP concepts before we specialize to Python.
 ```{index} single: Object-Oriented Programming; Key Concepts
 ```
 
-As discussed an {doc}`earlier lecture <oop_intro>`, in the OOP paradigm, data and functions are **bundled together** into "objects".
+As discussed an [earlier lecture](oop_intro.md), in the OOP paradigm, data and functions are **bundled together** into "objects".
 
 An example is a Python list, which not only stores data but also knows how to sort itself, etc.
 

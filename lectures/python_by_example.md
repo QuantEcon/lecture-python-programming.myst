@@ -25,7 +25,7 @@ The objective is to introduce you to basic Python syntax and data structures.
 
 Deeper concepts will be covered in later lectures.
 
-You should have read the {doc}`lecture <getting_started>` on getting started with Python before beginning this one.
+You should have read the [lecture](getting_started.md) on getting started with Python before beginning this one.
 
 
 ## The Task: Plotting a White Noise Process
@@ -67,7 +67,7 @@ Let's break this program down and see how it works.
 The first two lines of the program import functionality from external code
 libraries.
 
-The first line imports {doc}`NumPy <numpy>`, a favorite Python package for tasks like
+The first line imports [NumPy](numpy.md), a favorite Python package for tasks like
 
 * working with arrays (vectors and matrices)
 * common mathematical functions like `cos` and `sqrt`
@@ -250,7 +250,7 @@ x
 
 Here `append()` is what's called a **method**, which is a function "attached to" an object---in this case, the list `x`.
 
-We'll learn all about methods {doc}`later on <oop_intro>`, but just to give you some idea, 
+We'll learn all about methods [later on](oop_intro.md), but just to give you some idea, 
 
 * Python objects such as lists, strings, etc. all have methods that are used to manipulate data contained in the object.
 * String objects have [string methods](https://docs.python.org/3/library/stdtypes.html#string-methods), list objects have [list methods](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists), etc.
