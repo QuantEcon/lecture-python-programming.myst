@@ -15,9 +15,8 @@ kernelspec:
 In addition to what's in Anaconda, this lecture will need the following libraries:
 
 ```{code-cell} ipython
----
-tags: [hide-output]
----
+:tags: hide-output
+
 !pip install quantecon
 ```
 
@@ -177,7 +176,7 @@ To get some basis for comparison for the last example, let's try the same
 thing with Numba.
 
 In fact there is an easy way to do this, since Numba can also be used to
-create custom {ref}`ufuncs <ufuncs>` with the [@vectorize](http://numba.pydata.org/numba-doc/dev/user/vectorize.html) decorator.
+create custom {ref}`ufuncs <ufuncs>` with the [`@vectorize`](http://numba.pydata.org/numba-doc/dev/user/vectorize.html) decorator.
 
 ```{code-cell} python3
 from numba import vectorize

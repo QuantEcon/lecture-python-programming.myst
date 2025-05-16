@@ -151,9 +151,8 @@ x
 But tuples are not
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 x = (1, 2)
 x[0] = 10
 ```

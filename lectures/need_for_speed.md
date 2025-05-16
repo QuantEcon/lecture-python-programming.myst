@@ -41,9 +41,8 @@ We'll also discuss the following topics:
 In addition to what's in Anaconda, this lecture will need
 
 ```{code-cell} ipython
----
-tags: [hide-output]
----
+:tags: hide-output
+
 !pip install quantecon
 ```
 

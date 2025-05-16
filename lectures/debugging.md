@@ -58,9 +58,8 @@ import matplotlib.pyplot as plt
 Let's consider a simple (and rather contrived) example
 
 ```{code-cell} ipython
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 def plot_log():
     fig, ax = plt.subplots(2, 1)
     x = np.linspace(1, 2, 10)
@@ -85,9 +84,8 @@ But let's pretend that we don't understand this for the moment.
 We might suspect there's something wrong with `ax` but when we try to investigate this object, we get the following exception:
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 ax
 ```
 
@@ -99,9 +97,8 @@ Let's try doing it a different way.
 We run the first cell block again, generating the same error
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 def plot_log():
     fig, ax = plt.subplots(2, 1)
     x = np.linspace(1, 2, 10)
@@ -178,9 +175,8 @@ The preceding approach is handy but sometimes insufficient.
 Consider the following modified version of our function above
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 def plot_log():
     fig, ax = plt.subplots()
     x = np.logspace(1, 2, 10)
@@ -283,7 +279,7 @@ In this section, we'll discuss different types of errors in Python and technique
 
 ### Errors in Python
 
-We have seen `AttributeError` and `NameError` in {any}`our previous examples <debug_magic>`.
+We have seen `AttributeError` and `NameError` in [our previous examples](#debug_magic).
 
 In Python, there are two types of errors -- syntax errors and exceptions.
 
@@ -293,9 +289,8 @@ In Python, there are two types of errors -- syntax errors and exceptions.
 Here's an example of a common error type
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 def f:
 ```
 
@@ -304,36 +299,32 @@ Since illegal syntax cannot be executed, a syntax error terminates execution of 
 Here's a different kind of error, unrelated to syntax
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 1 / 0
 ```
 
 Here's another
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 x1 = y1
 ```
 
 And another
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 'foo' + 6
 ```
 
 And another
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 X = []
 x = X[0]
 ```
@@ -367,9 +358,8 @@ If we run this with an array of length one, the program will terminate and
 print our error message
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 var([1])
 ```
 
@@ -499,7 +489,7 @@ prices
 
 Using `try` -- `except`, write a program to read in the contents of the file and sum the numbers, ignoring lines without numbers.
 
-You can use the `open()` function we learnt {any}`before<iterators>` to open `numbers.txt`.
+You can use the `open()` function we learnt [before](#iterators) to open `numbers.txt`.
 ```{exercise-end}
 ```
 

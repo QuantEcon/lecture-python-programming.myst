@@ -161,7 +161,7 @@ Functions without a return statement automatically return the special Python obj
 ```{index} single: Python; keyword arguments
 ```
 
-In a {ref}`previous lecture <python_by_example>`, you came across the statement
+In a [previous lecture](python_by_example.md), you came across the statement
 
 ```{code-block} python3
 :class: no-execute
@@ -203,7 +203,7 @@ f(2, a=4, b=5)
 
 ### The Flexibility of Python Functions
 
-As we discussed in the {ref}`previous lecture <python_by_example>`, Python functions are very flexible.
+As we discussed in the [previous lecture](python_by_example.md), Python functions are very flexible.
 
 In particular
 

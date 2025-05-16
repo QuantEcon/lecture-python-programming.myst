@@ -514,9 +514,8 @@ a + b
 Here is a visual representation of this broadcasting operation:
 
 ```{code-cell} python3
----
-tags: [hide-input]
----
+:tags: hide-input
+
 # Adapted and modified based on the code in the book written by Jake VanderPlas (see https://jakevdp.github.io/PythonDataScienceHandbook/06.00-figure-code.html#Broadcasting)
 # Originally from astroML: see http://www.astroml.org/book_figures/appendix/fig_broadcast_visual.html
 
@@ -643,9 +642,8 @@ a + b
 Here is a visual representation of this broadcasting operation:
 
 ```{code-cell} python3
----
-tags: [hide-input]
----
+:tags: hide-input
+
 
 fig = plt.figure(figsize=(5, 1), facecolor='w')
 ax = plt.axes([0, 0, 1, 1], xticks=[], yticks=[], frameon=False)
@@ -725,9 +723,8 @@ a + b
 Here is a visual representation of this broadcasting operation:
 
 ```{code-cell} python3
----
-tags: [hide-input]
----
+:tags: hide-input
+
 
 # Draw a figure and axis with no boundary
 fig = plt.figure(figsize=(5, 1), facecolor='w')
@@ -781,9 +778,8 @@ While broadcasting is very useful, it can sometimes seem confusing.
 For example, let's try adding `a -> (3, 2)` and `b -> (3,)`.
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 a = np.array(
       [[1, 2],
        [4, 5],
@@ -799,9 +795,8 @@ The `ValueError` tells us that operands could not be broadcast together.
 Here is a visual representation to show why this broadcasting cannot be executed:
 
 ```{code-cell} python3
----
-tags: [hide-input]
----
+:tags: hide-input
+
 # Draw a figure and axis with no boundary
 fig = plt.figure(figsize=(3, 1.3), facecolor='w')
 ax = plt.axes([0, 0, 1, 1], xticks=[], yticks=[], frameon=False)
@@ -901,9 +896,8 @@ a + b
     - We can see that they do not match each other after the first two steps. Thus, a `ValueError` will be raised
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 a = np.array(
     [[[1, 2, 3], 
       [2, 3, 4]], 
@@ -1595,9 +1589,8 @@ A = x / y
 Here is the output
 
 ```{code-cell} python3
----
-tags: [hide-output]
----
+:tags: hide-output
+
 print(A)
 ```
 
@@ -1608,7 +1601,8 @@ For this part of the exercise you can use the `tic`/`toc` functions from the `qu
 Let's make sure this library is installed.
 
 ```{code-cell} python3
-:tags: [hide-output]
+:tags: hide-output
+
 !pip install quantecon
 ```
 
@@ -1628,9 +1622,8 @@ qe.toc()
 Here is the output
 
 ```{code-cell} python3
----
-tags: [hide-output]
----
+:tags: hide-output
+
 print(B)
 ```
 
@@ -1659,9 +1652,8 @@ for i in range(n):
 Compare the results to check your answer
 
 ```{code-cell} python3
----
-tags: [hide-output]
----
+:tags: hide-output
+
 print(C)
 ```
 
@@ -1695,9 +1687,8 @@ Note that the `for` loop takes much longer than the broadcasting operation.
 Compare the results to check your answer
 
 ```{code-cell} python3
----
-tags: [hide-output]
----
+:tags: hide-output
+
 print(D)
 ```
 

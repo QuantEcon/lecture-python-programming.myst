@@ -107,9 +107,8 @@ On the other hand, between two numbers it means ordinary addition
 Consider the following expression
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 '300' + 400
 ```
 
@@ -342,7 +341,7 @@ and write clear Pythonic code.
 :label: oop_intro_ex1
 ```
 
-We have met the {any}`boolean data type <boolean>` previously. 
+We have met the [boolean data type](python_essentials.md#boolean) previously. 
 
 Using what we have learnt in this lecture, print a list of methods of the
 boolean object `True`.
