@@ -313,5 +313,5 @@ vectorization listed above.
 It does so through something called **just in time (JIT) compilation**,
 which can generate extremely fast and efficient code.
 
-{doc}`Later <numba>` we'll learn how to use Numba to accelerate Python code.
+[Later](numba.md) we'll learn how to use Numba to accelerate Python code.
 

@@ -956,7 +956,7 @@ a
 What's happened is that we have changed `a` by changing `b`.
 
 The name `b` is bound to `a` and becomes just another reference to the
-array (the Python assignment model is described in more detail {doc}`later in the course <python_advanced_features>`).
+array the Python assignment model is described in more detail [later in the course](python_advanced_features.md).
 
 Hence, it has equal rights to make changes to that array.
 
@@ -1149,7 +1149,7 @@ np.linalg.inv(A)           # Compute the inverse
 
 Much of this functionality is also available in [SciPy](http://www.scipy.org/), a collection of modules that are built on top of NumPy.
 
-We'll cover the SciPy versions in more detail {doc}`soon <scipy>`.
+We'll cover the SciPy versions in more detail [soon](scipy.md).
 
 For a comprehensive list of what's available in NumPy see [this documentation](https://docs.scipy.org/doc/numpy/reference/routines.html).
 
@@ -1159,7 +1159,7 @@ For a comprehensive list of what's available in NumPy see [this documentation](h
 ```{index} single: Vectorization; Operations on Arrays
 ```
 
-We mentioned in an {doc}`previous lecture <need_for_speed>` that NumPy-based vectorization can
+We mentioned in an [previous lecture](need_for_speed.md) that NumPy-based vectorization can
 accelerate scientific applications.
 
 In this section we try some speed comparisons to illustrate this fact.

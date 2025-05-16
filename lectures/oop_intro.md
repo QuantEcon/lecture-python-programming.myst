@@ -287,7 +287,7 @@ If Python is object oriented, why don't we use `x.len()`?
 The answer is related to the fact that Python aims for readability and consistent style.
 
 In Python, it is common for users to build custom objects --- we discuss how to
-do this {doc}`later <python_oop>`.
+do this [later](python_oop.md).
 
 It's quite common for users to add methods to their that measure the length of
 the object, suitably defined.

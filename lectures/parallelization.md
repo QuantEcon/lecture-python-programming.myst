@@ -477,7 +477,7 @@ on the number of CPUs on your machine.)
 ```{exercise}
 :label: parallel_ex2
 
-In {doc}`our lecture on SciPy<scipy>`, we discussed pricing a call option in a
+In [our lecture on SciPy](scipy.md), we discussed pricing a call option in a
 setting where the underlying stock price had a simple and well-known
 distribution.
 
