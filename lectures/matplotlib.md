@@ -343,12 +343,9 @@ If you are interested, you can even create your own style sheets.
 Parameters for your style sheets are stored in a dictionary-like variable `plt.rcParams`
 
 ```{code-cell} python3
----
-tags: [hide-output]
----
+:tags: hide-output
  
 print(plt.rcParams.keys())
-
 ```
 
 There are many parameters you could set for your style sheets.

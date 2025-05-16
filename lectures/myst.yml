@@ -74,14 +74,14 @@ project:
   error_rules:
     - rule: reference-syntax-valid
       severity: ignore
-  exports:
-    - id: book-pdf
-      format: typst
-      template: https://github.com/rowanc1/typst-book.git
-      output: exports/quantecon-python-intro.pdf
-  downloads:
-    - id: book-pdf
-      title: Book (PDF)
+  # exports:
+  #   - id: book-pdf
+  #     format: typst
+  #     template: https://github.com/rowanc1/typst-book.git
+  #     output: exports/quantecon-lecture-python.pdf
+  # downloads:
+  #   - id: book-pdf
+  #     title: Book (PDF)
 site:
   parts:
     footer: footer.md

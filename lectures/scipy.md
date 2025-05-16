@@ -560,7 +560,7 @@ print(f"The Monte Carlo option price is {P:3f}")
 ```{exercise}
 :label: sp_ex1
 
-In {ref}`this lecture <functions>`, we discussed the concept of {ref}`recursive function calls <recursive_functions>`.
+In [this lecture](functions.md), we discussed the concept of {ref}`recursive function calls <recursive_functions>`.
 
 Try to write a recursive implementation of the homemade bisection function {ref}`described above <bisect_func>`.
 

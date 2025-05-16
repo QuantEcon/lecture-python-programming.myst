@@ -182,9 +182,8 @@ type(x)
 ```
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 next(x)
 ```
 
@@ -215,9 +214,8 @@ next(y)
 ```
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 next(y)
 ```
 
@@ -226,9 +224,8 @@ Many other objects are iterable, such as dictionaries and tuples.
 Of course, not all objects are iterable
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 iter(42)
 ```
 
@@ -271,9 +268,8 @@ max(y)
 ```
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 max(y)
 ```
 
@@ -892,9 +888,8 @@ next(gen)
 ```
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 next(gen)
 ```
 
@@ -957,9 +952,8 @@ next(gen)
 ```
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 next(gen)
 ```
 
@@ -1015,9 +1009,8 @@ This uses lots of memory and is very slow.
 If we make `n` even bigger then this happens
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 n = 100000000
 draws = [random.uniform(0, 1) < 0.5 for i in range(n)]
 ```
