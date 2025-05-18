@@ -13,8 +13,6 @@ project:
         - Instructor for Ph.D. Advanced Macroeconomics, University of Minnesota.
       url: https://johnstachurski.net
       email: john.stachurski@gmail.com
-  bibliography:
-    - ./_static/quant-econ.bib
   github: https://github.com/QuantEcon/lecture-python-programming.myst
   toc:
     - file: intro.md
