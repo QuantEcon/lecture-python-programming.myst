@@ -1,0 +1,8 @@
+jupyter-server
+ipykernel
+numpy
+scipy
+matplotlib
+pandas
+quantecon
+sympy

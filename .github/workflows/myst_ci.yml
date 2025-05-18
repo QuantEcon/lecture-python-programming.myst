@@ -1,0 +1,56 @@
+name: MyST GitHub Pages Deploy
+on:
+  push:
+    branches: [myst_build]
+env:
+  BASE_URL: /${{ github.event.repository.name }}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Cache Notebook Execution
+        uses: actions/cache@v3
+        id: cache-execution
+        with:
+          path: ./lectures/_build/execute
+          key: ${{ runner.os }}-execute-cache-${{ hashFiles('lectures/**/*.md') }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+      - name: Install Python
+        if: steps.cache-execution.outputs.cache-hit != 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: 'myst_requirements.txt'
+      - name: Install execution requirements for ipykernel and jupyter-server
+        if: steps.cache-execution.outputs.cache-hit != 'true'
+        run: python -m pip install -r myst_requirements.txt
+        shell: bash
+      - name: Install MyST Markdown
+        run: npm install -g mystmd
+      - name: Build HTML Assets
+        working-directory: ./lectures
+        run: myst build --html --execute
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './lectures/_build/html'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
