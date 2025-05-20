@@ -36,7 +36,7 @@ process $\epsilon_0, \epsilon_1, \ldots, \epsilon_T$, where each draw $\epsilon_
 In other words, we want to generate figures that look something like this:
 
 ```{figure} /_static/lecture_specific/python_by_example/test_program_1_updated.png
-:scale: 120
+:width: 120%
 ```
 
 (Here $t$ is on the horizontal axis and $\epsilon_t$ is on the

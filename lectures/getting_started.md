@@ -367,7 +367,7 @@ You will spend a lot of time debugging code, so it is important to [learn how to
 If you are using a newer version of Jupyter, you should see a bug icon on the right end of the toolbar.
 
 ```{figure} /_static/lecture_specific/getting_started/debug.png
-:scale: 80%
+:width: 80%
 :figclass: auto
 ```
 

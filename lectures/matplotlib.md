@@ -451,7 +451,7 @@ Place all the curves in the same figure.
 The output should look like this
 
 ```{figure} /_static/lecture_specific/matplotlib/matplotlib_ex1.png
-:scale: 130
+:width: 130%
 ```
 
 ```{exercise-end}
