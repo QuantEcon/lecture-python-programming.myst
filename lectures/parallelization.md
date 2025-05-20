@@ -133,7 +133,7 @@ Now, let's look at the output of the htop system monitor on our machine while
 this code is running:
 
 ```{figure} /_static/lecture_specific/parallelization/htop_parallel_npmat.png
-:scale: 80
+:width: 80%
 ```
 
 We can see that 4 of the 8 CPUs are running at full speed.

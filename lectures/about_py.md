@@ -416,13 +416,13 @@ The most popular and comprehensive Python library for creating figures and graph
 Example 2D plot with embedded LaTeX annotations
 
 ```{figure} /_static/lecture_specific/about_py/qs.png
-:scale: 75
+:width: 75%
 ```
 
 Example contour plot
 
 ```{figure} /_static/lecture_specific/about_py/bn_density1.png
-:scale: 70
+:width: 70%
 ```
 
 Example 3D plot
