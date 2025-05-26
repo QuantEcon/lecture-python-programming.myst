@@ -63,10 +63,8 @@ Numba will be a key part of our lectures --- especially those lectures involving
 This lecture introduces the main ideas.
 
 (numba_link)=
-## {index}`Compiling Functions <single: Compiling Functions>`
+## Compiling Functions
 
-```{index} single: Python; Numba
-```
 
 As stated above, Numba's primary use is compiling functions to fast native
 machine code during runtime.
@@ -397,8 +395,6 @@ plt.show()
 
 ## Alternatives to Numba
 
-```{index} single: Python; Cython
-```
 
 There are additional options for accelerating Python loops.
 
@@ -429,8 +425,6 @@ cumbersome than Numba.
 
 ### Interfacing with Fortran via F2Py
 
-```{index} single: Python; Interfacing with Fortran
-```
 
 If you are comfortable writing Fortran you will find it very easy to create
 extension modules from Fortran code using [F2Py](https://docs.scipy.org/doc/numpy/f2py/).

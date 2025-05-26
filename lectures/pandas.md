@@ -11,10 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# {index}`Pandas <single: Pandas>`
-
-```{index} single: Python; Pandas
-```
+# Pandas
 
 In addition to what’s in Anaconda, this lecture will need the following libraries:
 
@@ -71,8 +68,6 @@ A `DataFrame` is a two-dimensional object for storing related columns of data.
 
 ## Series
 
-```{index} single: Pandas; Series
-```
 
 Let's start with Series.
 
@@ -134,8 +129,6 @@ s
 
 ## DataFrames
 
-```{index} single: Pandas; DataFrames
-```
 
 While a `Series` is a single column of data, a `DataFrame` is several columns, one for each variable.
 
@@ -485,8 +478,6 @@ plt.show()
 
 ## On-Line Data Sources
 
-```{index} single: Data Sources
-```
 
 Python makes it straightforward to query online databases programmatically.
 
@@ -502,10 +493,8 @@ This can be done with a variety of methods.
 
 We start with a relatively low-level method and then return to pandas.
 
-### Accessing Data with {index}`requests <single: requests>`
+### Accessing Data with requests
 
-```{index} single: Python; requests
-```
 
 One option is to use [requests](https://requests.readthedocs.io/en/master/), a standard Python library for requesting data over the Internet.
 
@@ -581,7 +570,7 @@ Note that pandas offers many other file type alternatives.
 
 Pandas has [a wide variety](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html) of top-level methods that we can use to read, excel, json, parquet or plug straight into a database server.
 
-### Using {index}`wbgapi <single: wbgapi>` and {index}`yfinance <single: yfinance>` to Access Data
+### Using wbgapi and yfinance to Access Data
 
 The [wbgapi](https://pypi.org/project/wbgapi/) python library can be used to fetch data from the many databases published by the World Bank.
 

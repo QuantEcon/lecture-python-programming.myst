@@ -11,8 +11,6 @@ kernelspec:
 
 # Functions
 
-```{index} single: Python; User-defined functions
-```
 
 ## Overview
 
@@ -158,8 +156,6 @@ Functions without a return statement automatically return the special Python obj
 (pos_args)=
 ### Keyword Arguments
 
-```{index} single: Python; keyword arguments
-```
 
 In a [previous lecture](python_by_example.md), you came across the statement
 
@@ -217,8 +213,6 @@ a function in the following sections.
 
 ### One-Line Functions: `lambda`
 
-```{index} single: Python; lambda functions
-```
 
 The `lambda` keyword is used to create simple functions on one line.
 
@@ -312,8 +306,6 @@ The net result is that the name `data` is *bound* to the list `ϵ_values` return
 
 ### Adding Conditions
 
-```{index} single: Python; Conditions
-```
 
 Our function `generate_data()` is rather limited.
 
@@ -398,8 +390,6 @@ function*---as we did above.
 (recursive_functions)=
 ## Recursive Function Calls (Advanced)
 
-```{index} single: Python; Recursion
-```
 
 This is an advanced topic that you should feel free to skip.
 

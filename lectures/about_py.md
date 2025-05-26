@@ -9,8 +9,6 @@ kernelspec:
   name: python3
 ---
 
-```{index} single: python
-```
 
 # About These Lectures
 
@@ -86,7 +84,7 @@ This is important because it
 
 ### Common Uses
 
-{index}`Python <single: Python; common uses>` is a general-purpose language used in almost all application domains, including
+Python is a general-purpose language used in almost all application domains, including
 
 * AI 
 * scientific computing
@@ -155,8 +153,6 @@ Other features of Python:
 
 ### Syntax and Design
 
-```{index} single: Python; syntax and design
-```
 
 One reason for Python's popularity is its simple and elegant design --- we'll see many examples later on.
 
@@ -274,8 +270,6 @@ These lectures will explain how.
 
 ## Scientific Programming with Python
 
-```{index} single: scientific programming
-```
 
 We have already discussed the importance of Python for AI, machine learning and data science
 
@@ -298,9 +292,6 @@ This section briefly showcases some examples of Python for general scientific pr
 
 
 ### NumPy
-
-```{index} single: scientific programming; numeric
-```
 
 One of the most important parts of scientific computing is working with data.
 
@@ -402,8 +393,6 @@ Later we'll discuss SciPy in more detail.
 
 ### Graphics
 
-```{index} single: Matplotlib
-```
 
 A major strength of Python is data visualization.
 
@@ -458,8 +447,6 @@ For example, we are interesting in studying
 
 Python has many libraries for studying networks and graphs.
 
-```{index} single: NetworkX
-```
 
 One well-known example is [NetworkX](http://networkx.github.io/).
 

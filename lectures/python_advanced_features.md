@@ -24,8 +24,6 @@ A variety of topics are treated in the lecture, including iterators, decorators 
 
 ## Iterables and Iterators
 
-```{index} single: Python; Iteration
-```
 
 We've {ref}`already said something <iterating_version_1>` about iterating in Python.
 
@@ -34,8 +32,6 @@ Now let's look more closely at how it all works, focusing in Python's implementa
 (iterators)=
 ### Iterators
 
-```{index} single: Python; Iterators
-```
 
 Iterators are a uniform interface to stepping through elements in a collection.
 
@@ -123,8 +119,6 @@ next(nikkei_data)
 
 ### Iterators in For Loops
 
-```{index} single: Python; Iterators
-```
 
 All iterators can be placed to the right of the `in` keyword in `for` loop statements.
 
@@ -162,8 +156,6 @@ This continues until a `StopIteration` error occurs.
 
 ### Iterables
 
-```{index} single: Python; Iterables
-```
 
 You already know that we can put a Python list to the right of `in` in a `for` loop
 
@@ -235,9 +227,6 @@ To conclude our discussion of `for` loops
 * In the second case, the iterable is converted into an iterator before the loop starts.
 
 ### Iterators and built-ins
-
-```{index} single: Python; Iterators
-```
 
 Some built-in functions that act on sequences also work with iterables
 
@@ -448,12 +437,6 @@ The difference is that functions with `*args` will be able to take *positional a
 
 ## Decorators and Descriptors
 
-```{index} single: Python; Decorators
-```
-
-```{index} single: Python; Descriptors
-```
-
 Let's look at some special syntax elements that are routinely used by Python developers.
 
 You might not need the following concepts immediately, but you will see them
@@ -463,8 +446,6 @@ Hence you need to understand them at some stage of your Python education.
 
 ### Decorators
 
-```{index} single: Python; Decorators
-```
 
 Decorators are a bit of syntactic sugar that, while easily avoided, have turned out to be popular.
 
@@ -565,8 +546,6 @@ At the same time, the test logic is written only once.
 
 #### Enter Decorators
 
-```{index} single: Python; Decorators
-```
 
 The last version of our code is still not ideal.
 
@@ -621,8 +600,6 @@ In the opinion of many people, this makes the decorator syntax a significant imp
 (descriptors)=
 ### Descriptors
 
-```{index} single: Python; Descriptors
-```
 
 Descriptors solve a common problem regarding management of variables.
 
@@ -735,11 +712,6 @@ method is triggered --- in this case `set_miles`.
 
 #### Decorators and Properties
 
-```{index} single: Python; Decorators
-```
-
-```{index} single: Python; Properties
-```
 
 These days its very common to see the `property` function used via a decorator.
 
@@ -778,9 +750,6 @@ For further information you can refer to the [descriptor documentation](https://
 
 (paf_generators)=
 ## Generators
-
-```{index} single: Python; Generators
-```
 
 A generator is a kind of iterator (i.e., it works with a `next` function).
 
@@ -844,8 +813,6 @@ sum(x * x for x in range(10))
 
 ### Generator Functions
 
-```{index} single: Python; Generator Functions
-```
 
 The most flexible way to create generator objects is to use generator functions.
 

@@ -9,10 +9,8 @@ kernelspec:
   name: python3
 ---
 
-# {index}`OOP II: Building Classes <single: OOP II: Building Classes>`
+# OOP II: Building Classes
 
-```{index} single: Python; Object-Oriented Programming
-```
 
 ## Overview
 
@@ -65,8 +63,6 @@ Let's cover general OOP concepts before we specialize to Python.
 
 ### Key Concepts
 
-```{index} single: Object-Oriented Programming; Key Concepts
-```
 
 As discussed an [earlier lecture](oop_intro.md), in the OOP paradigm, data and functions are **bundled together** into "objects".
 
@@ -136,8 +132,6 @@ When we use OOP, the `simulate` method is conveniently bundled together with the
 
 ## Defining Your Own Classes
 
-```{index} single: Object-Oriented Programming; Classes
-```
 
 Let's build some simple classes to start off.
 
@@ -342,9 +336,6 @@ That's why the statement `self.wealth += y` inside `earn` ends up modifying `c1.
 
 (oop_solow_growth)=
 ### Example: The Solow Growth Model
-
-```{index} single: Object-Oriented Programming; Methods
-```
 
 For our next example, let's write a simple class to implement the Solow growth model.
 
@@ -685,8 +676,6 @@ Notice that there is no value of $r$ that leads to a steady state oscillating am
 
 ## Special Methods
 
-```{index} single: Object-Oriented Programming; Special Methods
-```
 
 Python provides special methods that come in handy.
 
