@@ -11,10 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# {index}`SymPy <single: SymPy>`
-
-```{index} single: Python; SymPy
-```
+# SymPy
 
 ## Overview
 

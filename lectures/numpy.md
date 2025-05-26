@@ -10,10 +10,7 @@ kernelspec:
 ---
 
 
-# {index}`NumPy <single: NumPy>`
-
-```{index} single: Python; NumPy
-```
+# NumPy
 
 ```{epigraph}
 "Let's be clear: the work of science has nothing whatever to do with consensus.  Consensus is the business of politics. Science, on the contrary, requires only one investigator who happens to be right, which means that he or she has results that are verifiable by reference to the real world. In science consensus is irrelevant. What is relevant is reproducible results." -- Michael Crichton
@@ -50,8 +47,6 @@ from matplotlib import cm
 (numpy_array)=
 ## NumPy Arrays
 
-```{index} single: NumPy; Arrays
-```
 
 The essential problem that NumPy solves is fast array processing.
 
@@ -101,8 +96,6 @@ type(a[0])
 (numpy_shape_dim)=
 ### Shape and Dimension
 
-```{index} single: NumPy; Arrays (Shape and Dimension)
-```
 
 Consider the following assignment
 
@@ -139,8 +132,6 @@ in `z = np.zeros((2, 2))`.
 (creating_arrays)=
 ### Creating Arrays
 
-```{index} single: NumPy; Arrays (Creating)
-```
 
 As we've seen, the `np.zeros` function creates an array of zeros.
 
@@ -208,8 +199,6 @@ or `np.genfromtxt`---see [the documentation](http://docs.scipy.org/doc/numpy/ref
 
 ### Array Indexing
 
-```{index} single: NumPy; Arrays (Indexing)
-```
 
 For a flat array, indexing is the same as Python sequences:
 
@@ -302,8 +291,6 @@ z
 
 ### Array Methods
 
-```{index} single: NumPy; Arrays (Methods)
-```
 
 Arrays have useful methods, all of which are carefully optimized
 
@@ -384,8 +371,6 @@ np.mean(a)
 
 ## Arithmetic Operations
 
-```{index} single: NumPy; Arithmetic Operations
-```
 
 The operators `+`, `-`, `*`, `/` and `**` all act *elementwise* on arrays
 
@@ -433,11 +418,6 @@ In particular, `A * B` is *not* the matrix product, it is an element-wise produc
 
 ## Matrix Multiplication
 
-```{index} single: NumPy; Matrix Multiplication
-```
-
-```{index} single: NumPy; Matrix Multiplication
-```
 
 With Anaconda's scientific Python package based around Python 3.5 and above,
 one can use the `@` symbol for matrix multiplication, as follows:
@@ -474,8 +454,6 @@ Since we are post-multiplying, the tuple is treated as a column vector.
 (broadcasting)=
 ## Broadcasting
 
-```{index} single: NumPy; Broadcasting
-```
 
 (This section extends an excellent discussion of broadcasting provided by [Jake VanderPlas](https://jakevdp.github.io/PythonDataScienceHandbook/02.05-computation-on-arrays-broadcasting.html).)
 
@@ -995,8 +973,6 @@ Let's look at some other useful things we can do with NumPy.
 
 ### Vectorized Functions
 
-```{index} single: NumPy; Vectorized Functions
-```
 
 NumPy provides versions of the standard functions `log`, `exp`, `sin`, etc. that act *element-wise* on arrays
 
@@ -1060,8 +1036,6 @@ However, this approach doesn't always obtain the same speed as a more carefully 
 
 ### Comparisons
 
-```{index} single: NumPy; Comparisons
-```
 
 As a rule, comparisons on arrays are done element-wise
 
@@ -1135,12 +1109,6 @@ np.linalg.det(A)           # Compute the determinant
 np.linalg.inv(A)           # Compute the inverse
 ```
 
-```{index} single: SciPy
-```
-
-```{index} single: Python; SciPy
-```
-
 Much of this functionality is also available in [SciPy](http://www.scipy.org/), a collection of modules that are built on top of NumPy.
 
 We'll cover the SciPy versions in more detail [soon](scipy.md).
@@ -1150,8 +1118,6 @@ For a comprehensive list of what's available in NumPy see [this documentation](h
 
 ## Speed Comparisons
 
-```{index} single: Vectorization; Operations on Arrays
-```
 
 We mentioned in an [previous lecture](need_for_speed.md) that NumPy-based vectorization can
 accelerate scientific applications.
@@ -1204,8 +1170,6 @@ The next section illustrates this point.
 (ufuncs)=
 ### Universal Functions
 
-```{index} single: NumPy; Universal Functions
-```
 
 As discussed above, many functions provided by NumPy are universal functions (ufuncs).
 

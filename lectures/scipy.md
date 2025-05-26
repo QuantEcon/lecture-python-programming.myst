@@ -9,10 +9,7 @@ kernelspec:
   name: python3
 ---
 
-# {index}`SciPy <single: SciPy>`
-
-```{index} single: Python; SciPy
-```
+# SciPy
 
 ## Overview
 
@@ -36,7 +33,7 @@ A more common approach is to get some idea of what's in the library and then loo
 
 In this lecture, we aim only to highlight some useful parts of the package.
 
-## {index}`SciPy <single: SciPy>` versus {index}`NumPy <single: NumPy>`
+## SciPy versus NumPy
 
 SciPy is a package that contains various tools that are built on top of NumPy, using its array data type and related functionality.
 
@@ -67,8 +64,6 @@ Let's explore some of the major sub-packages.
 
 ## Statistics
 
-```{index} single: SciPy; Statistics
-```
 
 The `scipy.stats` subpackage supplies
 
@@ -201,10 +196,7 @@ The unique root is approximately 0.408.
 
 Let's consider some numerical techniques for finding roots.
 
-### {index}`Bisection <single: Bisection>`
-
-```{index} single: SciPy; Bisection
-```
+### Bisection
 
 One of the most common algorithms for numerical root-finding is *bisection*.
 
@@ -258,10 +250,7 @@ from scipy.optimize import bisect
 bisect(f, 0, 1)
 ```
 
-### The {index}`Newton-Raphson Method <single: Newton-Raphson Method>`
-
-```{index} single: SciPy; Newton-Raphson Method
-```
+### Newton-Raphson Method
 
 Another very common root-finding algorithm is the [Newton-Raphson method](https://en.wikipedia.org/wiki/Newton%27s_method).
 
@@ -320,8 +309,6 @@ Here the correct solution is found and the speed is better than bisection:
 
 ### Multivariate Root-Finding
 
-```{index} single: SciPy; Multivariate Root-Finding
-```
 
 Use `scipy.optimize.fsolve`, a wrapper for a hybrid method in MINPACK.
 
@@ -331,8 +318,6 @@ See the [documentation](http://docs.scipy.org/doc/scipy/reference/generated/scip
 
 A **fixed point** of a real function $f$ on $[a,b]$ is an $x \in [a, b]$ such that $f(x)=x$.
 
-```{index} single: SciPy; Fixed Points
-```
 
 SciPy has a function for finding (scalar) fixed points too
 
@@ -345,10 +330,7 @@ fixed_point(lambda x: x**2, 10.0)  # 10.0 is an initial guess
 If you don't get good results, you can always switch back to the `brentq` root finder, since
 the fixed point of a function $f$ is the root of $g(x) := x - f(x)$.
 
-## {index}`Optimization <single: Optimization>`
-
-```{index} single: SciPy; Optimization
-```
+## Optimization
 
 Most numerical packages provide only functions for *minimization*.
 
@@ -371,8 +353,6 @@ fminbound(lambda x: x**2, -1, 2)  # Search in [-1, 2]
 
 ### Multivariate Optimization
 
-```{index} single: Optimization; Multivariate
-```
 
 Multivariate local optimizers include `minimize`, `fmin`, `fmin_powell`, `fmin_cg`, `fmin_bfgs`, and `fmin_ncg`.
 
@@ -380,10 +360,8 @@ Constrained multivariate local optimizers include `fmin_l_bfgs_b`, `fmin_tnc`, `
 
 See the [documentation](http://docs.scipy.org/doc/scipy/reference/optimize.html) for details.
 
-## {index}`Integration <single: Integration>`
+## Integration
 
-```{index} single: SciPy; Integration
-```
 
 Most numerical integration methods work by computing the integral of an approximating polynomial.
 
@@ -410,10 +388,8 @@ There are also functions for multivariate integration.
 
 See the [documentation](http://docs.scipy.org/doc/scipy/reference/integrate.html) for more details.
 
-## {index}`Linear Algebra <single: Linear Algebra>`
+## Linear Algebra
 
-```{index} single: SciPy; Linear Algebra
-```
 
 We saw that NumPy provides a module for linear algebra called `linalg`.
 

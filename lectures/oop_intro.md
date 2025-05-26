@@ -58,8 +58,6 @@ We'll make use of the following third party library
 
 ## Objects
 
-```{index} single: Python; Objects
-```
 
 In Python, an *object* is a collection of data and instructions held in computer memory that consists of
 
@@ -73,8 +71,6 @@ These concepts are defined and discussed sequentially below.
 (type)=
 ### Type
 
-```{index} single: Python; Type
-```
 
 Python provides for different types of objects, to accommodate different categories of data.
 
@@ -133,8 +129,6 @@ int('300') + 400   # To add as numbers, change the string to an integer
 (identity)=
 ### Identity
 
-```{index} single: Python; Identity
-```
 
 In Python, each object has a unique identifier, which helps Python (and us) keep track of the object.
 
@@ -156,8 +150,6 @@ The identity of an object is in fact just the address of the object in memory.
 
 ### Object Content: Data and Attributes
 
-```{index} single: Python; Content
-```
 
 If we set `x = 42` then we create an object of type `int` that contains
 the data `42`.
@@ -192,8 +184,6 @@ These attributes are important, so let's discuss them in-depth.
 (methods)=
 ### Methods
 
-```{index} single: Python; Methods
-```
 
 Methods are *functions that are bundled with objects*.
 

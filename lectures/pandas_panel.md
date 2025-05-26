@@ -11,10 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# {index}`Pandas for Panel Data <single: Pandas for Panel Data>`
-
-```{index} single: Python; Pandas
-```
+# Pandas for Panel Data
 
 In addition to what’s in Anaconda, this lecture will need the following libraries:
 

@@ -149,8 +149,6 @@ In reading the following, remember that the Python interpreter executes code lin
 
 #### Dynamic Typing
 
-```{index} single: Dynamic Typing
-```
 
 Consider this Python operation
 
@@ -188,8 +186,6 @@ This involves substantial overheads.
 
 #### Static Types
 
-```{index} single: Static Types
-```
 
 Compiled languages avoid these overheads with explicit, static types.
 
@@ -258,12 +254,7 @@ In fact, it's generally true that memory traffic is a major culprit when it come
 Let's look at some ways around these problems.
 
 
-
-
-## {index}`Vectorization <single: Vectorization>`
-
-```{index} single: Python; Vectorization
-```
+## Vectorization
 
 There is a clever method called **vectorization** that can be
 used to speed up high level languages in numerical applications.

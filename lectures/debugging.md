@@ -11,9 +11,6 @@ kernelspec:
 
 # Debugging and Handling Errors
 
-```{index} single: Debugging
-```
-
 ```{epigraph}
 "Debugging is twice as hard as writing the code in the first place.
 Therefore, if you write the code as cleverly as possible, you are, by definition,
@@ -35,9 +32,6 @@ You may also want to handle potential errors in your code as they occur.
 In this lecture, we will discuss how to debug our programs and improve error handling.
 
 ## Debugging
-
-```{index} single: Debugging
-```
 
 Debugging tools for Python vary across platforms, IDEs and editors.
 
@@ -246,8 +240,6 @@ The full list of magics is [here](http://ipython.readthedocs.org/en/stable/inter
 
 ## Handling Errors
 
-```{index} single: Python; Handling Errors
-```
 
 Sometimes it's possible to anticipate bugs and errors as we're writing code.
 
@@ -283,8 +275,6 @@ We have seen `AttributeError` and `NameError` in [our previous examples](#debug_
 
 In Python, there are two types of errors -- syntax errors and exceptions.
 
-```{index} single: Python; Exceptions
-```
 
 Here's an example of a common error type
 
@@ -337,8 +327,6 @@ In Python, these errors are called *exceptions*.
 
 ### Assertions
 
-```{index} single: Python; Assertions
-```
 
 Sometimes errors can be avoided by checking whether your program runs as expected.
 
@@ -370,8 +358,6 @@ The advantage is that we can
 
 ### Handling Errors During Runtime
 
-```{index} single: Python; Runtime Errors
-```
 
 The approach used above is a bit limited, because it always leads to
 termination.
