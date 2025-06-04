@@ -123,7 +123,7 @@ One `conda` command you should execute regularly is the one that updates the who
 As a practice run, please execute the following
 
 1. Open up a terminal
-1. Type `conda update anaconda`
+1. Type `conda update conda`
 
 For more information on conda,  type conda help in a terminal.
 
