@@ -9,23 +9,12 @@ kernelspec:
   name: python3
 ---
 
-(python_oop)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
-```
+# OOP II: Building Classes
 
-# {index}`OOP II: Building Classes <single: OOP II: Building Classes>`
-
-```{index} single: Python; Object-Oriented Programming
-```
 
 ## Overview
 
-In an {doc}`earlier lecture <oop_intro>`, we learned some foundations of object-oriented programming.
+In an [earlier lecture](oop_intro.md), we learned some foundations of object-oriented programming.
 
 The objectives of this lecture are
 
@@ -74,10 +63,8 @@ Let's cover general OOP concepts before we specialize to Python.
 
 ### Key Concepts
 
-```{index} single: Object-Oriented Programming; Key Concepts
-```
 
-As discussed an {doc}`earlier lecture <oop_intro>`, in the OOP paradigm, data and functions are **bundled together** into "objects".
+As discussed an [earlier lecture](oop_intro.md), in the OOP paradigm, data and functions are **bundled together** into "objects".
 
 An example is a Python list, which not only stores data but also knows how to sort itself, etc.
 
@@ -145,8 +132,6 @@ When we use OOP, the `simulate` method is conveniently bundled together with the
 
 ## Defining Your Own Classes
 
-```{index} single: Object-Oriented Programming; Classes
-```
 
 Let's build some simple classes to start off.
 
@@ -351,9 +336,6 @@ That's why the statement `self.wealth += y` inside `earn` ends up modifying `c1.
 
 (oop_solow_growth)=
 ### Example: The Solow Growth Model
-
-```{index} single: Object-Oriented Programming; Methods
-```
 
 For our next example, let's write a simple class to implement the Solow growth model.
 
@@ -694,8 +676,6 @@ Notice that there is no value of $r$ that leads to a steady state oscillating am
 
 ## Special Methods
 
-```{index} single: Object-Oriented Programming; Special Methods
-```
 
 Python provides special methods that come in handy.
 
