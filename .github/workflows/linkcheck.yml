@@ -10,7 +10,7 @@ jobs:
     name: Link Checking
     runs-on: "ubunut-latest"
     permissions:
-        issues: write # required for peter-evans/create-issue-from-file
+      issues: write # required for peter-evans/create-issue-from-file
     steps:
       - name: Checkout
         uses: actions/checkout@v4
