@@ -114,7 +114,7 @@ Important points:
 * Make sure you install the correct version for your OS.
 * If you are asked during the installation process whether you'd like to make Anaconda your default Python installation, say yes.
 
-### Updating Anaconda
+### Updating `conda`
 
 Anaconda supplies a tool called `conda` to manage and upgrade your Anaconda packages.
 
@@ -125,7 +125,7 @@ As a practice run, please execute the following
 1. Open up a terminal
 1. Type `conda update conda`
 
-For more information on conda,  type conda help in a terminal.
+For more information on conda, type conda help in a terminal.
 
 (ipython_notebook)=
 ## {index}`Jupyter Notebooks <single: Jupyter Notebooks>`
