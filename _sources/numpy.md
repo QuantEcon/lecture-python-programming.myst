@@ -36,14 +36,24 @@ kernelspec:
 
 We have already seen some code involving NumPy in the preceding lectures.
 
-In this lecture, we will start a more systematic discussion of both
+In this lecture, we will start a more systematic discussion of 
 
-* NumPy arrays and
-* the fundamental array processing operations provided by NumPy.
+1. NumPy arrays and
+1. the fundamental array processing operations provided by NumPy.
 
-### References
 
-* [The official NumPy documentation](http://docs.scipy.org/doc/numpy/reference/).
+(For an alternative reference, see [the official NumPy documentation](http://docs.scipy.org/doc/numpy/reference/).)
+
+We will use the following imports.
+
+```{code-cell} python3
+import numpy as np
+import random
+import quantecon as qe
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d.axes3d import Axes3D
+from matplotlib import cm
+```
 
 (numpy_array)=
 ## NumPy Arrays
@@ -53,15 +63,10 @@ In this lecture, we will start a more systematic discussion of both
 
 The essential problem that NumPy solves is fast array processing.
 
-The most important structure that NumPy defines is an array data type formally called a [numpy.ndarray](http://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html).
+The most important structure that NumPy defines is an array data type, formally
+called a [numpy.ndarray](http://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html).
 
-NumPy arrays power a large proportion of the scientific Python ecosystem.
-
-Let's first import the library.
-
-```{code-cell} python3
-import numpy as np
-```
+NumPy arrays power a very large proportion of the scientific Python ecosystem.
 
 To create a NumPy array containing only zeros we use  [np.zeros](http://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros)
 
@@ -522,9 +527,6 @@ tags: [hide-input]
 ---
 # Adapted and modified based on the code in the book written by Jake VanderPlas (see https://jakevdp.github.io/PythonDataScienceHandbook/06.00-figure-code.html#Broadcasting)
 # Originally from astroML: see http://www.astroml.org/book_figures/appendix/fig_broadcast_visual.html
-
-import numpy as np
-from matplotlib import pyplot as plt
 
 
 def draw_cube(ax, xy, size, depth=0.4,
@@ -1159,13 +1161,149 @@ We'll cover the SciPy versions in more detail {doc}`soon <scipy>`.
 
 For a comprehensive list of what's available in NumPy see [this documentation](https://docs.scipy.org/doc/numpy/reference/routines.html).
 
-## Exercises
+
+## Speed Comparisons
+
+```{index} single: Vectorization; Operations on Arrays
+```
+
+We mentioned in an {doc}`previous lecture <need_for_speed>` that NumPy-based vectorization can
+accelerate scientific applications.
+
+In this section we try some speed comparisons to illustrate this fact.
+
+### Vectorization vs Loops
+
+Let's begin with some non-vectorized code, which uses a native Python loop to generate,
+square and then sum a large number of random variables:
+
+```{code-cell} python3
+n = 1_000_000
+```
+
+```{code-cell} python3
+%%time
+
+y = 0      # Will accumulate and store sum
+for i in range(n):
+    x = random.uniform(0, 1)
+    y += x**2
+```
+
+The following vectorized code achieves the same thing.
 
 ```{code-cell} ipython
-%matplotlib inline
-import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = (10,6)
+%%time
+
+x = np.random.uniform(0, 1, n)
+y = np.sum(x**2)
 ```
+
+As you can see, the second code block runs much faster.  Why?
+
+The second code block breaks the loop down into three basic operations
+
+1. draw `n` uniforms
+1. square them
+1. sum them
+
+These are sent as batch operators to optimized machine code.
+
+Apart from minor overheads associated with sending data back and forth, the result is C or Fortran-like speed.
+
+When we run batch operations on arrays like this, we say that the code is *vectorized*.
+
+The next section illustrates this point.
+
+(ufuncs)=
+### Universal Functions
+
+```{index} single: NumPy; Universal Functions
+```
+
+As discussed above, many functions provided by NumPy are universal functions (ufuncs).
+
+By exploiting ufuncs, many operations can be vectorized, leading to faster
+execution.
+
+For example, consider the problem of maximizing a function $f$ of two
+variables $(x,y)$ over the square $[-a, a] \times [-a, a]$.
+
+For $f$ and $a$ let's choose
+
+$$
+f(x,y) = \frac{\cos(x^2 + y^2)}{1 + x^2 + y^2}
+\quad \text{and} \quad
+a = 3
+$$
+
+Here's a plot of $f$
+
+```{code-cell} ipython
+
+def f(x, y):
+    return np.cos(x**2 + y**2) / (1 + x**2 + y**2)
+
+xgrid = np.linspace(-3, 3, 50)
+ygrid = xgrid
+x, y = np.meshgrid(xgrid, ygrid)
+
+fig = plt.figure(figsize=(10, 8))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(x,
+                y,
+                f(x, y),
+                rstride=2, cstride=2,
+                cmap=cm.jet,
+                alpha=0.7,
+                linewidth=0.25)
+ax.set_zlim(-0.5, 1.0)
+ax.set_xlabel('$x$', fontsize=14)
+ax.set_ylabel('$y$', fontsize=14)
+plt.show()
+```
+
+To maximize it, we're going to use a naive grid search:
+
+1. Evaluate $f$ for all $(x,y)$ in a grid on the square.
+1. Return the maximum of observed values.
+
+The grid will be
+
+```{code-cell} python3
+grid = np.linspace(-3, 3, 1000)
+```
+
+Here's a non-vectorized version that uses Python loops.
+
+```{code-cell} python3
+%%time
+
+m = -np.inf
+
+for x in grid:
+    for y in grid:
+        z = f(x, y)
+        if z > m:
+            m = z
+```
+
+And here's a vectorized version
+
+```{code-cell} python3
+%%time
+
+x, y = np.meshgrid(grid, grid)
+np.max(f(x, y))
+```
+
+In the vectorized version, all the looping takes place in compiled code.
+
+As you can see, the second version is *much* faster.
+
+
+## Exercises
+
 
 ```{exercise-start}
 :label: np_ex1
@@ -1359,8 +1497,7 @@ Your task is to
 
 An example solution is given below.
 
-In essence, we've just taken [this
-code](https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/ecdf.py)
+In essence, we've just taken [this code](https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/ecdf.py)
 from QuantEcon and added in a plot method
 
 ```{code-cell} python3
@@ -1486,7 +1623,6 @@ Let's make sure this library is installed.
 Now we can import the quantecon package.
 
 ```{code-cell} python3
-import quantecon as qe
 
 np.random.seed(123)
 x = np.random.randn(1000, 100, 100)

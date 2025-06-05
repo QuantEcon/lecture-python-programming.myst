@@ -29,18 +29,21 @@ premature optimization is the root of all evil." -- Donald Knuth
 
 Python is extremely popular for scientific computing, due to such factors as
 
-* the accessible and flexible nature of the language itself,
-* the huge range of high quality scientific libraries now available,
+* the accessible and expressive nature of the language itself,
+* its vast range of high quality scientific libraries,
 * the fact that the language and libraries are open source,
-* the popular Anaconda Python distribution, which simplifies installation and
-  management of those libraries, and
-* the recent surge of interest in using Python for machine learning and
-  artificial intelligence.
+* the popular [Anaconda Python distribution](https://www.anaconda.com/download), which simplifies installation and management of scientific libraries, and
+* the key role that Python plays in data science, machine learning and artificial intelligence.
 
-In this lecture we give a short overview of scientific computing in Python,
-addressing the following questions:
+In previous lectures, we looked at some scientific Python libaries such as NumPy and Matplotlib.
 
-* What are the relative strengths and weaknesses of Python for these tasks?
+However, our main focus was the core Python language, rather than the libraries.
+
+Now we turn to the scientific libraries and give them our full attention.
+
+We'll also discuss the following topics:
+
+* What are the relative strengths and weaknesses of Python for scientific work?
 * What are the main elements of the scientific Python ecosystem?
 * How is the situation changing over time?
 
@@ -53,21 +56,21 @@ tags: [hide-output]
 !pip install quantecon
 ```
 
+
+
 ## Scientific Libraries
 
-Let's briefly review Python's scientific libraries, starting with why we need
-them.
+Let's briefly review Python's scientific libraries, starting with why we need them.
 
 ### The Role of Scientific Libraries
 
-One obvious reason we use scientific libraries is because they implement
-routines we want to use.
+One reason we use scientific libraries is because they implement routines we want to use.
 
-For example, it's almost always better to use an existing routine for root
-finding than to write a new one from scratch.
+* numerical integration, interpolation, linear algebra, root finding, etc.
 
-(For standard algorithms, efficiency is maximized if the community can coordinate on a
-common set of implementations, written by experts and tuned by users to be as fast and robust as possible.)
+For example, it's almost always better to use an existing routine for root finding than to write a new one from scratch.
+
+(For standard algorithms, efficiency is maximized if the community can coordinate on a common set of implementations, written by experts and tuned by users to be as fast and robust as possible.)
 
 But this is not the only reason that we use Python's scientific libraries.
 
@@ -75,40 +78,45 @@ Another is that pure Python, while flexible and elegant, is not fast.
 
 So we need libraries that are designed to accelerate execution of Python code.
 
-As we'll see below, there are now Python libraries that can do this extremely well.
+They do this using two strategies:
+
+1. using compilers that convert Python-like statements into fast machine code for individual threads of logic and
+2. parallelizing tasks across multiple "workers" (e.g., CPUs, individual threads inside GPUs).
+
+There are several Python libraries that can do this extremely well.
+
 
 ### Python's Scientific Ecosystem
 
-In terms of popularity, the big four in the world of scientific Python
-libraries are
+At QuantEcon, the scientific libraries we use most often are
 
-* NumPy
-* SciPy
-* Matplotlib
-* Pandas
+* [NumPy](https://numpy.org/)
+* [SciPy](https://scipy.org/)
+* [Matplotlib](https://matplotlib.org/) 
+* [Pandas](https://pandas.pydata.org/)
+* [Numba](https://numba.pydata.org/) and
+* [JAX](https://github.com/jax-ml/jax)
 
-For us, there's another (relatively new) library that will also be essential for
-numerical computing:
+Here's how they fit together:
 
-* Numba
-
-Over the next few lectures we'll see how to use these libraries.
-
-But first, let's quickly review how they fit together.
-
-* NumPy forms the foundations by providing a basic array data type (think of
+* NumPy forms foundations by providing a basic array data type (think of
   vectors and matrices) and functions for acting on these arrays (e.g., matrix
   multiplication).
-* SciPy builds on NumPy by adding the kinds of numerical methods that are
-  routinely used in science (interpolation, optimization, root finding, etc.).
+* SciPy builds on NumPy by adding numerical methods routinely used in science (interpolation, optimization, root finding, etc.).
 * Matplotlib is used to generate figures, with a focus on plotting data stored in NumPy arrays.
-* Pandas provides types and functions for empirical work (e.g., manipulating data).
-* Numba accelerates execution via JIT compilation --- we'll learn about this
-  soon.
+* Pandas provides types and functions for manipulating data.
+* Numba provides a just-in-time compiler that integrates well with NumPy and
+  helps accelerate Python code.
+* JAX includes array processing operations similar to NumPy, automatic
+  differentiation, a parallelization-centric just-in-time compiler, and automated integration with hardware accelerators such as
+  GPUs.
+
+
+
 
 ## The Need for Speed
 
-Now let's discuss execution speed.
+Let's discuss execution speed and how scientific libraries can help us accelerate code.
 
 Higher-level languages like Python  are optimized for humans.
 
@@ -117,34 +125,37 @@ This means that the programmer can leave many details to the runtime environment
 * specifying variable types
 * memory allocation/deallocation, etc.
 
-The upside is that, compared to low-level languages, Python is typically faster to write, less error-prone and  easier to debug.
+On one hand, compared to low-level languages, high-level languages are typically faster to write, less error-prone and  easier to debug.
 
-The downside is that Python is harder to optimize --- that is, turn into fast machine code --- than languages like C or Fortran.
+On the other hand, high-level languages are harder to optimize --- that is, to turn into fast machine code --- than languages like C or Fortran.
 
 Indeed, the standard implementation of Python (called CPython) cannot match the speed of compiled languages such as C or Fortran.
 
 Does that mean that we should just switch to C or Fortran for everything?
 
-The answer is: No, no and one hundred times no!
+The answer is: No, no, and one hundred times no!
 
-(This is what you should say to the senior professor insisting that the model
-needs to be rewritten in Fortran or C++.)
+(This is what you should say to your professor when they insist that your model needs to be rewritten in Fortran or C++.)
 
 There are two reasons why:
 
-First, for any given program, relatively few lines are ever going to
-be time-critical.
+First, for any given program, relatively few lines are ever going to be time-critical.
 
 Hence it is far more efficient to write most of our code in a high productivity language like Python.
 
 Second, even for those lines of code that *are* time-critical, we can now achieve the same speed as C or Fortran using Python's scientific libraries.
 
+In fact we can often do better, because some scientific libraries are so
+effective at accelerating and parallelizing our code.
+
+
 ### Where are the Bottlenecks?
 
-Before we learn how to do this, let's try to understand why plain vanilla
-Python is slower than C or Fortran.
+Before we learn how to do this, let's try to understand why plain vanilla Python is slower than C or Fortran.
 
 This will, in turn, help us figure out how to speed things up.
+
+In reading the following, remember that the Python interpreter executes code line-by-line.
 
 #### Dynamic Typing
 
@@ -180,9 +191,10 @@ a + b
 (We say that the operator `+` is *overloaded* --- its action depends on the
 type of the objects on which it acts)
 
-As a result, Python must check the type of the objects and then call the correct operation.
+As a result, when executing `a + b`, Python must first check the type of the objects and then call the correct operation.
 
 This involves substantial overheads.
+
 
 #### Static Types
 
@@ -255,6 +267,9 @@ In fact, it's generally true that memory traffic is a major culprit when it come
 
 Let's look at some ways around these problems.
 
+
+
+
 ## {index}`Vectorization <single: Vectorization>`
 
 ```{index} single: Python; Vectorization
@@ -272,173 +287,12 @@ For example, when working in a high level language, the operation of inverting a
 
 This clever idea dates back to MATLAB, which uses vectorization extensively.
 
-Vectorization can greatly accelerate many numerical computations (but not all,
-as we shall see).
 
-Let's see how vectorization works in Python, using NumPy.
-
-### Operations on Arrays
-
-```{index} single: Vectorization; Operations on Arrays
+```{figure} /_static/lecture_specific/need_for_speed/matlab.png
 ```
 
-First, let's run some imports
-
-```{code-cell} python3
-import random
-import numpy as np
-import quantecon as qe
-```
-
-Next let's try some non-vectorized code, which uses a native Python loop to generate,
-square and then sum a large number of random variables:
-
-```{code-cell} python3
-n = 1_000_000
-```
-
-```{code-cell} python3
-%%time
-
-y = 0      # Will accumulate and store sum
-for i in range(n):
-    x = random.uniform(0, 1)
-    y += x**2
-```
-
-The following vectorized code achieves the same thing.
-
-```{code-cell} ipython
-%%time
-
-x = np.random.uniform(0, 1, n)
-y = np.sum(x**2)
-```
-
-As you can see, the second code block runs much faster.  Why?
-
-The second code block breaks the loop down into three basic operations
-
-1. draw `n` uniforms
-1. square them
-1. sum them
-
-These are sent as batch operators to optimized machine code.
-
-Apart from minor overheads associated with sending data back and forth, the result is C or Fortran-like speed.
-
-When we run batch operations on arrays like this, we say that the code is *vectorized*.
-
-Vectorized code is typically fast and efficient.
-
-It is also surprisingly flexible, in the sense that many operations can be vectorized.
-
-The next section illustrates this point.
-
-(ufuncs)=
-### Universal Functions
-
-```{index} single: NumPy; Universal Functions
-```
-
-Many functions provided by NumPy are so-called *universal functions* --- also called [ufuncs](https://docs.scipy.org/doc/numpy/reference/ufuncs.html).
-
-This means that they
-
-* map scalars into scalars, as expected
-* map arrays into arrays, acting element-wise
-
-For example, `np.cos` is a ufunc:
-
-```{code-cell} python3
-np.cos(1.0)
-```
-
-```{code-cell} python3
-np.cos(np.linspace(0, 1, 3))
-```
-
-By exploiting ufuncs, many operations can be vectorized.
-
-For example, consider the problem of maximizing a function $f$ of two
-variables $(x,y)$ over the square $[-a, a] \times [-a, a]$.
-
-For $f$ and $a$ let's choose
-
-$$
-f(x,y) = \frac{\cos(x^2 + y^2)}{1 + x^2 + y^2}
-\quad \text{and} \quad
-a = 3
-$$
-
-Here's a plot of $f$
-
-```{code-cell} ipython
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d.axes3d import Axes3D
-from matplotlib import cm
-
-def f(x, y):
-    return np.cos(x**2 + y**2) / (1 + x**2 + y**2)
-
-xgrid = np.linspace(-3, 3, 50)
-ygrid = xgrid
-x, y = np.meshgrid(xgrid, ygrid)
-
-fig = plt.figure(figsize=(10, 8))
-ax = fig.add_subplot(111, projection='3d')
-ax.plot_surface(x,
-                y,
-                f(x, y),
-                rstride=2, cstride=2,
-                cmap=cm.jet,
-                alpha=0.7,
-                linewidth=0.25)
-ax.set_zlim(-0.5, 1.0)
-ax.set_xlabel('$x$', fontsize=14)
-ax.set_ylabel('$y$', fontsize=14)
-plt.show()
-```
-
-To maximize it, we're going to use a naive grid search:
-
-1. Evaluate $f$ for all $(x,y)$ in a grid on the square.
-1. Return the maximum of observed values.
-
-The grid will be
-
-```{code-cell} python3
-grid = np.linspace(-3, 3, 1000)
-```
-
-Here's a non-vectorized version that uses Python loops.
-
-```{code-cell} python3
-%%time
-
-m = -np.inf
-
-for x in grid:
-    for y in grid:
-        z = f(x, y)
-        if z > m:
-            m = z
-```
-
-And here's a vectorized version
-
-```{code-cell} python3
-%%time
-
-x, y = np.meshgrid(grid, grid)
-np.max(f(x, y))
-```
-
-In the vectorized version, all the looping takes place in compiled code.
-
-As you can see, the second version is **much** faster.
-
-(We'll make it even faster again later on, using more scientific programming tricks.)
+Vectorization can greatly accelerate many numerical computations, as we will see
+in later lectures.
 
 (numba-p_c_vectorization)=
 ## Beyond Vectorization
@@ -462,11 +316,11 @@ In these kinds of settings, we need to go back to loops.
 Fortunately, there are alternative ways to speed up Python loops that work in
 almost any setting.
 
-For example, in the last few years, a new Python library called [Numba](http://numba.pydata.org/) has appeared that solves the main problems
-with vectorization listed above.
+For example, [Numba](http://numba.pydata.org/) solves the main problems with
+vectorization listed above.
 
 It does so through something called **just in time (JIT) compilation**,
 which can generate extremely fast and efficient code.
 
-We'll learn how to use Numba {doc}`soon <numba>`.
+{doc}`Later <numba>` we'll learn how to use Numba to accelerate Python code.
 

@@ -185,11 +185,7 @@
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorization">10.4. Vectorization</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-on-arrays">10.4.1. Operations on Arrays</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#universal-functions">10.4.2. Universal Functions</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorization">10.4. Vectorization</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beyond-vectorization">10.5. Beyond Vectorization</a></li>
 </ul>
                             <p class="logo">
@@ -259,18 +255,18 @@ premature optimization is the root of all evil.” – Donald Knuth</p>
 <h2><span class="section-number">10.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>Python is extremely popular for scientific computing, due to such factors as</p>
 <ul class="simple">
-<li><p>the accessible and flexible nature of the language itself,</p></li>
-<li><p>the huge range of high quality scientific libraries now available,</p></li>
+<li><p>the accessible and expressive nature of the language itself,</p></li>
+<li><p>its vast range of high quality scientific libraries,</p></li>
 <li><p>the fact that the language and libraries are open source,</p></li>
-<li><p>the popular Anaconda Python distribution, which simplifies installation and
-management of those libraries, and</p></li>
-<li><p>the recent surge of interest in using Python for machine learning and
-artificial intelligence.</p></li>
+<li><p>the popular <a class="reference external" href="https://www.anaconda.com/download">Anaconda Python distribution</a>, which simplifies installation and management of scientific libraries, and</p></li>
+<li><p>the key role that Python plays in data science, machine learning and artificial intelligence.</p></li>
 </ul>
-<p>In this lecture we give a short overview of scientific computing in Python,
-addressing the following questions:</p>
+<p>In previous lectures, we looked at some scientific Python libaries such as NumPy and Matplotlib.</p>
+<p>However, our main focus was the core Python language, rather than the libraries.</p>
+<p>Now we turn to the scientific libraries and give them our full attention.</p>
+<p>We’ll also discuss the following topics:</p>
 <ul class="simple">
-<li><p>What are the relative strengths and weaknesses of Python for these tasks?</p></li>
+<li><p>What are the relative strengths and weaknesses of Python for scientific work?</p></li>
 <li><p>What are the main elements of the scientific Python ecosystem?</p></li>
 <li><p>How is the situation changing over time?</p></li>
 </ul>
@@ -317,77 +313,78 @@ Downloading quantecon-0.8.0-py3-none-any.whl (322 kB)
 </section>
 <section id="scientific-libraries">
 <h2><span class="section-number">10.2. </span>Scientific Libraries<a class="headerlink" href="#scientific-libraries" title="Permalink to this heading">#</a></h2>
-<p>Let’s briefly review Python’s scientific libraries, starting with why we need
-them.</p>
+<p>Let’s briefly review Python’s scientific libraries, starting with why we need them.</p>
 <section id="the-role-of-scientific-libraries">
 <h3><span class="section-number">10.2.1. </span>The Role of Scientific Libraries<a class="headerlink" href="#the-role-of-scientific-libraries" title="Permalink to this heading">#</a></h3>
-<p>One obvious reason we use scientific libraries is because they implement
-routines we want to use.</p>
-<p>For example, it’s almost always better to use an existing routine for root
-finding than to write a new one from scratch.</p>
-<p>(For standard algorithms, efficiency is maximized if the community can coordinate on a
-common set of implementations, written by experts and tuned by users to be as fast and robust as possible.)</p>
+<p>One reason we use scientific libraries is because they implement routines we want to use.</p>
+<ul class="simple">
+<li><p>numerical integration, interpolation, linear algebra, root finding, etc.</p></li>
+</ul>
+<p>For example, it’s almost always better to use an existing routine for root finding than to write a new one from scratch.</p>
+<p>(For standard algorithms, efficiency is maximized if the community can coordinate on a common set of implementations, written by experts and tuned by users to be as fast and robust as possible.)</p>
 <p>But this is not the only reason that we use Python’s scientific libraries.</p>
 <p>Another is that pure Python, while flexible and elegant, is not fast.</p>
 <p>So we need libraries that are designed to accelerate execution of Python code.</p>
-<p>As we’ll see below, there are now Python libraries that can do this extremely well.</p>
+<p>They do this using two strategies:</p>
+<ol class="arabic simple">
+<li><p>using compilers that convert Python-like statements into fast machine code for individual threads of logic and</p></li>
+<li><p>parallelizing tasks across multiple “workers” (e.g., CPUs, individual threads inside GPUs).</p></li>
+</ol>
+<p>There are several Python libraries that can do this extremely well.</p>
 </section>
 <section id="python-s-scientific-ecosystem">
 <h3><span class="section-number">10.2.2. </span>Python’s Scientific Ecosystem<a class="headerlink" href="#python-s-scientific-ecosystem" title="Permalink to this heading">#</a></h3>
-<p>In terms of popularity, the big four in the world of scientific Python
-libraries are</p>
+<p>At QuantEcon, the scientific libraries we use most often are</p>
 <ul class="simple">
-<li><p>NumPy</p></li>
-<li><p>SciPy</p></li>
-<li><p>Matplotlib</p></li>
-<li><p>Pandas</p></li>
+<li><p><a class="reference external" href="https://numpy.org/">NumPy</a></p></li>
+<li><p><a class="reference external" href="https://scipy.org/">SciPy</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/">Matplotlib</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/">Pandas</a></p></li>
+<li><p><a class="reference external" href="https://numba.pydata.org/">Numba</a> and</p></li>
+<li><p><a class="reference external" href="https://github.com/jax-ml/jax">JAX</a></p></li>
 </ul>
-<p>For us, there’s another (relatively new) library that will also be essential for
-numerical computing:</p>
+<p>Here’s how they fit together:</p>
 <ul class="simple">
-<li><p>Numba</p></li>
-</ul>
-<p>Over the next few lectures we’ll see how to use these libraries.</p>
-<p>But first, let’s quickly review how they fit together.</p>
-<ul class="simple">
-<li><p>NumPy forms the foundations by providing a basic array data type (think of
+<li><p>NumPy forms foundations by providing a basic array data type (think of
 vectors and matrices) and functions for acting on these arrays (e.g., matrix
 multiplication).</p></li>
-<li><p>SciPy builds on NumPy by adding the kinds of numerical methods that are
-routinely used in science (interpolation, optimization, root finding, etc.).</p></li>
+<li><p>SciPy builds on NumPy by adding numerical methods routinely used in science (interpolation, optimization, root finding, etc.).</p></li>
 <li><p>Matplotlib is used to generate figures, with a focus on plotting data stored in NumPy arrays.</p></li>
-<li><p>Pandas provides types and functions for empirical work (e.g., manipulating data).</p></li>
-<li><p>Numba accelerates execution via JIT compilation — we’ll learn about this
-soon.</p></li>
+<li><p>Pandas provides types and functions for manipulating data.</p></li>
+<li><p>Numba provides a just-in-time compiler that integrates well with NumPy and
+helps accelerate Python code.</p></li>
+<li><p>JAX includes array processing operations similar to NumPy, automatic
+differentiation, a parallelization-centric just-in-time compiler, and automated integration with hardware accelerators such as
+GPUs.</p></li>
 </ul>
 </section>
 </section>
 <section id="the-need-for-speed">
 <h2><span class="section-number">10.3. </span>The Need for Speed<a class="headerlink" href="#the-need-for-speed" title="Permalink to this heading">#</a></h2>
-<p>Now let’s discuss execution speed.</p>
+<p>Let’s discuss execution speed and how scientific libraries can help us accelerate code.</p>
 <p>Higher-level languages like Python  are optimized for humans.</p>
 <p>This means that the programmer can leave many details to the runtime environment</p>
 <ul class="simple">
 <li><p>specifying variable types</p></li>
 <li><p>memory allocation/deallocation, etc.</p></li>
 </ul>
-<p>The upside is that, compared to low-level languages, Python is typically faster to write, less error-prone and  easier to debug.</p>
-<p>The downside is that Python is harder to optimize — that is, turn into fast machine code — than languages like C or Fortran.</p>
+<p>On one hand, compared to low-level languages, high-level languages are typically faster to write, less error-prone and  easier to debug.</p>
+<p>On the other hand, high-level languages are harder to optimize — that is, to turn into fast machine code — than languages like C or Fortran.</p>
 <p>Indeed, the standard implementation of Python (called CPython) cannot match the speed of compiled languages such as C or Fortran.</p>
 <p>Does that mean that we should just switch to C or Fortran for everything?</p>
-<p>The answer is: No, no and one hundred times no!</p>
-<p>(This is what you should say to the senior professor insisting that the model
-needs to be rewritten in Fortran or C++.)</p>
+<p>The answer is: No, no, and one hundred times no!</p>
+<p>(This is what you should say to your professor when they insist that your model needs to be rewritten in Fortran or C++.)</p>
 <p>There are two reasons why:</p>
-<p>First, for any given program, relatively few lines are ever going to
-be time-critical.</p>
+<p>First, for any given program, relatively few lines are ever going to be time-critical.</p>
 <p>Hence it is far more efficient to write most of our code in a high productivity language like Python.</p>
 <p>Second, even for those lines of code that <em>are</em> time-critical, we can now achieve the same speed as C or Fortran using Python’s scientific libraries.</p>
+<p>In fact we can often do better, because some scientific libraries are so
+effective at accelerating and parallelizing our code.</p>
 <section id="where-are-the-bottlenecks">
 <h3><span class="section-number">10.3.1. </span>Where are the Bottlenecks?<a class="headerlink" href="#where-are-the-bottlenecks" title="Permalink to this heading">#</a></h3>
-<p>Before we learn how to do this, let’s try to understand why plain vanilla
-Python is slower than C or Fortran.</p>
+<p>Before we learn how to do this, let’s try to understand why plain vanilla Python is slower than C or Fortran.</p>
 <p>This will, in turn, help us figure out how to speed things up.</p>
+<p>In reading the following, remember that the Python interpreter executes code line-by-line.</p>
 <section id="dynamic-typing">
 <h4><span class="section-number">10.3.1.1. </span>Dynamic Typing<a class="headerlink" href="#dynamic-typing" title="Permalink to this heading">#</a></h4>
 <p id="index-0">Consider this Python operation</p>
@@ -437,7 +434,7 @@ operation to invoke.</p>
 </div>
 <p>(We say that the operator <code class="docutils literal notranslate"><span class="pre">+</span></code> is <em>overloaded</em> — its action depends on the
 type of the objects on which it acts)</p>
-<p>As a result, Python must check the type of the objects and then call the correct operation.</p>
+<p>As a result, when executing <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>, Python must first check the type of the objects and then call the correct operation.</p>
 <p>This involves substantial overheads.</p>
 </section>
 <section id="static-types">
@@ -506,215 +503,11 @@ and efficient native machine code.</p>
 <p>The machine code itself is typically compiled from carefully optimized C or Fortran.</p>
 <p>For example, when working in a high level language, the operation of inverting a large matrix can be subcontracted to efficient machine code that is pre-compiled for this purpose and supplied to users as part of a package.</p>
 <p>This clever idea dates back to MATLAB, which uses vectorization extensively.</p>
-<p>Vectorization can greatly accelerate many numerical computations (but not all,
-as we shall see).</p>
-<p>Let’s see how vectorization works in Python, using NumPy.</p>
-<section id="operations-on-arrays">
-<h3><span class="section-number">10.4.1. </span>Operations on Arrays<a class="headerlink" href="#operations-on-arrays" title="Permalink to this heading">#</a></h3>
-<p id="index-4">First, let’s run some imports</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">quantecon</span> <span class="k">as</span> <span class="nn">qe</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Next let’s try some non-vectorized code, which uses a native Python loop to generate,
-square and then sum a large number of random variables:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1_000_000</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
-
-<span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>      <span class="c1"># Will accumulate and store sum</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">+=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 283 ms, sys: 164 μs, total: 284 ms
-Wall time: 283 ms
-</pre></div>
-</div>
-</div>
-</div>
-<p>The following vectorized code achieves the same thing.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 8.37 ms, sys: 900 μs, total: 9.27 ms
-Wall time: 9.08 ms
-</pre></div>
-</div>
-</div>
-</div>
-<p>As you can see, the second code block runs much faster.  Why?</p>
-<p>The second code block breaks the loop down into three basic operations</p>
-<ol class="arabic simple">
-<li><p>draw <code class="docutils literal notranslate"><span class="pre">n</span></code> uniforms</p></li>
-<li><p>square them</p></li>
-<li><p>sum them</p></li>
-</ol>
-<p>These are sent as batch operators to optimized machine code.</p>
-<p>Apart from minor overheads associated with sending data back and forth, the result is C or Fortran-like speed.</p>
-<p>When we run batch operations on arrays like this, we say that the code is <em>vectorized</em>.</p>
-<p>Vectorized code is typically fast and efficient.</p>
-<p>It is also surprisingly flexible, in the sense that many operations can be vectorized.</p>
-<p>The next section illustrates this point.</p>
-</section>
-<section id="universal-functions">
-<span id="ufuncs"></span><h3><span class="section-number">10.4.2. </span>Universal Functions<a class="headerlink" href="#universal-functions" title="Permalink to this heading">#</a></h3>
-<p id="index-5">Many functions provided by NumPy are so-called <em>universal functions</em> — also called <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/ufuncs.html">ufuncs</a>.</p>
-<p>This means that they</p>
-<ul class="simple">
-<li><p>map scalars into scalars, as expected</p></li>
-<li><p>map arrays into arrays, acting element-wise</p></li>
-</ul>
-<p>For example, <code class="docutils literal notranslate"><span class="pre">np.cos</span></code> is a ufunc:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5403023058681398
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.        , 0.87758256, 0.54030231])
-</pre></div>
-</div>
-</div>
-</div>
-<p>By exploiting ufuncs, many operations can be vectorized.</p>
-<p>For example, consider the problem of maximizing a function <span class="math notranslate nohighlight">\(f\)</span> of two
-variables <span class="math notranslate nohighlight">\((x,y)\)</span> over the square <span class="math notranslate nohighlight">\([-a, a] \times [-a, a]\)</span>.</p>
-<p>For <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(a\)</span> let’s choose</p>
-<div class="math notranslate nohighlight">
-\[
-f(x,y) = \frac{\cos(x^2 + y^2)}{1 + x^2 + y^2}
-\quad \text{and} \quad
-a = 3
-\]</div>
-<p>Here’s a plot of <span class="math notranslate nohighlight">\(f\)</span></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d.axes3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
-
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="n">xgrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
-<span class="n">ygrid</span> <span class="o">=</span> <span class="n">xgrid</span>
-<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">xgrid</span><span class="p">,</span> <span class="n">ygrid</span><span class="p">)</span>
-
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>
-                <span class="n">y</span><span class="p">,</span>
-                <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span>
-                <span class="n">rstride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-                <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">,</span>
-                <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
-                <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$y$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/1e2b6e765a3fe82ac165fde081f9327d3502c16a89e6ae5af0ebc9eb9ecff35e.png" src="_images/1e2b6e765a3fe82ac165fde081f9327d3502c16a89e6ae5af0ebc9eb9ecff35e.png" />
-</div>
-</div>
-<p>To maximize it, we’re going to use a naive grid search:</p>
-<ol class="arabic simple">
-<li><p>Evaluate <span class="math notranslate nohighlight">\(f\)</span> for all <span class="math notranslate nohighlight">\((x,y)\)</span> in a grid on the square.</p></li>
-<li><p>Return the maximum of observed values.</p></li>
-</ol>
-<p>The grid will be</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Here’s a non-vectorized version that uses Python loops.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
-
-<span class="n">m</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
-
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">:</span>
-        <span class="n">z</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">z</span> <span class="o">&gt;</span> <span class="n">m</span><span class="p">:</span>
-            <span class="n">m</span> <span class="o">=</span> <span class="n">z</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.54 s, sys: 3.2 ms, total: 1.55 s
-Wall time: 1.46 s
-</pre></div>
-</div>
-</div>
-</div>
-<p>And here’s a vectorized version</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
-
-<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">grid</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 17.5 ms, sys: 5.03 ms, total: 22.5 ms
-Wall time: 22 ms
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9999819641085747
-</pre></div>
-</div>
-</div>
-</div>
-<p>In the vectorized version, all the looping takes place in compiled code.</p>
-<p>As you can see, the second version is <strong>much</strong> faster.</p>
-<p>(We’ll make it even faster again later on, using more scientific programming tricks.)</p>
-</section>
+<figure class="align-default">
+<img alt="_images/matlab.png" src="_images/matlab.png" />
+</figure>
+<p>Vectorization can greatly accelerate many numerical computations, as we will see
+in later lectures.</p>
 </section>
 <section id="beyond-vectorization">
 <span id="numba-p-c-vectorization"></span><h2><span class="section-number">10.5. </span>Beyond Vectorization<a class="headerlink" href="#beyond-vectorization" title="Permalink to this heading">#</a></h2>
@@ -729,11 +522,11 @@ producing the final calculation.</p>
 <p>In these kinds of settings, we need to go back to loops.</p>
 <p>Fortunately, there are alternative ways to speed up Python loops that work in
 almost any setting.</p>
-<p>For example, in the last few years, a new Python library called <a class="reference external" href="http://numba.pydata.org/">Numba</a> has appeared that solves the main problems
-with vectorization listed above.</p>
+<p>For example, <a class="reference external" href="http://numba.pydata.org/">Numba</a> solves the main problems with
+vectorization listed above.</p>
 <p>It does so through something called <strong>just in time (JIT) compilation</strong>,
 which can generate extremely fast and efficient code.</p>
-<p>We’ll learn how to use Numba <a class="reference internal" href="numba.html"><span class="doc">soon</span></a>.</p>
+<p><a class="reference internal" href="numba.html"><span class="doc">Later</span></a> we’ll learn how to use Numba to accelerate Python code.</p>
 </section>
 </section>
 
@@ -973,9 +766,8 @@ which can generate extremely fast and efficient code.</p>
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
-                    <li data-tippy-content="Download Notebook"><a href="/_notebooks/need_for_speed.ipynb" download><i data-feather="download-cloud"></i></a></li>
                     <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
-                        <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
+                        <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
                     <!--
                     # Enable if looking for link to specific document hosted on GitHub
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/blob/main/lectures/need_for_speed.md" download><i data-feather="github"></i></a></li>
@@ -992,7 +784,7 @@ which can generate extremely fast and efficient code.</p>
                     <p>Lecture (PDF)</p>
                 </li>
                 <li class="download-pdf-file">
-                    <a href="/_pdf/quantecon-python-programming.pdf" download><p>Book (PDF)</p></a>
+                    <a href="" download><p>Book (PDF)</p></a>
                 </li>
             </ul>
         </div>

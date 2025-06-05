@@ -166,10 +166,7 @@
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">11.1. Overview</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">11.1.1. References</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">11.1. Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-arrays">11.2. NumPy Arrays</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-and-dimension">11.2.1. Shape and Dimension</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-arrays">11.2.2. Creating Arrays</a></li>
@@ -190,7 +187,12 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sub-packages">11.7.3. Sub-packages</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">11.8. Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#speed-comparisons">11.8. Speed Comparisons</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorization-vs-loops">11.8.1. Vectorization vs Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#universal-functions">11.8.2. Universal Functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">11.9. Exercises</a></li>
 </ul>
                             <p class="logo">
                                 
@@ -262,31 +264,32 @@
 <li><p>Mature, fast, stable and under continuous development.</p></li>
 </ul>
 <p>We have already seen some code involving NumPy in the preceding lectures.</p>
-<p>In this lecture, we will start a more systematic discussion of both</p>
-<ul class="simple">
+<p>In this lecture, we will start a more systematic discussion of</p>
+<ol class="arabic simple">
 <li><p>NumPy arrays and</p></li>
 <li><p>the fundamental array processing operations provided by NumPy.</p></li>
-</ul>
-<section id="references">
-<h3><span class="section-number">11.1.1. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/">The official NumPy documentation</a>.</p></li>
-</ul>
-</section>
-</section>
-<section id="numpy-arrays">
-<span id="numpy-array"></span><h2><span class="section-number">11.2. </span>NumPy Arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this heading">#</a></h2>
-<p id="index-2">The essential problem that NumPy solves is fast array processing.</p>
-<p>The most important structure that NumPy defines is an array data type formally called a <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html">numpy.ndarray</a>.</p>
-<p>NumPy arrays power a large proportion of the scientific Python ecosystem.</p>
-<p>Let’s first import the library.</p>
+</ol>
+<p>(For an alternative reference, see <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/">the official NumPy documentation</a>.)</p>
+<p>We will use the following imports.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">quantecon</span> <span class="k">as</span> <span class="nn">qe</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d.axes3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="numpy-arrays">
+<span id="numpy-array"></span><h2><span class="section-number">11.2. </span>NumPy Arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this heading">#</a></h2>
+<p id="index-2">The essential problem that NumPy solves is fast array processing.</p>
+<p>The most important structure that NumPy defines is an array data type, formally
+called a <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html">numpy.ndarray</a>.</p>
+<p>NumPy arrays power a very large proportion of the scientific Python ecosystem.</p>
 <p>To create a NumPy array containing only zeros we use  <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros">np.zeros</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1169,9 +1172,6 @@ one can use the <code class="docutils literal notranslate"><span class="pre">&#6
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Adapted and modified based on the code in the book written by Jake VanderPlas (see https://jakevdp.github.io/PythonDataScienceHandbook/06.00-figure-code.html#Broadcasting)</span>
 <span class="c1"># Originally from astroML: see http://www.astroml.org/book_figures/appendix/fig_broadcast_visual.html</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-
 
 <span class="k">def</span> <span class="nf">draw_cube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">xy</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
               <span class="n">edges</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">label_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -1730,7 +1730,7 @@ the shape of array b is (2, 2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.33987935, -1.12010258,  1.38758258])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.61144346, 0.0512031 , 0.36756478])
 </pre></div>
 </div>
 </div>
@@ -1744,7 +1744,7 @@ the shape of array b is (2, 2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        , -1.12010258,  1.38758258])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.        , 0.0512031 , 0.36756478])
 </pre></div>
 </div>
 </div>
@@ -1768,7 +1768,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.13215882, -0.06078235, -0.86406081])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.66756319, -0.90524356,  0.71551231])
 </pre></div>
 </div>
 </div>
@@ -1781,7 +1781,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.13215882, -0.06078235, -0.86406081])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.66756319, -0.90524356,  0.71551231])
 </pre></div>
 </div>
 </div>
@@ -1807,7 +1807,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.13215882, -0.06078235, -0.86406081])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.66756319, -0.90524356,  0.71551231])
 </pre></div>
 </div>
 </div>
@@ -1892,7 +1892,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.27783809, 0.82533296, 0.33311616, 1.58429178])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.00695757, -0.94608385,  0.37969904, -0.18497124])
 </pre></div>
 </div>
 </div>
@@ -1904,7 +1904,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 1, 1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 1, 0])
 </pre></div>
 </div>
 </div>
@@ -1918,7 +1918,7 @@ work element-wise, and combining these with the ufuncs gives a very large set of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 1, 1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 1, 0])
 </pre></div>
 </div>
 </div>
@@ -2048,7 +2048,7 @@ through its sub-packages.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.046
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.912
 </pre></div>
 </div>
 </div>
@@ -2086,17 +2086,174 @@ through its sub-packages.</p>
 <p>For a comprehensive list of what’s available in NumPy see <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.html">this documentation</a>.</p>
 </section>
 </section>
-<section id="exercises">
-<h2><span class="section-number">11.8. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<section id="speed-comparisons">
+<h2><span class="section-number">11.8. </span>Speed Comparisons<a class="headerlink" href="#speed-comparisons" title="Permalink to this heading">#</a></h2>
+<p id="index-15">We mentioned in an <a class="reference internal" href="need_for_speed.html"><span class="doc">previous lecture</span></a> that NumPy-based vectorization can
+accelerate scientific applications.</p>
+<p>In this section we try some speed comparisons to illustrate this fact.</p>
+<section id="vectorization-vs-loops">
+<h3><span class="section-number">11.8.1. </span>Vectorization vs Loops<a class="headerlink" href="#vectorization-vs-loops" title="Permalink to this heading">#</a></h3>
+<p>Let’s begin with some non-vectorized code, which uses a native Python loop to generate,
+square and then sum a large number of random variables:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1_000_000</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>      <span class="c1"># Will accumulate and store sum</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">+=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 268 ms, sys: 432 μs, total: 268 ms
+Wall time: 268 ms
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following vectorized code achieves the same thing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6.59 ms, sys: 3.11 ms, total: 9.7 ms
+Wall time: 9.32 ms
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, the second code block runs much faster.  Why?</p>
+<p>The second code block breaks the loop down into three basic operations</p>
+<ol class="arabic simple">
+<li><p>draw <code class="docutils literal notranslate"><span class="pre">n</span></code> uniforms</p></li>
+<li><p>square them</p></li>
+<li><p>sum them</p></li>
+</ol>
+<p>These are sent as batch operators to optimized machine code.</p>
+<p>Apart from minor overheads associated with sending data back and forth, the result is C or Fortran-like speed.</p>
+<p>When we run batch operations on arrays like this, we say that the code is <em>vectorized</em>.</p>
+<p>The next section illustrates this point.</p>
+</section>
+<section id="universal-functions">
+<span id="ufuncs"></span><h3><span class="section-number">11.8.2. </span>Universal Functions<a class="headerlink" href="#universal-functions" title="Permalink to this heading">#</a></h3>
+<p id="index-16">As discussed above, many functions provided by NumPy are universal functions (ufuncs).</p>
+<p>By exploiting ufuncs, many operations can be vectorized, leading to faster
+execution.</p>
+<p>For example, consider the problem of maximizing a function <span class="math notranslate nohighlight">\(f\)</span> of two
+variables <span class="math notranslate nohighlight">\((x,y)\)</span> over the square <span class="math notranslate nohighlight">\([-a, a] \times [-a, a]\)</span>.</p>
+<p>For <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(a\)</span> let’s choose</p>
+<div class="math notranslate nohighlight">
+\[
+f(x,y) = \frac{\cos(x^2 + y^2)}{1 + x^2 + y^2}
+\quad \text{and} \quad
+a = 3
+\]</div>
+<p>Here’s a plot of <span class="math notranslate nohighlight">\(f\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">xgrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">ygrid</span> <span class="o">=</span> <span class="n">xgrid</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">xgrid</span><span class="p">,</span> <span class="n">ygrid</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>
+                <span class="n">y</span><span class="p">,</span>
+                <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span>
+                <span class="n">rstride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">,</span>
+                <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+                <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$y$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1e2b6e765a3fe82ac165fde081f9327d3502c16a89e6ae5af0ebc9eb9ecff35e.png" src="_images/1e2b6e765a3fe82ac165fde081f9327d3502c16a89e6ae5af0ebc9eb9ecff35e.png" />
+</div>
+</div>
+<p>To maximize it, we’re going to use a naive grid search:</p>
+<ol class="arabic simple">
+<li><p>Evaluate <span class="math notranslate nohighlight">\(f\)</span> for all <span class="math notranslate nohighlight">\((x,y)\)</span> in a grid on the square.</p></li>
+<li><p>Return the maximum of observed values.</p></li>
+</ol>
+<p>The grid will be</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s a non-vectorized version that uses Python loops.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">:</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">z</span> <span class="o">&gt;</span> <span class="n">m</span><span class="p">:</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">z</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.56 s, sys: 7.58 ms, total: 1.57 s
+Wall time: 1.47 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>And here’s a vectorized version</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">grid</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 16.2 ms, sys: 5.98 ms, total: 22.2 ms
+Wall time: 21.7 ms
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9999819641085747
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the vectorized version, all the looping takes place in compiled code.</p>
+<p>As you can see, the second version is <em>much</em> faster.</p>
+</section>
+</section>
+<section id="exercises">
+<h2><span class="section-number">11.9. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <div class="exercise admonition" id="np_ex1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 11.1 </span></p>
@@ -2274,8 +2431,7 @@ using descriptors that behaves as we desire can be found
 <p class="admonition-title">Solution to<a class="reference internal" href="#np_ex3"> Exercise 11.3</a></p>
 <section id="solution-content">
 <p>An example solution is given below.</p>
-<p>In essence, we’ve just taken <a class="reference external" href="https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/ecdf.py">this
-code</a>
+<p>In essence, we’ve just taken <a class="reference external" href="https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/ecdf.py">this code</a>
 from QuantEcon and added in a plot method</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2360,7 +2516,7 @@ from QuantEcon and added in a plot method</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/25699620fd61d6e16930127b5dab1628702075c6676699f817d27cd2f5ad7c45.png" src="_images/25699620fd61d6e16930127b5dab1628702075c6676699f817d27cd2f5ad7c45.png" />
+<img alt="_images/457c14426804e8aaff2d4abd3175400d2ae618344fe4b90cce1dc1f30db5efcd.png" src="_images/457c14426804e8aaff2d4abd3175400d2ae618344fe4b90cce1dc1f30db5efcd.png" />
 </div>
 </div>
 </section>
@@ -2420,15 +2576,15 @@ from QuantEcon and added in a plot method</p>
 </summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (0.8.0)
-Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (0.60.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (0.60.0)
 Requirement already satisfied: numpy&gt;=1.17.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (1.26.4)
 Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (2.32.3)
 Requirement already satisfied: scipy&gt;=1.5.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (1.13.1)
 Requirement already satisfied: sympy in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (1.13.2)
 Requirement already satisfied: llvmlite&lt;0.44,&gt;=0.43.0dev0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from numba&gt;=0.49.0-&gt;quantecon) (0.43.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from requests-&gt;quantecon) (3.3.2)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from requests-&gt;quantecon) (3.3.2)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from requests-&gt;quantecon) (3.7)
 Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from requests-&gt;quantecon) (2.2.3)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from requests-&gt;quantecon) (2024.8.30)
@@ -2441,9 +2597,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <p>Now we can import the quantecon package.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">quantecon</span> <span class="k">as</span> <span class="nn">qe</span>
-
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 
@@ -2457,7 +2611,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.01
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.012070178985595703
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.012409687042236328
 </pre></div>
 </div>
 </div>
@@ -2641,10 +2795,10 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:3.48
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:3.45
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.481794834136963
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.45914888381958
 </pre></div>
 </div>
 </div>
@@ -3006,9 +3160,8 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
-                    <li data-tippy-content="Download Notebook"><a href="/_notebooks/numpy.ipynb" download><i data-feather="download-cloud"></i></a></li>
                     <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
-                        <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
+                        <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
                     <!--
                     # Enable if looking for link to specific document hosted on GitHub
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/blob/main/lectures/numpy.md" download><i data-feather="github"></i></a></li>
@@ -3025,7 +3178,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
                     <p>Lecture (PDF)</p>
                 </li>
                 <li class="download-pdf-file">
-                    <a href="/_pdf/quantecon-python-programming.pdf" download><p>Book (PDF)</p></a>
+                    <a href="" download><p>Book (PDF)</p></a>
                 </li>
             </ul>
         </div>

@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.1
+    jupytext_version: 1.16.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -29,6 +29,7 @@ In addition to what’s in Anaconda, this lecture will need the following librar
 
 ```{code-cell} ipython3
 :tags: [hide-output]
+
 !pip install --upgrade seaborn
 ```
 
@@ -156,7 +157,7 @@ We can also pass in an argument to select the level we would like to
 stack
 
 ```{code-cell} ipython3
-realwage.stack(level='Country').head()
+realwage.stack(level='Country', future_stack=True).head()  # future_stack=True is required until pandas>3.0
 ```
 
 Using a `DatetimeIndex` makes it easy to select a particular time
@@ -166,7 +167,7 @@ Selecting one year and stacking the two lower levels of the
 `MultiIndex` creates a cross-section of our panel data
 
 ```{code-cell} ipython3
-realwage.loc['2015'].stack(level=(1, 2)).transpose().head()
+realwage.loc['2015'].stack(level=(1, 2), future_stack=True).transpose().head() # future_stack=True is required until pandas>3.0
 ```
 
 For the rest of lecture, we will work with a dataframe of the hourly
@@ -308,11 +309,7 @@ To do this, we will use `.replace()` and loop through a list of the continent va
 
 ```{code-cell} ipython3
 replace = ['Central America', 'North America', 'South America']
-
-for country in replace:
-    merged['Continent'].replace(to_replace=country,
-                                value='America',
-                                inplace=True)
+merged['Continent'] = merged['Continent'].replace(to_replace=replace, value='America')
 ```
 
 Now that we have all the data we want in a single `DataFrame`, we will

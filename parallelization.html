@@ -381,7 +381,7 @@ distributes them to different threads.</p>
 <h3><span class="section-number">18.3.2. </span>A Multithreaded Ufunc<a class="headerlink" href="#a-multithreaded-ufunc" title="Permalink to this heading">#</a></h3>
 <p>Over the last few years, NumPy has managed to push this kind of multithreading
 out to more and more operations.</p>
-<p>For example, let’s return to a maximization problem <a class="reference internal" href="need_for_speed.html#ufuncs"><span class="std std-ref">discussed previously</span></a>:</p>
+<p>For example, let’s return to a maximization problem <a class="reference internal" href="numpy.html#ufuncs"><span class="std std-ref">discussed previously</span></a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
@@ -400,7 +400,7 @@ out to more and more operations.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>457 ms ± 3.04 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>443 ms ± 1.15 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -417,7 +417,7 @@ distributed across multiple threads.</p>
 <p>To get some basis for comparison for the last example, let’s try the same
 thing with Numba.</p>
 <p>In fact there is an easy way to do this, since Numba can also be used to
-create custom <a class="reference internal" href="need_for_speed.html#ufuncs"><span class="std std-ref">ufuncs</span></a> with the <a class="reference external" href="http://numba.pydata.org/numba-doc/dev/user/vectorize.html">&#64;vectorize</a> decorator.</p>
+create custom <a class="reference internal" href="numpy.html#ufuncs"><span class="std std-ref">ufuncs</span></a> with the <a class="reference external" href="http://numba.pydata.org/numba-doc/dev/user/vectorize.html">&#64;vectorize</a> decorator.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">vectorize</span>
@@ -443,7 +443,7 @@ create custom <a class="reference internal" href="need_for_speed.html#ufuncs"><s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>313 ms ± 3.45 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>310 ms ± 1.02 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -497,7 +497,7 @@ multithreading?</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>129 ms ± 822 μs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>127 ms ± 765 μs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -568,7 +568,7 @@ distribution.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c35ea05bf56f47f9a8e54af0c3566672ae188e0fa6e75ef26457dcd71c00f7b5.png" src="_images/c35ea05bf56f47f9a8e54af0c3566672ae188e0fa6e75ef26457dcd71c00f7b5.png" />
+<img alt="_images/28bebc63886b78eafc866578d479890f9449ee5a5352d37f661276aed1e4aa58.png" src="_images/28bebc63886b78eafc866578d479890f9449ee5a5352d37f661276aed1e4aa58.png" />
 </div>
 </div>
 <p>Now let’s suppose that we have a large population of households and we want to
@@ -619,11 +619,11 @@ don’t matter.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.77 s, sys: 69.4 ms, total: 4.84 s
-Wall time: 4.83 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.75 s, sys: 54.6 ms, total: 4.81 s
+Wall time: 4.8 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8272986896351695
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8365020477385403
 </pre></div>
 </div>
 </div>
@@ -658,11 +658,11 @@ Wall time: 4.83 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.23 s, sys: 3.03 ms, total: 5.23 s
-Wall time: 1.59 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.17 s, sys: 1.05 ms, total: 5.17 s
+Wall time: 1.57 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8267668310025162
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8341749580987043
 </pre></div>
 </div>
 </div>
@@ -731,11 +731,11 @@ tasks to be parallelized are very small relative to total execution time.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 473 ms, sys: 10.9 ms, total: 484 ms
-Wall time: 470 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 426 ms, sys: 9.07 ms, total: 435 ms
+Wall time: 422 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.1416
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14302
 </pre></div>
 </div>
 </div>
@@ -747,11 +747,11 @@ Wall time: 470 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 17.6 ms, sys: 0 ns, total: 17.6 ms
-Wall time: 4.54 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 16.5 ms, sys: 24 μs, total: 16.6 ms
+Wall time: 4.46 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141948
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.140132
 </pre></div>
 </div>
 </div>
@@ -1102,9 +1102,8 @@ s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1}
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
-                    <li data-tippy-content="Download Notebook"><a href="/_notebooks/parallelization.ipynb" download><i data-feather="download-cloud"></i></a></li>
                     <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
-                        <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
+                        <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
                     <!--
                     # Enable if looking for link to specific document hosted on GitHub
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/blob/main/lectures/parallelization.md" download><i data-feather="github"></i></a></li>
@@ -1121,7 +1120,7 @@ s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1}
                     <p>Lecture (PDF)</p>
                 </li>
                 <li class="download-pdf-file">
-                    <a href="/_pdf/quantecon-python-programming.pdf" download><p>Book (PDF)</p></a>
+                    <a href="" download><p>Book (PDF)</p></a>
                 </li>
             </ul>
         </div>

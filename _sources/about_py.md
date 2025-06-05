@@ -133,6 +133,7 @@ The following chart, produced using Stack Overflow Trends, provides some evidenc
 
 It shows the popularity of a Python AI library called [PyTorch](https://pytorch.org/) relative to MATLAB.
 
+
 ```{figure} /_static/lecture_specific/about_py/pytorch_vs_matlab.png
 ```
 
