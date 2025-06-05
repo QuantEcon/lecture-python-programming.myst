@@ -6,14 +6,11 @@ on:
     # UTC 12:00 is early morning in Australia
     - cron:  '0 12 * * *'
 jobs:
-  execution-tests-linux:
-    name: Execution Tests (${{ matrix.python-version }}, ${{ matrix.os }})
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: ["ubuntu-latest"]
-        python-version: ["3.12"]
+  link-checking:
+    name: Link Checking
+    runs-on: "ubunut-latest"
+    permissions:
+        issues: write # required for peter-evans/create-issue-from-file
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,6 +19,13 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           args: --accept 403 lectures/*.md
+      - name: Create Issue From File
+        if: steps.lychee.outputs.exit_code != 0
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: Link Checker Report
+          content-filepath: ./lychee/out.md
+          labels: report, automated issue
       # - name: Setup Anaconda
       #   uses: conda-incubator/setup-miniconda@v3
       #   with:
