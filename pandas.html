@@ -111,7 +111,7 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'pandas';</script>
-    <link rel="canonical" href="https://python.quantecon.org/pandas.html" />
+    <link rel="canonical" href="https://python-programming.quantecon.org/pandas.html" />
     <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -134,7 +134,7 @@
 <!-- Opengraph tags -->
 <meta property="og:title" content="Pandas" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://python.quantecon.org/pandas.html" />
+<meta property="og:url" content="https://python-programming.quantecon.org/pandas.html" />
 <meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
 <meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
@@ -285,16 +285,16 @@ Requirement already satisfied: requests&gt;=2.31 in /home/runner/miniconda3/envs
   Downloading multitasking-0.0.11-py3-none-any.whl.metadata (5.5 kB)
 Requirement already satisfied: platformdirs&gt;=2.0.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from yfinance) (3.10.0)
 Requirement already satisfied: pytz&gt;=2022.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from yfinance) (2024.1)
+Collecting frozendict&gt;=2.3.4 (from yfinance)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting frozendict&gt;=2.3.4 (from yfinance)
-  Downloading frozendict-2.4.6-py312-none-any.whl.metadata (23 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading frozendict-2.4.6-py312-none-any.whl.metadata (23 kB)
 Collecting peewee&gt;=3.16.2 (from yfinance)
   Downloading peewee-3.18.1.tar.gz (3.0 MB)
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/3.0 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.0/3.0 MB</span> <span class=" -Color -Color-Red">113.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.0/3.0 MB</span> <span class=" -Color -Color-Red">110.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
@@ -305,9 +305,6 @@ Collecting peewee&gt;=3.16.2 (from yfinance)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
@@ -327,7 +324,7 @@ Collecting peewee&gt;=3.16.2 (from yfinance)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting curl_cffi&gt;=0.7 (from yfinance)
-  Downloading curl_cffi-0.11.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (14 kB)
+  Downloading curl_cffi-0.11.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (14 kB)
 Requirement already satisfied: protobuf&gt;=3.19.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from yfinance) (4.25.3)
 </pre></div>
 </div>
@@ -346,15 +343,17 @@ Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/quant
 Downloading yfinance-0.2.61-py2.py3-none-any.whl (117 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading curl_cffi-0.11.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.5 MB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading curl_cffi-0.11.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.5 MB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/8.5 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">8.5/8.5 MB</span> <span class=" -Color -Color-Red">146.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">8.5/8.5 MB</span> <span class=" -Color -Color-Red">161.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25hDownloading frozendict-2.4.6-py312-none-any.whl (16 kB)
 Downloading multitasking-0.0.11-py3-none-any.whl (8.5 kB)
 Downloading websockets-15.0.1-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (182 kB)
-Building wheels for collected packages: peewee
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building wheels for collected packages: peewee
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for peewee (pyproject.toml) ... ?25l-
@@ -367,7 +366,7 @@ Building wheels for collected packages: peewee
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-?25h  Created wheel for peewee: filename=peewee-3.18.1-cp312-cp312-linux_x86_64.whl size=303841 sha256=92758a36619e8f7e36d61530b9fa7945231dc98de86a544b66fdcc2d8163b065
+?25h  Created wheel for peewee: filename=peewee-3.18.1-cp312-cp312-linux_x86_64.whl size=303841 sha256=3645bb32c564f77d062e1b44778f24e5b5008cda887283f938c80ac2957359e2
   Stored in directory: /home/runner/.cache/pip/wheels/1a/57/6a/bb71346381d0d911cd4ce3026f1fa720da76707e4f01cf27dd
 Successfully built peewee
 </pre></div>
@@ -375,7 +374,7 @@ Successfully built peewee
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: peewee, multitasking, websockets, frozendict, curl_cffi, yfinance
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed curl_cffi-0.11.1 frozendict-2.4.6 multitasking-0.0.11 peewee-3.18.1 websockets-15.0.1 yfinance-0.2.61
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed curl_cffi-0.11.2 frozendict-2.4.6 multitasking-0.0.11 peewee-3.18.1 websockets-15.0.1 yfinance-0.2.61
 </pre></div>
 </div>
 </div>
@@ -434,10 +433,10 @@ place</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   -0.944454
-1   -0.442306
-2   -1.084913
-3   -2.290765
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   -0.411796
+1    0.307001
+2    0.876463
+3    0.057958
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -454,10 +453,10 @@ operations</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    -94.445427
-1    -44.230562
-2   -108.491322
-3   -229.076527
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   -41.179620
+1    30.700101
+2    87.646314
+3     5.795845
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -470,10 +469,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.944454
-1    0.442306
-2    1.084913
-3    2.290765
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.411796
+1    0.307001
+2    0.876463
+3    0.057958
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -489,13 +488,13 @@ Name: daily returns, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    4.000000
-mean    -1.190610
-std      0.783595
-min     -2.290765
-25%     -1.386376
-50%     -1.014684
-75%     -0.818917
-max     -0.442306
+mean     0.207407
+std      0.536440
+min     -0.411796
+25%     -0.059480
+50%      0.182480
+75%      0.449367
+max      0.876463
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -510,10 +509,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN   -0.944454
-AAPL   -0.442306
-MSFT   -1.084913
-GOOG   -2.290765
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN   -0.411796
+AAPL    0.307001
+MSFT    0.876463
+GOOG    0.057958
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -530,7 +529,7 @@ type—in this case, floats).</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.944454274919541
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.4117962010777061
 </pre></div>
 </div>
 </div>
@@ -544,9 +543,9 @@ type—in this case, floats).</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN    0.000000
-AAPL   -0.442306
-MSFT   -1.084913
-GOOG   -2.290765
+AAPL    0.307001
+MSFT    0.876463
+GOOG    0.057958
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -3829,12 +3828,12 @@ Name: 2021-12-30 00:00:00, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2578/1503263560.py:1: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2618/1503263560.py:1: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   price_change.sort_values(inplace=True)
-/tmp/ipykernel_2578/1503263560.py:2: SettingWithCopyWarning: 
+/tmp/ipykernel_2618/1503263560.py:2: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy

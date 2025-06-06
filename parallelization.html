@@ -113,7 +113,7 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'parallelization';</script>
-    <link rel="canonical" href="https://python.quantecon.org/parallelization.html" />
+    <link rel="canonical" href="https://python-programming.quantecon.org/parallelization.html" />
     <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -136,7 +136,7 @@
 <!-- Opengraph tags -->
 <meta property="og:title" content="Parallelization" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://python.quantecon.org/parallelization.html" />
+<meta property="og:url" content="https://python-programming.quantecon.org/parallelization.html" />
 <meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
 <meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
@@ -258,7 +258,7 @@
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (0.8.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (0.8.1)
 Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (0.60.0)
 Requirement already satisfied: numpy&gt;=1.17.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (1.26.4)
 Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (2.32.3)
@@ -400,7 +400,7 @@ out to more and more operations.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>443 ms ± 1.15 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>454 ms ± 832 μs per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -443,7 +443,7 @@ create custom <a class="reference internal" href="numpy.html#ufuncs"><span class
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>310 ms ± 1.02 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>312 ms ± 357 μs per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -497,7 +497,7 @@ multithreading?</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>127 ms ± 765 μs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>128 ms ± 385 μs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -568,7 +568,7 @@ distribution.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/28bebc63886b78eafc866578d479890f9449ee5a5352d37f661276aed1e4aa58.png" src="_images/28bebc63886b78eafc866578d479890f9449ee5a5352d37f661276aed1e4aa58.png" />
+<img alt="_images/a0a35bfc74b001a8a43e2c55a968a5b36095ef335bd413491e21600d7e8aee0b.png" src="_images/a0a35bfc74b001a8a43e2c55a968a5b36095ef335bd413491e21600d7e8aee0b.png" />
 </div>
 </div>
 <p>Now let’s suppose that we have a large population of households and we want to
@@ -619,11 +619,11 @@ don’t matter.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.75 s, sys: 54.6 ms, total: 4.81 s
-Wall time: 4.8 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.72 s, sys: 87.1 ms, total: 4.8 s
+Wall time: 4.79 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8365020477385403
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8438117100596743
 </pre></div>
 </div>
 </div>
@@ -658,11 +658,11 @@ Wall time: 4.8 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.17 s, sys: 1.05 ms, total: 5.17 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.17 s, sys: 2.97 ms, total: 5.17 s
 Wall time: 1.57 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8341749580987043
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8330171578254868
 </pre></div>
 </div>
 </div>
@@ -731,11 +731,11 @@ tasks to be parallelized are very small relative to total execution time.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 426 ms, sys: 9.07 ms, total: 435 ms
-Wall time: 422 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 427 ms, sys: 10.9 ms, total: 438 ms
+Wall time: 424 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14302
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.143088
 </pre></div>
 </div>
 </div>
@@ -747,11 +747,11 @@ Wall time: 422 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 16.5 ms, sys: 24 μs, total: 16.6 ms
-Wall time: 4.46 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 17.7 ms, sys: 1.08 ms, total: 18.7 ms
+Wall time: 5.46 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.140132
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.140824
 </pre></div>
 </div>
 </div>
