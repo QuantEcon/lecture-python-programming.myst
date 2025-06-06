@@ -344,7 +344,6 @@ The `for` loop is the most common technique for iteration in Python.
 
 But, for the purpose of illustration, let's modify {ref}`the program above <firstloopprog-code>` to use a `while` loop instead.
 
-(whileloopprog)=
 ```{code-cell} python3
 ts_length = 100
 ϵ_values = []
