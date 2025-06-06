@@ -187,8 +187,8 @@ But they do help us illustrate some important Python syntax and semantics in a f
 
 Here's a version that illustrates `for` loops and Python lists.
 
-(firstloopprog)=
 ```{code-cell} python3
+:name: firstloopprog
 ts_length = 100
 ϵ_values = []   # empty list
 
@@ -274,7 +274,7 @@ x[1]   # second element of x
 ### The For Loop
 
 
-Now let's consider the `for` loop from {ref}`the program above <firstloopprog>`, which was
+Now let's consider the `for` loop from {ref}`the program above <firstloopprog-code>`, which was
 
 ```{code-cell} python3
 for i in range(ts_length):
@@ -342,7 +342,7 @@ On the other hand, it takes a bit of care to get right, so please remember:
 
 The `for` loop is the most common technique for iteration in Python.
 
-But, for the purpose of illustration, let's modify {ref}`the program above <firstloopprog>` to use a `while` loop instead.
+But, for the purpose of illustration, let's modify {ref}`the program above <firstloopprog-code>` to use a `while` loop instead.
 
 (whileloopprog)=
 ```{code-cell} python3
