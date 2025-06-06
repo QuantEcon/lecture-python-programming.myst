@@ -41,7 +41,7 @@ Formally, an *iterator* is an object with a `__next__` method.
 
 For example, file objects are iterators .
 
-To see this, let's have another look at the {ref}`US cities data <us_cities_data>`,
+To see this, let's have another look at the {ref}`US cities data <us_cities_data-code>`,
 which is written to the present working directory in the following cell
 
 ```{code-cell} ipython

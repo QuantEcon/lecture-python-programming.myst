@@ -215,8 +215,9 @@ Here's a simplistic implementation of the algorithm in Python.
 
 It works for all sufficiently well behaved increasing continuous functions with $f(a) < 0 < f(b)$
 
-(bisect_func)=
 ```{code-cell} python3
+:name: bisect_func
+
 def bisect(f, a, b, tol=10e-5):
     """
     Implements the bisection root finding algorithm, assuming that f is a
@@ -538,7 +539,7 @@ print(f"The Monte Carlo option price is {P:3f}")
 
 In [this lecture](functions.md), we discussed the concept of {ref}`recursive function calls <recursive_functions>`.
 
-Try to write a recursive implementation of the homemade bisection function {ref}`described above <bisect_func>`.
+Try to write a recursive implementation of the homemade bisection function {ref}`described above <bisect_func-code>`.
 
 Test it on the function {eq}`root_f`.
 ```

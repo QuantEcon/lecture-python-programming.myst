@@ -407,8 +407,9 @@ Many Python objects are "iterable", in the sense that they can be looped over.
 
 To give an example, let's write the file us_cities.txt, which lists US cities and their population, to the present working directory.
 
-(us_cities_data)=
 ```{code-cell} ipython
+:name: us_cities_data
+
 %%writefile us_cities.txt
 new york: 8244910
 los angeles: 3819702
@@ -657,7 +658,7 @@ We've all heard the saying about consistency and little minds.
 
 In programming, as in mathematics, the opposite is true
 
-* A mathematical paper where the symbols $\cup$ and $\cap$ were
+* A mathematical paper where the symbols `$\cup$` and `$\cap$` were
   reversed would be very hard to read, even if the author told you so on the
   first page.
 
