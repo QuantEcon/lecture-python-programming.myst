@@ -470,6 +470,8 @@ data_file.close()
 
 Here `format()` is a string method [used for inserting variables into strings](https://docs.python.org/3/library/string.html#formatspec).
 
+**Issue: The text mentions using format() method, but the actual code uses f-strings. This might create confusion for learners?**
+
 The reformatting of each line is the result of three different string methods,
 the details of which can be left till later.
 
