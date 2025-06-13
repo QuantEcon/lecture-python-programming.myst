@@ -949,7 +949,7 @@ Dallas         1,223,229
 </div>
 </div>
 </div>
-<p>Here <code class="docutils literal notranslate"><span class="pre">format()</span></code> is a string method <a class="reference external" href="https://docs.python.org/3/library/string.html#formatspec">used for inserting variables into strings</a>.</p>
+<p>Here <code class="docutils literal notranslate"><span class="pre">f'</span></code> is an f-string <a class="reference external" href="https://docs.python.org/3/library/string.html#formatspec">used for inserting variables into strings</a>.</p>
 <p>The reformatting of each line is the result of three different string methods,
 the details of which can be left till later.</p>
 <p>The interesting part of this program for us is line 2, which shows that</p>
@@ -2045,8 +2045,9 @@ code.</p>
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                    <li data-tippy-content="Download Notebook"><a href="/_notebooks/python_essentials.ipynb" download><i data-feather="download-cloud"></i></a></li>
                     <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
-                        <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                        <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
                     <!--
                     # Enable if looking for link to specific document hosted on GitHub
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/blob/main/lectures/python_essentials.md" download><i data-feather="github"></i></a></li>
@@ -2063,7 +2064,7 @@ code.</p>
                     <p>Lecture (PDF)</p>
                 </li>
                 <li class="download-pdf-file">
-                    <a href="" download><p>Book (PDF)</p></a>
+                    <a href="/_pdf/quantecon-python-programming.pdf" download><p>Book (PDF)</p></a>
                 </li>
             </ul>
         </div>

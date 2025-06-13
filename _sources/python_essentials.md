@@ -468,7 +468,7 @@ for line in data_file:
 data_file.close()
 ```
 
-Here `format()` is a string method [used for inserting variables into strings](https://docs.python.org/3/library/string.html#formatspec).
+Here `f'` is an f-string [used for inserting variables into strings](https://docs.python.org/3/library/string.html#formatspec).
 
 The reformatting of each line is the result of three different string methods,
 the details of which can be left till later.

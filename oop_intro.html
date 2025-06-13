@@ -271,9 +271,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: rich in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (13.7.1)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: markdown-it-py&gt;=2.2.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from rich) (2.2.0)
+Requirement already satisfied: markdown-it-py&gt;=2.2.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from rich) (2.2.0)
 Requirement already satisfied: pygments&lt;3.0.0,&gt;=2.13.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from rich) (2.15.1)
 Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from markdown-it-py&gt;=2.2.0-&gt;rich) (0.1.0)
 </pre></div>
@@ -404,7 +402,7 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139647317847792
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140351751319280
 </pre></div>
 </div>
 </div>
@@ -416,7 +414,7 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139647317850640
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140351751321552
 </pre></div>
 </div>
 </div>
@@ -1040,8 +1038,9 @@ boolean object <code class="docutils literal notranslate"><span class="pre">True
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                    <li data-tippy-content="Download Notebook"><a href="/_notebooks/oop_intro.ipynb" download><i data-feather="download-cloud"></i></a></li>
                     <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
-                        <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                        <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
                     <!--
                     # Enable if looking for link to specific document hosted on GitHub
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/blob/main/lectures/oop_intro.md" download><i data-feather="github"></i></a></li>
@@ -1058,7 +1057,7 @@ boolean object <code class="docutils literal notranslate"><span class="pre">True
                     <p>Lecture (PDF)</p>
                 </li>
                 <li class="download-pdf-file">
-                    <a href="" download><p>Book (PDF)</p></a>
+                    <a href="/_pdf/quantecon-python-programming.pdf" download><p>Book (PDF)</p></a>
                 </li>
             </ul>
         </div>
