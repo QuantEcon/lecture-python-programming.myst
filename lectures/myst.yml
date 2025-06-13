@@ -83,4 +83,4 @@ project:
 site:
   parts:
     footer: footer.md
-  template: https://github.com/curvenote-themes/quantecon/archive/refs/heads/main.zip
+  template: https://github.com/QuantEcon/quantecon-theme/archive/refs/heads/main.zip
