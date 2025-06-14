@@ -9,19 +9,8 @@ kernelspec:
   name: python3
 ---
 
-(matplotlib)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
-```
+# Matplotlib
 
-# {index}`Matplotlib <single: Matplotlib>`
-
-```{index} single: Python; Matplotlib
-```
 
 ## Overview
 
@@ -49,8 +38,6 @@ But first, let's discuss the difference.
 
 ## The APIs
 
-```{index} single: Matplotlib; Simple API
-```
 
 ### The MATLAB-style API
 
@@ -147,8 +134,6 @@ We mention just a few.
 
 ### Multiple Plots on One Axis
 
-```{index} single: Matplotlib; Multiple Plots on One Axis
-```
 
 It's straightforward to generate multiple plots on the same axes.
 
@@ -171,9 +156,6 @@ plt.show()
 
 ### Multiple Subplots
 
-```{index} single: Matplotlib; Subplots
-```
-
 Sometimes we want multiple subplots in one figure.
 
 Here's an example that generates 6 histograms
@@ -193,8 +175,6 @@ plt.show()
 
 ### 3D Plots
 
-```{index} single: Matplotlib; 3D Plots
-```
 
 Matplotlib does a nice job of 3D plots --- here is one example
 
@@ -352,12 +332,9 @@ If you are interested, you can even create your own style sheets.
 Parameters for your style sheets are stored in a dictionary-like variable `plt.rcParams`
 
 ```{code-cell} python3
----
-tags: [hide-output]
----
+:tags: hide-output
  
 print(plt.rcParams.keys())
-
 ```
 
 There are many parameters you could set for your style sheets.
@@ -463,7 +440,7 @@ Place all the curves in the same figure.
 The output should look like this
 
 ```{figure} /_static/lecture_specific/matplotlib/matplotlib_ex1.png
-:scale: 130
+:width: 130%
 ```
 
 ```{exercise-end}
