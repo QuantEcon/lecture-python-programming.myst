@@ -413,7 +413,7 @@
 <p>In our example, an <em>instance</em> will be the name of  particular <em>person</em> whose <em>instance data</em> consist solely of its wealth.</p>
 <p>(In other examples <em>instance data</em> will consist of a vector of data.)</p>
 <p>In our example, two functions <code class="docutils literal notranslate"><span class="pre">earn</span></code> and <code class="docutils literal notranslate"><span class="pre">spend</span></code> can be applied to the current instance data.</p>
-<p>Taken together,  the instance data and functions  are called <em>methods</em>.</p>
+<p>Taken together,  the instance data and functions  are called <em>attributes</em>.</p>
 <p>These can be readily accessed in ways that we shall describe now.</p>
 <section id="example-a-consumer-class">
 <h3><span class="section-number">8.3.1. </span>Example: A Consumer Class<a class="headerlink" href="#example-a-consumer-class" title="Permalink to this heading">#</a></h3>
@@ -584,7 +584,7 @@ the class definition</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__module__&#39;: &#39;__main__&#39;, &#39;__init__&#39;: &lt;function Consumer.__init__ at 0x7fe623cde0c0&gt;, &#39;earn&#39;: &lt;function Consumer.earn at 0x7fe623cde840&gt;, &#39;spend&#39;: &lt;function Consumer.spend at 0x7fe623cde7a0&gt;, &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__doc__&#39;: None}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__module__&#39;: &#39;__main__&#39;, &#39;__init__&#39;: &lt;function Consumer.__init__ at 0x7fc6f05c68e0&gt;, &#39;earn&#39;: &lt;function Consumer.earn at 0x7fc6f05c6980&gt;, &#39;spend&#39;: &lt;function Consumer.spend at 0x7fc6f05c6ac0&gt;, &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Consumer&#39; objects&gt;, &#39;__doc__&#39;: None}
 </pre></div>
 </div>
 </div>
@@ -1146,7 +1146,7 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4
-0.49
+0.519
 </pre></div>
 </div>
 </div>
@@ -1451,9 +1451,8 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
-                    <li data-tippy-content="Download Notebook"><a href="/_notebooks/python_oop.ipynb" download><i data-feather="download-cloud"></i></a></li>
                     <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
-                        <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
+                        <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
                     <!--
                     # Enable if looking for link to specific document hosted on GitHub
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/blob/main/lectures/python_oop.md" download><i data-feather="github"></i></a></li>
@@ -1470,7 +1469,7 @@ and hence <span class="math notranslate nohighlight">\(F_n(x)\)</span> is the fr
                     <p>Lecture (PDF)</p>
                 </li>
                 <li class="download-pdf-file">
-                    <a href="/_pdf/quantecon-python-programming.pdf" download><p>Book (PDF)</p></a>
+                    <a href="" download><p>Book (PDF)</p></a>
                 </li>
             </ul>
         </div>
