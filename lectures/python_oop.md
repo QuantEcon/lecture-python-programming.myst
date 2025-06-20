@@ -177,7 +177,7 @@ In our example, an *instance* will be the name of  particular *person* whose *in
 
 In our example, two functions `earn` and `spend` can be applied to the current instance data.
 
-Taken together,  the instance data and functions  are called *methods*.
+Taken together,  the instance data and functions  are called *attributes*.
 
 These can be readily accessed in ways that we shall describe now.
 
