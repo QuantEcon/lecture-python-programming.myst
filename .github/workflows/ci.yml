@@ -32,12 +32,12 @@ jobs:
         if: steps.cache-execution.outputs.cache-hit != 'true'
         run: python -m pip install -r myst_requirements.txt
 
-      - name: Install MyST Markdown CLI
-        run: npm install -g mystmd
+      - name: Install jupyter book 2.0
+        run: pip install "jupyter-book>=2.0.0a0"
 
       - name: Build HTML
         working-directory: ./lectures
-        run: myst build --html --execute
+        run: jupyter book build --html --execute
 
       - name: Upload build output
         uses: actions/upload-pages-artifact@v3
