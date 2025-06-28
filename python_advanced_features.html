@@ -98,7 +98,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=d6d86bce9979111653c4c495e33499e1796e172a"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=d9faaf6c4b57726f74ba012412af1f5681bdff87"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
@@ -143,6 +143,7 @@
   </head>
 <body>
 
+<!-- Override QuantEcon theme colors -->
 
     <span id="top"></span>
 
@@ -802,7 +803,7 @@ it may involve repetitively setting many graphical parameters, usually defined u
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6518ac249a4342ee1263279ae00cafccee0f397d929ecfd1366635cdd8a360ae.png" src="_images/6518ac249a4342ee1263279ae00cafccee0f397d929ecfd1366635cdd8a360ae.png" />
+<img alt="_images/cfc23f660f189ed9d260535b44b0a5aab24322d7528fc172028ae412428075da.png" src="_images/cfc23f660f189ed9d260535b44b0a5aab24322d7528fc172028ae412428075da.png" />
 </div>
 </div>
 <p>In this example, <code class="docutils literal notranslate"><span class="pre">*</span></code> unpacked the zipped parameters <code class="docutils literal notranslate"><span class="pre">βs</span></code> and the output of <code class="docutils literal notranslate"><span class="pre">generate_data</span></code> function stored in tuples,
@@ -1377,7 +1378,7 @@ decorators to set up the properties</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object f at 0x7f73a8d96cf0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object f at 0x7f74c318ecf0&gt;
 </pre></div>
 </div>
 </div>
@@ -1596,7 +1597,7 @@ decorators to set up the properties</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4999751
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4999842
 </pre></div>
 </div>
 </div>
@@ -1635,7 +1636,7 @@ decorators to set up the properties</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object f at 0x7f73a82d31d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object f at 0x7f74c26b57d0&gt;
 </pre></div>
 </div>
 </div>
@@ -1647,7 +1648,7 @@ decorators to set up the properties</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5000246
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4997840
 </pre></div>
 </div>
 </div>
@@ -1764,6 +1765,8 @@ decorators to set up the properties</p>
                     <p><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"></a></p>
 
                     <p>Creative Commons License &ndash; This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International.</p>
+
+                    <p>A theme by <a href="https://quantecon.org">QuantEcon</a></p>
 
                 </footer> <!-- .page__footer -->
 
@@ -1969,8 +1972,9 @@ decorators to set up the properties</p>
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                    <li data-tippy-content="Download Notebook"><a href="/_notebooks/python_advanced_features.ipynb" download><i data-feather="download-cloud"></i></a></li>
                     <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
-                        <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                        <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
                     <!--
                     # Enable if looking for link to specific document hosted on GitHub
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/blob/main/lectures/python_advanced_features.md" download><i data-feather="github"></i></a></li>
@@ -1987,7 +1991,7 @@ decorators to set up the properties</p>
                     <p>Lecture (PDF)</p>
                 </li>
                 <li class="download-pdf-file">
-                    <a href="" download><p>Book (PDF)</p></a>
+                    <a href="/_pdf/quantecon-python-programming.pdf" download><p>Book (PDF)</p></a>
                 </li>
             </ul>
         </div>
@@ -2072,7 +2076,7 @@ decorators to set up the properties</p>
                 function setLaunchServer() {
                   launchNotebookLink.removeAttribute("style")
                   if ( localStorage.launcherType == 'launcher-private' ) {
-                    let repoPrefix = "/jupyter/hub/user-redirect/git-pull?repo=" + repoURL + "&branch=" + branch + "&urlpath=" + urlPath;
+                    let repoPrefix = "/user-redirect/git-pull?repo=" + repoURL + "&branch=" + branch + "&urlpath=" + urlPath;
                     launcherPrivateValue = launcherPrivate.value
                     if (!launcherPrivateValue) {
                         launchNotebookLink.removeAttribute("href")
