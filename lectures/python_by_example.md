@@ -7,21 +7,19 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/python_by_example.ipynb
+downloads:
+  - file: ./python_by_example.md
+    title: Markdown (md)
+  - file: exports/python_by_example.ipynb
+    title: IPython (.ipynb)
 ---
 
-(python_by_example)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
-```
 
 # An Introductory Example
 
-```{index} single: Python; Introductory Example
-```
 
 ## Overview
 
@@ -33,7 +31,7 @@ The objective is to introduce you to basic Python syntax and data structures.
 
 Deeper concepts will be covered in later lectures.
 
-You should have read the {doc}`lecture <getting_started>` on getting started with Python before beginning this one.
+You should have read the [lecture](getting_started.md) on getting started with Python before beginning this one.
 
 
 ## The Task: Plotting a White Noise Process
@@ -44,7 +42,7 @@ process $\epsilon_0, \epsilon_1, \ldots, \epsilon_T$, where each draw $\epsilon_
 In other words, we want to generate figures that look something like this:
 
 ```{figure} /_static/lecture_specific/python_by_example/test_program_1_updated.png
-:scale: 120
+:width: 120%
 ```
 
 (Here $t$ is on the horizontal axis and $\epsilon_t$ is on the
@@ -75,7 +73,7 @@ Let's break this program down and see how it works.
 The first two lines of the program import functionality from external code
 libraries.
 
-The first line imports {doc}`NumPy <numpy>`, a favorite Python package for tasks like
+The first line imports [NumPy](numpy.md), a favorite Python package for tasks like
 
 * working with arrays (vectors and matrices)
 * common mathematical functions like `cos` and `sqrt`
@@ -107,8 +105,6 @@ to import additional functionality.
 
 #### Packages
 
-```{index} single: Python; Packages
-```
 
 As stated above, NumPy is a Python package.
 
@@ -132,8 +128,6 @@ print(np.__file__)
 
 #### Subpackages
 
-```{index} single: Python; Subpackages
-```
 
 Consider the line `ϵ_values = np.random.randn(100)`.
 
@@ -201,8 +195,8 @@ But they do help us illustrate some important Python syntax and semantics in a f
 
 Here's a version that illustrates `for` loops and Python lists.
 
-(firstloopprog)=
 ```{code-cell} python3
+:name: firstloopprog
 ts_length = 100
 ϵ_values = []   # empty list
 
@@ -227,8 +221,6 @@ Let's study some parts of this program in more detail.
 (lists_ref)=
 ### Lists
 
-```{index} single: Python; Lists
-```
 
 Consider the statement `ϵ_values = []`, which creates an empty list.
 
@@ -258,7 +250,7 @@ x
 
 Here `append()` is what's called a **method**, which is a function "attached to" an object---in this case, the list `x`.
 
-We'll learn all about methods {doc}`later on <oop_intro>`, but just to give you some idea, 
+We'll learn all about methods [later on](oop_intro.md), but just to give you some idea, 
 
 * Python objects such as lists, strings, etc. all have methods that are used to manipulate data contained in the object.
 * String objects have [string methods](https://docs.python.org/3/library/stdtypes.html#string-methods), list objects have [list methods](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists), etc.
@@ -289,10 +281,8 @@ x[1]   # second element of x
 
 ### The For Loop
 
-```{index} single: Python; For loop
-```
 
-Now let's consider the `for` loop from {ref}`the program above <firstloopprog>`, which was
+Now let's consider the `for` loop from {ref}`the program above <firstloopprog-code>`, which was
 
 ```{code-cell} python3
 for i in range(ts_length):
@@ -333,8 +323,6 @@ The Python interpreter performs the following:
 
 ### A Comment on Indentation
 
-```{index} single: Python; Indentation
-```
 
 In discussing the `for` loop, we explained that the code blocks being looped over are delimited by indentation.
 
@@ -359,14 +347,11 @@ On the other hand, it takes a bit of care to get right, so please remember:
 
 ### While Loops
 
-```{index} single: Python; While loop
-```
 
 The `for` loop is the most common technique for iteration in Python.
 
-But, for the purpose of illustration, let's modify {ref}`the program above <firstloopprog>` to use a `while` loop instead.
+But, for the purpose of illustration, let's modify {ref}`the program above <firstloopprog-code>` to use a `while` loop instead.
 
-(whileloopprog)=
 ```{code-cell} python3
 ts_length = 100
 ϵ_values = []

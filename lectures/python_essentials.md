@@ -7,16 +7,15 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/python_essentials.ipynb
+downloads:
+  - file: ./python_essentials.md
+    title: Markdown (md)
+  - file: exports/python_essentials.ipynb
+    title: IPython (.ipynb)
 ---
-
-(python_done_right)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
-```
 
 # Python Essentials
 
@@ -30,8 +29,6 @@ This approach is less exciting but helps clear up some details.
 
 ## Data Types
 
-```{index} single: Python; Data Types
-```
 
 Computer programs typically keep track of a range of data types.
 
@@ -130,8 +127,6 @@ Python has several basic types for storing collections of (possibly heterogeneou
 
 We've {ref}`already discussed lists <lists_ref>`.
 
-```{index} single: Python; Tuples
-```
 
 A related data type is **tuples**, which are "immutable" lists
 
@@ -160,9 +155,8 @@ x
 But tuples are not
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 x = (1, 2)
 x[0] = 10
 ```
@@ -187,8 +181,6 @@ Tuple unpacking is convenient and we'll use it often.
 
 #### Slice Notation
 
-```{index} single: Python; Slicing
-```
 
 To access multiple elements of a sequence (a list, a tuple or a string), you can use Python's slice
 notation.
@@ -233,12 +225,6 @@ s[-3:]  # Select the last three elements
 
 #### Sets and Dictionaries
 
-```{index} single: Python; Sets
-```
-
-```{index} single: Python; Dictionaries
-```
-
 Two other container types we should mention before moving on are [sets](https://docs.python.org/3/tutorial/datastructures.html#sets) and [dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries).
 
 Dictionaries are much like lists, except that the items are named instead of
@@ -282,9 +268,6 @@ s3
 ```
 
 ## Input and Output
-
-```{index} single: Python; IO
-```
 
 Let's briefly review reading and writing to text files, starting with writing
 
@@ -407,9 +390,6 @@ that you could experiment with.
 
 ### Paths
 
-```{index} single: Python; Paths
-```
-
 Note that if `newfile.txt` is not in the present working directory then this call to `open()` fails.
 
 In this case, you can shift the file to the pwd or specify the [full path](https://en.wikipedia.org/wiki/Path_%28computing%29) to the file
@@ -423,9 +403,6 @@ f = open('insert_full_path_to_file/newfile.txt', 'r')
 (iterating_version_1)=
 ## Iterating
 
-```{index} single: Python; Iteration
-```
-
 One of the most important tasks in computing is stepping through a
 sequence of data and performing a given action.
 
@@ -438,8 +415,9 @@ Many Python objects are "iterable", in the sense that they can be looped over.
 
 To give an example, let's write the file us_cities.txt, which lists US cities and their population, to the present working directory.
 
-(us_cities_data)=
 ```{code-cell} ipython
+:name: us_cities_data
+
 %%writefile us_cities.txt
 new york: 8244910
 los angeles: 3819702
@@ -537,8 +515,6 @@ for index, letter in enumerate(letter_list):
 (list_comprehensions)=
 ### List Comprehensions
 
-```{index} single: Python; List comprehension
-```
 
 We can also simplify the code for generating the list of random draws considerably by using something called a *list comprehension*.
 
@@ -568,8 +544,6 @@ doubles
 
 ### Comparisons
 
-```{index} single: Python; Comparison
-```
 
 Many different kinds of expressions evaluate to one of the Boolean values (i.e., `True` or `False`).
 
@@ -630,9 +604,6 @@ The rule is:
 
 ### Combining Expressions
 
-```{index} single: Python; Logical Expressions
-```
-
 We can combine expressions using `and`, `or` and `not`.
 
 These are the standard logical connectives (conjunction, disjunction and denial)
@@ -686,8 +657,6 @@ documentation can make the code easier to understand and maintain.
 
 ### Python Style Guidelines: PEP8
 
-```{index} single: Python; PEP8
-```
 
 You can find Python programming philosophy by typing `import this` at the prompt.
 
@@ -697,7 +666,7 @@ We've all heard the saying about consistency and little minds.
 
 In programming, as in mathematics, the opposite is true
 
-* A mathematical paper where the symbols $\cup$ and $\cap$ were
+* A mathematical paper where the symbols `$\cup$` and `$\cap$` were
   reversed would be very hard to read, even if the author told you so on the
   first page.
 
@@ -708,8 +677,6 @@ In Python, the standard style is set out in [PEP8](https://www.python.org/dev/pe
 (Docstrings)=
 ### Docstrings
 
-```{index} single: Python; Docstrings
-```
 
 Python has a system for adding comments to modules, classes, functions, etc. called *docstrings*.
 

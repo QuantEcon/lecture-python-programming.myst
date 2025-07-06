@@ -7,25 +7,24 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/parallelization.ipynb
+downloads:
+  - file: ./parallelization.md
+    title: Markdown (md)
+  - file: exports/parallelization.ipynb
+    title: IPython (.ipynb)
 ---
 
-(parallel)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
-```
 
 # Parallelization
 
 In addition to what's in Anaconda, this lecture will need the following libraries:
 
 ```{code-cell} ipython
----
-tags: [hide-output]
----
+:tags: hide-output
+
 !pip install quantecon
 ```
 
@@ -142,7 +141,7 @@ Now, let's look at the output of the htop system monitor on our machine while
 this code is running:
 
 ```{figure} /_static/lecture_specific/parallelization/htop_parallel_npmat.png
-:scale: 80
+:width: 80%
 ```
 
 We can see that 4 of the 8 CPUs are running at full speed.
@@ -185,7 +184,7 @@ To get some basis for comparison for the last example, let's try the same
 thing with Numba.
 
 In fact there is an easy way to do this, since Numba can also be used to
-create custom {ref}`ufuncs <ufuncs>` with the [@vectorize](http://numba.pydata.org/numba-doc/dev/user/vectorize.html) decorator.
+create custom {ref}`ufuncs <ufuncs>` with the [`@vectorize`](http://numba.pydata.org/numba-doc/dev/user/vectorize.html) decorator.
 
 ```{code-cell} python3
 from numba import vectorize
@@ -485,7 +484,7 @@ on the number of CPUs on your machine.)
 ```{exercise}
 :label: parallel_ex2
 
-In {doc}`our lecture on SciPy<scipy>`, we discussed pricing a call option in a
+In [our lecture on SciPy](scipy.md), we discussed pricing a call option in a
 setting where the underlying stock price had a simple and well-known
 distribution.
 

@@ -9,6 +9,14 @@ kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/jax_intro.ipynb
+downloads:
+  - file: ./jax_intro.md
+    title: Markdown (md)
+  - file: exports/jax_intro.ipynb
+    title: IPython (.ipynb)
 ---
 
 # JAX

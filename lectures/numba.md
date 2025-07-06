@@ -9,16 +9,15 @@ kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/numba.ipynb
+downloads:
+  - file: ./numba.md
+    title: Markdown (md)
+  - file: exports/numba.ipynb
+    title: IPython (.ipynb)
 ---
-
-(speed)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
-```
 
 # Numba
 
@@ -31,7 +30,7 @@ In addition to what's in Anaconda, this lecture will need the following librarie
 ```
 
 Please also make sure that you have the latest version of Anaconda, since old
-versions are a {doc}`common source of errors <troubleshooting>`.
+versions are a [common source of errors](troubleshooting.md).
 
 Let's start with some imports:
 
@@ -43,7 +42,7 @@ import matplotlib.pyplot as plt
 
 ## Overview
 
-In an {doc}`earlier lecture <need_for_speed>` we learned about vectorization, which is one method to improve speed and efficiency in numerical work.
+In an [earlier lecture](need_for_speed.md) we learned about vectorization, which is one method to improve speed and efficiency in numerical work.
 
 Vectorization involves sending array processing
 operations in batch to efficient low-level code.
@@ -72,10 +71,8 @@ Numba will be a key part of our lectures --- especially those lectures involving
 This lecture introduces the main ideas.
 
 (numba_link)=
-## {index}`Compiling Functions <single: Compiling Functions>`
+## Compiling Functions
 
-```{index} single: Python; Numba
-```
 
 As stated above, Numba's primary use is compiling functions to fast native
 machine code during runtime.
@@ -170,7 +167,7 @@ Numba attempts to generate fast machine code using the infrastructure provided b
 
 It does this by inferring type information on the fly.
 
-(See our {doc}`earlier lecture <need_for_speed>` on scientific computing for a discussion of types.)
+(See our [earlier lecture](need_for_speed.md) on scientific computing for a discussion of types.)
 
 The basic idea is this:
 
@@ -202,7 +199,7 @@ qm_numba = jit(qm)
 
 In practice this would typically be done using an alternative *decorator* syntax.
 
-(We discuss decorators in a {doc}`separate lecture <python_advanced_features>` but you can skip the details at this stage.)
+(We discuss decorators in a [separate lecture](python_advanced_features.md) but you can skip the details at this stage.)
 
 Let's see how this is done.
 
@@ -304,7 +301,7 @@ If a class is successfully compiled, then its methods act as JIT-compiled
 functions.
 
 To give one example, let's consider the class for analyzing the Solow growth model we
-created in {doc}`this lecture <python_oop>`.
+created in [this lecture](python_oop.md).
 
 To compile this class we use the `@jitclass` decorator:
 
@@ -406,8 +403,6 @@ plt.show()
 
 ## Alternatives to Numba
 
-```{index} single: Python; Cython
-```
 
 There are additional options for accelerating Python loops.
 
@@ -419,7 +414,7 @@ If you prefer, you can safely skip this section.
 
 ### Cython
 
-Like {doc}`Numba <numba>`,  [Cython](http://cython.org/) provides an approach to generating fast compiled code that can be used from Python.
+Like [Numba](numba.md),  [Cython](http://cython.org/) provides an approach to generating fast compiled code that can be used from Python.
 
 As was the case with Numba, a key problem is the fact that Python is dynamically typed.
 
@@ -438,8 +433,6 @@ cumbersome than Numba.
 
 ### Interfacing with Fortran via F2Py
 
-```{index} single: Python; Interfacing with Fortran
-```
 
 If you are comfortable writing Fortran you will find it very easy to create
 extension modules from Fortran code using [F2Py](https://docs.scipy.org/doc/numpy/f2py/).

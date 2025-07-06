@@ -9,21 +9,17 @@ kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/pandas_panel.ipynb
+downloads:
+  - file: ./pandas_panel.md
+    title: Markdown (md)
+  - file: exports/pandas_panel.ipynb
+    title: IPython (.ipynb)
 ---
 
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
-```
-
-(ppd)=
-# {index}`Pandas for Panel Data <single: Pandas for Panel Data>`
-
-```{index} single: Python; Pandas
-```
+# Pandas for Panel Data
 
 In addition to what’s in Anaconda, this lecture will need the following libraries:
 
@@ -43,7 +39,7 @@ sns.set_theme()
 
 ## Overview
 
-In an {doc}`earlier lecture on pandas <pandas>`, we looked at working with simple data sets.
+In an [earlier lecture on pandas](pandas.md), we looked at working with simple data sets.
 
 Econometricians often need to work with more complex data sets, such as panels.
 
