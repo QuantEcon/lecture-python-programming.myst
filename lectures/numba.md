@@ -9,6 +9,14 @@ kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/numba.ipynb
+downloads:
+  - file: ./numba.md
+    title: Markdown (md)
+  - file: exports/numba.ipynb
+    title: IPython (.ipynb)
 ---
 
 # Numba

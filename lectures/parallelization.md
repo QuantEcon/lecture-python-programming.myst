@@ -7,6 +7,14 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/parallelization.ipynb
+downloads:
+  - file: ./parallelization.md
+    title: Markdown (md)
+  - file: exports/parallelization.ipynb
+    title: IPython (.ipynb)
 ---
 
 

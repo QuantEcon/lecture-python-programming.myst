@@ -9,6 +9,14 @@ kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/pandas_panel.ipynb
+downloads:
+  - file: ./pandas_panel.md
+    title: Markdown (md)
+  - file: exports/pandas_panel.ipynb
+    title: IPython (.ipynb)
 ---
 
 # Pandas for Panel Data

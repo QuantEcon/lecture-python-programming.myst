@@ -7,6 +7,14 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/oop_intro.ipynb
+downloads:
+  - file: ./oop_intro.md
+    title: Markdown (md)
+  - file: exports/oop_intro.ipynb
+    title: IPython (.ipynb)
 ---
 
 # OOP I: Objects and Methods

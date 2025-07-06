@@ -7,6 +7,14 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/debugging.ipynb
+downloads:
+  - file: ./debugging.md
+    title: Markdown (md)
+  - file: exports/debugging.ipynb
+    title: IPython (.ipynb)
 ---
 
 # Debugging and Handling Errors

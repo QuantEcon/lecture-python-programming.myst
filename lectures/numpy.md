@@ -7,6 +7,14 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/numpy.ipynb
+downloads:
+  - file: ./numpy.md
+    title: Markdown (md)
+  - file: exports/numpy.ipynb
+    title: IPython (.ipynb)
 ---
 
 

@@ -7,6 +7,14 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/writing_good_code.ipynb
+downloads:
+  - file: ./writing_good_code.md
+    title: Markdown (md)
+  - file: exports/writing_good_code.ipynb
+    title: IPython (.ipynb)
 ---
 
 # Writing Good Code

@@ -7,6 +7,14 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/need_for_speed.ipynb
+downloads:
+  - file: ./need_for_speed.md
+    title: Markdown (md)
+  - file: exports/need_for_speed.ipynb
+    title: IPython (.ipynb)
 ---
 
 # Python for Scientific Computing

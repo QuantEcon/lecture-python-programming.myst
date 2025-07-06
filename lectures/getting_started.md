@@ -7,6 +7,14 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/getting_started.ipynb
+downloads:
+  - file: ./getting_started.md
+    title: Markdown (md)
+  - file: exports/getting_started.ipynb
+    title: IPython (.ipynb)
 ---
 
 # Getting Started

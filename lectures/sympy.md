@@ -9,6 +9,14 @@ kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/sympy.ipynb
+downloads:
+  - file: ./sympy.md
+    title: Markdown (md)
+  - file: exports/sympy.ipynb
+    title: IPython (.ipynb)
 ---
 
 # SymPy

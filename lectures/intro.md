@@ -7,6 +7,14 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/intro.ipynb
+downloads:
+  - file: ./intro.md
+    title: Markdown (md)
+  - file: exports/intro.ipynb
+    title: IPython (.ipynb)
 ---
 
 # Python Programming for Economics and Finance

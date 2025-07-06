@@ -7,6 +7,14 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/workspace.ipynb
+downloads:
+  - file: ./workspace.md
+    title: Markdown (md)
+  - file: exports/workspace.ipynb
+    title: IPython (.ipynb)
 ---
 
 # Writing Longer Programs
