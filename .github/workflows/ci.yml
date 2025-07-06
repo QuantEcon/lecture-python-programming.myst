@@ -47,6 +47,7 @@ jobs:
           npm install
           npm run build
           npm install -g .
+          sudo npm run link
 
       - name: Build HTML
         working-directory: ./lectures
