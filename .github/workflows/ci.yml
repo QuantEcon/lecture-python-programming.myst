@@ -40,7 +40,13 @@ jobs:
       #   run: jupyter book build --html --execute
 
       - name: Install MyST Markdown CLI
-        run: npm install -g git+https://github.com/kp992/mystmd.git#ipynb_option
+        run: |
+          git clone https://github.com/kp992/mystmd.git
+          cd mystmd
+          git checkout ipynb_option
+          npm install
+          npm run build
+          npm install -g .
 
       - name: Build HTML
         working-directory: ./lectures
