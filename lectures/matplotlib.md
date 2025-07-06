@@ -7,6 +7,14 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/matplotlib.ipynb
+downloads:
+  - file: ./matplotlib.md
+    title: Markdown (md)
+  - file: exports/matplotlib.ipynb
+    title: IPython (.ipynb)
 ---
 
 # Matplotlib
