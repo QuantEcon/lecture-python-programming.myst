@@ -6,6 +6,7 @@ dependencies:
   - anaconda=2025.06
   - pip
   - pip:
+    - sphinx<8
     - jupyter-book==1.0.3
     - quantecon-book-theme==0.8.1
     - sphinx-tojupyter==0.3.0
