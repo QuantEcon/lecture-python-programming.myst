@@ -32,28 +32,12 @@ jobs:
         if: steps.cache-execution.outputs.cache-hit != 'true'
         run: python -m pip install -r myst_requirements.txt
 
-      # - name: Install jupyter book 2.0
-      #   run: pip install "jupyter-book>=2.0.0a0"
-
-      # - name: Build HTML
-      #   working-directory: ./lectures
-      #   run: jupyter book build --html --execute
-
-      - name: Install MyST Markdown CLI
-        run: |
-          git clone https://github.com/kp992/mystmd.git
-          cd mystmd
-          git checkout ipynb_option
-          npm install
-          npm run build
-          npm install -g .
-          sudo npm run link
+      - name: Install jupyter book 2.0
+        run: pip install "jupyter-book>=2.0.0a0"
 
       - name: Build HTML
         working-directory: ./lectures
-        run: |
-          myst build --ipynb --execute
-          myst build --html
+        run: jupyter book build --html --execute
 
       - name: Upload build output
         uses: actions/upload-pages-artifact@v3
