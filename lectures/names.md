@@ -7,16 +7,15 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/names.ipynb
+downloads:
+  - file: ./names.md
+    title: Markdown (md)
+  - file: exports/names.ipynb
+    title: IPython (.ipynb)
 ---
-
-(oop_names)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
-```
 
 # Names and Namespaces
 
@@ -34,8 +33,6 @@ understanding of how names work in Python.
 (var_names)=
 ## Variable Names in Python
 
-```{index} single: Python; Variable Names
-```
 
 Consider the Python statement
 
@@ -95,9 +92,6 @@ Garbage collection is actually an active research area in computer science.
 You can [read more on garbage collection](https://rushter.com/blog/python-garbage-collector/) if you are interested.
 
 ## Namespaces
-
-```{index} single: Python; Namespaces
-```
 
 Recall from the preceding discussion that the statement
 
@@ -211,8 +205,6 @@ math.__name__
 
 ## Interactive Sessions
 
-```{index} single: Python; Interpreter
-```
 
 In Python, **all** code executed by the interpreter runs in some module.
 
@@ -265,8 +257,6 @@ import numpy as np
 
 ## The Global Namespace
 
-```{index} single: Python; Namespace (Global)
-```
 
 Python documentation often makes reference to the "global namespace".
 
@@ -294,8 +284,6 @@ In this case it's `__main__`, so the namespace of `__main__` again becomes the g
 
 ## Local Namespaces
 
-```{index} single: Python; Namespace (Local)
-```
 
 Important fact: When we call a function, the interpreter creates a *local namespace* for that function, and registers the variables in that namespace.
 
@@ -326,8 +314,6 @@ You can see the local namespace of `f` before it is destroyed.
 
 ## The `__builtins__` Namespace
 
-```{index} single: Python; Namespace (__builtins__)
-```
 
 We have been using various built-in functions, such as `max(), dir(), str(), list(), len(), range(), type()`, etc.
 
@@ -366,8 +352,6 @@ The next section explains how this works ...
 
 ## Name Resolution
 
-```{index} single: Python; Namespace (Resolution)
-```
 
 Namespaces are great because they help us organize variable names.
 
@@ -479,7 +463,7 @@ Note that the global `a` was not affected by the local `a`.
 
 
 (mutable_vs_immutable)=
-### {index}`Mutable <single: Mutable>` Versus {index}`Immutable <single: Immutable>` Parameters
+### Mutable Versus Immutable Parameters
 
 This is a good time to say a little more about mutable vs immutable objects.
 

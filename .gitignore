@@ -10,3 +10,4 @@ dask-worker-space
 lectures/mathfoo.py
 lectures/mod.py
 lectures/test.py
+lectures/exports/

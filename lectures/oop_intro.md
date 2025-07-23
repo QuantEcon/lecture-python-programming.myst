@@ -7,16 +7,15 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/oop_intro.ipynb
+downloads:
+  - file: ./oop_intro.md
+    title: Markdown (md)
+  - file: exports/oop_intro.ipynb
+    title: IPython (.ipynb)
 ---
-
-(oop_intro)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
-```
 
 # OOP I: Objects and Methods
 
@@ -67,8 +66,6 @@ We'll make use of the following third party library
 
 ## Objects
 
-```{index} single: Python; Objects
-```
 
 In Python, an *object* is a collection of data and instructions held in computer memory that consists of
 
@@ -82,8 +79,6 @@ These concepts are defined and discussed sequentially below.
 (type)=
 ### Type
 
-```{index} single: Python; Type
-```
 
 Python provides for different types of objects, to accommodate different categories of data.
 
@@ -116,9 +111,8 @@ On the other hand, between two numbers it means ordinary addition
 Consider the following expression
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 '300' + 400
 ```
 
@@ -143,8 +137,6 @@ int('300') + 400   # To add as numbers, change the string to an integer
 (identity)=
 ### Identity
 
-```{index} single: Python; Identity
-```
 
 In Python, each object has a unique identifier, which helps Python (and us) keep track of the object.
 
@@ -166,8 +158,6 @@ The identity of an object is in fact just the address of the object in memory.
 
 ### Object Content: Data and Attributes
 
-```{index} single: Python; Content
-```
 
 If we set `x = 42` then we create an object of type `int` that contains
 the data `42`.
@@ -202,8 +192,6 @@ These attributes are important, so let's discuss them in-depth.
 (methods)=
 ### Methods
 
-```{index} single: Python; Methods
-```
 
 Methods are *functions that are bundled with objects*.
 
@@ -296,7 +284,7 @@ If Python is object oriented, why don't we use `x.len()`?
 The answer is related to the fact that Python aims for readability and consistent style.
 
 In Python, it is common for users to build custom objects --- we discuss how to
-do this {doc}`later <python_oop>`.
+do this [later](python_oop.md).
 
 It's quite common for users to add methods to their that measure the length of
 the object, suitably defined.
@@ -351,7 +339,7 @@ and write clear Pythonic code.
 :label: oop_intro_ex1
 ```
 
-We have met the {any}`boolean data type <boolean>` previously. 
+We have met the [boolean data type](python_essentials.md#boolean) previously. 
 
 Using what we have learnt in this lecture, print a list of methods of the
 boolean object `True`.

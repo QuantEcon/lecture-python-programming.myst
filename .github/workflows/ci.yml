@@ -5,69 +5,49 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Anaconda
-        uses: conda-incubator/setup-miniconda@v3
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v3
+
+      - name: Cache Notebook Execution
+        uses: actions/cache@v3
+        id: cache-execution
         with:
-          auto-update-conda: true
-          auto-activate-base: true
-          miniconda-version: 'latest'
-          python-version: "3.12"
-          environment-file: environment.yml
-          activate-environment: quantecon
-      - name: Install latex dependencies
-        run: |
-          sudo apt-get -qq update
-          sudo apt-get install -y     \
-            texlive-latex-recommended \
-            texlive-latex-extra       \
-            texlive-fonts-recommended \
-            texlive-fonts-extra       \
-            texlive-xetex             \
-            latexmk                   \
-            xindy                     \
-            dvipng                    \
-            cm-super
-      - name: Display Conda Environment Versions
-        shell: bash -l {0}
-        run: conda list
-      - name: Display Pip Versions
-        shell: bash -l {0}
-        run: pip list
-      - name: Download "build" folder (cache)
-        uses: dawidd6/action-download-artifact@v11
+          path: ./lectures/_build/execute
+          key: ${{ runner.os }}-execute-cache-${{ hashFiles('lectures/**/*.md') }}
+
+      - uses: actions/setup-node@v4
         with:
-          workflow: cache.yml
-          branch: main
-          name: build-cache
-          path: _build
-      # Build Assets (Download Notebooks and PDF via LaTeX)
-      - name: Build Download Notebooks (sphinx-tojupyter)
-        shell: bash -l {0}
-        run: |
-          jb build lectures --path-output ./ --builder=custom --custom-builder=jupyter -n -W --keep-going
-          mkdir -p _build/html/_notebooks
-          cp -u _build/jupyter/*.ipynb _build/html/_notebooks
-      - name: Build PDF from LaTeX
-        shell: bash -l {0}
-        run: |
-          jb build lectures --builder pdflatex --path-output ./ -n -W --keep-going
-          mkdir _build/html/_pdf
-          cp -u _build/latex/*.pdf _build/html/_pdf
-      # Final Build of HTML
+          node-version: 18.x
+
+      - name: Install Python
+        if: steps.cache-execution.outputs.cache-hit != 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: 'myst_requirements.txt'
+
+      - name: Install execution requirements
+        if: steps.cache-execution.outputs.cache-hit != 'true'
+        run: python -m pip install -r myst_requirements.txt
+
+      - name: Install jupyter book 2.0
+        run: pip install "jupyter-book>=2.0.0a0"
+
       - name: Build HTML
-        shell: bash -l {0}
-        run: |
-          jb build lectures --path-output ./ -n -W --keep-going
-      - name: Upload Execution Reports
-        uses: actions/upload-artifact@v4
-        if: failure()
+        working-directory: ./lectures
+        run: jupyter book build --html --execute
+
+      - name: Upload build output
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: execution-reports
-          path: _build/html/reports
+          path: './lectures/_build/html'
+
       - name: Preview Deploy to Netlify
         uses: nwtgck/actions-netlify@v3
         with:
-          publish-dir: '_build/html/'
+          publish-dir: './lectures/_build/html'
           production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Preview Deploy from GitHub Actions"

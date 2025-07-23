@@ -7,21 +7,17 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/debugging.ipynb
+downloads:
+  - file: ./debugging.md
+    title: Markdown (md)
+  - file: exports/debugging.ipynb
+    title: IPython (.ipynb)
 ---
 
-(debugging)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
-```
-
 # Debugging and Handling Errors
-
-```{index} single: Debugging
-```
 
 ```{epigraph}
 "Debugging is twice as hard as writing the code in the first place.
@@ -45,9 +41,6 @@ In this lecture, we will discuss how to debug our programs and improve error han
 
 ## Debugging
 
-```{index} single: Debugging
-```
-
 Debugging tools for Python vary across platforms, IDEs and editors.
 
 For example, a [visual debugger](https://jupyterlab.readthedocs.io/en/stable/user/debugger.html) is available in JupyterLab.
@@ -67,9 +60,8 @@ import matplotlib.pyplot as plt
 Let's consider a simple (and rather contrived) example
 
 ```{code-cell} ipython
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 def plot_log():
     fig, ax = plt.subplots(2, 1)
     x = np.linspace(1, 2, 10)
@@ -94,9 +86,8 @@ But let's pretend that we don't understand this for the moment.
 We might suspect there's something wrong with `ax` but when we try to investigate this object, we get the following exception:
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 ax
 ```
 
@@ -108,9 +99,8 @@ Let's try doing it a different way.
 We run the first cell block again, generating the same error
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 def plot_log():
     fig, ax = plt.subplots(2, 1)
     x = np.linspace(1, 2, 10)
@@ -187,9 +177,8 @@ The preceding approach is handy but sometimes insufficient.
 Consider the following modified version of our function above
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 def plot_log():
     fig, ax = plt.subplots()
     x = np.logspace(1, 2, 10)
@@ -259,8 +248,6 @@ The full list of magics is [here](http://ipython.readthedocs.org/en/stable/inter
 
 ## Handling Errors
 
-```{index} single: Python; Handling Errors
-```
 
 Sometimes it's possible to anticipate bugs and errors as we're writing code.
 
@@ -292,19 +279,16 @@ In this section, we'll discuss different types of errors in Python and technique
 
 ### Errors in Python
 
-We have seen `AttributeError` and `NameError` in {any}`our previous examples <debug_magic>`.
+We have seen `AttributeError` and `NameError` in [our previous examples](#debug_magic).
 
 In Python, there are two types of errors -- syntax errors and exceptions.
 
-```{index} single: Python; Exceptions
-```
 
 Here's an example of a common error type
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 def f:
 ```
 
@@ -313,36 +297,32 @@ Since illegal syntax cannot be executed, a syntax error terminates execution of 
 Here's a different kind of error, unrelated to syntax
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 1 / 0
 ```
 
 Here's another
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 x1 = y1
 ```
 
 And another
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 'foo' + 6
 ```
 
 And another
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 X = []
 x = X[0]
 ```
@@ -355,8 +335,6 @@ In Python, these errors are called *exceptions*.
 
 ### Assertions
 
-```{index} single: Python; Assertions
-```
 
 Sometimes errors can be avoided by checking whether your program runs as expected.
 
@@ -376,9 +354,8 @@ If we run this with an array of length one, the program will terminate and
 print our error message
 
 ```{code-cell} python3
----
-tags: [raises-exception]
----
+:tags: raises-exception
+
 var([1])
 ```
 
@@ -389,8 +366,6 @@ The advantage is that we can
 
 ### Handling Errors During Runtime
 
-```{index} single: Python; Runtime Errors
-```
 
 The approach used above is a bit limited, because it always leads to
 termination.
@@ -508,7 +483,7 @@ prices
 
 Using `try` -- `except`, write a program to read in the contents of the file and sum the numbers, ignoring lines without numbers.
 
-You can use the `open()` function we learnt {any}`before<iterators>` to open `numbers.txt`.
+You can use the `open()` function we learnt [before](#iterators) to open `numbers.txt`.
 ```{exercise-end}
 ```
 
