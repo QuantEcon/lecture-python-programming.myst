@@ -563,7 +563,8 @@ Suppose that the volatility of returns on an asset can be in one of two regimes 
 
 The transition probabilities across states are as follows
 
-```{figure} /_static/lecture_specific/sci_libs/nfs_ex1.png
+```{image} /_static/lecture_specific/sci_libs/nfs_ex1.png
+:align: center
 ```
 
 For example, let the period length be one day, and suppose the current state is high.
