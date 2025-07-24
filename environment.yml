@@ -2,12 +2,12 @@ name: quantecon
 channels:
   - default
 dependencies:
-  - python=3.12
-  - anaconda=2024.10
+  - python=3.13
+  - anaconda=2025.06
   - pip
   - pip:
-    - jupyter-book==1.0.3
-    - quantecon-book-theme==0.7.6
+    - jupyter-book==1.0.4post1
+    - quantecon-book-theme==0.8.2
     - sphinx-tojupyter==0.3.0
     - sphinxext-rediraffe==0.2.7
     - sphinx-reredirects==0.1.4
