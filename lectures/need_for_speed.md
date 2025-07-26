@@ -27,10 +27,10 @@ premature optimization is the root of all evil." -- Donald Knuth
 
 ## Overview
 
-Python is extremely popular for scientific computing, due to such factors as
+Python is popular for scientific computing due to factors such as
 
 * the accessible and expressive nature of the language itself,
-* its vast range of high quality scientific libraries,
+* the huge range of high quality scientific libraries,
 * the fact that the language and libraries are open source,
 * the popular [Anaconda Python distribution](https://www.anaconda.com/download), which simplifies installation and management of scientific libraries, and
 * the key role that Python plays in data science, machine learning and artificial intelligence.
@@ -70,7 +70,9 @@ One reason we use scientific libraries is because they implement routines we wan
 
 For example, it's almost always better to use an existing routine for root finding than to write a new one from scratch.
 
-(For standard algorithms, efficiency is maximized if the community can coordinate on a common set of implementations, written by experts and tuned by users to be as fast and robust as possible.)
+(For standard algorithms, efficiency is maximized if the community can
+coordinate on a common set of implementations, written by experts and tuned by
+users to be as fast and robust as possible.)
 
 But this is not the only reason that we use Python's scientific libraries.
 
@@ -93,9 +95,9 @@ At QuantEcon, the scientific libraries we use most often are
 * [NumPy](https://numpy.org/)
 * [SciPy](https://scipy.org/)
 * [Matplotlib](https://matplotlib.org/) 
+* [JAX](https://github.com/jax-ml/jax)
 * [Pandas](https://pandas.pydata.org/)
 * [Numba](https://numba.pydata.org/) and
-* [JAX](https://github.com/jax-ml/jax)
 
 Here's how they fit together:
 
@@ -104,14 +106,11 @@ Here's how they fit together:
   multiplication).
 * SciPy builds on NumPy by adding numerical methods routinely used in science (interpolation, optimization, root finding, etc.).
 * Matplotlib is used to generate figures, with a focus on plotting data stored in NumPy arrays.
-* Pandas provides types and functions for manipulating data.
-* Numba provides a just-in-time compiler that integrates well with NumPy and
-  helps accelerate Python code.
 * JAX includes array processing operations similar to NumPy, automatic
   differentiation, a parallelization-centric just-in-time compiler, and automated integration with hardware accelerators such as
   GPUs.
-
-
+* Pandas provides types and functions for manipulating data.
+* Numba provides a just-in-time compiler that plays well with NumPy and helps accelerate Python code.
 
 
 ## The Need for Speed
@@ -133,11 +132,9 @@ Indeed, the standard implementation of Python (called CPython) cannot match the 
 
 Does that mean that we should just switch to C or Fortran for everything?
 
-The answer is: No, no, and one hundred times no!
+The answer is: No!
 
-(This is what you should say to your professor when they insist that your model needs to be rewritten in Fortran or C++.)
-
-There are two reasons why:
+There are three reasons why:
 
 First, for any given program, relatively few lines are ever going to be time-critical.
 
@@ -145,13 +142,17 @@ Hence it is far more efficient to write most of our code in a high productivity 
 
 Second, even for those lines of code that *are* time-critical, we can now achieve the same speed as C or Fortran using Python's scientific libraries.
 
-In fact we can often do better, because some scientific libraries are so
-effective at accelerating and parallelizing our code.
+Third, in the last few years, accelerating code has become essentially
+synonymous with parallelizing execution, and this task is best left to
+specialized compilers.
+
+Certain Python libraries have outstanding capabilities for parallelizing
+scientific code -- we'll discuss this more as we go along.
 
 
 ### Where are the Bottlenecks?
 
-Before we learn how to do this, let's try to understand why plain vanilla Python is slower than C or Fortran.
+Before we do so, let's try to understand why plain vanilla Python is slower than C or Fortran.
 
 This will, in turn, help us figure out how to speed things up.
 
@@ -275,17 +276,22 @@ Let's look at some ways around these problems.
 ```{index} single: Python; Vectorization
 ```
 
-There is a clever method called **vectorization** that can be
-used to speed up high level languages in numerical applications.
+One method for avoiding memory traffic and type checking is [array programming](https://en.wikipedia.org/wiki/Array_programming). 
+
+Economists usually refer to array programming as ``vectorization.''
+
+(In computer science, this term has [a slightly different meaning](https://en.wikipedia.org/wiki/Automatic_vectorization).)
 
 The key idea is to send array processing operations in batch to pre-compiled
 and efficient native machine code.
 
 The machine code itself is typically compiled from carefully optimized C or Fortran.
 
-For example, when working in a high level language, the operation of inverting a large matrix can be subcontracted to efficient machine code that is pre-compiled for this purpose and supplied to users as part of a package.
+For example, when working in a high level language, the operation of inverting a
+large matrix can be subcontracted to efficient machine code that is pre-compiled
+for this purpose and supplied to users as part of a package.
 
-This clever idea dates back to MATLAB, which uses vectorization extensively.
+This idea dates back to MATLAB, which uses vectorization extensively.
 
 
 ```{figure} /_static/lecture_specific/need_for_speed/matlab.png
@@ -297,30 +303,20 @@ in later lectures.
 (numba-p_c_vectorization)=
 ## Beyond Vectorization
 
-At its best, vectorization yields fast, simple code.
+At best, vectorization yields fast, simple code.
 
 However, it's not without disadvantages.
 
 One issue is that it can be highly memory-intensive.
-
-For example, the vectorized maximization routine above is far more memory
-intensive than the non-vectorized version that preceded it.
 
 This is because vectorization tends to create many intermediate arrays before
 producing the final calculation.
 
 Another issue is that not all algorithms can be vectorized.
 
-In these kinds of settings, we need to go back to loops.
+Because of these issues, most high performance computing is moving away from
+traditional vectorization and towards the use of [just-in-time compilers](https://en.wikipedia.org/wiki/Just-in-time_compilation).
 
-Fortunately, there are alternative ways to speed up Python loops that work in
-almost any setting.
-
-For example, [Numba](http://numba.pydata.org/) solves the main problems with
-vectorization listed above.
-
-It does so through something called **just in time (JIT) compilation**,
-which can generate extremely fast and efficient code.
-
-{doc}`Later <numba>` we'll learn how to use Numba to accelerate Python code.
+In later lectures in this series, we will learn about how modern Python libraries exploit
+just-in-time compilers to generate fast, efficient, parallelized machine code.
 
