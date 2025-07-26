@@ -34,52 +34,58 @@ into R." -- Chris Wiggins
 This lecture series will teach you to use Python for scientific computing, with
 a focus on economics and finance.
 
-The series is aimed at Python novices, although experienced users will also find useful content in later lectures.
+The series is aimed at Python novices, although experienced users will also find
+useful content in later lectures.
 
 In this lecture we will
 
 * introduce Python,
 * showcase some of its abilities,
-* discuss the connection between Python and AI,
 * explain why Python is our favorite language for scientific computing, and
 * point you to the next steps.
 
 You do **not** need to understand everything you see in this lecture -- we will work through the details slowly later in the lecture series.
 
 
-### Can't I Just Use ChatGPT?
+### Can't I Just Use LLMs?
 
 No!
 
-It's tempting to think that in the age of AI we don't need to learn how to code.
+Of course it's tempting to think that in the age of AI we don't need to learn how to code.
 
-And it's true that AIs like [ChatGPT](https://chatgpt.com/) and other LLMs are wonderful productivity tools for coders.
+And yes, we like to be lazy too sometimes.
 
-In fact an AI can be a great companion for these lectures -- try copy-pasting some code from this series and ask the AI to explain it to you.
+In addition, we agree that AIs are outstanding productivity tools for coders.
 
-AIs will certainly help you write pieces of code that you can combine.
+But AIs cannot reliably solve new problems that they haven't seen before.
 
-But AIs cannot completely and reliably solve a new problem that they haven't seen before!
+You will need to be the architect and the supervisor -- and for these tasks you need to
+be able to read, write, and understand computer code.
 
-You will need to be the supervisor -- and for that you need to be able to read, write, and understand computer code.
+Having said that, a good LLM is a useful companion for these lectures -- try copy-pasting some
+code from this series and asking for an explanation. 
 
 
 ### Isn't MATLAB Better?
 
 No, no, and one hundred times no.
 
-For almost all modern problems, Python's scientific libraries are now far in advance of MATLAB's capabilities.
+Nirvana was great (and Soundgarden [was better](https://www.youtube.com/watch?v=3mbBbFH9fAg&list=RD3mbBbFH9fAg)) but
+it's time to move on from the '90s.
 
-We will explain the benefits of Python's libraries throughout this lecture
+For most modern problems, Python's scientific libraries are now far in advance of MATLAB's capabilities.
+
+This is particularly the case in fast-growing fields such as deep learning and reinforcement learning.
+
+Moreover, all major LLMs are more proficient at writing Python code than MATLAB
+code.
+
+We will discuss relative merits of Python's libraries throughout this lecture
 series, as well as in our later series on [JAX](https://jax.quantecon.org/intro.html).
 
-We will also explain how Python's elegant design helps you write clean, efficient code.
-
-On top of these features, Python is more widely used, with a huge and helpful community, and free!
 
 
-## What's Python?
-
+## Introducing Python
 
 [Python](https://www.python.org) is a general-purpose programming language conceived in 1989 by [Guido van Rossum](https://en.wikipedia.org/wiki/Guido_van_Rossum).
 
@@ -92,13 +98,13 @@ This is important because it
 * encourages reproducibility and [open science](https://en.wikipedia.org/wiki/Open_science).
 
 
-
 ### Common Uses
 
-{index}`Python <single: Python; common uses>` is a general-purpose language used in almost all application domains, including
+{index}`Python <single: Python; common uses>` is a general-purpose language used
+in almost all application domains, including
 
-* AI 
-* scientific computing
+* AI and computer science
+* other scientific computing
 * communication
 * web development
 * CGI and graphical user interfaces
@@ -107,59 +113,47 @@ This is important because it
 * multimedia
 * etc.
 
-It is used and supported extensively by tech firms including
+It is used and supported extensively by large tech firms including
 
 * [Google](https://www.google.com/)
 * [OpenAI](https://openai.com/)
 * [Netflix](https://www.netflix.com/)
 * [Meta](https://opensource.fb.com/)
-* [Dropbox](https://www.dropbox.com/)
 * [Amazon](https://www.amazon.com/)
 * [Reddit](https://www.reddit.com/)
 * etc.
 
 
-
-
 ### Relative Popularity
 
-Python is, without doubt, one of the [most popular programming languages](https://www.tiobe.com/tiobe-index/).
+Python is one of the most -- if not the most -- [popular programming languages](https://www.tiobe.com/tiobe-index/).
 
 Python libraries like [pandas](https://pandas.pydata.org/) and [Polars](https://pola.rs/) are replacing familiar tools like Excel and VBA as an essential skill in the fields of finance and banking.
 
-Moreover, Python is extremely popular within the scientific community -- especially AI
+Moreover, Python is extremely popular within the scientific community -- especially those connected to AI
 
-The following chart, produced using Stack Overflow Trends, provides some evidence.
-
-It shows the popularity of a Python AI library called [PyTorch](https://pytorch.org/) relative to MATLAB.
+For example, the following chart from Stack Overflow Trends shows how the
+popularity of a single Python deep learning library
+([PyTorch](https://pytorch.org/)) has grown over the last few yeras.
 
 
 ```{figure} /_static/lecture_specific/about_py/pytorch_vs_matlab.png
 ```
+Pytorch is just one of several Python libraries for deep learning and AI.
 
-The chart shows that MATLAB's popularity has faded, while PyTorch is growing rapidly.
-
-Moreover, PyTorch is just one of the thousands of Python libraries available for scientic computing.
 
 
 ### Features
 
-Python is a [high-level language](https://en.wikipedia.org/wiki/High-level_programming_language), which means it is relatively easy to read, write and debug.
+Python is a [high-level
+language](https://en.wikipedia.org/wiki/High-level_programming_language), which
+means it is relatively easy to read, write and debug.
 
 It has a relatively small core language that is easy to learn.
 
-This core is supported by many libraries, which you can learn to use as required.
+This core is supported by many libraries, which can be studied as required.
 
-Python is very beginner-friendly 
-
-* suitable for students learning programming 
-* used in many undergraduate and graduate programs
-
-Other features of Python:
-
-* multiple programming styles are supported (procedural, object-oriented, functional, etc.)
-* [interpreted](https://en.wikipedia.org/wiki/Interpreter_(computing)) rather than [compiled](https://en.wikipedia.org/wiki/Compiler) ahead of time.
-
+Python is flexible and pragmatic, supporting multiple programming styles (procedural, object-oriented, functional, etc.).
 
 
 ### Syntax and Design
@@ -167,7 +161,7 @@ Other features of Python:
 ```{index} single: Python; syntax and design
 ```
 
-One reason for Python's popularity is its simple and elegant design --- we'll see many examples later on.
+One reason for Python's popularity is its simple and elegant design.
 
 To get a feeling for this, let's look at an example.
 
@@ -231,12 +225,9 @@ public class CSVReader {
 This Java code opens an imaginary file called `data.csv` and computes the mean
 of the values in the second column.
 
-Even without knowing Java, you can see that the program is long and complex.
-
 Here's Python code that does the same thing.
 
-Even if you don't yet know Python, you can see that the code is simpler and
-easier to read.
+Even if you don't yet know Python, you can see that the code is far simpler and easier to read.
 
 ```{code-cell} python3
 :tags: [skip-execution]
@@ -256,20 +247,14 @@ print(f"Average: {total / count if count else 'No valid data'}")
 
 ```
 
-The simplicity of Python and its neat design are a big factor in its popularity.
 
 
 ### The AI Connection
 
-Unless you have been living under a rock and avoiding all contact with the
-modern world, you will know that AI is rapidly advancing.
+AI is in the process of taking over many tasks currently performed by humans,
+just as other forms of machinery have done over the past few centuries.
 
-AI is already remarkably good at helping you write code, as discussed above.
-
-No doubt AI will take over many tasks currently performed by humans,
-just like other forms of machinery have done over the past few centuries.
-
-Python is playing a huge role in the advance of AI and machine learning.
+Moreover, Python is playing a huge role in the advance of AI and machine learning.
 
 This means that tech firms are pouring money into development of extremely
 powerful Python libraries.
@@ -288,9 +273,7 @@ These lectures will explain how.
 
 We have already discussed the importance of Python for AI, machine learning and data science
 
-Let's take a look at the role of Python in other areas of scientific computing.
-
-Python is either the dominant player or a major player in
+Python is also one of the dominant players in
 
 * astronomy
 * chemistry
@@ -303,7 +286,6 @@ Use of Python is also rising in economics, finance, and adjacent fields like
 operations research -- which were previously dominated by MATLAB / Excel / STATA / C / Fortran.
 
 This section briefly showcases some examples of Python for general scientific programming.
-
 
 
 ### NumPy
@@ -379,6 +361,8 @@ However, you should still learn NumPy first because
 * libraries like JAX directly extend NumPy functionality and hence are easier to
   learn when you already know NumPy.
 
+This lecture series will provide you with extensive background in NumPy.
+
 ### SciPy
 
 The [SciPy](http://www.scipy.org) library is built on top of NumPy and provides additional functionality.
@@ -453,7 +437,7 @@ You can visit the [Python Graph Gallery](https://www.python-graph-gallery.com/) 
 
 ### Networks and Graphs
 
-The study of networks and graphs becoming an important part of scientific work
+The study of [networks](https://networks.quantecon.org/) is becoming an important part of scientific work
 in economics, finance and other fields.
 
 For example, we are interesting in studying
@@ -462,8 +446,6 @@ For example, we are interesting in studying
 * networks of banks and financial institutions
 * friendship and social networks
 * etc.
-
-(We have a [book on economic networks](https://networks.quantecon.org/) if you would like to learn more.)
 
 Python has many libraries for studying networks and graphs.
 
