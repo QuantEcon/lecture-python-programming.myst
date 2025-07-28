@@ -134,7 +134,7 @@ Moreover, Python is extremely popular within the scientific community -- especia
 
 For example, the following chart from Stack Overflow Trends shows how the
 popularity of a single Python deep learning library
-([PyTorch](https://pytorch.org/)) has grown over the last few yeras.
+([PyTorch](https://pytorch.org/)) has grown over the last few years.
 
 
 ```{figure} /_static/lecture_specific/about_py/pytorch_vs_matlab.png
@@ -512,7 +512,7 @@ mentioned above.
 * [Dask](https://docs.dask.org/en/stable/) for parallelization
 * [Numba](http://numba.pydata.org/) for making Python run at the same speed as native machine code
 * [CVXPY](https://www.cvxpy.org/) for convex optimization 
-* [scikit-image](https://scikit-image.org/) and [OpenCV](https://opencv.org/) for processing and analysing image data
+* [scikit-image](https://scikit-image.org/) and [OpenCV](https://opencv.org/) for processing and analyzing image data
 * [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) for extracting data from HTML and XML files
 
 

@@ -35,7 +35,7 @@ Python is popular for scientific computing due to factors such as
 * the popular [Anaconda Python distribution](https://www.anaconda.com/download), which simplifies installation and management of scientific libraries, and
 * the key role that Python plays in data science, machine learning and artificial intelligence.
 
-In previous lectures, we looked at some scientific Python libaries such as NumPy and Matplotlib.
+In previous lectures, we looked at some scientific Python libraries such as NumPy and Matplotlib.
 
 However, our main focus was the core Python language, rather than the libraries.
 
