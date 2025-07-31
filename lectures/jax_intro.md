@@ -493,7 +493,7 @@ ax.legend(loc='upper center')
 plt.show()
 ```
 
-We defer further exploration of automatic differentiation with JAX until {doc}`autodiff`.
+We defer further exploration of automatic differentiation with JAX until {doc}`jax:autodiff`.
 
 ## Writing vectorized code
 
