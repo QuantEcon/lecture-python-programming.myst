@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>22. Debugging and Handling Errors &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -70,14 +69,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=bd0785fbb14d8d2bd4d9ae501d79ed8d3bc089ec" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -85,22 +84,21 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="_static/scripts/quantecon-book-theme.js?digest=d9faaf6c4b57726f74ba012412af1f5681bdff87"></script>
+    <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
+    <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -109,12 +107,20 @@
                 gtag('config', 'G-X7DH1M2DPY');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'debugging';</script>
     <link rel="canonical" href="https://python-programming.quantecon.org/debugging.html" />
-    <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
+    <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="23. Troubleshooting" href="troubleshooting.html" />
@@ -243,14 +249,14 @@
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="debugging-and-handling-errors">
-<h1><span class="section-number">22. </span>Debugging and Handling Errors<a class="headerlink" href="#debugging-and-handling-errors" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">22. </span>Debugging and Handling Errors<a class="headerlink" href="#debugging-and-handling-errors" title="Link to this heading">#</a></h1>
 <blockquote class="epigraph" id="index-0">
 <div><p>“Debugging is twice as hard as writing the code in the first place.
 Therefore, if you write the code as cleverly as possible, you are, by definition,
 not smart enough to debug it.” – Brian Kernighan</p>
 </div></blockquote>
 <section id="overview">
-<h2><span class="section-number">22.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">22.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>Are you one of those programmers who fills their code with <code class="docutils literal notranslate"><span class="pre">print</span></code> statements when trying to debug their programs?</p>
 <p>Hey, we all used to do that.</p>
 <p>(OK, sometimes we still do that…)</p>
@@ -259,25 +265,25 @@ not smart enough to debug it.” – Brian Kernighan</p>
 <p>In this lecture, we will discuss how to debug our programs and improve error handling.</p>
 </section>
 <section id="id1">
-<h2><span class="section-number">22.2. </span>Debugging<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">22.2. </span>Debugging<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p id="index-1">Debugging tools for Python vary across platforms, IDEs and editors.</p>
 <p>For example, a <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/user/debugger.html">visual debugger</a> is available in JupyterLab.</p>
 <p>Here we’ll focus on Jupyter Notebook and leave you to explore other settings.</p>
 <p>We’ll need the following imports</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="the-debug-magic">
-<span id="debug-magic"></span><h3><span class="section-number">22.2.1. </span>The <code class="docutils literal notranslate"><span class="pre">debug</span></code> Magic<a class="headerlink" href="#the-debug-magic" title="Permalink to this heading">#</a></h3>
+<span id="debug-magic"></span><h3><span class="section-number">22.2.1. </span>The <code class="docutils literal notranslate"><span class="pre">debug</span></code> Magic<a class="headerlink" href="#the-debug-magic" title="Link to this heading">#</a></h3>
 <p>Let’s consider a simple (and rather contrived) example</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_log</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_log</span><span class="p">():</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
@@ -304,7 +310,7 @@ not smart enough to debug it.” – Brian Kernighan</p>
 <span class="ne">AttributeError</span>: &#39;numpy.ndarray&#39; object has no attribute &#39;plot&#39;
 </pre></div>
 </div>
-<img alt="_images/e47b1b3d273eee9d3d7d5c9570dc7fa4f953bee6c83ad6ba90ad2b65697582b5.png" src="_images/e47b1b3d273eee9d3d7d5c9570dc7fa4f953bee6c83ad6ba90ad2b65697582b5.png" />
+<img alt="_images/b7d3e9f1040e7b1f7cf8208a4934d419b9ed5bab9ea746b5895c201916edf290.png" src="_images/b7d3e9f1040e7b1f7cf8208a4934d419b9ed5bab9ea746b5895c201916edf290.png" />
 </div>
 </div>
 <p>This code is intended to plot the <code class="docutils literal notranslate"><span class="pre">log</span></code> function over the interval <span class="math notranslate nohighlight">\([1, 2]\)</span>.</p>
@@ -337,7 +343,7 @@ lost once that function terminates.</p>
 <p>We run the first cell block again, generating the same error</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_log</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_log</span><span class="p">():</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
@@ -364,7 +370,7 @@ lost once that function terminates.</p>
 <span class="ne">AttributeError</span>: &#39;numpy.ndarray&#39; object has no attribute &#39;plot&#39;
 </pre></div>
 </div>
-<img alt="_images/e47b1b3d273eee9d3d7d5c9570dc7fa4f953bee6c83ad6ba90ad2b65697582b5.png" src="_images/e47b1b3d273eee9d3d7d5c9570dc7fa4f953bee6c83ad6ba90ad2b65697582b5.png" />
+<img alt="_images/b7d3e9f1040e7b1f7cf8208a4934d419b9ed5bab9ea746b5895c201916edf290.png" src="_images/b7d3e9f1040e7b1f7cf8208a4934d419b9ed5bab9ea746b5895c201916edf290.png" />
 </div>
 </div>
 <p>But this time we type in the following cell block</p>
@@ -414,12 +420,12 @@ online help</p>
 </div>
 </section>
 <section id="setting-a-break-point">
-<h3><span class="section-number">22.2.2. </span>Setting a Break Point<a class="headerlink" href="#setting-a-break-point" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">22.2.2. </span>Setting a Break Point<a class="headerlink" href="#setting-a-break-point" title="Link to this heading">#</a></h3>
 <p>The preceding approach is handy but sometimes insufficient.</p>
 <p>Consider the following modified version of our function above</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_log</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_log</span><span class="p">():</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
@@ -430,7 +436,7 @@ online help</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7e12ca600a55a899b4ed167497bf262df08947c219e52cc77a791f10d91d4c4b.png" src="_images/7e12ca600a55a899b4ed167497bf262df08947c219e52cc77a791f10d91d4c4b.png" />
+<img alt="_images/78e5db6a6565f5ab3b5e5d68d46915ca9ee128572daeff98adad36ed36928d47.png" src="_images/78e5db6a6565f5ab3b5e5d68d46915ca9ee128572daeff98adad36ed36928d47.png" />
 </div>
 </div>
 <p>Here the original problem is fixed, but we’ve accidentally written
@@ -438,7 +444,7 @@ online help</p>
 <p>Now there won’t be any exception, but the plot won’t look right.</p>
 <p>To investigate, it would be helpful if we could inspect variables like <code class="docutils literal notranslate"><span class="pre">x</span></code> during execution of the function.</p>
 <p>To this end, we add a “break point” by inserting  <code class="docutils literal notranslate"><span class="pre">breakpoint()</span></code> inside the function code block</p>
-<div class="no-execute highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_log</span><span class="p">():</span>
+<div class="no-execute highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_log</span><span class="p">():</span>
     <span class="nb">breakpoint</span><span class="p">()</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
@@ -468,7 +474,7 @@ online help</p>
 <p>To exit from the debugger, use <code class="docutils literal notranslate"><span class="pre">q</span></code>.</p>
 </section>
 <section id="other-useful-magics">
-<h3><span class="section-number">22.2.3. </span>Other Useful Magics<a class="headerlink" href="#other-useful-magics" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">22.2.3. </span>Other Useful Magics<a class="headerlink" href="#other-useful-magics" title="Link to this heading">#</a></h3>
 <p>In this lecture, we used the <code class="docutils literal notranslate"><span class="pre">%debug</span></code> IPython magic.</p>
 <p>There are many other useful magics:</p>
 <ul class="simple">
@@ -480,7 +486,7 @@ online help</p>
 </section>
 </section>
 <section id="handling-errors">
-<h2><span class="section-number">22.3. </span>Handling Errors<a class="headerlink" href="#handling-errors" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">22.3. </span>Handling Errors<a class="headerlink" href="#handling-errors" title="Link to this heading">#</a></h2>
 <p id="index-2">Sometimes it’s possible to anticipate bugs and errors as we’re writing code.</p>
 <p>For example, the unbiased sample variance of sample <span class="math notranslate nohighlight">\(y_1, \ldots, y_n\)</span>
 is defined as</p>
@@ -502,19 +508,19 @@ anticipate a divide-by-zero error when the sample size is one.</p>
 </ul>
 <p>In this section, we’ll discuss different types of errors in Python and techniques to handle potential errors in our programs.</p>
 <section id="errors-in-python">
-<h3><span class="section-number">22.3.1. </span>Errors in Python<a class="headerlink" href="#errors-in-python" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">22.3.1. </span>Errors in Python<a class="headerlink" href="#errors-in-python" title="Link to this heading">#</a></h3>
 <p>We have seen <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> and <code class="docutils literal notranslate"><span class="pre">NameError</span></code> in <a class="reference internal" href="#debug-magic"><span class="std std-ref">our previous examples</span></a>.</p>
 <p>In Python, there are two types of errors – syntax errors and exceptions.</p>
 <p id="index-3">Here’s an example of a common error type</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">:</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-    <span class="k">def</span> <span class="nf">f</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">:</span>
          <span class="o">^</span>
 <span class="ne">SyntaxError</span>: expected &#39;(&#39;
 </pre></div>
@@ -603,14 +609,14 @@ anticipate a divide-by-zero error when the sample size is one.</p>
 <p>In Python, these errors are called <em>exceptions</em>.</p>
 </section>
 <section id="assertions">
-<h3><span class="section-number">22.3.2. </span>Assertions<a class="headerlink" href="#assertions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">22.3.2. </span>Assertions<a class="headerlink" href="#assertions" title="Link to this heading">#</a></h3>
 <p id="index-4">Sometimes errors can be avoided by checking whether your program runs as expected.</p>
 <p>A relatively easy way to handle checks is with the <code class="docutils literal notranslate"><span class="pre">assert</span></code> keyword.</p>
 <p>For example, pretend for a moment that the <code class="docutils literal notranslate"><span class="pre">np.var</span></code> function doesn’t
 exist and we need to write our own</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">var</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Sample size must be greater than one.&#39;</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -633,7 +639,7 @@ print our error message</p>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">var</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="nn">Cell In[11], line 3,</span> in <span class="ni">var</span><span class="nt">(y)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">var</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">3</span>     <span class="k">assert</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Sample size must be greater than one.&#39;</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -650,18 +656,18 @@ print our error message</p>
 </ul>
 </section>
 <section id="handling-errors-during-runtime">
-<h3><span class="section-number">22.3.3. </span>Handling Errors During Runtime<a class="headerlink" href="#handling-errors-during-runtime" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">22.3.3. </span>Handling Errors During Runtime<a class="headerlink" href="#handling-errors-during-runtime" title="Link to this heading">#</a></h3>
 <p id="index-5">The approach used above is a bit limited, because it always leads to
 termination.</p>
 <p>Sometimes we can handle errors more gracefully, by treating special cases.</p>
 <p>Let’s look at how this is done.</p>
 <section id="catching-exceptions">
-<h4><span class="section-number">22.3.3.1. </span>Catching Exceptions<a class="headerlink" href="#catching-exceptions" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">22.3.3.1. </span>Catching Exceptions<a class="headerlink" href="#catching-exceptions" title="Link to this heading">#</a></h4>
 <p>We can catch and deal with exceptions using <code class="docutils literal notranslate"><span class="pre">try</span></code> – <code class="docutils literal notranslate"><span class="pre">except</span></code> blocks.</p>
 <p>Here’s a simple example</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">x</span>
     <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
@@ -713,7 +719,7 @@ termination.</p>
 <p>If we are worried the user might pass in a string, we can catch that error too</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">x</span>
     <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
@@ -765,7 +771,7 @@ termination.</p>
 <p>If we feel lazy we can catch these errors together</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">x</span>
     <span class="k">except</span><span class="p">:</span>
@@ -817,7 +823,7 @@ termination.</p>
 </section>
 </section>
 <section id="exercises">
-<h2><span class="section-number">22.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">22.4. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <div class="exercise admonition" id="debug_ex1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 22.1 </span></p>
@@ -1049,7 +1055,7 @@ termination.</p>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   19. JAX
+   19. An Introduction to JAX
   </a>
  </li>
 </ul>

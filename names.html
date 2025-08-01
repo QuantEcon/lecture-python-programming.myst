@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>7. Names and Namespaces &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -70,14 +69,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=bd0785fbb14d8d2bd4d9ae501d79ed8d3bc089ec" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -85,22 +84,21 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="_static/scripts/quantecon-book-theme.js?digest=d9faaf6c4b57726f74ba012412af1f5681bdff87"></script>
+    <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
+    <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -109,10 +107,18 @@
                 gtag('config', 'G-X7DH1M2DPY');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'names';</script>
     <link rel="canonical" href="https://python-programming.quantecon.org/names.html" />
-    <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
+    <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="8. OOP II: Building Classes" href="python_oop.html" />
@@ -236,9 +242,9 @@
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="names-and-namespaces">
-<h1><span class="section-number">7. </span>Names and Namespaces<a class="headerlink" href="#names-and-namespaces" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">7. </span>Names and Namespaces<a class="headerlink" href="#names-and-namespaces" title="Link to this heading">#</a></h1>
 <section id="overview">
-<h2><span class="section-number">7.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>This lecture is all about variable names, how they can be used and how they are
 understood by the Python interpreter.</p>
 <p>This might sound a little dull but the model that Python has adopted for
@@ -247,7 +253,7 @@ handling names is elegant and interesting.</p>
 understanding of how names work in Python.</p>
 </section>
 <section id="variable-names-in-python">
-<span id="var-names"></span><h2><span class="section-number">7.2. </span>Variable Names in Python<a class="headerlink" href="#variable-names-in-python" title="Permalink to this heading">#</a></h2>
+<span id="var-names"></span><h2><span class="section-number">7.2. </span>Variable Names in Python<a class="headerlink" href="#variable-names-in-python" title="Link to this heading">#</a></h2>
 <p id="index-0">Consider the Python statement</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -268,7 +274,7 @@ type <code class="docutils literal notranslate"><span class="pre">int</span></co
 <p>There is no problem binding two or more names to the one object, regardless of what that object is</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>      <span class="c1"># Create a function called f</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>      <span class="c1"># Create a function called f</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>   <span class="c1"># that prints any string it&#39;s passed</span>
 
 <span class="n">g</span> <span class="o">=</span> <span class="n">f</span>
@@ -308,7 +314,7 @@ type <code class="docutils literal notranslate"><span class="pre">int</span></co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140113995540704
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140675654562368
 </pre></div>
 </div>
 </div>
@@ -320,7 +326,7 @@ type <code class="docutils literal notranslate"><span class="pre">int</span></co
 <p>You can <a class="reference external" href="https://rushter.com/blog/python-garbage-collector/">read more on garbage collection</a> if you are interested.</p>
 </section>
 <section id="namespaces">
-<h2><span class="section-number">7.3. </span>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.3. </span>Namespaces<a class="headerlink" href="#namespaces" title="Link to this heading">#</a></h2>
 <p id="index-1">Recall from the preceding discussion that the statement</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -355,7 +361,7 @@ type <code class="docutils literal notranslate"><span class="pre">int</span></co
 <p>Now we start the Python interpreter and import it</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mathfoo</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">mathfoo</span>
 </pre></div>
 </div>
 </div>
@@ -363,7 +369,7 @@ type <code class="docutils literal notranslate"><span class="pre">int</span></co
 <p>Next let’s import the <code class="docutils literal notranslate"><span class="pre">math</span></code> module from the standard library</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 </pre></div>
 </div>
 </div>
@@ -397,21 +403,21 @@ type <code class="docutils literal notranslate"><span class="pre">int</span></co
 <p>If you wish, you can look at the dictionary directly, using <code class="docutils literal notranslate"><span class="pre">module_name.__dict__</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
 <span class="n">math</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math&#39;), (&#39;__doc__&#39;, &#39;This module provides access to the mathematical functions\ndefined by the C standard.&#39;), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7f6ed64b2840&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math&#39;, loader=&lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7f6ed64b2840&gt;, origin=&#39;/home/runner/miniconda3/envs/quantecon/lib/python3.12/lib-dynload/math.cpython-312-x86_64-linux-gnu.so&#39;)), (&#39;acos&#39;, &lt;built-in function acos&gt;), (&#39;acosh&#39;, &lt;built-in function acosh&gt;), (&#39;asin&#39;, &lt;built-in function asin&gt;), (&#39;asinh&#39;, &lt;built-in function asinh&gt;), (&#39;atan&#39;, &lt;built-in function atan&gt;), (&#39;atan2&#39;, &lt;built-in function atan2&gt;), (&#39;atanh&#39;, &lt;built-in function atanh&gt;), (&#39;cbrt&#39;, &lt;built-in function cbrt&gt;), (&#39;ceil&#39;, &lt;built-in function ceil&gt;), (&#39;copysign&#39;, &lt;built-in function copysign&gt;), (&#39;cos&#39;, &lt;built-in function cos&gt;), (&#39;cosh&#39;, &lt;built-in function cosh&gt;), (&#39;degrees&#39;, &lt;built-in function degrees&gt;), (&#39;dist&#39;, &lt;built-in function dist&gt;), (&#39;erf&#39;, &lt;built-in function erf&gt;), (&#39;erfc&#39;, &lt;built-in function erfc&gt;), (&#39;exp&#39;, &lt;built-in function exp&gt;), (&#39;exp2&#39;, &lt;built-in function exp2&gt;), (&#39;expm1&#39;, &lt;built-in function expm1&gt;), (&#39;fabs&#39;, &lt;built-in function fabs&gt;), (&#39;factorial&#39;, &lt;built-in function factorial&gt;), (&#39;floor&#39;, &lt;built-in function floor&gt;), (&#39;fmod&#39;, &lt;built-in function fmod&gt;), (&#39;frexp&#39;, &lt;built-in function frexp&gt;), (&#39;fsum&#39;, &lt;built-in function fsum&gt;), (&#39;gamma&#39;, &lt;built-in function gamma&gt;), (&#39;gcd&#39;, &lt;built-in function gcd&gt;), (&#39;hypot&#39;, &lt;built-in function hypot&gt;), (&#39;isclose&#39;, &lt;built-in function isclose&gt;), (&#39;isfinite&#39;, &lt;built-in function isfinite&gt;), (&#39;isinf&#39;, &lt;built-in function isinf&gt;), (&#39;isnan&#39;, &lt;built-in function isnan&gt;), (&#39;isqrt&#39;, &lt;built-in function isqrt&gt;), (&#39;lcm&#39;, &lt;built-in function lcm&gt;), (&#39;ldexp&#39;, &lt;built-in function ldexp&gt;), (&#39;lgamma&#39;, &lt;built-in function lgamma&gt;), (&#39;log&#39;, &lt;built-in function log&gt;), (&#39;log1p&#39;, &lt;built-in function log1p&gt;), (&#39;log10&#39;, &lt;built-in function log10&gt;), (&#39;log2&#39;, &lt;built-in function log2&gt;), (&#39;modf&#39;, &lt;built-in function modf&gt;), (&#39;pow&#39;, &lt;built-in function pow&gt;), (&#39;radians&#39;, &lt;built-in function radians&gt;), (&#39;remainder&#39;, &lt;built-in function remainder&gt;), (&#39;sin&#39;, &lt;built-in function sin&gt;), (&#39;sinh&#39;, &lt;built-in function sinh&gt;), (&#39;sqrt&#39;, &lt;built-in function sqrt&gt;), (&#39;tan&#39;, &lt;built-in function tan&gt;), (&#39;tanh&#39;, &lt;built-in function tanh&gt;), (&#39;sumprod&#39;, &lt;built-in function sumprod&gt;), (&#39;trunc&#39;, &lt;built-in function trunc&gt;), (&#39;prod&#39;, &lt;built-in function prod&gt;), (&#39;perm&#39;, &lt;built-in function perm&gt;), (&#39;comb&#39;, &lt;built-in function comb&gt;), (&#39;nextafter&#39;, &lt;built-in function nextafter&gt;), (&#39;ulp&#39;, &lt;built-in function ulp&gt;), (&#39;__file__&#39;, &#39;/home/runner/miniconda3/envs/quantecon/lib/python3.12/lib-dynload/math.cpython-312-x86_64-linux-gnu.so&#39;), (&#39;pi&#39;, 3.141592653589793), (&#39;e&#39;, 2.718281828459045), (&#39;tau&#39;, 6.283185307179586), (&#39;inf&#39;, inf), (&#39;nan&#39;, nan)])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math&#39;), (&#39;__doc__&#39;, &#39;This module provides access to the mathematical functions\ndefined by the C standard.&#39;), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7ff19bf88710&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math&#39;, loader=&lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7ff19bf88710&gt;, origin=&#39;/home/runner/miniconda3/envs/quantecon/lib/python3.13/lib-dynload/math.cpython-313-x86_64-linux-gnu.so&#39;)), (&#39;acos&#39;, &lt;built-in function acos&gt;), (&#39;acosh&#39;, &lt;built-in function acosh&gt;), (&#39;asin&#39;, &lt;built-in function asin&gt;), (&#39;asinh&#39;, &lt;built-in function asinh&gt;), (&#39;atan&#39;, &lt;built-in function atan&gt;), (&#39;atan2&#39;, &lt;built-in function atan2&gt;), (&#39;atanh&#39;, &lt;built-in function atanh&gt;), (&#39;cbrt&#39;, &lt;built-in function cbrt&gt;), (&#39;ceil&#39;, &lt;built-in function ceil&gt;), (&#39;copysign&#39;, &lt;built-in function copysign&gt;), (&#39;cos&#39;, &lt;built-in function cos&gt;), (&#39;cosh&#39;, &lt;built-in function cosh&gt;), (&#39;degrees&#39;, &lt;built-in function degrees&gt;), (&#39;dist&#39;, &lt;built-in function dist&gt;), (&#39;erf&#39;, &lt;built-in function erf&gt;), (&#39;erfc&#39;, &lt;built-in function erfc&gt;), (&#39;exp&#39;, &lt;built-in function exp&gt;), (&#39;exp2&#39;, &lt;built-in function exp2&gt;), (&#39;expm1&#39;, &lt;built-in function expm1&gt;), (&#39;fabs&#39;, &lt;built-in function fabs&gt;), (&#39;factorial&#39;, &lt;built-in function factorial&gt;), (&#39;floor&#39;, &lt;built-in function floor&gt;), (&#39;fma&#39;, &lt;built-in function fma&gt;), (&#39;fmod&#39;, &lt;built-in function fmod&gt;), (&#39;frexp&#39;, &lt;built-in function frexp&gt;), (&#39;fsum&#39;, &lt;built-in function fsum&gt;), (&#39;gamma&#39;, &lt;built-in function gamma&gt;), (&#39;gcd&#39;, &lt;built-in function gcd&gt;), (&#39;hypot&#39;, &lt;built-in function hypot&gt;), (&#39;isclose&#39;, &lt;built-in function isclose&gt;), (&#39;isfinite&#39;, &lt;built-in function isfinite&gt;), (&#39;isinf&#39;, &lt;built-in function isinf&gt;), (&#39;isnan&#39;, &lt;built-in function isnan&gt;), (&#39;isqrt&#39;, &lt;built-in function isqrt&gt;), (&#39;lcm&#39;, &lt;built-in function lcm&gt;), (&#39;ldexp&#39;, &lt;built-in function ldexp&gt;), (&#39;lgamma&#39;, &lt;built-in function lgamma&gt;), (&#39;log&#39;, &lt;built-in function log&gt;), (&#39;log1p&#39;, &lt;built-in function log1p&gt;), (&#39;log10&#39;, &lt;built-in function log10&gt;), (&#39;log2&#39;, &lt;built-in function log2&gt;), (&#39;modf&#39;, &lt;built-in function modf&gt;), (&#39;pow&#39;, &lt;built-in function pow&gt;), (&#39;radians&#39;, &lt;built-in function radians&gt;), (&#39;remainder&#39;, &lt;built-in function remainder&gt;), (&#39;sin&#39;, &lt;built-in function sin&gt;), (&#39;sinh&#39;, &lt;built-in function sinh&gt;), (&#39;sqrt&#39;, &lt;built-in function sqrt&gt;), (&#39;tan&#39;, &lt;built-in function tan&gt;), (&#39;tanh&#39;, &lt;built-in function tanh&gt;), (&#39;sumprod&#39;, &lt;built-in function sumprod&gt;), (&#39;trunc&#39;, &lt;built-in function trunc&gt;), (&#39;prod&#39;, &lt;built-in function prod&gt;), (&#39;perm&#39;, &lt;built-in function perm&gt;), (&#39;comb&#39;, &lt;built-in function comb&gt;), (&#39;nextafter&#39;, &lt;built-in function nextafter&gt;), (&#39;ulp&#39;, &lt;built-in function ulp&gt;), (&#39;__file__&#39;, &#39;/home/runner/miniconda3/envs/quantecon/lib/python3.13/lib-dynload/math.cpython-313-x86_64-linux-gnu.so&#39;), (&#39;pi&#39;, 3.141592653589793), (&#39;e&#39;, 2.718281828459045), (&#39;tau&#39;, 6.283185307179586), (&#39;inf&#39;, inf), (&#39;nan&#39;, nan)])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mathfoo</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">mathfoo</span>
 
 <span class="n">mathfoo</span><span class="o">.</span><span class="vm">__dict__</span>
 </pre></div>
@@ -421,10 +427,10 @@ type <code class="docutils literal notranslate"><span class="pre">int</span></co
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__name__&#39;: &#39;mathfoo&#39;,
  &#39;__doc__&#39;: None,
  &#39;__package__&#39;: &#39;&#39;,
- &#39;__loader__&#39;: &lt;_frozen_importlib_external.SourceFileLoader at 0x7f6ed6502b40&gt;,
- &#39;__spec__&#39;: ModuleSpec(name=&#39;mathfoo&#39;, loader=&lt;_frozen_importlib_external.SourceFileLoader object at 0x7f6ed6502b40&gt;, origin=&#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures/mathfoo.py&#39;),
+ &#39;__loader__&#39;: &lt;_frozen_importlib_external.SourceFileLoader at 0x7ff194173a10&gt;,
+ &#39;__spec__&#39;: ModuleSpec(name=&#39;mathfoo&#39;, loader=&lt;_frozen_importlib_external.SourceFileLoader object at 0x7ff194173a10&gt;, origin=&#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures/mathfoo.py&#39;),
  &#39;__file__&#39;: &#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures/mathfoo.py&#39;,
- &#39;__cached__&#39;: &#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures/__pycache__/mathfoo.cpython-312.pyc&#39;,
+ &#39;__cached__&#39;: &#39;/home/runner/work/lecture-python-programming.myst/lecture-python-programming.myst/lectures/__pycache__/mathfoo.cpython-313.pyc&#39;,
  &#39;__builtins__&#39;: {&#39;__name__&#39;: &#39;builtins&#39;,
   &#39;__doc__&#39;: &quot;Built-in functions, types, exceptions, and other objects.\n\nThis module provides direct access to all &#39;built-in&#39;\nidentifiers of Python; for example, builtins.len is\nthe full name for the built-in function len().\n\nThis module is not normally accessed explicitly by most\napplications, but can be useful in modules that provide\nobjects with the same name as a built-in value, but in\nwhich the built-in of that name is also needed.&quot;,
   &#39;__package__&#39;: &#39;&#39;,
@@ -437,15 +443,15 @@ type <code class="docutils literal notranslate"><span class="pre">int</span></co
   &#39;any&#39;: &lt;function any(iterable, /)&gt;,
   &#39;ascii&#39;: &lt;function ascii(obj, /)&gt;,
   &#39;bin&#39;: &lt;function bin(number, /)&gt;,
-  &#39;breakpoint&#39;: &lt;function breakpoint&gt;,
+  &#39;breakpoint&#39;: &lt;function breakpoint(*args, **kws)&gt;,
   &#39;callable&#39;: &lt;function callable(obj, /)&gt;,
   &#39;chr&#39;: &lt;function chr(i, /)&gt;,
   &#39;compile&#39;: &lt;function compile(source, filename, mode, flags=0, dont_inherit=False, optimize=-1, *, _feature_version=-1)&gt;,
   &#39;delattr&#39;: &lt;function delattr(obj, name, /)&gt;,
   &#39;dir&#39;: &lt;function dir&gt;,
   &#39;divmod&#39;: &lt;function divmod(x, y, /)&gt;,
-  &#39;eval&#39;: &lt;function eval(source, globals=None, locals=None, /)&gt;,
-  &#39;exec&#39;: &lt;function exec(source, globals=None, locals=None, /, *, closure=None)&gt;,
+  &#39;eval&#39;: &lt;function eval(source, /, globals=None, locals=None)&gt;,
+  &#39;exec&#39;: &lt;function exec(source, /, globals=None, locals=None, *, closure=None)&gt;,
   &#39;format&#39;: &lt;function format(value, format_spec=&#39;&#39;, /)&gt;,
   &#39;getattr&#39;: &lt;function getattr&gt;,
   &#39;globals&#39;: &lt;function globals()&gt;,
@@ -453,7 +459,7 @@ type <code class="docutils literal notranslate"><span class="pre">int</span></co
   &#39;hash&#39;: &lt;function hash(obj, /)&gt;,
   &#39;hex&#39;: &lt;function hex(number, /)&gt;,
   &#39;id&#39;: &lt;function id(obj, /)&gt;,
-  &#39;input&#39;: &lt;bound method Kernel.raw_input of &lt;ipykernel.ipkernel.IPythonKernel object at 0x7f6ed392bb00&gt;&gt;,
+  &#39;input&#39;: &lt;bound method Kernel.raw_input of &lt;ipykernel.ipkernel.IPythonKernel object at 0x7ff199572ba0&gt;&gt;,
   &#39;isinstance&#39;: &lt;function isinstance(obj, class_or_tuple, /)&gt;,
   &#39;issubclass&#39;: &lt;function issubclass(cls, class_or_tuple, /)&gt;,
   &#39;iter&#39;: &lt;function iter&gt;,
@@ -557,10 +563,12 @@ type <code class="docutils literal notranslate"><span class="pre">int</span></co
   &#39;ProcessLookupError&#39;: ProcessLookupError,
   &#39;TimeoutError&#39;: TimeoutError,
   &#39;IndentationError&#39;: IndentationError,
+  &#39;_IncompleteInputError&#39;: _IncompleteInputError,
   &#39;IndexError&#39;: IndexError,
   &#39;KeyError&#39;: KeyError,
   &#39;ModuleNotFoundError&#39;: ModuleNotFoundError,
   &#39;NotImplementedError&#39;: NotImplementedError,
+  &#39;PythonFinalizationError&#39;: PythonFinalizationError,
   &#39;RecursionError&#39;: RecursionError,
   &#39;UnboundLocalError&#39;: UnboundLocalError,
   &#39;UnicodeError&#39;: UnicodeError,
@@ -576,7 +584,7 @@ type <code class="docutils literal notranslate"><span class="pre">int</span></co
   &#39;EnvironmentError&#39;: OSError,
   &#39;IOError&#39;: OSError,
   &#39;open&#39;: &lt;function _io.open(file, mode=&#39;r&#39;, buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)&gt;,
-  &#39;copyright&#39;: Copyright (c) 2001-2023 Python Software Foundation.
+  &#39;copyright&#39;: Copyright (c) 2001-2024 Python Software Foundation.
   All Rights Reserved.
   
   Copyright (c) 2000 BeOpen.com.
@@ -587,15 +595,16 @@ type <code class="docutils literal notranslate"><span class="pre">int</span></co
   
   Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.
   All Rights Reserved.,
-  &#39;credits&#39;:     Thanks to CWI, CNRI, BeOpen.com, Zope Corporation and a cast of thousands
-      for supporting Python development.  See www.python.org for more information.,
+  &#39;credits&#39;:     Thanks to CWI, CNRI, BeOpen, Zope Corporation, the Python Software
+      Foundation, and a cast of thousands for supporting Python
+      development.  See www.python.org for more information.,
   &#39;license&#39;: Type license() to see the full license text,
   &#39;help&#39;: Type help() for interactive help, or help(object) for help about object.,
   &#39;execfile&#39;: &lt;function _pydev_bundle._pydev_execfile.execfile(file, glob=None, loc=None)&gt;,
   &#39;runfile&#39;: &lt;function _pydev_bundle.pydev_umd.runfile(filename, args=None, wdir=None, namespace=None)&gt;,
   &#39;__IPYTHON__&#39;: True,
   &#39;display&#39;: &lt;function IPython.core.display_functions.display(*objs, include=None, exclude=None, metadata=None, transient=None, display_id=None, raw=False, clear=False, **kwargs)&gt;,
-  &#39;get_ipython&#39;: &lt;bound method InteractiveShell.get_ipython of &lt;ipykernel.zmqshell.ZMQInteractiveShell object at 0x7f6ed39708f0&gt;&gt;},
+  &#39;get_ipython&#39;: &lt;bound method InteractiveShell.get_ipython of &lt;ipykernel.zmqshell.ZMQInteractiveShell object at 0x7ff1944117f0&gt;&gt;},
  &#39;pi&#39;: &#39;foobar&#39;}
 </pre></div>
 </div>
@@ -629,7 +638,7 @@ type <code class="docutils literal notranslate"><span class="pre">int</span></co
 </div>
 </section>
 <section id="viewing-namespaces">
-<h2><span class="section-number">7.4. </span>Viewing Namespaces<a class="headerlink" href="#viewing-namespaces" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.4. </span>Viewing Namespaces<a class="headerlink" href="#viewing-namespaces" title="Link to this heading">#</a></h2>
 <p>As we saw above, the <code class="docutils literal notranslate"><span class="pre">math</span></code> namespace can be printed by typing <code class="docutils literal notranslate"><span class="pre">math.__dict__</span></code>.</p>
 <p>Another way to see its contents is to type <code class="docutils literal notranslate"><span class="pre">vars(math)</span></code></p>
 <div class="cell docutils container">
@@ -639,7 +648,7 @@ type <code class="docutils literal notranslate"><span class="pre">int</span></co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math&#39;), (&#39;__doc__&#39;, &#39;This module provides access to the mathematical functions\ndefined by the C standard.&#39;), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7f6ed64b2840&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math&#39;, loader=&lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7f6ed64b2840&gt;, origin=&#39;/home/runner/miniconda3/envs/quantecon/lib/python3.12/lib-dynload/math.cpython-312-x86_64-linux-gnu.so&#39;)), (&#39;acos&#39;, &lt;built-in function acos&gt;), (&#39;acosh&#39;, &lt;built-in function acosh&gt;), (&#39;asin&#39;, &lt;built-in function asin&gt;), (&#39;asinh&#39;, &lt;built-in function asinh&gt;), (&#39;atan&#39;, &lt;built-in function atan&gt;), (&#39;atan2&#39;, &lt;built-in function atan2&gt;), (&#39;atanh&#39;, &lt;built-in function atanh&gt;), (&#39;cbrt&#39;, &lt;built-in function cbrt&gt;), (&#39;ceil&#39;, &lt;built-in function ceil&gt;), (&#39;copysign&#39;, &lt;built-in function copysign&gt;), (&#39;cos&#39;, &lt;built-in function cos&gt;), (&#39;cosh&#39;, &lt;built-in function cosh&gt;), (&#39;degrees&#39;, &lt;built-in function degrees&gt;), (&#39;dist&#39;, &lt;built-in function dist&gt;), (&#39;erf&#39;, &lt;built-in function erf&gt;), (&#39;erfc&#39;, &lt;built-in function erfc&gt;), (&#39;exp&#39;, &lt;built-in function exp&gt;), (&#39;exp2&#39;, &lt;built-in function exp2&gt;), (&#39;expm1&#39;, &lt;built-in function expm1&gt;), (&#39;fabs&#39;, &lt;built-in function fabs&gt;), (&#39;factorial&#39;, &lt;built-in function factorial&gt;), (&#39;floor&#39;, &lt;built-in function floor&gt;), (&#39;fmod&#39;, &lt;built-in function fmod&gt;), (&#39;frexp&#39;, &lt;built-in function frexp&gt;), (&#39;fsum&#39;, &lt;built-in function fsum&gt;), (&#39;gamma&#39;, &lt;built-in function gamma&gt;), (&#39;gcd&#39;, &lt;built-in function gcd&gt;), (&#39;hypot&#39;, &lt;built-in function hypot&gt;), (&#39;isclose&#39;, &lt;built-in function isclose&gt;), (&#39;isfinite&#39;, &lt;built-in function isfinite&gt;), (&#39;isinf&#39;, &lt;built-in function isinf&gt;), (&#39;isnan&#39;, &lt;built-in function isnan&gt;), (&#39;isqrt&#39;, &lt;built-in function isqrt&gt;), (&#39;lcm&#39;, &lt;built-in function lcm&gt;), (&#39;ldexp&#39;, &lt;built-in function ldexp&gt;), (&#39;lgamma&#39;, &lt;built-in function lgamma&gt;), (&#39;log&#39;, &lt;built-in function log&gt;), (&#39;log1p&#39;, &lt;built-in function log1p&gt;), (&#39;log10&#39;, &lt;built-in function log10&gt;), (&#39;log2&#39;, &lt;built-in function log2&gt;), (&#39;modf&#39;, &lt;built-in function modf&gt;), (&#39;pow&#39;, &lt;built-in function pow&gt;), (&#39;radians&#39;, &lt;built-in function radians&gt;), (&#39;remainder&#39;, &lt;built-in function remainder&gt;), (&#39;sin&#39;, &lt;built-in function sin&gt;), (&#39;sinh&#39;, &lt;built-in function sinh&gt;), (&#39;sqrt&#39;, &lt;built-in function sqrt&gt;), (&#39;tan&#39;, &lt;built-in function tan&gt;), (&#39;tanh&#39;, &lt;built-in function tanh&gt;), (&#39;sumprod&#39;, &lt;built-in function sumprod&gt;), (&#39;trunc&#39;, &lt;built-in function trunc&gt;), (&#39;prod&#39;, &lt;built-in function prod&gt;), (&#39;perm&#39;, &lt;built-in function perm&gt;), (&#39;comb&#39;, &lt;built-in function comb&gt;), (&#39;nextafter&#39;, &lt;built-in function nextafter&gt;), (&#39;ulp&#39;, &lt;built-in function ulp&gt;), (&#39;__file__&#39;, &#39;/home/runner/miniconda3/envs/quantecon/lib/python3.12/lib-dynload/math.cpython-312-x86_64-linux-gnu.so&#39;), (&#39;pi&#39;, 3.141592653589793), (&#39;e&#39;, 2.718281828459045), (&#39;tau&#39;, 6.283185307179586), (&#39;inf&#39;, inf), (&#39;nan&#39;, nan)])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math&#39;), (&#39;__doc__&#39;, &#39;This module provides access to the mathematical functions\ndefined by the C standard.&#39;), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7ff19bf88710&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math&#39;, loader=&lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7ff19bf88710&gt;, origin=&#39;/home/runner/miniconda3/envs/quantecon/lib/python3.13/lib-dynload/math.cpython-313-x86_64-linux-gnu.so&#39;)), (&#39;acos&#39;, &lt;built-in function acos&gt;), (&#39;acosh&#39;, &lt;built-in function acosh&gt;), (&#39;asin&#39;, &lt;built-in function asin&gt;), (&#39;asinh&#39;, &lt;built-in function asinh&gt;), (&#39;atan&#39;, &lt;built-in function atan&gt;), (&#39;atan2&#39;, &lt;built-in function atan2&gt;), (&#39;atanh&#39;, &lt;built-in function atanh&gt;), (&#39;cbrt&#39;, &lt;built-in function cbrt&gt;), (&#39;ceil&#39;, &lt;built-in function ceil&gt;), (&#39;copysign&#39;, &lt;built-in function copysign&gt;), (&#39;cos&#39;, &lt;built-in function cos&gt;), (&#39;cosh&#39;, &lt;built-in function cosh&gt;), (&#39;degrees&#39;, &lt;built-in function degrees&gt;), (&#39;dist&#39;, &lt;built-in function dist&gt;), (&#39;erf&#39;, &lt;built-in function erf&gt;), (&#39;erfc&#39;, &lt;built-in function erfc&gt;), (&#39;exp&#39;, &lt;built-in function exp&gt;), (&#39;exp2&#39;, &lt;built-in function exp2&gt;), (&#39;expm1&#39;, &lt;built-in function expm1&gt;), (&#39;fabs&#39;, &lt;built-in function fabs&gt;), (&#39;factorial&#39;, &lt;built-in function factorial&gt;), (&#39;floor&#39;, &lt;built-in function floor&gt;), (&#39;fma&#39;, &lt;built-in function fma&gt;), (&#39;fmod&#39;, &lt;built-in function fmod&gt;), (&#39;frexp&#39;, &lt;built-in function frexp&gt;), (&#39;fsum&#39;, &lt;built-in function fsum&gt;), (&#39;gamma&#39;, &lt;built-in function gamma&gt;), (&#39;gcd&#39;, &lt;built-in function gcd&gt;), (&#39;hypot&#39;, &lt;built-in function hypot&gt;), (&#39;isclose&#39;, &lt;built-in function isclose&gt;), (&#39;isfinite&#39;, &lt;built-in function isfinite&gt;), (&#39;isinf&#39;, &lt;built-in function isinf&gt;), (&#39;isnan&#39;, &lt;built-in function isnan&gt;), (&#39;isqrt&#39;, &lt;built-in function isqrt&gt;), (&#39;lcm&#39;, &lt;built-in function lcm&gt;), (&#39;ldexp&#39;, &lt;built-in function ldexp&gt;), (&#39;lgamma&#39;, &lt;built-in function lgamma&gt;), (&#39;log&#39;, &lt;built-in function log&gt;), (&#39;log1p&#39;, &lt;built-in function log1p&gt;), (&#39;log10&#39;, &lt;built-in function log10&gt;), (&#39;log2&#39;, &lt;built-in function log2&gt;), (&#39;modf&#39;, &lt;built-in function modf&gt;), (&#39;pow&#39;, &lt;built-in function pow&gt;), (&#39;radians&#39;, &lt;built-in function radians&gt;), (&#39;remainder&#39;, &lt;built-in function remainder&gt;), (&#39;sin&#39;, &lt;built-in function sin&gt;), (&#39;sinh&#39;, &lt;built-in function sinh&gt;), (&#39;sqrt&#39;, &lt;built-in function sqrt&gt;), (&#39;tan&#39;, &lt;built-in function tan&gt;), (&#39;tanh&#39;, &lt;built-in function tanh&gt;), (&#39;sumprod&#39;, &lt;built-in function sumprod&gt;), (&#39;trunc&#39;, &lt;built-in function trunc&gt;), (&#39;prod&#39;, &lt;built-in function prod&gt;), (&#39;perm&#39;, &lt;built-in function perm&gt;), (&#39;comb&#39;, &lt;built-in function comb&gt;), (&#39;nextafter&#39;, &lt;built-in function nextafter&gt;), (&#39;ulp&#39;, &lt;built-in function ulp&gt;), (&#39;__file__&#39;, &#39;/home/runner/miniconda3/envs/quantecon/lib/python3.13/lib-dynload/math.cpython-313-x86_64-linux-gnu.so&#39;), (&#39;pi&#39;, 3.141592653589793), (&#39;e&#39;, 2.718281828459045), (&#39;tau&#39;, 6.283185307179586), (&#39;inf&#39;, inf), (&#39;nan&#39;, nan)])
 </pre></div>
 </div>
 </div>
@@ -700,7 +709,7 @@ defined by the C standard.
 </div>
 </section>
 <section id="interactive-sessions">
-<h2><span class="section-number">7.5. </span>Interactive Sessions<a class="headerlink" href="#interactive-sessions" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.5. </span>Interactive Sessions<a class="headerlink" href="#interactive-sessions" title="Link to this heading">#</a></h2>
 <p id="index-2">In Python, <strong>all</strong> code executed by the interpreter runs in some module.</p>
 <p>What about commands typed at the prompt?</p>
 <p>These are also regarded as being executed within a module — in this case, a module called <code class="docutils literal notranslate"><span class="pre">__main__</span></code>.</p>
@@ -735,7 +744,7 @@ defined by the C standard.
 <p>Now let’s look at two different ways of running it in IPython</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mod</span>  <span class="c1"># Standard import</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">mod</span>  <span class="c1"># Standard import</span>
 </pre></div>
 </div>
 </div>
@@ -767,7 +776,7 @@ needs, and has initialized when you started up your session.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="o">%</span><span class="k">whos</span>
 </pre></div>
@@ -776,9 +785,9 @@ needs, and has initialized when you started up your session.</p>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable   Type        Data/Info
 --------------------------------
-f          function    &lt;function f at 0x7f6ed37a5ee0&gt;
-g          function    &lt;function f at 0x7f6ed37a5ee0&gt;
-math       module      &lt;module &#39;math&#39; from &#39;/hom&lt;...&gt;312-x86_64-linux-gnu.so&#39;&gt;
+f          function    &lt;function f at 0x7ff184f10040&gt;
+g          function    &lt;function f at 0x7ff184f10040&gt;
+math       module      &lt;module &#39;math&#39; from &#39;/hom&lt;...&gt;313-x86_64-linux-gnu.so&#39;&gt;
 mathfoo    module      &lt;module &#39;mathfoo&#39; from &#39;/&lt;...&gt;yst/lectures/mathfoo.py&#39;&gt;
 mod        module      &lt;module &#39;mod&#39; from &#39;/home&lt;...&gt;ng.myst/lectures/mod.py&#39;&gt;
 np         module      &lt;module &#39;numpy&#39; from &#39;/ho&lt;...&gt;kages/numpy/__init__.py&#39;&gt;
@@ -790,13 +799,13 @@ y          int         3
 </div>
 </section>
 <section id="the-global-namespace">
-<h2><span class="section-number">7.6. </span>The Global Namespace<a class="headerlink" href="#the-global-namespace" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.6. </span>The Global Namespace<a class="headerlink" href="#the-global-namespace" title="Link to this heading">#</a></h2>
 <p id="index-3">Python documentation often makes reference to the “global namespace”.</p>
 <p>The global namespace is <em>the namespace of the module currently being executed</em>.</p>
 <p>For example, suppose that we start the interpreter and begin making assignments.</p>
 <p>We are now working in the module <code class="docutils literal notranslate"><span class="pre">__main__</span></code>, and hence the namespace for <code class="docutils literal notranslate"><span class="pre">__main__</span></code> is the global namespace.</p>
 <p>Next, we import a module called <code class="docutils literal notranslate"><span class="pre">amodule</span></code></p>
-<div class="no-execute highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">amodule</span>
+<div class="no-execute highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">amodule</span>
 </pre></div>
 </div>
 <p>At this point, the interpreter creates a namespace for the module <code class="docutils literal notranslate"><span class="pre">amodule</span></code> and starts executing commands in the module.</p>
@@ -805,7 +814,7 @@ y          int         3
 <p>In this case it’s <code class="docutils literal notranslate"><span class="pre">__main__</span></code>, so the namespace of <code class="docutils literal notranslate"><span class="pre">__main__</span></code> again becomes the global namespace.</p>
 </section>
 <section id="local-namespaces">
-<h2><span class="section-number">7.7. </span>Local Namespaces<a class="headerlink" href="#local-namespaces" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.7. </span>Local Namespaces<a class="headerlink" href="#local-namespaces" title="Link to this heading">#</a></h2>
 <p id="index-4">Important fact: When we call a function, the interpreter creates a <em>local namespace</em> for that function, and registers the variables in that namespace.</p>
 <p>The reason for this will be explained in just a moment.</p>
 <p>Variables in the local namespace are called <em>local variables</em>.</p>
@@ -814,7 +823,7 @@ y          int         3
 <p>For example, consider</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span>
@@ -841,7 +850,7 @@ y          int         3
 <p>You can see the local namespace of <code class="docutils literal notranslate"><span class="pre">f</span></code> before it is destroyed.</p>
 </section>
 <section id="the-builtins-namespace">
-<h2><span class="section-number">7.8. </span>The <code class="docutils literal notranslate"><span class="pre">__builtins__</span></code> Namespace<a class="headerlink" href="#the-builtins-namespace" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.8. </span>The <code class="docutils literal notranslate"><span class="pre">__builtins__</span></code> Namespace<a class="headerlink" href="#the-builtins-namespace" title="Link to this heading">#</a></h2>
 <p id="index-5">We have been using various built-in functions, such as <code class="docutils literal notranslate"><span class="pre">max(),</span> <span class="pre">dir(),</span> <span class="pre">str(),</span> <span class="pre">list(),</span> <span class="pre">len(),</span> <span class="pre">range(),</span> <span class="pre">type()</span></code>, etc.</p>
 <p>How does access to these names work?</p>
 <ul class="simple">
@@ -924,7 +933,7 @@ y          int         3
 <p>The next section explains how this works …</p>
 </section>
 <section id="name-resolution">
-<h2><span class="section-number">7.9. </span>Name Resolution<a class="headerlink" href="#name-resolution" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.9. </span>Name Resolution<a class="headerlink" href="#name-resolution" title="Link to this heading">#</a></h2>
 <p id="index-6">Namespaces are great because they help us organize variable names.</p>
 <p>(Type <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">this</span></code> at the prompt and look at the last item that’s printed)</p>
 <p>However, we do need to understand how the Python interpreter works with multiple namespaces.</p>
@@ -945,9 +954,9 @@ y          int         3
 <p>Sometimes functions are defined within other functions, like so</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">():</span>
     <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="k">def</span> <span class="nf">g</span><span class="p">():</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">():</span>
         <span class="n">b</span> <span class="o">=</span> <span class="mi">4</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>
     <span class="n">g</span><span class="p">()</span>
@@ -974,7 +983,7 @@ own namespaces.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> test.py
-<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">a</span>
     <span class="k">return</span> <span class="n">x</span>
@@ -1036,12 +1045,12 @@ own namespaces.</p>
 <img alt="_images/local_return.png" src="_images/local_return.png" />
 </figure>
 <section id="mutable-versus-immutable-parameters">
-<span id="mutable-vs-immutable"></span><h3><span class="section-number">7.9.1. </span><span class="target" id="index-7"></span>Mutable Versus <span class="target" id="index-8"></span>Immutable Parameters<a class="headerlink" href="#mutable-versus-immutable-parameters" title="Permalink to this heading">#</a></h3>
+<span id="mutable-vs-immutable"></span><h3><span class="section-number">7.9.1. </span><span class="target" id="index-7"></span>Mutable Versus <span class="target" id="index-8"></span>Immutable Parameters<a class="headerlink" href="#mutable-versus-immutable-parameters" title="Link to this heading">#</a></h3>
 <p>This is a good time to say a little more about mutable vs immutable objects.</p>
 <p>Consider the code segment</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">x</span>
 
@@ -1064,7 +1073,7 @@ own namespaces.</p>
 <p>However, it’s a different story when we use a <strong>mutable</strong> data type such as a list</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">x</span>
 
@@ -1111,7 +1120,7 @@ own namespaces.</p>
 <p>We can see the identity of local <code class="docutils literal notranslate"><span class="pre">x</span></code> and the identity of global <code class="docutils literal notranslate"><span class="pre">x</span></code> are the same</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;the identity of local x is </span><span class="si">{</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">x</span>
@@ -1123,8 +1132,8 @@ own namespaces.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the identity of global x is 140113971388736
-the identity of local x is 140113971388736
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the identity of global x is 140675280126016
+the identity of local x is 140675280126016
 [2] [2]
 </pre></div>
 </div>
@@ -1316,7 +1325,7 @@ the identity of local x is 140113971388736
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   19. JAX
+   19. An Introduction to JAX
   </a>
  </li>
 </ul>

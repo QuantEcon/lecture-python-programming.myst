@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>18. Parallelization &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -70,14 +69,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=bd0785fbb14d8d2bd4d9ae501d79ed8d3bc089ec" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -85,22 +84,21 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="_static/scripts/quantecon-book-theme.js?digest=d9faaf6c4b57726f74ba012412af1f5681bdff87"></script>
+    <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
+    <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -109,15 +107,23 @@
                 gtag('config', 'G-X7DH1M2DPY');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'parallelization';</script>
     <link rel="canonical" href="https://python-programming.quantecon.org/parallelization.html" />
-    <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
+    <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="19. JAX" href="jax_intro.html" />
+    <link rel="next" title="19. An Introduction to JAX" href="jax_intro.html" />
     <link rel="prev" title="17. Numba" href="numba.html" />
 
 <!-- Normal Meta Tags -->
@@ -245,7 +251,7 @@
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="parallelization">
-<h1><span class="section-number">18. </span>Parallelization<a class="headerlink" href="#parallelization" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">18. </span>Parallelization<a class="headerlink" href="#parallelization" title="Link to this heading">#</a></h1>
 <p>In addition to what’s in Anaconda, this lecture will need the following libraries:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
@@ -253,31 +259,31 @@
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (0.8.1)
-Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (0.60.0)
-Requirement already satisfied: numpy&gt;=1.17.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (1.26.4)
-Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (2.32.3)
-Requirement already satisfied: scipy&gt;=1.5.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (1.13.1)
-Requirement already satisfied: sympy in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (1.13.2)
-Requirement already satisfied: llvmlite&lt;0.44,&gt;=0.43.0dev0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from numba&gt;=0.49.0-&gt;quantecon) (0.43.0)
-Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from requests-&gt;quantecon) (3.3.2)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from requests-&gt;quantecon) (3.7)
-Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from requests-&gt;quantecon) (2.2.3)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from requests-&gt;quantecon) (2024.8.30)
-Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from sympy-&gt;quantecon) (1.3.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.8.2)
+Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (0.61.0)
+Requirement already satisfied: numpy&gt;=1.17.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.1.3)
+Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.32.3)
+Requirement already satisfied: scipy&gt;=1.5.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (1.15.3)
+Requirement already satisfied: sympy in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (1.13.3)
+Requirement already satisfied: llvmlite&lt;0.45,&gt;=0.44.0dev0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from numba&gt;=0.49.0-&gt;quantecon) (0.44.0)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (3.3.2)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (3.7)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2.3.0)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2025.4.26)
+Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from sympy-&gt;quantecon) (1.3.0)
 </pre></div>
 </div>
 </div>
 </details>
 </div>
 <section id="overview">
-<h2><span class="section-number">18.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">18.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>The growth of CPU clock speed (i.e., the speed at which a single chain of logic can
 be run) has slowed dramatically in recent years.</p>
 <p>This is unlikely to change in the near future, due to inherent physical
@@ -299,21 +305,21 @@ seeking a different path to fast execution: parallelization.</p>
 <p>Let’s start with some imports:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">quantecon</span> <span class="k">as</span> <span class="nn">qe</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">quantecon</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qe</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="types-of-parallelization">
-<h2><span class="section-number">18.2. </span>Types of Parallelization<a class="headerlink" href="#types-of-parallelization" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">18.2. </span>Types of Parallelization<a class="headerlink" href="#types-of-parallelization" title="Link to this heading">#</a></h2>
 <p>Large textbooks have been written on different approaches to parallelization but we will keep a tight focus on what’s most useful to us.</p>
 <p>We will briefly review the two main kinds of parallelization commonly used in
 scientific computing and discuss their pros and cons.</p>
 <section id="multiprocessing">
-<h3><span class="section-number">18.2.1. </span>Multiprocessing<a class="headerlink" href="#multiprocessing" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">18.2.1. </span>Multiprocessing<a class="headerlink" href="#multiprocessing" title="Link to this heading">#</a></h3>
 <p>Multiprocessing means concurrent execution of multiple processes using more than one processor.</p>
 <p>In this context, a <strong>process</strong> is a chain of instructions (i.e., a program).</p>
 <p>Multiprocessing can be carried out on one machine with multiple CPUs or on a
@@ -324,7 +330,7 @@ collection of machines connected by a network.</p>
 physical memory chip might be shared.</p>
 </section>
 <section id="multithreading">
-<h3><span class="section-number">18.2.2. </span>Multithreading<a class="headerlink" href="#multithreading" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">18.2.2. </span>Multithreading<a class="headerlink" href="#multithreading" title="Link to this heading">#</a></h3>
 <p>Multithreading is similar to multiprocessing, except that, during execution, the threads all share the same memory space.</p>
 <p>Native Python struggles to implement multithreading due to some <a class="reference external" href="https://wiki.python.org/moin/GlobalInterpreterLock">legacy design
 features</a>.</p>
@@ -333,7 +339,7 @@ features</a>.</p>
 execution environments where Python’s legacy restrictions don’t apply.</p>
 </section>
 <section id="advantages-and-disadvantages">
-<h3><span class="section-number">18.2.3. </span>Advantages and Disadvantages<a class="headerlink" href="#advantages-and-disadvantages" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">18.2.3. </span>Advantages and Disadvantages<a class="headerlink" href="#advantages-and-disadvantages" title="Link to this heading">#</a></h3>
 <p>Multithreading is more lightweight because most system and memory resources
 are shared by the threads.</p>
 <p>In addition, the fact that multiple threads all access a shared pool of memory
@@ -345,7 +351,7 @@ suffice.</p>
 </section>
 </section>
 <section id="implicit-multithreading-in-numpy">
-<h2><span class="section-number">18.3. </span>Implicit Multithreading in NumPy<a class="headerlink" href="#implicit-multithreading-in-numpy" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">18.3. </span>Implicit Multithreading in NumPy<a class="headerlink" href="#implicit-multithreading-in-numpy" title="Link to this heading">#</a></h2>
 <p>Actually, you have already been using multithreading in your Python code,
 although you might not have realized it.</p>
 <p>(We are, as usual, assuming that you are running the latest version of
@@ -354,7 +360,7 @@ Anaconda Python.)</p>
 compiled code.</p>
 <p>Let’s look at some examples to see this in action.</p>
 <section id="a-matrix-operation">
-<h3><span class="section-number">18.3.1. </span>A Matrix Operation<a class="headerlink" href="#a-matrix-operation" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">18.3.1. </span>A Matrix Operation<a class="headerlink" href="#a-matrix-operation" title="Link to this heading">#</a></h3>
 <p>The next piece of code computes the eigenvalues of a large number of randomly
 generated matrices.</p>
 <p>It takes a few seconds to run.</p>
@@ -372,20 +378,21 @@ generated matrices.</p>
 <p>Now, let’s look at the output of the htop system monitor on our machine while
 this code is running:</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="_images/htop_parallel_npmat.png"><img alt="_images/htop_parallel_npmat.png" src="_images/htop_parallel_npmat.png" style="width: 500.8px; height: 311.20000000000005px;" /></a>
+<a class="reference internal image-reference" href="_images/htop_parallel_npmat.png"><img alt="_images/htop_parallel_npmat.png" src="_images/htop_parallel_npmat.png" style="width: 500.8px; height: 311.20000000000005px;" />
+</a>
 </figure>
 <p>We can see that 4 of the 8 CPUs are running at full speed.</p>
 <p>This is because NumPy’s <code class="docutils literal notranslate"><span class="pre">eigvals</span></code> routine neatly splits up the tasks and
 distributes them to different threads.</p>
 </section>
 <section id="a-multithreaded-ufunc">
-<h3><span class="section-number">18.3.2. </span>A Multithreaded Ufunc<a class="headerlink" href="#a-multithreaded-ufunc" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">18.3.2. </span>A Multithreaded Ufunc<a class="headerlink" href="#a-multithreaded-ufunc" title="Link to this heading">#</a></h3>
 <p>Over the last few years, NumPy has managed to push this kind of multithreading
 out to more and more operations.</p>
 <p>For example, let’s return to a maximization problem <a class="reference internal" href="numpy.html#ufuncs"><span class="std std-ref">discussed previously</span></a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
@@ -401,7 +408,7 @@ out to more and more operations.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>449 ms ± 1.12 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>453 ms ± 1.29 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -414,17 +421,17 @@ distributed across multiple threads.</p>
 <p>This is one of the reasons why the vectorized code above is fast.</p>
 </section>
 <section id="a-comparison-with-numba">
-<h3><span class="section-number">18.3.3. </span>A Comparison with Numba<a class="headerlink" href="#a-comparison-with-numba" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">18.3.3. </span>A Comparison with Numba<a class="headerlink" href="#a-comparison-with-numba" title="Link to this heading">#</a></h3>
 <p>To get some basis for comparison for the last example, let’s try the same
 thing with Numba.</p>
 <p>In fact there is an easy way to do this, since Numba can also be used to
 create custom <a class="reference internal" href="numpy.html#ufuncs"><span class="std std-ref">ufuncs</span></a> with the <a class="reference external" href="http://numba.pydata.org/numba-doc/dev/user/vectorize.html">&#64;vectorize</a> decorator.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">vectorize</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numba</span><span class="w"> </span><span class="kn">import</span> <span class="n">vectorize</span>
 
 <span class="nd">@vectorize</span>
-<span class="k">def</span> <span class="nf">f_vec</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f_vec</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">f_vec</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>  <span class="c1"># Run once to compile</span>
@@ -432,7 +439,7 @@ create custom <a class="reference internal" href="numpy.html#ufuncs"><span class
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9999992797121728
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.9999992797121728)
 </pre></div>
 </div>
 </div>
@@ -444,7 +451,7 @@ create custom <a class="reference internal" href="numpy.html#ufuncs"><span class
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>310 ms ± 1.06 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>311 ms ± 2.69 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -466,7 +473,7 @@ function that is specialized to the entire operation.</p>
 multithreading, as we’ve just discussed.</p>
 </section>
 <section id="multithreading-a-numba-ufunc">
-<h3><span class="section-number">18.3.4. </span>Multithreading a Numba Ufunc<a class="headerlink" href="#multithreading-a-numba-ufunc" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">18.3.4. </span>Multithreading a Numba Ufunc<a class="headerlink" href="#multithreading-a-numba-ufunc" title="Link to this heading">#</a></h3>
 <p>Can we get both of these advantages at once?</p>
 <p>In other words, can we pair</p>
 <ul class="simple">
@@ -478,7 +485,7 @@ multithreading?</p></li>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@vectorize</span><span class="p">(</span><span class="s1">&#39;float64(float64, float64)&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;parallel&#39;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">f_vec</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f_vec</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">f_vec</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>  <span class="c1"># Run once to compile</span>
@@ -486,7 +493,7 @@ multithreading?</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9999992797121728
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.9999992797121728)
 </pre></div>
 </div>
 </div>
@@ -498,7 +505,7 @@ multithreading?</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>127 ms ± 912 μs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>127 ms ± 371 μs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -507,7 +514,7 @@ multithreading?</p></li>
 </section>
 </section>
 <section id="multithreaded-loops-in-numba">
-<h2><span class="section-number">18.4. </span>Multithreaded Loops in Numba<a class="headerlink" href="#multithreaded-loops-in-numba" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">18.4. </span>Multithreaded Loops in Numba<a class="headerlink" href="#multithreaded-loops-in-numba" title="Link to this heading">#</a></h2>
 <p>We just saw one approach to parallelization in Numba, using the <code class="docutils literal notranslate"><span class="pre">parallel</span></code>
 flag in <code class="docutils literal notranslate"><span class="pre">&#64;vectorize</span></code>.</p>
 <p>This is neat but, it turns out, not well suited to many problems we consider.</p>
@@ -530,11 +537,11 @@ distribution.</p>
 <p>Here’s the code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">randn</span>
-<span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">njit</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numpy.random</span><span class="w"> </span><span class="kn">import</span> <span class="n">randn</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numba</span><span class="w"> </span><span class="kn">import</span> <span class="n">njit</span>
 
 <span class="nd">@njit</span>
-<span class="k">def</span> <span class="nf">h</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">v1</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">v2</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">h</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">v1</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">v2</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Updates household wealth.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -569,7 +576,7 @@ distribution.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e90ee42014e51cad76fe43ccb2d631c1d12c163dc6380391af02e6c2ad4f550d.png" src="_images/e90ee42014e51cad76fe43ccb2d631c1d12c163dc6380391af02e6c2ad4f550d.png" />
+<img alt="_images/f821d522e57b4d7ef5ac49815398cbcdafa595736092b27910517e4871e38be0.png" src="_images/f821d522e57b4d7ef5ac49815398cbcdafa595736092b27910517e4871e38be0.png" />
 </div>
 </div>
 <p>Now let’s suppose that we have a large population of households and we want to
@@ -597,7 +604,7 @@ don’t matter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@njit</span>
-<span class="k">def</span> <span class="nf">compute_long_run_median</span><span class="p">(</span><span class="n">w0</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">num_reps</span><span class="o">=</span><span class="mi">50_000</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_long_run_median</span><span class="p">(</span><span class="n">w0</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">num_reps</span><span class="o">=</span><span class="mi">50_000</span><span class="p">):</span>
 
     <span class="n">obs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">num_reps</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_reps</span><span class="p">):</span>
@@ -620,11 +627,11 @@ don’t matter.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.72 s, sys: 78 ms, total: 4.8 s
-Wall time: 4.79 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.72 s, sys: 95.4 ms, total: 4.82 s
+Wall time: 4.8 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8293063898385822
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8429816129905094
 </pre></div>
 </div>
 </div>
@@ -633,10 +640,10 @@ Wall time: 4.79 s
 <p>To do so, we add the <code class="docutils literal notranslate"><span class="pre">parallel=True</span></code> flag and change <code class="docutils literal notranslate"><span class="pre">range</span></code> to <code class="docutils literal notranslate"><span class="pre">prange</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">prange</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numba</span><span class="w"> </span><span class="kn">import</span> <span class="n">prange</span>
 
 <span class="nd">@njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">compute_long_run_median_parallel</span><span class="p">(</span><span class="n">w0</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">num_reps</span><span class="o">=</span><span class="mi">50_000</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_long_run_median_parallel</span><span class="p">(</span><span class="n">w0</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">num_reps</span><span class="o">=</span><span class="mi">50_000</span><span class="p">):</span>
 
     <span class="n">obs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">num_reps</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">prange</span><span class="p">(</span><span class="n">num_reps</span><span class="p">):</span>
@@ -659,18 +666,18 @@ Wall time: 4.79 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.19 s, sys: 2.04 ms, total: 5.19 s
-Wall time: 1.56 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.26 s, sys: 2.96 ms, total: 5.26 s
+Wall time: 1.59 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8417932847417373
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.834533110521998
 </pre></div>
 </div>
 </div>
 </div>
 <p>The speed-up is significant.</p>
 <section id="a-warning">
-<h3><span class="section-number">18.4.1. </span>A Warning<a class="headerlink" href="#a-warning" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">18.4.1. </span>A Warning<a class="headerlink" href="#a-warning" title="Link to this heading">#</a></h3>
 <p>Parallelization works well in the outer loop of the last example because the individual tasks inside the loop are independent of each other.</p>
 <p>If this independence fails then parallelization is often problematic.</p>
 <p>For example, each step inside the inner loop depends on the last step, so
@@ -681,7 +688,7 @@ independence of tasks holds true.</p>
 </section>
 </section>
 <section id="exercises">
-<h2><span class="section-number">18.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">18.5. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <div class="exercise admonition" id="parallel_ex1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 18.1 </span></p>
@@ -707,10 +714,10 @@ tasks to be parallelized are very small relative to total execution time.</p>
 <p>Here is one solution:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">uniform</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">uniform</span>
 
 <span class="nd">@njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">calculate_pi</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_pi</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">):</span>
     <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">prange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
         <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -732,11 +739,11 @@ tasks to be parallelized are very small relative to total execution time.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 427 ms, sys: 8.97 ms, total: 436 ms
-Wall time: 423 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 457 ms, sys: 8.12 ms, total: 465 ms
+Wall time: 451 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14176
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.138164
 </pre></div>
 </div>
 </div>
@@ -748,11 +755,11 @@ Wall time: 423 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 18.2 ms, sys: 51 μs, total: 18.2 ms
-Wall time: 5.12 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 18.2 ms, sys: 0 ns, total: 18.2 ms
+Wall time: 4.92 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.142896
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14136
 </pre></div>
 </div>
 </div>
@@ -827,14 +834,14 @@ s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1}
 <p>Using this fact, the solution can be written as follows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">randn</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numpy.random</span><span class="w"> </span><span class="kn">import</span> <span class="n">randn</span>
 <span class="n">M</span> <span class="o">=</span> <span class="mi">10_000_000</span>
 
 <span class="n">n</span><span class="p">,</span> <span class="n">β</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mi">100</span>
 <span class="n">μ</span><span class="p">,</span> <span class="n">ρ</span><span class="p">,</span> <span class="n">ν</span><span class="p">,</span> <span class="n">S0</span><span class="p">,</span> <span class="n">h0</span> <span class="o">=</span> <span class="mf">0.0001</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span>
 
 <span class="nd">@njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">compute_call_price_parallel</span><span class="p">(</span><span class="n">β</span><span class="o">=</span><span class="n">β</span><span class="p">,</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_call_price_parallel</span><span class="p">(</span><span class="n">β</span><span class="o">=</span><span class="n">β</span><span class="p">,</span>
                                 <span class="n">μ</span><span class="o">=</span><span class="n">μ</span><span class="p">,</span>
                                 <span class="n">S0</span><span class="o">=</span><span class="n">S0</span><span class="p">,</span>
                                 <span class="n">h0</span><span class="o">=</span><span class="n">h0</span><span class="p">,</span>
@@ -1030,7 +1037,7 @@ s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1}
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   19. JAX
+   19. An Introduction to JAX
   </a>
  </li>
 </ul>

@@ -682,8 +682,9 @@ ticker = read_data(ticker_list)
 
 Complete the program to plot the result as a bar graph like this one:
 
-```{figure} /_static/lecture_specific/pandas/pandas_share_prices.png
+```{image} /_static/lecture_specific/pandas/pandas_share_prices.png
 :scale: 80
+:align: center
 ```
 
 ```{exercise-end}
@@ -748,8 +749,9 @@ indices_list = {'^GSPC': 'S&P 500',
 
 Complete the program to show summary statistics and plot the result as a time series graph like this one:
 
-```{figure} /_static/lecture_specific/pandas/pandas_indices_pctchange.png
+```{image} /_static/lecture_specific/pandas/pandas_indices_pctchange.png
 :scale: 80
+:align: center
 ```
 
 ```{exercise-end}

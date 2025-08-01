@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>9. Writing Longer Programs &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -70,14 +69,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=bd0785fbb14d8d2bd4d9ae501d79ed8d3bc089ec" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -85,22 +84,21 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="_static/scripts/quantecon-book-theme.js?digest=d9faaf6c4b57726f74ba012412af1f5681bdff87"></script>
+    <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
+    <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -109,10 +107,18 @@
                 gtag('config', 'G-X7DH1M2DPY');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'workspace';</script>
     <link rel="canonical" href="https://python-programming.quantecon.org/workspace.html" />
-    <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
+    <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="10. Python for Scientific Computing" href="need_for_speed.html" />
@@ -238,9 +244,9 @@
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="writing-longer-programs">
-<h1><span class="section-number">9. </span>Writing Longer Programs<a class="headerlink" href="#writing-longer-programs" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">9. </span>Writing Longer Programs<a class="headerlink" href="#writing-longer-programs" title="Link to this heading">#</a></h1>
 <section id="overview">
-<h2><span class="section-number">9.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>So far, we have explored the use of Jupyter Notebooks in writing and executing Python code.</p>
 <p>While they are efficient and adaptable when working with short pieces of code, Notebooks are not the best choice for longer programs and scripts.</p>
 <p>Jupyter Notebooks are well suited to interactive computing (i.e. data science workflows) and can help execute chunks of code one at a time.</p>
@@ -260,61 +266,76 @@
 </div>
 </section>
 <section id="working-with-python-files">
-<h2><span class="section-number">9.2. </span>Working with Python files<a class="headerlink" href="#working-with-python-files" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.2. </span>Working with Python files<a class="headerlink" href="#working-with-python-files" title="Link to this heading">#</a></h2>
 <p>Python files are used when writing long, reusable blocks of code - by convention, they have a <code class="docutils literal notranslate"><span class="pre">.py</span></code> suffix.</p>
 <p>Let us begin by working with the following example.</p>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-number">Listing 9.1 </span><span class="caption-text">sine_wave.py</span><a class="headerlink" href="#id2" title="Permalink to this code">#</a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="linenos"> 2</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="linenos"> 3</span>
-<span class="linenos"> 4</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="linenos"> 5</span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="linenos"> 6</span>
-<span class="linenos"> 7</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="linenos"> 8</span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="linenos"> 9</span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-<span class="linenos">10</span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sine Wave&#39;</span><span class="p">)</span>
-<span class="linenos">11</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sine Wave&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<p>The code is first saved locally on the computer before it is executed.</p>
+<div class="cell_output docutils container">
+<img alt="_images/e00936377bc0c8addd1cf9091de395aa4a89734f5511a1c24764129549ee39bf.png" src="_images/e00936377bc0c8addd1cf9091de395aa4a89734f5511a1c24764129549ee39bf.png" />
+</div>
+</div>
 <p>As there are various ways to execute the code, we will explore them in the context of different development environments.</p>
 <p>One major advantage of using Python scripts lies in the fact that you can “import” functionality from other scripts into your current script or Jupyter Notebook.</p>
-<p>Let’s rewrite the earlier code into a function.</p>
-<div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-number">Listing 9.2 </span><span class="caption-text">sine_wave.py</span><a class="headerlink" href="#id3" title="Permalink to this code">#</a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="linenos"> 2</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="linenos"> 3</span>
-<span class="linenos"> 4</span><span class="c1"># Define the plot_wave function.</span>
-<span class="linenos"> 5</span><span class="k">def</span> <span class="nf">plot_wave</span><span class="p">(</span><span class="n">title</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Sine Wave&#39;</span><span class="p">):</span>
-<span class="linenos"> 6</span>  <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="linenos"> 7</span>  <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="linenos"> 8</span>
-<span class="linenos"> 9</span>  <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="linenos">10</span>  <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="linenos">11</span>  <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-<span class="linenos">12</span>  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-<span class="linenos">13</span>  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<p>Let’s rewrite the earlier code into a function and write to to a file called <code class="docutils literal notranslate"><span class="pre">sine_wave.py</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%writefile</span> sine_wave.py
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Define the plot_wave function.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_wave</span><span class="p">(</span><span class="n">title</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Sine Wave&#39;</span><span class="p">):</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+  <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-number">Listing 9.3 </span><span class="caption-text">second_script.py</span><a class="headerlink" href="#id4" title="Permalink to this code">#</a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">import</span> <span class="nn">sine_wave</span> <span class="c1"># Import the sine_wave script</span>
-<span class="linenos">2</span> 
-<span class="linenos">3</span><span class="c1"># Call the plot_wave function.</span>
-<span class="linenos">4</span><span class="n">sine_wave</span><span class="o">.</span><span class="n">plot_wave</span><span class="p">(</span><span class="s2">&quot;Sine Wave - Called from the Second Script&quot;</span><span class="p">)</span>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing sine_wave.py
 </pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sine_wave</span> <span class="c1"># Import the sine_wave script</span>
+ 
+<span class="c1"># Call the plot_wave function.</span>
+<span class="n">sine_wave</span><span class="o">.</span><span class="n">plot_wave</span><span class="p">(</span><span class="s2">&quot;Sine Wave - Called from the Second Script&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/803aa8b61d772e85496fe72e22cce67e7e007eafc8e30ef020ec32a92d30a389.png" src="_images/803aa8b61d772e85496fe72e22cce67e7e007eafc8e30ef020ec32a92d30a389.png" />
 </div>
 </div>
 <p>This allows you to split your code into chunks and structure your codebase better.</p>
 <p>Look into the use of <a class="reference external" href="https://docs.python.org/3/tutorial/modules.html">modules</a> and <a class="reference external" href="https://docs.python.org/3/tutorial/modules.html#packages">packages</a> for more information on importing functionality.</p>
 </section>
 <section id="development-environments">
-<h2><span class="section-number">9.3. </span>Development environments<a class="headerlink" href="#development-environments" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.3. </span>Development environments<a class="headerlink" href="#development-environments" title="Link to this heading">#</a></h2>
 <p>A development environment is a one stop workspace where you can</p>
 <ul class="simple">
 <li><p>edit and run your code</p></li>
@@ -324,7 +345,7 @@
 <p>This lecture takes you through the workings of two development environments.</p>
 </section>
 <section id="a-step-forward-from-jupyter-notebooks-jupyterlab">
-<h2><span class="section-number">9.4. </span>A step forward from Jupyter Notebooks: JupyterLab<a class="headerlink" href="#a-step-forward-from-jupyter-notebooks-jupyterlab" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.4. </span>A step forward from Jupyter Notebooks: JupyterLab<a class="headerlink" href="#a-step-forward-from-jupyter-notebooks-jupyterlab" title="Link to this heading">#</a></h2>
 <p>JupyterLab is a browser based development environment for Jupyter Notebooks, code scripts, and data files.</p>
 <p>You can <a class="reference external" href="https://jupyter.org/try-jupyter/lab/">try JupyterLab in the browser</a> if you want to test it out before installing it locally.</p>
 <p>You can install JupyterLab using pip</p>
@@ -364,7 +385,7 @@
 <li><p>Using the terminal</p></li>
 </ul>
 <section id="using-magic-commands">
-<h3><span class="section-number">9.4.1. </span>Using magic commands<a class="headerlink" href="#using-magic-commands" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.4.1. </span>Using magic commands<a class="headerlink" href="#using-magic-commands" title="Link to this heading">#</a></h3>
 <p>Jupyter Notebooks and JupyterLab support the use of <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">magic commands</a> - commands that extend the capabilities of a standard Jupyter Notebook.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">%run</span></code> magic command allows you to run a Python script from within a Notebook.</p>
 <p>This is a convenient way to run scripts that you are working on in the same directory as your Notebook and present the outputs within the Notebook.</p>
@@ -373,7 +394,7 @@
 </figure>
 </section>
 <section id="using-the-terminal">
-<h3><span class="section-number">9.4.2. </span>Using the terminal<a class="headerlink" href="#using-the-terminal" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.4.2. </span>Using the terminal<a class="headerlink" href="#using-the-terminal" title="Link to this heading">#</a></h3>
 <p>However, if you are looking into just running the <code class="docutils literal notranslate"><span class="pre">.py</span></code> file, it is sometimes easier to use the terminal.</p>
 <p>Open a terminal from the launcher and run the following command.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">python</span> <span class="o">&lt;</span><span class="n">path</span> <span class="n">to</span> <span class="n">file</span><span class="o">.</span><span class="n">py</span><span class="o">&gt;</span>
@@ -394,7 +415,7 @@
 </section>
 </section>
 <section id="a-walk-through-visual-studio-code">
-<h2><span class="section-number">9.5. </span>A walk through Visual Studio Code<a class="headerlink" href="#a-walk-through-visual-studio-code" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.5. </span>A walk through Visual Studio Code<a class="headerlink" href="#a-walk-through-visual-studio-code" title="Link to this heading">#</a></h2>
 <p>Visual Studio Code (VS Code) is a code editor and development workspace that can run</p>
 <ul class="simple">
 <li><p>in the <a class="reference external" href="https://vscode.dev/">browser</a>.</p></li>
@@ -447,7 +468,7 @@
 <li><p>Using the terminal</p></li>
 </ul>
 <section id="using-the-run-button">
-<h3><span class="section-number">9.5.1. </span>Using the run button<a class="headerlink" href="#using-the-run-button" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.5.1. </span>Using the run button<a class="headerlink" href="#using-the-run-button" title="Link to this heading">#</a></h3>
 <p>You can run the script by clicking on the run button on the top right corner of the editor.</p>
 <figure class="auto align-default">
 <img alt="_images/vs_code_run.png" src="_images/vs_code_run.png" />
@@ -459,7 +480,7 @@
 <p>This creates an ipykernel console and runs the script.</p>
 </section>
 <section id="id1">
-<h3><span class="section-number">9.5.2. </span>Using the terminal<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.5.2. </span>Using the terminal<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>The command <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">&lt;path</span> <span class="pre">to</span> <span class="pre">file.py&gt;</span></code> is executed on the console of your choice.</p>
 <p>If you are using a Windows machine, you can either use the Anaconda Prompt or the Command Prompt - but, generally not the PowerShell.</p>
 <p>Here’s an execution of the earlier code.</p>
@@ -474,7 +495,7 @@
 </section>
 </section>
 <section id="git-your-hands-dirty">
-<h2><span class="section-number">9.6. </span>Git your hands dirty<a class="headerlink" href="#git-your-hands-dirty" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.6. </span>Git your hands dirty<a class="headerlink" href="#git-your-hands-dirty" title="Link to this heading">#</a></h2>
 <p>This section will familiarize you with git and GitHub.</p>
 <p><a class="reference external" href="http://git-scm.com/">Git</a> is a <em>version control system</em> — a piece of software used to manage digital projects such as code libraries.</p>
 <p>In many cases, the associated collections of files — called <em>repositories</em> — are stored on <a class="reference external" href="https://github.com/">GitHub</a>.</p>
@@ -500,7 +521,7 @@ lectures.</p>
 <li><p>Getting a copy of <a class="reference external" href="https://github.com/QuantEcon/QuantEcon.py">QuantEcon.py</a> using Git.</p></li>
 </ol>
 <p>For example, if you’ve installed the command line version, open up a terminal and enter.</p>
-<div class="no-execute highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/QuantEcon/QuantEcon.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/QuantEcon/QuantEcon.py
 </pre></div>
 </div>
 <p>(This is just <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> in front of the URL for the repository)</p>
@@ -686,7 +707,7 @@ lectures.</p>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   19. JAX
+   19. An Introduction to JAX
   </a>
  </li>
 </ul>

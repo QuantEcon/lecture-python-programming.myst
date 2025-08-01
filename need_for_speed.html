@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>10. Python for Scientific Computing &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -70,14 +69,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=bd0785fbb14d8d2bd4d9ae501d79ed8d3bc089ec" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -85,22 +84,21 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="_static/scripts/quantecon-book-theme.js?digest=d9faaf6c4b57726f74ba012412af1f5681bdff87"></script>
+    <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
+    <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -109,12 +107,20 @@
                 gtag('config', 'G-X7DH1M2DPY');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'need_for_speed';</script>
     <link rel="canonical" href="https://python-programming.quantecon.org/need_for_speed.html" />
-    <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
+    <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="11. NumPy" href="numpy.html" />
@@ -247,22 +253,22 @@
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="python-for-scientific-computing">
-<h1><span class="section-number">10. </span>Python for Scientific Computing<a class="headerlink" href="#python-for-scientific-computing" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">10. </span>Python for Scientific Computing<a class="headerlink" href="#python-for-scientific-computing" title="Link to this heading">#</a></h1>
 <blockquote class="epigraph">
 <div><p>“We should forget about small efficiencies, say about 97% of the time:
 premature optimization is the root of all evil.” – Donald Knuth</p>
 </div></blockquote>
 <section id="overview">
-<h2><span class="section-number">10.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
-<p>Python is extremely popular for scientific computing, due to such factors as</p>
+<h2><span class="section-number">10.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Python is popular for scientific computing due to factors such as</p>
 <ul class="simple">
 <li><p>the accessible and expressive nature of the language itself,</p></li>
-<li><p>its vast range of high quality scientific libraries,</p></li>
+<li><p>the huge range of high quality scientific libraries,</p></li>
 <li><p>the fact that the language and libraries are open source,</p></li>
 <li><p>the popular <a class="reference external" href="https://www.anaconda.com/download">Anaconda Python distribution</a>, which simplifies installation and management of scientific libraries, and</p></li>
 <li><p>the key role that Python plays in data science, machine learning and artificial intelligence.</p></li>
 </ul>
-<p>In previous lectures, we looked at some scientific Python libaries such as NumPy and Matplotlib.</p>
+<p>In previous lectures, we looked at some scientific Python libraries such as NumPy and Matplotlib.</p>
 <p>However, our main focus was the core Python language, rather than the libraries.</p>
 <p>Now we turn to the scientific libraries and give them our full attention.</p>
 <p>We’ll also discuss the following topics:</p>
@@ -278,34 +284,34 @@ premature optimization is the root of all evil.” – Donald Knuth</p>
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting quantecon
-  Downloading quantecon-0.8.1-py3-none-any.whl.metadata (5.2 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (0.60.0)
-Requirement already satisfied: numpy&gt;=1.17.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (1.26.4)
-Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (2.32.3)
-Requirement already satisfied: scipy&gt;=1.5.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (1.13.1)
-Requirement already satisfied: sympy in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (1.13.2)
-Requirement already satisfied: llvmlite&lt;0.44,&gt;=0.43.0dev0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from numba&gt;=0.49.0-&gt;quantecon) (0.43.0)
-Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from requests-&gt;quantecon) (3.3.2)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from requests-&gt;quantecon) (3.7)
-Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from requests-&gt;quantecon) (2.2.3)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from requests-&gt;quantecon) (2024.8.30)
-Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from sympy-&gt;quantecon) (1.3.0)
-Downloading quantecon-0.8.1-py3-none-any.whl (322 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading quantecon-0.8.2-py3-none-any.whl.metadata (5.3 kB)
+Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (0.61.0)
+Requirement already satisfied: numpy&gt;=1.17.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.1.3)
+Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.32.3)
+Requirement already satisfied: scipy&gt;=1.5.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (1.15.3)
+Requirement already satisfied: sympy in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (1.13.3)
+Requirement already satisfied: llvmlite&lt;0.45,&gt;=0.44.0dev0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from numba&gt;=0.49.0-&gt;quantecon) (0.44.0)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (3.3.2)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (3.7)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2.3.0)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2025.4.26)
+Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from sympy-&gt;quantecon) (1.3.0)
+Downloading quantecon-0.8.2-py3-none-any.whl (322 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: quantecon
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed quantecon-0.8.1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed quantecon-0.8.2
 </pre></div>
 </div>
 </div>
@@ -313,16 +319,18 @@ Downloading quantecon-0.8.1-py3-none-any.whl (322 kB)
 </div>
 </section>
 <section id="scientific-libraries">
-<h2><span class="section-number">10.2. </span>Scientific Libraries<a class="headerlink" href="#scientific-libraries" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.2. </span>Scientific Libraries<a class="headerlink" href="#scientific-libraries" title="Link to this heading">#</a></h2>
 <p>Let’s briefly review Python’s scientific libraries, starting with why we need them.</p>
 <section id="the-role-of-scientific-libraries">
-<h3><span class="section-number">10.2.1. </span>The Role of Scientific Libraries<a class="headerlink" href="#the-role-of-scientific-libraries" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.2.1. </span>The Role of Scientific Libraries<a class="headerlink" href="#the-role-of-scientific-libraries" title="Link to this heading">#</a></h3>
 <p>One reason we use scientific libraries is because they implement routines we want to use.</p>
 <ul class="simple">
 <li><p>numerical integration, interpolation, linear algebra, root finding, etc.</p></li>
 </ul>
 <p>For example, it’s almost always better to use an existing routine for root finding than to write a new one from scratch.</p>
-<p>(For standard algorithms, efficiency is maximized if the community can coordinate on a common set of implementations, written by experts and tuned by users to be as fast and robust as possible.)</p>
+<p>(For standard algorithms, efficiency is maximized if the community can
+coordinate on a common set of implementations, written by experts and tuned by
+users to be as fast and robust as possible.)</p>
 <p>But this is not the only reason that we use Python’s scientific libraries.</p>
 <p>Another is that pure Python, while flexible and elegant, is not fast.</p>
 <p>So we need libraries that are designed to accelerate execution of Python code.</p>
@@ -334,15 +342,15 @@ Downloading quantecon-0.8.1-py3-none-any.whl (322 kB)
 <p>There are several Python libraries that can do this extremely well.</p>
 </section>
 <section id="python-s-scientific-ecosystem">
-<h3><span class="section-number">10.2.2. </span>Python’s Scientific Ecosystem<a class="headerlink" href="#python-s-scientific-ecosystem" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.2.2. </span>Python’s Scientific Ecosystem<a class="headerlink" href="#python-s-scientific-ecosystem" title="Link to this heading">#</a></h3>
 <p>At QuantEcon, the scientific libraries we use most often are</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://numpy.org/">NumPy</a></p></li>
 <li><p><a class="reference external" href="https://scipy.org/">SciPy</a></p></li>
 <li><p><a class="reference external" href="https://matplotlib.org/">Matplotlib</a></p></li>
+<li><p><a class="reference external" href="https://github.com/jax-ml/jax">JAX</a></p></li>
 <li><p><a class="reference external" href="https://pandas.pydata.org/">Pandas</a></p></li>
 <li><p><a class="reference external" href="https://numba.pydata.org/">Numba</a> and</p></li>
-<li><p><a class="reference external" href="https://github.com/jax-ml/jax">JAX</a></p></li>
 </ul>
 <p>Here’s how they fit together:</p>
 <ul class="simple">
@@ -351,17 +359,16 @@ vectors and matrices) and functions for acting on these arrays (e.g., matrix
 multiplication).</p></li>
 <li><p>SciPy builds on NumPy by adding numerical methods routinely used in science (interpolation, optimization, root finding, etc.).</p></li>
 <li><p>Matplotlib is used to generate figures, with a focus on plotting data stored in NumPy arrays.</p></li>
-<li><p>Pandas provides types and functions for manipulating data.</p></li>
-<li><p>Numba provides a just-in-time compiler that integrates well with NumPy and
-helps accelerate Python code.</p></li>
 <li><p>JAX includes array processing operations similar to NumPy, automatic
 differentiation, a parallelization-centric just-in-time compiler, and automated integration with hardware accelerators such as
 GPUs.</p></li>
+<li><p>Pandas provides types and functions for manipulating data.</p></li>
+<li><p>Numba provides a just-in-time compiler that plays well with NumPy and helps accelerate Python code.</p></li>
 </ul>
 </section>
 </section>
 <section id="the-need-for-speed">
-<h2><span class="section-number">10.3. </span>The Need for Speed<a class="headerlink" href="#the-need-for-speed" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.3. </span>The Need for Speed<a class="headerlink" href="#the-need-for-speed" title="Link to this heading">#</a></h2>
 <p>Let’s discuss execution speed and how scientific libraries can help us accelerate code.</p>
 <p>Higher-level languages like Python  are optimized for humans.</p>
 <p>This means that the programmer can leave many details to the runtime environment</p>
@@ -373,21 +380,23 @@ GPUs.</p></li>
 <p>On the other hand, high-level languages are harder to optimize — that is, to turn into fast machine code — than languages like C or Fortran.</p>
 <p>Indeed, the standard implementation of Python (called CPython) cannot match the speed of compiled languages such as C or Fortran.</p>
 <p>Does that mean that we should just switch to C or Fortran for everything?</p>
-<p>The answer is: No, no, and one hundred times no!</p>
-<p>(This is what you should say to your professor when they insist that your model needs to be rewritten in Fortran or C++.)</p>
-<p>There are two reasons why:</p>
+<p>The answer is: No!</p>
+<p>There are three reasons why:</p>
 <p>First, for any given program, relatively few lines are ever going to be time-critical.</p>
 <p>Hence it is far more efficient to write most of our code in a high productivity language like Python.</p>
 <p>Second, even for those lines of code that <em>are</em> time-critical, we can now achieve the same speed as C or Fortran using Python’s scientific libraries.</p>
-<p>In fact we can often do better, because some scientific libraries are so
-effective at accelerating and parallelizing our code.</p>
+<p>Third, in the last few years, accelerating code has become essentially
+synonymous with parallelizing execution, and this task is best left to
+specialized compilers.</p>
+<p>Certain Python libraries have outstanding capabilities for parallelizing
+scientific code – we’ll discuss this more as we go along.</p>
 <section id="where-are-the-bottlenecks">
-<h3><span class="section-number">10.3.1. </span>Where are the Bottlenecks?<a class="headerlink" href="#where-are-the-bottlenecks" title="Permalink to this heading">#</a></h3>
-<p>Before we learn how to do this, let’s try to understand why plain vanilla Python is slower than C or Fortran.</p>
+<h3><span class="section-number">10.3.1. </span>Where are the Bottlenecks?<a class="headerlink" href="#where-are-the-bottlenecks" title="Link to this heading">#</a></h3>
+<p>Before we do so, let’s try to understand why plain vanilla Python is slower than C or Fortran.</p>
 <p>This will, in turn, help us figure out how to speed things up.</p>
 <p>In reading the following, remember that the Python interpreter executes code line-by-line.</p>
 <section id="dynamic-typing">
-<h4><span class="section-number">10.3.1.1. </span>Dynamic Typing<a class="headerlink" href="#dynamic-typing" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">10.3.1.1. </span>Dynamic Typing<a class="headerlink" href="#dynamic-typing" title="Link to this heading">#</a></h4>
 <p id="index-0">Consider this Python operation</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -439,7 +448,7 @@ type of the objects on which it acts)</p>
 <p>This involves substantial overheads.</p>
 </section>
 <section id="static-types">
-<h4><span class="section-number">10.3.1.2. </span>Static Types<a class="headerlink" href="#static-types" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">10.3.1.2. </span>Static Types<a class="headerlink" href="#static-types" title="Link to this heading">#</a></h4>
 <p id="index-1">Compiled languages avoid these overheads with explicit, static types.</p>
 <p>For example, consider the following C code, which sums the integers from 1 to 10</p>
 <div class="no-execute highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
@@ -460,11 +469,11 @@ type of the objects on which it acts)</p>
 </section>
 </section>
 <section id="data-access">
-<h3><span class="section-number">10.3.2. </span>Data Access<a class="headerlink" href="#data-access" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.3.2. </span>Data Access<a class="headerlink" href="#data-access" title="Link to this heading">#</a></h3>
 <p>Another drag on speed for high-level languages is data access.</p>
 <p>To illustrate, let’s consider the problem of summing some data — say, a collection of integers.</p>
 <section id="summing-with-compiled-code">
-<h4><span class="section-number">10.3.2.1. </span>Summing with Compiled Code<a class="headerlink" href="#summing-with-compiled-code" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">10.3.2.1. </span>Summing with Compiled Code<a class="headerlink" href="#summing-with-compiled-code" title="Link to this heading">#</a></h4>
 <p>In C or Fortran, these integers would typically be stored in an array, which
 is a simple data structure for storing homogeneous data.</p>
 <p>Such an array is stored in a single contiguous block of memory</p>
@@ -484,7 +493,7 @@ space by a known and fixed amount.</p>
 </ul>
 </section>
 <section id="summing-in-pure-python">
-<h4><span class="section-number">10.3.2.2. </span>Summing in Pure Python<a class="headerlink" href="#summing-in-pure-python" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">10.3.2.2. </span>Summing in Pure Python<a class="headerlink" href="#summing-in-pure-python" title="Link to this heading">#</a></h4>
 <p>Python tries to replicate these ideas to some degree.</p>
 <p>For example, in the standard Python implementation (CPython), list elements are placed in memory locations that are in a sense contiguous.</p>
 <p>However, these list elements are more like pointers to data rather than actual data.</p>
@@ -496,14 +505,17 @@ space by a known and fixed amount.</p>
 </section>
 </section>
 <section id="vectorization">
-<h2><span class="section-number">10.4. </span><span class="target" id="index-2"></span>Vectorization<a class="headerlink" href="#vectorization" title="Permalink to this heading">#</a></h2>
-<p id="index-3">There is a clever method called <strong>vectorization</strong> that can be
-used to speed up high level languages in numerical applications.</p>
+<h2><span class="section-number">10.4. </span><span class="target" id="index-2"></span>Vectorization<a class="headerlink" href="#vectorization" title="Link to this heading">#</a></h2>
+<p id="index-3">One method for avoiding memory traffic and type checking is <a class="reference external" href="https://en.wikipedia.org/wiki/Array_programming">array programming</a>.</p>
+<p>Economists usually refer to array programming as ``vectorization.’’</p>
+<p>(In computer science, this term has <a class="reference external" href="https://en.wikipedia.org/wiki/Automatic_vectorization">a slightly different meaning</a>.)</p>
 <p>The key idea is to send array processing operations in batch to pre-compiled
 and efficient native machine code.</p>
 <p>The machine code itself is typically compiled from carefully optimized C or Fortran.</p>
-<p>For example, when working in a high level language, the operation of inverting a large matrix can be subcontracted to efficient machine code that is pre-compiled for this purpose and supplied to users as part of a package.</p>
-<p>This clever idea dates back to MATLAB, which uses vectorization extensively.</p>
+<p>For example, when working in a high level language, the operation of inverting a
+large matrix can be subcontracted to efficient machine code that is pre-compiled
+for this purpose and supplied to users as part of a package.</p>
+<p>This idea dates back to MATLAB, which uses vectorization extensively.</p>
 <figure class="align-default">
 <img alt="_images/matlab.png" src="_images/matlab.png" />
 </figure>
@@ -511,23 +523,17 @@ and efficient native machine code.</p>
 in later lectures.</p>
 </section>
 <section id="beyond-vectorization">
-<span id="numba-p-c-vectorization"></span><h2><span class="section-number">10.5. </span>Beyond Vectorization<a class="headerlink" href="#beyond-vectorization" title="Permalink to this heading">#</a></h2>
-<p>At its best, vectorization yields fast, simple code.</p>
+<span id="numba-p-c-vectorization"></span><h2><span class="section-number">10.5. </span>Beyond Vectorization<a class="headerlink" href="#beyond-vectorization" title="Link to this heading">#</a></h2>
+<p>At best, vectorization yields fast, simple code.</p>
 <p>However, it’s not without disadvantages.</p>
 <p>One issue is that it can be highly memory-intensive.</p>
-<p>For example, the vectorized maximization routine above is far more memory
-intensive than the non-vectorized version that preceded it.</p>
 <p>This is because vectorization tends to create many intermediate arrays before
 producing the final calculation.</p>
 <p>Another issue is that not all algorithms can be vectorized.</p>
-<p>In these kinds of settings, we need to go back to loops.</p>
-<p>Fortunately, there are alternative ways to speed up Python loops that work in
-almost any setting.</p>
-<p>For example, <a class="reference external" href="http://numba.pydata.org/">Numba</a> solves the main problems with
-vectorization listed above.</p>
-<p>It does so through something called <strong>just in time (JIT) compilation</strong>,
-which can generate extremely fast and efficient code.</p>
-<p><a class="reference internal" href="numba.html"><span class="doc">Later</span></a> we’ll learn how to use Numba to accelerate Python code.</p>
+<p>Because of these issues, most high performance computing is moving away from
+traditional vectorization and towards the use of <a class="reference external" href="https://en.wikipedia.org/wiki/Just-in-time_compilation">just-in-time compilers</a>.</p>
+<p>In later lectures in this series, we will learn about how modern Python libraries exploit
+just-in-time compilers to generate fast, efficient, parallelized machine code.</p>
 </section>
 </section>
 
@@ -694,7 +700,7 @@ which can generate extremely fast and efficient code.</p>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   19. JAX
+   19. An Introduction to JAX
   </a>
  </li>
 </ul>

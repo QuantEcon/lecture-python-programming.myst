@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>16. SymPy &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -70,14 +69,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=bd0785fbb14d8d2bd4d9ae501d79ed8d3bc089ec" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -85,22 +84,21 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="_static/scripts/quantecon-book-theme.js?digest=d9faaf6c4b57726f74ba012412af1f5681bdff87"></script>
+    <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
+    <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -109,12 +107,20 @@
                 gtag('config', 'G-X7DH1M2DPY');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'sympy';</script>
     <link rel="canonical" href="https://python-programming.quantecon.org/sympy.html" />
-    <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
+    <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="17. Numba" href="numba.html" />
@@ -252,9 +258,9 @@
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">16. </span><span class="target" id="index-0"></span>SymPy<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">16. </span><span class="target" id="index-0"></span>SymPy<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <section id="overview">
-<span id="index-1"></span><h2><span class="section-number">16.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<span id="index-1"></span><h2><span class="section-number">16.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>Unlike numerical libraries that deal with values, <a class="reference external" href="https://www.sympy.org/en/index.html">SymPy</a> focuses on manipulating mathematical symbols and expressions directly.</p>
 <p>SymPy provides <a class="reference external" href="https://www.sympy.org/en/features.html">a wide range of features</a> including</p>
 <ul class="simple">
@@ -269,17 +275,17 @@
 <p>In this lecture, we will explore some of the functionality of SymPy and demonstrate how to use basic SymPy functions to solve economic models.</p>
 </section>
 <section id="getting-started">
-<h2><span class="section-number">16.2. </span>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">16.2. </span>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h2>
 <p>Let’s first import the library and initialize the printer for symbolic output</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">sympy.plotting</span> <span class="kn">import</span> <span class="n">plot</span><span class="p">,</span> <span class="n">plot3d_parametric_line</span><span class="p">,</span> <span class="n">plot3d</span>
-<span class="kn">from</span> <span class="nn">sympy.solvers.inequalities</span> <span class="kn">import</span> <span class="n">reduce_rational_inequalities</span>
-<span class="kn">from</span> <span class="nn">sympy.stats</span> <span class="kn">import</span> <span class="n">Poisson</span><span class="p">,</span> <span class="n">Exponential</span><span class="p">,</span> <span class="n">Binomial</span><span class="p">,</span> <span class="n">density</span><span class="p">,</span> <span class="n">moment</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">cdf</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sympy.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot</span><span class="p">,</span> <span class="n">plot3d_parametric_line</span><span class="p">,</span> <span class="n">plot3d</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sympy.solvers.inequalities</span><span class="w"> </span><span class="kn">import</span> <span class="n">reduce_rational_inequalities</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sympy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">Poisson</span><span class="p">,</span> <span class="n">Exponential</span><span class="p">,</span> <span class="n">Binomial</span><span class="p">,</span> <span class="n">density</span><span class="p">,</span> <span class="n">moment</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">cdf</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="c1"># Enable the mathjax printer</span>
 <span class="n">init_printing</span><span class="p">(</span><span class="n">use_latex</span><span class="o">=</span><span class="s1">&#39;mathjax&#39;</span><span class="p">)</span>
@@ -289,9 +295,9 @@
 </div>
 </section>
 <section id="symbolic-algebra">
-<h2><span class="section-number">16.3. </span>Symbolic algebra<a class="headerlink" href="#symbolic-algebra" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">16.3. </span>Symbolic algebra<a class="headerlink" href="#symbolic-algebra" title="Link to this heading">#</a></h2>
 <section id="symbols">
-<h3><span class="section-number">16.3.1. </span>Symbols<a class="headerlink" href="#symbols" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">16.3.1. </span>Symbols<a class="headerlink" href="#symbols" title="Link to this heading">#</a></h3>
 <p>First we initialize some symbols to work with</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -303,7 +309,7 @@
 <p>Symbols are the basic units for symbolic computation in SymPy.</p>
 </section>
 <section id="expressions">
-<h3><span class="section-number">16.3.2. </span>Expressions<a class="headerlink" href="#expressions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">16.3.2. </span>Expressions<a class="headerlink" href="#expressions" title="Link to this heading">#</a></h3>
 <p>We can now use symbols <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">z</span></code> to build expressions and equations.</p>
 <p>Here we build a simple expression first</p>
 <div class="cell docutils container">
@@ -367,7 +373,7 @@
 </div>
 </section>
 <section id="equations">
-<h3><span class="section-number">16.3.3. </span>Equations<a class="headerlink" href="#equations" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">16.3.3. </span>Equations<a class="headerlink" href="#equations" title="Link to this heading">#</a></h3>
 <p>SymPy provides several functions to manipulate equations.</p>
 <p>Let’s develop an equation with the expression we defined before</p>
 <div class="cell docutils container">
@@ -525,7 +531,7 @@
 </div>
 <p>If you are interested, we encourage you to read the lecture on <a class="reference external" href="https://python.quantecon.org/complex_and_trig.html">trigonometry and complex numbers</a>.</p>
 <section id="example-fixed-point-computation">
-<h4><span class="section-number">16.3.3.1. </span>Example: fixed point computation<a class="headerlink" href="#example-fixed-point-computation" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">16.3.3.1. </span>Example: fixed point computation<a class="headerlink" href="#example-fixed-point-computation" title="Link to this heading">#</a></h4>
 <p>Fixed point computation is frequently used in economics and finance.</p>
 <p>Here we solve the fixed point of the Solow-Swan growth dynamics:</p>
 <div class="math notranslate nohighlight">
@@ -579,7 +585,7 @@ k^* = sA(k^*)^{\alpha}+(1-\delta) k^*
 </section>
 </section>
 <section id="inequalities-and-logic">
-<h3><span class="section-number">16.3.4. </span>Inequalities and logic<a class="headerlink" href="#inequalities-and-logic" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">16.3.4. </span>Inequalities and logic<a class="headerlink" href="#inequalities-and-logic" title="Link to this heading">#</a></h3>
 <p>SymPy also allows users to define inequalities and set operators and provides a wide range of <a class="reference external" href="https://docs.sympy.org/latest/modules/solvers/inequalities.html">operations</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -605,7 +611,7 @@ k^* = sA(k^*)^{\alpha}+(1-\delta) k^*
 </div>
 </section>
 <section id="series">
-<h3><span class="section-number">16.3.5. </span>Series<a class="headerlink" href="#series" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">16.3.5. </span>Series<a class="headerlink" href="#series" title="Link to this heading">#</a></h3>
 <p>Series are widely used in economics and statistics, from asset pricing to the expectation of discrete random variables.</p>
 <p>We can construct a simple series of summations using <code class="docutils literal notranslate"><span class="pre">Sum</span></code> function and <code class="docutils literal notranslate"><span class="pre">Indexed</span></code> symbols</p>
 <div class="cell docutils container">
@@ -634,13 +640,13 @@ k^* = sA(k^*)^{\alpha}+(1-\delta) k^*
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(36)
 </pre></div>
 </div>
 </div>
 </div>
 <section id="example-bank-deposits">
-<h4><span class="section-number">16.3.5.1. </span>Example: bank deposits<a class="headerlink" href="#example-bank-deposits" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">16.3.5.1. </span>Example: bank deposits<a class="headerlink" href="#example-bank-deposits" title="Link to this heading">#</a></h4>
 <p>Imagine a bank with <span class="math notranslate nohighlight">\(D_0\)</span> as the deposit at time <span class="math notranslate nohighlight">\(t\)</span>.</p>
 <p>It loans <span class="math notranslate nohighlight">\((1-r)\)</span> of its deposits and keeps a fraction <span class="math notranslate nohighlight">\(r\)</span> as cash reserves.</p>
 <p>Its deposits over an infinite time horizon can be written as</p>
@@ -690,7 +696,7 @@ k^* = sA(k^*)^{\alpha}+(1-\delta) k^*
 <p>This is consistent with the solution in the lecture on <a class="reference external" href="https://intro.quantecon.org/geom_series.html#example-the-money-multiplier-in-fractional-reserve-banking">geometric series</a>.</p>
 </section>
 <section id="example-discrete-random-variable">
-<h4><span class="section-number">16.3.5.2. </span>Example: discrete random variable<a class="headerlink" href="#example-discrete-random-variable" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">16.3.5.2. </span>Example: discrete random variable<a class="headerlink" href="#example-discrete-random-variable" title="Link to this heading">#</a></h4>
 <p>In the following example, we compute the expectation of a discrete random variable.</p>
 <p>Let’s define a discrete random variable <span class="math notranslate nohighlight">\(X\)</span> following a <a class="reference external" href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisson distribution</a>:</p>
 <div class="math notranslate nohighlight">
@@ -769,10 +775,10 @@ E(X) = \sum_{x=0}^{\infty} x f(x)
 </section>
 </section>
 <section id="symbolic-calculus">
-<h2><span class="section-number">16.4. </span>Symbolic Calculus<a class="headerlink" href="#symbolic-calculus" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">16.4. </span>Symbolic Calculus<a class="headerlink" href="#symbolic-calculus" title="Link to this heading">#</a></h2>
 <p>SymPy allows us to perform various calculus operations, such as limits, differentiation, and integration.</p>
 <section id="limits">
-<h3><span class="section-number">16.4.1. </span>Limits<a class="headerlink" href="#limits" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">16.4.1. </span>Limits<a class="headerlink" href="#limits" title="Link to this heading">#</a></h3>
 <p>We can compute limits for a given expression using the <code class="docutils literal notranslate"><span class="pre">limit</span></code> function</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -792,7 +798,7 @@ E(X) = \sum_{x=0}^{\infty} x f(x)
 </div>
 </section>
 <section id="derivatives">
-<h3><span class="section-number">16.4.2. </span>Derivatives<a class="headerlink" href="#derivatives" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">16.4.2. </span>Derivatives<a class="headerlink" href="#derivatives" title="Link to this heading">#</a></h3>
 <p>We can differentiate any SymPy expression using the <code class="docutils literal notranslate"><span class="pre">diff</span></code> function</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -809,7 +815,7 @@ E(X) = \sum_{x=0}^{\infty} x f(x)
 </div>
 </section>
 <section id="integrals">
-<h3><span class="section-number">16.4.3. </span>Integrals<a class="headerlink" href="#integrals" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">16.4.3. </span>Integrals<a class="headerlink" href="#integrals" title="Link to this heading">#</a></h3>
 <p>We can compute definite and indefinite integrals using the <code class="docutils literal notranslate"><span class="pre">integrate</span></code> function</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -950,7 +956,7 @@ f(x) = \lambda e^{-\lambda x}, \quad x \ge 0
 </section>
 </section>
 <section id="plotting">
-<h2><span class="section-number">16.5. </span>Plotting<a class="headerlink" href="#plotting" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">16.5. </span>Plotting<a class="headerlink" href="#plotting" title="Link to this heading">#</a></h2>
 <p>SymPy provides a powerful plotting feature.</p>
 <p>First we plot a simple function using the <code class="docutils literal notranslate"><span class="pre">plot</span></code> function</p>
 <div class="cell docutils container">
@@ -963,7 +969,7 @@ f(x) = \lambda e^{-\lambda x}, \quad x \ge 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/791899eecea84b2fcb9dc709943498365cb3877f294cac5ed01e896354bb1676.png" src="_images/791899eecea84b2fcb9dc709943498365cb3877f294cac5ed01e896354bb1676.png" />
+<img alt="_images/8ee04abd3152acdbc3fc171686c657612cb76ce10f010029f090c0b2df3bdcab.png" src="_images/8ee04abd3152acdbc3fc171686c657612cb76ce10f010029f090c0b2df3bdcab.png" />
 </div>
 </div>
 <p>Similar to Matplotlib, SymPy provides an interface to customize the graph</p>
@@ -983,7 +989,7 @@ f(x) = \lambda e^{-\lambda x}, \quad x \ge 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c2a773b11f3200e6dbbc908bc2477e79d025e2d43b54ee0432e905597f4c7c50.png" src="_images/c2a773b11f3200e6dbbc908bc2477e79d025e2d43b54ee0432e905597f4c7c50.png" />
+<img alt="_images/09ca5bf52817259e31b2d067f466c555c5b4a99da386a1dd9eb48966accd0fe8.png" src="_images/09ca5bf52817259e31b2d067f466c555c5b4a99da386a1dd9eb48966accd0fe8.png" />
 </div>
 </div>
 <p>It also supports plotting implicit functions and visualizing inequalities</p>
@@ -994,7 +1000,7 @@ f(x) = \lambda e^{-\lambda x}, \quad x \ge 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/03e270fd07eee5a3e052e27b8c726a13615dfaed735f9653e7640628eca2b968.png" src="_images/03e270fd07eee5a3e052e27b8c726a13615dfaed735f9653e7640628eca2b968.png" />
+<img alt="_images/69d48fe6eb920b80c0a88109a0d77063a61a8ca5fccfd764feaaa6bed90f76d3.png" src="_images/69d48fe6eb920b80c0a88109a0d77063a61a8ca5fccfd764feaaa6bed90f76d3.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1005,7 +1011,7 @@ f(x) = \lambda e^{-\lambda x}, \quad x \ge 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f7572e1f4bb9e8d9c7adab5cf5d9c5f929000b147af499402ddf0a929e4fbc35.png" src="_images/f7572e1f4bb9e8d9c7adab5cf5d9c5f929000b147af499402ddf0a929e4fbc35.png" />
+<img alt="_images/520fcdfaad21cb63ddb52a3487087498b52a427fc16654ac560d8eeb3d9eb037.png" src="_images/520fcdfaad21cb63ddb52a3487087498b52a427fc16654ac560d8eeb3d9eb037.png" />
 </div>
 </div>
 <p>and visualizations in three-dimensional space</p>
@@ -1016,12 +1022,12 @@ f(x) = \lambda e^{-\lambda x}, \quad x \ge 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/796f73b72b04c2d988c8ee7296ca60bab9ae26e71be8f257903f6b2605a65617.png" src="_images/796f73b72b04c2d988c8ee7296ca60bab9ae26e71be8f257903f6b2605a65617.png" />
+<img alt="_images/f92994a33a8409bfa554a2b494d2947008659bbcf328743e144059c058d6995c.png" src="_images/f92994a33a8409bfa554a2b494d2947008659bbcf328743e144059c058d6995c.png" />
 </div>
 </div>
 </section>
 <section id="application-two-person-exchange-economy">
-<h2><span class="section-number">16.6. </span>Application: Two-person Exchange Economy<a class="headerlink" href="#application-two-person-exchange-economy" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">16.6. </span>Application: Two-person Exchange Economy<a class="headerlink" href="#application-two-person-exchange-economy" title="Link to this heading">#</a></h2>
 <p>Imagine a pure exchange economy with two people (<span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>) and two goods recorded as proportions (<span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>).</p>
 <p>They can trade goods with each other according to their preferences.</p>
 <p>Assume that the utility functions of the consumers are given by</p>
@@ -1141,7 +1147,7 @@ u_b(x, y) = (1 - x)^{\beta} (1 - y)^{1-\beta}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/66978957e93997a4fe5ad3d582005bcb689a85533b5c508bc38094236f745616.png" src="_images/66978957e93997a4fe5ad3d582005bcb689a85533b5c508bc38094236f745616.png" />
+<img alt="_images/d9b88f499fa192f37d22fa63d7ef02100155cead86844deeab9f6ab9a9db1e98.png" src="_images/d9b88f499fa192f37d22fa63d7ef02100155cead86844deeab9f6ab9a9db1e98.png" />
 </div>
 </div>
 <p>We invite you to play with the parameters and see how the contract curves change and think about the following two questions:</p>
@@ -1151,7 +1157,7 @@ u_b(x, y) = (1 - x)^{\beta} (1 - y)^{1-\beta}
 </ul>
 </section>
 <section id="exercises">
-<h2><span class="section-number">16.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">16.7. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <div class="exercise admonition" id="sympy_ex1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 16.1 </span></p>
@@ -1463,7 +1469,7 @@ f(x; n, θ) = \frac{n!}{x!(n-x)!}θ^x(1-θ)^{n-x}
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   19. JAX
+   19. An Introduction to JAX
   </a>
  </li>
 </ul>

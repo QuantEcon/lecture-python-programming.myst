@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>6. OOP I: Objects and Methods &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -70,14 +69,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=bd0785fbb14d8d2bd4d9ae501d79ed8d3bc089ec" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -85,22 +84,21 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="_static/scripts/quantecon-book-theme.js?digest=d9faaf6c4b57726f74ba012412af1f5681bdff87"></script>
+    <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
+    <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -109,10 +107,18 @@
                 gtag('config', 'G-X7DH1M2DPY');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'oop_intro';</script>
     <link rel="canonical" href="https://python-programming.quantecon.org/oop_intro.html" />
-    <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
+    <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="7. Names and Namespaces" href="names.html" />
@@ -236,9 +242,9 @@
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="oop-i-objects-and-methods">
-<h1><span class="section-number">6. </span>OOP I: Objects and Methods<a class="headerlink" href="#oop-i-objects-and-methods" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">6. </span>OOP I: Objects and Methods<a class="headerlink" href="#oop-i-objects-and-methods" title="Link to this heading">#</a></h1>
 <section id="overview">
-<h2><span class="section-number">6.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>The traditional programming paradigm (think Fortran, C, MATLAB, etc.) is called <a class="reference external" href="https://en.wikipedia.org/wiki/Procedural_programming">procedural</a>.</p>
 <p>It works as follows</p>
 <ul class="simple">
@@ -264,26 +270,40 @@
 <p>By this we mean that, in Python, <em>everything is an object</em>.</p>
 <p>In this lecture, we explain what that statement means and why it matters.</p>
 <p>We’ll make use of the following third party library</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>rich
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: rich in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (13.7.1)
-Requirement already satisfied: markdown-it-py&gt;=2.2.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from rich) (2.2.0)
-Requirement already satisfied: pygments&lt;3.0.0,&gt;=2.13.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from rich) (2.15.1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting rich
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from markdown-it-py&gt;=2.2.0-&gt;rich) (0.1.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading rich-14.1.0-py3-none-any.whl.metadata (18 kB)
+Requirement already satisfied: markdown-it-py&gt;=2.2.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from rich) (3.0.0)
+Requirement already satisfied: pygments&lt;3.0.0,&gt;=2.13.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from rich) (2.19.1)
+Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from markdown-it-py&gt;=2.2.0-&gt;rich) (0.1.0)
+Downloading rich-14.1.0-py3-none-any.whl (243 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: rich
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed rich-14.1.0
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="objects">
-<h2><span class="section-number">6.2. </span>Objects<a class="headerlink" href="#objects" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.2. </span>Objects<a class="headerlink" href="#objects" title="Link to this heading">#</a></h2>
 <p id="index-0">In Python, an <em>object</em> is a collection of data and instructions held in computer memory that consists of</p>
 <ol class="arabic simple">
 <li><p>a type</p></li>
@@ -293,7 +313,7 @@ Requirement already satisfied: pygments&lt;3.0.0,&gt;=2.13.0 in /home/runner/min
 </ol>
 <p>These concepts are defined and discussed sequentially below.</p>
 <section id="type">
-<span id="id1"></span><h3><span class="section-number">6.2.1. </span>Type<a class="headerlink" href="#type" title="Permalink to this heading">#</a></h3>
+<span id="id1"></span><h3><span class="section-number">6.2.1. </span>Type<a class="headerlink" href="#type" title="Link to this heading">#</a></h3>
 <p id="index-1">Python provides for different types of objects, to accommodate different categories of data.</p>
 <p>For example</p>
 <div class="cell docutils container">
@@ -393,7 +413,7 @@ Requirement already satisfied: pygments&lt;3.0.0,&gt;=2.13.0 in /home/runner/min
 </div>
 </section>
 <section id="identity">
-<span id="id2"></span><h3><span class="section-number">6.2.2. </span>Identity<a class="headerlink" href="#identity" title="Permalink to this heading">#</a></h3>
+<span id="id2"></span><h3><span class="section-number">6.2.2. </span>Identity<a class="headerlink" href="#identity" title="Link to this heading">#</a></h3>
 <p id="index-2">In Python, each object has a unique identifier, which helps Python (and us) keep track of the object.</p>
 <p>The identity of an object can be obtained via the <code class="docutils literal notranslate"><span class="pre">id()</span></code> function</p>
 <div class="cell docutils container">
@@ -405,7 +425,7 @@ Requirement already satisfied: pygments&lt;3.0.0,&gt;=2.13.0 in /home/runner/min
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139656032661232
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140486036577712
 </pre></div>
 </div>
 </div>
@@ -417,7 +437,7 @@ Requirement already satisfied: pygments&lt;3.0.0,&gt;=2.13.0 in /home/runner/min
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139656032664080
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140486074488464
 </pre></div>
 </div>
 </div>
@@ -426,7 +446,7 @@ Requirement already satisfied: pygments&lt;3.0.0,&gt;=2.13.0 in /home/runner/min
 <p>The identity of an object is in fact just the address of the object in memory.</p>
 </section>
 <section id="object-content-data-and-attributes">
-<h3><span class="section-number">6.2.3. </span>Object Content: Data and Attributes<a class="headerlink" href="#object-content-data-and-attributes" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.2.3. </span>Object Content: Data and Attributes<a class="headerlink" href="#object-content-data-and-attributes" title="Link to this heading">#</a></h3>
 <p id="index-3">If we set <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">42</span></code> then we create an object of type <code class="docutils literal notranslate"><span class="pre">int</span></code> that contains
 the data <code class="docutils literal notranslate"><span class="pre">42</span></code>.</p>
 <p>In fact, it contains more, as the following example shows</p>
@@ -477,7 +497,7 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
 <p>These attributes are important, so let’s discuss them in-depth.</p>
 </section>
 <section id="methods">
-<span id="id3"></span><h3><span class="section-number">6.2.4. </span>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h3>
+<span id="id3"></span><h3><span class="section-number">6.2.4. </span>Methods<a class="headerlink" href="#methods" title="Link to this heading">#</a></h3>
 <p id="index-4">Methods are <em>functions that are bundled with objects</em>.</p>
 <p>Formally, methods are attributes of objects that are <strong>callable</strong> – i.e., attributes that can be called as functions</p>
 <div class="cell docutils container">
@@ -581,13 +601,13 @@ the data <code class="docutils literal notranslate"><span class="pre">42</span><
 </section>
 </section>
 <section id="inspection-using-rich">
-<h2><span class="section-number">6.3. </span>Inspection Using Rich<a class="headerlink" href="#inspection-using-rich" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.3. </span>Inspection Using Rich<a class="headerlink" href="#inspection-using-rich" title="Link to this heading">#</a></h2>
 <p>There’s a nice package called <a class="reference external" href="https://github.com/Textualize/rich">rich</a> that
 helps us view the contents of an object.</p>
 <p>For example,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rich</span> <span class="kn">import</span> <span class="n">inspect</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rich</span><span class="w"> </span><span class="kn">import</span> <span class="n">inspect</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">inspect</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
@@ -633,7 +653,7 @@ helps us view the contents of an object.</p>
 <span style="color: #000080; text-decoration-color: #000080">│</span> <span style="color: #808000; text-decoration-color: #808000; font-style: italic">as_integer_ratio</span> = <span style="color: #00ffff; text-decoration-color: #00ffff; font-style: italic">def </span><span style="color: #800000; text-decoration-color: #800000; font-weight: bold">as_integer_ratio</span><span style="font-weight: bold">()</span>: <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">Return a pair of integers, whose ratio is equal to the original int.</span> <span style="color: #000080; text-decoration-color: #000080">│</span>
 <span style="color: #000080; text-decoration-color: #000080">│</span>        <span style="color: #808000; text-decoration-color: #808000; font-style: italic">bit_count</span> = <span style="color: #00ffff; text-decoration-color: #00ffff; font-style: italic">def </span><span style="color: #800000; text-decoration-color: #800000; font-weight: bold">bit_count</span><span style="font-weight: bold">()</span>: <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">Number of ones in the binary representation of the absolute value of self.</span>  <span style="color: #000080; text-decoration-color: #000080">│</span>
 <span style="color: #000080; text-decoration-color: #000080">│</span>       <span style="color: #808000; text-decoration-color: #808000; font-style: italic">bit_length</span> = <span style="color: #00ffff; text-decoration-color: #00ffff; font-style: italic">def </span><span style="color: #800000; text-decoration-color: #800000; font-weight: bold">bit_length</span><span style="font-weight: bold">()</span>: <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">Number of bits necessary to represent self in binary.</span>                      <span style="color: #000080; text-decoration-color: #000080">│</span>
-<span style="color: #000080; text-decoration-color: #000080">│</span>        <span style="color: #808000; text-decoration-color: #808000; font-style: italic">conjugate</span> = <span style="color: #00ffff; text-decoration-color: #00ffff; font-style: italic">def </span><span style="color: #800000; text-decoration-color: #800000; font-weight: bold">conjugate</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">...</span><span style="font-weight: bold">)</span> <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">Returns self, the complex conjugate of any int.</span>                           <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>        <span style="color: #808000; text-decoration-color: #808000; font-style: italic">conjugate</span> = <span style="color: #00ffff; text-decoration-color: #00ffff; font-style: italic">def </span><span style="color: #800000; text-decoration-color: #800000; font-weight: bold">conjugate</span><span style="font-weight: bold">()</span>: <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">Returns self, the complex conjugate of any int.</span>                             <span style="color: #000080; text-decoration-color: #000080">│</span>
 <span style="color: #000080; text-decoration-color: #000080">│</span>       <span style="color: #808000; text-decoration-color: #808000; font-style: italic">from_bytes</span> = <span style="color: #00ffff; text-decoration-color: #00ffff; font-style: italic">def </span><span style="color: #800000; text-decoration-color: #800000; font-weight: bold">from_bytes</span><span style="font-weight: bold">(</span>bytes, <span style="color: #808000; text-decoration-color: #808000">byteorder</span>=<span style="color: #008000; text-decoration-color: #008000">'big'</span>, *, <span style="color: #808000; text-decoration-color: #808000">signed</span>=<span style="color: #ff0000; text-decoration-color: #ff0000; font-style: italic">False</span><span style="font-weight: bold">)</span>: <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">Return the integer represented by </span>  <span style="color: #000080; text-decoration-color: #000080">│</span>
 <span style="color: #000080; text-decoration-color: #000080">│</span>                    <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">the given array of bytes.</span>                                                                    <span style="color: #000080; text-decoration-color: #000080">│</span>
 <span style="color: #000080; text-decoration-color: #000080">│</span>       <span style="color: #808000; text-decoration-color: #808000; font-style: italic">is_integer</span> = <span style="color: #00ffff; text-decoration-color: #00ffff; font-style: italic">def </span><span style="color: #800000; text-decoration-color: #800000; font-weight: bold">is_integer</span><span style="font-weight: bold">()</span>: <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">Returns </span><span style="color: #7fff7f; text-decoration-color: #7fff7f; font-style: italic">True</span><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">. Exists for duck type compatibility with float.is_integer.</span>    <span style="color: #000080; text-decoration-color: #000080">│</span>
@@ -646,7 +666,7 @@ helps us view the contents of an object.</p>
 <p>In fact there are still more methods, as you can see if you execute <code class="docutils literal notranslate"><span class="pre">inspect(10,</span> <span class="pre">all=True)</span></code>.</p>
 </section>
 <section id="a-little-mystery">
-<h2><span class="section-number">6.4. </span>A Little Mystery<a class="headerlink" href="#a-little-mystery" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.4. </span>A Little Mystery<a class="headerlink" href="#a-little-mystery" title="Link to this heading">#</a></h2>
 <p>In this lecture we claimed that Python is, at heart, an object oriented language.</p>
 <p>But here’s an example that looks more procedural.</p>
 <div class="cell docutils container">
@@ -707,7 +727,7 @@ be inconsistent and harder to remember.</p>
 </div>
 </section>
 <section id="summary">
-<h2><span class="section-number">6.5. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.5. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <p>The message in this lecture is clear:</p>
 <ul class="simple">
 <li><p>In Python, <em>everything in memory is treated as an object</em>.</p></li>
@@ -723,7 +743,7 @@ be inconsistent and harder to remember.</p>
 and write clear Pythonic code.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">6.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.6. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <div class="exercise admonition" id="oop_intro_ex1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 6.1 </span></p>
@@ -968,7 +988,7 @@ boolean object <code class="docutils literal notranslate"><span class="pre">True
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   19. JAX
+   19. An Introduction to JAX
   </a>
  </li>
 </ul>

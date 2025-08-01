@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>15. Pandas for Panel Data &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -70,14 +69,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=bd0785fbb14d8d2bd4d9ae501d79ed8d3bc089ec" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -85,22 +84,21 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="_static/scripts/quantecon-book-theme.js?digest=d9faaf6c4b57726f74ba012412af1f5681bdff87"></script>
+    <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
+    <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -109,10 +107,18 @@
                 gtag('config', 'G-X7DH1M2DPY');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'pandas_panel';</script>
     <link rel="canonical" href="https://python-programming.quantecon.org/pandas_panel.html" />
-    <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
+    <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="16. SymPy" href="sympy.html" />
@@ -230,7 +236,7 @@
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="pandas-for-panel-data">
-<span id="ppd"></span><h1><span class="section-number">15. </span><span class="target" id="index-0"></span>Pandas for Panel Data<a class="headerlink" href="#pandas-for-panel-data" title="Permalink to this heading">#</a></h1>
+<span id="ppd"></span><h1><span class="section-number">15. </span><span class="target" id="index-0"></span>Pandas for Panel Data<a class="headerlink" href="#pandas-for-panel-data" title="Link to this heading">#</a></h1>
 <p id="index-1">In addition to what’s in Anaconda, this lecture will need the following libraries:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
@@ -238,29 +244,31 @@
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: seaborn in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (0.13.2)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: seaborn in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.13.2)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy!=1.24.0,&gt;=1.20 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from seaborn) (1.26.4)
-Requirement already satisfied: pandas&gt;=1.2 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from seaborn) (2.2.2)
-Requirement already satisfied: matplotlib!=3.6.1,&gt;=3.4 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from seaborn) (3.9.2)
-Requirement already satisfied: contourpy&gt;=1.0.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (1.2.0)
-Requirement already satisfied: cycler&gt;=0.10 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (0.11.0)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (4.51.0)
-Requirement already satisfied: kiwisolver&gt;=1.3.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (1.4.4)
-Requirement already satisfied: packaging&gt;=20.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (24.1)
-Requirement already satisfied: pillow&gt;=8 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (10.4.0)
-Requirement already satisfied: pyparsing&gt;=2.3.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (3.1.2)
-Requirement already satisfied: python-dateutil&gt;=2.7 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (2.9.0.post0)
-Requirement already satisfied: pytz&gt;=2020.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from pandas&gt;=1.2-&gt;seaborn) (2024.1)
-Requirement already satisfied: tzdata&gt;=2022.7 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from pandas&gt;=1.2-&gt;seaborn) (2023.3)
-Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (1.16.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy!=1.24.0,&gt;=1.20 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from seaborn) (2.1.3)
+Requirement already satisfied: pandas&gt;=1.2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from seaborn) (2.2.3)
+Requirement already satisfied: matplotlib!=3.6.1,&gt;=3.4 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from seaborn) (3.10.0)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (1.3.1)
+Requirement already satisfied: cycler&gt;=0.10 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (0.11.0)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (4.55.3)
+Requirement already satisfied: kiwisolver&gt;=1.3.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (1.4.8)
+Requirement already satisfied: packaging&gt;=20.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (24.2)
+Requirement already satisfied: pillow&gt;=8 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (11.1.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (3.2.0)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from pandas&gt;=1.2-&gt;seaborn) (2024.1)
+Requirement already satisfied: tzdata&gt;=2022.7 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from pandas&gt;=1.2-&gt;seaborn) (2025.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (1.17.0)
 </pre></div>
 </div>
 </div>
@@ -269,15 +277,15 @@ Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/quant
 <p>We use the following imports.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="overview">
-<h2><span class="section-number">15.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>In an <a class="reference internal" href="pandas.html"><span class="doc">earlier lecture on pandas</span></a>, we looked at working with simple data sets.</p>
 <p>Econometricians often need to work with more complex data sets, such as panels.</p>
 <p>Common tasks include</p>
@@ -301,7 +309,7 @@ reshaping the resulting <code class="docutils literal notranslate"><span class="
 function.</p>
 </section>
 <section id="slicing-and-reshaping-data">
-<h2><span class="section-number">15.2. </span>Slicing and Reshaping Data<a class="headerlink" href="#slicing-and-reshaping-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.2. </span>Slicing and Reshaping Data<a class="headerlink" href="#slicing-and-reshaping-data" title="Link to this heading">#</a></h2>
 <p>We will read in a dataset from the OECD of real minimum wages in 32
 countries and assign it to <code class="docutils literal notranslate"><span class="pre">realwage</span></code>.</p>
 <p>The dataset can be accessed with the following link:</p>
@@ -314,7 +322,7 @@ countries and assign it to <code class="docutils literal notranslate"><span clas
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="c1"># Display 6 columns for viewing purposes</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
@@ -675,15 +683,11 @@ the row index (<code class="docutils literal notranslate"><span class="pre">.uns
 out)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">realwage</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">realwage</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">future_stack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2775/743219372.py:1: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What&#39;s New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation and silence this warning.
-  realwage.stack().head()
-</pre></div>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1093,7 +1097,7 @@ the higher levels (countries in this case)</p>
 </div>
 </section>
 <section id="merging-dataframes-and-filling-nans">
-<h2><span class="section-number">15.3. </span>Merging Dataframes and Filling NaNs<a class="headerlink" href="#merging-dataframes-and-filling-nans" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.3. </span>Merging Dataframes and Filling NaNs<a class="headerlink" href="#merging-dataframes-and-filling-nans" title="Link to this heading">#</a></h2>
 <p>Similar to relational databases like SQL, pandas has built in methods to
 merge datasets together.</p>
 <p>Using country information from
@@ -1939,7 +1943,7 @@ will go ahead and transpose <code class="docutils literal notranslate"><span cla
 </div>
 </section>
 <section id="grouping-and-summarizing-data">
-<h2><span class="section-number">15.4. </span>Grouping and Summarizing Data<a class="headerlink" href="#grouping-and-summarizing-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.4. </span>Grouping and Summarizing Data<a class="headerlink" href="#grouping-and-summarizing-data" title="Link to this heading">#</a></h2>
 <p>Grouping and summarizing data can be particularly useful for
 understanding large panel datasets.</p>
 <p>A simple way to summarize data is to call an <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/06_calculate_statistics.html">aggregation
@@ -1988,7 +1992,7 @@ past decade for each country in our data set</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/734c44802f23e7de5df84586cb2ba27bb115944b887566ffeb9a4e68e58ec60f.png" src="_images/734c44802f23e7de5df84586cb2ba27bb115944b887566ffeb9a4e68e58ec60f.png" />
+<img alt="_images/bf257382e1e332454354ffabcf7eef3b657d80e1c082910a2b73b0346b48d07b.png" src="_images/bf257382e1e332454354ffabcf7eef3b657d80e1c082910a2b73b0346b48d07b.png" />
 </div>
 </div>
 <p>Passing in <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> to <code class="docutils literal notranslate"><span class="pre">.mean()</span></code> will aggregate over columns (giving
@@ -2023,7 +2027,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6b08acb86b65cbe26db58057162da98d0103e5bfba9366a694d39bf8f8556b6c.png" src="_images/6b08acb86b65cbe26db58057162da98d0103e5bfba9366a694d39bf8f8556b6c.png" />
+<img alt="_images/c1ebe1a0fe9cde95ac9524ce0b3389cffa5f56f1fbfebe8ecdfdd6402c686b74.png" src="_images/c1ebe1a0fe9cde95ac9524ce0b3389cffa5f56f1fbfebe8ecdfdd6402c686b74.png" />
 </div>
 </div>
 <p>We can also specify a level of the <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> (in the column axis)
@@ -2131,7 +2135,7 @@ to aggregate over.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c59c030adb7fcc70db1633970e5275f87e744825ef6280cbd459531f3cbfb3a2.png" src="_images/c59c030adb7fcc70db1633970e5275f87e744825ef6280cbd459531f3cbfb3a2.png" />
+<img alt="_images/eda2ae5a4c3771454330be3ea553c33f2ae7e26627fdd3b29f3fba9cdfb52508.png" src="_images/eda2ae5a4c3771454330be3ea553c33f2ae7e26627fdd3b29f3fba9cdfb52508.png" />
 </div>
 </div>
 <p>We will drop Australia as a continent for plotting purposes</p>
@@ -2147,22 +2151,18 @@ to aggregate over.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d3e361eeab788db5809070c39f0da8d0cb7254a1292f4eed59ac732dcfd8a67d.png" src="_images/d3e361eeab788db5809070c39f0da8d0cb7254a1292f4eed59ac732dcfd8a67d.png" />
+<img alt="_images/07669afb47729f004d61ce7fbfe4281ba5d75b35f3f8c48c4cdd4a25cacd3607.png" src="_images/07669afb47729f004d61ce7fbfe4281ba5d75b35f3f8c48c4cdd4a25cacd3607.png" />
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">.describe()</span></code> is useful for quickly retrieving a number of common
 summary statistics</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merged</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merged</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">future_stack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2775/4288984536.py:1: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What&#39;s New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation and silence this warning.
-  merged.stack().describe()
-</pre></div>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2258,7 +2258,7 @@ a new <code class="docutils literal notranslate"><span class="pre">DataFrameGrou
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7fe22d872690&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f57ec2df820&gt;
 </pre></div>
 </div>
 </div>
@@ -2304,12 +2304,12 @@ object</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/31b29bdc8cf95b8c48bc031e710bc8ffb21f7fef7e0b87eb47bc3b34953b0259.png" src="_images/31b29bdc8cf95b8c48bc031e710bc8ffb21f7fef7e0b87eb47bc3b34953b0259.png" />
+<img alt="_images/41b8b99e25f9544f44358fc2a65e7f77578e716332158e6d494e8878632d1471.png" src="_images/41b8b99e25f9544f44358fc2a65e7f77578e716332158e6d494e8878632d1471.png" />
 </div>
 </div>
 </section>
 <section id="final-remarks">
-<h2><span class="section-number">15.5. </span>Final Remarks<a class="headerlink" href="#final-remarks" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.5. </span>Final Remarks<a class="headerlink" href="#final-remarks" title="Link to this heading">#</a></h2>
 <p>This lecture has provided an introduction to some of pandas’ more
 advanced features, including multiindices, merging, grouping and
 plotting.</p>
@@ -2317,7 +2317,7 @@ plotting.</p>
 extends pandas to N-dimensional data structures.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">15.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.6. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <div class="exercise admonition" id="pp_ex1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 15.1 </span></p>
@@ -2720,7 +2720,7 @@ dataframe</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a296bec01507203c522757b6988f500b26e79d59f14a31a6bb5426b800150dc3.png" src="_images/a296bec01507203c522757b6988f500b26e79d59f14a31a6bb5426b800150dc3.png" />
+<img alt="_images/cb3ed9e6639542d1c137fd9441c12f0792eb7ee6f080f045babe7849c523262d.png" src="_images/cb3ed9e6639542d1c137fd9441c12f0792eb7ee6f080f045babe7849c523262d.png" />
 </div>
 </div>
 </section>
@@ -2891,7 +2891,7 @@ dataframe</p>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   19. JAX
+   19. An Introduction to JAX
   </a>
  </li>
 </ul>

@@ -122,7 +122,7 @@ If everything is properly configured, then adding LaTeX is trivial
 
 ```{code-cell} python3
 fig, ax = plt.subplots()
-ax.plot(x, y, 'r-', linewidth=2, label='$y=\sin(x)$', alpha=0.6)
+ax.plot(x, y, 'r-', linewidth=2, label=r'$y=\sin(x)$', alpha=0.6)
 ax.legend(loc='upper center')
 plt.show()
 ```
@@ -131,7 +131,7 @@ Controlling the ticks, adding titles and so on is also straightforward
 
 ```{code-cell} python3
 fig, ax = plt.subplots()
-ax.plot(x, y, 'r-', linewidth=2, label='$y=\sin(x)$', alpha=0.6)
+ax.plot(x, y, 'r-', linewidth=2, label=r'$y=\sin(x)$', alpha=0.6)
 ax.legend(loc='upper center')
 ax.set_yticks([-1, 0, 1])
 ax.set_title('Test plot')
@@ -163,7 +163,7 @@ x = np.linspace(-4, 4, 150)
 for i in range(3):
     m, s = uniform(-1, 1), uniform(1, 2)
     y = norm.pdf(x, loc=m, scale=s)
-    current_label = f'$\mu = {m:.2}$'
+    current_label = rf'$\mu = {m:.2}$'
     ax.plot(x, y, linewidth=2, alpha=0.6, label=current_label)
 ax.legend()
 plt.show()
@@ -186,7 +186,7 @@ for i in range(num_rows):
         m, s = uniform(-1, 1), uniform(1, 2)
         x = norm.rvs(loc=m, scale=s, size=100)
         axes[i, j].hist(x, alpha=0.6, bins=20)
-        t = f'$\mu = {m:.2}, \quad \sigma = {s:.2}$'
+        t = rf'$\mu = {m:.2}, \quad \sigma = {s:.2}$'
         axes[i, j].set(title=t, xticks=[-4, 0, 4], yticks=[])
 plt.show()
 ```
@@ -419,7 +419,7 @@ x = np.linspace(-4, 4, 150)
 for i in range(3):
     m, s = uniform(-1, 1), uniform(1, 2)
     y = norm.pdf(x, loc=m, scale=s)
-    current_label = f'$\mu = {m:.2}$'
+    current_label = rf'$\mu = {m:.2}$'
     ax.plot(x, y, linewidth=2, alpha=0.6, label=current_label)
 ax.legend()
 plt.show()
@@ -462,8 +462,9 @@ Place all the curves in the same figure.
 
 The output should look like this
 
-```{figure} /_static/lecture_specific/matplotlib/matplotlib_ex1.png
+```{image} /_static/lecture_specific/matplotlib/matplotlib_ex1.png
 :scale: 130
+:align: center
 ```
 
 ```{exercise-end}

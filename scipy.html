@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>13. SciPy &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -70,14 +69,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=bd0785fbb14d8d2bd4d9ae501d79ed8d3bc089ec" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -85,22 +84,21 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="_static/scripts/quantecon-book-theme.js?digest=d9faaf6c4b57726f74ba012412af1f5681bdff87"></script>
+    <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
+    <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -109,12 +107,20 @@
                 gtag('config', 'G-X7DH1M2DPY');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'scipy';</script>
     <link rel="canonical" href="https://python-programming.quantecon.org/scipy.html" />
-    <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
+    <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="14. Pandas" href="pandas.html" />
@@ -249,9 +255,9 @@
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="scipy">
-<h1><span class="section-number">13. </span><span class="target" id="index-0"></span>SciPy<a class="headerlink" href="#scipy" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">13. </span><span class="target" id="index-0"></span>SciPy<a class="headerlink" href="#scipy" title="Link to this heading">#</a></h1>
 <section id="overview">
-<span id="index-1"></span><h2><span class="section-number">13.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<span id="index-1"></span><h2><span class="section-number">13.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="http://www.scipy.org">SciPy</a> builds on top of NumPy to provide common tools for scientific programming such as</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/linalg.html">linear algebra</a></p></li>
@@ -269,16 +275,16 @@
 <p>In this lecture, we aim only to highlight some useful parts of the package.</p>
 </section>
 <section id="scipy-versus-numpy">
-<h2><span class="section-number">13.2. </span><span class="target" id="index-2"></span>SciPy versus <span class="target" id="index-3"></span>NumPy<a class="headerlink" href="#scipy-versus-numpy" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.2. </span><span class="target" id="index-2"></span>SciPy versus <span class="target" id="index-3"></span>NumPy<a class="headerlink" href="#scipy-versus-numpy" title="Link to this heading">#</a></h2>
 <p>SciPy is a package that contains various tools that are built on top of NumPy, using its array data type and related functionality.</p>
 <p>In fact, when we import SciPy we also get NumPy, as can be seen from this excerpt the SciPy initialization file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import numpy symbols to scipy namespace</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">rand</span><span class="p">,</span> <span class="n">randn</span>
-<span class="kn">from</span> <span class="nn">numpy.fft</span> <span class="kn">import</span> <span class="n">fft</span><span class="p">,</span> <span class="n">ifft</span>
-<span class="kn">from</span> <span class="nn">numpy.lib.scimath</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy.random</span><span class="w"> </span><span class="kn">import</span> <span class="n">rand</span><span class="p">,</span> <span class="n">randn</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy.fft</span><span class="w"> </span><span class="kn">import</span> <span class="n">fft</span><span class="p">,</span> <span class="n">ifft</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy.lib.scimath</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
 </div>
@@ -286,7 +292,7 @@
 <p>However, it’s more common and better practice to use NumPy functionality explicitly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
@@ -300,7 +306,7 @@
 <p>Let’s explore some of the major sub-packages.</p>
 </section>
 <section id="statistics">
-<h2><span class="section-number">13.3. </span>Statistics<a class="headerlink" href="#statistics" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.3. </span>Statistics<a class="headerlink" href="#statistics" title="Link to this heading">#</a></h2>
 <p id="index-4">The <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> subpackage supplies</p>
 <ul class="simple">
 <li><p>numerous random variable objects (densities, cumulative distributions, random sampling, etc.)</p></li>
@@ -308,7 +314,7 @@
 <li><p>some statistical tests</p></li>
 </ul>
 <section id="random-variables-and-distributions">
-<h3><span class="section-number">13.3.1. </span>Random Variables and Distributions<a class="headerlink" href="#random-variables-and-distributions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.3.1. </span>Random Variables and Distributions<a class="headerlink" href="#random-variables-and-distributions" title="Link to this heading">#</a></h3>
 <p>Recall that <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> provides functions for generating random variables</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -317,14 +323,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.61120193, 0.63580572, 0.50581748])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.54077888, 0.33113945, 0.56182537])
 </pre></div>
 </div>
 </div>
 </div>
 <p>This generates a draw from the distribution with the density function below when <code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">5,</span> <span class="pre">5</span></code></p>
 <div class="math notranslate nohighlight" id="equation-betadist2">
-<span class="eqno">(13.1)<a class="headerlink" href="#equation-betadist2" title="Permalink to this equation">#</a></span>\[f(x; a, b) = \frac{x^{(a - 1)} (1 - x)^{(b - 1)}}
+<span class="eqno">(13.1)<a class="headerlink" href="#equation-betadist2" title="Link to this equation">#</a></span>\[f(x; a, b) = \frac{x^{(a - 1)} (1 - x)^{(b - 1)}}
     {\int_0^1 u^{(a - 1)} (1 - u)^{(b - 1)} du}
     \qquad (0 \leq x \leq 1)\]</div>
 <p>Sometimes we need access to the density itself, or the cdf, the quantiles, etc.</p>
@@ -332,8 +338,8 @@
 <p>Here’s an example of usage</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">beta</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">beta</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">q</span> <span class="o">=</span> <span class="n">beta</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>      <span class="c1"># Beta(a, b), with a = b = 5</span>
 <span class="n">obs</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>   <span class="c1"># 2000 observations</span>
@@ -347,7 +353,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/710953a25eab3b7c0462a9017d606562deec721c9348e669fb9d4b3197036803.png" src="_images/710953a25eab3b7c0462a9017d606562deec721c9348e669fb9d4b3197036803.png" />
+<img alt="_images/79e4fb5e2c0aae22483472aac30a1a13c3445e6d45b6a493791d03b9478e6011.png" src="_images/79e4fb5e2c0aae22483472aac30a1a13c3445e6d45b6a493791d03b9478e6011.png" />
 </div>
 </div>
 <p>The object <code class="docutils literal notranslate"><span class="pre">q</span></code> that represents the distribution has additional useful methods, including</p>
@@ -358,7 +364,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.26656768000000003
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.26656768000000003)
 </pre></div>
 </div>
 </div>
@@ -370,7 +376,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6339134834642708
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.6339134834642708)
 </pre></div>
 </div>
 </div>
@@ -382,7 +388,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.5)
 </pre></div>
 </div>
 </div>
@@ -396,7 +402,7 @@
 <span class="math notranslate nohighlight">\(X\)</span> into <span class="math notranslate nohighlight">\(Y = c + d X\)</span>.</p>
 </section>
 <section id="alternative-syntax">
-<h3><span class="section-number">13.3.2. </span>Alternative Syntax<a class="headerlink" href="#alternative-syntax" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.3.2. </span>Alternative Syntax<a class="headerlink" href="#alternative-syntax" title="Link to this heading">#</a></h3>
 <p>There is an alternative way of calling the methods described above.</p>
 <p>For example, the code that generates the figure above can be replaced by</p>
 <div class="cell docutils container">
@@ -412,17 +418,17 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b48f617dd5f432ba0b2a3e9b56e8870c70b1c3e3444048ae6e18241d25d5980c.png" src="_images/b48f617dd5f432ba0b2a3e9b56e8870c70b1c3e3444048ae6e18241d25d5980c.png" />
+<img alt="_images/8fe46c25a84ed40a52beee3a6191f3f90de333ebdf4d98052a5cec5d81afa182.png" src="_images/8fe46c25a84ed40a52beee3a6191f3f90de333ebdf4d98052a5cec5d81afa182.png" />
 </div>
 </div>
 </section>
 <section id="other-goodies-in-scipy-stats">
-<h3><span class="section-number">13.3.3. </span>Other Goodies in scipy.stats<a class="headerlink" href="#other-goodies-in-scipy-stats" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.3.3. </span>Other Goodies in scipy.stats<a class="headerlink" href="#other-goodies-in-scipy-stats" title="Link to this heading">#</a></h3>
 <p>There are a variety of statistical functions in <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.</p>
 <p>For example, <code class="docutils literal notranslate"><span class="pre">scipy.stats.linregress</span></code> implements simple linear regression</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">linregress</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">linregress</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
@@ -432,7 +438,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2.0067026734472235, 0.00480113271256536)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(1.9934273932405975), np.float64(-0.0026366301079737836))
 </pre></div>
 </div>
 </div>
@@ -441,11 +447,11 @@
 </section>
 </section>
 <section id="roots-and-fixed-points">
-<h2><span class="section-number">13.4. </span>Roots and Fixed Points<a class="headerlink" href="#roots-and-fixed-points" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.4. </span>Roots and Fixed Points<a class="headerlink" href="#roots-and-fixed-points" title="Link to this heading">#</a></h2>
 <p>A <strong>root</strong> or <strong>zero</strong> of a real function <span class="math notranslate nohighlight">\(f\)</span> on <span class="math notranslate nohighlight">\([a,b]\)</span> is an <span class="math notranslate nohighlight">\(x \in [a, b]\)</span> such that <span class="math notranslate nohighlight">\(f(x)=0\)</span>.</p>
 <p>For example, if we plot the function</p>
 <div class="math notranslate nohighlight" id="equation-root-f">
-<span class="eqno">(13.2)<a class="headerlink" href="#equation-root-f" title="Permalink to this equation">#</a></span>\[f(x) = \sin(4 (x - 1/4)) + x + x^{20} - 1\]</div>
+<span class="eqno">(13.2)<a class="headerlink" href="#equation-root-f" title="Link to this equation">#</a></span>\[f(x) = \sin(4 (x - 1/4)) + x + x^{20} - 1\]</div>
 <p>with <span class="math notranslate nohighlight">\(x \in [0,1]\)</span> we get</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -463,13 +469,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e309d3db73daf456426b4cd825910771409693fdf090b0286ea46bffbeff2670.png" src="_images/e309d3db73daf456426b4cd825910771409693fdf090b0286ea46bffbeff2670.png" />
+<img alt="_images/440a23e3375fa57ccf8c9dbec757ea0b1be86d7d9aa3fa896512eaa1927c79ae.png" src="_images/440a23e3375fa57ccf8c9dbec757ea0b1be86d7d9aa3fa896512eaa1927c79ae.png" />
 </div>
 </div>
 <p>The unique root is approximately 0.408.</p>
 <p>Let’s consider some numerical techniques for finding roots.</p>
 <section id="bisection">
-<h3><span class="section-number">13.4.1. </span><span class="target" id="index-5"></span>Bisection<a class="headerlink" href="#bisection" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.4.1. </span><span class="target" id="index-5"></span>Bisection<a class="headerlink" href="#bisection" title="Link to this heading">#</a></h3>
 <p id="index-6">One of the most common algorithms for numerical root-finding is <em>bisection</em>.</p>
 <p>To understand the idea, recall the well-known game where</p>
 <ul class="simple">
@@ -487,7 +493,7 @@
 <p>It works for all sufficiently well behaved increasing continuous functions with <span class="math notranslate nohighlight">\(f(a) &lt; 0 &lt; f(b)\)</span></p>
 <div class="cell docutils container" id="bisect-func">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bisect</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">10e-5</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bisect</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">10e-5</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implements the bisection root finding algorithm, assuming that f is a</span>
 <span class="sd">    real-valued function on [a, b] satisfying f(a) &lt; 0 &lt; f(b).</span>
@@ -523,7 +529,7 @@
 <p>Let’s test it using the same function <span class="math notranslate nohighlight">\(f\)</span> defined in <a class="reference internal" href="#equation-root-f">(13.2)</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">bisect</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">bisect</span>
 
 <span class="n">bisect</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -537,7 +543,7 @@
 </div>
 </section>
 <section id="the-newton-raphson-method">
-<h3><span class="section-number">13.4.2. </span>The <span class="target" id="index-7"></span>Newton-Raphson Method<a class="headerlink" href="#the-newton-raphson-method" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.4.2. </span>The <span class="target" id="index-7"></span>Newton-Raphson Method<a class="headerlink" href="#the-newton-raphson-method" title="Link to this heading">#</a></h3>
 <p id="index-8">Another very common root-finding algorithm is the <a class="reference external" href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton-Raphson method</a>.</p>
 <p>In SciPy this algorithm is implemented by <code class="docutils literal notranslate"><span class="pre">scipy.optimize.newton</span></code>.</p>
 <p>Unlike bisection, the Newton-Raphson method uses local slope information in an attempt to increase the speed of convergence.</p>
@@ -545,14 +551,14 @@
 <p>With a suitable initial condition for the search we get convergence:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">newton</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">newton</span>
 
 <span class="n">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>   <span class="c1"># Start the search at initial condition x = 0.2</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.40829350427935673
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.40829350427935673)
 </pre></div>
 </div>
 </div>
@@ -565,14 +571,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7001700000000279
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.7001700000000279)
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="hybrid-methods">
-<h3><span class="section-number">13.4.3. </span>Hybrid Methods<a class="headerlink" href="#hybrid-methods" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.4.3. </span>Hybrid Methods<a class="headerlink" href="#hybrid-methods" title="Link to this heading">#</a></h3>
 <p>A general principle of numerical methods is as follows:</p>
 <ul class="simple">
 <li><p>If you have specific knowledge about a given problem, you might be able to exploit it to generate efficiency.</p></li>
@@ -588,7 +594,7 @@
 <p>In <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code>, the function <code class="docutils literal notranslate"><span class="pre">brentq</span></code> is such a hybrid method and a good default</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">brentq</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">brentq</span>
 
 <span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -608,7 +614,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21.3 μs ± 87.1 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21.8 μs ± 49.1 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -620,24 +626,24 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>84.1 μs ± 204 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>85.7 μs ± 343 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="multivariate-root-finding">
-<h3><span class="section-number">13.4.4. </span>Multivariate Root-Finding<a class="headerlink" href="#multivariate-root-finding" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.4.4. </span>Multivariate Root-Finding<a class="headerlink" href="#multivariate-root-finding" title="Link to this heading">#</a></h3>
 <p id="index-9">Use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.fsolve</span></code>, a wrapper for a hybrid method in MINPACK.</p>
 <p>See the <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fsolve.html">documentation</a> for details.</p>
 </section>
 <section id="fixed-points">
-<h3><span class="section-number">13.4.5. </span>Fixed Points<a class="headerlink" href="#fixed-points" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.4.5. </span>Fixed Points<a class="headerlink" href="#fixed-points" title="Link to this heading">#</a></h3>
 <p>A <strong>fixed point</strong> of a real function <span class="math notranslate nohighlight">\(f\)</span> on <span class="math notranslate nohighlight">\([a,b]\)</span> is an <span class="math notranslate nohighlight">\(x \in [a, b]\)</span> such that <span class="math notranslate nohighlight">\(f(x)=x\)</span>.</p>
 <p id="index-10">SciPy has a function for finding (scalar) fixed points too</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fixed_point</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">fixed_point</span>
 
 <span class="n">fixed_point</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)</span>  <span class="c1"># 10.0 is an initial guess</span>
 </pre></div>
@@ -654,7 +660,7 @@ the fixed point of a function <span class="math notranslate nohighlight">\(f\)</
 </section>
 </section>
 <section id="optimization">
-<h2><span class="section-number">13.5. </span><span class="target" id="index-11"></span>Optimization<a class="headerlink" href="#optimization" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.5. </span><span class="target" id="index-11"></span>Optimization<a class="headerlink" href="#optimization" title="Link to this heading">#</a></h2>
 <p id="index-12">Most numerical packages provide only functions for <em>minimization</em>.</p>
 <p>Maximization can be performed by recalling that the maximizer of a function <span class="math notranslate nohighlight">\(f\)</span> on domain <span class="math notranslate nohighlight">\(D\)</span> is
 the minimizer of <span class="math notranslate nohighlight">\(-f\)</span> on <span class="math notranslate nohighlight">\(D\)</span>.</p>
@@ -664,34 +670,34 @@ the minimizer of <span class="math notranslate nohighlight">\(-f\)</span> on <sp
 <p>For constrained, univariate (i.e., scalar) minimization, a good hybrid option is <code class="docutils literal notranslate"><span class="pre">fminbound</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fminbound</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">fminbound</span>
 
 <span class="n">fminbound</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Search in [-1, 2]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.0)
 </pre></div>
 </div>
 </div>
 </div>
 <section id="multivariate-optimization">
-<h3><span class="section-number">13.5.1. </span>Multivariate Optimization<a class="headerlink" href="#multivariate-optimization" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.5.1. </span>Multivariate Optimization<a class="headerlink" href="#multivariate-optimization" title="Link to this heading">#</a></h3>
 <p id="index-13">Multivariate local optimizers include <code class="docutils literal notranslate"><span class="pre">minimize</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin_powell</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin_cg</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin_bfgs</span></code>, and <code class="docutils literal notranslate"><span class="pre">fmin_ncg</span></code>.</p>
 <p>Constrained multivariate local optimizers include <code class="docutils literal notranslate"><span class="pre">fmin_l_bfgs_b</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin_tnc</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin_cobyla</span></code>.</p>
 <p>See the <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/optimize.html">documentation</a> for details.</p>
 </section>
 </section>
 <section id="integration">
-<h2><span class="section-number">13.6. </span><span class="target" id="index-14"></span>Integration<a class="headerlink" href="#integration" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.6. </span><span class="target" id="index-14"></span>Integration<a class="headerlink" href="#integration" title="Link to this heading">#</a></h2>
 <p id="index-15">Most numerical integration methods work by computing the integral of an approximating polynomial.</p>
 <p>The resulting error depends on how well the polynomial fits the integrand, which in turn depends on how “regular” the integrand is.</p>
 <p>In SciPy, the relevant module for numerical integration is <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code>.</p>
 <p>A good default for univariate integration is <code class="docutils literal notranslate"><span class="pre">quad</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quad</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">quad</span>
 
 <span class="n">integral</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">integral</span>
@@ -711,14 +717,14 @@ the minimizer of <span class="math notranslate nohighlight">\(-f\)</span> on <sp
 <p>See the <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/integrate.html">documentation</a> for more details.</p>
 </section>
 <section id="linear-algebra">
-<h2><span class="section-number">13.7. </span><span class="target" id="index-16"></span>Linear Algebra<a class="headerlink" href="#linear-algebra" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.7. </span><span class="target" id="index-16"></span>Linear Algebra<a class="headerlink" href="#linear-algebra" title="Link to this heading">#</a></h2>
 <p id="index-17">We saw that NumPy provides a module for linear algebra called <code class="docutils literal notranslate"><span class="pre">linalg</span></code>.</p>
 <p>SciPy also provides a module for linear algebra with the same name.</p>
 <p>The latter is not an exact superset of the former, but overall it has more functionality.</p>
 <p>We leave you to investigate the <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/linalg.html">set of available routines</a>.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">13.8. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.8. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <p>The first few exercises concern pricing a European call option under the
 assumption of risk neutrality.  The price satisfies</p>
 <div class="math notranslate nohighlight">
@@ -763,12 +769,12 @@ g(x) = \beta^n  \max\{x - K, 0\} f(x)
 <p>Here’s one possible solution</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quad</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">lognorm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">quad</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">lognorm</span>
 
 <span class="n">μ</span><span class="p">,</span> <span class="n">σ</span><span class="p">,</span> <span class="n">β</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span>
 
-<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">β</span><span class="o">**</span><span class="n">n</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">K</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">lognorm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">σ</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">μ</span><span class="p">))</span>
 
 <span class="n">x_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
@@ -782,7 +788,7 @@ g(x) = \beta^n  \max\{x - K, 0\} f(x)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/61fcdb8afec616738b29cff41ab7eff26eda2c335855df7e58eedd285d58bbea.png" src="_images/61fcdb8afec616738b29cff41ab7eff26eda2c335855df7e58eedd285d58bbea.png" />
+<img alt="_images/37cfd25e1ac93e98c44fcd2a47fb5d9cf36f33252038582c4e1fb4ca861baf8a.png" src="_images/37cfd25e1ac93e98c44fcd2a47fb5d9cf36f33252038582c4e1fb4ca861baf8a.png" />
 </div>
 </div>
 </section>
@@ -845,7 +851,7 @@ large numbers,</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Monte Carlo option price is 15.181046
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Monte Carlo option price is 15.187365
 </pre></div>
 </div>
 </div>
@@ -868,7 +874,7 @@ large numbers,</p>
 <p>Here’s a reasonable solution:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bisect</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">10e-5</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bisect</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">10e-5</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implements the bisection root-finding algorithm, assuming that f is a</span>
 <span class="sd">    real-valued function on [a, b] satisfying f(a) &lt; 0 &lt; f(b).</span>
@@ -1085,7 +1091,7 @@ Current mid point = 0.40826416015625
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   19. JAX
+   19. An Introduction to JAX
   </a>
  </li>
 </ul>

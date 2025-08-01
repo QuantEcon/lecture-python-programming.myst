@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>17. Numba &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -70,14 +69,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=bd0785fbb14d8d2bd4d9ae501d79ed8d3bc089ec" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -85,22 +84,21 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="_static/scripts/quantecon-book-theme.js?digest=d9faaf6c4b57726f74ba012412af1f5681bdff87"></script>
+    <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
+    <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -109,12 +107,20 @@
                 gtag('config', 'G-X7DH1M2DPY');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'numba';</script>
     <link rel="canonical" href="https://python-programming.quantecon.org/numba.html" />
-    <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
+    <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="18. Parallelization" href="parallelization.html" />
@@ -246,7 +252,7 @@
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="numba">
-<h1><span class="section-number">17. </span>Numba<a class="headerlink" href="#numba" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">17. </span>Numba<a class="headerlink" href="#numba" title="Link to this heading">#</a></h1>
 <p>In addition to what’s in Anaconda, this lecture will need the following libraries:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
@@ -254,24 +260,24 @@
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (0.8.1)
-Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (0.60.0)
-Requirement already satisfied: numpy&gt;=1.17.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (1.26.4)
-Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (2.32.3)
-Requirement already satisfied: scipy&gt;=1.5.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (1.13.1)
-Requirement already satisfied: sympy in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from quantecon) (1.13.2)
-Requirement already satisfied: llvmlite&lt;0.44,&gt;=0.43.0dev0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from numba&gt;=0.49.0-&gt;quantecon) (0.43.0)
-Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from requests-&gt;quantecon) (3.3.2)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from requests-&gt;quantecon) (3.7)
-Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from requests-&gt;quantecon) (2.2.3)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from requests-&gt;quantecon) (2024.8.30)
-Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.12/site-packages (from sympy-&gt;quantecon) (1.3.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.8.2)
+Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (0.61.0)
+Requirement already satisfied: numpy&gt;=1.17.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.1.3)
+Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.32.3)
+Requirement already satisfied: scipy&gt;=1.5.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (1.15.3)
+Requirement already satisfied: sympy in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (1.13.3)
+Requirement already satisfied: llvmlite&lt;0.45,&gt;=0.44.0dev0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from numba&gt;=0.49.0-&gt;quantecon) (0.44.0)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (3.3.2)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (3.7)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2.3.0)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2025.4.26)
+Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from sympy-&gt;quantecon) (1.3.0)
 </pre></div>
 </div>
 </div>
@@ -282,15 +288,15 @@ versions are a <a class="reference internal" href="troubleshooting.html"><span c
 <p>Let’s start with some imports:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">quantecon</span> <span class="k">as</span> <span class="nn">qe</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">quantecon</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qe</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="overview">
-<h2><span class="section-number">17.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>In an <a class="reference internal" href="need_for_speed.html"><span class="doc">earlier lecture</span></a> we learned about vectorization, which is one method to improve speed and efficiency in numerical work.</p>
 <p>Vectorization involves sending array processing
 operations in batch to efficient low-level code.</p>
@@ -308,11 +314,11 @@ solves many of these problems.</p>
 <p>This lecture introduces the main ideas.</p>
 </section>
 <section id="compiling-functions">
-<span id="numba-link"></span><h2><span class="section-number">17.2. </span><span class="target" id="index-0"></span>Compiling Functions<a class="headerlink" href="#compiling-functions" title="Permalink to this heading">#</a></h2>
+<span id="numba-link"></span><h2><span class="section-number">17.2. </span><span class="target" id="index-0"></span>Compiling Functions<a class="headerlink" href="#compiling-functions" title="Link to this heading">#</a></h2>
 <p id="index-1">As stated above, Numba’s primary use is compiling functions to fast native
 machine code during runtime.</p>
 <section id="an-example">
-<span id="quad-map-eg"></span><h3><span class="section-number">17.2.1. </span>An Example<a class="headerlink" href="#an-example" title="Permalink to this heading">#</a></h3>
+<span id="quad-map-eg"></span><h3><span class="section-number">17.2.1. </span>An Example<a class="headerlink" href="#an-example" title="Link to this heading">#</a></h3>
 <p>Let’s consider a problem that is difficult to vectorize: generating the trajectory of a difference equation given an initial condition.</p>
 <p>We will take the difference equation to be the quadratic map</p>
 <div class="math notranslate nohighlight">
@@ -330,7 +336,7 @@ x_{t+1} = \alpha x_t (1 - x_t)
 <p>Here’s the plot of a typical trajectory, starting from <span class="math notranslate nohighlight">\(x_0 = 0.1\)</span>, with <span class="math notranslate nohighlight">\(t\)</span> on the x-axis</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">qm</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">qm</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -347,13 +353,13 @@ x_{t+1} = \alpha x_t (1 - x_t)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f62d87bbe5d54a8345d5e826d1d058fecb2aa252b1f12f8c1c0714783f25fd24.png" src="_images/f62d87bbe5d54a8345d5e826d1d058fecb2aa252b1f12f8c1c0714783f25fd24.png" />
+<img alt="_images/b98a1ca745cd29713c5c418a8ea9f7fb4bd8a684f5f3891e3646dd956878103e.png" src="_images/b98a1ca745cd29713c5c418a8ea9f7fb4bd8a684f5f3891e3646dd956878103e.png" />
 </div>
 </div>
 <p>To speed the function <code class="docutils literal notranslate"><span class="pre">qm</span></code> up using Numba, our first step is</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">jit</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numba</span><span class="w"> </span><span class="kn">import</span> <span class="n">jit</span>
 
 <span class="n">qm_numba</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">qm</span><span class="p">)</span>
 </pre></div>
@@ -375,7 +381,7 @@ JIT-compilation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:3.61
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:3.66
 </pre></div>
 </div>
 </div>
@@ -390,7 +396,7 @@ JIT-compilation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.21
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.12
 </pre></div>
 </div>
 </div>
@@ -418,7 +424,7 @@ JIT-compilation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>138.26503533440186
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>142.00118255728012
 </pre></div>
 </div>
 </div>
@@ -426,7 +432,7 @@ JIT-compilation.</p>
 <p>This kind of speed gain is impressive relative to how simple and clear the modification is.</p>
 </section>
 <section id="how-and-when-it-works">
-<h3><span class="section-number">17.2.2. </span>How and When it Works<a class="headerlink" href="#how-and-when-it-works" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">17.2.2. </span>How and When it Works<a class="headerlink" href="#how-and-when-it-works" title="Link to this heading">#</a></h3>
 <p>Numba attempts to generate fast machine code using the infrastructure provided by the <a class="reference external" href="http://llvm.org/">LLVM Project</a>.</p>
 <p>It does this by inferring type information on the fly.</p>
 <p>(See our <a class="reference internal" href="need_for_speed.html"><span class="doc">earlier lecture</span></a> on scientific computing for a discussion of types.)</p>
@@ -452,7 +458,7 @@ moment, and <em>then</em> compile the function.</p></li>
 </section>
 </section>
 <section id="decorator-notation">
-<h2><span class="section-number">17.3. </span>Decorator Notation<a class="headerlink" href="#decorator-notation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.3. </span>Decorator Notation<a class="headerlink" href="#decorator-notation" title="Link to this heading">#</a></h2>
 <p>In the code above we created a JIT compiled version of <code class="docutils literal notranslate"><span class="pre">qm</span></code> via the call</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -469,7 +475,7 @@ moment, and <em>then</em> compile the function.</p></li>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jit</span>
-<span class="k">def</span> <span class="nf">qm</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">qm</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -490,8 +496,8 @@ moment, and <em>then</em> compile the function.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 68.4 ms, sys: 957 μs, total: 69.4 ms
-Wall time: 69 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 68.7 ms, sys: 35 μs, total: 68.7 ms
+Wall time: 68.3 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.1       , 0.36      , 0.9216    , ..., 0.98112405, 0.07407858,
@@ -509,8 +515,8 @@ Wall time: 69 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 443 μs, sys: 33 μs, total: 476 μs
-Wall time: 479 μs
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 0 ns, sys: 449 μs, total: 449 μs
+Wall time: 451 μs
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.1       , 0.36      , 0.9216    , ..., 0.98112405, 0.07407858,
@@ -523,7 +529,7 @@ Wall time: 479 μs
 <p>In the <a class="reference internal" href="parallelization.html#parallel"><span class="std std-ref">following lecture on parallelization</span></a>, we will discuss how to use the <code class="docutils literal notranslate"><span class="pre">parallel</span></code> argument to achieve automatic parallelization.</p>
 </section>
 <section id="type-inference">
-<h2><span class="section-number">17.4. </span>Type Inference<a class="headerlink" href="#type-inference" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.4. </span>Type Inference<a class="headerlink" href="#type-inference" title="Link to this heading">#</a></h2>
 <p>Successful type inference is a key part of JIT compilation.</p>
 <p>As you can imagine, inferring types is easier for simple Python objects (e.g., simple scalar data types such as floats and integers).</p>
 <p>Numba also plays well with NumPy arrays.</p>
@@ -535,7 +541,7 @@ Wall time: 479 μs
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jit</span>
-<span class="k">def</span> <span class="nf">bootstrap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">statistics</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">bootstrap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">statistics</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
     <span class="n">bootstrap_stat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_resamples</span><span class="p">):</span>
@@ -544,7 +550,7 @@ Wall time: 479 μs
     <span class="k">return</span> <span class="n">bootstrap_stat</span>
 
 <span class="c1"># No decorator here.</span>
-<span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mf">2.3</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">5.9</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">))</span>
@@ -561,10 +567,12 @@ Wall time: 479 μs
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed in nopython mode pipeline (step: nopython frontend)
 <span class=" -Color -Color-Bold">non-precise type pyobject</span>
-<span class=" -Color -Color-Bold">During: typing of argument at /tmp/ipykernel_2473/3796191009.py (1)</span>
+<span class=" -Color -Color-Bold">During: typing of argument at /tmp/ipykernel_2726/3796191009.py (1)</span>
 
-<span class=" -Color -Color-Bold">File &quot;../../../../../../tmp/ipykernel_2473/3796191009.py&quot;, line 1:</span>
-<span class=" -Color -Color-Bold">&lt;source missing, REPL/exec in use?&gt;</span> 
+<span class=" -Color -Color-Bold">File &quot;../../../../../../tmp/ipykernel_2726/3796191009.py&quot;, line 1:</span>
+<span class=" -Color -Color-Bold">&lt;source missing, REPL/exec in use?&gt;</span>
+
+<span class=" -Color -Color-Bold">During: Pass nopython_type_inference</span> 
 
 This error may have been caused by the following argument(s):
 - argument 1: <span class=" -Color -Color-Bold">Cannot determine Numba type of &lt;class &#39;function&#39;&gt;</span>
@@ -576,7 +584,7 @@ This error may have been caused by the following argument(s):
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jit</span>
-<span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
 <span class="o">%</span><span class="k">time</span> bootstrap(data, mean, n_resamples)
@@ -584,19 +592,19 @@ This error may have been caused by the following argument(s):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 287 ms, sys: 18.9 ms, total: 306 ms
-Wall time: 307 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 269 ms, sys: 12 ms, total: 281 ms
+Wall time: 281 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.67142857, 3.78571429, 3.15714286, 2.92857143, 3.47142857,
-       3.48571429, 2.57142857, 2.34285714, 3.92857143, 2.81428571])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.62857143, 4.21428571, 2.62857143, 3.8       , 3.01428571,
+       2.94285714, 3.12857143, 3.52857143, 3.91428571, 3.31428571])
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="compiling-classes">
-<h2><span class="section-number">17.5. </span>Compiling Classes<a class="headerlink" href="#compiling-classes" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.5. </span>Compiling Classes<a class="headerlink" href="#compiling-classes" title="Link to this heading">#</a></h2>
 <p>As mentioned above, at present Numba can only compile a subset of Python.</p>
 <p>However, that subset is ever expanding.</p>
 <p>For example, Numba is now quite effective at compiling classes.</p>
@@ -607,8 +615,8 @@ created in <a class="reference internal" href="python_oop.html"><span class="doc
 <p>To compile this class we use the <code class="docutils literal notranslate"><span class="pre">&#64;jitclass</span></code> decorator:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">float64</span>
-<span class="kn">from</span> <span class="nn">numba.experimental</span> <span class="kn">import</span> <span class="n">jitclass</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numba</span><span class="w"> </span><span class="kn">import</span> <span class="n">float64</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numba.experimental</span><span class="w"> </span><span class="kn">import</span> <span class="n">jitclass</span>
 </pre></div>
 </div>
 </div>
@@ -629,14 +637,14 @@ created in <a class="reference internal" href="python_oop.html"><span class="doc
 <span class="p">]</span>
 
 <span class="nd">@jitclass</span><span class="p">(</span><span class="n">solow_data</span><span class="p">)</span>
-<span class="k">class</span> <span class="nc">Solow</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solow</span><span class="p">:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implements the Solow growth model with the update rule</span>
 
 <span class="sd">        k_{t+1} = [(s z k^α_t) + (1 - δ)k_t] /(1 + n)</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>  <span class="c1"># population growth rate</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>  <span class="c1"># population growth rate</span>
                        <span class="n">s</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>  <span class="c1"># savings rate</span>
                        <span class="n">δ</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>   <span class="c1"># depreciation rate</span>
                        <span class="n">α</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>   <span class="c1"># share of labor</span>
@@ -646,25 +654,25 @@ created in <a class="reference internal" href="python_oop.html"><span class="doc
         <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">δ</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">α</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">δ</span><span class="p">,</span> <span class="n">α</span><span class="p">,</span> <span class="n">z</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">k</span> <span class="o">=</span> <span class="n">k</span>
 
-    <span class="k">def</span> <span class="nf">h</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">h</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="s2">&quot;Evaluate the h function&quot;</span>
         <span class="c1"># Unpack parameters (get rid of self to simplify notation)</span>
         <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">δ</span><span class="p">,</span> <span class="n">α</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">δ</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">α</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span>
         <span class="c1"># Apply the update rule</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="n">z</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="o">**</span><span class="n">α</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">δ</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">n</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="s2">&quot;Update the current state (i.e., the capital stock).&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">k</span> <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">steady_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">steady_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="s2">&quot;Compute the steady state value of capital.&quot;</span>
         <span class="c1"># Unpack parameters (get rid of self to simplify notation)</span>
         <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">δ</span><span class="p">,</span> <span class="n">α</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">δ</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">α</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span>
         <span class="c1"># Compute and return steady state</span>
         <span class="k">return</span> <span class="p">((</span><span class="n">s</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="n">δ</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">α</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">generate_sequence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">generate_sequence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
         <span class="s2">&quot;Generate and return a time series of length t&quot;</span>
         <span class="n">path</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
@@ -703,18 +711,18 @@ created in <a class="reference internal" href="python_oop.html"><span class="doc
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3f1e44b59b6c2e2ab202e0fe3c311c9259ecc746677f94113a34b65c402ab39a.png" src="_images/3f1e44b59b6c2e2ab202e0fe3c311c9259ecc746677f94113a34b65c402ab39a.png" />
+<img alt="_images/55afe69fba82fb592a478bd559d230acea294681fb3233a0fd7a1323518db81d.png" src="_images/55afe69fba82fb592a478bd559d230acea294681fb3233a0fd7a1323518db81d.png" />
 </div>
 </div>
 </section>
 <section id="alternatives-to-numba">
-<h2><span class="section-number">17.6. </span>Alternatives to Numba<a class="headerlink" href="#alternatives-to-numba" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.6. </span>Alternatives to Numba<a class="headerlink" href="#alternatives-to-numba" title="Link to this heading">#</a></h2>
 <p id="index-2">There are additional options for accelerating Python loops.</p>
 <p>Here we quickly review them.</p>
 <p>However, we do so only for interest and completeness.</p>
 <p>If you prefer, you can safely skip this section.</p>
 <section id="cython">
-<h3><span class="section-number">17.6.1. </span>Cython<a class="headerlink" href="#cython" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">17.6.1. </span>Cython<a class="headerlink" href="#cython" title="Link to this heading">#</a></h3>
 <p>Like <a class="reference internal" href="#"><span class="doc">Numba</span></a>,  <a class="reference external" href="http://cython.org/">Cython</a> provides an approach to generating fast compiled code that can be used from Python.</p>
 <p>As was the case with Numba, a key problem is the fact that Python is dynamically typed.</p>
 <p>As you’ll recall, Numba solves this problem (where possible) by inferring type.</p>
@@ -726,7 +734,7 @@ created in <a class="reference internal" href="python_oop.html"><span class="doc
 cumbersome than Numba.</p>
 </section>
 <section id="interfacing-with-fortran-via-f2py">
-<h3><span class="section-number">17.6.2. </span>Interfacing with Fortran via F2Py<a class="headerlink" href="#interfacing-with-fortran-via-f2py" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">17.6.2. </span>Interfacing with Fortran via F2Py<a class="headerlink" href="#interfacing-with-fortran-via-f2py" title="Link to this heading">#</a></h3>
 <p id="index-3">If you are comfortable writing Fortran you will find it very easy to create
 extension modules from Fortran code using <a class="reference external" href="https://docs.scipy.org/doc/numpy/f2py/">F2Py</a>.</p>
 <p>F2Py is a Fortran-to-Python interface generator that is particularly simple to
@@ -737,10 +745,10 @@ to F2Py, among other things.</p>
 </section>
 </section>
 <section id="summary-and-comments">
-<h2><span class="section-number">17.7. </span>Summary and Comments<a class="headerlink" href="#summary-and-comments" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.7. </span>Summary and Comments<a class="headerlink" href="#summary-and-comments" title="Link to this heading">#</a></h2>
 <p>Let’s review the above and add some cautionary notes.</p>
 <section id="limitations">
-<h3><span class="section-number">17.7.1. </span>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">17.7.1. </span>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h3>
 <p>As we’ve seen, Numba needs to infer type information on
 all variables to generate fast machine-level instructions.</p>
 <p>For simple routines, Numba infers types very well.</p>
@@ -749,7 +757,7 @@ all variables to generate fast machine-level instructions.</p>
 <p>This will give you much better performance than blanketing your Python programs with <code class="docutils literal notranslate"><span class="pre">&#64;njit</span></code> statements.</p>
 </section>
 <section id="a-gotcha-global-variables">
-<h3><span class="section-number">17.7.2. </span>A Gotcha: Global Variables<a class="headerlink" href="#a-gotcha-global-variables" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">17.7.2. </span>A Gotcha: Global Variables<a class="headerlink" href="#a-gotcha-global-variables" title="Link to this heading">#</a></h3>
 <p>Here’s another thing to be careful about when using Numba.</p>
 <p>Consider the following example</p>
 <div class="cell docutils container">
@@ -757,7 +765,7 @@ all variables to generate fast machine-level instructions.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="nd">@jit</span>
-<span class="k">def</span> <span class="nf">add_a</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_a</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">x</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">add_a</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
@@ -790,7 +798,7 @@ function.</p>
 </section>
 </section>
 <section id="exercises">
-<h2><span class="section-number">17.8. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.8. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <div class="exercise admonition" id="speed_ex1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 17.1 </span></p>
@@ -808,10 +816,10 @@ Monte Carlo.</p>
 <p>Here is one solution:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">uniform</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">uniform</span>
 
 <span class="nd">@jit</span>
-<span class="k">def</span> <span class="nf">calculate_pi</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_pi</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">):</span>
     <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
         <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -833,11 +841,11 @@ Monte Carlo.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 143 ms, sys: 3.74 ms, total: 146 ms
-Wall time: 146 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 141 ms, sys: 982 μs, total: 142 ms
+Wall time: 141 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.142488
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141904
 </pre></div>
 </div>
 </div>
@@ -849,11 +857,11 @@ Wall time: 146 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 10.9 ms, sys: 0 ns, total: 10.9 ms
-Wall time: 10.9 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 9.85 ms, sys: 940 μs, total: 10.8 ms
+Wall time: 10.7 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141116
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.140964
 </pre></div>
 </div>
 </div>
@@ -873,9 +881,7 @@ learn all about finite-state Markov chains.</p>
 <p>For now, let’s just concentrate on simulating a very simple example of such a chain.</p>
 <p>Suppose that the volatility of returns on an asset can be in one of two regimes — high or low.</p>
 <p>The transition probabilities across states are as follows</p>
-<figure class="align-default">
-<img alt="_images/nfs_ex1.png" src="_images/nfs_ex1.png" />
-</figure>
+<img alt="_images/nfs_ex1.png" class="align-center" src="_images/nfs_ex1.png" />
 <p>For example, let the period length be one day, and suppose the current state is high.</p>
 <p>We see from the graph that the state tomorrow will be</p>
 <ul class="simple">
@@ -915,7 +921,7 @@ learn all about finite-state Markov chains.</p>
 <p>Here’s a pure Python version of the function</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_series</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compute_series</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int_</span><span class="p">)</span>
     <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Start in state 1</span>
     <span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
@@ -941,7 +947,7 @@ state is about 0.666</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.666387
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.666767
 </pre></div>
 </div>
 </div>
@@ -957,10 +963,10 @@ state is about 0.666</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.45
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.47
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4558122158050537
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.47507143020629883
 </pre></div>
 </div>
 </div>
@@ -982,7 +988,7 @@ state is about 0.666</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.667123
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.666336
 </pre></div>
 </div>
 </div>
@@ -1000,7 +1006,7 @@ state is about 0.666</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.00
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007485866546630859
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007386207580566406
 </pre></div>
 </div>
 </div>
@@ -1174,7 +1180,7 @@ state is about 0.666</p>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   19. JAX
+   19. An Introduction to JAX
   </a>
  </li>
 </ul>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>3. An Introductory Example &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -70,14 +69,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=bd0785fbb14d8d2bd4d9ae501d79ed8d3bc089ec" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -85,22 +84,21 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="_static/scripts/quantecon-book-theme.js?digest=d9faaf6c4b57726f74ba012412af1f5681bdff87"></script>
+    <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
+    <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -109,12 +107,20 @@
                 gtag('config', 'G-X7DH1M2DPY');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'python_by_example';</script>
     <link rel="canonical" href="https://python-programming.quantecon.org/python_by_example.html" />
-    <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
+    <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4. Functions" href="functions.html" />
@@ -249,9 +255,9 @@
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="an-introductory-example">
-<h1><span class="section-number">3. </span>An Introductory Example<a class="headerlink" href="#an-introductory-example" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">3. </span>An Introductory Example<a class="headerlink" href="#an-introductory-example" title="Link to this heading">#</a></h1>
 <section id="overview">
-<span id="index-0"></span><h2><span class="section-number">3.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<span id="index-0"></span><h2><span class="section-number">3.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>We’re now ready to start learning the Python language itself.</p>
 <p>In this lecture, we will write and then pick apart small Python programs.</p>
 <p>The objective is to introduce you to basic Python syntax and data structures.</p>
@@ -259,12 +265,13 @@
 <p>You should have read the <a class="reference internal" href="getting_started.html"><span class="doc">lecture</span></a> on getting started with Python before beginning this one.</p>
 </section>
 <section id="the-task-plotting-a-white-noise-process">
-<h2><span class="section-number">3.2. </span>The Task: Plotting a White Noise Process<a class="headerlink" href="#the-task-plotting-a-white-noise-process" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.2. </span>The Task: Plotting a White Noise Process<a class="headerlink" href="#the-task-plotting-a-white-noise-process" title="Link to this heading">#</a></h2>
 <p>Suppose we want to simulate and plot the white noise
 process <span class="math notranslate nohighlight">\(\epsilon_0, \epsilon_1, \ldots, \epsilon_T\)</span>, where each draw <span class="math notranslate nohighlight">\(\epsilon_t\)</span> is independent standard normal.</p>
 <p>In other words, we want to generate figures that look something like this:</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="_images/test_program_1_updated.png"><img alt="_images/test_program_1_updated.png" src="_images/test_program_1_updated.png" style="width: 444.0px; height: 297.59999999999997px;" /></a>
+<a class="reference internal image-reference" href="_images/test_program_1_updated.png"><img alt="_images/test_program_1_updated.png" src="_images/test_program_1_updated.png" style="width: 444.0px; height: 297.59999999999997px;" />
+</a>
 </figure>
 <p>(Here <span class="math notranslate nohighlight">\(t\)</span> is on the horizontal axis and <span class="math notranslate nohighlight">\(\epsilon_t\)</span> is on the
 vertical axis.)</p>
@@ -272,12 +279,12 @@ vertical axis.)</p>
 about Python.</p>
 </section>
 <section id="version-1">
-<h2><span class="section-number">3.3. </span>Version 1<a class="headerlink" href="#version-1" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.3. </span>Version 1<a class="headerlink" href="#version-1" title="Link to this heading">#</a></h2>
 <p id="ourfirstprog">Here are a few lines of code that perform the task we set</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">ϵ_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ϵ_values</span><span class="p">)</span>
@@ -286,12 +293,12 @@ about Python.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1b8653effebe0bff818cff96d03cf02f854d63a7254d0b45e1df6c9c965328a7.png" src="_images/1b8653effebe0bff818cff96d03cf02f854d63a7254d0b45e1df6c9c965328a7.png" />
+<img alt="_images/6754c11c2d6f66e4fa6ab39181aebcd114b880ec31646dcb46d7065a035e6477.png" src="_images/6754c11c2d6f66e4fa6ab39181aebcd114b880ec31646dcb46d7065a035e6477.png" />
 </div>
 </div>
 <p>Let’s break this program down and see how it works.</p>
 <section id="imports">
-<span id="import"></span><h3><span class="section-number">3.3.1. </span>Imports<a class="headerlink" href="#imports" title="Permalink to this heading">#</a></h3>
+<span id="import"></span><h3><span class="section-number">3.3.1. </span>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h3>
 <p>The first two lines of the program import functionality from external code
 libraries.</p>
 <p>The first line imports <a class="reference internal" href="numpy.html"><span class="doc">NumPy</span></a>, a favorite Python package for tasks like</p>
@@ -310,7 +317,7 @@ libraries.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.0)
 </pre></div>
 </div>
 </div>
@@ -322,20 +329,20 @@ libraries.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.3862943611198906
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.3862943611198906)
 </pre></div>
 </div>
 </div>
 </div>
 <section id="why-so-many-imports">
-<h4><span class="section-number">3.3.1.1. </span>Why So Many Imports?<a class="headerlink" href="#why-so-many-imports" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">3.3.1.1. </span>Why So Many Imports?<a class="headerlink" href="#why-so-many-imports" title="Link to this heading">#</a></h4>
 <p>Python programs typically require multiple import statements.</p>
 <p>The reason is that the core language is deliberately kept small, so that it’s easy to learn, maintain and improve.</p>
 <p>When you want to do something interesting with Python, you almost always need
 to import additional functionality.</p>
 </section>
 <section id="packages">
-<h4><span class="section-number">3.3.1.2. </span>Packages<a class="headerlink" href="#packages" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">3.3.1.2. </span>Packages<a class="headerlink" href="#packages" title="Link to this heading">#</a></h4>
 <p id="index-1">As stated above, NumPy is a Python package.</p>
 <p>Packages are used by developers to organize code they wish to share.</p>
 <p>In fact, a <strong>package</strong> is just a directory containing</p>
@@ -345,14 +352,14 @@ to import additional functionality.</p>
 <li><p>a file called <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> that specifies what will be executed when we type <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">package_name</span></code></p></li>
 </ol>
 <p>You can check the location of your  <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> for NumPy in python by running the code:</p>
-<div class="no-execute highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="no-execute highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="subpackages">
-<h4><span class="section-number">3.3.1.3. </span>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">3.3.1.3. </span>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h4>
 <p id="index-2">Consider the line <code class="docutils literal notranslate"><span class="pre">ϵ_values</span> <span class="pre">=</span> <span class="pre">np.random.randn(100)</span></code>.</p>
 <p>Here <code class="docutils literal notranslate"><span class="pre">np</span></code> refers to the package NumPy, while <code class="docutils literal notranslate"><span class="pre">random</span></code> is a <strong>subpackage</strong> of NumPy.</p>
 <p>Subpackages are just packages that are subdirectories of another package.</p>
@@ -360,18 +367,18 @@ to import additional functionality.</p>
 </section>
 </section>
 <section id="importing-names-directly">
-<h3><span class="section-number">3.3.2. </span>Importing Names Directly<a class="headerlink" href="#importing-names-directly" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.2. </span>Importing Names Directly<a class="headerlink" href="#importing-names-directly" title="Link to this heading">#</a></h3>
 <p>Recall this code that we saw above</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.0)
 </pre></div>
 </div>
 </div>
@@ -379,14 +386,14 @@ to import additional functionality.</p>
 <p>Here’s another way to access NumPy’s square root function</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">sqrt</span>
 
 <span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.0)
 </pre></div>
 </div>
 </div>
@@ -398,7 +405,7 @@ separated by many other lines.</p>
 <p>Then it’s harder for readers to know where <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> came from, should they wish to.</p>
 </section>
 <section id="random-draws">
-<h3><span class="section-number">3.3.3. </span>Random Draws<a class="headerlink" href="#random-draws" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.3. </span>Random Draws<a class="headerlink" href="#random-draws" title="Link to this heading">#</a></h3>
 <p>Returning to our program that plots white noise, the remaining three lines
 after the import statements are</p>
 <div class="cell docutils container">
@@ -410,7 +417,7 @@ after the import statements are</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9d89108251e4ba6281e5ae89c5245e73bc78172412d68498de3602bcce531d01.png" src="_images/9d89108251e4ba6281e5ae89c5245e73bc78172412d68498de3602bcce531d01.png" />
+<img alt="_images/398bb3ae11e7ee71e5851106b0759cbce174bacdbc57ba9c0d98c48bc3f8ef00.png" src="_images/398bb3ae11e7ee71e5851106b0759cbce174bacdbc57ba9c0d98c48bc3f8ef00.png" />
 </div>
 </div>
 <p>The first line generates 100 (quasi) independent standard normals and stores
@@ -420,13 +427,13 @@ them in <code class="docutils literal notranslate"><span class="pre">ϵ_values</
 </section>
 </section>
 <section id="alternative-implementations">
-<h2><span class="section-number">3.4. </span>Alternative Implementations<a class="headerlink" href="#alternative-implementations" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.4. </span>Alternative Implementations<a class="headerlink" href="#alternative-implementations" title="Link to this heading">#</a></h2>
 <p>Let’s try writing some alternative versions of <a class="reference internal" href="#ourfirstprog"><span class="std std-ref">our first program</span></a>, which plotted IID draws from the standard normal distribution.</p>
 <p>The programs below are less efficient than the original one, and hence
 somewhat artificial.</p>
 <p>But they do help us illustrate some important Python syntax and semantics in a familiar setting.</p>
 <section id="a-version-with-a-for-loop">
-<h3><span class="section-number">3.4.1. </span>A Version with a For Loop<a class="headerlink" href="#a-version-with-a-for-loop" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.4.1. </span>A Version with a For Loop<a class="headerlink" href="#a-version-with-a-for-loop" title="Link to this heading">#</a></h3>
 <p>Here’s a version that illustrates <code class="docutils literal notranslate"><span class="pre">for</span></code> loops and Python lists.</p>
 <div class="cell docutils container" id="firstloopprog">
 <div class="cell_input docutils container">
@@ -443,7 +450,7 @@ somewhat artificial.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/72ff477041ec0d9bfd253f9719402333d45429aa034e67aa6bcf896b67c2ef0d.png" src="_images/72ff477041ec0d9bfd253f9719402333d45429aa034e67aa6bcf896b67c2ef0d.png" />
+<img alt="_images/2142ac81ae7f632326f5bcd89cad16e1cc6ed1c34615c061d1901921fcd14ed6.png" src="_images/2142ac81ae7f632326f5bcd89cad16e1cc6ed1c34615c061d1901921fcd14ed6.png" />
 </div>
 </div>
 <p>In brief,</p>
@@ -457,7 +464,7 @@ somewhat artificial.</p>
 <p>Let’s study some parts of this program in more detail.</p>
 </section>
 <section id="lists">
-<span id="lists-ref"></span><h3><span class="section-number">3.4.2. </span>Lists<a class="headerlink" href="#lists" title="Permalink to this heading">#</a></h3>
+<span id="lists-ref"></span><h3><span class="section-number">3.4.2. </span>Lists<a class="headerlink" href="#lists" title="Link to this heading">#</a></h3>
 <p id="index-3">Consider the statement <code class="docutils literal notranslate"><span class="pre">ϵ_values</span> <span class="pre">=</span> <span class="pre">[]</span></code>, which creates an empty list.</p>
 <p>Lists are a native Python data structure used to group a collection of objects.</p>
 <p>Items in lists are ordered, and duplicates are allowed in lists.</p>
@@ -572,7 +579,7 @@ somewhat artificial.</p>
 </div>
 </section>
 <section id="the-for-loop">
-<h3><span class="section-number">3.4.3. </span>The For Loop<a class="headerlink" href="#the-for-loop" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.4.3. </span>The For Loop<a class="headerlink" href="#the-for-loop" title="Link to this heading">#</a></h3>
 <p id="index-4">Now let’s consider the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop from <a class="reference internal" href="#firstloopprog"><span class="std std-ref">the program above</span></a>, which was</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -616,7 +623,7 @@ loop of the form</p>
 </ul>
 </section>
 <section id="a-comment-on-indentation">
-<h3><span class="section-number">3.4.4. </span>A Comment on Indentation<a class="headerlink" href="#a-comment-on-indentation" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.4.4. </span>A Comment on Indentation<a class="headerlink" href="#a-comment-on-indentation" title="Link to this heading">#</a></h3>
 <p id="index-5">In discussing the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, we explained that the code blocks being looped over are delimited by indentation.</p>
 <p>In fact, in Python, <em>all</em> code blocks (i.e., those occurring inside loops, if clauses, function definitions, etc.) are delimited by indentation.</p>
 <p>Thus, unlike most other languages, whitespace in Python code affects the output of the program.</p>
@@ -640,7 +647,7 @@ loop of the form</p>
 </ul>
 </section>
 <section id="while-loops">
-<h3><span class="section-number">3.4.5. </span>While Loops<a class="headerlink" href="#while-loops" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.4.5. </span>While Loops<a class="headerlink" href="#while-loops" title="Link to this heading">#</a></h3>
 <p id="index-6">The <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is the most common technique for iteration in Python.</p>
 <p>But, for the purpose of illustration, let’s modify <a class="reference internal" href="#firstloopprog"><span class="std std-ref">the program above</span></a> to use a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop instead.</p>
 <div class="cell docutils container" id="whileloopprog">
@@ -658,7 +665,7 @@ loop of the form</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/92cc6e4f1c2705079920ac7d49ca11529ae1f2adea08078b06db5aebf342b229.png" src="_images/92cc6e4f1c2705079920ac7d49ca11529ae1f2adea08078b06db5aebf342b229.png" />
+<img alt="_images/88e9bee414b20a31f1c9e50fd9defbf3ae5755ff14ed1b502f0e16c78e84ed29.png" src="_images/88e9bee414b20a31f1c9e50fd9defbf3ae5755ff14ed1b502f0e16c78e84ed29.png" />
 </div>
 </div>
 <p>A while loop will keep executing the code block delimited by indentation until the condition (<code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">ts_length</span></code>) is satisfied.</p>
@@ -683,7 +690,7 @@ loop of the form</p>
 </section>
 </section>
 <section id="another-application">
-<h2><span class="section-number">3.5. </span>Another Application<a class="headerlink" href="#another-application" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.5. </span>Another Application<a class="headerlink" href="#another-application" title="Link to this heading">#</a></h2>
 <p>Let’s do one more application before we turn to exercises.</p>
 <p>In this application, we plot the balance of a bank account over time.</p>
 <p>There are no withdraws over the time period, the last date of which is denoted
@@ -710,7 +717,7 @@ array.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6d762ab29ad138ebaa8a323de535e1c1b9a4be8c5281d2415b4869a54bc81eff.png" src="_images/6d762ab29ad138ebaa8a323de535e1c1b9a4be8c5281d2415b4869a54bc81eff.png" />
+<img alt="_images/d4d690aa48f2a2c3703379205ffbcb9048f6e5d2321d31dfd6fa3b97c4328e54.png" src="_images/d4d690aa48f2a2c3703379205ffbcb9048f6e5d2321d31dfd6fa3b97c4328e54.png" />
 </div>
 </div>
 <p>The statement <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">np.empty(T+1)</span></code> allocates storage in memory for <code class="docutils literal notranslate"><span class="pre">T+1</span></code>
@@ -723,7 +730,7 @@ operating system.</p>
 use in the exercises.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">3.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.6. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <p>Now we turn to exercises.  It is important that you complete them before
 continuing, since they present new concepts we will need.</p>
 <div class="exercise admonition" id="pbe_ex1">
@@ -742,8 +749,8 @@ x_0 = 0
 <p>In your solution, restrict your import statements to</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -772,7 +779,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d877b32a7bc6a206d23292fdf2572f49e60b35a8c1c2e60fbeb1035b9fdce8fc.png" src="_images/d877b32a7bc6a206d23292fdf2572f49e60b35a8c1c2e60fbeb1035b9fdce8fc.png" />
+<img alt="_images/4be3cb28d22099ae05f912306a9e0f051dd824fd5ea85e98e27f9d46087a16c9.png" src="_images/4be3cb28d22099ae05f912306a9e0f051dd824fd5ea85e98e27f9d46087a16c9.png" />
 </div>
 </div>
 </section>
@@ -816,7 +823,7 @@ one for each of the cases <span class="math notranslate nohighlight">\(\alpha=0\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/04d4a03a2285b04b4dc3bd413915229a75eba27fb5ce5abcf3ed48b6a5ab4821.png" src="_images/04d4a03a2285b04b4dc3bd413915229a75eba27fb5ce5abcf3ed48b6a5ab4821.png" />
+<img alt="_images/ea7fcb0a172542199f7ed40d62d10692b69cd47ec864b0ad1f2a0b1e4f418628.png" src="_images/ea7fcb0a172542199f7ed40d62d10692b69cd47ec864b0ad1f2a0b1e4f418628.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -863,7 +870,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d18dc15deff4dbde12653a0c0efdfc91af7f6576f6452c955a95ce6f5da2e325.png" src="_images/d18dc15deff4dbde12653a0c0efdfc91af7f6576f6452c955a95ce6f5da2e325.png" />
+<img alt="_images/3219f064c419d9ace291dd658f50e6ecc1f7b80c166062b41a035f539fba7d94.png" src="_images/3219f064c419d9ace291dd658f50e6ecc1f7b80c166062b41a035f539fba7d94.png" />
 </div>
 </div>
 </section>
@@ -933,7 +940,7 @@ to compute the absolute value.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/66479c5ad3773d1813a96c0602d9da6d6b95c243741080a4ce89ad2a22f258bf.png" src="_images/66479c5ad3773d1813a96c0602d9da6d6b95c243741080a4ce89ad2a22f258bf.png" />
+<img alt="_images/525c0182e3d5d9632051c214f242f208bee0022c123e4d5787b7d56eecfc7202.png" src="_images/525c0182e3d5d9632051c214f242f208bee0022c123e4d5787b7d56eecfc7202.png" />
 </div>
 </div>
 <p>Here’s a shorter way to write the same thing:</p>
@@ -954,7 +961,7 @@ to compute the absolute value.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/69cfa5068dbbbd779a961c62cb8f578e6c560968f178532f0d0ccc82dce8b986.png" src="_images/69cfa5068dbbbd779a961c62cb8f578e6c560968f178532f0d0ccc82dce8b986.png" />
+<img alt="_images/687434a406c23d83072ca0adbd2639da86760818b2463a193569d25512acb9cf.png" src="_images/687434a406c23d83072ca0adbd2639da86760818b2463a193569d25512acb9cf.png" />
 </div>
 </div>
 </section>
@@ -968,7 +975,7 @@ to compute the absolute value.</p>
 <p>Use no imports besides</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 </pre></div>
 </div>
 </div>
@@ -1024,7 +1031,7 @@ fraction that falls into the circle.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.144472
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.144768
 </pre></div>
 </div>
 </div>
@@ -1197,7 +1204,7 @@ fraction that falls into the circle.</p>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   19. JAX
+   19. An Introduction to JAX
   </a>
  </li>
 </ul>

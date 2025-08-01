@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>12. Matplotlib &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -70,14 +69,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=bd0785fbb14d8d2bd4d9ae501d79ed8d3bc089ec" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -85,22 +84,21 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="_static/scripts/quantecon-book-theme.js?digest=d9faaf6c4b57726f74ba012412af1f5681bdff87"></script>
+    <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
+    <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -109,12 +107,20 @@
                 gtag('config', 'G-X7DH1M2DPY');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'matplotlib';</script>
     <link rel="canonical" href="https://python-programming.quantecon.org/matplotlib.html" />
-    <link rel="shortcut icon" href="_static/lectures-favicon.ico"/>
+    <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="13. SciPy" href="scipy.html" />
@@ -246,9 +252,9 @@
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">12. </span><span class="target" id="index-0"></span>Matplotlib<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">12. </span><span class="target" id="index-0"></span>Matplotlib<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <section id="overview">
-<span id="index-1"></span><h2><span class="section-number">12.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<span id="index-1"></span><h2><span class="section-number">12.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>We’ve already generated quite a few figures in these lectures using <a class="reference external" href="http://matplotlib.org/">Matplotlib</a>.</p>
 <p>Matplotlib is an outstanding graphics library, designed for scientific computing, with</p>
 <ul class="simple">
@@ -259,7 +265,7 @@
 <li><p>animation, etc.</p></li>
 </ul>
 <section id="matplotlib-s-split-personality">
-<h3><span class="section-number">12.1.1. </span>Matplotlib’s Split Personality<a class="headerlink" href="#matplotlib-s-split-personality" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.1.1. </span>Matplotlib’s Split Personality<a class="headerlink" href="#matplotlib-s-split-personality" title="Link to this heading">#</a></h3>
 <p>Matplotlib is unusual in that it offers two different interfaces to plotting.</p>
 <p>One is a simple MATLAB-style API (Application Programming Interface) that was written to help MATLAB refugees find a ready home.</p>
 <p>The other is a more “Pythonic” object-oriented API.</p>
@@ -268,14 +274,14 @@
 </section>
 </section>
 <section id="the-apis">
-<h2><span class="section-number">12.2. </span>The APIs<a class="headerlink" href="#the-apis" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.2. </span>The APIs<a class="headerlink" href="#the-apis" title="Link to this heading">#</a></h2>
 <section id="the-matlab-style-api">
-<span id="index-2"></span><h3><span class="section-number">12.2.1. </span>The MATLAB-style API<a class="headerlink" href="#the-matlab-style-api" title="Permalink to this heading">#</a></h3>
+<span id="index-2"></span><h3><span class="section-number">12.2.1. </span>The MATLAB-style API<a class="headerlink" href="#the-matlab-style-api" title="Link to this heading">#</a></h3>
 <p>Here’s the kind of easy example you might find in introductory treatments</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -286,7 +292,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2fe745ad9f138923f14317e432751ae2380661d46381a5c852a672f469de8859.png" src="_images/2fe745ad9f138923f14317e432751ae2380661d46381a5c852a672f469de8859.png" />
+<img alt="_images/acb159fc6a738642bb465d2409092ab6eac88fe67b80d032ff0a445be043c125.png" src="_images/acb159fc6a738642bb465d2409092ab6eac88fe67b80d032ff0a445be043c125.png" />
 </div>
 </div>
 <p>This is simple and convenient, but also somewhat limited and un-Pythonic.</p>
@@ -295,7 +301,7 @@
 <p>This leads us to the alternative, object-oriented Matplotlib API.</p>
 </section>
 <section id="the-object-oriented-api">
-<h3><span class="section-number">12.2.2. </span>The Object-Oriented API<a class="headerlink" href="#the-object-oriented-api" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.2.2. </span>The Object-Oriented API<a class="headerlink" href="#the-object-oriented-api" title="Link to this heading">#</a></h3>
 <p>Here’s the code corresponding to the preceding figure using the object-oriented API</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -306,7 +312,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2fe745ad9f138923f14317e432751ae2380661d46381a5c852a672f469de8859.png" src="_images/2fe745ad9f138923f14317e432751ae2380661d46381a5c852a672f469de8859.png" />
+<img alt="_images/acb159fc6a738642bb465d2409092ab6eac88fe67b80d032ff0a445be043c125.png" src="_images/acb159fc6a738642bb465d2409092ab6eac88fe67b80d032ff0a445be043c125.png" />
 </div>
 </div>
 <p>Here the call <code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">ax</span> <span class="pre">=</span> <span class="pre">plt.subplots()</span></code> returns a pair, where</p>
@@ -319,7 +325,7 @@
 <p>This will become more clear as we go along.</p>
 </section>
 <section id="tweaks">
-<h3><span class="section-number">12.2.3. </span>Tweaks<a class="headerlink" href="#tweaks" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.2.3. </span>Tweaks<a class="headerlink" href="#tweaks" title="Link to this heading">#</a></h3>
 <p>Here we’ve changed the line to red and added a legend</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -331,7 +337,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/128a9613c03644238b8a03130921e3c3eba471495be3723459ed6236901b8c74.png" src="_images/128a9613c03644238b8a03130921e3c3eba471495be3723459ed6236901b8c74.png" />
+<img alt="_images/092d04b22bf5991bac52c6bd01271fa04fd7125bb98d2f37778e519eb3e5c2e8.png" src="_images/092d04b22bf5991bac52c6bd01271fa04fd7125bb98d2f37778e519eb3e5c2e8.png" />
 </div>
 </div>
 <p>We’ve also used <code class="docutils literal notranslate"><span class="pre">alpha</span></code> to make the line slightly transparent—which makes it look smoother.</p>
@@ -346,34 +352,28 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/23b471d9282a9e51fbd7a6289b8ce98d7df2594cb412162b000448604863f219.png" src="_images/23b471d9282a9e51fbd7a6289b8ce98d7df2594cb412162b000448604863f219.png" />
+<img alt="_images/d1ee7a0633b1d6462b22c28cc43dedb4dc18a4c566e70f2d43f1752f118011ec.png" src="_images/d1ee7a0633b1d6462b22c28cc43dedb4dc18a4c566e70f2d43f1752f118011ec.png" />
 </div>
 </div>
 <p>If everything is properly configured, then adding LaTeX is trivial</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$y=\sin(x)$&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$y=\sin(x)$&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:2: SyntaxWarning: invalid escape sequence &#39;\s&#39;
-&lt;&gt;:2: SyntaxWarning: invalid escape sequence &#39;\s&#39;
-/tmp/ipykernel_2389/4205971063.py:2: SyntaxWarning: invalid escape sequence &#39;\s&#39;
-  ax.plot(x, y, &#39;r-&#39;, linewidth=2, label=&#39;$y=\sin(x)$&#39;, alpha=0.6)
-</pre></div>
-</div>
-<img alt="_images/0ddc6313348bdc6203fe5cb58b7e9b0da111784a7e217a7ae6d3900896707932.png" src="_images/0ddc6313348bdc6203fe5cb58b7e9b0da111784a7e217a7ae6d3900896707932.png" />
+<img alt="_images/95c39dfca1b2a24d9f70c81c04dc53c258aff4855da0cbda33c9e6237c024a60.png" src="_images/95c39dfca1b2a24d9f70c81c04dc53c258aff4855da0cbda33c9e6237c024a60.png" />
 </div>
 </div>
 <p>Controlling the ticks, adding titles and so on is also straightforward</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$y=\sin(x)$&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$y=\sin(x)$&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Test plot&#39;</span><span class="p">)</span>
@@ -382,37 +382,31 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:2: SyntaxWarning: invalid escape sequence &#39;\s&#39;
-&lt;&gt;:2: SyntaxWarning: invalid escape sequence &#39;\s&#39;
-/tmp/ipykernel_2389/3106301064.py:2: SyntaxWarning: invalid escape sequence &#39;\s&#39;
-  ax.plot(x, y, &#39;r-&#39;, linewidth=2, label=&#39;$y=\sin(x)$&#39;, alpha=0.6)
-</pre></div>
-</div>
-<img alt="_images/287b8becdf20f69e7808071fef80d85bd301b62f8454c2ff79549a3b12f23962.png" src="_images/287b8becdf20f69e7808071fef80d85bd301b62f8454c2ff79549a3b12f23962.png" />
+<img alt="_images/59fd3ef2151e6ebbd3cb6cd424710495ca6244099ccb9f7c2b06087e0fb02531.png" src="_images/59fd3ef2151e6ebbd3cb6cd424710495ca6244099ccb9f7c2b06087e0fb02531.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="more-features">
-<h2><span class="section-number">12.3. </span>More Features<a class="headerlink" href="#more-features" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.3. </span>More Features<a class="headerlink" href="#more-features" title="Link to this heading">#</a></h2>
 <p>Matplotlib has a huge array of functions and features, which you can discover
 over time as you have need for them.</p>
 <p>We mention just a few.</p>
 <section id="multiple-plots-on-one-axis">
-<h3><span class="section-number">12.3.1. </span>Multiple Plots on One Axis<a class="headerlink" href="#multiple-plots-on-one-axis" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.3.1. </span>Multiple Plots on One Axis<a class="headerlink" href="#multiple-plots-on-one-axis" title="Link to this heading">#</a></h3>
 <p id="index-3">It’s straightforward to generate multiple plots on the same axes.</p>
 <p>Here’s an example that randomly generates three normal densities and adds a label with their mean</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
-<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">uniform</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">uniform</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="n">m</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">s</span><span class="p">)</span>
-    <span class="n">current_label</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;$\mu = </span><span class="si">{</span><span class="n">m</span><span class="si">:</span><span class="s1">.2</span><span class="si">}</span><span class="s1">$&#39;</span>
+    <span class="n">current_label</span> <span class="o">=</span> <span class="sa">rf</span><span class="s1">&#39;$\mu = </span><span class="si">{</span><span class="n">m</span><span class="si">:</span><span class="s1">.2</span><span class="si">}</span><span class="s1">$&#39;</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">current_label</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -420,18 +414,12 @@ over time as you have need for them.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:9: SyntaxWarning: invalid escape sequence &#39;\m&#39;
-&lt;&gt;:9: SyntaxWarning: invalid escape sequence &#39;\m&#39;
-/tmp/ipykernel_2389/3917968170.py:9: SyntaxWarning: invalid escape sequence &#39;\m&#39;
-  current_label = f&#39;$\mu = {m:.2}$&#39;
-</pre></div>
-</div>
-<img alt="_images/2c64bf2be4bb3591fa204c0da9757ea301beda300cc4afe7bf4543dd0ed4abd2.png" src="_images/2c64bf2be4bb3591fa204c0da9757ea301beda300cc4afe7bf4543dd0ed4abd2.png" />
+<img alt="_images/2fa14f5c4c7b62927a35320cb358459fd5717214fe204698e494af1ae82d679d.png" src="_images/2fa14f5c4c7b62927a35320cb358459fd5717214fe204698e494af1ae82d679d.png" />
 </div>
 </div>
 </section>
 <section id="multiple-subplots">
-<h3><span class="section-number">12.3.2. </span>Multiple Subplots<a class="headerlink" href="#multiple-subplots" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.3.2. </span>Multiple Subplots<a class="headerlink" href="#multiple-subplots" title="Link to this heading">#</a></h3>
 <p id="index-4">Sometimes we want multiple subplots in one figure.</p>
 <p>Here’s an example that generates 6 histograms</p>
 <div class="cell docutils container">
@@ -443,37 +431,27 @@ over time as you have need for them.</p>
         <span class="n">m</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
         <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-        <span class="n">t</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;$\mu = </span><span class="si">{</span><span class="n">m</span><span class="si">:</span><span class="s1">.2</span><span class="si">}</span><span class="s1">, \quad \sigma = </span><span class="si">{</span><span class="n">s</span><span class="si">:</span><span class="s1">.2</span><span class="si">}</span><span class="s1">$&#39;</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="sa">rf</span><span class="s1">&#39;$\mu = </span><span class="si">{</span><span class="n">m</span><span class="si">:</span><span class="s1">.2</span><span class="si">}</span><span class="s1">, \quad \sigma = </span><span class="si">{</span><span class="n">s</span><span class="si">:</span><span class="s1">.2</span><span class="si">}</span><span class="s1">$&#39;</span>
         <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">xticks</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">yticks</span><span class="o">=</span><span class="p">[])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:8: SyntaxWarning: invalid escape sequence &#39;\m&#39;
-&lt;&gt;:8: SyntaxWarning: invalid escape sequence &#39;\q&#39;
-&lt;&gt;:8: SyntaxWarning: invalid escape sequence &#39;\m&#39;
-&lt;&gt;:8: SyntaxWarning: invalid escape sequence &#39;\q&#39;
-/tmp/ipykernel_2389/3935544571.py:8: SyntaxWarning: invalid escape sequence &#39;\m&#39;
-  t = f&#39;$\mu = {m:.2}, \quad \sigma = {s:.2}$&#39;
-/tmp/ipykernel_2389/3935544571.py:8: SyntaxWarning: invalid escape sequence &#39;\q&#39;
-  t = f&#39;$\mu = {m:.2}, \quad \sigma = {s:.2}$&#39;
-</pre></div>
-</div>
-<img alt="_images/c4ff0e54f033dce592a72d8516438e190f89ec5f85baf853a114449478c4f39a.png" src="_images/c4ff0e54f033dce592a72d8516438e190f89ec5f85baf853a114449478c4f39a.png" />
+<img alt="_images/203d6344c47c0a504e0d361f542dfa4b44408c4447845e3e1236a92c63b67c70.png" src="_images/203d6344c47c0a504e0d361f542dfa4b44408c4447845e3e1236a92c63b67c70.png" />
 </div>
 </div>
 </section>
 <section id="d-plots">
-<h3><span class="section-number">12.3.3. </span>3D Plots<a class="headerlink" href="#d-plots" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.3.3. </span>3D Plots<a class="headerlink" href="#d-plots" title="Link to this heading">#</a></h3>
 <p id="index-5">Matplotlib does a nice job of 3D plots — here is one example</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d.axes3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.mplot3d.axes3d</span><span class="w"> </span><span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">cm</span>
 
 
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">xgrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
@@ -495,19 +473,19 @@ over time as you have need for them.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/758a3047b5d9a64a98ea044667278f87412cd47853059424f692559ccc838b47.png" src="_images/758a3047b5d9a64a98ea044667278f87412cd47853059424f692559ccc838b47.png" />
+<img alt="_images/a0c2f68e1faea01d9b08aa3db143ff2e8a44d9e58f5bb249bc1e92fe8d0328d4.png" src="_images/a0c2f68e1faea01d9b08aa3db143ff2e8a44d9e58f5bb249bc1e92fe8d0328d4.png" />
 </div>
 </div>
 </section>
 <section id="a-customizing-function">
-<h3><span class="section-number">12.3.4. </span>A Customizing Function<a class="headerlink" href="#a-customizing-function" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.3.4. </span>A Customizing Function<a class="headerlink" href="#a-customizing-function" title="Link to this heading">#</a></h3>
 <p>Perhaps you will find a set of customizations that you regularly use.</p>
 <p>Suppose we usually prefer our axes to go through the origin, and to have a grid.</p>
 <p>Here’s a nice example from <a class="reference external" href="https://github.com/xcthulhu">Matthew Doty</a> of how the object-oriented API can be used to build a custom <code class="docutils literal notranslate"><span class="pre">subplots</span></code> function that implements these changes.</p>
 <p>Read carefully through the code and see if you can follow what’s going on</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">subplots</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">subplots</span><span class="p">():</span>
     <span class="s2">&quot;Custom subplots with axes through the origin&quot;</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 
@@ -531,7 +509,7 @@ over time as you have need for them.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c25d504d23355d2b309569f093ee3c44be9ec1a77c1920a19230a5f02ae9fcb3.png" src="_images/c25d504d23355d2b309569f093ee3c44be9ec1a77c1920a19230a5f02ae9fcb3.png" />
+<img alt="_images/583929f6cac0283848d047c061fc0e2ce40a4f986e5d31cb7963f75223f58751.png" src="_images/583929f6cac0283848d047c061fc0e2ce40a4f986e5d31cb7963f75223f58751.png" />
 </div>
 </div>
 <p>The custom <code class="docutils literal notranslate"><span class="pre">subplots</span></code> function</p>
@@ -542,7 +520,7 @@ over time as you have need for them.</p>
 </ol>
 </section>
 <section id="style-sheets">
-<h3><span class="section-number">12.3.5. </span>Style Sheets<a class="headerlink" href="#style-sheets" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.3.5. </span>Style Sheets<a class="headerlink" href="#style-sheets" title="Link to this heading">#</a></h3>
 <p>Another useful feature in Matplotlib is <a class="reference external" href="https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html">style sheets</a>.</p>
 <p>We can use style sheets to create plots with uniform styles.</p>
 <p>We can find a list of available styles by printing the attribute <code class="docutils literal notranslate"><span class="pre">plt.style.available</span></code></p>
@@ -553,7 +531,7 @@ over time as you have need for them.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Solarize_Light2&#39;, &#39;_classic_test_patch&#39;, &#39;_mpl-gallery&#39;, &#39;_mpl-gallery-nogrid&#39;, &#39;bmh&#39;, &#39;classic&#39;, &#39;dark_background&#39;, &#39;fast&#39;, &#39;fivethirtyeight&#39;, &#39;ggplot&#39;, &#39;grayscale&#39;, &#39;seaborn-v0_8&#39;, &#39;seaborn-v0_8-bright&#39;, &#39;seaborn-v0_8-colorblind&#39;, &#39;seaborn-v0_8-dark&#39;, &#39;seaborn-v0_8-dark-palette&#39;, &#39;seaborn-v0_8-darkgrid&#39;, &#39;seaborn-v0_8-deep&#39;, &#39;seaborn-v0_8-muted&#39;, &#39;seaborn-v0_8-notebook&#39;, &#39;seaborn-v0_8-paper&#39;, &#39;seaborn-v0_8-pastel&#39;, &#39;seaborn-v0_8-poster&#39;, &#39;seaborn-v0_8-talk&#39;, &#39;seaborn-v0_8-ticks&#39;, &#39;seaborn-v0_8-white&#39;, &#39;seaborn-v0_8-whitegrid&#39;, &#39;tableau-colorblind10&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Solarize_Light2&#39;, &#39;_classic_test_patch&#39;, &#39;_mpl-gallery&#39;, &#39;_mpl-gallery-nogrid&#39;, &#39;bmh&#39;, &#39;classic&#39;, &#39;dark_background&#39;, &#39;fast&#39;, &#39;fivethirtyeight&#39;, &#39;ggplot&#39;, &#39;grayscale&#39;, &#39;petroff10&#39;, &#39;seaborn-v0_8&#39;, &#39;seaborn-v0_8-bright&#39;, &#39;seaborn-v0_8-colorblind&#39;, &#39;seaborn-v0_8-dark&#39;, &#39;seaborn-v0_8-dark-palette&#39;, &#39;seaborn-v0_8-darkgrid&#39;, &#39;seaborn-v0_8-deep&#39;, &#39;seaborn-v0_8-muted&#39;, &#39;seaborn-v0_8-notebook&#39;, &#39;seaborn-v0_8-paper&#39;, &#39;seaborn-v0_8-pastel&#39;, &#39;seaborn-v0_8-poster&#39;, &#39;seaborn-v0_8-talk&#39;, &#39;seaborn-v0_8-ticks&#39;, &#39;seaborn-v0_8-white&#39;, &#39;seaborn-v0_8-whitegrid&#39;, &#39;tableau-colorblind10&#39;]
 </pre></div>
 </div>
 </div>
@@ -562,7 +540,7 @@ over time as you have need for them.</p>
 <p>Let’s write a function that takes the name of a style sheet and draws different plots with the style</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">draw_graphs</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_graphs</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">):</span>
 
     <span class="c1"># Setting a style sheet</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
@@ -610,7 +588,7 @@ over time as you have need for them.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fe6d43fb4954f28f99b6d9b083acd6826cc2802240d77904c34180e301bf6662.png" src="_images/fe6d43fb4954f28f99b6d9b083acd6826cc2802240d77904c34180e301bf6662.png" />
+<img alt="_images/8f4d0f0144964c8172cf7f78c29b68fa9fbb7b6996d3211c06ffc0bc28fa7ddd.png" src="_images/8f4d0f0144964c8172cf7f78c29b68fa9fbb7b6996d3211c06ffc0bc28fa7ddd.png" />
 </div>
 </div>
 <p>We can use <code class="docutils literal notranslate"><span class="pre">grayscale</span></code> to remove colors in plots</p>
@@ -621,7 +599,7 @@ over time as you have need for them.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0e3e05e9fa5738307e5458cd80fd4162ef0a3897e70178b6bdba40ce77c2166e.png" src="_images/0e3e05e9fa5738307e5458cd80fd4162ef0a3897e70178b6bdba40ce77c2166e.png" />
+<img alt="_images/72f15df800534f40af877ff4640e8e02118c20f16011b289688c2e021c6379aa.png" src="_images/72f15df800534f40af877ff4640e8e02118c20f16011b289688c2e021c6379aa.png" />
 </div>
 </div>
 <p>Here is what <code class="docutils literal notranslate"><span class="pre">ggplot</span></code> looks like</p>
@@ -632,7 +610,7 @@ over time as you have need for them.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e4681fa8453113513fbb5e91317bf60f5b7b92c93df89525950ead17c196f52e.png" src="_images/e4681fa8453113513fbb5e91317bf60f5b7b92c93df89525950ead17c196f52e.png" />
+<img alt="_images/0bda4e54ce6192dd8784ac3f3fd965ffcf57ca9c0a6f04e82406554c3423b29a.png" src="_images/0bda4e54ce6192dd8784ac3f3fd965ffcf57ca9c0a6f04e82406554c3423b29a.png" />
 </div>
 </div>
 <p>We can also use the style <code class="docutils literal notranslate"><span class="pre">dark_background</span></code></p>
@@ -643,7 +621,7 @@ over time as you have need for them.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/faf8426b6a36af985978a3446d72be52846900b7ae177b76ca3a9b47c4a37cf8.png" src="_images/faf8426b6a36af985978a3446d72be52846900b7ae177b76ca3a9b47c4a37cf8.png" />
+<img alt="_images/e9b4351e3cc270329badfecfe973b7a8f827e76bcf87fdaa8a0ed2fb0fbb188c.png" src="_images/e9b4351e3cc270329badfecfe973b7a8f827e76bcf87fdaa8a0ed2fb0fbb188c.png" />
 </div>
 </div>
 <p>You can use the function to experiment with other styles in the list.</p>
@@ -655,10 +633,10 @@ over time as you have need for them.</p>
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KeysView(RcParams({&#39;_internal.classic_mode&#39;: False,
@@ -708,6 +686,9 @@ over time as you have need for them.</p>
           &#39;axes.zmargin&#39;: 0.05,
           &#39;axes3d.automargin&#39;: False,
           &#39;axes3d.grid&#39;: True,
+          &#39;axes3d.mouserotationstyle&#39;: &#39;arcball&#39;,
+          &#39;axes3d.trackballborder&#39;: 0.2,
+          &#39;axes3d.trackballsize&#39;: 0.667,
           &#39;axes3d.xaxis.panecolor&#39;: (0.95, 0.95, 0.95, 0.5),
           &#39;axes3d.yaxis.panecolor&#39;: (0.9, 0.9, 0.9, 0.5),
           &#39;axes3d.zaxis.panecolor&#39;: (0.925, 0.925, 0.925, 0.5),
@@ -850,8 +831,8 @@ over time as you have need for them.</p>
           &#39;image.aspect&#39;: &#39;equal&#39;,
           &#39;image.cmap&#39;: &#39;gray&#39;,
           &#39;image.composite_image&#39;: True,
-          &#39;image.interpolation&#39;: &#39;antialiased&#39;,
-          &#39;image.interpolation_stage&#39;: &#39;data&#39;,
+          &#39;image.interpolation&#39;: &#39;auto&#39;,
+          &#39;image.interpolation_stage&#39;: &#39;auto&#39;,
           &#39;image.lut&#39;: 256,
           &#39;image.origin&#39;: &#39;upper&#39;,
           &#39;image.resample&#39;: True,
@@ -948,8 +929,8 @@ over time as you have need for them.</p>
           &#39;savefig.bbox&#39;: None,
           &#39;savefig.directory&#39;: &#39;~&#39;,
           &#39;savefig.dpi&#39;: &#39;figure&#39;,
-          &#39;savefig.edgecolor&#39;: &#39;black&#39;,
-          &#39;savefig.facecolor&#39;: &#39;black&#39;,
+          &#39;savefig.edgecolor&#39;: &#39;white&#39;,
+          &#39;savefig.facecolor&#39;: &#39;white&#39;,
           &#39;savefig.format&#39;: &#39;png&#39;,
           &#39;savefig.orientation&#39;: &#39;portrait&#39;,
           &#39;savefig.pad_inches&#39;: 0.1,
@@ -958,6 +939,7 @@ over time as you have need for them.</p>
           &#39;scatter.marker&#39;: &#39;o&#39;,
           &#39;svg.fonttype&#39;: &#39;path&#39;,
           &#39;svg.hashsalt&#39;: None,
+          &#39;svg.id&#39;: None,
           &#39;svg.image_inline&#39;: True,
           &#39;text.antialiased&#39;: True,
           &#39;text.color&#39;: &#39;white&#39;,
@@ -1032,7 +1014,7 @@ over time as you have need for them.</p>
 <p>Let’s change the style of our overlaid density lines using the second method</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cycler</span> <span class="kn">import</span> <span class="n">cycler</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">cycler</span><span class="w"> </span><span class="kn">import</span> <span class="n">cycler</span>
 
 <span class="c1"># set to the default style sheet</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
@@ -1079,7 +1061,7 @@ over time as you have need for them.</p>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="n">m</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">s</span><span class="p">)</span>
-    <span class="n">current_label</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;$\mu = </span><span class="si">{</span><span class="n">m</span><span class="si">:</span><span class="s1">.2</span><span class="si">}</span><span class="s1">$&#39;</span>
+    <span class="n">current_label</span> <span class="o">=</span> <span class="sa">rf</span><span class="s1">&#39;$\mu = </span><span class="si">{</span><span class="n">m</span><span class="si">:</span><span class="s1">.2</span><span class="si">}</span><span class="s1">$&#39;</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">current_label</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1087,13 +1069,7 @@ over time as you have need for them.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:6: SyntaxWarning: invalid escape sequence &#39;\m&#39;
-&lt;&gt;:6: SyntaxWarning: invalid escape sequence &#39;\m&#39;
-/tmp/ipykernel_2389/350508629.py:6: SyntaxWarning: invalid escape sequence &#39;\m&#39;
-  current_label = f&#39;$\mu = {m:.2}$&#39;
-</pre></div>
-</div>
-<img alt="_images/fa41718edc2aa443a5490932563b8e599e599b2a22960367d4b89ae2dae891ff.png" src="_images/fa41718edc2aa443a5490932563b8e599e599b2a22960367d4b89ae2dae891ff.png" />
+<img alt="_images/e49f4c544ef804b6c4b01558488e028f6779e155d18f307afe1c0f24ffc70f91.png" src="_images/e49f4c544ef804b6c4b01558488e028f6779e155d18f307afe1c0f24ffc70f91.png" />
 </div>
 </div>
 <p>Apply the <code class="docutils literal notranslate"><span class="pre">default</span></code> style sheet again to change your style back to default</p>
@@ -1110,7 +1086,7 @@ over time as you have need for them.</p>
 </section>
 </section>
 <section id="further-reading">
-<h2><span class="section-number">12.4. </span>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.4. </span>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>The <a class="reference external" href="http://matplotlib.org/gallery.html">Matplotlib gallery</a> provides many examples.</p></li>
 <li><p>A nice <a class="reference external" href="http://scipy-lectures.org/intro/matplotlib/index.html">Matplotlib tutorial</a> by Nicolas Rougier, Mike Muller and Gael Varoquaux.</p></li>
@@ -1120,7 +1096,7 @@ switching between plot styles.</p></li>
 </ul>
 </section>
 <section id="exercises">
-<h2><span class="section-number">12.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.5. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <div class="exercise admonition" id="mpl_ex1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 12.1 </span></p>
@@ -1133,9 +1109,8 @@ f(x) = \cos(\pi \theta x) \exp(-x)
 <p>over the interval <span class="math notranslate nohighlight">\([0, 5]\)</span> for each <span class="math notranslate nohighlight">\(\theta\)</span> in <code class="docutils literal notranslate"><span class="pre">np.linspace(0,</span> <span class="pre">2,</span> <span class="pre">10)</span></code>.</p>
 <p>Place all the curves in the same figure.</p>
 <p>The output should look like this</p>
-<figure class="align-default">
-<a class="reference internal image-reference" href="_images/matplotlib_ex1.png"><img alt="_images/matplotlib_ex1.png" src="_images/matplotlib_ex1.png" style="width: 497.90000000000003px; height: 327.6px;" /></a>
-</figure>
+<a class="reference internal image-reference" href="_images/matplotlib_ex1.png"><img alt="_images/matplotlib_ex1.png" class="align-center" src="_images/matplotlib_ex1.png" style="width: 497.90000000000003px; height: 327.6px;" />
+</a>
 </section>
 </div>
 <div class="solution dropdown admonition" id="matplotlib-solution-1">
@@ -1145,7 +1120,7 @@ f(x) = \cos(\pi \theta x) \exp(-x)
 <p>Here’s one solution</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">θ</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">θ</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">θ</span> <span class="o">*</span> <span class="n">x</span> <span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span> <span class="n">x</span><span class="p">)</span>
 
 <span class="n">θ_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
@@ -1160,7 +1135,7 @@ f(x) = \cos(\pi \theta x) \exp(-x)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5f4011738b95f91c8f8bc32798d8c8589f8558888e88f5935207abb561144092.png" src="_images/5f4011738b95f91c8f8bc32798d8c8589f8558888e88f5935207abb561144092.png" />
+<img alt="_images/e55442f1ee22b17e7a8543cf2ac31d2d9d91333ac1a305133a67dfce949789f7.png" src="_images/e55442f1ee22b17e7a8543cf2ac31d2d9d91333ac1a305133a67dfce949789f7.png" />
 </div>
 </div>
 </section>
@@ -1331,7 +1306,7 @@ f(x) = \cos(\pi \theta x) \exp(-x)
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   19. JAX
+   19. An Introduction to JAX
   </a>
  </li>
 </ul>
