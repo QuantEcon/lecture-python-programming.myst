@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.1
+    jupytext_version: 1.17.2
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -91,7 +91,6 @@ Even scalar-valued maps on arrays return JAX arrays.
 ```{code-cell} ipython3
 jnp.sum(a)
 ```
-
 
 Operations on higher dimensional arrays are also similar to NumPy:
 
@@ -185,7 +184,6 @@ functional programming style.  More on this below.
 
 However, JAX provides a functionally pure equivalent of in-place array modification
 using the [`at` method](https://docs.jax.dev/en/latest/_autosummary/jax.numpy.ndarray.at.html).
-
 
 ```{code-cell} ipython3
 a = jnp.linspace(0, 1, 3)
@@ -608,13 +606,6 @@ x_mesh, y_mesh = jnp.meshgrid(x, y)
 z_mesh = f(x_mesh, y_mesh).block_until_ready()
 ```
 
-Let's run again to get rid of compile time.
-
-```{code-cell} ipython3
-%%time
-z_mesh = f(x_mesh, y_mesh).block_until_ready()
-```
-
 But there is one problem here: the mesh grids use a lot of memory.
 
 ```{code-cell} ipython3
@@ -648,13 +639,6 @@ f_vec = jax.vmap(f_vec_y, in_axes=(0, None))
 ```
 
 With this construction, we can now call the function $f$ on flat (low memory) arrays.
-
-```{code-cell} ipython3
-%%time
-z_vmap = f_vec(x, y).block_until_ready()
-```
-
-We run it again to eliminate compile time.
 
 ```{code-cell} ipython3
 %%time
