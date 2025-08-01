@@ -1,8 +1,9 @@
 name: Build Cache [using jupyter-book]
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    # Execute cache weekly at 3am on Monday
+    - cron:  '0 3 * * 1'
+  workflow_dispatch:
 jobs:
   cache:
     runs-on: ubuntu-latest
