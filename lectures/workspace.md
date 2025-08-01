@@ -3,10 +3,12 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.17.2
 kernelspec:
-  display_name: Python 3
-  language: python
   name: python3
+  display_name: Python 3 (ipykernel)
+  language: python
 ---
 
 (workspace)=
@@ -51,7 +53,7 @@ Python files are used when writing long, reusable blocks of code - by convention
 
 Let us begin by working with the following example.
 
-```{code-block} python
+```{code-cell} ipython3
 :caption: sine_wave.py
 :lineno-start: 1
 
@@ -68,17 +70,18 @@ plt.title('Sine Wave')
 plt.show()
 ```
 
-The code is first saved locally on the computer before it is executed. 
-
 As there are various ways to execute the code, we will explore them in the context of different development environments.
 
 One major advantage of using Python scripts lies in the fact that you can "import" functionality from other scripts into your current script or Jupyter Notebook. 
 
-Let's rewrite the earlier code into a function.
+Let's rewrite the earlier code into a function and write to to a file called `sine_wave.py`.
 
-```{code-block} python
+```{code-cell} ipython3
 :caption: sine_wave.py
 :lineno-start: 1
+
+%%writefile sine_wave.py
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -94,7 +97,7 @@ def plot_wave(title : str = 'Sine Wave'):
   plt.show()
 ```
 
-```{code-block} python
+```{code-cell} ipython3
 :caption: second_script.py
 :lineno-start: 1
 
@@ -345,9 +348,7 @@ In case you already haven't, try
 
 For example, if you've installed the command line version, open up a terminal and enter.
 
-```{code-block} bash
-:class: no-execute
-
+```bash
 git clone https://github.com/QuantEcon/QuantEcon.py
 ```
 (This is just `git clone` in front of the URL for the repository)

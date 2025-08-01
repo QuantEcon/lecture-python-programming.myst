@@ -150,7 +150,7 @@ the row index (`.unstack()` works in the opposite direction - try it
 out)
 
 ```{code-cell} ipython3
-realwage.stack().head()
+realwage.stack(future_stack=True).head()
 ```
 
 We can also pass in an argument to select the level we would like to
@@ -432,7 +432,7 @@ plt.show()
 summary statistics
 
 ```{code-cell} ipython3
-merged.stack().describe()
+merged.stack(future_stack=True).describe()
 ```
 
 This is a simplified way to use `groupby`.
