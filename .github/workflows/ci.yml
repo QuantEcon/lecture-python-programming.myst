@@ -43,7 +43,7 @@ jobs:
         run: |
           git clone https://github.com/kp992/mystmd.git
           cd mystmd
-          git checkout ipynb_option
+          git checkout md_ex_sol
           npm install
           npm run build
           npm install -g .
