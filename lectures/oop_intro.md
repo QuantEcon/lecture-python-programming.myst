@@ -60,6 +60,7 @@ We'll make use of the following third party library
 
 
 ```{code-cell} python3
+:tags: [hide-output]
 !pip install rich
 ```
 

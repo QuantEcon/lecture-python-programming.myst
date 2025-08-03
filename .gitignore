@@ -7,6 +7,7 @@ dask-worker-space
 .ipynb_checkpoints/
 .virtual_documents/
 
+lectures/sine_wave.py
 lectures/mathfoo.py
 lectures/mod.py
 lectures/test.py

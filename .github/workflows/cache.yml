@@ -1,8 +1,9 @@
 name: Build Cache [using jupyter-book]
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    # Execute cache weekly at 3am on Monday
+    - cron:  '0 3 * * 1'
+  workflow_dispatch:
 jobs:
   cache:
     runs-on: ubuntu-latest
@@ -14,7 +15,7 @@ jobs:
           auto-update-conda: true
           auto-activate-base: true
           miniconda-version: 'latest'
-          python-version: "3.12"
+          python-version: "3.13"
           environment-file: environment.yml
           activate-environment: quantecon
       - name: Build HTML

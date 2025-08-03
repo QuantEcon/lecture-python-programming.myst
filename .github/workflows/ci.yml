@@ -20,18 +20,6 @@ jobs:
         with:
           node-version: 18.x
 
-      - name: Install Python
-        if: steps.cache-execution.outputs.cache-hit != 'true'
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          cache: 'pip'
-          cache-dependency-path: 'myst_requirements.txt'
-
-      - name: Install execution requirements
-        if: steps.cache-execution.outputs.cache-hit != 'true'
-        run: python -m pip install -r myst_requirements.txt
-
       # - name: Install jupyter book 2.0
       #   run: pip install "jupyter-book>=2.0.0a0"
 
