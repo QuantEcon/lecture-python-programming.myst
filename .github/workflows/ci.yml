@@ -40,8 +40,8 @@ jobs:
       - name: Build HTML
         working-directory: ./lectures
         run: |
-          myst build --ipynb --execute
-          myst build --html
+          myst build --ipynb
+          myst build --html --execute
 
       - name: Upload build output
         uses: actions/upload-pages-artifact@v3
