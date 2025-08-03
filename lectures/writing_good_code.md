@@ -7,21 +7,17 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/writing_good_code.ipynb
+downloads:
+  - file: ./writing_good_code.md
+    title: Markdown (md)
+  - file: exports/writing_good_code.ipynb
+    title: IPython (.ipynb)
 ---
 
-(writing_good_code)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
-```
-
 # Writing Good Code
-
-```{index} single: Models; Code style
-```
 
 ```{epigraph}
 "Any fool can write code that a computer can understand. Good programmers write code that humans can understand." -- Martin Fowler
@@ -216,7 +212,7 @@ While the odd global in small scripts is no big deal, we recommend that you teac
 
 For scientific computing, there is another good reason to avoid global variables.
 
-As {doc}`we've seen in previous lectures <numba>`, JIT compilation can generate excellent performance for scripting languages like Python.
+As [we've seen in previous lectures](numba.md), JIT compilation can generate excellent performance for scripting languages like Python.
 
 But the task of the compiler used for JIT compilation becomes harder when global variables are present.
 

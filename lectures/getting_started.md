@@ -7,35 +7,18 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/getting_started.ipynb
+downloads:
+  - file: ./getting_started.md
+    title: Markdown (md)
+  - file: exports/getting_started.ipynb
+    title: IPython (.ipynb)
 ---
-
-(getting_started)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
-```
-
-<!-- TODO: Review this styling -->
-
-<style>
-  .auto {
-    width: 70%;
-    height: auto;
-    } 
-  .terminal{
-    width: 80%;
-    height: auto;
-  }  
-</style>
-
 
 # Getting Started
 
-```{index} single: Python
-```
 
 ## Overview
 
@@ -104,8 +87,6 @@ Anaconda also comes with a package management system to organize your code libra
 (install_anaconda)=
 ### Installing Anaconda
 
-```{index} single: Python; Anaconda
-```
 
 To install Anaconda, [download](https://www.anaconda.com/download/) the binary and follow the instructions.
 
@@ -128,16 +109,7 @@ As a practice run, please execute the following
 For more information on conda, type conda help in a terminal.
 
 (ipython_notebook)=
-## {index}`Jupyter Notebooks <single: Jupyter Notebooks>`
-
-```{index} single: Python; IPython
-```
-
-```{index} single: IPython
-```
-
-```{index} single: Jupyter
-```
+## Jupyter Notebook
 
 [Jupyter](http://jupyter.org/) notebooks are one of the many possible ways to interact with Python and the scientific libraries.
 
@@ -166,8 +138,6 @@ These lectures are designed for executing in Jupyter notebooks.
 
 ### Starting the Jupyter Notebook
 
-```{index} single: Jupyter Notebook; Setup
-```
 
 Once you have installed Anaconda, you can start the Jupyter notebook.
 
@@ -212,8 +182,6 @@ The notebook displays an *active cell*, into which you can type Python commands.
 
 ### Notebook Basics
 
-```{index} single: Jupyter Notebook; Basics
-```
 
 Let's start with how to edit code and run simple programs.
 
@@ -328,8 +296,6 @@ In this way, the Tab key helps remind you of what's available and also saves you
 (gs_help)=
 #### On-Line Help
 
-```{index} single: Jupyter Notebook; Help
-```
 
 To get help on `np.random.randn`, we can execute `np.random.randn?`.
 
@@ -366,8 +332,6 @@ Now we `Shift+Enter` to produce this
 
 ### Debugging Code
 
-```{index} single: Jupyter Notebook; Debugging
-```
 
 Debugging is the process of identifying and removing errors from a program. 
 
@@ -376,7 +340,7 @@ You will spend a lot of time debugging code, so it is important to [learn how to
 If you are using a newer version of Jupyter, you should see a bug icon on the right end of the toolbar.
 
 ```{figure} /_static/lecture_specific/getting_started/debug.png
-:scale: 50%
+:width: 80%
 :figclass: auto
 ```
 
@@ -402,11 +366,6 @@ You can explore more functionality of the debugger in the [Jupyter documentation
 
 ### Sharing Notebooks
 
-```{index} single: Jupyter Notebook; Sharing
-```
-
-```{index} single: Jupyter Notebook; nbviewer
-```
 
 Notebook files are just text files structured in [JSON](https://en.wikipedia.org/wiki/JSON) and typically ending with `.ipynb`.
 
@@ -438,10 +397,6 @@ Notebooks submitted to QuantEcon Notes can be shared with a link, and are open
 to comments and votes by the community.
 
 ## Installing Libraries
-
-(gs_qe)=
-```{index} single: QuantEcon
-```
 
 Most of the libraries we need come in Anaconda.
 
@@ -520,10 +475,8 @@ following questions:
 1. how should you execute it?
 1. How should you modify or edit it?
 
-#### Option 1: {index}`JupyterLab <single: JupyterLab>`
+#### Option 1: JupyterLab
 
-```{index} single: JupyterLab
-```
 
 [JupyterLab](https://github.com/jupyterlab/jupyterlab) is an integrated development environment built on top of Jupyter notebooks.
 

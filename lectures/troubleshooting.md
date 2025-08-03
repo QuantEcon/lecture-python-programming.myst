@@ -7,16 +7,16 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/troubleshooting.ipynb
+downloads:
+  - file: ./troubleshooting.md
+    title: Markdown (md)
+  - file: exports/troubleshooting.ipynb
+    title: IPython (.ipynb)
 ---
 
-(troubleshooting)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
-```
 
 # Troubleshooting
 
@@ -29,7 +29,7 @@ The basic assumption of the lectures is that code in a lecture should execute wh
 1. it is executed in a Jupyter notebook and
 1. the notebook is running on a machine with the latest version of Anaconda Python.
 
-You have installed Anaconda, haven't you, following the instructions in {doc}`this lecture <getting_started>`?
+You have installed Anaconda, haven't you, following the instructions in [this lecture](getting_started.md)?
 
 Assuming that you have, the most common source of problems for our readers is that their Anaconda distribution is not up to date.
 

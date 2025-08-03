@@ -7,16 +7,15 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/need_for_speed.ipynb
+downloads:
+  - file: ./need_for_speed.md
+    title: Markdown (md)
+  - file: exports/need_for_speed.ipynb
+    title: IPython (.ipynb)
 ---
-
-(speed)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
-```
 
 # Python for Scientific Computing
 
@@ -50,9 +49,8 @@ We'll also discuss the following topics:
 In addition to what's in Anaconda, this lecture will need
 
 ```{code-cell} ipython
----
-tags: [hide-output]
----
+:tags: hide-output
+
 !pip install quantecon
 ```
 
@@ -160,8 +158,6 @@ In reading the following, remember that the Python interpreter executes code lin
 
 #### Dynamic Typing
 
-```{index} single: Dynamic Typing
-```
 
 Consider this Python operation
 
@@ -199,8 +195,6 @@ This involves substantial overheads.
 
 #### Static Types
 
-```{index} single: Static Types
-```
 
 Compiled languages avoid these overheads with explicit, static types.
 
@@ -271,10 +265,8 @@ Let's look at some ways around these problems.
 
 
 
-## {index}`Vectorization <single: Vectorization>`
+## Vectorization
 
-```{index} single: Python; Vectorization
-```
 
 One method for avoiding memory traffic and type checking is [array programming](https://en.wikipedia.org/wiki/Array_programming). 
 

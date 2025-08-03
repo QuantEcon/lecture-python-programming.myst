@@ -7,21 +7,18 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/functions.ipynb
+downloads:
+  - file: ./functions.md
+    title: Markdown (md)
+  - file: exports/functions.ipynb
+    title: IPython (.ipynb)
 ---
-
-(functions)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
-```
 
 # Functions
 
-```{index} single: Python; User-defined functions
-```
 
 ## Overview
 
@@ -82,7 +79,7 @@ The full list of Python built-ins is [here](https://docs.python.org/library/func
 If the built-in functions don't cover what we need, we either need to import
 functions or create our own.
 
-Examples of importing and using functions were given in the {doc}`previous lecture <python_by_example>`
+Examples of importing and using functions were given in the [previous lecture](python_by_example.md)
 
 Here's another one, which tests whether a given year is a leap year:
 
@@ -167,10 +164,8 @@ Functions without a return statement automatically return the special Python obj
 (pos_args)=
 ### Keyword Arguments
 
-```{index} single: Python; keyword arguments
-```
 
-In a {ref}`previous lecture <python_by_example>`, you came across the statement
+In a [previous lecture](python_by_example.md), you came across the statement
 
 ```{code-block} python3
 :class: no-execute
@@ -212,7 +207,7 @@ f(2, a=4, b=5)
 
 ### The Flexibility of Python Functions
 
-As we discussed in the {ref}`previous lecture <python_by_example>`, Python functions are very flexible.
+As we discussed in the [previous lecture](python_by_example.md), Python functions are very flexible.
 
 In particular
 
@@ -226,8 +221,6 @@ a function in the following sections.
 
 ### One-Line Functions: `lambda`
 
-```{index} single: Python; lambda functions
-```
 
 The `lambda` keyword is used to create simple functions on one line.
 
@@ -272,13 +265,13 @@ User-defined functions are important for improving the clarity of your code by
 
 (Writing the same thing twice is [almost always a bad idea](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself))
 
-We will say more about this {doc}`later <writing_good_code>`.
+We will say more about this [later](writing_good_code.md).
 
 ## Applications
 
 ### Random Draws
 
-Consider again this code from the {doc}`previous lecture <python_by_example>`
+Consider again this code from the [previous lecture](python_by_example.md)
 
 ```{code-cell} python3
 ts_length = 100
@@ -301,7 +294,6 @@ We will break this program into two parts:
 
 This is accomplished in the next program
 
-(funcloopprog)=
 ```{code-cell} python3
 def generate_data(n):
     ϵ_values = []
@@ -321,8 +313,6 @@ The net result is that the name `data` is *bound* to the list `ϵ_values` return
 
 ### Adding Conditions
 
-```{index} single: Python; Conditions
-```
 
 Our function `generate_data()` is rather limited.
 
@@ -330,7 +320,6 @@ Let's make it slightly more useful by giving it the ability to return either sta
 
 This is achieved in the next piece of code.
 
-(funcloopprog2)=
 ```{code-cell} python3
 def generate_data(n, generator_type):
     ϵ_values = []
@@ -362,7 +351,6 @@ For example, we can get rid of the conditionals all together by just passing the
 
 To understand this, consider the following version.
 
-(test_program_6)=
 ```{code-cell} python3
 def generate_data(n, generator_type):
     ϵ_values = []
@@ -407,8 +395,6 @@ function*---as we did above.
 (recursive_functions)=
 ## Recursive Function Calls (Advanced)
 
-```{index} single: Python; Recursion
-```
 
 This is an advanced topic that you should feel free to skip.
 
@@ -458,7 +444,6 @@ This example is somewhat contrived, since the first (iterative) solution would u
 We'll meet less contrived applications of recursion later on.
 
 
-(factorial_exercise)=
 ## Exercises
 
 ```{exercise-start}

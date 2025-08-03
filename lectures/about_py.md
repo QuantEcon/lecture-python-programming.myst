@@ -7,19 +7,16 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+exports:
+  - format: ipynb
+    output: exports/about_py.ipynb
+downloads:
+  - file: ./about_py.md
+    title: Markdown (md)
+  - file: exports/about_py.ipynb
+    title: IPython (.ipynb)
 ---
 
-(about_py)=
-```{raw} jupyter
-<div id="qe-notebook-header" align="right" style="text-align:right;">
-        <a href="https://quantecon.org/" title="quantecon.org">
-                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
-        </a>
-</div>
-```
-
-```{index} single: python
-```
 
 # About These Lectures
 
@@ -100,8 +97,7 @@ This is important because it
 
 ### Common Uses
 
-{index}`Python <single: Python; common uses>` is a general-purpose language used
-in almost all application domains, including
+Python is a general-purpose language used in almost all application domains, including
 
 * AI and computer science
 * other scientific computing
@@ -158,8 +154,6 @@ Python is flexible and pragmatic, supporting multiple programming styles (proced
 
 ### Syntax and Design
 
-```{index} single: Python; syntax and design
-```
 
 One reason for Python's popularity is its simple and elegant design.
 
@@ -268,8 +262,6 @@ These lectures will explain how.
 
 ## Scientific Programming with Python
 
-```{index} single: scientific programming
-```
 
 We have already discussed the importance of Python for AI, machine learning and data science
 
@@ -289,9 +281,6 @@ This section briefly showcases some examples of Python for general scientific pr
 
 
 ### NumPy
-
-```{index} single: scientific programming; numeric
-```
 
 One of the most important parts of scientific computing is working with data.
 
@@ -395,8 +384,6 @@ Later we'll discuss SciPy in more detail.
 
 ### Graphics
 
-```{index} single: Matplotlib
-```
 
 A major strength of Python is data visualization.
 
@@ -409,13 +396,13 @@ The most popular and comprehensive Python library for creating figures and graph
 Example 2D plot with embedded LaTeX annotations
 
 ```{figure} /_static/lecture_specific/about_py/qs.png
-:scale: 75
+:width: 75%
 ```
 
 Example contour plot
 
 ```{figure} /_static/lecture_specific/about_py/bn_density1.png
-:scale: 70
+:width: 70%
 ```
 
 Example 3D plot
@@ -449,8 +436,6 @@ For example, we are interesting in studying
 
 Python has many libraries for studying networks and graphs.
 
-```{index} single: NetworkX
-```
 
 One well-known example is [NetworkX](http://networkx.github.io/).
 
