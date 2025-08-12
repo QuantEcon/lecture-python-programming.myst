@@ -56,7 +56,7 @@ Another is that the set of algorithms that can be entirely vectorized is not uni
 
 In fact, for some algorithms, vectorization is ineffective.
 
-Fortunately, a new Python library called [Numba](http://numba.pydata.org/)
+Fortunately, a new Python library called [Numba](https://numba.pydata.org/)
 solves many of these problems.
 
 It does so through something called **just in time (JIT) compilation**.
