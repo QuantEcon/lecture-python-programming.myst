@@ -510,7 +510,7 @@ print("foobar")
 
 This writes the line `print("foobar")` into a file called `foo.py` in the local directory.
 
-Here `%%writefile` is an example of a [cell magic](http://ipython.readthedocs.org/en/stable/interactive/magics.html#cell-magics).
+Here `%%writefile` is an example of a [cell magic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cell-magics).
 
 ### Editing and Execution
 

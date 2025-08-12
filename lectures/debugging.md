@@ -254,7 +254,7 @@ There are many other useful magics:
 * `%whos` gives a list of variables and their values
 * `%quickref` gives a list of magics
 
-The full list of magics is [here](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
+The full list of magics is [here](https://ipython.readthedocs.io/en/stable/interactive/magics.html).
 
 
 ## Handling Errors
