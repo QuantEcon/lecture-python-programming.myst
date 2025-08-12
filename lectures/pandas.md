@@ -36,7 +36,7 @@ In addition to what’s in Anaconda, this lecture will need the following librar
 
 ## Overview
 
-[Pandas](http://pandas.pydata.org/) is a package of fast, efficient data analysis tools for Python.
+[Pandas](https://pandas.pydata.org/) is a package of fast, efficient data analysis tools for Python.
 
 Its popularity has surged in recent years, coincident with the rise
 of fields such as data science and machine learning.
@@ -47,7 +47,7 @@ Here's a popularity comparison over time against Matlab and STATA courtesy of St
 :scale: 100
 ```
 
-Just as [NumPy](http://www.numpy.org/) provides the basic array data type plus core array operations, pandas
+Just as [NumPy](https://www.numpy.org/) provides the basic array data type plus core array operations, pandas
 
 1. defines fundamental structures for working with data and
 1. endows them with methods that facilitate operations such as
@@ -58,7 +58,7 @@ Just as [NumPy](http://www.numpy.org/) provides the basic array data type plus c
     * dealing with missing values, etc., etc.
 
 More sophisticated statistical functionality is left to other packages, such
-as [statsmodels](http://www.statsmodels.org/) and [scikit-learn](http://scikit-learn.org/), which are built on top of pandas.
+as [statsmodels](https://www.statsmodels.org/) and [scikit-learn](https://scikit-learn.org/), which are built on top of pandas.
 
 This lecture will provide a basic introduction to pandas.
 
@@ -536,7 +536,7 @@ In the second case, you can either
 * switch to another machine
 * solve your proxy problem by reading [the documentation](https://requests.readthedocs.io/en/master/)
 
-Assuming that all is working, you can now proceed to use the `source` object returned by the call `requests.get('http://research.stlouisfed.org/fred2/series/UNRATE/downloaddata/UNRATE.csv')`
+Assuming that all is working, you can now proceed to use the `source` object returned by the call `requests.get('https://research.stlouisfed.org/fred2/series/UNRATE/downloaddata/UNRATE.csv')`
 
 ```{code-cell} ipython3
 url = 'https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23e1e9f0&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1318&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=UNRATE&scale=left&cosd=1948-01-01&coed=2024-06-01&line_color=%234572a7&link_values=false&line_style=solid&mark_type=none&mw=3&lw=2&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2024-07-29&revision_date=2024-07-29&nd=1948-01-01'
@@ -604,9 +604,9 @@ in the exercises.
 For now let's work through one example of downloading and plotting data --- this
 time from the World Bank.
 
-The World Bank [collects and organizes data](http://data.worldbank.org/indicator) on a huge range of indicators.
+The World Bank [collects and organizes data](https://data.worldbank.org/indicator) on a huge range of indicators.
 
-For example, [here's](http://data.worldbank.org/indicator/GC.DOD.TOTL.GD.ZS/countries) some data on government debt as a ratio to GDP.
+For example, [here's](https://data.worldbank.org/indicator/GC.DOD.TOTL.GD.ZS/countries) some data on government debt as a ratio to GDP.
 
 The next code example fetches the data for you and plots time series for the US and Australia
 

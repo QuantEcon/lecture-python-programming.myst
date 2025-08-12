@@ -235,7 +235,7 @@ Even if you don't yet know Python, you can see that the code is far simpler and 
 import csv
 
 total, count = 0, 0
-with open(data.csv, mode='r') as file:
+with open('data.csv', mode='r') as file:
     reader = csv.reader(file)
     for row in reader:
         try:
@@ -311,7 +311,7 @@ But when we want to work with larger arrays in real programs we need more effici
 For this we need to use libraries for working with arrays.
 
 For Python, the most important matrix and array processing library is
-[NumPy](http://www.numpy.org/) library.
+[NumPy](https://www.numpy.org/) library.
 
 For example, let's build a NumPy array with 100 elements
 
@@ -365,7 +365,7 @@ This lecture series will provide you with extensive background in NumPy.
 
 ### SciPy
 
-The [SciPy](http://www.scipy.org) library is built on top of NumPy and provides additional functionality.
+The [SciPy](https://www.scipy.org) library is built on top of NumPy and provides additional functionality.
 
 (tuple_unpacking_example)=
 For example, let's calculate $\int_{-2}^2 \phi(z) dz$ where $\phi$ is the standard normal density.
@@ -381,14 +381,14 @@ value
 
 SciPy includes many of the standard routines used in
 
-* [linear algebra](http://docs.scipy.org/doc/scipy/reference/linalg.html)
-* [integration](http://docs.scipy.org/doc/scipy/reference/integrate.html)
-* [interpolation](http://docs.scipy.org/doc/scipy/reference/interpolate.html)
-* [optimization](http://docs.scipy.org/doc/scipy/reference/optimize.html)
-* [distributions and statistical techniques](http://docs.scipy.org/doc/scipy/reference/stats.html)
-* [signal processing](http://docs.scipy.org/doc/scipy/reference/signal.html)
+* [linear algebra](https://docs.scipy.org/doc/scipy/reference/linalg.html)
+* [integration](https://docs.scipy.org/doc/scipy/reference/integrate.html)
+* [interpolation](https://docs.scipy.org/doc/scipy/reference/interpolate.html)
+* [optimization](https://docs.scipy.org/doc/scipy/reference/optimize.html)
+* [distributions and statistical techniques](https://docs.scipy.org/doc/scipy/reference/stats.html)
+* [signal processing](https://docs.scipy.org/doc/scipy/reference/signal.html)
 
-See them all [here](http://docs.scipy.org/doc/scipy/reference/index.html).
+See them all [here](https://docs.scipy.org/doc/scipy/reference/index.html).
 
 Later we'll discuss SciPy in more detail.
 
@@ -400,7 +400,7 @@ Later we'll discuss SciPy in more detail.
 
 A major strength of Python is data visualization.
 
-The most popular and comprehensive Python library for creating figures and graphs is [Matplotlib](http://matplotlib.org/), with functionality including
+The most popular and comprehensive Python library for creating figures and graphs is [Matplotlib](https://matplotlib.org/), with functionality including
 
 * plots, histograms, contour images, 3D graphs, bar charts etc.
 * output in many formats (PDF, PNG, EPS, etc.)
@@ -427,10 +427,10 @@ More examples can be found in the [Matplotlib thumbnail gallery](https://matplot
 
 Other graphics libraries include
 
-* [Plotly](https://plot.ly/python/)
+* [Plotly](https://plotly.com/python/)
 * [seaborn](https://seaborn.pydata.org/) --- a high-level interface for matplotlib
 * [Altair](https://altair-viz.github.io/)
-* [Bokeh](http://bokeh.pydata.org/en/latest/)
+* [Bokeh](https://bokeh.pydata.org/en/latest/)
 
 You can visit the [Python Graph Gallery](https://www.python-graph-gallery.com/) for more example plots drawn using a variety of libraries.
 
@@ -452,7 +452,7 @@ Python has many libraries for studying networks and graphs.
 ```{index} single: NetworkX
 ```
 
-One well-known example is [NetworkX](http://networkx.github.io/).
+One well-known example is [NetworkX](https://networkx.org/).
 
 Its features include, among many other things:
 
@@ -503,14 +503,14 @@ firms.
 Here's a short list of some important scientific libraries for Python not
 mentioned above.
 
-* [SymPy](http://www.sympy.org/) for symbolic algebra, including limits, derivatives and integrals
-* [statsmodels](http://statsmodels.sourceforge.net/) for statistical routines
-* [scikit-learn](http://scikit-learn.org/) for machine learning 
+* [SymPy](https://www.sympy.org/) for symbolic algebra, including limits, derivatives and integrals
+* [statsmodels](https://www.statsmodels.org/) for statistical routines
+* [scikit-learn](https://scikit-learn.org/) for machine learning 
 * [Keras](https://keras.io/) for machine learning
-* [Pyro](https://pyro.ai/) and [PyStan](https://pystan.readthedocs.org/en/latest/) for Bayesian data analysis 
+* [Pyro](https://pyro.ai/) and [PyStan](https://pystan.readthedocs.io/en/latest/) for Bayesian data analysis 
 * [GeoPandas](https://geopandas.org/en/stable/) for spatial data analysis
 * [Dask](https://docs.dask.org/en/stable/) for parallelization
-* [Numba](http://numba.pydata.org/) for making Python run at the same speed as native machine code
+* [Numba](https://numba.pydata.org/) for making Python run at the same speed as native machine code
 * [CVXPY](https://www.cvxpy.org/) for convex optimization 
 * [scikit-image](https://scikit-image.org/) and [OpenCV](https://opencv.org/) for processing and analyzing image data
 * [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) for extracting data from HTML and XML files

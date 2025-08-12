@@ -27,6 +27,14 @@ kernelspec:
 "Let's be clear: the work of science has nothing whatever to do with consensus.  Consensus is the business of politics. Science, on the contrary, requires only one investigator who happens to be right, which means that he or she has results that are verifiable by reference to the real world. In science consensus is irrelevant. What is relevant is reproducible results." -- Michael Crichton
 ```
 
+In addition to what's in Anaconda, this lecture will need the following libraries:
+
+```{code-cell} ipython3
+:tags: [hide-output]
+
+!pip install quantecon
+```
+
 ## Overview
 
 [NumPy](https://en.wikipedia.org/wiki/NumPy) is a first-rate library for numerical programming
@@ -42,7 +50,7 @@ In this lecture, we will start a more systematic discussion of
 1. the fundamental array processing operations provided by NumPy.
 
 
-(For an alternative reference, see [the official NumPy documentation](http://docs.scipy.org/doc/numpy/reference/).)
+(For an alternative reference, see [the official NumPy documentation](https://docs.scipy.org/doc/numpy/reference/).)
 
 We will use the following imports.
 
@@ -64,11 +72,11 @@ from matplotlib import cm
 The essential problem that NumPy solves is fast array processing.
 
 The most important structure that NumPy defines is an array data type, formally
-called a [numpy.ndarray](http://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html).
+called a [numpy.ndarray](https://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html).
 
 NumPy arrays power a very large proportion of the scientific Python ecosystem.
 
-To create a NumPy array containing only zeros we use  [np.zeros](http://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros)
+To create a NumPy array containing only zeros we use  [np.zeros](https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros)
 
 ```{code-cell} python3
 a = np.zeros(3)
@@ -212,7 +220,7 @@ na is np.array(na)     # Does make a new copy --- perhaps unnecessarily
 ```
 
 To read in the array data from a text file containing numeric data use `np.loadtxt`
-or `np.genfromtxt`---see [the documentation](http://docs.scipy.org/doc/numpy/reference/routines.io.html) for details.
+or `np.genfromtxt`---see [the documentation](https://docs.scipy.org/doc/numpy/reference/routines.io.html) for details.
 
 ### Array Indexing
 
@@ -456,7 +464,7 @@ B = np.ones((2, 2))
 A @ B
 ```
 
-(For older versions of Python and NumPy you need to use the [np.dot](http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html) function)
+(For older versions of Python and NumPy you need to use the [np.dot](https://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html) function)
 
 We can also use `@` to take the inner product of two flat arrays
 
@@ -526,7 +534,7 @@ Here is a visual representation of this broadcasting operation:
 tags: [hide-input]
 ---
 # Adapted and modified based on the code in the book written by Jake VanderPlas (see https://jakevdp.github.io/PythonDataScienceHandbook/06.00-figure-code.html#Broadcasting)
-# Originally from astroML: see http://www.astroml.org/book_figures/appendix/fig_broadcast_visual.html
+# Originally from astroML: see https://www.astroml.org/book_figures/appendix/fig_broadcast_visual.html
 
 
 def draw_cube(ax, xy, size, depth=0.4,
@@ -1155,7 +1163,7 @@ np.linalg.inv(A)           # Compute the inverse
 ```{index} single: Python; SciPy
 ```
 
-Much of this functionality is also available in [SciPy](http://www.scipy.org/), a collection of modules that are built on top of NumPy.
+Much of this functionality is also available in [SciPy](https://www.scipy.org/), a collection of modules that are built on top of NumPy.
 
 We'll cover the SciPy versions in more detail {doc}`soon <scipy>`.
 

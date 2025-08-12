@@ -206,7 +206,7 @@ But global variables are dangerous, especially in medium to large size programs,
 
 This makes it much harder to be certain about what some  small part of a given piece of code actually commands.
 
-Here's a [useful discussion on the topic](http://wiki.c2.com/?GlobalVariablesAreBad).
+Here's a [useful discussion on the topic](https://wiki.c2.com/?GlobalVariablesAreBad).
 
 While the odd global in small scripts is no big deal, we recommend that you teach yourself to avoid them.
 

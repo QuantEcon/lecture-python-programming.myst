@@ -25,7 +25,7 @@ kernelspec:
 
 ## Overview
 
-We've already generated quite a few figures in these lectures using [Matplotlib](http://matplotlib.org/).
+We've already generated quite a few figures in these lectures using [Matplotlib](https://matplotlib.org/).
 
 Matplotlib is an outstanding graphics library, designed for scientific computing, with
 
@@ -438,9 +438,9 @@ plt.rcParams['figure.figsize'] = (10, 6)
 
 ## Further Reading
 
-* The [Matplotlib gallery](http://matplotlib.org/gallery.html) provides many examples.
-* A nice [Matplotlib tutorial](http://scipy-lectures.org/intro/matplotlib/index.html) by Nicolas Rougier, Mike Muller and Gael Varoquaux.
-* [mpltools](http://tonysyu.github.io/mpltools/index.html) allows easy
+* The [Matplotlib gallery](https://matplotlib.org/stable/gallery/index.html) provides many examples.
+* A nice [Matplotlib tutorial](https://scipy-lectures.org/intro/matplotlib/index.html) by Nicolas Rougier, Mike Muller and Gael Varoquaux.
+* [mpltools](https://tonysyu.github.io/mpltools/index.html) allows easy
   switching between plot styles.
 * [Seaborn](https://github.com/mwaskom/seaborn) facilitates common statistics plots in Matplotlib.
 

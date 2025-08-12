@@ -139,7 +139,7 @@ For more information on conda, type conda help in a terminal.
 ```{index} single: Jupyter
 ```
 
-[Jupyter](http://jupyter.org/) notebooks are one of the many possible ways to interact with Python and the scientific libraries.
+[Jupyter](https://jupyter.org/) notebooks are one of the many possible ways to interact with Python and the scientific libraries.
 
 They use  a *browser-based* interface to Python with
 
@@ -149,7 +149,7 @@ They use  a *browser-based* interface to Python with
 
 Because of these features, Jupyter is now a major player in the scientific computing ecosystem.
 
-Here's an image showing execution of some code (borrowed from [here](http://matplotlib.org/examples/pylab_examples/hexbin_demo.html)) in a Jupyter notebook
+Here's an image showing execution of some code (borrowed from [here](https://matplotlib.org/stable/gallery/statistics/hexbin_demo.html)) in a Jupyter notebook
 
 ```{figure} /_static/lecture_specific/getting_started/jp_demo.png
 :figclass: auto
@@ -269,7 +269,7 @@ In a code cell, try typing `\alpha` and then hitting the tab key on your keyboar
 
 Let's run a test program.
 
-Here's an arbitrary program we can use: [http://matplotlib.org/3.1.1/gallery/pie_and_polar_charts/polar_bar.html](http://matplotlib.org/3.1.1/gallery/pie_and_polar_charts/polar_bar.html).
+Here's an arbitrary program we can use: [https://matplotlib.org/stable/gallery/pie_and_polar_charts/polar_bar.html](https://matplotlib.org/stable/gallery/pie_and_polar_charts/polar_bar.html).
 
 On that page, you'll see the following code
 
@@ -350,7 +350,7 @@ In addition to executing code, the Jupyter notebook allows you to embed text, eq
 For example, we can enter a mixture of plain text and LaTeX instead of code.
 
 Next we `Esc` to enter command mode and then type `m` to indicate that we
-are writing [Markdown](http://daringfireball.net/projects/markdown/), a mark-up language similar to (but simpler than) LaTeX.
+are writing [Markdown](https://daringfireball.net/projects/markdown/), a mark-up language similar to (but simpler than) LaTeX.
 
 (You can also use your mouse to select `Markdown` from the `Code` drop-down box just below the list of menu items)
 
@@ -410,7 +410,7 @@ You can explore more functionality of the debugger in the [Jupyter documentation
 
 Notebook files are just text files structured in [JSON](https://en.wikipedia.org/wiki/JSON) and typically ending with `.ipynb`.
 
-You can share them in the usual way that you share files --- or by using web services such as [nbviewer](http://nbviewer.jupyter.org/).
+You can share them in the usual way that you share files --- or by using web services such as [nbviewer](https://nbviewer.jupyter.org/).
 
 The notebooks you see on that site are **static** html representations.
 
@@ -510,7 +510,7 @@ print("foobar")
 
 This writes the line `print("foobar")` into a file called `foo.py` in the local directory.
 
-Here `%%writefile` is an example of a [cell magic](http://ipython.readthedocs.org/en/stable/interactive/magics.html#cell-magics).
+Here `%%writefile` is an example of a [cell magic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cell-magics).
 
 ### Editing and Execution
 
@@ -553,7 +553,7 @@ Right now, an extremely popular text editor for coding is [VS Code](https://code
 
 VS Code is easy to use out of the box and has many high quality extensions.
 
-Alternatively, if you want an outstanding free text editor and don't mind a seemingly vertical learning curve plus long days of pain and suffering while all your neural pathways are rewired, try [Vim](http://www.vim.org/).
+Alternatively, if you want an outstanding free text editor and don't mind a seemingly vertical learning curve plus long days of pain and suffering while all your neural pathways are rewired, try [Vim](https://www.vim.org/).
 
 ## Exercises
 
