@@ -4,7 +4,7 @@ jobs:
   preview:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Setup Anaconda
         uses: conda-incubator/setup-miniconda@v3
         with:
