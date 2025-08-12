@@ -139,7 +139,7 @@ For more information on conda, type conda help in a terminal.
 ```{index} single: Jupyter
 ```
 
-[Jupyter](http://jupyter.org/) notebooks are one of the many possible ways to interact with Python and the scientific libraries.
+[Jupyter](https://jupyter.org/) notebooks are one of the many possible ways to interact with Python and the scientific libraries.
 
 They use  a *browser-based* interface to Python with
 
@@ -149,7 +149,7 @@ They use  a *browser-based* interface to Python with
 
 Because of these features, Jupyter is now a major player in the scientific computing ecosystem.
 
-Here's an image showing execution of some code (borrowed from [here](http://matplotlib.org/examples/pylab_examples/hexbin_demo.html)) in a Jupyter notebook
+Here's an image showing execution of some code (borrowed from [here](https://matplotlib.org/stable/gallery/statistics/hexbin_demo.html)) in a Jupyter notebook
 
 ```{figure} /_static/lecture_specific/getting_started/jp_demo.png
 :figclass: auto

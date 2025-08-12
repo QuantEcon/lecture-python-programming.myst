@@ -440,7 +440,7 @@ plt.rcParams['figure.figsize'] = (10, 6)
 
 * The [Matplotlib gallery](https://matplotlib.org/stable/gallery/index.html) provides many examples.
 * A nice [Matplotlib tutorial](https://scipy-lectures.org/intro/matplotlib/index.html) by Nicolas Rougier, Mike Muller and Gael Varoquaux.
-* [mpltools](http://tonysyu.github.io/mpltools/index.html) allows easy
+* [mpltools](https://tonysyu.github.io/mpltools/index.html) allows easy
   switching between plot styles.
 * [Seaborn](https://github.com/mwaskom/seaborn) facilitates common statistics plots in Matplotlib.
 
