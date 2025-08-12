@@ -27,6 +27,14 @@ kernelspec:
 "Let's be clear: the work of science has nothing whatever to do with consensus.  Consensus is the business of politics. Science, on the contrary, requires only one investigator who happens to be right, which means that he or she has results that are verifiable by reference to the real world. In science consensus is irrelevant. What is relevant is reproducible results." -- Michael Crichton
 ```
 
+In addition to what's in Anaconda, this lecture will need the following libraries:
+
+```{code-cell} ipython3
+:tags: [hide-output]
+
+!pip install quantecon
+```
+
 ## Overview
 
 [NumPy](https://en.wikipedia.org/wiki/NumPy) is a first-rate library for numerical programming
