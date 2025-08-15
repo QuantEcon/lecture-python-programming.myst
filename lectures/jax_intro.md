@@ -21,7 +21,7 @@ In addition to what's in Anaconda, this lecture will need the following librarie
 !pip install jax
 ```
 
-This lecture provides a short introduction to [Google JAX](https://github.com/google/jax).
+This lecture provides a short introduction to [Google JAX](https://github.com/jax-ml/jax).
 
 Here we are focused on using JAX on the CPU, rather than on accelerators such as
 GPUs or TPUs.
@@ -620,7 +620,7 @@ x.nbytes  # and y is just a pointer to x
 
 This extra memory usage can be a big problem in actual research calculations.
 
-So let's try a different approach using [jax.vmap](https://jax.readthedocs.io/en/latest/_autosummary/jax.vmap.html)
+So let's try a different approach using [jax.vmap](https://docs.jax.dev/en/latest/_autosummary/jax.vmap.html)
 
 +++
 

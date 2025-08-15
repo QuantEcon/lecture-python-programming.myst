@@ -107,7 +107,7 @@ Anaconda also comes with a package management system to organize your code libra
 ```{index} single: Python; Anaconda
 ```
 
-To install Anaconda, [download](https://www.anaconda.com/download/) the binary and follow the instructions.
+To install Anaconda, [download](https://www.anaconda.com/download) the binary and follow the instructions.
 
 Important points:
 
@@ -410,7 +410,7 @@ You can explore more functionality of the debugger in the [Jupyter documentation
 
 Notebook files are just text files structured in [JSON](https://en.wikipedia.org/wiki/JSON) and typically ending with `.ipynb`.
 
-You can share them in the usual way that you share files --- or by using web services such as [nbviewer](https://nbviewer.jupyter.org/).
+You can share them in the usual way that you share files --- or by using web services such as [nbviewer](https://nbviewer.org/).
 
 The notebooks you see on that site are **static** html representations.
 
@@ -424,7 +424,7 @@ If you are interested in sharing notebooks containing interactive content, you m
 To collaborate with other people on notebooks, you might want to take a look at
 
 - [Google Colab](https://colab.research.google.com/)
-- [Kaggle](https://www.kaggle.com/kernels)
+- [Kaggle](https://www.kaggle.com/code)
 
 To keep the code private and to use the familiar JupyterLab and Notebook interface, look into the [JupyterLab Real-Time Collaboration extension](https://jupyterlab-realtime-collaboration.readthedocs.io/en/latest/).
 ```
@@ -447,10 +447,10 @@ Most of the libraries we need come in Anaconda.
 
 Other libraries can be installed with `pip` or `conda`.
 
-One library we'll be using is [QuantEcon.py](http://quantecon.org/quantecon-py).
+One library we'll be using is [QuantEcon.py](https://quantecon.org/quantecon-py/).
 
 (gs_install_qe)=
-You can install [QuantEcon.py](http://quantecon.org/quantecon-py) by
+You can install [QuantEcon.py](https://quantecon.org/quantecon-py/) by
 starting Jupyter and typing
 
 ```{code-block} ipython3
@@ -469,7 +469,7 @@ Alternatively, you can type the following into a terminal
 conda install quantecon
 ```
 
-More instructions can be found on the [library page](http://quantecon.org/quantecon-py).
+More instructions can be found on the [library page](https://quantecon.org/quantecon-py/).
 
 To upgrade to the latest version, which you should do regularly, use
 

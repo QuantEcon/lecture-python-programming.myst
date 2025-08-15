@@ -44,7 +44,7 @@ In this lecture, you will learn to
 ```{note}
 Going forward, it is assumed that you have an Anaconda environment up and running.
 
-You may want to [create a new conda environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands) if you haven't done so already.
+You may want to [create a new conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands) if you haven't done so already.
 ```
 
 ## Working with Python files 
@@ -320,14 +320,14 @@ However, this is outside the focus of these lectures.
 
 This section will familiarize you with git and GitHub.
 
-[Git](http://git-scm.com/) is a *version control system* --- a piece of software used to manage digital projects such as code libraries.
+[Git](https://git-scm.com/) is a *version control system* --- a piece of software used to manage digital projects such as code libraries.
 
 In many cases, the associated collections of files --- called *repositories* --- are stored on [GitHub](https://github.com/).
 
 GitHub is a wonderland of collaborative coding projects.
 
 For example, it hosts many of the scientific libraries we'll be using later
-on, such as [this one](https://github.com/pydata/pandas).
+on, such as [this one](https://github.com/pandas-dev/pandas).
 
 Git is the underlying software used to manage these projects.
 
@@ -337,9 +337,9 @@ lectures.
 
 There are two main flavors of Git
 
-1. the plain vanilla [command line Git](http://git-scm.com/downloads) version
+1. the plain vanilla [command line Git](https://git-scm.com/downloads) version
 2. the various point-and-click GUI versions
-    * See, for example, the [GitHub version](https://desktop.github.com/) or Git GUI integrated into your IDE.
+    * See, for example, the [GitHub version](https://github.com/apps/desktop) or Git GUI integrated into your IDE.
 
 In case you already haven't, try
 
@@ -361,11 +361,11 @@ As the 2nd task,
 1. Look into 'forking' GitHub repositories (forking means making your own copy of a GitHub repository, stored on GitHub).
 1. Fork [QuantEcon.py](https://github.com/QuantEcon/QuantEcon.py).
 1. Clone your fork to some local directory, make edits, commit them, and push them back up to your forked GitHub repo.
-1. If you made a valuable improvement, send us a [pull request](https://help.github.com/articles/about-pull-requests/)!
+1. If you made a valuable improvement, send us a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)!
 
 For reading on these and other topics, try
 
-* [The official Git documentation](http://git-scm.com/doc).
+* [The official Git documentation](https://git-scm.com/doc).
 * Reading through the docs on [GitHub](https://docs.github.com/en).
-* [Pro Git Book](http://git-scm.com/book) by Scott Chacon and Ben Straub.
+* [Pro Git Book](https://git-scm.com/book) by Scott Chacon and Ben Straub.
 * One of the thousands of Git tutorials on the Net.

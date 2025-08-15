@@ -50,7 +50,7 @@ In this lecture, we will start a more systematic discussion of
 1. the fundamental array processing operations provided by NumPy.
 
 
-(For an alternative reference, see [the official NumPy documentation](https://docs.scipy.org/doc/numpy/reference/).)
+(For an alternative reference, see [the official NumPy documentation](https://numpy.org/doc/stable/reference/).)
 
 We will use the following imports.
 
@@ -72,11 +72,11 @@ from matplotlib import cm
 The essential problem that NumPy solves is fast array processing.
 
 The most important structure that NumPy defines is an array data type, formally
-called a [numpy.ndarray](https://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html).
+called a [numpy.ndarray](https://numpy.org/doc/stable/reference/arrays.ndarray.html).
 
 NumPy arrays power a very large proportion of the scientific Python ecosystem.
 
-To create a NumPy array containing only zeros we use  [np.zeros](https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros)
+To create a NumPy array containing only zeros we use  [np.zeros](https://numpy.org/doc/stable/reference/generated/numpy.zeros.html#numpy.zeros)
 
 ```{code-cell} python3
 a = np.zeros(3)
@@ -90,7 +90,7 @@ type(a)
 NumPy arrays are somewhat like native Python lists, except that
 
 * Data *must be homogeneous* (all elements of the same type).
-* These types must be one of the [data types](https://docs.scipy.org/doc/numpy/reference/arrays.dtypes.html) (`dtypes`) provided by NumPy.
+* These types must be one of the [data types](https://numpy.org/doc/stable/reference/arrays.dtypes.html) (`dtypes`) provided by NumPy.
 
 The most important of these dtypes are:
 
@@ -220,7 +220,7 @@ na is np.array(na)     # Does make a new copy --- perhaps unnecessarily
 ```
 
 To read in the array data from a text file containing numeric data use `np.loadtxt`
-or `np.genfromtxt`---see [the documentation](https://docs.scipy.org/doc/numpy/reference/routines.io.html) for details.
+or `np.genfromtxt`---see [the documentation](https://numpy.org/doc/stable/reference/routines.io.html) for details.
 
 ### Array Indexing
 
@@ -464,7 +464,7 @@ B = np.ones((2, 2))
 A @ B
 ```
 
-(For older versions of Python and NumPy you need to use the [np.dot](https://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html) function)
+(For older versions of Python and NumPy you need to use the [np.dot](https://numpy.org/doc/stable/reference/generated/numpy.dot.html) function)
 
 We can also use `@` to take the inner product of two flat arrays
 
@@ -1167,7 +1167,7 @@ Much of this functionality is also available in [SciPy](https://www.scipy.org/),
 
 We'll cover the SciPy versions in more detail {doc}`soon <scipy>`.
 
-For a comprehensive list of what's available in NumPy see [this documentation](https://docs.scipy.org/doc/numpy/reference/routines.html).
+For a comprehensive list of what's available in NumPy see [this documentation](https://numpy.org/doc/stable/reference/routines.html).
 
 
 ## Speed Comparisons

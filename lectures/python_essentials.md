@@ -401,7 +401,7 @@ with open('output2.txt', 'r') as fo:
 
 ```{note}
 Note that we only covered `r`, `w`, and `a` mode here, which are the most commonly used modes. 
-Python provides [a variety of modes](https://www.geeksforgeeks.org/reading-writing-text-files-python/) 
+Python provides [a variety of modes](https://www.geeksforgeeks.org/python/reading-writing-text-files-python/) 
 that you could experiment with.
 ```
 
