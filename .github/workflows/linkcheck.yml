@@ -17,7 +17,7 @@ jobs:
         with:
           ref: gh-pages
       - name: AI-Powered Link Checker
-        uses: QuantEcon/meta/.github/actions/link-checker@main
+        uses: QuantEcon/meta/.github/actions/link-checker@copilot/fix-195
         with:
           html-path: '.'            # gh-pages live html
           fail-on-broken: 'false'
