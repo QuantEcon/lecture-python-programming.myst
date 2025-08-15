@@ -41,6 +41,52 @@ import quantecon as qe
 import matplotlib.pyplot as plt
 ```
 
+```{code-cell} ipython3
+# Temporary fallback for Timer until quantecon is updated
+# This code will be removed once the new quantecon version is released
+import time
+
+if not hasattr(qe, 'Timer'):
+    class Timer:
+        def __init__(self, message="", precision=2, unit="seconds", silent=False):
+            self.message = message
+            self.precision = precision
+            self.unit = unit.lower()
+            self.silent = silent
+            self.elapsed = None
+            self._start_time = None
+            
+        def __enter__(self):
+            self._start_time = time.time()
+            return self
+            
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            end_time = time.time()
+            self.elapsed = end_time - self._start_time
+            
+            if not self.silent:
+                # Convert to requested unit
+                if self.unit == "milliseconds":
+                    elapsed_display = self.elapsed * 1000
+                    unit_str = "ms"
+                elif self.unit == "microseconds":
+                    elapsed_display = self.elapsed * 1000000
+                    unit_str = "μs"
+                else:  # seconds
+                    elapsed_display = self.elapsed
+                    unit_str = "seconds"
+                    
+                # Format the message
+                if self.message:
+                    prefix = f"{self.message}: "
+                else:
+                    prefix = ""
+                    
+                print(f"{prefix}{elapsed_display:.{self.precision}f} {unit_str} elapsed")
+    
+    qe.Timer = Timer
+```
+
 ## Overview
 
 In an {doc}`earlier lecture <need_for_speed>` we learned about vectorization, which is one method to improve speed and efficiency in numerical work.
@@ -133,17 +179,17 @@ Let's time and compare identical function calls across these two versions, start
 ```{code-cell} ipython3
 n = 10_000_000
 
-qe.tic()
-qm(0.1, int(n))
-time1 = qe.toc()
+with qe.Timer(silent=True) as timer1:
+    qm(0.1, int(n))
+time1 = timer1.elapsed
 ```
 
 Now let's try qm_numba
 
 ```{code-cell} ipython3
-qe.tic()
-qm_numba(0.1, int(n))
-time2 = qe.toc()
+with qe.Timer(silent=True) as timer2:
+    qm_numba(0.1, int(n))
+time2 = timer2.elapsed
 ```
 
 This is already a very large speed gain.
@@ -153,9 +199,9 @@ In fact, the next time and all subsequent times it runs even faster as the funct
 (qm_numba_result)=
 
 ```{code-cell} ipython3
-qe.tic()
-qm_numba(0.1, int(n))
-time3 = qe.toc()
+with qe.Timer(silent=True) as timer3:
+    qm_numba(0.1, int(n))
+time3 = timer3.elapsed
 ```
 
 ```{code-cell} ipython3
@@ -639,9 +685,8 @@ This is (approximately) the right output.
 Now let's time it:
 
 ```{code-cell} ipython3
-qe.tic()
-compute_series(n)
-qe.toc()
+with qe.Timer():
+    compute_series(n)
 ```
 
 Next let's implement a Numba version, which is easy
@@ -660,9 +705,8 @@ print(np.mean(x == 0))
 Let's see the time
 
 ```{code-cell} ipython3
-qe.tic()
-compute_series_numba(n)
-qe.toc()
+with qe.Timer():
+    compute_series_numba(n)
 ```
 
 This is a nice speed improvement for one line of code!

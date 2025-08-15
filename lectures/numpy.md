@@ -63,6 +63,52 @@ from mpl_toolkits.mplot3d.axes3d import Axes3D
 from matplotlib import cm
 ```
 
+```{code-cell} python3
+# Temporary fallback for Timer until quantecon is updated
+# This code will be removed once the new quantecon version is released
+import time
+
+if not hasattr(qe, 'Timer'):
+    class Timer:
+        def __init__(self, message="", precision=2, unit="seconds", silent=False):
+            self.message = message
+            self.precision = precision
+            self.unit = unit.lower()
+            self.silent = silent
+            self.elapsed = None
+            self._start_time = None
+            
+        def __enter__(self):
+            self._start_time = time.time()
+            return self
+            
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            end_time = time.time()
+            self.elapsed = end_time - self._start_time
+            
+            if not self.silent:
+                # Convert to requested unit
+                if self.unit == "milliseconds":
+                    elapsed_display = self.elapsed * 1000
+                    unit_str = "ms"
+                elif self.unit == "microseconds":
+                    elapsed_display = self.elapsed * 1000000
+                    unit_str = "μs"
+                else:  # seconds
+                    elapsed_display = self.elapsed
+                    unit_str = "seconds"
+                    
+                # Format the message
+                if self.message:
+                    prefix = f"{self.message}: "
+                else:
+                    prefix = ""
+                    
+                print(f"{prefix}{elapsed_display:.{self.precision}f} {unit_str} elapsed")
+    
+    qe.Timer = Timer
+```
+
 (numpy_array)=
 ## NumPy Arrays
 
@@ -1636,9 +1682,8 @@ np.random.seed(123)
 x = np.random.randn(1000, 100, 100)
 y = np.random.randn(100)
 
-qe.tic()
-B = x / y
-qe.toc()
+with qe.Timer("Broadcasting operation"):
+    B = x / y
 ```
 
 Here is the output
@@ -1696,14 +1741,13 @@ np.random.seed(123)
 x = np.random.randn(1000, 100, 100)
 y = np.random.randn(100)
 
-qe.tic()
-D = np.empty_like(x)
-d1, d2, d3 = x.shape
-for i in range(d1):
-    for j in range(d2):
-        for k in range(d3):
-            D[i, j, k] = x[i, j, k] / y[k]
-qe.toc()
+with qe.Timer("For loop operation"):
+    D = np.empty_like(x)
+    d1, d2, d3 = x.shape
+    for i in range(d1):
+        for j in range(d2):
+            for k in range(d3):
+                D[i, j, k] = x[i, j, k] / y[k]
 ```
 
 Note that the `for` loop takes much longer than the broadcasting operation.
