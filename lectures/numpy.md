@@ -1480,9 +1480,9 @@ But this is inefficient relative to computing `Q` once-off.
 A better option is to use descriptors.
 
 A solution from the [quantecon
-library](https://github.com/QuantEcon/QuantEcon.py/tree/master/quantecon)
+library](https://github.com/QuantEcon/QuantEcon.py/tree/main/quantecon)
 using descriptors that behaves as we desire can be found
-[here](https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/discrete_rv.py).
+[here](https://github.com/QuantEcon/QuantEcon.py/blob/main/quantecon/discrete_rv.py).
 
 ```{solution-end}
 ```
@@ -1505,7 +1505,7 @@ Your task is to
 
 An example solution is given below.
 
-In essence, we've just taken [this code](https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/ecdf.py)
+In essence, we've just taken [this code](https://github.com/QuantEcon/QuantEcon.py/blob/main/quantecon/ecdf.py)
 from QuantEcon and added in a plot method
 
 ```{code-cell} python3

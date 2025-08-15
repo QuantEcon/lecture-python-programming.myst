@@ -74,7 +74,7 @@ str(22)
 type(22)
 ```
 
-The full list of Python built-ins is [here](https://docs.python.org/library/functions.html).
+The full list of Python built-ins is [here](https://docs.python.org/3/library/functions.html).
 
 
 ### Third Party Functions
