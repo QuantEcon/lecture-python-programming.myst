@@ -117,7 +117,6 @@ It is used and supported extensively by large tech firms including
 
 * [Google](https://www.google.com/)
 * [OpenAI](https://openai.com/)
-* [Netflix](https://www.netflix.com/)
 * [Meta](https://opensource.fb.com/)
 * [Amazon](https://www.amazon.com/)
 * [Reddit](https://www.reddit.com/)

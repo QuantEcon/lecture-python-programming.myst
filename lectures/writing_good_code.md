@@ -189,8 +189,6 @@ But as a programmer, your aim should be to **automate** repetition, **not** do i
 
 More importantly, repeating the same logic in different places means that eventually one of them will likely be wrong.
 
-If you want to know more, read the excellent summary found on [this page](https://code.tutsplus.com/tutorials/3-key-software-principles-you-must-understand--net-25161).
-
 We'll talk about how to avoid repetition below.
 
 ### Minimize Global Variables

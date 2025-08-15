@@ -606,7 +606,7 @@ time from the World Bank.
 
 The World Bank [collects and organizes data](https://data.worldbank.org/indicator) on a huge range of indicators.
 
-For example, [here's](https://data.worldbank.org/indicator/GC.DOD.TOTL.GD.ZS/countries) some data on government debt as a ratio to GDP.
+For example, [here's](https://data.worldbank.org/indicator/GC.DOD.TOTL.GD.ZS) some data on government debt as a ratio to GDP.
 
 The next code example fetches the data for you and plots time series for the US and Australia
 
