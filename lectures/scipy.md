@@ -476,7 +476,7 @@ over the interval $[0, 400]$ when `μ, σ, β, n, K = 4, 0.25, 0.99, 10, 40`.
 ```{hint}
 :class: dropdown
 
-From `scipy.stats` you can import `lognorm` and then use `lognorm(x, σ, scale=np.exp(μ)` to get the density $f$.
+From `scipy.stats` you can import `lognorm` and then use `lognorm.pdf(x, σ, scale=np.exp(μ))` to get the density $f$.
 ```
 
 ```{exercise-end}
@@ -512,7 +512,7 @@ plt.show()
 ```{exercise}
 :label: sp_ex02
 
-In order to get the option price, compute the integral of this function numerically using `quad` from `scipy.optimize`.
+In order to get the option price, compute the integral of this function numerically using `quad` from `scipy.integrate`.
 
 ```
 
