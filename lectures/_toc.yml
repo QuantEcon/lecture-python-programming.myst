@@ -33,6 +33,7 @@ parts:
   numbered: true
   chapters:
   - file: writing_good_code
+  - file: python_static_typing
   - file: python_advanced_features
   - file: debugging
 - caption: Other
