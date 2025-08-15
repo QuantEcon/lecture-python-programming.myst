@@ -133,7 +133,7 @@ axes[2].legend(loc='upper left', frameon=True)
 plt.show()
 ```
 
-True, the code more or less follows [PEP8](https://www.python.org/dev/peps/pep-0008/).
+True, the code more or less follows [PEP8](https://peps.python.org/pep-0008/).
 
 At the same time, it's very poorly structured.
 
