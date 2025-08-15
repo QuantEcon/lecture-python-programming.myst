@@ -27,7 +27,7 @@ In addition to what's in Anaconda, this lecture will need the following librarie
 ```{code-cell} ipython3
 :tags: [hide-output]
 
-!pip install quantecon
+!pip install git+https://github.com/QuantEcon/QuantEcon.py@copilot/fix-782
 ```
 
 Please also make sure that you have the latest version of Anaconda, since old
@@ -133,17 +133,15 @@ Let's time and compare identical function calls across these two versions, start
 ```{code-cell} ipython3
 n = 10_000_000
 
-qe.tic()
-qm(0.1, int(n))
-time1 = qe.toc()
+with qe.Timer() as time1:
+    qm(0.1, int(n))
 ```
 
 Now let's try qm_numba
 
 ```{code-cell} ipython3
-qe.tic()
-qm_numba(0.1, int(n))
-time2 = qe.toc()
+with qe.Timer() as time2:
+    qm_numba(0.1, int(n))
 ```
 
 This is already a very large speed gain.
@@ -153,13 +151,12 @@ In fact, the next time and all subsequent times it runs even faster as the funct
 (qm_numba_result)=
 
 ```{code-cell} ipython3
-qe.tic()
-qm_numba(0.1, int(n))
-time3 = qe.toc()
+with qe.Timer() as time3:
+    qm_numba(0.1, int(n))
 ```
 
 ```{code-cell} ipython3
-time1 / time3  # Calculate speed gain
+time1.elapsed / time3.elapsed  # Calculate speed gain
 ```
 
 This kind of speed gain is impressive relative to how simple and clear the modification is.
