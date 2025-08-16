@@ -41,51 +41,7 @@ import quantecon as qe
 import matplotlib.pyplot as plt
 ```
 
-```{code-cell} ipython3
-# Temporary fallback for Timer until quantecon is updated
-# This code will be removed once the new quantecon version is released
-import time
 
-if not hasattr(qe, 'Timer'):
-    class Timer:
-        def __init__(self, message="", precision=2, unit="seconds", silent=False):
-            self.message = message
-            self.precision = precision
-            self.unit = unit.lower()
-            self.silent = silent
-            self.elapsed = None
-            self._start_time = None
-            
-        def __enter__(self):
-            self._start_time = time.time()
-            return self
-            
-        def __exit__(self, exc_type, exc_val, exc_tb):
-            end_time = time.time()
-            self.elapsed = end_time - self._start_time
-            
-            if not self.silent:
-                # Convert to requested unit
-                if self.unit == "milliseconds":
-                    elapsed_display = self.elapsed * 1000
-                    unit_str = "ms"
-                elif self.unit == "microseconds":
-                    elapsed_display = self.elapsed * 1000000
-                    unit_str = "μs"
-                else:  # seconds
-                    elapsed_display = self.elapsed
-                    unit_str = "seconds"
-                    
-                # Format the message
-                if self.message:
-                    prefix = f"{self.message}: "
-                else:
-                    prefix = ""
-                    
-                print(f"{prefix}{elapsed_display:.{self.precision}f} {unit_str} elapsed")
-    
-    qe.Timer = Timer
-```
 
 ## Overview
 
