@@ -364,8 +364,8 @@ def compute_long_run_median(w0=1, T=1000, num_reps=50_000):
 Let's see how fast this runs:
 
 ```{code-cell} ipython
-%%time
-compute_long_run_median()
+with qe.Timer():
+    compute_long_run_median()
 ```
 
 To speed this up, we're going to parallelize it via multithreading.
@@ -391,8 +391,8 @@ def compute_long_run_median_parallel(w0=1, T=1000, num_reps=50_000):
 Let's look at the timing:
 
 ```{code-cell} ipython
-%%time
-compute_long_run_median_parallel()
+with qe.Timer():
+    compute_long_run_median_parallel()
 ```
 
 The speed-up is significant.
@@ -461,11 +461,13 @@ def calculate_pi(n=1_000_000):
 Now let's see how fast it runs:
 
 ```{code-cell} ipython3
-%time calculate_pi()
+with qe.Timer():
+    calculate_pi()
 ```
 
 ```{code-cell} ipython3
-%time calculate_pi()
+with qe.Timer():
+    calculate_pi()
 ```
 
 By switching parallelization on and off (selecting `True` or

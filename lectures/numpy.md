@@ -1192,21 +1192,19 @@ n = 1_000_000
 ```
 
 ```{code-cell} python3
-%%time
-
-y = 0      # Will accumulate and store sum
-for i in range(n):
-    x = random.uniform(0, 1)
-    y += x**2
+with qe.Timer():
+    y = 0      # Will accumulate and store sum
+    for i in range(n):
+        x = random.uniform(0, 1)
+        y += x**2
 ```
 
 The following vectorized code achieves the same thing.
 
 ```{code-cell} ipython
-%%time
-
-x = np.random.uniform(0, 1, n)
-y = np.sum(x**2)
+with qe.Timer():
+    x = np.random.uniform(0, 1, n)
+    y = np.sum(x**2)
 ```
 
 As you can see, the second code block runs much faster.  Why?
@@ -1287,24 +1285,22 @@ grid = np.linspace(-3, 3, 1000)
 Here's a non-vectorized version that uses Python loops.
 
 ```{code-cell} python3
-%%time
+with qe.Timer():
+    m = -np.inf
 
-m = -np.inf
-
-for x in grid:
-    for y in grid:
-        z = f(x, y)
-        if z > m:
-            m = z
+    for x in grid:
+        for y in grid:
+            z = f(x, y)
+            if z > m:
+                m = z
 ```
 
 And here's a vectorized version
 
 ```{code-cell} python3
-%%time
-
-x, y = np.meshgrid(grid, grid)
-np.max(f(x, y))
+with qe.Timer():
+    x, y = np.meshgrid(grid, grid)
+    np.max(f(x, y))
 ```
 
 In the vectorized version, all the looping takes place in compiled code.
