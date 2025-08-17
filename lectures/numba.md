@@ -227,15 +227,13 @@ This is equivalent to adding `qm = jit(qm)` after the function definition.
 The following now uses the jitted version:
 
 ```{code-cell} ipython3
-%%time 
-
-qm(0.1, 100_000)
+with qe.Timer():
+    qm(0.1, 100_000)
 ```
 
 ```{code-cell} ipython3
-%%time 
-
-qm(0.1, 100_000)
+with qe.Timer():
+    qm(0.1, 100_000)
 ```
 
 Numba also provides several arguments for decorators to accelerate computation and cache functions -- see [here](https://numba.readthedocs.io/en/stable/user/performance-tips.html).
@@ -291,7 +289,8 @@ We can fix this error easily in this case by compiling `mean`.
 def mean(data):
     return np.mean(data)
 
-%time bootstrap(data, mean, n_resamples)
+with qe.Timer():
+    bootstrap(data, mean, n_resamples)
 ```
 
 ## Compiling Classes
@@ -536,11 +535,13 @@ def calculate_pi(n=1_000_000):
 Now let's see how fast it runs:
 
 ```{code-cell} ipython3
-%time calculate_pi()
+with qe.Timer():
+    calculate_pi()
 ```
 
 ```{code-cell} ipython3
-%time calculate_pi()
+with qe.Timer():
+    calculate_pi()
 ```
 
 If we switch off JIT compilation by removing `@njit`, the code takes around
