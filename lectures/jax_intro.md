@@ -304,7 +304,8 @@ x = jnp.ones(n)
 How long does the function take to execute?
 
 ```{code-cell} ipython3
-%time f(x).block_until_ready()
+with qe.Timer():
+    f(x).block_until_ready()
 ```
 
 ```{note}
@@ -318,7 +319,8 @@ allows the Python interpreter to run ahead of numerical computations.
 If we run it a second time it becomes faster again:
 
 ```{code-cell} ipython3
-%time f(x).block_until_ready()
+with qe.Timer():
+    f(x).block_until_ready()
 ```
 
 This is because the built in functions like `jnp.cos` are JIT compiled and the
@@ -341,7 +343,8 @@ y = jnp.ones(m)
 ```
 
 ```{code-cell} ipython3
-%time f(y).block_until_ready()
+with qe.Timer():
+    f(y).block_until_ready()
 ```
 
 Notice that the execution time increases, because now new versions of 
@@ -352,14 +355,16 @@ If we run again, the code is dispatched to the correct compiled version and we
 get faster execution.
 
 ```{code-cell} ipython3
-%time f(y).block_until_ready()
+with qe.Timer():
+    f(y).block_until_ready()
 ```
 
 The compiled versions for the previous array size are still available in memory
 too, and the following call is dispatched to the correct compiled code.
 
 ```{code-cell} ipython3
-%time f(x).block_until_ready()
+with qe.Timer():
+    f(x).block_until_ready()
 ```
 
 ### Compiling the outer function
@@ -379,7 +384,8 @@ f_jit(x)
 And now let's time it.
 
 ```{code-cell} ipython3
-%time f_jit(x).block_until_ready()
+with qe.Timer():
+    f_jit(x).block_until_ready()
 ```
 
 Note the speed gain.
@@ -534,10 +540,10 @@ z_loops = np.empty((n, n))
 ```
 
 ```{code-cell} ipython3
-%%time
-for i in range(n):
-    for j in range(n):
-        z_loops[i, j] = f(x[i], y[j])
+with qe.Timer():
+    for i in range(n):
+        for j in range(n):
+            z_loops[i, j] = f(x[i], y[j])
 ```
 
 Even for this very small grid, the run time is extremely slow.
@@ -575,15 +581,15 @@ x_mesh, y_mesh = jnp.meshgrid(x, y)
 Now we get what we want and the execution time is very fast.
 
 ```{code-cell} ipython3
-%%time
-z_mesh = f(x_mesh, y_mesh).block_until_ready()
+with qe.Timer():
+    z_mesh = f(x_mesh, y_mesh).block_until_ready()
 ```
 
 Let's run again to eliminate compile time.
 
 ```{code-cell} ipython3
-%%time
-z_mesh = f(x_mesh, y_mesh).block_until_ready()
+with qe.Timer():
+    z_mesh = f(x_mesh, y_mesh).block_until_ready()
 ```
 
 Let's confirm that we got the right answer.
@@ -602,8 +608,8 @@ x_mesh, y_mesh = jnp.meshgrid(x, y)
 ```
 
 ```{code-cell} ipython3
-%%time
-z_mesh = f(x_mesh, y_mesh).block_until_ready()
+with qe.Timer():
+    z_mesh = f(x_mesh, y_mesh).block_until_ready()
 ```
 
 But there is one problem here: the mesh grids use a lot of memory.
@@ -641,8 +647,8 @@ f_vec = jax.vmap(f_vec_y, in_axes=(0, None))
 With this construction, we can now call the function $f$ on flat (low memory) arrays.
 
 ```{code-cell} ipython3
-%%time
-z_vmap = f_vec(x, y).block_until_ready()
+with qe.Timer():
+    z_vmap = f_vec(x, y).block_until_ready()
 ```
 
 The execution time is essentially the same as the mesh operation but we are using much less memory.
@@ -711,15 +717,15 @@ def compute_call_price_jax(β=β,
 Let's run it once to compile it:
 
 ```{code-cell} ipython3
-%%time 
-compute_call_price_jax().block_until_ready()
+with qe.Timer():
+    compute_call_price_jax().block_until_ready()
 ```
 
 And now let's time it:
 
 ```{code-cell} ipython3
-%%time 
-compute_call_price_jax().block_until_ready()
+with qe.Timer():
+    compute_call_price_jax().block_until_ready()
 ```
 
 ```{solution-end}
