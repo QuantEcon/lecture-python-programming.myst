@@ -52,6 +52,7 @@ The following import is standard, replacing `import numpy as np`:
 ```{code-cell} ipython3
 import jax
 import jax.numpy as jnp
+import quantecon as qe
 ```
 
 Now we can use `jnp` in place of `np` for the usual array operations:
