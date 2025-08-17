@@ -135,7 +135,7 @@ Let's time and compare identical function calls across these two versions, start
 ```{code-cell} ipython3
 n = 10_000_000
 
-with qe.Timer(silent=True) as timer1:
+with qe.Timer() as timer1:
     qm(0.1, int(n))
 time1 = timer1.elapsed
 ```
@@ -143,7 +143,7 @@ time1 = timer1.elapsed
 Now let's try qm_numba
 
 ```{code-cell} ipython3
-with qe.Timer(silent=True) as timer2:
+with qe.Timer() as timer2:
     qm_numba(0.1, int(n))
 time2 = timer2.elapsed
 ```
@@ -155,7 +155,7 @@ In fact, the next time and all subsequent times it runs even faster as the funct
 (qm_numba_result)=
 
 ```{code-cell} ipython3
-with qe.Timer(silent=True) as timer3:
+with qe.Timer() as timer3:
     qm_numba(0.1, int(n))
 time3 = timer3.elapsed
 ```
