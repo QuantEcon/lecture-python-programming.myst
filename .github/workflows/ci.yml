@@ -64,6 +64,13 @@ jobs:
         with:
           name: execution-reports
           path: _build/html/reports
+      - name: Check for Python warnings (PR mode = changed files)
+        if: github.event_name == 'pull_request'
+        uses: QuantEcon/meta/.github/actions/check-warnings@copilot/fix-224
+        with:
+          html-path: './_build/html'
+          pr-mode: 'true'
+          fail-on-warning: 'true'
       - name: Preview Deploy to Netlify
         uses: nwtgck/actions-netlify@v3
         with:
