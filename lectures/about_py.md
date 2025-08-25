@@ -29,6 +29,11 @@ anymore. Sorry, R people. I used to be one of you but we no longer descend
 into R." -- Chris Wiggins
 ```
 
+```{code-cell} python3
+import warnings
+warnings.warn("Forced Syntax Warning for Debug.", SyntaxWarning)
+```
+
 ## Overview
 
 This lecture series will teach you to use Python for scientific computing, with
