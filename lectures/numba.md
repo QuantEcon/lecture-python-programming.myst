@@ -554,7 +554,7 @@ characters.
 :label: speed_ex2
 ```
 
-In the [Introduction to Quantitative Economics with Python](https://python.quantecon.org/index.html) lecture series you can
+In the [Introduction to Quantitative Economics with Python](https://intro.quantecon.org/intro.html) lecture series you can
 learn all about finite-state Markov chains.
 
 For now, let's just concentrate on simulating a very simple example of such a chain.
