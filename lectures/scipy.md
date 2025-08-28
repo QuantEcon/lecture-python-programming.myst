@@ -31,6 +31,13 @@ In addition to what’s in Anaconda, this lecture will need the following librar
 !pip install --upgrade quantecon
 ```
 
+We use the following imports.
+
+```{code-cell} ipython3
+import numpy as np
+import quantecon as qe
+```
+
 ## Overview
 
 [SciPy](https://scipy.org/) builds on top of NumPy to provide common tools for scientific programming such as
