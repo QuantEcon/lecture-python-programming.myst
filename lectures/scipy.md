@@ -25,7 +25,7 @@ kernelspec:
 
 ## Overview
 
-[SciPy](https://www.scipy.org) builds on top of NumPy to provide common tools for scientific programming such as
+[SciPy](https://scipy.org/) builds on top of NumPy to provide common tools for scientific programming such as
 
 * [linear algebra](https://docs.scipy.org/doc/scipy/reference/linalg.html)
 * [numerical integration](https://docs.scipy.org/doc/scipy/reference/integrate.html)
