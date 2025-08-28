@@ -321,11 +321,13 @@ brentq(f, 0, 1)
 Here the correct solution is found and the speed is better than bisection:
 
 ```{code-cell} ipython
-qe.timeit(lambda: brentq(f, 0, 1), runs=3)
+with qe.Timer(unit="milliseconds"):
+    brentq(f, 0, 1)
 ```
 
 ```{code-cell} ipython
-qe.timeit(lambda: bisect(f, 0, 1), runs=3)
+with qe.Timer(unit="milliseconds"):
+    bisect(f, 0, 1)
 ```
 
 ### Multivariate Root-Finding

@@ -166,7 +166,8 @@ x, y = np.meshgrid(grid, grid)
 ```
 
 ```{code-cell} ipython3
-qe.timeit(lambda: np.max(f(x, y)), runs=3)
+with qe.Timer():
+    np.max(f(x, y))
 ```
 
 If you have a system monitor such as htop (Linux/Mac) or perfmon
@@ -198,7 +199,8 @@ np.max(f_vec(x, y))  # Run once to compile
 ```
 
 ```{code-cell} ipython3
-qe.timeit(lambda: np.max(f_vec(x, y)), runs=3)
+with qe.Timer():
+    np.max(f_vec(x, y))
 ```
 
 At least on our machine, the difference in the speed between the
@@ -248,7 +250,8 @@ np.max(f_vec(x, y))  # Run once to compile
 ```
 
 ```{code-cell} ipython3
-qe.timeit(lambda: np.max(f_vec(x, y)), runs=3)
+with qe.Timer():
+    np.max(f_vec(x, y))
 ```
 
 Now our code runs significantly faster than the NumPy version.
