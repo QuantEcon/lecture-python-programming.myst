@@ -64,6 +64,7 @@ However, it's more common and better practice to use NumPy functionality explici
 
 ```{code-cell} python3
 import numpy as np
+import quantecon as qe
 
 a = np.identity(3)
 ```
@@ -320,11 +321,13 @@ brentq(f, 0, 1)
 Here the correct solution is found and the speed is better than bisection:
 
 ```{code-cell} ipython
-%timeit brentq(f, 0, 1)
+with qe.Timer(unit="milliseconds"):
+    brentq(f, 0, 1)
 ```
 
 ```{code-cell} ipython
-%timeit bisect(f, 0, 1)
+with qe.Timer(unit="milliseconds"):
+    bisect(f, 0, 1)
 ```
 
 ### Multivariate Root-Finding
