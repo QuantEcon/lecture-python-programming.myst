@@ -49,17 +49,11 @@ In this lecture, we aim only to highlight some useful parts of the package.
 
 SciPy is a package that contains various tools that are built on top of NumPy, using its array data type and related functionality.
 
-In fact, when we import SciPy we also get NumPy, as can be seen from this excerpt the SciPy initialization file:
+In older versions of SciPy, importing SciPy would also import NumPy symbols into the global namespace. 
 
-```{code-cell} python3
-# Import numpy symbols to scipy namespace
-from numpy import *
-from numpy.random import rand, randn
-from numpy.fft import fft, ifft
-from numpy.lib.scimath import *
-```
+However, modern versions of SciPy (1.15+) have a cleaner approach and no longer automatically import NumPy symbols. This is better practice as it avoids namespace pollution.
 
-However, it's more common and better practice to use NumPy functionality explicitly.
+Instead, you should import NumPy explicitly:
 
 
 ```{code-cell} python3
