@@ -76,7 +76,7 @@ a = np.identity(3)
 ```
 
 More recent versions of SciPy (1.15+) no longer automatically import NumPy symbols.
-```
+````
 
 What is useful in SciPy is the functionality in its sub-packages
 
