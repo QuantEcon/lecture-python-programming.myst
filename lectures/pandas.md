@@ -270,7 +270,7 @@ df.loc[(df.cc + df.cg >= 80) & (df.POP <= 20000), ['country', 'year', 'POP']]
 
 **Application: Subsetting Dataframe**
 
-Real-world datasets can be [enormous](https://developers.google.com/machine-learning/data-prep/construct/collect/data-size-quality).
+Real-world datasets can be [enormous](https://developers.google.com/machine-learning/crash-course/overfitting).
 
 It is sometimes desirable to work with a subset of data to enhance computational efficiency and reduce redundancy.
 
@@ -516,7 +516,7 @@ We start with a relatively low-level method and then return to pandas.
 ```{index} single: Python; requests
 ```
 
-One option is to use [requests](https://requests.readthedocs.io/en/master/), a standard Python library for requesting data over the Internet.
+One option is to use [requests](https://requests.readthedocs.io/en/latest/), a standard Python library for requesting data over the Internet.
 
 To begin, try the following code on your computer
 
@@ -534,7 +534,7 @@ If you do get an error, then there are two likely causes
 In the second case, you can either
 
 * switch to another machine
-* solve your proxy problem by reading [the documentation](https://requests.readthedocs.io/en/master/)
+* solve your proxy problem by reading [the documentation](https://requests.readthedocs.io/en/latest/)
 
 Assuming that all is working, you can now proceed to use the `source` object returned by the call `requests.get('https://research.stlouisfed.org/fred2/series/UNRATE/downloaddata/UNRATE.csv')`
 

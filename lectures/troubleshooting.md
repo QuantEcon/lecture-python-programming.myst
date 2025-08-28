@@ -33,12 +33,12 @@ You have installed Anaconda, haven't you, following the instructions in {doc}`th
 
 Assuming that you have, the most common source of problems for our readers is that their Anaconda distribution is not up to date.
 
-[Here's a useful article](https://www.anaconda.com/keeping-anaconda-date/)
+[Here's a useful article](https://www.anaconda.com/blog/keeping-anaconda-date)
 on how to update Anaconda.
 
 Another option is to simply remove Anaconda and reinstall.
 
-You also need to keep the external code libraries, such as [QuantEcon.py](https://quantecon.org/quantecon-py) up to date.
+You also need to keep the external code libraries, such as [QuantEcon.py](https://quantecon.org/quantecon-py/) up to date.
 
 For this task you can either
 

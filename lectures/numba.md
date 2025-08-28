@@ -166,7 +166,7 @@ This kind of speed gain is impressive relative to how simple and clear the modif
 
 ### How and When it Works
 
-Numba attempts to generate fast machine code using the infrastructure provided by the [LLVM Project](http://llvm.org/).
+Numba attempts to generate fast machine code using the infrastructure provided by the [LLVM Project](https://llvm.org/).
 
 It does this by inferring type information on the fly.
 
@@ -419,7 +419,7 @@ If you prefer, you can safely skip this section.
 
 ### Cython
 
-Like {doc}`Numba <numba>`,  [Cython](http://cython.org/) provides an approach to generating fast compiled code that can be used from Python.
+Like {doc}`Numba <numba>`,  [Cython](https://cython.org/) provides an approach to generating fast compiled code that can be used from Python.
 
 As was the case with Numba, a key problem is the fact that Python is dynamically typed.
 
@@ -442,15 +442,15 @@ cumbersome than Numba.
 ```
 
 If you are comfortable writing Fortran you will find it very easy to create
-extension modules from Fortran code using [F2Py](https://docs.scipy.org/doc/numpy/f2py/).
+extension modules from Fortran code using [F2Py](https://numpy.org/doc/stable/f2py/).
 
 F2Py is a Fortran-to-Python interface generator that is particularly simple to
 use.
 
-Robert Johansson provides a [nice introduction](http://nbviewer.jupyter.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-6A-Fortran-and-C.ipynb)
+Robert Johansson provides a [nice introduction](https://nbviewer.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-6A-Fortran-and-C.ipynb)
 to F2Py, among other things.
 
-Recently, [a Jupyter cell magic for Fortran](http://nbviewer.jupyter.org/github/mgaitan/fortran_magic/blob/master/documentation.ipynb) has been developed --- you might want to give it a try.
+Recently, [a Jupyter cell magic for Fortran](https://nbviewer.org/github/mgaitan/fortran_magic/blob/master/documentation.ipynb) has been developed --- you might want to give it a try.
 
 ## Summary and Comments
 
@@ -554,7 +554,7 @@ characters.
 :label: speed_ex2
 ```
 
-In the [Introduction to Quantitative Economics with Python](https://python-intro.quantecon.org) lecture series you can
+In the [Introduction to Quantitative Economics with Python](https://intro.quantecon.org/intro.html) lecture series you can
 learn all about finite-state Markov chains.
 
 For now, let's just concentrate on simulating a very simple example of such a chain.
