@@ -47,7 +47,7 @@ Here's a popularity comparison over time against Matlab and STATA courtesy of St
 :scale: 100
 ```
 
-Just as [NumPy](https://www.numpy.org/) provides the basic array data type plus core array operations, pandas
+Just as [NumPy](https://numpy.org/) provides the basic array data type plus core array operations, pandas
 
 1. defines fundamental structures for working with data and
 1. endows them with methods that facilitate operations such as
@@ -499,9 +499,9 @@ plt.show()
 
 Python makes it straightforward to query online databases programmatically.
 
-An important database for economists is [FRED](https://research.stlouisfed.org/fred2/) --- a vast collection of time series data maintained by the St. Louis Fed.
+An important database for economists is [FRED](https://fred.stlouisfed.org/) --- a vast collection of time series data maintained by the St. Louis Fed.
 
-For example, suppose that we are interested in the [unemployment rate](https://research.stlouisfed.org/fred2/series/UNRATE).
+For example, suppose that we are interested in the [unemployment rate](https://fred.stlouisfed.org/series/UNRATE).
 
 (To download the data as a csv, click on the top right `Download` and select the `CSV (data)` option).
 

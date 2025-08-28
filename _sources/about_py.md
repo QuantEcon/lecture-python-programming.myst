@@ -311,7 +311,7 @@ But when we want to work with larger arrays in real programs we need more effici
 For this we need to use libraries for working with arrays.
 
 For Python, the most important matrix and array processing library is
-[NumPy](https://www.numpy.org/) library.
+[NumPy](https://numpy.org/) library.
 
 For example, let's build a NumPy array with 100 elements
 
@@ -365,7 +365,7 @@ This lecture series will provide you with extensive background in NumPy.
 
 ### SciPy
 
-The [SciPy](https://www.scipy.org) library is built on top of NumPy and provides additional functionality.
+The [SciPy](https://scipy.org/) library is built on top of NumPy and provides additional functionality.
 
 (tuple_unpacking_example)=
 For example, let's calculate $\int_{-2}^2 \phi(z) dz$ where $\phi$ is the standard normal density.

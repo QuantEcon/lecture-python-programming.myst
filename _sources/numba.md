@@ -227,12 +227,12 @@ This is equivalent to adding `qm = jit(qm)` after the function definition.
 The following now uses the jitted version:
 
 ```{code-cell} ipython3
-with qe.Timer():
+with qe.Timer(precision=4):
     qm(0.1, 100_000)
 ```
 
 ```{code-cell} ipython3
-with qe.Timer():
+with qe.Timer(precision=4):
     qm(0.1, 100_000)
 ```
 

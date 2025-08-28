@@ -1165,7 +1165,7 @@ np.linalg.inv(A)           # Compute the inverse
 ```{index} single: Python; SciPy
 ```
 
-Much of this functionality is also available in [SciPy](https://www.scipy.org/), a collection of modules that are built on top of NumPy.
+Much of this functionality is also available in [SciPy](https://scipy.org/), a collection of modules that are built on top of NumPy.
 
 We'll cover the SciPy versions in more detail {doc}`soon <scipy>`.
 
