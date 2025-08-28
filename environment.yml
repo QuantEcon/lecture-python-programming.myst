@@ -13,6 +13,5 @@ dependencies:
     - sphinx-exercise==1.0.1
     - sphinxcontrib-youtube==1.4.1
     - sphinx-togglebutton==0.3.2
-    - git+https://github.com/QuantEcon/QuantEcon.py@copilot/fix-796
 
 
