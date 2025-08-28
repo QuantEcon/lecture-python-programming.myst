@@ -401,7 +401,7 @@ with open('output2.txt', 'r') as fo:
 
 ```{note}
 Note that we only covered `r`, `w`, and `a` mode here, which are the most commonly used modes. 
-Python provides [a variety of modes](https://www.geeksforgeeks.org/reading-writing-text-files-python/) 
+Python provides [a variety of modes](https://www.geeksforgeeks.org/python/reading-writing-text-files-python/) 
 that you could experiment with.
 ```
 
@@ -701,7 +701,7 @@ In programming, as in mathematics, the opposite is true
   reversed would be very hard to read, even if the author told you so on the
   first page.
 
-In Python, the standard style is set out in [PEP8](https://www.python.org/dev/peps/pep-0008/).
+In Python, the standard style is set out in [PEP8](https://peps.python.org/pep-0008/).
 
 (Occasionally we'll deviate from PEP8 in these lectures to better match mathematical notation)
 

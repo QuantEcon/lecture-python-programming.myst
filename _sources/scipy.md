@@ -25,14 +25,14 @@ kernelspec:
 
 ## Overview
 
-[SciPy](http://www.scipy.org) builds on top of NumPy to provide common tools for scientific programming such as
+[SciPy](https://www.scipy.org) builds on top of NumPy to provide common tools for scientific programming such as
 
-* [linear algebra](http://docs.scipy.org/doc/scipy/reference/linalg.html)
-* [numerical integration](http://docs.scipy.org/doc/scipy/reference/integrate.html)
-* [interpolation](http://docs.scipy.org/doc/scipy/reference/interpolate.html)
-* [optimization](http://docs.scipy.org/doc/scipy/reference/optimize.html)
-* [distributions and random number generation](http://docs.scipy.org/doc/scipy/reference/stats.html)
-* [signal processing](http://docs.scipy.org/doc/scipy/reference/signal.html)
+* [linear algebra](https://docs.scipy.org/doc/scipy/reference/linalg.html)
+* [numerical integration](https://docs.scipy.org/doc/scipy/reference/integrate.html)
+* [interpolation](https://docs.scipy.org/doc/scipy/reference/interpolate.html)
+* [optimization](https://docs.scipy.org/doc/scipy/reference/optimize.html)
+* [distributions and random number generation](https://docs.scipy.org/doc/scipy/reference/stats.html)
+* [signal processing](https://docs.scipy.org/doc/scipy/reference/signal.html)
 * etc., etc
 
 Like NumPy, SciPy is stable, mature and widely used.
@@ -41,7 +41,7 @@ Many SciPy routines are thin wrappers around industry-standard Fortran libraries
 
 It's not really necessary to "learn" SciPy as a whole.
 
-A more common approach is to get some idea of what's in the library and then look up [documentation](http://docs.scipy.org/doc/scipy/reference/index.html) as required.
+A more common approach is to get some idea of what's in the library and then look up [documentation](https://docs.scipy.org/doc/scipy/reference/index.html) as required.
 
 In this lecture, we aim only to highlight some useful parts of the package.
 
@@ -64,6 +64,7 @@ However, it's more common and better practice to use NumPy functionality explici
 
 ```{code-cell} python3
 import numpy as np
+import quantecon as qe
 
 a = np.identity(3)
 ```
@@ -141,7 +142,7 @@ The general syntax for creating these objects that represent distributions (of t
 
 > `name = scipy.stats.distribution_name(shape_parameters, loc=c, scale=d)`
 
-Here `distribution_name` is one of the distribution names in [scipy.stats](http://docs.scipy.org/doc/scipy/reference/stats.html).
+Here `distribution_name` is one of the distribution names in [scipy.stats](https://docs.scipy.org/doc/scipy/reference/stats.html).
 
 The `loc` and `scale` parameters transform the original random variable
 $X$ into $Y = c + d X$.
@@ -320,11 +321,13 @@ brentq(f, 0, 1)
 Here the correct solution is found and the speed is better than bisection:
 
 ```{code-cell} ipython
-%timeit brentq(f, 0, 1)
+with qe.Timer(unit="milliseconds"):
+    brentq(f, 0, 1)
 ```
 
 ```{code-cell} ipython
-%timeit bisect(f, 0, 1)
+with qe.Timer(unit="milliseconds"):
+    bisect(f, 0, 1)
 ```
 
 ### Multivariate Root-Finding
@@ -334,7 +337,7 @@ Here the correct solution is found and the speed is better than bisection:
 
 Use `scipy.optimize.fsolve`, a wrapper for a hybrid method in MINPACK.
 
-See the [documentation](http://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fsolve.html) for details.
+See the [documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fsolve.html) for details.
 
 ### Fixed Points
 
@@ -387,7 +390,7 @@ Multivariate local optimizers include `minimize`, `fmin`, `fmin_powell`, `fmin_c
 
 Constrained multivariate local optimizers include `fmin_l_bfgs_b`, `fmin_tnc`, `fmin_cobyla`.
 
-See the [documentation](http://docs.scipy.org/doc/scipy/reference/optimize.html) for details.
+See the [documentation](https://docs.scipy.org/doc/scipy/reference/optimize.html) for details.
 
 ## {index}`Integration <single: Integration>`
 
@@ -417,7 +420,7 @@ There are other options for univariate integration---a useful one is `fixed_quad
 
 There are also functions for multivariate integration.
 
-See the [documentation](http://docs.scipy.org/doc/scipy/reference/integrate.html) for more details.
+See the [documentation](https://docs.scipy.org/doc/scipy/reference/integrate.html) for more details.
 
 ## {index}`Linear Algebra <single: Linear Algebra>`
 
@@ -430,7 +433,7 @@ SciPy also provides a module for linear algebra with the same name.
 
 The latter is not an exact superset of the former, but overall it has more functionality.
 
-We leave you to investigate the [set of available routines](http://docs.scipy.org/doc/scipy/reference/linalg.html).
+We leave you to investigate the [set of available routines](https://docs.scipy.org/doc/scipy/reference/linalg.html).
 
 ## Exercises
 
@@ -476,7 +479,7 @@ over the interval $[0, 400]$ when `μ, σ, β, n, K = 4, 0.25, 0.99, 10, 40`.
 ```{hint}
 :class: dropdown
 
-From `scipy.stats` you can import `lognorm` and then use `lognorm(x, σ, scale=np.exp(μ)` to get the density $f$.
+From `scipy.stats` you can import `lognorm` and then use `lognorm.pdf(x, σ, scale=np.exp(μ))` to get the density $f$.
 ```
 
 ```{exercise-end}
@@ -512,7 +515,7 @@ plt.show()
 ```{exercise}
 :label: sp_ex02
 
-In order to get the option price, compute the integral of this function numerically using `quad` from `scipy.optimize`.
+In order to get the option price, compute the integral of this function numerically using `quad` from `scipy.integrate`.
 
 ```
 

@@ -235,7 +235,7 @@
                         <p class="qe-page__header-authors" font-size="18">
                             
                                 
-                                    <a href="http://www.tomsargent.com/" target="_blank"><span>Thomas J. Sargent</span></a>
+                                    <a href="https://www.tomsargent.com/" target="_blank"><span>Thomas J. Sargent</span></a>
                                 
                             
                                 
@@ -258,20 +258,20 @@
 <h1><span class="section-number">13. </span><span class="target" id="index-0"></span>SciPy<a class="headerlink" href="#scipy" title="Link to this heading">#</a></h1>
 <section id="overview">
 <span id="index-1"></span><h2><span class="section-number">13.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="http://www.scipy.org">SciPy</a> builds on top of NumPy to provide common tools for scientific programming such as</p>
+<p><a class="reference external" href="https://www.scipy.org">SciPy</a> builds on top of NumPy to provide common tools for scientific programming such as</p>
 <ul class="simple">
-<li><p><a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/linalg.html">linear algebra</a></p></li>
-<li><p><a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/integrate.html">numerical integration</a></p></li>
-<li><p><a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/interpolate.html">interpolation</a></p></li>
-<li><p><a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/optimize.html">optimization</a></p></li>
-<li><p><a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/stats.html">distributions and random number generation</a></p></li>
-<li><p><a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/signal.html">signal processing</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/linalg.html">linear algebra</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/integrate.html">numerical integration</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/interpolate.html">interpolation</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.html">optimization</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/stats.html">distributions and random number generation</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/signal.html">signal processing</a></p></li>
 <li><p>etc., etc</p></li>
 </ul>
 <p>Like NumPy, SciPy is stable, mature and widely used.</p>
 <p>Many SciPy routines are thin wrappers around industry-standard Fortran libraries such as <a class="reference external" href="https://en.wikipedia.org/wiki/LAPACK">LAPACK</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms">BLAS</a>, etc.</p>
 <p>It’s not really necessary to “learn” SciPy as a whole.</p>
-<p>A more common approach is to get some idea of what’s in the library and then look up <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/index.html">documentation</a> as required.</p>
+<p>A more common approach is to get some idea of what’s in the library and then look up <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/index.html">documentation</a> as required.</p>
 <p>In this lecture, we aim only to highlight some useful parts of the package.</p>
 </section>
 <section id="scipy-versus-numpy">
@@ -293,6 +293,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">quantecon</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qe</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
@@ -323,7 +324,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.54077888, 0.33113945, 0.56182537])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.37807103, 0.66694963, 0.70599602])
 </pre></div>
 </div>
 </div>
@@ -353,7 +354,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/79e4fb5e2c0aae22483472aac30a1a13c3445e6d45b6a493791d03b9478e6011.png" src="_images/79e4fb5e2c0aae22483472aac30a1a13c3445e6d45b6a493791d03b9478e6011.png" />
+<img alt="_images/9eef07a648991aa7f5c9fc546fb6d6c9b01ae602357eb79db837990ac1a5d7d9.png" src="_images/9eef07a648991aa7f5c9fc546fb6d6c9b01ae602357eb79db837990ac1a5d7d9.png" />
 </div>
 </div>
 <p>The object <code class="docutils literal notranslate"><span class="pre">q</span></code> that represents the distribution has additional useful methods, including</p>
@@ -397,7 +398,7 @@
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">name</span> <span class="pre">=</span> <span class="pre">scipy.stats.distribution_name(shape_parameters,</span> <span class="pre">loc=c,</span> <span class="pre">scale=d)</span></code></p>
 </div></blockquote>
-<p>Here <code class="docutils literal notranslate"><span class="pre">distribution_name</span></code> is one of the distribution names in <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/stats.html">scipy.stats</a>.</p>
+<p>Here <code class="docutils literal notranslate"><span class="pre">distribution_name</span></code> is one of the distribution names in <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/stats.html">scipy.stats</a>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameters transform the original random variable
 <span class="math notranslate nohighlight">\(X\)</span> into <span class="math notranslate nohighlight">\(Y = c + d X\)</span>.</p>
 </section>
@@ -418,7 +419,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8fe46c25a84ed40a52beee3a6191f3f90de333ebdf4d98052a5cec5d81afa182.png" src="_images/8fe46c25a84ed40a52beee3a6191f3f90de333ebdf4d98052a5cec5d81afa182.png" />
+<img alt="_images/8e9015e753a207ef81fe6fe9fd07c650bb5219aaad6ad1f7f239f788cf447cad.png" src="_images/8e9015e753a207ef81fe6fe9fd07c650bb5219aaad6ad1f7f239f788cf447cad.png" />
 </div>
 </div>
 </section>
@@ -438,7 +439,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(1.9934273932405975), np.float64(-0.0026366301079737836))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(1.9959347588626453), np.float64(0.008476481915153294))
 </pre></div>
 </div>
 </div>
@@ -609,24 +610,26 @@
 <p>Here the correct solution is found and the speed is better than bisection:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> brentq(f, 0, 1)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="s2">&quot;milliseconds&quot;</span><span class="p">):</span>
+    <span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21.8 μs ± 49.1 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.04 ms elapsed
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> bisect(f, 0, 1)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="s2">&quot;milliseconds&quot;</span><span class="p">):</span>
+    <span class="n">bisect</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>85.7 μs ± 343 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10 ms elapsed
 </pre></div>
 </div>
 </div>
@@ -635,7 +638,7 @@
 <section id="multivariate-root-finding">
 <h3><span class="section-number">13.4.4. </span>Multivariate Root-Finding<a class="headerlink" href="#multivariate-root-finding" title="Link to this heading">#</a></h3>
 <p id="index-9">Use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.fsolve</span></code>, a wrapper for a hybrid method in MINPACK.</p>
-<p>See the <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fsolve.html">documentation</a> for details.</p>
+<p>See the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fsolve.html">documentation</a> for details.</p>
 </section>
 <section id="fixed-points">
 <h3><span class="section-number">13.4.5. </span>Fixed Points<a class="headerlink" href="#fixed-points" title="Link to this heading">#</a></h3>
@@ -686,7 +689,7 @@ the minimizer of <span class="math notranslate nohighlight">\(-f\)</span> on <sp
 <h3><span class="section-number">13.5.1. </span>Multivariate Optimization<a class="headerlink" href="#multivariate-optimization" title="Link to this heading">#</a></h3>
 <p id="index-13">Multivariate local optimizers include <code class="docutils literal notranslate"><span class="pre">minimize</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin_powell</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin_cg</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin_bfgs</span></code>, and <code class="docutils literal notranslate"><span class="pre">fmin_ncg</span></code>.</p>
 <p>Constrained multivariate local optimizers include <code class="docutils literal notranslate"><span class="pre">fmin_l_bfgs_b</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin_tnc</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin_cobyla</span></code>.</p>
-<p>See the <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/optimize.html">documentation</a> for details.</p>
+<p>See the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.html">documentation</a> for details.</p>
 </section>
 </section>
 <section id="integration">
@@ -714,14 +717,14 @@ the minimizer of <span class="math notranslate nohighlight">\(-f\)</span> on <sp
 <p>It uses <a class="reference external" href="https://en.wikipedia.org/wiki/Clenshaw-Curtis_quadrature">Clenshaw-Curtis quadrature</a>,  based on expansion in terms of Chebychev polynomials.</p>
 <p>There are other options for univariate integration—a useful one is <code class="docutils literal notranslate"><span class="pre">fixed_quad</span></code>, which is fast and hence works well inside <code class="docutils literal notranslate"><span class="pre">for</span></code> loops.</p>
 <p>There are also functions for multivariate integration.</p>
-<p>See the <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/integrate.html">documentation</a> for more details.</p>
+<p>See the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/integrate.html">documentation</a> for more details.</p>
 </section>
 <section id="linear-algebra">
 <h2><span class="section-number">13.7. </span><span class="target" id="index-16"></span>Linear Algebra<a class="headerlink" href="#linear-algebra" title="Link to this heading">#</a></h2>
 <p id="index-17">We saw that NumPy provides a module for linear algebra called <code class="docutils literal notranslate"><span class="pre">linalg</span></code>.</p>
 <p>SciPy also provides a module for linear algebra with the same name.</p>
 <p>The latter is not an exact superset of the former, but overall it has more functionality.</p>
-<p>We leave you to investigate the <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/linalg.html">set of available routines</a>.</p>
+<p>We leave you to investigate the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/linalg.html">set of available routines</a>.</p>
 </section>
 <section id="exercises">
 <h2><span class="section-number">13.8. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
@@ -758,7 +761,7 @@ g(x) = \beta^n  \max\{x - K, 0\} f(x)
 <p>over the interval <span class="math notranslate nohighlight">\([0, 400]\)</span> when <code class="docutils literal notranslate"><span class="pre">μ,</span> <span class="pre">σ,</span> <span class="pre">β,</span> <span class="pre">n,</span> <span class="pre">K</span> <span class="pre">=</span> <span class="pre">4,</span> <span class="pre">0.25,</span> <span class="pre">0.99,</span> <span class="pre">10,</span> <span class="pre">40</span></code>.</p>
 <div class="dropdown admonition hint">
 <p class="admonition-title">Hint</p>
-<p>From <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> you can import <code class="docutils literal notranslate"><span class="pre">lognorm</span></code> and then use <code class="docutils literal notranslate"><span class="pre">lognorm(x,</span> <span class="pre">σ,</span> <span class="pre">scale=np.exp(μ)</span></code> to get the density <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<p>From <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> you can import <code class="docutils literal notranslate"><span class="pre">lognorm</span></code> and then use <code class="docutils literal notranslate"><span class="pre">lognorm.pdf(x,</span> <span class="pre">σ,</span> <span class="pre">scale=np.exp(μ))</span></code> to get the density <span class="math notranslate nohighlight">\(f\)</span>.</p>
 </div>
 </section>
 </div>
@@ -797,7 +800,7 @@ g(x) = \beta^n  \max\{x - K, 0\} f(x)
 
 <p class="admonition-title"><span class="caption-number">Exercise 13.2 </span></p>
 <section id="exercise-content">
-<p>In order to get the option price, compute the integral of this function numerically using <code class="docutils literal notranslate"><span class="pre">quad</span></code> from <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code>.</p>
+<p>In order to get the option price, compute the integral of this function numerically using <code class="docutils literal notranslate"><span class="pre">quad</span></code> from <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code>.</p>
 </section>
 </div>
 <div class="solution dropdown admonition" id="scipy-solution-3">
@@ -851,7 +854,7 @@ large numbers,</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Monte Carlo option price is 15.187365
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Monte Carlo option price is 15.192580
 </pre></div>
 </div>
 </div>

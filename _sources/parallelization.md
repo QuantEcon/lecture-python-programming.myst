@@ -166,7 +166,8 @@ x, y = np.meshgrid(grid, grid)
 ```
 
 ```{code-cell} ipython3
-%timeit np.max(f(x, y))
+with qe.Timer():
+    np.max(f(x, y))
 ```
 
 If you have a system monitor such as htop (Linux/Mac) or perfmon
@@ -185,7 +186,7 @@ To get some basis for comparison for the last example, let's try the same
 thing with Numba.
 
 In fact there is an easy way to do this, since Numba can also be used to
-create custom {ref}`ufuncs <ufuncs>` with the [@vectorize](http://numba.pydata.org/numba-doc/dev/user/vectorize.html) decorator.
+create custom {ref}`ufuncs <ufuncs>` with the [@vectorize](https://numba.pydata.org/numba-doc/dev/user/vectorize.html) decorator.
 
 ```{code-cell} python3
 from numba import vectorize
@@ -198,7 +199,8 @@ np.max(f_vec(x, y))  # Run once to compile
 ```
 
 ```{code-cell} ipython3
-%timeit np.max(f_vec(x, y))
+with qe.Timer():
+    np.max(f_vec(x, y))
 ```
 
 At least on our machine, the difference in the speed between the
@@ -248,7 +250,8 @@ np.max(f_vec(x, y))  # Run once to compile
 ```
 
 ```{code-cell} ipython3
-%timeit np.max(f_vec(x, y))
+with qe.Timer():
+    np.max(f_vec(x, y))
 ```
 
 Now our code runs significantly faster than the NumPy version.
@@ -364,8 +367,8 @@ def compute_long_run_median(w0=1, T=1000, num_reps=50_000):
 Let's see how fast this runs:
 
 ```{code-cell} ipython
-%%time
-compute_long_run_median()
+with qe.Timer():
+    compute_long_run_median()
 ```
 
 To speed this up, we're going to parallelize it via multithreading.
@@ -391,8 +394,8 @@ def compute_long_run_median_parallel(w0=1, T=1000, num_reps=50_000):
 Let's look at the timing:
 
 ```{code-cell} ipython
-%%time
-compute_long_run_median_parallel()
+with qe.Timer():
+    compute_long_run_median_parallel()
 ```
 
 The speed-up is significant.
@@ -461,11 +464,13 @@ def calculate_pi(n=1_000_000):
 Now let's see how fast it runs:
 
 ```{code-cell} ipython3
-%time calculate_pi()
+with qe.Timer():
+    calculate_pi()
 ```
 
 ```{code-cell} ipython3
-%time calculate_pi()
+with qe.Timer():
+    calculate_pi()
 ```
 
 By switching parallelization on and off (selecting `True` or

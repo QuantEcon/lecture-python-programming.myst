@@ -232,7 +232,7 @@
                         <p class="qe-page__header-authors" font-size="18">
                             
                                 
-                                    <a href="http://www.tomsargent.com/" target="_blank"><span>Thomas J. Sargent</span></a>
+                                    <a href="https://www.tomsargent.com/" target="_blank"><span>Thomas J. Sargent</span></a>
                                 
                             
                                 
@@ -266,7 +266,7 @@
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.8.2)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.10.1)
 Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (0.61.0)
 Requirement already satisfied: numpy&gt;=1.17.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.1.3)
 Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.32.3)
@@ -304,7 +304,7 @@ operations in batch to efficient low-level code.</p>
 <p>One is that it is highly memory-intensive when working with large amounts of data.</p>
 <p>Another is that the set of algorithms that can be entirely vectorized is not universal.</p>
 <p>In fact, for some algorithms, vectorization is ineffective.</p>
-<p>Fortunately, a new Python library called <a class="reference external" href="http://numba.pydata.org/">Numba</a>
+<p>Fortunately, a new Python library called <a class="reference external" href="https://numba.pydata.org/">Numba</a>
 solves many of these problems.</p>
 <p>It does so through something called <strong>just in time (JIT) compilation</strong>.</p>
 <p>The key idea is to compile functions to native machine code instructions on the fly.</p>
@@ -374,14 +374,14 @@ JIT-compilation.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">10_000_000</span>
 
-<span class="n">qe</span><span class="o">.</span><span class="n">tic</span><span class="p">()</span>
-<span class="n">qm</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-<span class="n">time1</span> <span class="o">=</span> <span class="n">qe</span><span class="o">.</span><span class="n">toc</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">()</span> <span class="k">as</span> <span class="n">timer1</span><span class="p">:</span>
+    <span class="n">qm</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">time1</span> <span class="o">=</span> <span class="n">timer1</span><span class="o">.</span><span class="n">elapsed</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:3.66
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.66 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -389,14 +389,14 @@ JIT-compilation.</p>
 <p>Now let’s try qm_numba</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qe</span><span class="o">.</span><span class="n">tic</span><span class="p">()</span>
-<span class="n">qm_numba</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-<span class="n">time2</span> <span class="o">=</span> <span class="n">qe</span><span class="o">.</span><span class="n">toc</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">()</span> <span class="k">as</span> <span class="n">timer2</span><span class="p">:</span>
+    <span class="n">qm_numba</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">time2</span> <span class="o">=</span> <span class="n">timer2</span><span class="o">.</span><span class="n">elapsed</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.12
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.15 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -405,14 +405,14 @@ JIT-compilation.</p>
 <p>In fact, the next time and all subsequent times it runs even faster as the function has been compiled and is in memory:</p>
 <div class="cell docutils container" id="qm-numba-result">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qe</span><span class="o">.</span><span class="n">tic</span><span class="p">()</span>
-<span class="n">qm_numba</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-<span class="n">time3</span> <span class="o">=</span> <span class="n">qe</span><span class="o">.</span><span class="n">toc</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">()</span> <span class="k">as</span> <span class="n">timer3</span><span class="p">:</span>
+    <span class="n">qm_numba</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">time3</span> <span class="o">=</span> <span class="n">timer3</span><span class="o">.</span><span class="n">elapsed</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.03 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -424,7 +424,7 @@ JIT-compilation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>142.00118255728012
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>145.59480327074846
 </pre></div>
 </div>
 </div>
@@ -433,7 +433,7 @@ JIT-compilation.</p>
 </section>
 <section id="how-and-when-it-works">
 <h3><span class="section-number">17.2.2. </span>How and When it Works<a class="headerlink" href="#how-and-when-it-works" title="Link to this heading">#</a></h3>
-<p>Numba attempts to generate fast machine code using the infrastructure provided by the <a class="reference external" href="http://llvm.org/">LLVM Project</a>.</p>
+<p>Numba attempts to generate fast machine code using the infrastructure provided by the <a class="reference external" href="https://llvm.org/">LLVM Project</a>.</p>
 <p>It does this by inferring type information on the fly.</p>
 <p>(See our <a class="reference internal" href="need_for_speed.html"><span class="doc">earlier lecture</span></a> on scientific computing for a discussion of types.)</p>
 <p>The basic idea is this:</p>
@@ -489,38 +489,26 @@ moment, and <em>then</em> compile the function.</p></li>
 <p>The following now uses the jitted version:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span> 
-
-<span class="n">qm</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">100_000</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">qm</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">100_000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 68.7 ms, sys: 35 μs, total: 68.7 ms
-Wall time: 68.3 ms
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.1       , 0.36      , 0.9216    , ..., 0.98112405, 0.07407858,
-       0.27436377])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span> 
-
-<span class="n">qm</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">100_000</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">qm</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">100_000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 0 ns, sys: 449 μs, total: 449 μs
-Wall time: 451 μs
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.1       , 0.36      , 0.9216    , ..., 0.98112405, 0.07407858,
-       0.27436377])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -567,9 +555,9 @@ Wall time: 451 μs
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed in nopython mode pipeline (step: nopython frontend)
 <span class=" -Color -Color-Bold">non-precise type pyobject</span>
-<span class=" -Color -Color-Bold">During: typing of argument at /tmp/ipykernel_2726/3796191009.py (1)</span>
+<span class=" -Color -Color-Bold">During: typing of argument at /tmp/ipykernel_6436/3796191009.py (1)</span>
 
-<span class=" -Color -Color-Bold">File &quot;../../../../../../tmp/ipykernel_2726/3796191009.py&quot;, line 1:</span>
+<span class=" -Color -Color-Bold">File &quot;../../../../../../tmp/ipykernel_6436/3796191009.py&quot;, line 1:</span>
 <span class=" -Color -Color-Bold">&lt;source missing, REPL/exec in use?&gt;</span>
 
 <span class=" -Color -Color-Bold">During: Pass nopython_type_inference</span> 
@@ -587,17 +575,13 @@ This error may have been caused by the following argument(s):
 <span class="k">def</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-<span class="o">%</span><span class="k">time</span> bootstrap(data, mean, n_resamples)
+<span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">bootstrap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">n_resamples</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 269 ms, sys: 12 ms, total: 281 ms
-Wall time: 281 ms
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.62857143, 4.21428571, 2.62857143, 3.8       , 3.01428571,
-       2.94285714, 3.12857143, 3.52857143, 3.91428571, 3.31428571])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.30 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -723,7 +707,7 @@ created in <a class="reference internal" href="python_oop.html"><span class="doc
 <p>If you prefer, you can safely skip this section.</p>
 <section id="cython">
 <h3><span class="section-number">17.6.1. </span>Cython<a class="headerlink" href="#cython" title="Link to this heading">#</a></h3>
-<p>Like <a class="reference internal" href="#"><span class="doc">Numba</span></a>,  <a class="reference external" href="http://cython.org/">Cython</a> provides an approach to generating fast compiled code that can be used from Python.</p>
+<p>Like <a class="reference internal" href="#"><span class="doc">Numba</span></a>,  <a class="reference external" href="https://cython.org/">Cython</a> provides an approach to generating fast compiled code that can be used from Python.</p>
 <p>As was the case with Numba, a key problem is the fact that Python is dynamically typed.</p>
 <p>As you’ll recall, Numba solves this problem (where possible) by inferring type.</p>
 <p>Cython’s approach is different — programmers add type definitions directly to their “Python” code.</p>
@@ -736,12 +720,12 @@ cumbersome than Numba.</p>
 <section id="interfacing-with-fortran-via-f2py">
 <h3><span class="section-number">17.6.2. </span>Interfacing with Fortran via F2Py<a class="headerlink" href="#interfacing-with-fortran-via-f2py" title="Link to this heading">#</a></h3>
 <p id="index-3">If you are comfortable writing Fortran you will find it very easy to create
-extension modules from Fortran code using <a class="reference external" href="https://docs.scipy.org/doc/numpy/f2py/">F2Py</a>.</p>
+extension modules from Fortran code using <a class="reference external" href="https://numpy.org/doc/stable/f2py/">F2Py</a>.</p>
 <p>F2Py is a Fortran-to-Python interface generator that is particularly simple to
 use.</p>
-<p>Robert Johansson provides a <a class="reference external" href="http://nbviewer.jupyter.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-6A-Fortran-and-C.ipynb">nice introduction</a>
+<p>Robert Johansson provides a <a class="reference external" href="https://nbviewer.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-6A-Fortran-and-C.ipynb">nice introduction</a>
 to F2Py, among other things.</p>
-<p>Recently, <a class="reference external" href="http://nbviewer.jupyter.org/github/mgaitan/fortran_magic/blob/master/documentation.ipynb">a Jupyter cell magic for Fortran</a> has been developed — you might want to give it a try.</p>
+<p>Recently, <a class="reference external" href="https://nbviewer.org/github/mgaitan/fortran_magic/blob/master/documentation.ipynb">a Jupyter cell magic for Fortran</a> has been developed — you might want to give it a try.</p>
 </section>
 </section>
 <section id="summary-and-comments">
@@ -836,32 +820,26 @@ Monte Carlo.</p>
 <p>Now let’s see how fast it runs:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span> calculate_pi()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">calculate_pi</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 141 ms, sys: 982 μs, total: 142 ms
-Wall time: 141 ms
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141904
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.21 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span> calculate_pi()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">calculate_pi</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 9.85 ms, sys: 940 μs, total: 10.8 ms
-Wall time: 10.7 ms
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.140964
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.01 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -876,7 +854,7 @@ characters.</p>
 
 <p class="admonition-title"><span class="caption-number">Exercise 17.2 </span></p>
 <section id="exercise-content">
-<p>In the <a class="reference external" href="https://python-intro.quantecon.org">Introduction to Quantitative Economics with Python</a> lecture series you can
+<p>In the <a class="reference external" href="https://intro.quantecon.org/intro.html">Introduction to Quantitative Economics with Python</a> lecture series you can
 learn all about finite-state Markov chains.</p>
 <p>For now, let’s just concentrate on simulating a very simple example of such a chain.</p>
 <p>Suppose that the volatility of returns on an asset can be in one of two regimes — high or low.</p>
@@ -947,7 +925,7 @@ state is about 0.666</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.666767
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.666705
 </pre></div>
 </div>
 </div>
@@ -956,17 +934,13 @@ state is about 0.666</p>
 <p>Now let’s time it:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qe</span><span class="o">.</span><span class="n">tic</span><span class="p">()</span>
-<span class="n">compute_series</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="n">qe</span><span class="o">.</span><span class="n">toc</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">compute_series</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.47
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.47507143020629883
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.47 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -988,7 +962,7 @@ state is about 0.666</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.666336
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.666276
 </pre></div>
 </div>
 </div>
@@ -996,17 +970,13 @@ state is about 0.666</p>
 <p>Let’s see the time</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qe</span><span class="o">.</span><span class="n">tic</span><span class="p">()</span>
-<span class="n">compute_series_numba</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="n">qe</span><span class="o">.</span><span class="n">toc</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">compute_series_numba</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TOC: Elapsed: 0:00:0.00
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007386207580566406
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.01 seconds elapsed
 </pre></div>
 </div>
 </div>

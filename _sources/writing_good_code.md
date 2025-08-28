@@ -133,7 +133,7 @@ axes[2].legend(loc='upper left', frameon=True)
 plt.show()
 ```
 
-True, the code more or less follows [PEP8](https://www.python.org/dev/peps/pep-0008/).
+True, the code more or less follows [PEP8](https://peps.python.org/pep-0008/).
 
 At the same time, it's very poorly structured.
 
@@ -189,7 +189,7 @@ But as a programmer, your aim should be to **automate** repetition, **not** do i
 
 More importantly, repeating the same logic in different places means that eventually one of them will likely be wrong.
 
-If you want to know more, read the excellent summary found on [this page](https://code.tutsplus.com/tutorials/3-key-software-principles-you-must-understand--net-25161).
+If you want to know more, read the excellent summary found on [this page](https://code.tutsplus.com/3-key-software-principles-you-must-understand--net-25161t).
 
 We'll talk about how to avoid repetition below.
 
@@ -206,7 +206,7 @@ But global variables are dangerous, especially in medium to large size programs,
 
 This makes it much harder to be certain about what some  small part of a given piece of code actually commands.
 
-Here's a [useful discussion on the topic](http://wiki.c2.com/?GlobalVariablesAreBad).
+Here's a [useful discussion on the topic](https://wiki.c2.com/?GlobalVariablesAreBad).
 
 While the odd global in small scripts is no big deal, we recommend that you teach yourself to avoid them.
 

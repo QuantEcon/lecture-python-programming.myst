@@ -27,6 +27,14 @@ kernelspec:
 "Let's be clear: the work of science has nothing whatever to do with consensus.  Consensus is the business of politics. Science, on the contrary, requires only one investigator who happens to be right, which means that he or she has results that are verifiable by reference to the real world. In science consensus is irrelevant. What is relevant is reproducible results." -- Michael Crichton
 ```
 
+In addition to what's in Anaconda, this lecture will need the following libraries:
+
+```{code-cell} ipython3
+:tags: [hide-output]
+
+!pip install quantecon
+```
+
 ## Overview
 
 [NumPy](https://en.wikipedia.org/wiki/NumPy) is a first-rate library for numerical programming
@@ -42,7 +50,7 @@ In this lecture, we will start a more systematic discussion of
 1. the fundamental array processing operations provided by NumPy.
 
 
-(For an alternative reference, see [the official NumPy documentation](http://docs.scipy.org/doc/numpy/reference/).)
+(For an alternative reference, see [the official NumPy documentation](https://numpy.org/doc/stable/reference/).)
 
 We will use the following imports.
 
@@ -55,6 +63,8 @@ from mpl_toolkits.mplot3d.axes3d import Axes3D
 from matplotlib import cm
 ```
 
+
+
 (numpy_array)=
 ## NumPy Arrays
 
@@ -64,11 +74,11 @@ from matplotlib import cm
 The essential problem that NumPy solves is fast array processing.
 
 The most important structure that NumPy defines is an array data type, formally
-called a [numpy.ndarray](http://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html).
+called a [numpy.ndarray](https://numpy.org/doc/stable/reference/arrays.ndarray.html).
 
 NumPy arrays power a very large proportion of the scientific Python ecosystem.
 
-To create a NumPy array containing only zeros we use  [np.zeros](http://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros)
+To create a NumPy array containing only zeros we use  [np.zeros](https://numpy.org/doc/stable/reference/generated/numpy.zeros.html#numpy.zeros)
 
 ```{code-cell} python3
 a = np.zeros(3)
@@ -82,7 +92,7 @@ type(a)
 NumPy arrays are somewhat like native Python lists, except that
 
 * Data *must be homogeneous* (all elements of the same type).
-* These types must be one of the [data types](https://docs.scipy.org/doc/numpy/reference/arrays.dtypes.html) (`dtypes`) provided by NumPy.
+* These types must be one of the [data types](https://numpy.org/doc/stable/reference/arrays.dtypes.html) (`dtypes`) provided by NumPy.
 
 The most important of these dtypes are:
 
@@ -212,7 +222,7 @@ na is np.array(na)     # Does make a new copy --- perhaps unnecessarily
 ```
 
 To read in the array data from a text file containing numeric data use `np.loadtxt`
-or `np.genfromtxt`---see [the documentation](http://docs.scipy.org/doc/numpy/reference/routines.io.html) for details.
+or `np.genfromtxt`---see [the documentation](https://numpy.org/doc/stable/reference/routines.io.html) for details.
 
 ### Array Indexing
 
@@ -456,7 +466,7 @@ B = np.ones((2, 2))
 A @ B
 ```
 
-(For older versions of Python and NumPy you need to use the [np.dot](http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html) function)
+(For older versions of Python and NumPy you need to use the [np.dot](https://numpy.org/doc/stable/reference/generated/numpy.dot.html) function)
 
 We can also use `@` to take the inner product of two flat arrays
 
@@ -526,7 +536,7 @@ Here is a visual representation of this broadcasting operation:
 tags: [hide-input]
 ---
 # Adapted and modified based on the code in the book written by Jake VanderPlas (see https://jakevdp.github.io/PythonDataScienceHandbook/06.00-figure-code.html#Broadcasting)
-# Originally from astroML: see http://www.astroml.org/book_figures/appendix/fig_broadcast_visual.html
+# Originally from astroML: see https://www.astroml.org/book_figures/appendix/fig_broadcast_visual.html
 
 
 def draw_cube(ax, xy, size, depth=0.4,
@@ -1155,11 +1165,11 @@ np.linalg.inv(A)           # Compute the inverse
 ```{index} single: Python; SciPy
 ```
 
-Much of this functionality is also available in [SciPy](http://www.scipy.org/), a collection of modules that are built on top of NumPy.
+Much of this functionality is also available in [SciPy](https://www.scipy.org/), a collection of modules that are built on top of NumPy.
 
 We'll cover the SciPy versions in more detail {doc}`soon <scipy>`.
 
-For a comprehensive list of what's available in NumPy see [this documentation](https://docs.scipy.org/doc/numpy/reference/routines.html).
+For a comprehensive list of what's available in NumPy see [this documentation](https://numpy.org/doc/stable/reference/routines.html).
 
 
 ## Speed Comparisons
@@ -1182,21 +1192,19 @@ n = 1_000_000
 ```
 
 ```{code-cell} python3
-%%time
-
-y = 0      # Will accumulate and store sum
-for i in range(n):
-    x = random.uniform(0, 1)
-    y += x**2
+with qe.Timer():
+    y = 0      # Will accumulate and store sum
+    for i in range(n):
+        x = random.uniform(0, 1)
+        y += x**2
 ```
 
 The following vectorized code achieves the same thing.
 
 ```{code-cell} ipython
-%%time
-
-x = np.random.uniform(0, 1, n)
-y = np.sum(x**2)
+with qe.Timer():
+    x = np.random.uniform(0, 1, n)
+    y = np.sum(x**2)
 ```
 
 As you can see, the second code block runs much faster.  Why?
@@ -1277,24 +1285,22 @@ grid = np.linspace(-3, 3, 1000)
 Here's a non-vectorized version that uses Python loops.
 
 ```{code-cell} python3
-%%time
+with qe.Timer():
+    m = -np.inf
 
-m = -np.inf
-
-for x in grid:
-    for y in grid:
-        z = f(x, y)
-        if z > m:
-            m = z
+    for x in grid:
+        for y in grid:
+            z = f(x, y)
+            if z > m:
+                m = z
 ```
 
 And here's a vectorized version
 
 ```{code-cell} python3
-%%time
-
-x, y = np.meshgrid(grid, grid)
-np.max(f(x, y))
+with qe.Timer():
+    x, y = np.meshgrid(grid, grid)
+    np.max(f(x, y))
 ```
 
 In the vectorized version, all the looping takes place in compiled code.
@@ -1472,9 +1478,9 @@ But this is inefficient relative to computing `Q` once-off.
 A better option is to use descriptors.
 
 A solution from the [quantecon
-library](https://github.com/QuantEcon/QuantEcon.py/tree/master/quantecon)
+library](https://github.com/QuantEcon/QuantEcon.py/tree/main/quantecon)
 using descriptors that behaves as we desire can be found
-[here](https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/discrete_rv.py).
+[here](https://github.com/QuantEcon/QuantEcon.py/blob/main/quantecon/discrete_rv.py).
 
 ```{solution-end}
 ```
@@ -1497,7 +1503,7 @@ Your task is to
 
 An example solution is given below.
 
-In essence, we've just taken [this code](https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/ecdf.py)
+In essence, we've just taken [this code](https://github.com/QuantEcon/QuantEcon.py/blob/main/quantecon/ecdf.py)
 from QuantEcon and added in a plot method
 
 ```{code-cell} python3
@@ -1628,9 +1634,8 @@ np.random.seed(123)
 x = np.random.randn(1000, 100, 100)
 y = np.random.randn(100)
 
-qe.tic()
-B = x / y
-qe.toc()
+with qe.Timer("Broadcasting operation"):
+    B = x / y
 ```
 
 Here is the output
@@ -1688,14 +1693,13 @@ np.random.seed(123)
 x = np.random.randn(1000, 100, 100)
 y = np.random.randn(100)
 
-qe.tic()
-D = np.empty_like(x)
-d1, d2, d3 = x.shape
-for i in range(d1):
-    for j in range(d2):
-        for k in range(d3):
-            D[i, j, k] = x[i, j, k] / y[k]
-qe.toc()
+with qe.Timer("For loop operation"):
+    D = np.empty_like(x)
+    d1, d2, d3 = x.shape
+    for i in range(d1):
+        for j in range(d2):
+            for k in range(d3):
+                D[i, j, k] = x[i, j, k] / y[k]
 ```
 
 Note that the `for` loop takes much longer than the broadcasting operation.

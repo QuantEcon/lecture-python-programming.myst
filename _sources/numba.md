@@ -41,6 +41,8 @@ import quantecon as qe
 import matplotlib.pyplot as plt
 ```
 
+
+
 ## Overview
 
 In an {doc}`earlier lecture <need_for_speed>` we learned about vectorization, which is one method to improve speed and efficiency in numerical work.
@@ -56,7 +58,7 @@ Another is that the set of algorithms that can be entirely vectorized is not uni
 
 In fact, for some algorithms, vectorization is ineffective.
 
-Fortunately, a new Python library called [Numba](http://numba.pydata.org/)
+Fortunately, a new Python library called [Numba](https://numba.pydata.org/)
 solves many of these problems.
 
 It does so through something called **just in time (JIT) compilation**.
@@ -133,17 +135,17 @@ Let's time and compare identical function calls across these two versions, start
 ```{code-cell} ipython3
 n = 10_000_000
 
-qe.tic()
-qm(0.1, int(n))
-time1 = qe.toc()
+with qe.Timer() as timer1:
+    qm(0.1, int(n))
+time1 = timer1.elapsed
 ```
 
 Now let's try qm_numba
 
 ```{code-cell} ipython3
-qe.tic()
-qm_numba(0.1, int(n))
-time2 = qe.toc()
+with qe.Timer() as timer2:
+    qm_numba(0.1, int(n))
+time2 = timer2.elapsed
 ```
 
 This is already a very large speed gain.
@@ -153,9 +155,9 @@ In fact, the next time and all subsequent times it runs even faster as the funct
 (qm_numba_result)=
 
 ```{code-cell} ipython3
-qe.tic()
-qm_numba(0.1, int(n))
-time3 = qe.toc()
+with qe.Timer() as timer3:
+    qm_numba(0.1, int(n))
+time3 = timer3.elapsed
 ```
 
 ```{code-cell} ipython3
@@ -166,7 +168,7 @@ This kind of speed gain is impressive relative to how simple and clear the modif
 
 ### How and When it Works
 
-Numba attempts to generate fast machine code using the infrastructure provided by the [LLVM Project](http://llvm.org/).
+Numba attempts to generate fast machine code using the infrastructure provided by the [LLVM Project](https://llvm.org/).
 
 It does this by inferring type information on the fly.
 
@@ -225,15 +227,13 @@ This is equivalent to adding `qm = jit(qm)` after the function definition.
 The following now uses the jitted version:
 
 ```{code-cell} ipython3
-%%time 
-
-qm(0.1, 100_000)
+with qe.Timer():
+    qm(0.1, 100_000)
 ```
 
 ```{code-cell} ipython3
-%%time 
-
-qm(0.1, 100_000)
+with qe.Timer():
+    qm(0.1, 100_000)
 ```
 
 Numba also provides several arguments for decorators to accelerate computation and cache functions -- see [here](https://numba.readthedocs.io/en/stable/user/performance-tips.html).
@@ -289,7 +289,8 @@ We can fix this error easily in this case by compiling `mean`.
 def mean(data):
     return np.mean(data)
 
-%time bootstrap(data, mean, n_resamples)
+with qe.Timer():
+    bootstrap(data, mean, n_resamples)
 ```
 
 ## Compiling Classes
@@ -419,7 +420,7 @@ If you prefer, you can safely skip this section.
 
 ### Cython
 
-Like {doc}`Numba <numba>`,  [Cython](http://cython.org/) provides an approach to generating fast compiled code that can be used from Python.
+Like {doc}`Numba <numba>`,  [Cython](https://cython.org/) provides an approach to generating fast compiled code that can be used from Python.
 
 As was the case with Numba, a key problem is the fact that Python is dynamically typed.
 
@@ -442,15 +443,15 @@ cumbersome than Numba.
 ```
 
 If you are comfortable writing Fortran you will find it very easy to create
-extension modules from Fortran code using [F2Py](https://docs.scipy.org/doc/numpy/f2py/).
+extension modules from Fortran code using [F2Py](https://numpy.org/doc/stable/f2py/).
 
 F2Py is a Fortran-to-Python interface generator that is particularly simple to
 use.
 
-Robert Johansson provides a [nice introduction](http://nbviewer.jupyter.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-6A-Fortran-and-C.ipynb)
+Robert Johansson provides a [nice introduction](https://nbviewer.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-6A-Fortran-and-C.ipynb)
 to F2Py, among other things.
 
-Recently, [a Jupyter cell magic for Fortran](http://nbviewer.jupyter.org/github/mgaitan/fortran_magic/blob/master/documentation.ipynb) has been developed --- you might want to give it a try.
+Recently, [a Jupyter cell magic for Fortran](https://nbviewer.org/github/mgaitan/fortran_magic/blob/master/documentation.ipynb) has been developed --- you might want to give it a try.
 
 ## Summary and Comments
 
@@ -534,11 +535,13 @@ def calculate_pi(n=1_000_000):
 Now let's see how fast it runs:
 
 ```{code-cell} ipython3
-%time calculate_pi()
+with qe.Timer():
+    calculate_pi()
 ```
 
 ```{code-cell} ipython3
-%time calculate_pi()
+with qe.Timer():
+    calculate_pi()
 ```
 
 If we switch off JIT compilation by removing `@njit`, the code takes around
@@ -554,7 +557,7 @@ characters.
 :label: speed_ex2
 ```
 
-In the [Introduction to Quantitative Economics with Python](https://python-intro.quantecon.org) lecture series you can
+In the [Introduction to Quantitative Economics with Python](https://intro.quantecon.org/intro.html) lecture series you can
 learn all about finite-state Markov chains.
 
 For now, let's just concentrate on simulating a very simple example of such a chain.
@@ -639,9 +642,8 @@ This is (approximately) the right output.
 Now let's time it:
 
 ```{code-cell} ipython3
-qe.tic()
-compute_series(n)
-qe.toc()
+with qe.Timer():
+    compute_series(n)
 ```
 
 Next let's implement a Numba version, which is easy
@@ -660,9 +662,8 @@ print(np.mean(x == 0))
 Let's see the time
 
 ```{code-cell} ipython3
-qe.tic()
-compute_series_numba(n)
-qe.toc()
+with qe.Timer():
+    compute_series_numba(n)
 ```
 
 This is a nice speed improvement for one line of code!

@@ -234,7 +234,7 @@
                         <p class="qe-page__header-authors" font-size="18">
                             
                                 
-                                    <a href="http://www.tomsargent.com/" target="_blank"><span>Thomas J. Sargent</span></a>
+                                    <a href="https://www.tomsargent.com/" target="_blank"><span>Thomas J. Sargent</span></a>
                                 
                             
                                 
@@ -302,7 +302,7 @@ series, as well as in our later series on <a class="reference external" href="ht
 <section id="introducing-python">
 <h2><span class="section-number">1.2. </span>Introducing Python<a class="headerlink" href="#introducing-python" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://www.python.org">Python</a> is a general-purpose programming language conceived in 1989 by <a class="reference external" href="https://en.wikipedia.org/wiki/Guido_van_Rossum">Guido van Rossum</a>.</p>
-<p>Python is free and <a class="reference external" href="https://en.wikipedia.org/wiki/Open_source">open source</a>, with development coordinated through the <a class="reference external" href="https://www.python.org/psf/">Python Software Foundation</a>.</p>
+<p>Python is free and <a class="reference external" href="https://en.wikipedia.org/wiki/Open_source">open source</a>, with development coordinated through the <a class="reference external" href="https://www.python.org/psf-landing/">Python Software Foundation</a>.</p>
 <p>This is important because it</p>
 <ul class="simple">
 <li><p>saves us money,</p></li>
@@ -421,7 +421,7 @@ of the values in the second column.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
 
 <span class="n">total</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">csv</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
@@ -485,7 +485,7 @@ operations research – which were previously dominated by MATLAB / Excel / STAT
 <p>But when we want to work with larger arrays in real programs we need more efficiency and more tools.</p>
 <p>For this we need to use libraries for working with arrays.</p>
 <p>For Python, the most important matrix and array processing library is
-<a class="reference external" href="http://www.numpy.org/">NumPy</a> library.</p>
+<a class="reference external" href="https://www.numpy.org/">NumPy</a> library.</p>
 <p>For example, let’s build a NumPy array with 100 elements</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -555,7 +555,7 @@ operations research – which were previously dominated by MATLAB / Excel / STAT
 <h3><span class="section-number">1.3.2. </span>NumPy Alternatives<a class="headerlink" href="#numpy-alternatives" title="Link to this heading">#</a></h3>
 <p>While NumPy is still the king of array processing in Python, there are now
 important competitors.</p>
-<p>Libraries such as <a class="reference external" href="https://github.com/google/jax">JAX</a>, <a class="reference external" href="https://pytorch.org/">Pytorch</a>, and <a class="reference external" href="https://cupy.dev/">CuPy</a> also have
+<p>Libraries such as <a class="reference external" href="https://github.com/jax-ml/jax">JAX</a>, <a class="reference external" href="https://pytorch.org/">Pytorch</a>, and <a class="reference external" href="https://cupy.dev/">CuPy</a> also have
 built in array types and array operations that can be very fast and efficient.</p>
 <p>In fact these libraries are better at exploiting parallelization and fast hardware, as
 we’ll explain later in this series.</p>
@@ -569,7 +569,7 @@ learn when you already know NumPy.</p></li>
 </section>
 <section id="scipy">
 <h3><span class="section-number">1.3.3. </span>SciPy<a class="headerlink" href="#scipy" title="Link to this heading">#</a></h3>
-<p>The <a class="reference external" href="http://www.scipy.org">SciPy</a> library is built on top of NumPy and provides additional functionality.</p>
+<p>The <a class="reference external" href="https://www.scipy.org">SciPy</a> library is built on top of NumPy and provides additional functionality.</p>
 <p id="tuple-unpacking-example">For example, let’s calculate <span class="math notranslate nohighlight">\(\int_{-2}^2 \phi(z) dz\)</span> where <span class="math notranslate nohighlight">\(\phi\)</span> is the standard normal density.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -590,20 +590,20 @@ learn when you already know NumPy.</p></li>
 </div>
 <p>SciPy includes many of the standard routines used in</p>
 <ul class="simple">
-<li><p><a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/linalg.html">linear algebra</a></p></li>
-<li><p><a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/integrate.html">integration</a></p></li>
-<li><p><a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/interpolate.html">interpolation</a></p></li>
-<li><p><a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/optimize.html">optimization</a></p></li>
-<li><p><a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/stats.html">distributions and statistical techniques</a></p></li>
-<li><p><a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/signal.html">signal processing</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/linalg.html">linear algebra</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/integrate.html">integration</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/interpolate.html">interpolation</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.html">optimization</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/stats.html">distributions and statistical techniques</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/signal.html">signal processing</a></p></li>
 </ul>
-<p>See them all <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/index.html">here</a>.</p>
+<p>See them all <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/index.html">here</a>.</p>
 <p>Later we’ll discuss SciPy in more detail.</p>
 </section>
 <section id="graphics">
 <h3><span class="section-number">1.3.4. </span>Graphics<a class="headerlink" href="#graphics" title="Link to this heading">#</a></h3>
 <p id="index-5">A major strength of Python is data visualization.</p>
-<p>The most popular and comprehensive Python library for creating figures and graphs is <a class="reference external" href="http://matplotlib.org/">Matplotlib</a>, with functionality including</p>
+<p>The most popular and comprehensive Python library for creating figures and graphs is <a class="reference external" href="https://matplotlib.org/">Matplotlib</a>, with functionality including</p>
 <ul class="simple">
 <li><p>plots, histograms, contour images, 3D graphs, bar charts etc.</p></li>
 <li><p>output in many formats (PDF, PNG, EPS, etc.)</p></li>
@@ -626,12 +626,12 @@ learn when you already know NumPy.</p></li>
 <p>More examples can be found in the <a class="reference external" href="https://matplotlib.org/stable/gallery/index.html">Matplotlib thumbnail gallery</a>.</p>
 <p>Other graphics libraries include</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://plot.ly/python/">Plotly</a></p></li>
+<li><p><a class="reference external" href="https://plotly.com/python/">Plotly</a></p></li>
 <li><p><a class="reference external" href="https://seaborn.pydata.org/">seaborn</a> — a high-level interface for matplotlib</p></li>
 <li><p><a class="reference external" href="https://altair-viz.github.io/">Altair</a></p></li>
-<li><p><a class="reference external" href="http://bokeh.pydata.org/en/latest/">Bokeh</a></p></li>
+<li><p><a class="reference external" href="https://docs.bokeh.org/en/latest/">Bokeh</a></p></li>
 </ul>
-<p>You can visit the <a class="reference external" href="https://www.python-graph-gallery.com/">Python Graph Gallery</a> for more example plots drawn using a variety of libraries.</p>
+<p>You can visit the <a class="reference external" href="https://python-graph-gallery.com/">Python Graph Gallery</a> for more example plots drawn using a variety of libraries.</p>
 </section>
 <section id="networks-and-graphs">
 <h3><span class="section-number">1.3.5. </span>Networks and Graphs<a class="headerlink" href="#networks-and-graphs" title="Link to this heading">#</a></h3>
@@ -645,7 +645,7 @@ in economics, finance and other fields.</p>
 <li><p>etc.</p></li>
 </ul>
 <p>Python has many libraries for studying networks and graphs.</p>
-<p id="index-6">One well-known example is <a class="reference external" href="http://networkx.github.io/">NetworkX</a>.</p>
+<p id="index-6">One well-known example is <a class="reference external" href="https://networkx.org/">NetworkX</a>.</p>
 <p>Its features include, among many other things:</p>
 <ul class="simple">
 <li><p>standard graph algorithms for analyzing networks</p></li>
@@ -697,14 +697,14 @@ firms.</p>
 <p>Here’s a short list of some important scientific libraries for Python not
 mentioned above.</p>
 <ul class="simple">
-<li><p><a class="reference external" href="http://www.sympy.org/">SymPy</a> for symbolic algebra, including limits, derivatives and integrals</p></li>
-<li><p><a class="reference external" href="http://statsmodels.sourceforge.net/">statsmodels</a> for statistical routines</p></li>
-<li><p><a class="reference external" href="http://scikit-learn.org/">scikit-learn</a> for machine learning</p></li>
+<li><p><a class="reference external" href="https://www.sympy.org/">SymPy</a> for symbolic algebra, including limits, derivatives and integrals</p></li>
+<li><p><a class="reference external" href="https://www.statsmodels.org/">statsmodels</a> for statistical routines</p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/">scikit-learn</a> for machine learning</p></li>
 <li><p><a class="reference external" href="https://keras.io/">Keras</a> for machine learning</p></li>
-<li><p><a class="reference external" href="https://pyro.ai/">Pyro</a> and <a class="reference external" href="https://pystan.readthedocs.org/en/latest/">PyStan</a> for Bayesian data analysis</p></li>
+<li><p><a class="reference external" href="https://pyro.ai/">Pyro</a> and <a class="reference external" href="https://pystan.readthedocs.io/en/latest/">PyStan</a> for Bayesian data analysis</p></li>
 <li><p><a class="reference external" href="https://geopandas.org/en/stable/">GeoPandas</a> for spatial data analysis</p></li>
 <li><p><a class="reference external" href="https://docs.dask.org/en/stable/">Dask</a> for parallelization</p></li>
-<li><p><a class="reference external" href="http://numba.pydata.org/">Numba</a> for making Python run at the same speed as native machine code</p></li>
+<li><p><a class="reference external" href="https://numba.pydata.org/">Numba</a> for making Python run at the same speed as native machine code</p></li>
 <li><p><a class="reference external" href="https://www.cvxpy.org/">CVXPY</a> for convex optimization</p></li>
 <li><p><a class="reference external" href="https://scikit-image.org/">scikit-image</a> and <a class="reference external" href="https://opencv.org/">OpenCV</a> for processing and analyzing image data</p></li>
 <li><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">BeautifulSoup</a> for extracting data from HTML and XML files</p></li>
