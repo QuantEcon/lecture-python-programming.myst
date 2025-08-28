@@ -33,6 +33,7 @@ sphinx:
     html_theme_options:
       authors:
         - name: Thomas J. Sargent
+          url: http://www.tomsargent.com/
         - name: John Stachurski
           url: https://johnstachurski.net/      
       dark_logo: quantecon-logo-transparent.png
