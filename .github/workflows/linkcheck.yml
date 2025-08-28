@@ -6,26 +6,22 @@ on:
   workflow_dispatch:
 jobs:
   link-checking:
-    name: Link Checking
+    name: QuantEcon AI link checking
     runs-on: "ubuntu-latest"
     permissions:
-      issues: write # required for peter-evans/create-issue-from-file
+      issues: write   # required for QuantEcon link-checker
     steps:
       # Checkout the live site (html)
       - name: Checkout
         uses: actions/checkout@v5
         with:
           ref: gh-pages
-      - name: Link Checker
-        id: lychee
-        uses: lycheeverse/lychee-action@v2
+      - name: AI-Powered Link Checker
+        uses: QuantEcon/meta/.github/actions/link-checker@main
         with:
-          fail: false
-          args: --accept 200,403,503 *.html
-      - name: Create Issue From File
-        if: steps.lychee.outputs.exit_code != 0
-        uses: peter-evans/create-issue-from-file@v5
-        with:
-          title: Link Checker Report
-          content-filepath: ./lychee/out.md
-          labels: report, automated issue, linkchecker
+          html-path: '.'            # gh-pages live html
+          fail-on-broken: 'false'
+          silent-codes: '403,503'
+          ai-suggestions: 'true'
+          create-issue: 'true'
+
