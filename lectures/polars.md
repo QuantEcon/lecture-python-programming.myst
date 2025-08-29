@@ -297,7 +297,7 @@ Here is an example using built-in functions
 
 ```{code-cell} ipython3
 df.select([
-    pl.col(['year', 'POP', 'XRAT', 'tcgdp', 'cc', 'cg']).max().suffix('_max')
+    pl.col(['year', 'POP', 'XRAT', 'tcgdp', 'cc', 'cg']).max().name.suffix('_max')
 ])
 ```
 
