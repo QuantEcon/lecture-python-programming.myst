@@ -690,7 +690,7 @@ def read_data(ticker_list,
     ticker_df = pl.concat(all_data)
     
     # Pivot to have tickers as columns
-    ticker_df = ticker_df.pivot(values='Close', index='Date', columns='ticker')
+    ticker_df = ticker_df.pivot(values='Close', index='Date', on='ticker')
     
     return ticker_df
 
@@ -721,12 +721,12 @@ First, you can extract the data and perform the calculation such as:
 first_prices = ticker[0]  # First row
 last_prices = ticker[-1]  # Last row
 
-# Convert to pandas for easier calculation
-first_pd = ticker.head(1).to_pandas().iloc[0]
-last_pd = ticker.tail(1).to_pandas().iloc[0]
+# Convert to pandas for easier calculation, excluding Date column to avoid type errors
+numeric_cols = [col for col in ticker.columns if col != 'Date']
+first_pd = ticker.head(1).select(numeric_cols).to_pandas().iloc[0]
+last_pd = ticker.tail(1).select(numeric_cols).to_pandas().iloc[0]
 
 price_change = (last_pd - first_pd) / first_pd * 100
-price_change = price_change.dropna()  # Remove Date column
 price_change
 ```
 
