@@ -23,6 +23,21 @@ kernelspec:
 ```{index} single: Python; SciPy
 ```
 
+In addition to what’s in Anaconda, this lecture will need the following libraries:
+
+```{code-cell} ipython3
+:tags: [hide-output]
+
+!pip install --upgrade quantecon
+```
+
+We use the following imports.
+
+```{code-cell} ipython3
+import numpy as np
+import quantecon as qe
+```
+
 ## Overview
 
 [SciPy](https://scipy.org/) builds on top of NumPy to provide common tools for scientific programming such as
@@ -49,25 +64,26 @@ In this lecture, we aim only to highlight some useful parts of the package.
 
 SciPy is a package that contains various tools that are built on top of NumPy, using its array data type and related functionality.
 
-In fact, when we import SciPy we also get NumPy, as can be seen from this excerpt the SciPy initialization file:
+````{note} 
+In older versions of SciPy (`scipy < 0.15.1`), importing the package would also import NumPy symbols into the global namespace, as can be seen from this excerpt the SciPy initialization file:
 
-```{code-cell} python3
-# Import numpy symbols to scipy namespace
+```python
 from numpy import *
 from numpy.random import rand, randn
 from numpy.fft import fft, ifft
 from numpy.lib.scimath import *
 ```
 
-However, it's more common and better practice to use NumPy functionality explicitly.
+However, it is better practice to use NumPy functionality explicitly.
 
-
-```{code-cell} python3
+```python
 import numpy as np
-import quantecon as qe
 
 a = np.identity(3)
 ```
+
+More recent versions of SciPy (1.15+) no longer automatically import NumPy symbols.
+````
 
 What is useful in SciPy is the functionality in its sub-packages
 
