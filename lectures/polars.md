@@ -579,9 +579,9 @@ We can also plot the unemployment rate from 2006 to 2012 as follows
 ```{code-cell} ipython3
 # Filter data for the specified date range and convert to pandas for plotting
 filtered_data = data.filter(
-    (pl.col('DATE') >= pl.date(2006, 1, 1)) & 
-    (pl.col('DATE') <= pl.date(2012, 12, 31))
-).to_pandas().set_index('DATE')
+    (pl.col('observation_date') >= pl.date(2006, 1, 1)) & 
+    (pl.col('observation_date') <= pl.date(2012, 12, 31))
+).to_pandas().set_index('observation_date')
 
 ax = filtered_data.plot(title='US Unemployment Rate', legend=False)
 ax.set_xlabel('year', fontsize=12)
