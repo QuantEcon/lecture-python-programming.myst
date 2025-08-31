@@ -804,8 +804,8 @@ indices_data = read_data(
 Then, calculate the yearly returns using polars:
 
 ```{code-cell} ipython3
-# Add year column and calculate yearly returns
-yearly_returns_list = []
+# Combine all yearly returns using concat and pivot approach
+all_yearly_data = []
 
 for index_col in indices_data.columns:
     if index_col != 'Date':
@@ -817,16 +817,18 @@ for index_col in indices_data.columns:
                           pl.col(index_col).last().alias('last_price')
                       ])
                       .with_columns(
-                          ((pl.col('last_price') - pl.col('first_price')) / pl.col('first_price')).alias(indices_list[index_col])
+                          ((pl.col('last_price') - pl.col('first_price') + 1e-10) / (pl.col('first_price') + 1e-10)).alias('return')
                       )
-                      .select(['year', indices_list[index_col]]))
+                      .with_columns(pl.lit(indices_list[index_col]).alias('index_name'))
+                      .select(['year', 'index_name', 'return']))
         
-        yearly_returns_list.append(yearly_data)
+        all_yearly_data.append(yearly_data)
 
-# Join all yearly returns
-yearly_returns = yearly_returns_list[0]
-for df in yearly_returns_list[1:]:
-    yearly_returns = yearly_returns.join(df, on='year', how='outer')
+# Concatenate all data
+combined_data = pl.concat(all_yearly_data)
+
+# Pivot to get indices as columns
+yearly_returns = combined_data.pivot(values='return', index='year', on='index_name')
 
 yearly_returns
 ```
