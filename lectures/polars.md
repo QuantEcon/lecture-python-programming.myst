@@ -37,7 +37,7 @@ In addition to what's in Anaconda, this lecture will need the following librarie
 
 ## Overview
 
-[Polars](https://pola.rs/) is a lightning-fast data manipulation library for Python written in Rust.
+[Polars](https://pola.rs/) is a fast data manipulation library for Python written in Rust.
 
 Polars has gained significant popularity in recent years due to its superior performance
 compared to traditional data analysis tools, making it an excellent choice for modern
@@ -58,7 +58,7 @@ Just as [NumPy](https://numpy.org/) provides the basic array data type plus core
     * adjusting indices
     * working with dates and time series
     * sorting, grouping, re-ordering and general data munging [^mung]
-    * dealing with missing values, etc., etc.
+    * dealing with missing values, etc.
 
 More sophisticated statistical functionality is left to other packages, such
 as [statsmodels](https://www.statsmodels.org/) and [scikit-learn](https://scikit-learn.org/), which can work with polars DataFrames through their interoperability with pandas.
@@ -70,6 +70,7 @@ place
 
 ```{code-cell} ipython3
 import polars as pl
+import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import requests
@@ -96,11 +97,16 @@ s = pl.Series(name='daily returns', values=np.random.randn(4))
 s
 ```
 
-Here you can imagine the indices `0, 1, 2, 3` as indexing four listed
-companies, and the values being daily returns on their shares.
+```{note}
+You may notice the above series has no indexes, unlike in [](pandas:series).
+
+This is because Polars' is column centric and accessing data is predominantly managed through filtering and boolean masks. 
+
+Here is [an interesting blog post discussing this in more detail](https://medium.com/data-science/understand-polars-lack-of-indexes-526ea75e413)
+```
 
 Polars `Series` are built on top of Apache Arrow arrays and support many similar
-operations
+operations to Pandas `Series`.
 
 ```{code-cell} ipython3
 s * 100
@@ -112,16 +118,27 @@ s.abs()
 
 But `Series` provide more than basic arrays.
 
-Not only do they have some additional (statistically oriented) methods
+For example they have some additional (statistically oriented) methods
 
 ```{code-cell} ipython3
 s.describe()
 ```
 
-But they can also be used with custom indices
+However the Polars `series` cannot be used in the same as as a Pandas `series` when pairing data with indices. 
+
+For example, using a Pandas `series` you can do the following:
 
 ```{code-cell} ipython3
-# Create a new series with custom index using a DataFrame
+s = pd.Series(np.random.randn(4), name='daily returns')
+s.index = ['AMZN', 'AAPL', 'MSFT', 'GOOG']
+s
+```
+
+However, in Polars you will need to use the `DataFrame` object to do the same task. 
+
+Essentially any column in a Polars `DataFrame` can be used as an indices through the `filter` method.
+
+```{code-cell} ipython3
 df_temp = pl.DataFrame({
     'company': ['AMZN', 'AAPL', 'MSFT', 'GOOG'],
     'daily returns': s.to_list()
@@ -149,7 +166,7 @@ df_temp
 
 ```{code-cell} ipython3
 # Check if AAPL is in the companies
-'AAPL' in df_temp.get_column('company').to_list()
+'AAPL' in df_temp.get_column('company')
 ```
 
 ## DataFrames
@@ -161,7 +178,7 @@ While a `Series` is a single column of data, a `DataFrame` is several columns, o
 
 In essence, a `DataFrame` in polars is analogous to a (highly optimized) Excel spreadsheet.
 
-Thus, it is a powerful tool for representing and analyzing data that are naturally organized into rows and columns, often with descriptive indexes for individual rows and individual columns.
+Thus, it is a powerful tool for representing and analyzing data that are naturally organized into rows and columns.
 
 Let's look at an example that reads data from the CSV file `pandas/data/test_pwt.csv`, which is taken from the [Penn World Tables](https://www.rug.nl/ggdc/productivity/pwt/pwt-releases/pwt-7.0).
 
@@ -293,15 +310,13 @@ Polars provides powerful methods for applying functions to data.
 
 Instead of pandas' `apply` method, polars uses expressions within `select`, `with_columns`, or `filter` methods.
 
-Here is an example using built-in functions
+Here is an example using built-in functions to find the `max` value for each column
 
 ```{code-cell} ipython3
 df.select([
     pl.col(['year', 'POP', 'XRAT', 'tcgdp', 'cc', 'cg']).max().name.suffix('_max')
 ])
 ```
-
-This line of code applies the `max` function to all selected columns.
 
 For more complex operations, we can use `map_elements` (similar to pandas' apply):
 
@@ -311,6 +326,16 @@ df.with_row_index().select([
     pl.col('index'),
     pl.col('country'),
     pl.col('POP').map_elements(lambda x: x * 2, return_dtype=pl.Float64).alias('POP_doubled')
+])
+```
+
+However as you can see from the Warning issued by Polars there is often a better way to achieve this using the Polars API. 
+
+```{code-cell} ipython3
+df.with_row_index().select([
+    pl.col('index'),
+    pl.col('country'),
+    (pl.col('POP') * 2).alias('POP_doubled')
 ])
 ```
 
@@ -362,7 +387,7 @@ df.with_columns([
 ])
 ```
 
-**4.** We can use `map_elements` to modify all individual entries in specific columns.
+**4.** We can use in-built functions to modify all individual entries in specific columns.
 
 ```{code-cell} ipython3
 # Round all decimal numbers to 2 decimal places in numeric columns
@@ -408,7 +433,7 @@ For example, we can use forward fill, backward fill, or interpolation
 ```{code-cell} ipython3
 # Fill with column means for numeric columns
 df_filled = df_with_nulls.with_columns([
-    pl.col(pl.Float64, pl.Int64).fill_null(pl.col(pl.Float64, pl.Int64).mean())
+    pl.col(pl.Float64).fill_null(pl.col(pl.Float64).mean())
 ])
 df_filled
 ```
