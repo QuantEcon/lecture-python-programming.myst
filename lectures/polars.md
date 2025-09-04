@@ -65,6 +65,10 @@ as [statsmodels](https://www.statsmodels.org/) and [scikit-learn](https://scikit
 
 This lecture will provide a basic introduction to polars.
 
+```{tip} 
+**Why use Polars over pandas?** The main reason is `performance`. As a general rule, it is recommended to have 5 to 10 times as much RAM as the size of the dataset to carry out operations in pandas, compared to 2 to 4 times  needed for Polars. In addition, Polars is between 10 and 100 times as fast as pandas for common operations. A great article comparing the Polars and pandas can be found [in this JetBrains blog post](https://blog.jetbrains.com/pycharm/2024/07/polars-vs-pandas/)
+```
+
 Throughout the lecture, we will assume that the following imports have taken
 place
 
@@ -89,7 +93,6 @@ A `DataFrame` is a two-dimensional object for storing related columns of data.
 
 Let's start with Series.
 
-
 We begin by creating a series of four random observations
 
 ```{code-cell} ipython3
@@ -98,11 +101,11 @@ s
 ```
 
 ```{note}
-You may notice the above series has no indexes, unlike in [](pandas:series).
+You may notice the above series has no indices, unlike in [pd.Series](pandas:series).
 
 This is because Polars' is column centric and accessing data is predominantly managed through filtering and boolean masks. 
 
-Here is [an interesting blog post discussing this in more detail](https://medium.com/data-science/understand-polars-lack-of-indexes-526ea75e413)
+Here is [an interesting blog post discussing this in more detail](https://medium.com/data-science/understand-polars-lack-of-indexes-526ea75e413).
 ```
 
 Polars `Series` are built on top of Apache Arrow arrays and support many similar
@@ -134,7 +137,10 @@ s.index = ['AMZN', 'AAPL', 'MSFT', 'GOOG']
 s
 ```
 
-However, in Polars you will need to use the `DataFrame` object to do the same task. 
+However, in Polars you will need to use the `DataFrame` object to do the same task.
+
+This means you will use the `DataFrame` object more commonly when using polars if you
+are interested in relationships between data. 
 
 Essentially any column in a Polars `DataFrame` can be used as an indices through the `filter` method.
 
@@ -146,15 +152,16 @@ df_temp = pl.DataFrame({
 df_temp
 ```
 
-To access specific values by company name, we can filter the DataFrame
+To access specific values by company name, we can filter the DataFrame filtering on 
+the `AMZN` ticker code and selecting the `daily returns`. 
 
 ```{code-cell} ipython3
-# Get AMZN's return
 df_temp.filter(pl.col('company') == 'AMZN').select('daily returns').item()
 ```
 
+If we want to update `AMZN` return to 0, you can use the following chain of methods.
+
 ```{code-cell} ipython3
-# Update AMZN's return to 0
 df_temp = df_temp.with_columns(
     pl.when(pl.col('company') == 'AMZN')
     .then(0)
@@ -164,8 +171,9 @@ df_temp = df_temp.with_columns(
 df_temp
 ```
 
+You could also check if `AAPL` is in a column.
+
 ```{code-cell} ipython3
-# Check if AAPL is in the companies
 'AAPL' in df_temp.get_column('company')
 ```
 
