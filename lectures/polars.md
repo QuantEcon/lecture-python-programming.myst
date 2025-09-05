@@ -66,11 +66,10 @@ as [statsmodels](https://www.statsmodels.org/) and [scikit-learn](https://scikit
 This lecture will provide a basic introduction to polars.
 
 ```{tip} 
-**Why use Polars over pandas?** The main reason is `performance`. As a general rule, it is recommended to have 5 to 10 times as much RAM as the size of the dataset to carry out operations in pandas, compared to 2 to 4 times  needed for Polars. In addition, Polars is between 10 and 100 times as fast as pandas for common operations. A great article comparing the Polars and pandas can be found [in this JetBrains blog post](https://blog.jetbrains.com/pycharm/2024/07/polars-vs-pandas/)
+**Why use Polars over pandas?** One reason is **performance**. As a general rule, it is recommended to have 5 to 10 times as much RAM as the size of the dataset to carry out operations in pandas, compared to 2 to 4 times  needed for Polars. In addition, Polars is between 10 and 100 times as fast as pandas for common operations. A great article comparing the Polars and pandas can be found [in this JetBrains blog post](https://blog.jetbrains.com/pycharm/2024/07/polars-vs-pandas/).
 ```
 
-Throughout the lecture, we will assume that the following imports have taken
-place
+Throughout the lecture, we will assume that the following imports have taken place
 
 ```{code-cell} ipython3
 import polars as pl
@@ -101,11 +100,7 @@ s
 ```
 
 ```{note}
-You may notice the above series has no indices, unlike in [pd.Series](pandas:series).
-
-This is because Polars' is column centric and accessing data is predominantly managed through filtering and boolean masks. 
-
-Here is [an interesting blog post discussing this in more detail](https://medium.com/data-science/understand-polars-lack-of-indexes-526ea75e413).
+You may notice the above series has no indices, unlike in [pd.Series](pandas:series).This is because Polars' is column centric and accessing data is predominantly managed through filtering and boolean masks. Here is [an interesting blog post discussing this in more detail](https://medium.com/data-science/understand-polars-lack-of-indexes-526ea75e413).
 ```
 
 Polars `Series` are built on top of Apache Arrow arrays and support many similar
@@ -127,9 +122,9 @@ For example they have some additional (statistically oriented) methods
 s.describe()
 ```
 
-However the Polars `series` cannot be used in the same as as a Pandas `series` when pairing data with indices. 
+However the `pl.Series` object cannot be used in the same way as a `pd.Series` when pairing data with indices. 
 
-For example, using a Pandas `series` you can do the following:
+For example, using a `pd.Series` you can do the following:
 
 ```{code-cell} ipython3
 s = pd.Series(np.random.randn(4), name='daily returns')
@@ -139,42 +134,42 @@ s
 
 However, in Polars you will need to use the `DataFrame` object to do the same task.
 
-This means you will use the `DataFrame` object more commonly when using polars if you
-are interested in relationships between data. 
+This means you will use the `DataFrame` object more often when using polars if you
+are interested in relationships between data 
 
-Essentially any column in a Polars `DataFrame` can be used as an indices through the `filter` method.
+Let's create a `pl.DataFrame` containing the equivalent data in the `pd.Series` .
 
 ```{code-cell} ipython3
-df_temp = pl.DataFrame({
+df = pl.DataFrame({
     'company': ['AMZN', 'AAPL', 'MSFT', 'GOOG'],
     'daily returns': s.to_list()
 })
-df_temp
+df
 ```
 
 To access specific values by company name, we can filter the DataFrame filtering on 
-the `AMZN` ticker code and selecting the `daily returns`. 
+the `AMZN` ticker code and selecting the `daily returns`.
 
 ```{code-cell} ipython3
-df_temp.filter(pl.col('company') == 'AMZN').select('daily returns').item()
+df.filter(pl.col('company') == 'AMZN').select('daily returns').item()
 ```
 
 If we want to update `AMZN` return to 0, you can use the following chain of methods.
 
 ```{code-cell} ipython3
-df_temp = df_temp.with_columns(
-    pl.when(pl.col('company') == 'AMZN')
-    .then(0)
-    .otherwise(pl.col('daily returns'))
-    .alias('daily returns')
+df = df.with_columns(                    # with_columns is similar to select but adds columns to the same DataFrame
+    pl.when(pl.col('company') == 'AMZN') # filter for rows relating to AMZN in company column
+    .then(0)                             # set values to 0
+    .otherwise(pl.col('daily returns'))  # otherwise keep the value in daily returns column
+    .alias('daily returns')              # assign back to the daily returns column
 )
-df_temp
+df
 ```
 
-You could also check if `AAPL` is in a column.
+You can check if a ticker code is in the company list
 
 ```{code-cell} ipython3
-'AAPL' in df_temp.get_column('company')
+'AAPL' in df['company']
 ```
 
 ## DataFrames
@@ -188,7 +183,8 @@ In essence, a `DataFrame` in polars is analogous to a (highly optimized) Excel s
 
 Thus, it is a powerful tool for representing and analyzing data that are naturally organized into rows and columns.
 
-Let's look at an example that reads data from the CSV file `pandas/data/test_pwt.csv`, which is taken from the [Penn World Tables](https://www.rug.nl/ggdc/productivity/pwt/pwt-releases/pwt-7.0).
+Let's look at an example that reads data from the CSV file `pandas/data/test_pwt.csv`, 
+which is taken from the [Penn World Tables](https://www.rug.nl/ggdc/productivity/pwt/pwt-releases/pwt-7.0).
 
 The dataset contains the following indicators 
 
@@ -204,11 +200,12 @@ The dataset contains the following indicators
 We'll read this in from a URL using the `polars` function `read_csv`.
 
 ```{code-cell} ipython3
-df = pl.read_csv('https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/pandas/data/test_pwt.csv')
+URL = 'https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/pandas/data/test_pwt.csv'
+df = pl.read_csv(URL)
 type(df)
 ```
 
-Here's the content of `test_pwt.csv`
+Here is the content of `test_pwt.csv`
 
 ```{code-cell} ipython3
 df
@@ -216,7 +213,8 @@ df
 
 ### Select Data by Position
 
-In practice, one thing that we do all the time is to find, select and work with a subset of the data of our interests. 
+In practice, one thing that we do all the time is to find, select and work with a 
+subset of the data of our interests. 
 
 We can select particular rows using array slicing notation
 
@@ -254,13 +252,16 @@ The most straightforward way is with the `filter` method.
 df.filter(pl.col('POP') >= 20000)
 ```
 
-To understand what is going on here, notice that `pl.col('POP') >= 20000` creates a boolean expression.
+In this case, `df.filter()` takes a boolean expression and only returns rows with the `True` values.
+
+We can see this boolean mask by saving the comparison results in the following table.
 
 ```{code-cell} ipython3
-df.select(pl.col('POP') >= 20000)
+df.select(
+    pl.col('country'),                                # Include country for reference
+    (pl.col('POP') >= 20000).alias('meets_criteria')  # meets_criteria shows results of the comparison expression
+)
 ```
-
-In this case, `df.filter()` takes a boolean expression and only returns rows with the `True` values.
 
 Take one more example,
 
@@ -277,7 +278,8 @@ We can also allow arithmetic operations between different columns.
 df.filter((pl.col('cc') + pl.col('cg') >= 80) & (pl.col('POP') <= 20000))
 ```
 
-For example, we can use the conditioning to select the country with the largest household consumption - gdp share `cc`.
+For example, we can use the conditioning to select the country with the largest 
+household consumption - gdp share `cc`.
 
 ```{code-cell} ipython3
 df.filter(pl.col('cc') == pl.col('cc').max())
@@ -291,13 +293,13 @@ df.filter((pl.col('cc') + pl.col('cg') >= 80) & (pl.col('POP') <= 20000)).select
 
 **Application: Subsetting Dataframe**
 
-Real-world datasets can be [enormous](https://developers.google.com/machine-learning/crash-course/overfitting).
+Real-world datasets can be very large.
 
 It is sometimes desirable to work with a subset of data to enhance computational efficiency and reduce redundancy.
 
 Let's imagine that we're only interested in the population (`POP`) and total GDP (`tcgdp`).
 
-One way to strip the data frame `df` down to only these variables is to overwrite the dataframe using the selection method described above
+One way to strip the data frame `df` down to only these variables is to overwrite the `DataFrame` using the selection method described above
 
 ```{code-cell} ipython3
 df_subset = df.select(['country', 'POP', 'tcgdp'])
@@ -329,19 +331,16 @@ df.select([
 For more complex operations, we can use `map_elements` (similar to pandas' apply):
 
 ```{code-cell} ipython3
-# A trivial example using map_elements
-df.with_row_index().select([
-    pl.col('index'),
+df.select([
     pl.col('country'),
-    pl.col('POP').map_elements(lambda x: x * 2, return_dtype=pl.Float64).alias('POP_doubled')
+    pl.col('POP').map_elements(lambda x: x * 2).alias('POP_doubled')
 ])
 ```
 
-However as you can see from the Warning issued by Polars there is often a better way to achieve this using the Polars API. 
+However as you can see from the warning issued by Polars there is often a better way to achieve this using the Polars API.
 
 ```{code-cell} ipython3
-df.with_row_index().select([
-    pl.col('index'),
+df.select([
     pl.col('country'),
     (pl.col('POP') * 2).alias('POP_doubled')
 ])
@@ -351,9 +350,9 @@ We can use complex filtering conditions with boolean logic:
 
 ```{code-cell} ipython3
 complex_condition = (
-    pl.when(pl.col('country').is_in(['Argentina', 'India', 'South Africa']))
-    .then(pl.col('POP') > 40000)
-    .otherwise(pl.col('POP') < 20000)
+    pl.when(pl.col('country').is_in(['Argentina', 'India', 'South Africa']))    # for the countries that match those in the list
+    .then(pl.col('POP') > 40000)                                                # mark True if population is > 40,000
+    .otherwise(pl.col('POP') < 20000)                                           # otherwise False if population is < 20,000
 )
 
 df.filter(complex_condition).select(['country', 'year', 'POP', 'XRAT', 'tcgdp'])
@@ -366,22 +365,22 @@ The ability to make changes in dataframes is important to generate a clean datas
 **1.** We can use conditional logic to "keep" certain values and replace others
 
 ```{code-cell} ipython3
-df.with_columns(
-    pl.when(pl.col('POP') >= 20000)
-    .then(pl.col('POP'))
-    .otherwise(None)
-    .alias('POP_filtered')
-).select(['country', 'POP', 'POP_filtered'])
+df.with_columns(                             # add data column to the same dataframe
+    pl.when(pl.col('POP') >= 20000)          # when population is greater than 20,000
+    .then(pl.col('POP'))                     # keep the population value
+    .otherwise(None)                         # otherwise set the value to null
+    .alias('POP_filtered')                   # save results in column POP_filtered
+).select(['country', 'POP', 'POP_filtered']) # select the columns of interest
 ```
 
 **2.** We can modify specific values based on conditions
 
 ```{code-cell} ipython3
-df_modified = df.with_columns(
-    pl.when(pl.col('cg') == pl.col('cg').max())
-    .then(None)
-    .otherwise(pl.col('cg'))
-    .alias('cg')
+df_modified = df.with_columns(                     
+    pl.when(pl.col('cg') == pl.col('cg').max())    # when a value in the cg column is equal to the max cg value
+    .then(None)                                    # set to null
+    .otherwise(pl.col('cg'))                       # otherwise keep the value in the cg column
+    .alias('cg')                                   # update the column with name cg
 )
 df_modified
 ```
@@ -390,17 +389,19 @@ df_modified
 
 ```{code-cell} ipython3
 df.with_columns([
-    pl.when(pl.col('POP') <= 10000).then(None).otherwise(pl.col('POP')).alias('POP'),
-    (pl.col('XRAT') / 10).alias('XRAT')
+    pl.when(pl.col('POP') <= 10000)          # when population is < 10,000
+    .then(None)                              # set the value to null
+    .otherwise(pl.col('POP'))                # otherwise keep the existing value
+    .alias('POP'),                           # update the POP column
+    (pl.col('XRAT') / 10).alias('XRAT')      # using the XRAT column, divide the value by 10 and update the column in-place
 ])
 ```
 
-**4.** We can use in-built functions to modify all individual entries in specific columns.
+**4.** We can use in-built functions to modify all individual entries in specific columns by data type.
 
 ```{code-cell} ipython3
-# Round all decimal numbers to 2 decimal places in numeric columns
 df.with_columns([
-    pl.col(pl.Float64).round(2)
+    pl.col(pl.Float64).round(2)   # round all Float64 columns to 2 decimal places
 ])
 ```
 
@@ -440,10 +441,10 @@ For example, we can use forward fill, backward fill, or interpolation
 
 ```{code-cell} ipython3
 # Fill with column means for numeric columns
-df_filled = df_with_nulls.with_columns([
-    pl.col(pl.Float64).fill_null(pl.col(pl.Float64).mean())
+cols = ["cc", "tcgdp", "POP", "XRAT"]
+df_with_nulls.with_columns([
+    pl.col(cols).fill_null(pl.col(cols).mean())   # fill null values with the column mean
 ])
-df_filled
 ```
 
 Missing value imputation is a big area in data science involving various machine learning techniques.
@@ -454,14 +455,12 @@ There are also more [advanced tools](https://scikit-learn.org/stable/modules/imp
 
 Let's imagine that we're only interested in the population (`POP`) and total GDP (`tcgdp`).
 
-One way to strip the data frame `df` down to only these variables is to overwrite the dataframe using the selection method described above
+One way to strip the data frame `df` down to only these variables is to overwrite the `DataFrame` using the selection method described above
 
 ```{code-cell} ipython3
 df = df.select(['country', 'POP', 'tcgdp'])
 df
 ```
-
-Here the index `0, 1,..., 7` is redundant because we can use the country names as an index.
 
 While polars doesn't have a traditional index like pandas, we can work with country names directly
 
@@ -483,7 +482,11 @@ df = df.with_columns((pl.col('population') * 1e3).alias('population'))
 df
 ```
 
-Next, we're going to add a column showing real GDP per capita, multiplying by 1,000,000 as we go because total GDP is in millions
+Next, we're going to add a column showing real GDP per capita, multiplying by 1,000,000 as we go because total GDP is in millions.
+
+```{note}
+Polars (or Pandas) doesn't have a way of recording dimensional analysis units such as GDP represented in millions of dollars. This is left to the user to ensure they track their own units when undertaking analysis.
+```
 
 ```{code-cell} ipython3
 df = df.with_columns(
@@ -626,43 +629,7 @@ Note that polars offers many other file type alternatives.
 
 Polars has [a wide variety](https://docs.pola.rs/user-guide/io/) of methods that we can use to read excel, json, parquet or plug straight into a database server.
 
-### Using {index}`wbgapi <single: wbgapi>` and {index}`yfinance <single: yfinance>` to Access Data
-
-The [wbgapi](https://pypi.org/project/wbgapi/) python library can be used to fetch data from the many databases published by the World Bank.
-
-```{note}
-You can find some useful information about the [wbgapi](https://pypi.org/project/wbgapi/) package in this [world bank blog post](https://blogs.worldbank.org/en/opendata/introducing-wbgapi-new-python-package-accessing-world-bank-data), in addition to this [tutorial](https://github.com/tgherzog/wbgapi/blob/master/examples/wbgapi-quickstart.ipynb)
-```
-
-We will also use [yfinance](https://pypi.org/project/yfinance/) to fetch data from Yahoo finance
-in the exercises.
-
-For now let's work through one example of downloading and plotting data --- this
-time from the World Bank.
-
-The World Bank [collects and organizes data](https://data.worldbank.org/indicator) on a huge range of indicators.
-
-For example, [here's](https://data.worldbank.org/indicator/GC.DOD.TOTL.GD.ZS) some data on government debt as a ratio to GDP.
-
-The next code example fetches the data for you and plots time series for the US and Australia
-
-```{code-cell} ipython3
-import wbgapi as wb
-wb.series.info('GC.DOD.TOTL.GD.ZS')
-```
-
-```{code-cell} ipython3
-govt_debt_pandas = wb.data.DataFrame('GC.DOD.TOTL.GD.ZS', economy=['USA','AUS'], time=range(2005,2016))
-govt_debt_pandas = govt_debt_pandas.T    # move years from columns to rows for plotting
-
-# Convert to polars
-govt_debt = pl.from_pandas(govt_debt_pandas.reset_index())
-```
-
-```{code-cell} ipython3
-# For plotting, convert back to pandas format
-govt_debt.to_pandas().set_index('index').plot(xlabel='year', ylabel='Government debt (% of GDP)');
-```
++++
 
 ## Exercises
 
@@ -694,6 +661,10 @@ ticker_list = {'INTC': 'Intel',
 ```
 
 Here's the first part of the program
+
+```{note}
+Many python packages will return Pandas DataFrames by default. In this example we use the `yfinance` package and convert the data to a polars DataFrame
+```
 
 ```{code-cell} ipython3
 def read_data(ticker_list,
