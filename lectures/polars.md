@@ -354,9 +354,9 @@ We can use complex filtering conditions with boolean logic:
 
 ```{code-cell} ipython3
 complex_condition = (
-    pl.when(pl.col('country').is_in(['Argentina', 'India', 'South Africa']))    # for the countries that match those in the list
-    .then(pl.col('POP') > 40000)                                                # mark True if population is > 40,000
-    .otherwise(pl.col('POP') < 20000)                                           # otherwise False if population is < 20,000
+    pl.when(pl.col('country').is_in(['Argentina', 'India', 'South Africa']))  
+    .then(pl.col('POP') > 40000)  
+    .otherwise(pl.col('POP') < 20000)  
 )
 
 df.filter(complex_condition).select(['country', 'year', 'POP', 'XRAT', 'tcgdp'])
