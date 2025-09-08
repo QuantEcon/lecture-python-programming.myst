@@ -167,6 +167,7 @@ df = df.with_columns(
     .alias('daily returns')              # assign back to the column
 )
 df
+```
 
 You can check if a ticker code is in the company list
 
