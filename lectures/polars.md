@@ -443,13 +443,13 @@ Polars also provides us with convenient methods to replace missing values.
 
 For example, we can use forward fill, backward fill, or interpolation
 
+Here we fill `null` values with the column means
+
 ```{code-cell} ipython3
-# Fill with column means for numeric columns
 cols = ["cc", "tcgdp", "POP", "XRAT"]
 df_with_nulls.with_columns([
-    pl.col(cols).fill_null(pl.col(cols).mean())   # fill null values with the column mean
+    pl.col(cols).fill_null(pl.col(cols).mean()) 
 ])
-```
 
 Missing value imputation is a big area in data science involving various machine learning techniques.
 
