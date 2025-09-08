@@ -545,56 +545,12 @@ For example, suppose that we are interested in the [unemployment rate](https://f
 
 Alternatively, we can access the CSV file from within a Python program.
 
-This can be done with a variety of methods.
 
-We start with a relatively low-level method and then return to polars.
+In {doc}`pandas`, we studied how to use `requests` and `pandas` to access API data.
 
-### Accessing Data with {index}`requests <single: requests>`
+Here polars' `read_csv` function provides the same functionality.
 
-```{index} single: Python; requests
-```
-
-One option is to use [requests](https://requests.readthedocs.io/en/latest/), a standard Python library for requesting data over the Internet.
-
-To begin, try the following code on your computer
-
-```{code-cell} ipython3
-r = requests.get('https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23e1e9f0&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1318&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=UNRATE&scale=left&cosd=1948-01-01&coed=2024-06-01&line_color=%234572a7&link_values=false&line_style=solid&mark_type=none&mw=3&lw=2&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2024-07-29&revision_date=2024-07-29&nd=1948-01-01')
-```
-
-If there's no error message, then the call has succeeded.
-
-If you do get an error, then there are two likely causes
-
-1. You are not connected to the Internet --- hopefully, this isn't the case.
-1. Your machine is accessing the Internet through a proxy server, and Python isn't aware of this.
-
-In the second case, you can either
-
-* switch to another machine
-* solve your proxy problem by reading [the documentation](https://requests.readthedocs.io/en/latest/)
-
-Assuming that all is working, you can now proceed to use the `source` object returned by the call `requests.get('https://research.stlouisfed.org/fred2/series/UNRATE/downloaddata/UNRATE.csv')`
-
-```{code-cell} ipython3
-url = 'https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23e1e9f0&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1318&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=UNRATE&scale=left&cosd=1948-01-01&coed=2024-06-01&line_color=%234572a7&link_values=false&line_style=solid&mark_type=none&mw=3&lw=2&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2024-07-29&revision_date=2024-07-29&nd=1948-01-01'
-source = requests.get(url).content.decode().split("\n")
-source[0]
-```
-
-```{code-cell} ipython3
-source[1]
-```
-
-```{code-cell} ipython3
-source[2]
-```
-
-We could now write some additional code to parse this text and store it as an array.
-
-But this is unnecessary --- polars' `read_csv` function can handle the task for us.
-
-We use `try_parse_dates=True` so that polars recognizes our dates column, allowing for simple date filtering
+We use `try_parse_dates=True` so that polars recognizes our dates column
 
 ```{code-cell} ipython3
 data = pl.read_csv(url, try_parse_dates=True)
