@@ -760,7 +760,7 @@ Following the work you did in {ref}`pl_ex1`, you can query the data using `read_
 ```{code-cell} ipython3
 indices_data = read_data(
         indices_list,
-        start=dt.datetime(1971, 1, 1),  #Common Start Date
+        start=dt.datetime(1971, 1, 1),  
         end=dt.datetime(2021, 12, 31)
 )
 ```
