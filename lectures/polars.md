@@ -812,10 +812,15 @@ yearly_returns_pd = yearly_returns.to_pandas().set_index('year')
 
 fig, axes = plt.subplots(2, 2, figsize=(10, 8))
 
-for iter_, ax in enumerate(axes.flatten()):            # Flatten 2-D array to 1-D array
+# Flatten 2-D array to 1-D array
+for iter_, ax in enumerate(axes.flatten()): 
     if iter_ < len(yearly_returns_pd.columns):
-        index_name = yearly_returns_pd.columns[iter_]         # Get index name per iteration
-        ax.plot(yearly_returns_pd[index_name])                # Plot pct change of yearly returns per index
+    
+        # Get index name per iteration
+        index_name = yearly_returns_pd.columns[iter_] 
+        
+        # Plot pct change of yearly returns per index
+        ax.plot(yearly_returns_pd[index_name])
         ax.set_ylabel("percent change", fontsize = 12)
         ax.set_title(index_name)
 
