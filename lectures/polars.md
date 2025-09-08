@@ -104,6 +104,8 @@ You may notice the above series has no indices, unlike in [pd.Series](pandas:ser
 Polars `Series` are built on top of Apache Arrow arrays and support many similar
 operations to Pandas `Series`.
 
+(For interested readers, please see this extended reading on [Apache Arrow](https://www.datacamp.com/tutorial/apache-arrow))
+
 ```{code-cell} ipython3
 s * 100
 ```
