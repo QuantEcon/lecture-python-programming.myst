@@ -98,7 +98,7 @@ s
 ```
 
 ```{note}
-You may notice the above series has no indices, unlike in [pd.Series](pandas:series).This is because Polars' is column centric and accessing data is predominantly managed through filtering and boolean masks. Here is [an interesting blog post discussing this in more detail](https://medium.com/data-science/understand-polars-lack-of-indexes-526ea75e413).
+You may notice the above series has no indices, unlike in [pd.Series](pandas:series). This is because Polars' is column centric and accessing data is predominantly managed through filtering and boolean masks. Here is [an interesting blog post discussing this in more detail](https://medium.com/data-science/understand-polars-lack-of-indexes-526ea75e413).
 ```
 
 Polars `Series` are built on top of Apache Arrow arrays and support many similar
