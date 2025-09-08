@@ -64,7 +64,7 @@ as [statsmodels](https://www.statsmodels.org/) and [scikit-learn](https://scikit
 This lecture will provide a basic introduction to polars.
 
 ```{tip} 
-**Why use Polars over pandas?** One reason is **performance**. As a general rule, it is recommended to have 5 to 10 times as much RAM as the size of the dataset to carry out operations in pandas, compared to 2 to 4 times  needed for Polars. In addition, Polars is between 10 and 100 times as fast as pandas for common operations. A great article comparing the Polars and pandas can be found [in this JetBrains blog post](https://blog.jetbrains.com/pycharm/2024/07/polars-vs-pandas/).
+*Why use Polars over pandas?* One reason is *performance*. As a general rule, it is recommended to have 5 to 10 times as much RAM as the size of the dataset to carry out operations in pandas, compared to 2 to 4 times  needed for Polars. In addition, Polars is between 10 and 100 times as fast as pandas for common operations. A great article comparing the Polars and pandas can be found [in this JetBrains blog post](https://blog.jetbrains.com/pycharm/2024/07/polars-vs-pandas/).
 ```
 
 Throughout the lecture, we will assume that the following imports have taken place
