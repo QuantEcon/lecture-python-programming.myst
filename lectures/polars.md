@@ -405,7 +405,7 @@ df.with_columns([
 
 ```{code-cell} ipython3
 df.with_columns([
-    pl.col(pl.Float64).round(2)   # round all Float64 columns to 2 decimal places
+    pl.col(pl.Float64).round(2)   # round all Float64 columns
 ])
 ```
 
