@@ -781,7 +781,8 @@ for index_col in indices_data.columns:
                           pl.col(index_col).last().alias('last_price')
                       ])
                       .with_columns(
-                          ((pl.col('last_price') - pl.col('first_price') + 1e-10) / (pl.col('first_price') + 1e-10)).alias('return')
+                          ((pl.col('last_price') - pl.col('first_price') + 1e-10) 
+                          / (pl.col('first_price') + 1e-10)).alias('return')
                       )
                       .with_columns(pl.lit(indices_list[index_col]).alias('index_name'))
                       .select(['year', 'index_name', 'return']))
