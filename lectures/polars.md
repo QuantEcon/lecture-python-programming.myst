@@ -397,7 +397,7 @@ df.with_columns([
     .then(None)                              # set the value to null
     .otherwise(pl.col('POP'))                # otherwise keep the existing value
     .alias('POP'),                           # update the POP column
-    (pl.col('XRAT') / 10).alias('XRAT')      # using the XRAT column, divide the value by 10 and update the column in-place
+    (pl.col('XRAT') / 10).alias('XRAT')      # update XRAT in-place
 ])
 ```
 
