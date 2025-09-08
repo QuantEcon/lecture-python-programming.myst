@@ -369,12 +369,12 @@ The ability to make changes in dataframes is important to generate a clean datas
 **1.** We can use conditional logic to "keep" certain values and replace others
 
 ```{code-cell} ipython3
-df.with_columns(                             # add data column to the same dataframe
-    pl.when(pl.col('POP') >= 20000)          # when population is greater than 20,000
+df.with_columns( 
+    pl.when(pl.col('POP') >= 20000)          # when population >= 20000
     .then(pl.col('POP'))                     # keep the population value
-    .otherwise(None)                         # otherwise set the value to null
-    .alias('POP_filtered')                   # save results in column POP_filtered
-).select(['country', 'POP', 'POP_filtered']) # select the columns of interest
+    .otherwise(None)                         # otherwise set to null
+    .alias('POP_filtered')                   # save results in POP_filtered
+).select(['country', 'POP', 'POP_filtered']) # select the columns
 ```
 
 **2.** We can modify specific values based on conditions
