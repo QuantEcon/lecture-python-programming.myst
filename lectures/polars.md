@@ -256,12 +256,12 @@ df.filter(pl.col('POP') >= 20000)
 
 In this case, `df.filter()` takes a boolean expression and only returns rows with the `True` values.
 
-We can see this boolean mask by saving the comparison results in the following table.
+We can view this boolean mask as a table with the alias `meets_criteria`
 
 ```{code-cell} ipython3
 df.select(
-    pl.col('country'),                                # Include country for reference
-    (pl.col('POP') >= 20000).alias('meets_criteria')  # meets_criteria shows results of the comparison expression
+    pl.col('country'),  
+    (pl.col('POP') >= 20000).alias('meets_criteria')
 )
 ```
 
