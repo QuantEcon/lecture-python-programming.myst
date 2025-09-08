@@ -451,6 +451,7 @@ cols = ["cc", "tcgdp", "POP", "XRAT"]
 df_with_nulls.with_columns([
     pl.col(cols).fill_null(pl.col(cols).mean()) 
 ])
+```
 
 Missing value imputation is a big area in data science involving various machine learning techniques.
 
@@ -589,8 +590,6 @@ plt.show()
 Note that polars offers many other file type alternatives.
 
 Polars has [a wide variety](https://docs.pola.rs/user-guide/io/) of methods that we can use to read excel, json, parquet or plug straight into a database server.
-
-+++
 
 ## Exercises
 
