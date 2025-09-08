@@ -156,15 +156,17 @@ df.filter(pl.col('company') == 'AMZN').select('daily returns').item()
 
 If we want to update `AMZN` return to 0, you can use the following chain of methods.
 
+
+Here  `with_columns` is similar to `select` but adds columns to the same `DataFrame`
+
 ```{code-cell} ipython3
-df = df.with_columns(                    # with_columns is similar to select but adds columns to the same DataFrame
-    pl.when(pl.col('company') == 'AMZN') # filter for rows relating to AMZN in company column
+df = df.with_columns(
+    pl.when(pl.col('company') == 'AMZN') # filter for AMZN in company column
     .then(0)                             # set values to 0
-    .otherwise(pl.col('daily returns'))  # otherwise keep the value in daily returns column
-    .alias('daily returns')              # assign back to the daily returns column
+    .otherwise(pl.col('daily returns'))  # otherwise keep the original value
+    .alias('daily returns')              # assign back to the column
 )
 df
-```
 
 You can check if a ticker code is in the company list
 
