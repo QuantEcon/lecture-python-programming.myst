@@ -290,7 +290,9 @@ df.filter(pl.col('cc') == pl.col('cc').max())
 When we only want to look at certain columns of a selected sub-dataframe, we can combine filter with select.
 
 ```{code-cell} ipython3
-df.filter((pl.col('cc') + pl.col('cg') >= 80) & (pl.col('POP') <= 20000)).select(['country', 'year', 'POP'])
+df.filter(
+           (pl.col('cc') + pl.col('cg') >= 80) & (pl.col('POP') <= 20000)
+           ).select(['country', 'year', 'POP'])
 ```
 
 **Application: Subsetting Dataframe**
