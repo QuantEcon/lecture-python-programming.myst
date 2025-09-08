@@ -381,7 +381,7 @@ df.with_columns(
 
 ```{code-cell} ipython3
 df_modified = df.with_columns(                     
-    pl.when(pl.col('cg') == pl.col('cg').max())    # when a value in the cg column is equal to the max cg value
+    pl.when(pl.col('cg') == pl.col('cg').max())    # pick the largest cg value
     .then(None)                                    # set to null
     .otherwise(pl.col('cg'))                       # otherwise keep the value in the cg column
     .alias('cg')                                   # update the column with name cg
