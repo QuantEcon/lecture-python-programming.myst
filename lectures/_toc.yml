@@ -21,6 +21,7 @@ parts:
   - file: matplotlib
   - file: scipy
   - file: pandas
+  - file: polars
   - file: pandas_panel
   - file: sympy
 - caption: High Performance Computing
