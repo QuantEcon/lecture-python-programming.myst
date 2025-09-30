@@ -592,4 +592,231 @@ Note that polars offers many other file type alternatives.
 
 Polars has [a wide variety](https://docs.pola.rs/user-guide/io/) of methods that we can use to read excel, json, parquet or plug straight into a database server.
 
+## Exercises
+
+```{exercise-start}
+:label: pl_ex1
+```
+
+With these imports:
+
+```{code-cell} ipython3
+import datetime as dt
+import yfinance as yf
+```
+
+Write a program to calculate the percentage price change over 2021 for the following shares using Polars:
+
+```{code-cell} ipython3
+ticker_list = {'INTC': 'Intel',
+               'MSFT': 'Microsoft',
+               'IBM': 'IBM',
+               'BHP': 'BHP',
+               'TM': 'Toyota',
+               'AAPL': 'Apple',
+               'AMZN': 'Amazon',
+               'C': 'Citigroup',
+               'QCOM': 'Qualcomm',
+               'KO': 'Coca-Cola',
+               'GOOG': 'Google'}
+```
+
+Here's the first part of the program that reads data into a Polars DataFrame:
+
+```{code-cell} ipython3
+def read_data_polars(ticker_list,
+                    start=dt.datetime(2021, 1, 1),
+                    end=dt.datetime(2021, 12, 31)):
+    """
+    This function reads in closing price data from Yahoo
+    for each tick in the ticker_list and returns a Polars DataFrame.
+    """
+    # Start with an empty list to collect DataFrames
+    dataframes = []
+    
+    for tick in ticker_list:
+        stock = yf.Ticker(tick)
+        prices = stock.history(start=start, end=end)
+        
+        # Create a Polars DataFrame from the closing prices
+        df = pl.DataFrame({
+            'Date': pd.to_datetime(prices.index.date),
+            tick: prices['Close'].values
+        })
+        dataframes.append(df)
+    
+    # Join all DataFrames on the Date column
+    result = dataframes[0]
+    for df in dataframes[1:]:
+        result = result.join(df, on='Date', how='outer')
+    
+    return result
+
+ticker = read_data_polars(ticker_list)
+```
+
+Complete the program to plot the result as a bar graph using Polars operations and matplotlib visualization.
+
+```{exercise-end}
+```
+
+```{solution-start} pl_ex1
+:class: dropdown
+```
+
+Here's a solution using Polars operations to calculate percentage changes:
+
+
+```{code-cell} ipython3
+price_change_df = ticker.select([
+    pl.col(tick).last().alias(f"{tick}_last") / pl.col(tick).first().alias(f"{tick}_first") * 100 - 100
+    for tick in ticker_list.keys()
+]).transpose(include_header=True, header_name='ticker', column_names=['pct_change'])
+
+# Add company names and sort
+price_change_df = price_change_df.with_columns([
+    pl.col('ticker').replace(ticker_list, default=pl.col('ticker')).alias('company')
+]).sort('pct_change')
+
+print(price_change_df)
+```
+
+Now plot the results:
+
+```{code-cell} ipython3
+# Convert to pandas for plotting (as demonstrated in the lecture)
+df_pandas = price_change_df.to_pandas().set_index('company')
+
+fig, ax = plt.subplots(figsize=(10,8))
+ax.set_xlabel('stock', fontsize=12)
+ax.set_ylabel('percentage change in price', fontsize=12)
+df_pandas['pct_change'].plot(kind='bar', ax=ax)
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+```
+
+```{solution-end}
+```
+
+
+```{exercise-start}
+:label: pl_ex2
+```
+
+Using the method `read_data_polars` introduced in {ref}`pl_ex1`, write a program to obtain year-on-year percentage change for the following indices using Polars operations:
+
+```{code-cell} ipython3
+indices_list = {'^GSPC': 'S&P 500',
+               '^IXIC': 'NASDAQ',
+               '^DJI': 'Dow Jones',
+               '^N225': 'Nikkei'}
+```
+
+Complete the program to show summary statistics and plot the result as a time series graph demonstrating Polars' data manipulation capabilities.
+
+```{exercise-end}
+```
+
+```{solution-start} pl_ex2
+:class: dropdown
+```
+
+Following the work you did in {ref}`pl_ex1`, you can query the data using `read_data_polars` by updating the start and end dates accordingly.
+
+```{code-cell} ipython3
+indices_data = read_data_polars(
+    indices_list,
+    start=dt.datetime(1971, 1, 1),  # Common Start Date
+    end=dt.datetime(2021, 12, 31)
+)
+
+# Add year column for grouping
+indices_data = indices_data.with_columns(
+    pl.col('Date').dt.year().alias('year')
+)
+
+print("Data shape:", indices_data.shape)
+print("\nFirst few rows:")
+print(indices_data.head())
+```
+
+Calculate yearly returns using Polars groupby operations:
+
+```{code-cell} ipython3
+# Calculate first and last price for each year and each index
+yearly_returns = indices_data.group_by('year').agg([
+    *[pl.col(index).first().alias(f"{index}_first") for index in indices_list.keys()],
+    *[pl.col(index).last().alias(f"{index}_last") for index in indices_list.keys()]
+])
+
+# Calculate percentage returns for each index
+for index in indices_list.keys():
+    yearly_returns = yearly_returns.with_columns(
+        ((pl.col(f"{index}_last") - pl.col(f"{index}_first")) / pl.col(f"{index}_first"))
+        .alias(indices_list[index])
+    )
+
+# Select only the year and return columns
+yearly_returns = yearly_returns.select([
+    'year',
+    *list(indices_list.values())
+]).sort('year')
+
+print("Yearly returns shape:", yearly_returns.shape)
+print("\nYearly returns:")
+print(yearly_returns.head(10))
+```
+
+Generate summary statistics using Polars:
+
+```{code-cell} ipython3
+# Summary statistics for all indices
+summary_stats = yearly_returns.select(list(indices_list.values())).describe()
+print("Summary Statistics:")
+print(summary_stats)
+```
+
+Plot the time series:
+
+```{code-cell} ipython3
+# Convert to pandas for plotting
+df_pandas = yearly_returns.to_pandas().set_index('year')
+
+fig, axes = plt.subplots(2, 2, figsize=(12, 10))
+
+for iter_, ax in enumerate(axes.flatten()):
+    if iter_ < len(indices_list):
+        index_name = list(indices_list.values())[iter_]
+        ax.plot(df_pandas.index, df_pandas[index_name])
+        ax.set_ylabel("percent change", fontsize=12)
+        ax.set_xlabel("year", fontsize=12)
+        ax.set_title(index_name)
+        ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+```
+
+Alternative: Create a single plot with all indices:
+
+```{code-cell} ipython3
+# Single plot with all indices
+fig, ax = plt.subplots(figsize=(12, 8))
+
+for index_name in indices_list.values():
+    ax.plot(df_pandas.index, df_pandas[index_name], label=index_name, linewidth=2)
+
+ax.set_xlabel("year", fontsize=12)
+ax.set_ylabel("yearly return", fontsize=12)
+ax.set_title("Yearly Returns of Major Stock Indices", fontsize=14)
+ax.legend()
+ax.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.show()
+```
+
+```{solution-end}
+```
+
 [^mung]: Wikipedia defines munging as cleaning data from one raw form into a structured, purged one.
