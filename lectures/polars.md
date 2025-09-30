@@ -596,7 +596,7 @@ optimized_query = (df_full.lazy()
 )
 
 print("Optimized query plan:")
-print(optimized_query.describe_optimized_plan())
+print(optimized_query.explain())
 ```
 
 ```{code-cell} ipython3
@@ -728,8 +728,8 @@ def read_data_polars(ticker_list,
     """
     This function reads in closing price data from Yahoo
     for each tick in the ticker_list and returns a Polars DataFrame.
+    Different indices may have different trading days, so we use joins to handle this.
     """
-    # Start with an empty list to collect DataFrames
     dataframes = []
     
     for tick in ticker_list:
@@ -743,10 +743,12 @@ def read_data_polars(ticker_list,
         })
         dataframes.append(df)
     
-    # Join all DataFrames on the Date column
+    # Start with the first DataFrame
     result = dataframes[0]
+    
+    # Join additional DataFrames, handling mismatched dates with full outer join
     for df in dataframes[1:]:
-        result = result.join(df, on='Date', how='outer')
+        result = result.join(df, on='Date', how='full', coalesce=True)
     
     return result
 
