@@ -30,7 +30,7 @@ In addition to what's in Anaconda, this lecture will need the following librarie
 ```{code-cell} ipython3
 :tags: [hide-output]
 
-!pip install --upgrade polars wbgapi yfinance
+!pip install --upgrade polars wbgapi yfinance pyarrow
 ```
 
 ## Overview
@@ -775,7 +775,7 @@ price_change_df = ticker.select([
 
 # Add company names and sort
 price_change_df = price_change_df.with_columns([
-    pl.col('ticker').replace(ticker_list, default=pl.col('ticker')).alias('company')
+    pl.col('ticker').replace_strict(ticker_list, default=pl.col('ticker')).alias('company')
 ]).sort('pct_change')
 
 print(price_change_df)
@@ -875,6 +875,13 @@ Generate summary statistics using Polars:
 summary_stats = yearly_returns.select(list(indices_list.values())).describe()
 print("Summary Statistics:")
 print(summary_stats)
+
+# Check for any null values or data issues
+print(f"\nData shape: {yearly_returns.shape}")
+print(f"Null counts:")
+print(yearly_returns.null_count())
+print(f"\nData range (first few years):")
+print(yearly_returns.head())
 ```
 
 Plot the time series:
@@ -888,11 +895,16 @@ fig, axes = plt.subplots(2, 2, figsize=(12, 10))
 for iter_, ax in enumerate(axes.flatten()):
     if iter_ < len(indices_list):
         index_name = list(indices_list.values())[iter_]
-        ax.plot(df_pandas.index, df_pandas[index_name])
-        ax.set_ylabel("percent change", fontsize=12)
+        
+        # Plot with markers and lines for better visibility
+        ax.plot(df_pandas.index, df_pandas[index_name], 'o-', linewidth=2, markersize=4)
+        ax.set_ylabel("yearly return", fontsize=12)
         ax.set_xlabel("year", fontsize=12)
-        ax.set_title(index_name)
+        ax.set_title(index_name, fontsize=12)
         ax.grid(True, alpha=0.3)
+        
+        # Add horizontal line at zero for reference
+        ax.axhline(y=0, color='k', linestyle='--', alpha=0.3)
 
 plt.tight_layout()
 plt.show()
