@@ -37,9 +37,9 @@ In addition to what's in Anaconda, this lecture will need the following librarie
 
 [Polars](https://pola.rs/) is a fast data manipulation library for Python written in Rust.
 
-Polars has gained significant popularity in recent years due to its superior performance
-compared to traditional data analysis tools, making it an excellent choice for modern
-data science and machine learning workflows.
+Polars has gained significant popularity in recent years due to its superior performance compared to traditional data analysis tools.
+
+This makes it an excellent choice for modern data science and machine learning workflows.
 
 Polars is designed with performance and memory efficiency in mind, leveraging:
 
@@ -48,7 +48,7 @@ Polars is designed with performance and memory efficiency in mind, leveraging:
 * Parallel processing for enhanced performance
 * Expressive API similar to pandas but with better performance characteristics
 
-Just as [NumPy](https://numpy.org/) provides the basic array data type plus core array operations, polars
+Just as [NumPy](https://numpy.org/) provides the basic array data type plus core array operations, Polars
 
 1. defines fundamental structures for working with data and
 1. endows them with methods that facilitate operations such as
@@ -58,10 +58,9 @@ Just as [NumPy](https://numpy.org/) provides the basic array data type plus core
     * sorting, grouping, re-ordering and general data munging [^mung]
     * dealing with missing values, etc.
 
-More sophisticated statistical functionality is left to other packages, such
-as [statsmodels](https://www.statsmodels.org/) and [scikit-learn](https://scikit-learn.org/), which can work with polars DataFrames through their interoperability with pandas.
+More sophisticated statistical functionality is left to other packages, such as [statsmodels](https://www.statsmodels.org/) and [scikit-learn](https://scikit-learn.org/), which can work with Polars DataFrames through their interoperability with pandas.
 
-This lecture will provide a basic introduction to polars.
+This lecture will provide a basic introduction to Polars.
 
 ```{tip} 
 *Why use Polars over pandas?* One reason is *performance*. As a general rule, it is recommended to have 5 to 10 times as much RAM as the size of the dataset to carry out operations in pandas, compared to 2 to 4 times  needed for Polars. In addition, Polars is between 10 and 100 times as fast as pandas for common operations. A great article comparing the Polars and pandas can be found [in this JetBrains blog post](https://blog.jetbrains.com/pycharm/2024/07/polars-vs-pandas/).
@@ -77,7 +76,7 @@ import matplotlib.pyplot as plt
 import requests
 ```
 
-Two important data types defined by polars are  `Series` and `DataFrame`.
+Two important data types defined by Polars are `Series` and `DataFrame`.
 
 You can think of a `Series` as a "column" of data, such as a collection of observations on a single variable.
 
@@ -98,11 +97,10 @@ s
 ```
 
 ```{note}
-You may notice the above series has no indices, unlike in [pd.Series](pandas:series). This is because Polars' is column centric and accessing data is predominantly managed through filtering and boolean masks. Here is [an interesting blog post discussing this in more detail](https://medium.com/data-science/understand-polars-lack-of-indexes-526ea75e413).
+You may notice the above series has no indices, unlike in [pd.Series](pandas:series). This is because Polars is column-centric and accessing data is predominantly managed through filtering and boolean masks. Here is [an interesting blog post discussing this in more detail](https://medium.com/data-science/understand-polars-lack-of-indexes-526ea75e413).
 ```
 
-Polars `Series` are built on top of Apache Arrow arrays and support many similar
-operations to Pandas `Series`.
+Polars `Series` are built on top of Apache Arrow arrays and support many similar operations to Pandas `Series`.
 
 (For interested readers, please see this extended reading on [Apache Arrow](https://www.datacamp.com/tutorial/apache-arrow))
 
@@ -116,13 +114,13 @@ s.abs()
 
 But `Series` provide more than basic arrays.
 
-For example they have some additional (statistically oriented) methods
+For example, they have some additional (statistically oriented) methods
 
 ```{code-cell} ipython3
 s.describe()
 ```
 
-However the `pl.Series` object cannot be used in the same way as a `pd.Series` when pairing data with indices. 
+However, the `pl.Series` object cannot be used in the same way as a `pd.Series` when pairing data with indices.
 
 For example, using a `pd.Series` you can do the following:
 
@@ -134,10 +132,9 @@ s
 
 However, in Polars you will need to use the `DataFrame` object to do the same task.
 
-This means you will use the `DataFrame` object more often when using polars if you
-are interested in relationships between data 
+This means you will use the `DataFrame` object more often when using Polars if you are interested in relationships between data. 
 
-Let's create a `pl.DataFrame` containing the equivalent data in the `pd.Series` .
+Let's create a `pl.DataFrame` containing the equivalent data in the `pd.Series`.
 
 ```{code-cell} ipython3
 df = pl.DataFrame({
@@ -147,17 +144,15 @@ df = pl.DataFrame({
 df
 ```
 
-To access specific values by company name, we can filter the DataFrame filtering on 
-the `AMZN` ticker code and selecting the `daily returns`.
+To access specific values by company name, we can filter the DataFrame for the `AMZN` ticker code and select the `daily returns`.
 
 ```{code-cell} ipython3
 df.filter(pl.col('company') == 'AMZN').select('daily returns').item()
 ```
 
-If we want to update `AMZN` return to 0, you can use the following chain of methods.
+If we want to update the `AMZN` return to 0, you can use the following chain of methods.
 
-
-Here  `with_columns` is similar to `select` but adds columns to the same `DataFrame`
+Here, `with_columns` is similar to `select` but adds columns to the same `DataFrame`
 
 ```{code-cell} ipython3
 df = df.with_columns(
@@ -182,14 +177,13 @@ You can check if a ticker code is in the company list
 
 While a `Series` is a single column of data, a `DataFrame` is several columns, one for each variable.
 
-In essence, a `DataFrame` in polars is analogous to a (highly optimized) Excel spreadsheet.
+In essence, a `DataFrame` in Polars is analogous to a (highly optimized) Excel spreadsheet.
 
 Thus, it is a powerful tool for representing and analyzing data that are naturally organized into rows and columns.
 
-Let's look at an example that reads data from the CSV file `pandas/data/test_pwt.csv`, 
-which is taken from the [Penn World Tables](https://www.rug.nl/ggdc/productivity/pwt/pwt-releases/pwt-7.0).
+Let's look at an example that reads data from the CSV file `pandas/data/test_pwt.csv`, which is taken from the [Penn World Tables](https://www.rug.nl/ggdc/productivity/pwt/pwt-releases/pwt-7.0).
 
-The dataset contains the following indicators 
+The dataset contains the following indicators: 
 
 | Variable Name | Description |
 | :-: | :-: |
@@ -200,7 +194,7 @@ The dataset contains the following indicators
 | cg | Government Consumption Share of PPP Converted GDP Per Capita (%) |
 
 
-We'll read this in from a URL using the `polars` function `read_csv`.
+We'll read this in from a URL using the Polars function `read_csv`.
 
 ```{code-cell} ipython3
 URL = 'https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/pandas/data/test_pwt.csv'
@@ -214,7 +208,7 @@ Here is the content of `test_pwt.csv`
 df
 ```
 
-### Select Data by Position
+### Select data by position
 
 In practice, one thing that we do all the time is to find, select and work with a 
 subset of the data of our interests. 
@@ -243,7 +237,7 @@ To select rows and columns using a mixture of integers and labels, we can use mo
 df[2:5].select(['country', 'tcgdp'])
 ```
 
-### Select Data by Conditions
+### Select data by conditions
 
 Instead of indexing rows and columns using integers and names, we can also obtain a sub-dataframe of our interests that satisfies certain (potentially complicated) conditions.
 
@@ -266,7 +260,7 @@ df.select(
 )
 ```
 
-Take one more example,
+Here is another example:
 
 ```{code-cell} ipython3
 df.filter(
@@ -281,14 +275,14 @@ We can also allow arithmetic operations between different columns.
 df.filter((pl.col('cc') + pl.col('cg') >= 80) & (pl.col('POP') <= 20000))
 ```
 
-For example, we can use the conditioning to select the country with the largest 
-household consumption - gdp share `cc`.
+For example, we can use the condition to select the country with the largest 
+household consumption–GDP share `cc`.
 
 ```{code-cell} ipython3
 df.filter(pl.col('cc') == pl.col('cc').max())
 ```
 
-When we only want to look at certain columns of a selected sub-dataframe, we can combine filter with select.
+When we only want to look at certain columns of a selected sub-DataFrame, we can combine filter with select.
 
 ```{code-cell} ipython3
 df.filter(
@@ -296,7 +290,7 @@ df.filter(
            ).select(['country', 'year', 'POP'])
 ```
 
-**Application: Subsetting Dataframe**
+**Application: Subsetting DataFrame**
 
 Real-world datasets can be very large.
 
@@ -319,11 +313,11 @@ We can then save the smaller dataset for further analysis.
 df_subset.write_csv('pwt_subset.csv')
 ```
 
-### Apply and Map Operations
+### Apply and map operations
 
 Polars provides powerful methods for applying functions to data. 
 
-Instead of pandas' `apply` method, polars uses expressions within `select`, `with_columns`, or `filter` methods.
+Instead of pandas' `apply` method, Polars uses expressions within `select`, `with_columns`, or `filter` methods.
 
 Here is an example using built-in functions to find the `max` value for each column
 
@@ -363,9 +357,9 @@ complex_condition = (
 df.filter(complex_condition).select(['country', 'year', 'POP', 'XRAT', 'tcgdp'])
 ```
 
-### Make Changes in DataFrames
+### Make changes in DataFrames
 
-The ability to make changes in dataframes is important to generate a clean dataset for future analysis.
+The ability to make changes in DataFrames is important to generate a clean dataset for future analysis.
 
 **1.** We can use conditional logic to "keep" certain values and replace others
 
@@ -455,9 +449,9 @@ df_with_nulls.with_columns([
 
 Missing value imputation is a big area in data science involving various machine learning techniques.
 
-There are also more [advanced tools](https://scikit-learn.org/stable/modules/impute.html) in python to impute missing values.
+There are also more [advanced tools](https://scikit-learn.org/stable/modules/impute.html) in Python to impute missing values.
 
-### Standardization and Visualization
+### Standardization and visualization
 
 Let's imagine that we're only interested in the population (`POP`) and total GDP (`tcgdp`).
 
@@ -468,7 +462,7 @@ df = df.select(['country', 'POP', 'tcgdp'])
 df
 ```
 
-While polars doesn't have a traditional index like pandas, we can work with country names directly
+While Polars doesn't have a traditional index like pandas, we can work with country names directly
 
 ```{code-cell} ipython3
 df
@@ -501,7 +495,7 @@ df = df.with_columns(
 df
 ```
 
-One of the nice things about polars `DataFrame` and `Series` objects is that they can be easily converted to pandas for visualization through Matplotlib.
+One of the nice things about Polars `DataFrame` and `Series` objects is that they can be easily converted to pandas for visualization through Matplotlib.
 
 For example, we can easily generate a bar plot of GDP per capita
 
@@ -532,7 +526,111 @@ ax.set_ylabel('GDP per capita', fontsize=12)
 plt.show()
 ```
 
-## On-Line Data Sources
+## Lazy evaluation
+
+```{index} single: Polars; Lazy Evaluation
+```
+
+One of Polars' most powerful features is **lazy evaluation**. This allows Polars to optimize your entire query before executing it, leading to significant performance improvements.
+
+### Eager vs lazy APIs
+
+Polars provides two APIs:
+
+1. **Eager API** - Operations are executed immediately (like pandas)
+2. **Lazy API** - Operations are collected and optimized before execution
+
+Let's see the difference using our dataset:
+
+```{code-cell} ipython3
+# First, let's reload our original dataset for this example
+URL = 'https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/pandas/data/test_pwt.csv'
+df_full = pl.read_csv(URL)
+
+# Eager API (executed immediately)
+result_eager = (df_full
+    .filter(pl.col('tcgdp') > 1000)
+    .select(['country', 'year', 'tcgdp'])
+    .sort('tcgdp', descending=True)
+)
+print("Eager result shape:", result_eager.shape)
+result_eager.head()
+```
+
+```{code-cell} ipython3
+# Lazy API (builds a query plan)
+lazy_query = (df_full.lazy()  # Convert to lazy frame
+    .filter(pl.col('tcgdp') > 1000)
+    .select(['country', 'year', 'tcgdp'])
+    .sort('tcgdp', descending=True)
+)
+
+print("Lazy query (not yet executed):")
+print(lazy_query)
+```
+
+```{code-cell} ipython3
+# Execute the lazy query
+result_lazy = lazy_query.collect()
+print("Lazy result shape:", result_lazy.shape)
+result_lazy.head()
+```
+
+### Query optimization
+
+The lazy API allows Polars to perform several optimizations:
+
+1. **Predicate Pushdown** - Filters are applied as early as possible
+2. **Projection Pushdown** - Only required columns are read
+3. **Common Subexpression Elimination** - Duplicate calculations are removed
+4. **Dead Code Elimination** - Unused operations are removed
+
+```{code-cell} ipython3
+# Example of optimization - only columns needed are processed
+optimized_query = (df_full.lazy()
+    .select(['country', 'year', 'tcgdp', 'POP'])  # Select early
+    .filter(pl.col('tcgdp') > 500)                # Filter pushdown
+    .with_columns((pl.col('tcgdp') / pl.col('POP')).alias('gdp_per_capita'))
+    .filter(pl.col('gdp_per_capita') > 10)        # Additional filter
+    .select(['country', 'year', 'gdp_per_capita']) # Final projection
+)
+
+print("Optimized query plan:")
+print(optimized_query.describe_optimized_plan())
+```
+
+```{code-cell} ipython3
+# Execute the optimized query
+result_optimized = optimized_query.collect()
+result_optimized.head()
+```
+
+### When to use lazy vs eager
+
+**Use Lazy API when:**
+- Working with large datasets
+- Performing complex transformations
+- Building data pipelines
+- Performance is critical
+
+**Use Eager API when:**
+- Exploring data interactively
+- Working with small datasets
+- Need immediate results for debugging
+
+```{code-cell} ipython3
+# Converting between lazy and eager
+eager_df = df_full                    # Start with eager DataFrame
+lazy_df = df_full.lazy()             # Convert to lazy
+back_to_eager = lazy_df.collect()    # Execute lazy and get eager result
+
+print("Original eager shape:", eager_df.shape)
+print("Back to eager shape:", back_to_eager.shape)
+```
+
+The lazy API is particularly powerful for data processing pipelines where multiple transformations can be optimized together as a single operation.
+
+## Online data sources
 
 ```{index} single: Data Sources
 ```
@@ -550,30 +648,30 @@ Alternatively, we can access the CSV file from within a Python program.
 
 In {doc}`pandas`, we studied how to use `requests` and `pandas` to access API data.
 
-Here polars' `read_csv` function provides the same functionality.
+Here Polars' `read_csv` function provides the same functionality.
 
-We use `try_parse_dates=True` so that polars recognizes our dates column
+We use `try_parse_dates=True` so that Polars recognizes our dates column
 
 ```{code-cell} ipython3
 url = 'https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23e1e9f0&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1318&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=UNRATE&scale=left&cosd=1948-01-01&coed=2024-06-01&line_color=%234572a7&link_values=false&line_style=solid&mark_type=none&mw=3&lw=2&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2024-07-29&revision_date=2024-07-29&nd=1948-01-01'
 data = pl.read_csv(url, try_parse_dates=True)
 ```
 
-The data has been read into a polars DataFrame called `data` that we can now manipulate in the usual way
+The data has been read into a Polars DataFrame called `data` that we can now manipulate in the usual way
 
 ```{code-cell} ipython3
 type(data)
 ```
 
 ```{code-cell} ipython3
-data.head()  # A useful method to get a quick look at a data frame
+data.head()  # A useful method to get a quick look at a DataFrame
 ```
 
 ```{code-cell} ipython3
 data.describe()  # Your output might differ slightly
 ```
 
-We can also plot the unemployment rate from 2006 to 2012 as follows
+We can also plot the unemployment rate from 2006 to 2012 as follows:
 
 ```{code-cell} ipython3
 # Filter data for the specified date range and convert to pandas for plotting
@@ -588,7 +686,7 @@ ax.set_ylabel('%', fontsize=12)
 plt.show()
 ```
 
-Note that polars offers many other file type alternatives.
+Note that Polars offers many other file type alternatives.
 
 Polars has [a wide variety](https://docs.pola.rs/user-guide/io/) of methods that we can use to read excel, json, parquet or plug straight into a database server.
 
