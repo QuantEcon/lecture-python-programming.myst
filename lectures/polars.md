@@ -62,7 +62,7 @@ More sophisticated statistical functionality is left to other packages, such as 
 
 This lecture will provide a basic introduction to Polars.
 
-```{tip} 
+```{tip}
 *Why use Polars over pandas?* One reason is *performance*: as a general rule, it is recommended to have 5 to 10 times as much RAM as the size of the dataset to carry out operations in pandas, compared to 2 to 4 times needed for Polars; in addition, Polars is between 10 and 100 times as fast as pandas for common operations; a great article comparing Polars and pandas can be found [in this JetBrains blog post](https://blog.jetbrains.com/pycharm/2024/07/polars-vs-pandas/).
 ```
 
@@ -131,7 +131,7 @@ s
 
 However, in Polars you will need to use the `DataFrame` object to do the same task.
 
-This means you will use the `DataFrame` object more often when using Polars if you are interested in relationships between data. 
+This means you will use the `DataFrame` object more often when using Polars if you are interested in relationships between data.
 
 Let's create a `pl.DataFrame` containing the equivalent data in the `pd.Series`.
 
@@ -182,12 +182,12 @@ Thus, it is a powerful tool for representing and analyzing data that are natural
 
 Let's look at an example that reads data from the CSV file `pandas/data/test_pwt.csv`, which is taken from the [Penn World Tables](https://www.rug.nl/ggdc/productivity/pwt/pwt-releases/pwt-7.0).
 
-The dataset contains the following indicators: 
+The dataset contains the following indicators:
 
 | Variable Name | Description |
 | :-: | :-: |
 | POP | Population (in thousands) |
-| XRAT | Exchange Rate to US Dollar |                     
+| XRAT | Exchange Rate to US Dollar |
 | tcgdp | Total PPP Converted GDP (in million international dollar) |
 | cc | Consumption Share of PPP Converted GDP Per Capita (%) |
 | cg | Government Consumption Share of PPP Converted GDP Per Capita (%) |
@@ -196,7 +196,9 @@ The dataset contains the following indicators:
 We'll read this in from a URL using the Polars function `read_csv`.
 
 ```{code-cell} ipython3
-URL = 'https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/pandas/data/test_pwt.csv'
+URL = ('https://raw.githubusercontent.com/QuantEcon/'
+       'lecture-python-programming/master/source/_static/'
+       'lecture_specific/pandas/data/test_pwt.csv')
 df = pl.read_csv(URL)
 type(df)
 ```
@@ -209,8 +211,8 @@ df
 
 ### Select data by position
 
-In practice, one thing that we do all the time is to find, select and work with a 
-subset of the data of our interests. 
+In practice, one thing that we do all the time is to find, select and work with a
+subset of the data of our interests.
 
 We can select particular rows using array slicing notation
 
@@ -254,7 +256,7 @@ We can view this boolean mask as a table with the alias `meets_criteria`
 
 ```{code-cell} ipython3
 df.select(
-    pl.col('country'),  
+    pl.col('country'),
     (pl.col('POP') >= 20000).alias('meets_criteria')
 )
 ```
@@ -263,7 +265,7 @@ Here is another example:
 
 ```{code-cell} ipython3
 df.filter(
-    (pl.col('country').is_in(['Argentina', 'India', 'South Africa'])) & 
+    (pl.col('country').is_in(['Argentina', 'India', 'South Africa'])) &
     (pl.col('POP') > 40000)
 )
 ```
@@ -271,10 +273,12 @@ df.filter(
 We can also allow arithmetic operations between different columns.
 
 ```{code-cell} ipython3
-df.filter((pl.col('cc') + pl.col('cg') >= 80) & (pl.col('POP') <= 20000))
+df.filter(
+    (pl.col('cc') + pl.col('cg') >= 80) & (pl.col('POP') <= 20000)
+)
 ```
 
-For example, we can use the condition to select the country with the largest 
+For example, we can use the condition to select the country with the largest
 household consumption–GDP share `cc`.
 
 ```{code-cell} ipython3
@@ -285,8 +289,9 @@ When we only want to look at certain columns of a selected sub-DataFrame, we can
 
 ```{code-cell} ipython3
 df.filter(
-           (pl.col('cc') + pl.col('cg') >= 80) & (pl.col('POP') <= 20000)
-           ).select(['country', 'year', 'POP'])
+    (pl.col('cc') + pl.col('cg') >= 80) & (pl.col('POP') <= 20000)
+    ).select(['country', 'year', 'POP']
+)
 ```
 
 **Application: Subsetting DataFrame**
@@ -314,7 +319,7 @@ df_subset.write_csv('pwt_subset.csv')
 
 ### Apply and map operations
 
-Polars provides powerful methods for applying functions to data. 
+Polars provides powerful methods for applying functions to data.
 
 Instead of pandas' `apply` method, Polars uses expressions within `select`, `with_columns`, or `filter` methods.
 
@@ -322,7 +327,9 @@ Here is an example using built-in functions to find the `max` value for each col
 
 ```{code-cell} ipython3
 df.select([
-    pl.col(['year', 'POP', 'XRAT', 'tcgdp', 'cc', 'cg']).max().name.suffix('_max')
+    pl.col(['year', 'POP', 'XRAT', 'tcgdp', 'cc', 'cg'])
+    .max()
+    .name.suffix('_max')
 ])
 ```
 
@@ -348,12 +355,14 @@ We can use complex filtering conditions with boolean logic:
 
 ```{code-cell} ipython3
 complex_condition = (
-    pl.when(pl.col('country').is_in(['Argentina', 'India', 'South Africa']))  
-    .then(pl.col('POP') > 40000)  
-    .otherwise(pl.col('POP') < 20000)  
+    pl.when(pl.col('country').is_in(['Argentina', 'India', 'South Africa']))
+    .then(pl.col('POP') > 40000)
+    .otherwise(pl.col('POP') < 20000)
 )
 
-df.filter(complex_condition).select(['country', 'year', 'POP', 'XRAT', 'tcgdp'])
+df.filter(complex_condition).select([
+    'country', 'year', 'POP', 'XRAT', 'tcgdp'
+])
 ```
 
 ### Make changes in DataFrames
@@ -363,7 +372,7 @@ The ability to make changes in DataFrames is important to generate a clean datas
 **1.** We can use conditional logic to "keep" certain values and replace others
 
 ```{code-cell} ipython3
-df.with_columns( 
+df.with_columns(
     pl.when(pl.col('POP') >= 20000)          # when population >= 20000
     .then(pl.col('POP'))                     # keep the population value
     .otherwise(None)                         # otherwise set to null
@@ -374,7 +383,7 @@ df.with_columns(
 **2.** We can modify specific values based on conditions
 
 ```{code-cell} ipython3
-df_modified = df.with_columns(                     
+df_modified = df.with_columns(
     pl.when(pl.col('cg') == pl.col('cg').max())    # pick the largest cg value
     .then(None)                                    # set to null
     .otherwise(pl.col('cg'))                       # otherwise keep the value
@@ -405,7 +414,7 @@ df.with_columns([
 
 **Application: Missing Value Imputation**
 
-Replacing missing values is an important step in data munging. 
+Replacing missing values is an important step in data munging.
 
 Let's randomly insert some null values
 
@@ -442,7 +451,7 @@ Here we fill `null` values with the column means
 ```{code-cell} ipython3
 cols = ["cc", "tcgdp", "POP", "XRAT"]
 df_with_nulls.with_columns([
-    pl.col(cols).fill_null(pl.col(cols).mean()) 
+    pl.col(cols).fill_null(pl.col(cols).mean())
 ])
 ```
 
@@ -543,7 +552,9 @@ Let's see the difference using our dataset:
 
 ```{code-cell} ipython3
 # First, let's reload our original dataset for this example
-URL = 'https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/pandas/data/test_pwt.csv'
+URL = ('https://raw.githubusercontent.com/QuantEcon/'
+       'lecture-python-programming/master/source/_static/'
+       'lecture_specific/pandas/data/test_pwt.csv')
 df_full = pl.read_csv(URL)
 
 # Eager API (executed immediately)
@@ -564,12 +575,13 @@ lazy_query = (df_full.lazy()  # Convert to lazy frame
     .sort('tcgdp', descending=True)
 )
 
-print("Lazy query (not yet executed):")
+print("Lazy query:")
 print(lazy_query)
 ```
 
+We can now execute the lazy query using `collect`:
+
 ```{code-cell} ipython3
-# Execute the lazy query
 result_lazy = lazy_query.collect()
 print("Lazy result shape:", result_lazy.shape)
 result_lazy.head()
@@ -617,16 +629,6 @@ result_optimized.head()
 - Working with small datasets
 - Need immediate results for debugging
 
-```{code-cell} ipython3
-# Converting between lazy and eager
-eager_df = df_full                    # Start with eager DataFrame
-lazy_df = df_full.lazy()             # Convert to lazy
-back_to_eager = lazy_df.collect()    # Execute lazy and get eager result
-
-print("Original eager shape:", eager_df.shape)
-print("Back to eager shape:", back_to_eager.shape)
-```
-
 The lazy API is particularly powerful for data processing pipelines where multiple transformations can be optimized together as a single operation.
 
 ## Online data sources
@@ -652,7 +654,18 @@ Here Polars' `read_csv` function provides the same functionality.
 We use `try_parse_dates=True` so that Polars recognizes our dates column
 
 ```{code-cell} ipython3
-url = 'https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23e1e9f0&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1318&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=UNRATE&scale=left&cosd=1948-01-01&coed=2024-06-01&line_color=%234572a7&link_values=false&line_style=solid&mark_type=none&mw=3&lw=2&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2024-07-29&revision_date=2024-07-29&nd=1948-01-01'
+url = ('https://fred.stlouisfed.org/graph/fredgraph.csv?'
+       'bgcolor=%23e1e9f0&chart_type=line&drp=0&fo=open%20sans&'
+       'graph_bgcolor=%23ffffff&height=450&mode=fred&'
+       'recession_bars=on&txtcolor=%23444444&ts=12&tts=12&'
+       'width=1318&nt=0&thu=0&trc=0&show_legend=yes&'
+       'show_axis_titles=yes&show_tooltip=yes&id=UNRATE&scale=left&'
+       'cosd=1948-01-01&coed=2024-06-01&line_color=%234572a7&'
+       'link_values=false&line_style=solid&mark_type=none&mw=3&lw=2&'
+       'ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&'
+       'fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&'
+       'vintage_date=2024-07-29&revision_date=2024-07-29&'
+       'nd=1948-01-01')
 data = pl.read_csv(url, try_parse_dates=True)
 ```
 
@@ -675,7 +688,7 @@ We can also plot the unemployment rate from 2006 to 2012 as follows:
 ```{code-cell} ipython3
 # Filter data for the specified date range and convert to pandas for plotting
 filtered_data = data.filter(
-    (pl.col('observation_date') >= pl.date(2006, 1, 1)) & 
+    (pl.col('observation_date') >= pl.date(2006, 1, 1)) &
     (pl.col('observation_date') <= pl.date(2012, 12, 31))
 ).to_pandas().set_index('observation_date')
 
@@ -727,28 +740,29 @@ def read_data_polars(ticker_list,
     """
     This function reads in closing price data from Yahoo
     for each tick in the ticker_list and returns a Polars DataFrame.
-    Different indices may have different trading days, so we use joins to handle this.
+    Different indices may have different trading days, so we use joins
+    to handle this.
     """
     dataframes = []
-    
+
     for tick in ticker_list:
         stock = yf.Ticker(tick)
         prices = stock.history(start=start, end=end)
-        
+
         # Create a Polars DataFrame from the closing prices
         df = pl.DataFrame({
             'Date': pd.to_datetime(prices.index.date),
             tick: prices['Close'].values
         })
         dataframes.append(df)
-    
+
     # Start with the first DataFrame
     result = dataframes[0]
-    
+
     # Join additional DataFrames, handling mismatched dates with full outer join
     for df in dataframes[1:]:
         result = result.join(df, on='Date', how='full', coalesce=True)
-    
+
     return result
 
 ticker = read_data_polars(ticker_list)
@@ -768,13 +782,19 @@ Here's a solution using Polars operations to calculate percentage changes:
 
 ```{code-cell} ipython3
 price_change_df = ticker.select([
-    pl.col(tick).last().alias(f"{tick}_last") / pl.col(tick).first().alias(f"{tick}_first") * 100 - 100
+    (pl.col(tick).last() / pl.col(tick).first() * 100 - 100).alias(tick)
     for tick in ticker_list.keys()
-]).transpose(include_header=True, header_name='ticker', column_names=['pct_change'])
+]).transpose(
+    include_header=True,
+    header_name='ticker',
+    column_names=['pct_change']
+)
 
 # Add company names and sort
 price_change_df = price_change_df.with_columns([
-    pl.col('ticker').replace_strict(ticker_list, default=pl.col('ticker')).alias('company')
+    pl.col('ticker')
+    .replace_strict(ticker_list, default=pl.col('ticker'))
+    .alias('company')
 ]).sort('pct_change')
 
 print(price_change_df)
@@ -789,7 +809,11 @@ df_pandas = price_change_df.to_pandas().set_index('company')
 fig, ax = plt.subplots(figsize=(10,8))
 ax.set_xlabel('stock', fontsize=12)
 ax.set_ylabel('percentage change in price', fontsize=12)
-df_pandas['pct_change'].plot(kind='bar', ax=ax)
+
+# Create colors: red for negative returns, green for positive returns
+colors = ['red' if x < 0 else 'blue' for x in df_pandas['pct_change']]
+df_pandas['pct_change'].plot(kind='bar', ax=ax, color=colors)
+
 plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()
@@ -826,7 +850,7 @@ Following the work you did in {ref}`pl_ex1`, you can query the data using `read_
 ```{code-cell} ipython3
 indices_data = read_data_polars(
     indices_list,
-    start=dt.datetime(1971, 1, 1),  # Common Start Date
+    start=dt.datetime(2000, 1, 1),
     end=dt.datetime(2021, 12, 31)
 )
 
@@ -838,29 +862,48 @@ indices_data = indices_data.with_columns(
 print("Data shape:", indices_data.shape)
 print("\nFirst few rows:")
 print(indices_data.head())
+print("\nData availability check:")
+for index in indices_list.keys():
+    non_null_count = (indices_data
+                      .select(pl.col(index).is_not_null().sum())
+                      .item())
+    print(f"{indices_list[index]}: {non_null_count} non-null values")
 ```
 
 Calculate yearly returns using Polars groupby operations:
 
 ```{code-cell} ipython3
-# Calculate first and last price for each year and each index
+# Calculate first and last valid price for each year and each index
 yearly_returns = indices_data.group_by('year').agg([
-    *[pl.col(index).first().alias(f"{index}_first") for index in indices_list.keys()],
-    *[pl.col(index).last().alias(f"{index}_last") for index in indices_list.keys()]
+    *[pl.col(index)
+      .filter(pl.col(index).is_not_null())
+      .first()
+      .alias(f"{index}_first") for index in indices_list.keys()],
+    *[pl.col(index)
+      .filter(pl.col(index).is_not_null())
+      .last()
+      .alias(f"{index}_last") for index in indices_list.keys()]
 ])
 
-# Calculate percentage returns for each index
+# Calculate percentage returns for each index, handling null values properly
+return_columns = []
 for index in indices_list.keys():
-    yearly_returns = yearly_returns.with_columns(
-        ((pl.col(f"{index}_last") - pl.col(f"{index}_first")) / pl.col(f"{index}_first"))
-        .alias(indices_list[index])
-    )
+    company_name = indices_list[index]
+    return_col = (
+        (pl.col(f"{index}_last") - pl.col(f"{index}_first")) /
+        pl.col(f"{index}_first") * 100
+    ).alias(company_name)
+    return_columns.append(return_col)
 
-# Select only the year and return columns
+yearly_returns = yearly_returns.with_columns(return_columns)
+
+# Select only the year and return columns, filter out years with insufficient data
 yearly_returns = yearly_returns.select([
     'year',
     *list(indices_list.values())
-]).sort('year')
+]).filter(
+    pl.col('year') >= 2001  # Ensure we have complete years of data
+).sort('year')
 
 print("Yearly returns shape:", yearly_returns.shape)
 print("\nYearly returns:")
@@ -894,17 +937,18 @@ fig, axes = plt.subplots(2, 2, figsize=(12, 10))
 # Flatten 2-D array to 1-D array
 for iter_, ax in enumerate(axes.flatten()):
     if iter_ < len(indices_list):
-        
+
         # Get index name per iteration
         index_name = list(indices_list.values())[iter_]
-        
+
         # Plot with markers and lines for better visibility
-        ax.plot(df_pandas.index, df_pandas[index_name], 'o-', linewidth=2, markersize=4)
+        ax.plot(df_pandas.index, df_pandas[index_name], 'o-',
+                linewidth=2, markersize=4)
         ax.set_ylabel("yearly return", fontsize=12)
         ax.set_xlabel("year", fontsize=12)
         ax.set_title(index_name, fontsize=12)
         ax.grid(True, alpha=0.3)
-        
+
         # Add horizontal line at zero for reference
         ax.axhline(y=0, color='k', linestyle='--', alpha=0.3)
 
@@ -919,13 +963,18 @@ Alternative: Create a single plot with all indices:
 fig, ax = plt.subplots(figsize=(12, 8))
 
 for index_name in indices_list.values():
-    ax.plot(df_pandas.index, df_pandas[index_name], label=index_name, linewidth=2)
+    # Only plot if the column has valid data
+    if (index_name in df_pandas.columns and
+            not df_pandas[index_name].isna().all()):
+        ax.plot(df_pandas.index, df_pandas[index_name],
+                label=index_name, linewidth=2, marker='o', markersize=3)
 
 ax.set_xlabel("year", fontsize=12)
-ax.set_ylabel("yearly return", fontsize=12)
-ax.set_title("Yearly Returns of Major Stock Indices", fontsize=14)
+ax.set_ylabel("yearly return (%)", fontsize=12)
+ax.set_title("Yearly Returns of Major Stock Indices (2001-2021)", fontsize=14)
 ax.legend()
 ax.grid(True, alpha=0.3)
+ax.axhline(y=0, color='k', linestyle='--', alpha=0.5, label='Zero line')
 plt.tight_layout()
 plt.show()
 ```
