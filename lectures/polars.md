@@ -63,7 +63,7 @@ More sophisticated statistical functionality is left to other packages, such as 
 This lecture will provide a basic introduction to Polars.
 
 ```{tip} 
-*Why use Polars over pandas?* One reason is *performance*. As a general rule, it is recommended to have 5 to 10 times as much RAM as the size of the dataset to carry out operations in pandas, compared to 2 to 4 times  needed for Polars. In addition, Polars is between 10 and 100 times as fast as pandas for common operations. A great article comparing the Polars and pandas can be found [in this JetBrains blog post](https://blog.jetbrains.com/pycharm/2024/07/polars-vs-pandas/).
+*Why use Polars over pandas?* One reason is *performance*: as a general rule, it is recommended to have 5 to 10 times as much RAM as the size of the dataset to carry out operations in pandas, compared to 2 to 4 times needed for Polars; in addition, Polars is between 10 and 100 times as fast as pandas for common operations; a great article comparing Polars and pandas can be found [in this JetBrains blog post](https://blog.jetbrains.com/pycharm/2024/07/polars-vs-pandas/).
 ```
 
 Throughout the lecture, we will assume that the following imports have taken place
@@ -73,7 +73,6 @@ import polars as pl
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import requests
 ```
 
 Two important data types defined by Polars are `Series` and `DataFrame`.
@@ -97,7 +96,7 @@ s
 ```
 
 ```{note}
-You may notice the above series has no indices, unlike in [pd.Series](pandas:series). This is because Polars is column-centric and accessing data is predominantly managed through filtering and boolean masks. Here is [an interesting blog post discussing this in more detail](https://medium.com/data-science/understand-polars-lack-of-indexes-526ea75e413).
+You may notice the above series has no indices, unlike in [pd.Series](pandas:series); this is because Polars' is column centric and accessing data is predominantly managed through filtering and boolean masks; here is [an interesting blog post discussing this in more detail](https://medium.com/data-science/understand-polars-lack-of-indexes-526ea75e413).
 ```
 
 Polars `Series` are built on top of Apache Arrow arrays and support many similar operations to Pandas `Series`.
@@ -152,13 +151,13 @@ df.filter(pl.col('company') == 'AMZN').select('daily returns').item()
 
 If we want to update the `AMZN` return to 0, you can use the following chain of methods.
 
-Here, `with_columns` is similar to `select` but adds columns to the same `DataFrame`
+Here `with_columns` is similar to `select` but adds columns to the same `DataFrame`
 
 ```{code-cell} ipython3
 df = df.with_columns(
     pl.when(pl.col('company') == 'AMZN') # filter for AMZN in company column
     .then(0)                             # set values to 0
-    .otherwise(pl.col('daily returns'))  # otherwise keep the original value
+    .otherwise(pl.col('daily returns'))  # otherwise keep original value
     .alias('daily returns')              # assign back to the column
 )
 df
@@ -378,8 +377,8 @@ df.with_columns(
 df_modified = df.with_columns(                     
     pl.when(pl.col('cg') == pl.col('cg').max())    # pick the largest cg value
     .then(None)                                    # set to null
-    .otherwise(pl.col('cg'))                       # otherwise keep the value in the cg column
-    .alias('cg')                                   # update the column with name cg
+    .otherwise(pl.col('cg'))                       # otherwise keep the value
+    .alias('cg')                                   # update the column
 )
 df_modified
 ```
@@ -390,7 +389,7 @@ df_modified
 df.with_columns([
     pl.when(pl.col('POP') <= 10000)          # when population is < 10,000
     .then(None)                              # set the value to null
-    .otherwise(pl.col('POP'))                # otherwise keep the existing value
+    .otherwise(pl.col('POP'))                # otherwise keep existing value
     .alias('POP'),                           # update the POP column
     (pl.col('XRAT') / 10).alias('XRAT')      # update XRAT in-place
 ])
@@ -885,9 +884,14 @@ df_pandas = yearly_returns.to_pandas().set_index('year')
 
 fig, axes = plt.subplots(2, 2, figsize=(12, 10))
 
+# Flatten 2-D array to 1-D array
 for iter_, ax in enumerate(axes.flatten()):
     if iter_ < len(indices_list):
+        
+        # Get index name per iteration
         index_name = list(indices_list.values())[iter_]
+        
+        # Plot pct change of yearly returns per index
         ax.plot(df_pandas.index, df_pandas[index_name])
         ax.set_ylabel("percent change", fontsize=12)
         ax.set_xlabel("year", fontsize=12)
