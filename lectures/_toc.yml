@@ -35,9 +35,9 @@ parts:
   chapters:
   - file: writing_good_code
   - file: workspace 
-  - file: sympy
   - file: python_advanced_features
   - file: debugging
+  - file: sympy
 - caption: Other
   numbered: true
   chapters:
