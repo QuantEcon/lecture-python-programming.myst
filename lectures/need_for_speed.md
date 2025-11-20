@@ -320,3 +320,171 @@ traditional vectorization and towards the use of [just-in-time compilers](https:
 In later lectures in this series, we will learn about how modern Python libraries exploit
 just-in-time compilers to generate fast, efficient, parallelized machine code.
 
+## Parallelization
+
+The growth of CPU clock speed (i.e., the speed at which a single chain of logic can
+be run) has slowed dramatically in recent years.
+
+This is unlikely to change in the near future, due to inherent physical
+limitations on the construction of chips and circuit boards.
+
+Chip designers and computer programmers have responded to the slowdown by
+seeking a different path to fast execution: parallelization.
+
+Hardware makers have increased the number of cores (physical CPUs) embedded in each machine.
+
+For programmers, the challenge has been to exploit these multiple CPUs by running many processes in parallel (i.e., simultaneously).
+
+This is particularly important in scientific programming, which requires handling
+
+* large amounts of data and
+* CPU intensive simulations and other calculations.
+
+In this lecture we discuss parallelization for scientific computing, with a focus on
+
+1. the best tools for parallelization in Python and
+1. how these tools can be applied to quantitative economic problems.
+
+Let's start with some imports:
+
+```{code-cell} ipython
+import numpy as np
+import quantecon as qe
+import matplotlib.pyplot as plt
+```
+
+### Parallelization on CPUs
+
+Large textbooks have been written on different approaches to parallelization but we will keep a tight focus on what's most useful to us.
+
+We will briefly review the two main kinds of CPU-based parallelization commonly used in
+scientific computing and discuss their pros and cons.
+
+#### Multiprocessing
+
+Multiprocessing means concurrent execution of multiple processes using more than one processor.
+
+In this context, a **process** is a chain of instructions (i.e., a program).
+
+Multiprocessing can be carried out on one machine with multiple CPUs or on a
+collection of machines connected by a network.
+
+In the latter case, the collection of machines is usually called a
+**cluster**.
+
+With multiprocessing, each process has its own memory space, although the
+physical memory chip might be shared.
+
+#### Multithreading
+
+Multithreading is similar to multiprocessing, except that, during execution, the threads all share the same memory space.
+
+Native Python struggles to implement multithreading due to some [legacy design
+features](https://wiki.python.org/moin/GlobalInterpreterLock).
+
+But this is not a restriction for scientific libraries like NumPy and Numba.
+
+Functions imported from these libraries and JIT-compiled code run in low level
+execution environments where Python's legacy restrictions don't apply.
+
+#### Advantages and Disadvantages
+
+Multithreading is more lightweight because most system and memory resources
+are shared by the threads.
+
+In addition, the fact that multiple threads all access a shared pool of memory
+is extremely convenient for numerical programming.
+
+On the other hand, multiprocessing is more flexible and can be distributed
+across clusters.
+
+For the great majority of what we do in these lectures, multithreading will
+suffice.
+
+### Hardware Accelerators
+
+While CPUs with multiple cores have become standard for parallel computing, a more dramatic shift has occurred with the rise of specialized hardware accelerators.
+
+These accelerators are designed specifically for the kinds of highly parallel computations that arise in scientific computing, machine learning, and data science.
+
+#### GPUs and TPUs
+
+The two most important types of hardware accelerators are
+
+* **GPUs** (Graphics Processing Units) and
+* **TPUs** (Tensor Processing Units).
+
+GPUs were originally designed for rendering graphics, which requires performing the same operation on many pixels simultaneously.
+
+Scientists and engineers realized that this same architecture --- many simple processors working in parallel --- is ideal for scientific computing tasks such as
+
+* matrix operations,
+* numerical simulation,
+* solving partial differential equations and
+* training machine learning models.
+
+TPUs are a more recent development, designed by Google specifically for machine learning workloads.
+
+Like GPUs, TPUs excel at performing massive numbers of matrix operations in parallel.
+
+#### Why GPUs Matter for Scientific Computing
+
+The performance gains from using GPUs can be dramatic.
+
+A modern GPU can contain thousands of small processing cores, compared to the 8-64 cores typically found in CPUs.
+
+When a problem can be expressed as many independent operations on arrays of data, GPUs can be orders of magnitude faster than CPUs.
+
+This is particularly relevant for scientific computing because many algorithms in
+
+* linear algebra,
+* optimization,
+* Monte Carlo simulation and
+* numerical methods for differential equations
+
+naturally map onto the parallel architecture of GPUs.
+
+#### Single GPUs vs GPU Servers
+
+There are two common ways to access GPU resources:
+
+**Single GPU Systems**
+
+Many workstations and laptops now come with capable GPUs, or can be equipped with them.
+
+```{figure} /_static/lecture_specific/need_for_speed/geforce.png
+:scale: 40
+```
+
+A single modern GPU can dramatically accelerate many scientific computing tasks.
+
+For individual researchers and small projects, a single GPU is often sufficient.
+
+Python libraries like JAX, PyTorch, and TensorFlow can automatically detect and use available GPUs with minimal code changes.
+
+**Multi-GPU Servers**
+
+For larger-scale problems, servers containing multiple GPUs (often 4-8 GPUs per server) are increasingly common.
+
+```{figure} /_static/lecture_specific/need_for_speed/dgx.png
+:scale: 23
+```
+
+These can be located
+
+* in local compute clusters,
+* in university or national lab computing facilities, or
+* in cloud computing platforms (AWS, Google Cloud, Azure, etc.).
+
+With appropriate software, computations can be distributed across multiple GPUs, either within a single server or across multiple servers.
+
+This enables researchers to tackle problems that would be infeasible on a single GPU or CPU.
+
+#### GPU Programming in Python
+
+The good news for Python users is that many scientific libraries now support GPU acceleration with minimal changes to existing code.
+
+For example, JAX code that runs on CPUs can often run on GPUs simply by ensuring the data is placed on the GPU device.
+
+We will explore GPU computing in more detail in later lectures, particularly when we discuss JAX.
+

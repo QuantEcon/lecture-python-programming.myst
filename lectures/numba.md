@@ -238,8 +238,6 @@ with qe.Timer(precision=4):
 
 Numba also provides several arguments for decorators to accelerate computation and cache functions -- see [here](https://numba.readthedocs.io/en/stable/user/performance-tips.html).
 
-In the [following lecture on parallelization](parallel), we will discuss how to use the `parallel` argument to achieve automatic parallelization.
-
 ## Type Inference
 
 Successful type inference is a key part of JIT compilation.
@@ -405,55 +403,7 @@ ax.legend()
 plt.show()
 ```
 
-## Alternatives to Numba
-
-```{index} single: Python; Cython
-```
-
-There are additional options for accelerating Python loops.
-
-Here we quickly review them.
-
-However, we do so only for interest and completeness.
-
-If you prefer, you can safely skip this section.
-
-### Cython
-
-Like {doc}`Numba <numba>`,  [Cython](https://cython.org/) provides an approach to generating fast compiled code that can be used from Python.
-
-As was the case with Numba, a key problem is the fact that Python is dynamically typed.
-
-As you'll recall, Numba solves this problem (where possible) by inferring type.
-
-Cython's approach is different --- programmers add type definitions directly to their "Python" code.
-
-As such, the Cython language can be thought of as Python with type definitions.
-
-In addition to a language specification, Cython is also a language translator, transforming Cython code into optimized C and C++ code.
-
-Cython also takes care of building language extensions --- the wrapper code that interfaces between the resulting compiled code and Python.
-
-While Cython has certain advantages, we generally find it both slower and more
-cumbersome than Numba.
-
-### Interfacing with Fortran via F2Py
-
-```{index} single: Python; Interfacing with Fortran
-```
-
-If you are comfortable writing Fortran you will find it very easy to create
-extension modules from Fortran code using [F2Py](https://numpy.org/doc/stable/f2py/).
-
-F2Py is a Fortran-to-Python interface generator that is particularly simple to
-use.
-
-Robert Johansson provides a [nice introduction](https://nbviewer.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-6A-Fortran-and-C.ipynb)
-to F2Py, among other things.
-
-Recently, [a Jupyter cell magic for Fortran](https://nbviewer.org/github/mgaitan/fortran_magic/blob/master/documentation.ipynb) has been developed --- you might want to give it a try.
-
-## Summary and Comments
+## Dangers and Limitations
 
 Let's review the above and add some cautionary notes.
 
@@ -496,6 +446,164 @@ Notice that changing the global had no effect on the value returned by the
 function.
 
 When Numba compiles machine code for functions, it treats global variables as constants to ensure type stability.
+
+## Multithreaded Loops in Numba
+
+In addition to JIT compilation, Numba provides powerful support for parallel computing on CPUs.
+
+By distributing computations across multiple CPU cores, we can achieve significant speed gains for many numerical algorithms.
+
+The key tool for parallelization in Numba is the `prange` function, which tells Numba to execute loop iterations in parallel across available CPU cores.
+
+This approach to multithreading works well for a wide range of problems in scientific computing and quantitative economics.
+
+To illustrate, let's look first at a simple, single-threaded (i.e., non-parallelized) piece of code.
+
+The code simulates updating the wealth $w_t$ of a household via the rule
+
+$$
+w_{t+1} = R_{t+1} s w_t + y_{t+1}
+$$
+
+Here
+
+* $R$ is the gross rate of return on assets
+* $s$ is the savings rate of the household and
+* $y$ is labor income.
+
+We model both $R$ and $y$ as independent draws from a lognormal
+distribution.
+
+Here's the code:
+
+```{code-cell} ipython
+from numpy.random import randn
+from numba import njit
+
+@njit
+def h(w, r=0.1, s=0.3, v1=0.1, v2=1.0):
+    """
+    Updates household wealth.
+    """
+
+    # Draw shocks
+    R = np.exp(v1 * randn()) * (1 + r)
+    y = np.exp(v2 * randn())
+
+    # Update wealth
+    w = R * s * w + y
+    return w
+```
+
+Let's have a look at how wealth evolves under this rule.
+
+```{code-cell} ipython
+fig, ax = plt.subplots()
+
+T = 100
+w = np.empty(T)
+w[0] = 5
+for t in range(T-1):
+    w[t+1] = h(w[t])
+
+ax.plot(w)
+ax.set_xlabel('$t$', fontsize=12)
+ax.set_ylabel('$w_{t}$', fontsize=12)
+plt.show()
+```
+
+Now let's suppose that we have a large population of households and we want to
+know what median wealth will be.
+
+This is not easy to solve with pencil and paper, so we will use simulation
+instead.
+
+In particular, we will simulate a large number of households and then
+calculate median wealth for this group.
+
+Suppose we are interested in the long-run average of this median over time.
+
+It turns out that, for the specification that we've chosen above, we can
+calculate this by taking a one-period snapshot of what has happened to median
+wealth of the group at the end of a long simulation.
+
+Moreover, provided the simulation period is long enough, initial conditions
+don't matter.
+
+* This is due to something called ergodicity, which we will discuss [later on](https://python.quantecon.org/finite_markov.html#id15).
+
+So, in summary, we are going to simulate 50,000 households by
+
+1. arbitrarily setting initial wealth to 1 and
+1. simulating forward in time for 1,000 periods.
+
+Then we'll calculate median wealth at the end period.
+
+Here's the code:
+
+```{code-cell} ipython
+@njit
+def compute_long_run_median(w0=1, T=1000, num_reps=50_000):
+
+    obs = np.empty(num_reps)
+    for i in range(num_reps):
+        w = w0
+        for t in range(T):
+            w = h(w)
+        obs[i] = w
+
+    return np.median(obs)
+```
+
+Let's see how fast this runs:
+
+```{code-cell} ipython
+with qe.Timer():
+    compute_long_run_median()
+```
+
+To speed this up, we're going to parallelize it via multithreading.
+
+To do so, we add the `parallel=True` flag and change `range` to `prange`:
+
+```{code-cell} ipython
+from numba import prange
+
+@njit(parallel=True)
+def compute_long_run_median_parallel(w0=1, T=1000, num_reps=50_000):
+
+    obs = np.empty(num_reps)
+    for i in prange(num_reps):
+        w = w0
+        for t in range(T):
+            w = h(w)
+        obs[i] = w
+
+    return np.median(obs)
+```
+
+Let's look at the timing:
+
+```{code-cell} ipython
+with qe.Timer():
+    compute_long_run_median_parallel()
+```
+
+The speed-up is significant.
+
+### A Warning
+
+Parallelization works well in the outer loop of the last example because the individual tasks inside the loop are independent of each other.
+
+If this independence fails then parallelization is often problematic.
+
+For example, each step inside the inner loop depends on the last step, so
+independence fails, and this is why we use ordinary `range` instead of `prange`.
+
+When you see us using `prange` in later lectures, it is because the
+independence of tasks holds true.
+
+When you see us using ordinary `range` in a jitted function, it is either because the speed gain from parallelization is small or because independence fails.
 
 ## Exercises
 
@@ -667,6 +775,192 @@ with qe.Timer():
 ```
 
 This is a nice speed improvement for one line of code!
+
+```{solution-end}
+```
+
+```{exercise}
+:label: numba_ex3
+
+In {ref}`an earlier exercise <speed_ex1>`, we used Numba to accelerate an
+effort to compute the constant $\pi$ by Monte Carlo.
+
+Now try adding parallelization and see if you get further speed gains.
+
+You should not expect huge gains here because, while there are many
+independent tasks (draw point and test if in circle), each one has low
+execution time.
+
+Generally speaking, parallelization is less effective when the individual
+tasks to be parallelized are very small relative to total execution time.
+
+This is due to overheads associated with spreading all of these small tasks across multiple CPUs.
+
+Nevertheless, with suitable hardware, it is possible to get nontrivial speed gains in this exercise.
+
+For the size of the Monte Carlo simulation, use something substantial, such as
+`n = 100_000_000`.
+```
+
+```{solution-start} numba_ex3
+:class: dropdown
+```
+
+Here is one solution:
+
+```{code-cell} python3
+from random import uniform
+
+@njit(parallel=True)
+def calculate_pi(n=1_000_000):
+    count = 0
+    for i in prange(n):
+        u, v = uniform(0, 1), uniform(0, 1)
+        d = np.sqrt((u - 0.5)**2 + (v - 0.5)**2)
+        if d < 0.5:
+            count += 1
+
+    area_estimate = count / n
+    return area_estimate * 4  # dividing by radius**2
+```
+
+Now let's see how fast it runs:
+
+```{code-cell} ipython3
+with qe.Timer():
+    calculate_pi()
+```
+
+```{code-cell} ipython3
+with qe.Timer():
+    calculate_pi()
+```
+
+By switching parallelization on and off (selecting `True` or
+`False` in the `@njit` annotation), we can test the speed gain that
+multithreading provides on top of JIT compilation.
+
+On our workstation, we find that parallelization increases execution speed by
+a factor of 2 or 3.
+
+(If you are executing locally, you will get different numbers, depending mainly
+on the number of CPUs on your machine.)
+
+```{solution-end}
+```
+
+
+```{exercise}
+:label: numba_ex4
+
+In {doc}`our lecture on SciPy<scipy>`, we discussed pricing a call option in a
+setting where the underlying stock price had a simple and well-known
+distribution.
+
+Here we discuss a more realistic setting.
+
+We recall that the price of the option obeys
+
+$$
+P = \beta^n \mathbb E \max\{ S_n - K, 0 \}
+$$
+
+where
+
+1. $\beta$ is a discount factor,
+2. $n$ is the expiry date,
+2. $K$ is the strike price and
+3. $\{S_t\}$ is the price of the underlying asset at each time $t$.
+
+Suppose that `n, β, K = 20, 0.99, 100`.
+
+Assume that the stock price obeys
+
+$$
+\ln \frac{S_{t+1}}{S_t} = \mu + \sigma_t \xi_{t+1}
+$$
+
+where
+
+$$
+    \sigma_t = \exp(h_t),
+    \quad
+        h_{t+1} = \rho h_t + \nu \eta_{t+1}
+$$
+
+Here $\{\xi_t\}$ and $\{\eta_t\}$ are IID and standard normal.
+
+(This is a **stochastic volatility** model, where the volatility $\sigma_t$
+varies over time.)
+
+Use the defaults `μ, ρ, ν, S0, h0 = 0.0001, 0.1, 0.001, 10, 0`.
+
+(Here `S0` is $S_0$ and `h0` is $h_0$.)
+
+By generating $M$ paths $s_0, \ldots, s_n$, compute the Monte Carlo estimate
+
+$$
+    \hat P_M
+    := \beta^n \mathbb E \max\{ S_n - K, 0 \}
+    \approx
+    \frac{1}{M} \sum_{m=1}^M \max \{S_n^m - K, 0 \}
+$$
+
+
+of the price, applying Numba and parallelization.
+
+```
+
+
+```{solution-start} numba_ex4
+:class: dropdown
+```
+
+
+With $s_t := \ln S_t$, the price dynamics become
+
+$$
+s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1}
+$$
+
+Using this fact, the solution can be written as follows.
+
+
+```{code-cell} ipython3
+from numpy.random import randn
+M = 10_000_000
+
+n, β, K = 20, 0.99, 100
+μ, ρ, ν, S0, h0 = 0.0001, 0.1, 0.001, 10, 0
+
+@njit(parallel=True)
+def compute_call_price_parallel(β=β,
+                                μ=μ,
+                                S0=S0,
+                                h0=h0,
+                                K=K,
+                                n=n,
+                                ρ=ρ,
+                                ν=ν,
+                                M=M):
+    current_sum = 0.0
+    # For each sample path
+    for m in prange(M):
+        s = np.log(S0)
+        h = h0
+        # Simulate forward in time
+        for t in range(n):
+            s = s + μ + np.exp(h) * randn()
+            h = ρ * h + ν * randn()
+        # And add the value max{S_n - K, 0} to current_sum
+        current_sum += np.maximum(np.exp(s) - K, 0)
+
+    return β**n * current_sum / M
+```
+
+Try swapping between `parallel=True` and `parallel=False` and noting the run time.
+
+If you are on a machine with many CPUs, the difference should be significant.
 
 ```{solution-end}
 ```

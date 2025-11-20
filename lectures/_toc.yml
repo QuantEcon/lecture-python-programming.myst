@@ -23,7 +23,7 @@ parts:
   numbered: true
   chapters:
   - file: numba
-  - file: parallelization
+  - file: numpy_vs_numba_vs_jax
   - file: jax_intro
 - caption: Working with Data
   numbered: true
