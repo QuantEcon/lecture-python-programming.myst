@@ -12,27 +12,30 @@ parts:
   - file: oop_intro
   - file: names
   - file: python_oop
-  - file: workspace 
-- caption: The Scientific Libraries
+- caption: Foundations of Scientific Computing
   numbered: true
   chapters:
   - file: need_for_speed
   - file: numpy
   - file: matplotlib
   - file: scipy
-  - file: pandas
-  - file: pandas_panel
-  - file: sympy
 - caption: High Performance Computing
   numbered: true
   chapters:
   - file: numba
   - file: parallelization
   - file: jax_intro
-- caption: Advanced Python Programming
+- caption: Working with Data
+  numbered: true
+  chapters:
+  - file: pandas
+  - file: pandas_panel
+- caption: More Python Programming
   numbered: true
   chapters:
   - file: writing_good_code
+  - file: workspace 
+  - file: sympy
   - file: python_advanced_features
   - file: debugging
 - caption: Other
