@@ -497,7 +497,7 @@ These accelerators are designed specifically for the kinds of highly parallel
 computations that arise in scientific computing, machine learning, and data
 science.
 
-##### GPUs and TPUs
+#### GPUs and TPUs
 
 The two most important types of hardware accelerators are
 
@@ -519,7 +519,7 @@ TPUs are a more recent development, designed by Google specifically for machine 
 Like GPUs, TPUs excel at performing massive numbers of matrix operations in parallel.
 
 
-##### Why TPUs/GPUs Matter 
+#### Why TPUs/GPUs Matter 
 
 The performance gains from using hardware accelerators can be dramatic.
 
@@ -537,7 +537,7 @@ naturally map onto the parallel architecture of GPUs.
 
 There are two common ways to access GPU resources:
 
-##### Single GPU Systems
+#### Single GPU Systems
 
 Many workstations and laptops now come with capable GPUs, or can be equipped with them.
 
@@ -549,7 +549,7 @@ Modern Python libraries like JAX, discussed extensively in this lecture series,
 automatically detect and use available GPUs with minimal code changes.
 
 
-##### Multi-GPU Servers
+#### Multi-GPU Servers
 
 For larger-scale problems, servers containing multiple GPUs (often 4-8 GPUs per server) are increasingly common.
 
