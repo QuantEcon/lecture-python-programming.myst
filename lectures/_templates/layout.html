@@ -1,0 +1,347 @@
+{%- extends "quantecon_book_theme/layout.html" %}
+
+{# Override the TOC navigation block to fix the Jupyter Book link #}
+{% block content %}
+
+<!-- Override QuantEcon theme colors -->
+{%- if not theme_quantecon_project %}
+<style>
+a {
+    color: #313131;
+}
+a:hover {
+    color: #313131;
+}
+a:visited {
+  color: #111111;
+}
+
+.main-index {
+  #qe-page-author-links {
+    border-bottom: 5px solid #313131;
+  }
+}
+
+.qe-page__header {
+  border-bottom: 5px solid #313131;
+}
+
+.qe-page__footer {
+    border-top: 5px solid #313131;
+}
+
+.toctree-wrapper {
+    .caption-text {
+        color: #111111
+    }
+}
+</style>
+{%- endif %}
+
+    <span id="top"></span>
+
+    <div class="qe-wrapper">
+
+        <div class="qe-main">
+
+            <div class="qe-page" id={{pagename}}>
+
+                <div class="qe-page__toc">
+
+                    <div class="inner">
+
+                        {% set page_toc = generate_toc_html() %}
+
+                        {%- if page_toc | length >= 1 %}
+                        <div class="qe-page__toc-header">
+                            On this page
+                        </div>
+                        {%- endif %}
+
+
+                        <nav id="bd-toc-nav" class="qe-page__toc-nav">
+                            {{ page_toc }}
+                            <p class="logo">
+                                {% if logo_url %}
+                                    {% if theme_header_organisation_url %}
+                                    <a href={{theme_header_organisation_url}}><img src="{{ pathto(logo_url, 1) }}" class="logo logo-img" alt="logo"></a>
+                                    {% if theme_dark_logo %}
+                                    <a href={{theme_header_organisation_url}}><img src="{{ pathto('_static/' + theme_dark_logo, 1) }}" class="dark-logo-img" alt="logo"></a>
+                                    {% endif %}
+                                    {% else %}
+                                    <a href="{{ master_url }}"><img src="{{ pathto(logo_url, 1) }}" class="logo" alt="logo"></a>
+                                    {% endif %}
+                                {% endif %}
+                            </p>
+
+                            <p class="powered">Powered by <a href="https://jupyterbook.org/v1/">Jupyter Book</a></p>
+
+                        </nav>
+
+                        <div class="qe-page__toc-footer">
+                            {# prev/next buttons #}
+                            {% macro prev_next(prev, next, prev_title='', next_title='') %}
+                            {%- if next %}
+                            <p><a class='right-next' id="next-link" href="{{ next.link|e }}" title="{{ _('next page')}}"><strong>Next topic</strong><br>
+                                    {{ next_title or next.title }}</a></p>
+                            {%- endif %}
+                            {%- if prev %}
+                            <p><a class='left-prev' id="prev-link" href="{{ prev.link|e }}" title="{{ _('previous page')}}"><strong>Previous topic</strong><br>
+                                    {{ prev_title or prev.title }}</a></p>
+                            {%- endif %}
+                            {% endmacro %}
+                            <p><a href="#top"><strong>Back to top</strong></a></p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="qe-page__header">
+
+                    <div class="qe-page__header-copy">
+
+                        <p class="qe-page__header-heading"><a href="{{ master_url }}">{{ docstitle | e }}</a></p>
+
+                        <p class="qe-page__header-subheading">{{ pagetitle | e }}</p>
+
+                    </div>
+                    <!-- length 2, since its a string and empty dict has length 2 - {} -->
+                    {%- if theme_authors | length > 0 %}
+                        <p class="qe-page__header-authors" font-size="{{theme_mainpage_author_fontsize}}">
+                            {% for author in theme_authors %}
+                                {% if loop.last and theme_authors|length >= 2 %}
+                                    and <a href="{{ author.url }}" target="_blank"><span>{{ author.name }}</span></a>
+                                {% elif loop.first and theme_authors|length <= 2 %}
+                                    <a href="{{ author.url }}" target="_blank"><span>{{ author.name }}</span></a>
+                                {% else %}
+                                    <a href="{{ author.url }}" target="_blank"><span>{{ author.name }}</span></a>,
+                                {% endif %}
+                            {% endfor %}
+                        </p>
+                    {%- else %}
+                        <p class="qe-page__header-authors" font-size="{{theme_mainpage_author_fontsize}}">{{ author }}</p>
+                    {%- endif %}
+
+
+                </div> <!-- .page__header -->
+
+
+
+                {% block docs_main %}
+                <main class="qe-page__content" role="main">
+                    {% block docs_body %}
+                    <div>
+                        {% block body %} {% endblock %}
+                    </div>
+                    {% endblock %}
+                </main> <!-- .page__content -->
+                {% endblock %}
+
+
+                <footer class="qe-page__footer">
+
+                    <p><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"></a></p>
+
+                    <p>Creative Commons License &ndash; This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International.</p>
+
+                    <p>A theme by <a href="https://quantecon.org">QuantEcon</a></p>
+
+                </footer> <!-- .page__footer -->
+
+            </div> <!-- .page -->
+
+            {% block docs_sidebar %}
+
+            {% if theme_persistent_sidebar is defined and theme_persistent_sidebar is sameas true %}
+            <div class="qe-sidebar bd-sidebar inactive persistent" id="site-navigation">
+            {%- else %}
+            <div class="qe-sidebar bd-sidebar inactive" id="site-navigation">
+            {%- endif %}
+
+                <div class="qe-sidebar__header">
+
+
+                    Contents
+
+                </div>
+
+                <nav class="qe-sidebar__nav" id="qe-sidebar-nav" aria-label="Main navigation">
+                    {{ sbt_generate_toctree_html(include_item_names=False, with_home_page=theme_home_page_in_toc) }}
+                </nav>
+
+                <div class="qe-sidebar__footer">
+
+                </div>
+
+            </div> <!-- .sidebar -->
+            {% endblock %}
+        </div> <!-- .main -->
+
+        <div class="qe-toolbar">
+
+            <div class="qe-toolbar__inner">
+
+                <ul class="qe-toolbar__main">
+                    <li data-tippy-content="Table of Contents" class="btn__sidebar"><i data-feather="menu"></i></li>
+                    <li data-tippy-content="Home"><a href="{{ master_url }}"><i data-feather="home"></i></a></li>
+                    {%- if theme_quantecon_project %}
+                    <li class="btn__qelogo"><a href="{{theme_header_organisation_url}}" title="{{html_title}}"><span class="show-for-sr">{{ theme_header_organisation}}</span></a></li>
+                    {%- endif %}
+                </ul>
+
+                <ul class="qe-toolbar__links">
+                    <li class="btn__search">
+                        <form action="{{ pathto('search') }}" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="{{ theme_search_bar_text }}" aria-label="{{ theme_search_bar_text }}" autocomplete="off" accesskey="k">
+                            <i data-feather="search" id="search-icon"></i>
+                        </form>
+                    </li>
+                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
+                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
+                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
+                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                    {%- if notebook_path %}
+                    <li data-tippy-content="Download Notebook"><a href="{{ notebook_path }}" download><i data-feather="download-cloud"></i></a></li>
+                    {%- endif %}
+                    {%- if theme_nb_repository_url %}
+                    <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
+                    {%- endif %}
+                    {%- if pdf_book_path %}
+                        <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
+                    {%- else %}
+                        <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                    {%- endif %}
+                    <!--
+                    # Enable if looking for link to specific document hosted on GitHub
+                    <li data-tippy-content="View Source"><a target="_blank" href="{{ theme_repository_url }}{{github_sourcefolder}}/{{ sourcename }}" download><i data-feather="github"></i></a></li>
+                    -->
+                    <li data-tippy-content="View Source"><a target="_blank" href="{{ theme_repository_url }}" download><i data-feather="github"></i></a></li>
+                </ul>
+
+            </div>
+
+        </div> <!-- .toolbar -->
+        <div id="downloadPDFModal" style="display: none;">
+            <ul class="pdf-options" style="display: block;">
+                <li class="download-pdf-book" onClick="window.print()">
+                    <p>Lecture (PDF)</p>
+                </li>
+                <li class="download-pdf-file">
+                    <a href="{{ pdf_book_path }}" download><p>Book (PDF)</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="settingsModal" style="display: none;">
+            <p class="modal-title"> Notebook Launcher </p>
+            <div class="modal-desc">
+            <p>
+                Choose public or private cloud service for "Launch" button.
+            </p>
+            </div>
+            <p class="modal-subtitle">Select a server</p>
+            <ul class="modal-servers">
+            <li class="active launcher-public">
+                <span class="label">Public</span>
+                <select id="launcher-public-input">
+                {% for item in launch_buttons%}
+                    <option value="{{item.url}}">{{item.name}}</option>
+                {% endfor %}
+                </select>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            <li class="launcher-private">
+                <span class="label">Private</span>
+                <input type="text" id="launcher-private-input" data-repourl="{{theme_nb_repository_url}}" data-urlpath="{{jupyterhub_urlpath}}" data-branch={{repo_branch}}>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            </ul>
+            <p class="launch"><a href="{{default_server}}" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
+            <script>
+                // QuantEcon Notebook Launcher
+                const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');
+                // Highlight the server type if previous selection exists
+                if (typeof localStorage.launcherType !== 'undefined') {
+                  for (var i = 0; i < launcherTypeElements.length; i++) {
+                    launcherTypeElements[i].classList.remove('active');
+                    if ( launcherTypeElements[i].classList.contains(localStorage.launcherType) ) {
+                      launcherTypeElements[i].classList.add('active');
+                    }
+                  }
+                }
+                // Highlight server type on click and set local storage value
+                for (var i = 0; i < launcherTypeElements.length; i++) {
+                  launcherTypeElements[i].addEventListener('click', function() {
+                    for (var j = 0; j < launcherTypeElements.length; j++) {
+                      launcherTypeElements[j].classList.remove('active');
+                    }
+                    this.classList.add('active');
+                    if ( this.classList.contains('launcher-private') ) {
+                      localStorage.launcherType = 'launcher-private';
+                    } else if ( this.classList.contains('launcher-public') ) {
+                      localStorage.launcherType = 'launcher-public';
+                    }
+                    setLaunchServer();
+                  })
+                }
+                const launcherPublic = document.getElementById('launcher-public-input');
+                const launcherPrivate = document.getElementById('launcher-private-input');
+                const pageName = "{{pagename}}";
+                const repoURL = "{{theme_nb_repository_url}}";
+                const urlPath = "{{jupyterhub_urlpath}}";
+                const branch = "{{repo_branch}}"
+                const launchNotebookLink = document.getElementById('advancedLaunchButton');
+
+                // Highlight public server option if previous selection exists
+                if (typeof localStorage.launcherPublic !== 'undefined') {
+                  launcherPublic.value = localStorage.launcherPublic;
+                }
+                // Update local storage upon public server selection
+                launcherPublic.addEventListener('change', (event) => {
+                  setLaunchServer();
+                });
+                // Populate private server input if previous entry exists
+                if (typeof localStorage.launcherPrivate !== 'undefined') {
+                  launcherPrivate.value = localStorage.launcherPrivate;
+                }
+                // Update local storage when a private server is entered
+                launcherPrivate.addEventListener('input', (event) => {
+                  setLaunchServer();
+                });
+
+                // Function to update the "Launch Notebook" link href
+                function setLaunchServer() {
+                  launchNotebookLink.removeAttribute("style")
+                  if ( localStorage.launcherType == 'launcher-private' ) {
+                    let repoPrefix = "/user-redirect/git-pull?repo=" + repoURL + "&branch=" + branch + "&urlpath=" + urlPath;
+                    launcherPrivateValue = launcherPrivate.value
+                    if (!launcherPrivateValue) {
+                        launchNotebookLink.removeAttribute("href")
+                        launchNotebookLink.style.background = "grey"
+                        return
+                    }
+                    localStorage.launcherPrivate = launcherPrivateValue;
+                    privateServer = localStorage.launcherPrivate.replace(/\/$/, "")
+                    if (!privateServer.includes("http")) {
+                        privateServer = "http://" + privateServer
+                    }
+                    launchNotebookLinkURL = privateServer + repoPrefix;
+                  } else if ( localStorage.launcherType == 'launcher-public' ) {
+                    launcherPublicValue = launcherPublic.options[launcherPublic.selectedIndex].value;
+                    localStorage.launcherPublic = launcherPublicValue;
+                    launchNotebookLinkURL = localStorage.launcherPublic;
+                  }
+                  if (launchNotebookLinkURL) launchNotebookLink.href = launchNotebookLinkURL;
+                }
+                // Check if user has previously selected a server
+                if ( (typeof localStorage.launcherPrivate !== 'undefined') || (typeof localStorage.launcherPublic !== 'undefined') ) {
+                  setLaunchServer();
+                }
+                </script>
+
+        </div>
+
+    </div> <!-- .wrapper-->
+    {%- block scripts_end %}
+    {%- endblock %}
+{%- endblock %}

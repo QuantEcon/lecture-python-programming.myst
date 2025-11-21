@@ -30,6 +30,7 @@ sphinx:
     html_favicon: _static/lectures-favicon.ico
     html_theme: quantecon_book_theme
     html_static_path: ['_static']
+    templates_path: ['_templates']
     html_theme_options:
       authors:
         - name: Thomas J. Sargent
