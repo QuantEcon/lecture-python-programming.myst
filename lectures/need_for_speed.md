@@ -63,6 +63,7 @@ Let's start with some imports:
 import numpy as np
 import quantecon as qe
 import matplotlib.pyplot as plt
+import random
 ```
 
 
