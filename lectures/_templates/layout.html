@@ -6,7 +6,7 @@
    footer link, so we need to override the entire 'content' block. This is the minimal
    change required to fix the redirect issue reported by the link checker.
    
-   The only modification from the parent template is on line 80:
+   The only modification from the parent template is on line 89:
    - OLD: <a href="https://jupyterbook.org/en/stable/">Jupyter Book</a>
    + NEW: <a href="https://jupyterbook.org/v1/">Jupyter Book</a>
 #}
@@ -55,7 +55,7 @@ a:visited {
 
         <div class="qe-main">
 
-            <div class="qe-page" id={{pagename}}>
+            <div class="qe-page" id="{{pagename}}"
 
                 <div class="qe-page__toc">
 
