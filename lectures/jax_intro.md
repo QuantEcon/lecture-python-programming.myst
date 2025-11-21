@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# An Introduction to JAX
+# JAX
 
 In addition to what's in Anaconda, this lecture will need the following libraries:
 
@@ -26,33 +26,39 @@ This lecture provides a short introduction to [Google JAX](https://github.com/ja
 Here we are focused on using JAX on the CPU, rather than on accelerators such as
 GPUs or TPUs.
 
-This means we will only see a small amount of the possible benefits from using
-JAX.
+This means we will only see a small amount of the possible benefits from using JAX.
 
-At the same time, JAX computing on the CPU is a good place to start, since the
-JAX just-in-time compiler seamlessly handles transitions across different
-hardware platforms.
+However, JAX seamlessly handles transitions across different hardware platforms.
 
-(In other words, if you do want to shift to using GPUs, you will almost never
-need to modify your code.)
+As a result, if you run this code on a machine with a GPU and a GPU-aware
+version of JAX installed, your code will be automatically accelerated and you
+will receive the full benefits.
 
 For a discussion of JAX on GPUs, see [our JAX lecture series](https://jax.quantecon.org/intro.html).
 
 
 ## JAX as a NumPy Replacement
 
-One way to use JAX is as a plug-in NumPy replacement. Let's look at the
-similarities and differences.
+One of the attractive features of JAX is that, whenever possible, it conforms to
+the NumPy API for array operations.
+
+This means that, to a large extent, we can use JAX is as a drop-in NumPy replacement.
+
+Let's look at the similarities and differences between JAX and NumPy.
 
 ### Similarities
 
-
-The following import is standard, replacing `import numpy as np`:
+We'll use the following imports
 
 ```{code-cell} ipython3
 import jax
-import jax.numpy as jnp
 import quantecon as qe
+```
+
+In addition, we replace `import numpy as np` with
+
+```{code-cell} ipython3
+import jax.numpy as jnp
 ```
 
 Now we can use `jnp` in place of `np` for the usual array operations:
@@ -101,20 +107,22 @@ B = jnp.identity(2)
 A @ B
 ```
 
+JAX's array interface also provides the `linalg` subpackage:
+
 ```{code-cell} ipython3
-from jax.numpy import linalg
+jnp.linalg.inv(B)   # Inverse of identity is identity
 ```
 
 ```{code-cell} ipython3
-linalg.inv(B)   # Inverse of identity is identity
+jnp.linalg.eigh(B)  # Computes eigenvalues and eigenvectors
 ```
 
-```{code-cell} ipython3
-linalg.eigh(B)  # Computes eigenvalues and eigenvectors
-```
 
 ### Differences
 
+Let's now look at some differences between JAX and NumPy array operations.
+
+#### Precision
 
 One difference between NumPy and JAX is that JAX uses 32 bit floats by default.
 
@@ -135,6 +143,8 @@ Let's check this works:
 ```{code-cell} ipython3
 jnp.ones(3)
 ```
+
+#### Immutability
 
 As a NumPy replacement, a more significant difference is that arrays are treated as **immutable**.
 
@@ -170,13 +180,13 @@ In line with immutability, JAX does not support inplace operations:
 
 ```{code-cell} ipython3
 a = np.array((2, 1))
-a.sort()
+a.sort()    # Unlike NumPy, does not mutate a
 a
 ```
 
 ```{code-cell} ipython3
 a = jnp.array((2, 1))
-a_new = a.sort()
+a_new = a.sort()   # Instead, the sort method returns a new sorted array
 a, a_new
 ```
 
@@ -185,7 +195,9 @@ The designers of JAX chose to make arrays immutable because JAX uses a
 
 This design choice has important implications, which we explore next!
 
-We should note, however, that, JAX does provide a version of in-place array modification
+#### A workaround
+
+We note that JAX does provide a version of in-place array modification
 using the [`at` method](https://docs.jax.dev/en/latest/_autosummary/jax.numpy.ndarray.at.html).
 
 ```{code-cell} ipython3
@@ -199,14 +211,14 @@ a = a.at[0].set(1)
 a
 ```
 
-Obviously, there are downsides to using `at`.
+Obviously, there are downsides to using `at`:
 
-The syntax is not very pretty and we want to avoid creating fresh arrays in memory every time we change a single value.
+* The syntax is cumbersome and 
+* we want to avoid creating fresh arrays in memory every time we change a single value!
 
 Hence, for the most part, we try to avoid this syntax.
 
-(Although it can in fact be efficient inside JIT-compiled functions -- but let's
-put this aside for now.)
+(Although it can in fact be efficient inside JIT-compiled functions -- but let's put this aside for now.)
 
 
 ## Functional Programming
@@ -217,29 +229,32 @@ From JAX's documentation:
 
 In other words, JAX assumes a functional programming style.
 
+### Pure functions
+
 The major implication is that JAX functions should be pure.
 
-
-Pure functions have the following characteristics:
+**Pure functions** have the following characteristics:
 
 1. *Deterministic*
 2. *No side effects*
 
-Deterministic means
+**Deterministic** means
 
 *  Same input $\implies$ same output
 *  Outputs do not depend on global state
 
 In particular, pure functions will always return the same result if invoked with the same inputs.
 
-No side effects means that the function
+**No side effects** means that the function
 
 * Won't change global state
 * Won't modify data passed to the function (immutable data)
 
+
+
 ### Examples
 
-Here's an example of a non-pure function
+Here's an example of a *non-pure* function
 
 ```{code-cell} ipython3
 tax_rate = 0.1
@@ -248,7 +263,7 @@ prices = [10.0, 20.0]
 def add_tax(prices):
     for i, price in enumerate(prices):
         prices[i] = price * (1 + tax_rate)
-    print('Modified prices: ', prices)
+    print('Post-tax prices: ', prices)
     return prices
 ```
 
@@ -256,16 +271,17 @@ This function fails to be pure because
 
 * side effects --- it modifies the global variable `prices`
 * non-deterministic --- a change to the global variable `tax_rate` will modify
-  function outputs, even with the same inputs.
+  function outputs, even with the same input array `prices`.
 
-Here's a pure version
+Here's a *pure* version
 
 ```{code-cell} ipython3
 tax_rate = 0.1
 prices = (10.0, 20.0)
 
 def add_tax_pure(prices, tax_rate):
-    return [price * (1 + tax_rate) for price in prices]
+    new_prices = [price * (1 + tax_rate) for price in prices]
+    return new_prices
 ```
 
 This pure version makes all dependencies explicit through function arguments, and doesn't modify any external state.
@@ -273,27 +289,29 @@ This pure version makes all dependencies explicit through function arguments, an
 Now that we understand what pure functions are, let's explore how JAX's approach to random numbers maintains this purity.
 
 
-## Random Numbers
+## Random numbers
 
 Random numbers are rather different in JAX, compared to what you find in NumPy
 or Matlab.
 
 At first you might find the syntax rather verbose.
 
-But actually it makes a lot of sense:
+But you will soon realize that the syntax and semantics are necessary in order
+to maintain the functional programming style we just discussed.
 
-* maintains the functional programming style we just discussed, and
-* makes the control of random state explicit and convenient for running over
-  multiple threads --- essential for parallelization.
+Moreover, full control of random state 
+essential for parallel programming, such as when we want to run independent experiments along multiple threads.
+
 
 ### Random number generation
 
-In JAX, the state of the random number generator needs to be controlled explicitly.
+In JAX, the state of the random number generator is controlled explicitly.
 
 First we produce a key, which seeds the random number generator.
 
 ```{code-cell} ipython3
-key = jax.random.PRNGKey(1)
+seed = 1234
+key = jax.random.PRNGKey(seed)
 ```
 
 Now we can use the key to generate some random numbers:
@@ -340,7 +358,8 @@ def gen_random_matrices(key, n=2, k=3):
 ```
 
 ```{code-cell} ipython3
-key = jax.random.PRNGKey(1)
+seed = 42
+key = jax.random.PRNGKey(seed)
 matrices = gen_random_matrices(key)
 ```
 
@@ -358,15 +377,16 @@ def gen_random_matrices(key, n=2, k=3):
 ```
 
 ```{code-cell} ipython3
-key = jax.random.PRNGKey(1)
+key = jax.random.PRNGKey(seed)
 matrices = gen_random_matrices(key)
 ```
 
+
 ### Why explicit random state?
 
-Why does JAX require this somewhat verbose approach to random number generation.
+Why does JAX require this somewhat verbose approach to random number generation?
 
-The reason is to maintain pure functions.
+One reason is to maintain pure functions.
 
 Let's see how random number generation relates to pure functions by comparing NumPy and JAX.
 
@@ -378,12 +398,11 @@ Each time we call a random function, this state is updated:
 
 ```{code-cell} ipython3
 np.random.seed(42)
-print(np.random.randn())
-print(np.random.randn())
-print(np.random.randn())
+print(np.random.randn())   # Updates state of random number generator
+print(np.random.randn())   # Updates state of random number generator
 ```
 
-Notice that each call returns a different value, even though we're calling the same function with the same inputs (no arguments).
+Each call returns a different value, even though we're calling the same function with the same inputs (no arguments).
 
 This function is *not pure* because:
 
@@ -416,14 +435,7 @@ random_sum_jax(key)
 random_sum_jax(key)
 ```
 
-Different keys give different results:
-
-```{code-cell} ipython3
-key1 = jax.random.PRNGKey(1)
-key2 = jax.random.PRNGKey(2)
-print(random_sum_jax(key1))
-print(random_sum_jax(key2))
-```
+To get new draws we need to supply a new key.
 
 The  function `random_sum_jax` is pure because:
 
@@ -437,7 +449,7 @@ The explicitness of JAX brings significant benefits:
 * Debugging: No hidden state makes code easier to reason about
 * JIT compatibility: The compiler can optimize pure functions more aggressively
 
-The last point about JIT compatibility is explained in the next section.
+The last point is expanded on in the next section.
 
 
 ## JIT compilation
@@ -517,7 +529,10 @@ equivalent, which ran on the CPU.
 Even if you are running on a machine with many CPUs, the second JAX run should
 be substantially faster with JAX.
 
-But notice also that the second time is shorter than the first.
+Also, typically, the second run is faster than the first.
+
+(This might not be noticable on the CPU but it should definitely be noticable on
+the GPU.)
 
 This is because even built in functions like `jnp.cos` are JIT-compiled --- and the
 first run includes compile time.
@@ -534,9 +549,10 @@ requires matching the size of the task to the available hardware.
 That's why JAX waits to see the size of the array before compiling --- which
 requires a JIT-compiled approach instead of supplying precompiled binaries.
 
+
 #### Changing array sizes
 
-Here we change the input size and see the run time increase and then fall again.
+Here we change the input size and watch the runtimes. 
 
 ```{code-cell}
 x = jnp.linspace(0, 10, n + 1)
@@ -555,9 +571,12 @@ with qe.Timer():
     jax.block_until_ready(y);
 ```
 
+Typically, the run time increases and then falls again (this will be more obvious on the GPU).
+
 This is because the JIT compiler specializes on array size to exploit
 parallelization --- and hence generates fresh compiled code when the array size
 changes.
+
 
 ### Evaluating a more complicated function
 
@@ -583,10 +602,6 @@ with qe.Timer():
     y = f(x)
 ```
 
-```{code-cell}
-with qe.Timer():
-    y = f(x)
-```
 
 
 #### With JAX
@@ -668,7 +683,7 @@ def f(x):
 
 Now that we've seen how powerful JIT compilation can be, it's important to understand its relationship with pure functions.
 
-JAX will not usually throw errors when compiling impure functions but execution becomes unpredictable.
+While JAX will not usually throw errors when compiling impure functions, execution becomes unpredictable.
 
 Here's an illustration of this fact, using global variables:
 
@@ -778,7 +793,7 @@ We defer further exploration of automatic differentiation with JAX until {doc}`j
 :label: jax_intro_ex2
 ```
 
-In the Exercise section of {doc}`a lecture on Numba <numba>`, we used Monte
+In the Exercise section of {doc}`our lecture on Numba <numba>`, we used Monte
 Carlo to price a European call option.
 
 The code was accelerated by Numba-based multithreading.

@@ -23,8 +23,8 @@ parts:
   numbered: true
   chapters:
   - file: numba
-  - file: numpy_vs_numba_vs_jax
   - file: jax_intro
+  - file: numpy_vs_numba_vs_jax
 - caption: Working with Data
   numbered: true
   chapters:
