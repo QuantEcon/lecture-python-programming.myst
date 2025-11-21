@@ -43,7 +43,7 @@ This makes it an excellent choice for modern data science and machine learning w
 
 Polars is designed with performance and memory efficiency in mind, leveraging:
 
-* Arrow's columnar memory format for fast data access
+* [Arrow's columnar memory format](https://arrow.apache.org/docs/format/Columnar.html) for fast data access
 * Lazy evaluation to optimize query execution
 * Parallel processing for enhanced performance
 * Expressive API similar to pandas but with better performance characteristics
