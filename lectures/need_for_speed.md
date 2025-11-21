@@ -27,25 +27,26 @@ premature optimization is the root of all evil." -- Donald Knuth
 
 ## Overview
 
-Python is popular for scientific computing due to factors such as
+It's probably safe to say that Python is the most popular language for scientific computing.
+
+This is due to 
 
 * the accessible and expressive nature of the language itself,
 * the huge range of high quality scientific libraries,
 * the fact that the language and libraries are open source,
-* the popular [Anaconda Python distribution](https://www.anaconda.com/download), which simplifies installation and management of scientific libraries, and
-* the key role that Python plays in data science, machine learning and artificial intelligence.
+* the central role that Python plays in data science, machine learning and AI. 
 
-In previous lectures, we looked at some scientific Python libraries such as NumPy and Matplotlib.
+In previous lectures, we used some scientific Python libraries, including NumPy and Matplotlib.
 
 However, our main focus was the core Python language, rather than the libraries.
 
 Now we turn to the scientific libraries and give them our full attention.
 
-We'll also discuss the following topics:
+In this introductory lecture, we'll discuss the following topics:
 
-* What are the relative strengths and weaknesses of Python for scientific work?
-* What are the main elements of the scientific Python ecosystem?
-* How is the situation changing over time?
+1. What are the main elements of the scientific Python ecosystem?
+1. How do they fit together?
+1. How is the situation changing over time?
 
 In addition to what's in Anaconda, this lecture will need
 
@@ -56,27 +57,35 @@ tags: [hide-output]
 !pip install quantecon
 ```
 
+Let's start with some imports:
+
+```{code-cell} ipython
+import numpy as np
+import quantecon as qe
+import matplotlib.pyplot as plt
+```
 
 
-## Scientific Libraries
+## Major Scientific Libraries
 
-Let's briefly review Python's scientific libraries, starting with why we need them.
+Let's briefly review Python's scientific libraries.
 
-### The Role of Scientific Libraries
+
+### Why do we need them?
 
 One reason we use scientific libraries is because they implement routines we want to use.
 
 * numerical integration, interpolation, linear algebra, root finding, etc.
 
-For example, it's almost always better to use an existing routine for root finding than to write a new one from scratch.
+For example, it's usually better to use an existing routine for root finding than to write a new one from scratch.
 
 (For standard algorithms, efficiency is maximized if the community can
 coordinate on a common set of implementations, written by experts and tuned by
-users to be as fast and robust as possible.)
+users to be as fast and robust as possible!)
 
 But this is not the only reason that we use Python's scientific libraries.
 
-Another is that pure Python, while flexible and elegant, is not fast.
+Another is that pure Python is not fast.
 
 So we need libraries that are designed to accelerate execution of Python code.
 
@@ -85,7 +94,8 @@ They do this using two strategies:
 1. using compilers that convert Python-like statements into fast machine code for individual threads of logic and
 2. parallelizing tasks across multiple "workers" (e.g., CPUs, individual threads inside GPUs).
 
-There are several Python libraries that can do this extremely well.
+We will discuss these ideas extensively in this and the remaining lectures from
+this series.
 
 
 ### Python's Scientific Ecosystem
@@ -97,7 +107,7 @@ At QuantEcon, the scientific libraries we use most often are
 * [Matplotlib](https://matplotlib.org/) 
 * [JAX](https://github.com/jax-ml/jax)
 * [Pandas](https://pandas.pydata.org/)
-* [Numba](https://numba.pydata.org/) and
+* [Numba](https://numba.pydata.org/) 
 
 Here's how they fit together:
 
@@ -112,51 +122,40 @@ Here's how they fit together:
 * Pandas provides types and functions for manipulating data.
 * Numba provides a just-in-time compiler that plays well with NumPy and helps accelerate Python code.
 
+We will discuss all of these libraries extensively in this lecture series.
 
-## The Need for Speed
 
-Let's discuss execution speed and how scientific libraries can help us accelerate code.
+## Pure Python is slow
 
-Higher-level languages like Python  are optimized for humans.
+As mentioned above, one major attraction of the scientific libraries is greater execution speeds.
+
+We will discuss how scientific libraries can help us accelerate code.
+
+For this topic, it will be helpful if we understand what's driving slow execution speeds.
+
+
+### High vs low level code
+
+Higher-level languages like Python are optimized for humans.
 
 This means that the programmer can leave many details to the runtime environment
 
 * specifying variable types
-* memory allocation/deallocation, etc.
+* memory allocation/deallocation
+* etc.
 
-On one hand, compared to low-level languages, high-level languages are typically faster to write, less error-prone and  easier to debug.
+In addition, pure Python is run by an [interpreter](https://en.wikipedia.org/wiki/Interpreter_(computing)), which executes code statement-by-statement.
 
-On the other hand, high-level languages are harder to optimize --- that is, to turn into fast machine code --- than languages like C or Fortran.
+This makes Python flexible, interactive, easy to write, easy to read, and relatively easy to debug.
 
-Indeed, the standard implementation of Python (called CPython) cannot match the speed of compiled languages such as C or Fortran.
-
-Does that mean that we should just switch to C or Fortran for everything?
-
-The answer is: No!
-
-There are three reasons why:
-
-First, for any given program, relatively few lines are ever going to be time-critical.
-
-Hence it is far more efficient to write most of our code in a high productivity language like Python.
-
-Second, even for those lines of code that *are* time-critical, we can now achieve the same speed as C or Fortran using Python's scientific libraries.
-
-Third, in the last few years, accelerating code has become essentially
-synonymous with parallelizing execution, and this task is best left to
-specialized compilers.
-
-Certain Python libraries have outstanding capabilities for parallelizing
-scientific code -- we'll discuss this more as we go along.
+On the other hand, the standard implementation of Python (called CPython) cannot
+match the speed of compiled languages such as C or Fortran.
 
 
 ### Where are the Bottlenecks?
 
-Before we do so, let's try to understand why plain vanilla Python is slower than C or Fortran.
+Why is this the case?
 
-This will, in turn, help us figure out how to speed things up.
-
-In reading the following, remember that the Python interpreter executes code line-by-line.
 
 #### Dynamic Typing
 
@@ -194,7 +193,10 @@ type of the objects on which it acts)
 
 As a result, when executing `a + b`, Python must first check the type of the objects and then call the correct operation.
 
-This involves substantial overheads.
+This involves a nontrivial overhead.
+
+If we repeatedly execute this expression in a tight loop, the nontrivial
+overhead becomes a large overhead.
 
 
 #### Static Types
@@ -224,7 +226,13 @@ int main(void) {
 
 The variables `i` and `sum` are explicitly declared to be integers.
 
-Hence, the meaning of addition here is completely unambiguous.
+Moreover, when we make a statement such as `int i`, we are making a promise to the compiler
+that `i` will *always* be an integer, throughout execution of the program.
+
+As such, the meaning of addition in the expression `sum + i` is completely unambiguous.
+
+There is no need for type-checking and hence no overhead.
+
 
 ### Data Access
 
@@ -266,21 +274,55 @@ This is a considerable drag on speed.
 
 In fact, it's generally true that memory traffic is a major culprit when it comes to slow execution.
 
-Let's look at some ways around these problems.
+
+
+### Summary
+
+Does the discussion above mean that we should just switch to C or Fortran for everything?
+
+The answer is: Definitely not!
+
+For any given program, relatively few lines are ever going to be time-critical.
+
+Hence it is far more efficient to write most of our code in a high productivity language like Python.
+
+Moreover, even for those lines of code that *are* time-critical, we can now
+equal or outpace binaries compiled from C or Fortran by using Python's scientific libraries.
+
+On that note, we emphasize that, in the last few years, accelerating code has become essentially
+synonymous with parallelization.
+
+This task is best left to specialized compilers!
+
+Certain Python libraries have outstanding capabilities for parallelizing scientific code -- we'll discuss this more as we go along.
 
 
 
 
-## {index}`Vectorization <single: Vectorization>`
+## Accelerating Python
+
+In this section we look at three related techniques for accelerating Python
+code.
+
+Here we'll focus on the fundamental ideas.
+
+Later we'll look at specific libraries and how they implement these ideas.
+
+
+
+### {index}`Vectorization <single: Vectorization>`
 
 ```{index} single: Python; Vectorization
 ```
 
-One method for avoiding memory traffic and type checking is [array programming](https://en.wikipedia.org/wiki/Array_programming). 
+One method for avoiding memory traffic and type checking is [array
+programming](https://en.wikipedia.org/wiki/Array_programming). 
 
-Economists usually refer to array programming as ``vectorization.''
+Many economists usually refer to array programming as "vectorization."
 
-(In computer science, this term has [a slightly different meaning](https://en.wikipedia.org/wiki/Automatic_vectorization).)
+```{note}
+In computer science, this term has [a slightly different meaning](https://en.wikipedia.org/wiki/Automatic_vectorization).
+```
 
 The key idea is to send array processing operations in batch to pre-compiled
 and efficient native machine code.
@@ -291,17 +333,64 @@ For example, when working in a high level language, the operation of inverting a
 large matrix can be subcontracted to efficient machine code that is pre-compiled
 for this purpose and supplied to users as part of a package.
 
-This idea dates back to MATLAB, which uses vectorization extensively.
+The core benefits are
+
+1. type-checking is paid per array, rather than per element, and
+1. arrays containing elements with the same data type are efficient in terms of
+   memory access.
+
+The idea of vectorization dates back to MATLAB, which uses vectorization extensively.
 
 
 ```{figure} /_static/lecture_specific/need_for_speed/matlab.png
 ```
 
-Vectorization can greatly accelerate many numerical computations, as we will see
-in later lectures.
+
+
+### Vectorization vs for pure Python loops
+
+Let's try a quick speed comparison to illustrate how vectorization can
+accelerate code.
+
+Here's some non-vectorized code, which uses a native Python loop to generate,
+square and then sum a large number of random variables:
+
+```{code-cell} python3
+n = 1_000_000
+```
+
+```{code-cell} python3
+with qe.Timer():
+    y = 0      # Will accumulate and store sum
+    for i in range(n):
+        x = random.uniform(0, 1)
+        y += x**2
+```
+
+The following vectorized code uses NumPy, which we'll soon investigate in depth,
+to achieve the same thing.
+
+```{code-cell} ipython
+with qe.Timer():
+    x = np.random.uniform(0, 1, n)
+    y = np.sum(x**2)
+```
+
+As you can see, the second code block runs much faster. 
+
+It breaks the loop down into three basic operations
+
+1. draw `n` uniforms
+1. square them
+1. sum them
+
+These are sent as batch operators to optimized machine code.
+
+
+
 
 (numba-p_c_vectorization)=
-## Beyond Vectorization
+### JIT compilers
 
 At best, vectorization yields fast, simple code.
 
@@ -315,50 +404,45 @@ producing the final calculation.
 Another issue is that not all algorithms can be vectorized.
 
 Because of these issues, most high performance computing is moving away from
-traditional vectorization and towards the use of [just-in-time compilers](https://en.wikipedia.org/wiki/Just-in-time_compilation).
+traditional vectorization and towards the use of [just-in-time
+compilers](https://en.wikipedia.org/wiki/Just-in-time_compilation).
 
-In later lectures in this series, we will learn about how modern Python libraries exploit
-just-in-time compilers to generate fast, efficient, parallelized machine code.
+In later lectures in this series, we will learn about how modern Python
+libraries exploit just-in-time compilers to generate fast, efficient,
+parallelized machine code.
+
+
+
 
 ## Parallelization
 
-The growth of CPU clock speed (i.e., the speed at which a single chain of logic can
-be run) has slowed dramatically in recent years.
-
-This is unlikely to change in the near future, due to inherent physical
-limitations on the construction of chips and circuit boards.
+The growth of CPU clock speed (i.e., the speed at which a single chain of logic
+can be run) has slowed dramatically in recent years.
 
 Chip designers and computer programmers have responded to the slowdown by
 seeking a different path to fast execution: parallelization.
 
 Hardware makers have increased the number of cores (physical CPUs) embedded in each machine.
 
-For programmers, the challenge has been to exploit these multiple CPUs by running many processes in parallel (i.e., simultaneously).
+For programmers, the challenge has been to exploit these multiple CPUs by
+running many processes in parallel (i.e., simultaneously).
 
 This is particularly important in scientific programming, which requires handling
 
 * large amounts of data and
 * CPU intensive simulations and other calculations.
 
-In this lecture we discuss parallelization for scientific computing, with a focus on
+Below we discuss parallelization for scientific computing, with a focus on
 
 1. the best tools for parallelization in Python and
 1. how these tools can be applied to quantitative economic problems.
 
-Let's start with some imports:
-
-```{code-cell} ipython
-import numpy as np
-import quantecon as qe
-import matplotlib.pyplot as plt
-```
 
 ### Parallelization on CPUs
 
-Large textbooks have been written on different approaches to parallelization but we will keep a tight focus on what's most useful to us.
-
-We will briefly review the two main kinds of CPU-based parallelization commonly used in
+Let's review the two main kinds of CPU-based parallelization commonly used in
 scientific computing and discuss their pros and cons.
+
 
 #### Multiprocessing
 
@@ -401,68 +485,70 @@ across clusters.
 For the great majority of what we do in these lectures, multithreading will
 suffice.
 
+
 ### Hardware Accelerators
 
-While CPUs with multiple cores have become standard for parallel computing, a more dramatic shift has occurred with the rise of specialized hardware accelerators.
+While CPUs with multiple cores have become standard for parallel computing, a
+more dramatic shift has occurred with the rise of specialized hardware
+accelerators.
 
-These accelerators are designed specifically for the kinds of highly parallel computations that arise in scientific computing, machine learning, and data science.
+These accelerators are designed specifically for the kinds of highly parallel
+computations that arise in scientific computing, machine learning, and data
+science.
 
-#### GPUs and TPUs
+##### GPUs and TPUs
 
 The two most important types of hardware accelerators are
 
 * **GPUs** (Graphics Processing Units) and
 * **TPUs** (Tensor Processing Units).
 
-GPUs were originally designed for rendering graphics, which requires performing the same operation on many pixels simultaneously.
-
-Scientists and engineers realized that this same architecture --- many simple processors working in parallel --- is ideal for scientific computing tasks such as
-
-* matrix operations,
-* numerical simulation,
-* solving partial differential equations and
-* training machine learning models.
-
-TPUs are a more recent development, designed by Google specifically for machine learning workloads.
-
-Like GPUs, TPUs excel at performing massive numbers of matrix operations in parallel.
-
-#### Why GPUs Matter for Scientific Computing
-
-The performance gains from using GPUs can be dramatic.
-
-A modern GPU can contain thousands of small processing cores, compared to the 8-64 cores typically found in CPUs.
-
-When a problem can be expressed as many independent operations on arrays of data, GPUs can be orders of magnitude faster than CPUs.
-
-This is particularly relevant for scientific computing because many algorithms in
-
-* linear algebra,
-* optimization,
-* Monte Carlo simulation and
-* numerical methods for differential equations
-
-naturally map onto the parallel architecture of GPUs.
-
-#### Single GPUs vs GPU Servers
-
-There are two common ways to access GPU resources:
-
-**Single GPU Systems**
-
-Many workstations and laptops now come with capable GPUs, or can be equipped with them.
+GPUs were originally designed for rendering graphics, which requires performing
+the same operation on many pixels simultaneously.
 
 ```{figure} /_static/lecture_specific/need_for_speed/geforce.png
 :scale: 40
 ```
 
+Scientists and engineers realized that this same architecture --- many simple
+processors working in parallel --- is ideal for scientific computing tasks
+
+TPUs are a more recent development, designed by Google specifically for machine learning workloads.
+
+Like GPUs, TPUs excel at performing massive numbers of matrix operations in parallel.
+
+
+##### Why TPUs/GPUs Matter 
+
+The performance gains from using hardware accelerators can be dramatic.
+
+For example, a modern GPU can contain thousands of small processing cores,
+compared to the 8-64 cores typically found in CPUs.
+
+When a problem can be expressed as many independent operations on arrays of
+data, GPUs can be orders of magnitude faster than CPUs.
+
+This is particularly relevant for scientific computing because many algorithms 
+naturally map onto the parallel architecture of GPUs.
+
+
+### Single GPUs vs GPU Servers
+
+There are two common ways to access GPU resources:
+
+##### Single GPU Systems
+
+Many workstations and laptops now come with capable GPUs, or can be equipped with them.
+
 A single modern GPU can dramatically accelerate many scientific computing tasks.
 
 For individual researchers and small projects, a single GPU is often sufficient.
 
-Python libraries like JAX, PyTorch, and TensorFlow can automatically detect and use available GPUs with minimal code changes.
+Modern Python libraries like JAX, discussed extensively in this lecture series,
+automatically detect and use available GPUs with minimal code changes.
 
-**Multi-GPU Servers**
+
+##### Multi-GPU Servers
 
 For larger-scale problems, servers containing multiple GPUs (often 4-8 GPUs per server) are increasingly common.
 
@@ -470,21 +556,18 @@ For larger-scale problems, servers containing multiple GPUs (often 4-8 GPUs per 
 :scale: 23
 ```
 
-These can be located
-
-* in local compute clusters,
-* in university or national lab computing facilities, or
-* in cloud computing platforms (AWS, Google Cloud, Azure, etc.).
 
 With appropriate software, computations can be distributed across multiple GPUs, either within a single server or across multiple servers.
 
 This enables researchers to tackle problems that would be infeasible on a single GPU or CPU.
 
-#### GPU Programming in Python
 
-The good news for Python users is that many scientific libraries now support GPU acceleration with minimal changes to existing code.
+### Summary
 
-For example, JAX code that runs on CPUs can often run on GPUs simply by ensuring the data is placed on the GPU device.
+GPU computing is becoming far more accessible, particularly from within Python.
 
-We will explore GPU computing in more detail in later lectures, particularly when we discuss JAX.
+Some Python scientific libraries, like JAX, now support GPU acceleration with minimal changes to existing code.
+
+We will explore GPU computing in more detail in later lectures, applying it to a
+range of economic applications.
 
