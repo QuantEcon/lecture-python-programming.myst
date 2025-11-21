@@ -67,9 +67,7 @@ The key idea is to compile functions to native machine code instructions on the 
 
 When it succeeds, the compiled code is extremely fast.
 
-Numba is specifically designed for numerical work and can also do other tricks such as [multithreading](https://en.wikipedia.org/wiki/Multithreading_%28computer_architecture%29).
-
-Numba will be a key part of our lectures --- especially those lectures involving dynamic programming.
+Beyond speed gains from compilation, Numba is specifically designed for numerical work and can also do other tricks such as {ref}`multithreading`.
 
 This lecture introduces the main ideas.
 
@@ -244,7 +242,7 @@ Successful type inference is a key part of JIT compilation.
 
 As you can imagine, inferring types is easier for simple Python objects (e.g., simple scalar data types such as floats and integers).
 
-Numba also plays well with NumPy arrays.
+Numba also plays well with NumPy arrays, which have well-defined types.
 
 In an ideal setting, Numba can infer all necessary type information.
 
@@ -297,7 +295,7 @@ As mentioned above, at present Numba can only compile a subset of Python.
 
 However, that subset is ever expanding.
 
-For example, Numba is now quite effective at compiling classes.
+Notably, Numba is now quite effective at compiling classes.
 
 If a class is successfully compiled, then its methods act as JIT-compiled
 functions.
@@ -447,6 +445,7 @@ function.
 
 When Numba compiles machine code for functions, it treats global variables as constants to ensure type stability.
 
+(multithreading)=
 ## Multithreaded Loops in Numba
 
 In addition to JIT compilation, Numba provides powerful support for parallel computing on CPUs.
@@ -603,7 +602,7 @@ independence fails, and this is why we use ordinary `range` instead of `prange`.
 When you see us using `prange` in later lectures, it is because the
 independence of tasks holds true.
 
-When you see us using ordinary `range` in a jitted function, it is either because the speed gain from parallelization is small or because independence fails.
+Conversely, when you see us using ordinary `range` in a jitted function, it is either because the speed gain from parallelization is small or because independence fails.
 
 ## Exercises
 

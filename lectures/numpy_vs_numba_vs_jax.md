@@ -18,7 +18,7 @@ kernelspec:
 </div>
 ```
 
-# Parallelization
+# NumPy vs Numba vs JAX
 
 In addition to what's in Anaconda, this lecture will need the following libraries:
 
@@ -26,13 +26,16 @@ In addition to what's in Anaconda, this lecture will need the following librarie
 ---
 tags: [hide-output]
 ---
-!pip install quantecon
+!pip install quantecon jax
 ```
 
 ```{code-cell} ipython
+import random
 import numpy as np
 import quantecon as qe
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d.axes3d import Axes3D
+from matplotlib import cm
 import jax
 import jax.numpy as jnp
 ```
@@ -40,6 +43,181 @@ import jax.numpy as jnp
 ## Vectorized operations
 
 ### Speed
+
+### Speed Comparisons
+
+```{index} single: Vectorization; Operations on Arrays
+```
+
+We mentioned in an {doc}`previous lecture <need_for_speed>` that NumPy-based vectorization can
+accelerate scientific applications.
+
+In this section we try some speed comparisons to illustrate this fact.
+
+### Vectorization vs Loops
+
+Let's begin with some non-vectorized code, which uses a native Python loop to generate,
+square and then sum a large number of random variables:
+
+```{code-cell} python3
+n = 1_000_000
+```
+
+```{code-cell} python3
+with qe.Timer():
+    y = 0      # Will accumulate and store sum
+    for i in range(n):
+        x = random.uniform(0, 1)
+        y += x**2
+```
+
+The following vectorized code achieves the same thing.
+
+```{code-cell} ipython
+with qe.Timer():
+    x = np.random.uniform(0, 1, n)
+    y = np.sum(x**2)
+```
+
+As you can see, the second code block runs much faster.  Why?
+
+The second code block breaks the loop down into three basic operations
+
+1. draw `n` uniforms
+1. square them
+1. sum them
+
+These are sent as batch operators to optimized machine code.
+
+Apart from minor overheads associated with sending data back and forth, the result is C or Fortran-like speed.
+
+When we run batch operations on arrays like this, we say that the code is *vectorized*.
+
+The next section illustrates this point.
+
+(ufuncs)=
+### Universal Functions
+
+```{index} single: NumPy; Universal Functions
+```
+
+As discussed above, many functions provided by NumPy are universal functions (ufuncs).
+
+By exploiting ufuncs, many operations can be vectorized, leading to faster
+execution.
+
+For example, consider the problem of maximizing a function $f$ of two
+variables $(x,y)$ over the square $[-a, a] \times [-a, a]$.
+
+For $f$ and $a$ let's choose
+
+$$
+f(x,y) = \frac{\cos(x^2 + y^2)}{1 + x^2 + y^2}
+\quad \text{and} \quad
+a = 3
+$$
+
+Here's a plot of $f$
+
+```{code-cell} ipython
+
+def f(x, y):
+    return np.cos(x**2 + y**2) / (1 + x**2 + y**2)
+
+xgrid = np.linspace(-3, 3, 50)
+ygrid = xgrid
+x, y = np.meshgrid(xgrid, ygrid)
+
+fig = plt.figure(figsize=(10, 8))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(x,
+                y,
+                f(x, y),
+                rstride=2, cstride=2,
+                cmap=cm.jet,
+                alpha=0.7,
+                linewidth=0.25)
+ax.set_zlim(-0.5, 1.0)
+ax.set_xlabel('$x$', fontsize=14)
+ax.set_ylabel('$y$', fontsize=14)
+plt.show()
+```
+
+To maximize it, we're going to use a naive grid search:
+
+1. Evaluate $f$ for all $(x,y)$ in a grid on the square.
+1. Return the maximum of observed values.
+
+The grid will be
+
+```{code-cell} python3
+grid = np.linspace(-3, 3, 1000)
+```
+
+Here's a non-vectorized version that uses Python loops.
+
+```{code-cell} python3
+with qe.Timer():
+    m = -np.inf
+
+    for x in grid:
+        for y in grid:
+            z = f(x, y)
+            if z > m:
+                m = z
+```
+
+And here's a vectorized version
+
+```{code-cell} python3
+with qe.Timer():
+    x, y = np.meshgrid(grid, grid)
+    np.max(f(x, y))
+```
+
+In the vectorized version, all the looping takes place in compiled code.
+
+As you can see, the second version is *much* faster.
+
+
+### Implicit Multithreading in NumPy
+
+Actually, you have already been using multithreading in your Python code,
+although you might not have realized it.
+
+(We are, as usual, assuming that you are running the latest version of
+Anaconda Python.)
+
+This is because NumPy cleverly implements multithreading in a lot of its
+compiled code.
+
+Let's look at an example to see this in action.
+
+The next piece of code computes the eigenvalues of a large number of randomly
+generated matrices.
+
+It takes a few seconds to run.
+
+```{code-cell} python3
+n = 20
+m = 1000
+for i in range(n):
+    X = np.random.randn(m, m)
+    λ = np.linalg.eigvals(X)
+```
+
+Now, let's look at the output of the htop system monitor on our machine while
+this code is running:
+
+```{figure} /_static/lecture_specific/parallelization/htop_parallel_npmat.png
+:scale: 80
+```
+
+We can see that 4 of the 8 CPUs are running at full speed.
+
+This is because NumPy's `eigvals` routine neatly splits up the tasks and
+distributes them to different threads.
+
 
 #### A Multithreaded Ufunc
 
