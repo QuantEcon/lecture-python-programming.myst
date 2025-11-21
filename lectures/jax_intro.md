@@ -36,7 +36,7 @@ hardware platforms.
 (In other words, if you do want to shift to using GPUs, you will almost never
 need to modify your code.)
 
-For a discusson of JAX on GPUs, see [our JAX lecture series](https://jax.quantecon.org/intro.html).
+For a discussion of JAX on GPUs, see [our JAX lecture series](https://jax.quantecon.org/intro.html).
 
 
 ## JAX as a NumPy Replacement
@@ -183,16 +183,11 @@ a, a_new
 The designers of JAX chose to make arrays immutable because JAX uses a
 functional programming style.  More on this below.  
 
-However, JAX provides a functionally pure equivalent of in-place array modification
+We should note, however, that, JAX does provide a version of in-place array modification
 using the [`at` method](https://docs.jax.dev/en/latest/_autosummary/jax.numpy.ndarray.at.html).
 
 ```{code-cell} ipython3
 a = jnp.linspace(0, 1, 3)
-id(a)
-```
-
-```{code-cell} ipython3
-a
 ```
 
 Applying `at[0].set(1)` returns a new copy of `a` with the first element set to 1
@@ -202,24 +197,38 @@ a = a.at[0].set(1)
 a
 ```
 
-Inspecting the identifier of `a` shows that it has been reassigned
+Obviously, there are downsides to using `at`.
 
-```{code-cell} ipython3
-id(a)
-```
+The syntax is not very pretty and we want to avoid creating fresh arrays in memory every time we change a single value.
+
+Hence, for the most part, we try to avoid this syntax.
+
+(Although it can in fact be efficient inside JIT-compiled functions -- but let's
+put this aside for now.)
+
 
 ## Random Numbers
 
-Random numbers are also a bit different in JAX, relative to NumPy.  Typically, in JAX, the state of the random number generator needs to be controlled explicitly.
+Random numbers are rather different in JAX, compared to what you find in NumPy
+or Matlab.
 
-```{code-cell} ipython3
-import jax.random as random
-```
+At first you will find the syntax rather verbose.
+
+But when you get used to it you will realize it makes a lot of sense
+
+* It pairs well with JAX's functional style, discussed below, and
+* it makes the control of random state explicit and convenient for running over
+  multiple threads --- essential for parallelization.
+
+### Random number generation
+
+In JAX, the state of the random number generator needs to be controlled explicitly.
+
 
 First we produce a key, which seeds the random number generator.
 
 ```{code-cell} ipython3
-key = random.PRNGKey(1)
+key = jax.random.PRNGKey(1)
 ```
 
 ```{code-cell} ipython3
@@ -233,182 +242,297 @@ print(key)
 Now we can use the key to generate some random numbers:
 
 ```{code-cell} ipython3
-x = random.normal(key, (3, 3))
+x = jax.random.normal(key, (3, 3))
 x
 ```
 
 If we use the same key again, we initialize at the same seed, so the random numbers are the same:
 
 ```{code-cell} ipython3
-random.normal(key, (3, 3))
+jax.random.normal(key, (3, 3))
 ```
 
-To produce a (quasi-) independent draw, best practice is to "split" the existing key:
+To produce a (quasi-) independent draw, one option is to "split" the existing key:
 
 ```{code-cell} ipython3
-key, subkey = random.split(key)
-```
-
-```{code-cell} ipython3
-random.normal(key, (3, 3))
+key, subkey = jax.random.split(key)
 ```
 
 ```{code-cell} ipython3
-random.normal(subkey, (3, 3))
+jax.random.normal(key, (3, 3))
 ```
 
-The function below produces `k` (quasi-) independent random `n x n` matrices using this procedure.
+```{code-cell} ipython3
+jax.random.normal(subkey, (3, 3))
+```
+
+This syntax will seem unusual for a NumPy or Matlab user --- but will make a lot
+of sense when we progress to parallel programming.
+
+The function below produces `k` (quasi-) independent random `n x n` matrices using `split`.
 
 ```{code-cell} ipython3
-def gen_random_matrices(key, n, k):
+def gen_random_matrices(key, n=2, k=3):
     matrices = []
     for _ in range(k):
-        key, subkey = random.split(key)
-        matrices.append(random.uniform(subkey, (n, n)))
+        key, subkey = jax.random.split(key)
+        A = jax.random.uniform(subkey, (n, n))
+        matrices.append(A)
+        print(A)
     return matrices
 ```
 
 ```{code-cell} ipython3
-matrices = gen_random_matrices(key, 2, 2)
-for A in matrices:
-    print(A)
+key = jax.random.PRNGKey(1)
+matrices = gen_random_matrices(key)
 ```
 
-To get a one-dimensional array of normal random draws, we can either use `(len, )` for the shape, as in
+We can also use `fold_in` when iterating in a loop:
 
 ```{code-cell} ipython3
-random.normal(key, (5, ))
+def gen_random_matrices(key, n=2, k=3):
+    matrices = []
+    for i in range(k):
+        step_key = jax.random.fold_in(key, i)
+        A = jax.random.uniform(step_key, (n, n))
+        matrices.append(A)
+        print(A)
+    return matrices
 ```
-
-or simply use `5` as the shape argument:
 
 ```{code-cell} ipython3
-random.normal(key, 5)
+key = jax.random.PRNGKey(1)
+matrices = gen_random_matrices(key)
 ```
+
+
 
 ## JIT compilation
 
-The JAX just-in-time (JIT) compiler accelerates logic within functions by fusing linear
-algebra operations into a single optimized kernel.
+The JAX just-in-time (JIT) compiler accelerates execution by generating
+efficient machine code that varies with both task size and hardware.
 
-### A first example
+### A simple example
 
-To see the JIT compiler in action, consider the following function.
+Let's say we want to evaluate the cosine function at many points.
 
-```{code-cell} ipython3
-def f(x):
-    a = 3*x + jnp.sin(x) + jnp.cos(x**2) - jnp.cos(2*x) - x**2 * 0.4 * x**1.5
-    return jnp.sum(a)
-```
-
-Let's build an array to call the function on.
-
-```{code-cell} ipython3
+```{code-cell}
 n = 50_000_000
-x = jnp.ones(n)
+x = np.linspace(0, 10, n)
 ```
 
-How long does the function take to execute?
+#### With NumPy
 
-```{code-cell} ipython3
+Let's try with NumPy
+
+```{code-cell}
 with qe.Timer():
-    f(x).block_until_ready()
+    y = np.cos(x)
+```
+
+And one more time.
+
+```{code-cell}
+with qe.Timer():
+    y = np.cos(x)
+```
+
+Here NumPy uses a pre-built binary file, compiled from carefully written
+low-level code, for applying cosine to an array of floats.
+
+This binary file ships with NumPy.
+
+#### With JAX
+
+Now let's try with JAX.
+
+```{code-cell}
+x = jnp.linspace(0, 10, n)
+```
+
+Let's time the same procedure.
+
+```{code-cell}
+with qe.Timer():
+    y = jnp.cos(x)
+    jax.block_until_ready(y);  
 ```
 
 ```{note}
-Here, in order to measure actual speed, we use the `block_until_ready()` method 
+Here, in order to measure actual speed, we use the `block_until_ready` method 
 to hold the interpreter until the results of the computation are returned.
+
 This is necessary because JAX uses asynchronous dispatch, which
 allows the Python interpreter to run ahead of numerical computations.
 
+For non-timed code, you can drop the line containing `block_until_ready`.
 ```
 
-If we run it a second time it becomes faster again:
 
-```{code-cell} ipython3
+And let's time it again.
+
+
+```{code-cell}
 with qe.Timer():
-    f(x).block_until_ready()
+    y = jnp.cos(x)
+    jax.block_until_ready(y);  
 ```
 
-This is because the built in functions like `jnp.cos` are JIT compiled and the
+If you are running this on a GPU the code will run much faster than its NumPy
+equivalent, which ran on the CPU.
+
+Even if you are running on a machine with many CPUs, the second JAX run should
+be substantially faster with JAX.
+
+But notice also that the second time is shorter than the first.
+
+This is because even built in functions like `jnp.cos` are JIT-compiled --- and the
 first run includes compile time.
 
 Why would JAX want to JIT-compile built in functions like `jnp.cos` instead of
 just providing pre-compiled versions, like NumPy?
 
-The reason is that the JIT compiler can specialize on the *size* of the array
-being used, which is helpful for parallelization.
+The reason is that the JIT compiler wants to specialize on the *size* of the array
+being used (as well as the data type).
 
-For example, in running the code above, the JIT compiler produced a version of `jnp.cos` that is
-specialized to floating point arrays of size `n = 50_000_000`.
+The size matters for generating optimized code because efficient parallelization
+requires matching the size of the task to the available hardware.
 
-We can check this by calling `f` with a new array of different size.
+That's why JAX waits to see the size of the array before compiling --- which
+requires a JIT-compiled approach instead of supplying precompiled binaries.
 
-```{code-cell} ipython3
-m = 50_000_001
-y = jnp.ones(m)
+#### Changing array sizes
+
+Here we change the input size and see the run time increase and then fall again.
+
+```{code-cell}
+x = jnp.linspace(0, 10, n + 1)
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 with qe.Timer():
-    f(y).block_until_ready()
+    y = jnp.cos(x)
+    jax.block_until_ready(y);  
 ```
 
-Notice that the execution time increases, because now new versions of 
-the built-ins like `jnp.cos` are being compiled, specialized to the new array
-size.
 
-If we run again, the code is dispatched to the correct compiled version and we
-get faster execution.
-
-```{code-cell} ipython3
+```{code-cell}
 with qe.Timer():
-    f(y).block_until_ready()
+    y = jnp.cos(x)
+    jax.block_until_ready(y);  
 ```
 
-The compiled versions for the previous array size are still available in memory
-too, and the following call is dispatched to the correct compiled code.
+This is because the JIT compiler specializes on array size to exploit
+parallelization --- and hence generates fresh compiled code when the array size
+changes.
 
-```{code-cell} ipython3
+### Evaluating a more complicated function
+
+Let's try the same thing with a more complex function.
+
+```{code-cell}
+def f(x):
+    y = np.cos(2 * x**2) + np.sqrt(np.abs(x)) + 2 * np.sin(x**4) - 0.1 * x**2
+    return y
+```
+
+#### With NumPy
+
+We'll try first with NumPy
+
+```{code-cell}
+n = 50_000_000
+x = np.linspace(0, 10, n)
+```
+
+```{code-cell}
 with qe.Timer():
-    f(x).block_until_ready()
+    y = f(x)
 ```
 
-### Compiling the outer function
-
-We can do even better if we manually JIT-compile the outer function.
-
-```{code-cell} ipython3
-f_jit = jax.jit(f)   # target for JIT compilation
-```
-
-Let's run once to compile it:
-
-```{code-cell} ipython3
-f_jit(x)
-```
-
-And now let's time it.
-
-```{code-cell} ipython3
+```{code-cell}
 with qe.Timer():
-    f_jit(x).block_until_ready()
+    y = f(x)
 ```
 
-Note the speed gain.
 
-This is because the array operations are fused and no intermediate arrays are created.
+#### With JAX
+
+Now let's try again with JAX.
+
+As a first pass, we replace `np` with `jnp` throughout:
+
+```{code-cell}
+def f(x):
+    y = jnp.cos(2 * x**2) + jnp.sqrt(jnp.abs(x)) + 2 * jnp.sin(x**4) - x**2
+    return y
+```
+
+Now let's time it.
+
+```{code-cell}
+x = jnp.linspace(0, 10, n)
+```
+
+```{code-cell}
+with qe.Timer()
+    y = f(x)
+    jax.block_until_ready(y);
+```
+
+```{code-cell}
+with qe.Timer()
+    y = f(x)
+    jax.block_until_ready(y);
+```
+
+The outcome is similar to the `cos` example --- JAX is faster, especially if you
+use a GPU and especially on the second run.
+
+Moreover, with JAX, we have another trick up our sleeve:
 
 
-Incidentally, a more common syntax when targetting a function for the JIT
+### Compiling the Whole Function
+
+The JAX just-in-time (JIT) compiler can accelerate execution within functions by fusing linear
+algebra operations into a single optimized kernel.
+
+Let's try this with the function `f`:
+
+```{code-cell}
+f_jax = jax.jit(f)   
+```
+
+```{code-cell}
+with qe.Timer()
+    y = f_jax(x)
+    jax.block_until_ready(y);
+```
+
+```{code-cell}
+with qe.Timer()
+    y = f_jax(x)
+    jax.block_until_ready(y);
+```
+
+The runtime has improved again --- now because we fused all the operations,
+allowing the compiler to optimize more aggressively.
+
+For example, the compiler can eliminate multiple calls to the hardware
+accelerator and the creation of a number of intermediate arrays.
+
+
+Incidentally, a more common syntax when targeting a function for the JIT
 compiler is
 
 ```{code-cell} ipython3
 @jax.jit
 def f(x):
-    a = 3*x + jnp.sin(x) + jnp.cos(x**2) - jnp.cos(2*x) - x**2 * 0.4 * x**1.5
-    return jnp.sum(a)
+    pass # put function body here
 ```
+
+
+
 
 ## Functional Programming
 
@@ -419,14 +543,159 @@ From JAX's documentation:
 In other words, JAX assumes a functional programming style.
 
 The major implication is that JAX functions should be pure.
+
+
+Pure functions have the following characteristics:
+
+1. *Deterministic*
+2. *No side effects*
+
+Deterministic means
+
+*  Same input $\implies$ same output 
+*  Outputs do not depend on global state
+
+In particular, pure functions will always return the same result if invoked with the same inputs.
+
+No side effects means
+
+* Won't change global state
+* Won't modify data passed to the function (immutable data)
     
-A pure function will always return the same result if invoked with the same inputs.
+### Examples
 
-In particular, a pure function has
+Here's an example of a non-pure function
 
-* no dependence on global variables and
-* no side effects
+```{code-cell} ipython3
+tax_rate = 0.1 
+prices = [10.0, 20.0] 
 
+def add_tax(prices):
+    for i, price in enumerate(prices):
+        prices[i] = price * (1 + tax_rate)    
+    print('Modified prices: ', prices)
+    return prices
+```
+
+This function fails to be pure because
+
+* side effects --- it modifies the global variable `prices`
+* non-deterministic --- a change to the global variable `tax_rate` will modify
+  function outputs, even with the same inputs.
+
+Here's a pure version 
+
+```{code-cell} ipython3
+tax_rate = 0.1 
+prices = (10.0, 20.0) 
+
+def add_tax_pure(prices, tax_rate):
+    return [price * (1 + tax_rate) for price in prices]
+```
+
+
+### Random numbers and pure functions
+
+Let's see how random number generation relates to pure functions.
+
+#### NumPy's approach
+
+In NumPy, random number generation works by maintaining hidden global state.
+
+Each time we call a random function, this state is updated:
+
+```{code-cell} ipython3
+np.random.seed(42)
+print(np.random.randn())
+print(np.random.randn())
+print(np.random.randn())
+```
+
+Notice that each call returns a different value, even though we're calling the same function with the same inputs (no arguments).
+
+This violates the principle of pure functions: *same input should produce same output*.
+
+Let's see this more explicitly. Consider a function that uses `np.random.randn()`:
+
+```{code-cell} ipython3
+def random_sum_numpy():
+    # No arguments!
+    x = np.random.randn()
+    y = np.random.randn()
+    return x + y
+```
+
+Each call to `random_sum_numpy()` returns different values:
+
+```{code-cell} ipython3
+random_sum_numpy()
+```
+
+```{code-cell} ipython3
+random_sum_numpy()
+```
+
+```{code-cell} ipython3
+random_sum_numpy()
+```
+
+This function is **not pure** because:
+
+* It's non-deterministic: same inputs (none!) give different outputs
+* It has side effects: it modifies the global random number generator state
+
+#### JAX's approach
+
+JAX takes a different approach, making randomness explicit through keys.
+
+This makes random number generation **pure** and **deterministic**:
+
+```{code-cell} ipython3
+def random_sum_jax(key):
+    key1, key2 = jax.random.split(key)
+    x = jax.random.normal(key1)
+    y = jax.random.normal(key2)
+    return x + y
+```
+
+With the same key, we always get the same result:
+
+```{code-cell} ipython3
+key = jax.random.PRNGKey(42)
+random_sum_jax(key)
+```
+
+```{code-cell} ipython3
+random_sum_jax(key)
+```
+
+```{code-cell} ipython3
+random_sum_jax(key)
+```
+
+Different keys give different results:
+
+```{code-cell} ipython3
+key1 = jax.random.PRNGKey(1)
+key2 = jax.random.PRNGKey(2)
+print(random_sum_jax(key1))
+print(random_sum_jax(key2))
+```
+
+This function is **pure** because:
+
+* It's deterministic: same key always produces same output
+* No side effects: no hidden state is modified
+
+Yes, the syntax is more verbose. But this explicitness brings major benefits:
+
+* **Reproducibility**: Easy to reproduce results by reusing keys
+* **Parallelization**: Each thread can have its own key without conflicts
+* **Debugging**: No hidden state makes code easier to reason about
+* **JIT compatibility**: The compiler can optimize pure functions more aggressively
+
+
+### Compiling non-pure functions
 
 JAX will not usually throw errors when compiling impure functions but execution becomes unpredictable.
 
@@ -473,6 +742,21 @@ f(x)
 Moral of the story: write pure functions when using JAX!
 
 
+### Summary
+
+We love pure functions because they
+
+* Help testing: each function can operate in isolation
+* Promote deterministic behavior and hence reproducibility
+* Prevent bugs that arise from mutating shared state
+
+The compiler loves pure functions and functional programming because
+
+* Data dependencies are explicit, which helps with optimizing complex computations 
+* Pure functions are easier to differentiate (autodiff)
+* Pure functions are easier to parallelize and optimize (don't depend on shared mutable state)
+
+
 ## Gradients
 
 JAX can use automatic differentiation to compute gradients.
@@ -513,6 +797,7 @@ plt.show()
 
 We defer further exploration of automatic differentiation with JAX until {doc}`jax:autodiff`.
 
+
 ## Exercises
 
 
@@ -520,7 +805,8 @@ We defer further exploration of automatic differentiation with JAX until {doc}`j
 :label: jax_intro_ex2
 ```
 
-In the Exercise section of {doc}`a lecture on Numba <numba>`, we used Monte Carlo to price a European call option.
+In the Exercise section of {doc}`a lecture on Numba <numba>`, we used Monte
+Carlo to price a European call option.
 
 The code was accelerated by Numba-based multithreading.
 
