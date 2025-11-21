@@ -44,7 +44,7 @@ This makes it an excellent choice for modern data science and machine learning w
 Polars is designed with performance and memory efficiency in mind, leveraging:
 
 * [Arrow's columnar memory format](https://arrow.apache.org/docs/format/Columnar.html) for fast data access
-* Lazy evaluation to optimize query execution
+* [Lazy evaluation](https://en.wikipedia.org/wiki/Lazy_evaluation) to optimize query execution
 * Parallel processing for enhanced performance
 * Expressive API similar to pandas but with better performance characteristics
 
@@ -897,7 +897,7 @@ for index in indices_list.keys():
 
 yearly_returns = yearly_returns.with_columns(return_columns)
 
-# Select only the year and return columns, filter out years with insufficient data
+# Select only the year and return columns
 yearly_returns = yearly_returns.select([
     'year',
     *list(indices_list.values())
@@ -914,7 +914,8 @@ Generate summary statistics using Polars:
 
 ```{code-cell} ipython3
 # Summary statistics for all indices
-summary_stats = yearly_returns.select(list(indices_list.values())).describe()
+summary_stats = yearly_returns.select(
+    list(indices_list.values())).describe()
 print("Summary Statistics:")
 print(summary_stats)
 
@@ -947,7 +948,6 @@ for iter_, ax in enumerate(axes.flatten()):
         ax.set_ylabel("yearly return", fontsize=12)
         ax.set_xlabel("year", fontsize=12)
         ax.set_title(index_name, fontsize=12)
-        ax.grid(True, alpha=0.3)
 
         # Add horizontal line at zero for reference
         ax.axhline(y=0, color='k', linestyle='--', alpha=0.3)
@@ -971,10 +971,9 @@ for index_name in indices_list.values():
 
 ax.set_xlabel("year", fontsize=12)
 ax.set_ylabel("yearly return (%)", fontsize=12)
-ax.set_title("Yearly Returns of Major Stock Indices (2001-2021)", fontsize=14)
+ax.set_title("Yearly returns of major stock indices (2001-2021)", fontsize=14)
 ax.legend()
-ax.grid(True, alpha=0.3)
-ax.axhline(y=0, color='k', linestyle='--', alpha=0.5, label='Zero line')
+ax.axhline(y=0, color='k', linestyle='--', alpha=0.5, label='zero line')
 plt.tight_layout()
 plt.show()
 ```
