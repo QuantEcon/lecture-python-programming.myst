@@ -116,13 +116,13 @@ linalg.eigh(B)  # Computes eigenvalues and eigenvectors
 ### Differences
 
 
-One difference between NumPy and JAX is that JAX uses 32 bit floats by default.  
+One difference between NumPy and JAX is that JAX uses 32 bit floats by default.
 
 This is because JAX is often used for GPU computing, and most GPU computations use 32 bit floats.
 
 Using 32 bit floats can lead to significant speed gains with small loss of precision.
 
-However, for some calculations precision matters.  
+However, for some calculations precision matters.
 
 In these cases 64 bit floats can be enforced via the command
 
@@ -136,7 +136,7 @@ Let's check this works:
 jnp.ones(3)
 ```
 
-As a NumPy replacement, a more significant difference is that arrays are treated as **immutable**.  
+As a NumPy replacement, a more significant difference is that arrays are treated as **immutable**.
 
 For example, with NumPy we can write
 
@@ -181,7 +181,9 @@ a, a_new
 ```
 
 The designers of JAX chose to make arrays immutable because JAX uses a
-functional programming style.  More on this below.  
+*functional programming style*.
+
+This design choice has important implications, which we explore next!
 
 We should note, however, that, JAX does provide a version of in-place array modification
 using the [`at` method](https://docs.jax.dev/en/latest/_autosummary/jax.numpy.ndarray.at.html).
@@ -207,36 +209,91 @@ Hence, for the most part, we try to avoid this syntax.
 put this aside for now.)
 
 
+## Functional Programming
+
+From JAX's documentation:
+
+*When walking about the countryside of Italy, the people will not hesitate to tell you that JAX has "una anima di pura programmazione funzionale".*
+
+In other words, JAX assumes a functional programming style.
+
+The major implication is that JAX functions should be pure.
+
+
+Pure functions have the following characteristics:
+
+1. *Deterministic*
+2. *No side effects*
+
+Deterministic means
+
+*  Same input $\implies$ same output
+*  Outputs do not depend on global state
+
+In particular, pure functions will always return the same result if invoked with the same inputs.
+
+No side effects means that the function
+
+* Won't change global state
+* Won't modify data passed to the function (immutable data)
+
+### Examples
+
+Here's an example of a non-pure function
+
+```{code-cell} ipython3
+tax_rate = 0.1
+prices = [10.0, 20.0]
+
+def add_tax(prices):
+    for i, price in enumerate(prices):
+        prices[i] = price * (1 + tax_rate)
+    print('Modified prices: ', prices)
+    return prices
+```
+
+This function fails to be pure because
+
+* side effects --- it modifies the global variable `prices`
+* non-deterministic --- a change to the global variable `tax_rate` will modify
+  function outputs, even with the same inputs.
+
+Here's a pure version
+
+```{code-cell} ipython3
+tax_rate = 0.1
+prices = (10.0, 20.0)
+
+def add_tax_pure(prices, tax_rate):
+    return [price * (1 + tax_rate) for price in prices]
+```
+
+This pure version makes all dependencies explicit through function arguments, and doesn't modify any external state.
+
+Now that we understand what pure functions are, let's explore how JAX's approach to random numbers maintains this purity.
+
+
 ## Random Numbers
 
 Random numbers are rather different in JAX, compared to what you find in NumPy
 or Matlab.
 
-At first you will find the syntax rather verbose.
+At first you might find the syntax rather verbose.
 
-But when you get used to it you will realize it makes a lot of sense
+But actually it makes a lot of sense:
 
-* It pairs well with JAX's functional style, discussed below, and
-* it makes the control of random state explicit and convenient for running over
+* maintains the functional programming style we just discussed, and
+* makes the control of random state explicit and convenient for running over
   multiple threads --- essential for parallelization.
 
 ### Random number generation
 
 In JAX, the state of the random number generator needs to be controlled explicitly.
 
-
 First we produce a key, which seeds the random number generator.
 
 ```{code-cell} ipython3
 key = jax.random.PRNGKey(1)
-```
-
-```{code-cell} ipython3
-type(key)
-```
-
-```{code-cell} ipython3
-print(key)
 ```
 
 Now we can use the key to generate some random numbers:
@@ -305,6 +362,82 @@ key = jax.random.PRNGKey(1)
 matrices = gen_random_matrices(key)
 ```
 
+### Why explicit random state?
+
+Why does JAX require this somewhat verbose approach to random number generation.
+
+The reason is to maintain pure functions.
+
+Let's see how random number generation relates to pure functions by comparing NumPy and JAX.
+
+#### NumPy's approach
+
+In NumPy, random number generation works by maintaining hidden global state.
+
+Each time we call a random function, this state is updated:
+
+```{code-cell} ipython3
+np.random.seed(42)
+print(np.random.randn())
+print(np.random.randn())
+print(np.random.randn())
+```
+
+Notice that each call returns a different value, even though we're calling the same function with the same inputs (no arguments).
+
+This function is *not pure* because:
+
+* It's non-deterministic: same inputs (none, in this case) give different outputs
+* It has side effects: it modifies the global random number generator state
+
+
+#### JAX's approach
+
+As we saw above, JAX takes a different approach, making randomness explicit through keys.
+
+For example,
+
+```{code-cell} ipython3
+def random_sum_jax(key):
+    key1, key2 = jax.random.split(key)
+    x = jax.random.normal(key1)
+    y = jax.random.normal(key2)
+    return x + y
+```
+
+With the same key, we always get the same result:
+
+```{code-cell} ipython3
+key = jax.random.PRNGKey(42)
+random_sum_jax(key)
+```
+
+```{code-cell} ipython3
+random_sum_jax(key)
+```
+
+Different keys give different results:
+
+```{code-cell} ipython3
+key1 = jax.random.PRNGKey(1)
+key2 = jax.random.PRNGKey(2)
+print(random_sum_jax(key1))
+print(random_sum_jax(key2))
+```
+
+The  function `random_sum_jax` is pure because:
+
+* It's deterministic: same key always produces same output
+* No side effects: no hidden state is modified
+
+The explicitness of JAX brings significant benefits:
+
+* Reproducibility: Easy to reproduce results by reusing keys
+* Parallelization: Each thread can have its own key without conflicts
+* Debugging: No hidden state makes code easier to reason about
+* JIT compatibility: The compiler can optimize pure functions more aggressively
+
+The last point about JIT compatibility is explained in the next section.
 
 
 ## JIT compilation
@@ -355,11 +488,11 @@ Let's time the same procedure.
 ```{code-cell}
 with qe.Timer():
     y = jnp.cos(x)
-    jax.block_until_ready(y);  
+    jax.block_until_ready(y);
 ```
 
 ```{note}
-Here, in order to measure actual speed, we use the `block_until_ready` method 
+Here, in order to measure actual speed, we use the `block_until_ready` method
 to hold the interpreter until the results of the computation are returned.
 
 This is necessary because JAX uses asynchronous dispatch, which
@@ -375,7 +508,7 @@ And let's time it again.
 ```{code-cell}
 with qe.Timer():
     y = jnp.cos(x)
-    jax.block_until_ready(y);  
+    jax.block_until_ready(y);
 ```
 
 If you are running this on a GPU the code will run much faster than its NumPy
@@ -412,14 +545,14 @@ x = jnp.linspace(0, 10, n + 1)
 ```{code-cell}
 with qe.Timer():
     y = jnp.cos(x)
-    jax.block_until_ready(y);  
+    jax.block_until_ready(y);
 ```
 
 
 ```{code-cell}
 with qe.Timer():
     y = jnp.cos(x)
-    jax.block_until_ready(y);  
+    jax.block_until_ready(y);
 ```
 
 This is because the JIT compiler specializes on array size to exploit
@@ -475,13 +608,13 @@ x = jnp.linspace(0, 10, n)
 ```
 
 ```{code-cell}
-with qe.Timer()
+with qe.Timer():
     y = f(x)
     jax.block_until_ready(y);
 ```
 
 ```{code-cell}
-with qe.Timer()
+with qe.Timer():
     y = f(x)
     jax.block_until_ready(y);
 ```
@@ -500,17 +633,17 @@ algebra operations into a single optimized kernel.
 Let's try this with the function `f`:
 
 ```{code-cell}
-f_jax = jax.jit(f)   
+f_jax = jax.jit(f)
 ```
 
 ```{code-cell}
-with qe.Timer()
+with qe.Timer():
     y = f_jax(x)
     jax.block_until_ready(y);
 ```
 
 ```{code-cell}
-with qe.Timer()
+with qe.Timer():
     y = f_jax(x)
     jax.block_until_ready(y);
 ```
@@ -531,171 +664,9 @@ def f(x):
     pass # put function body here
 ```
 
-
-
-
-## Functional Programming
-
-From JAX's documentation:
-
-*When walking about the countryside of Italy, the people will not hesitate to tell you that JAX has “una anima di pura programmazione funzionale”.*
-
-In other words, JAX assumes a functional programming style.
-
-The major implication is that JAX functions should be pure.
-
-
-Pure functions have the following characteristics:
-
-1. *Deterministic*
-2. *No side effects*
-
-Deterministic means
-
-*  Same input $\implies$ same output 
-*  Outputs do not depend on global state
-
-In particular, pure functions will always return the same result if invoked with the same inputs.
-
-No side effects means
-
-* Won't change global state
-* Won't modify data passed to the function (immutable data)
-    
-### Examples
-
-Here's an example of a non-pure function
-
-```{code-cell} ipython3
-tax_rate = 0.1 
-prices = [10.0, 20.0] 
-
-def add_tax(prices):
-    for i, price in enumerate(prices):
-        prices[i] = price * (1 + tax_rate)    
-    print('Modified prices: ', prices)
-    return prices
-```
-
-This function fails to be pure because
-
-* side effects --- it modifies the global variable `prices`
-* non-deterministic --- a change to the global variable `tax_rate` will modify
-  function outputs, even with the same inputs.
-
-Here's a pure version 
-
-```{code-cell} ipython3
-tax_rate = 0.1 
-prices = (10.0, 20.0) 
-
-def add_tax_pure(prices, tax_rate):
-    return [price * (1 + tax_rate) for price in prices]
-```
-
-
-### Random numbers and pure functions
-
-Let's see how random number generation relates to pure functions.
-
-#### NumPy's approach
-
-In NumPy, random number generation works by maintaining hidden global state.
-
-Each time we call a random function, this state is updated:
-
-```{code-cell} ipython3
-np.random.seed(42)
-print(np.random.randn())
-print(np.random.randn())
-print(np.random.randn())
-```
-
-Notice that each call returns a different value, even though we're calling the same function with the same inputs (no arguments).
-
-This violates the principle of pure functions: *same input should produce same output*.
-
-Let's see this more explicitly. Consider a function that uses `np.random.randn()`:
-
-```{code-cell} ipython3
-def random_sum_numpy():
-    # No arguments!
-    x = np.random.randn()
-    y = np.random.randn()
-    return x + y
-```
-
-Each call to `random_sum_numpy()` returns different values:
-
-```{code-cell} ipython3
-random_sum_numpy()
-```
-
-```{code-cell} ipython3
-random_sum_numpy()
-```
-
-```{code-cell} ipython3
-random_sum_numpy()
-```
-
-This function is **not pure** because:
-
-* It's non-deterministic: same inputs (none!) give different outputs
-* It has side effects: it modifies the global random number generator state
-
-#### JAX's approach
-
-JAX takes a different approach, making randomness explicit through keys.
-
-This makes random number generation **pure** and **deterministic**:
-
-```{code-cell} ipython3
-def random_sum_jax(key):
-    key1, key2 = jax.random.split(key)
-    x = jax.random.normal(key1)
-    y = jax.random.normal(key2)
-    return x + y
-```
-
-With the same key, we always get the same result:
-
-```{code-cell} ipython3
-key = jax.random.PRNGKey(42)
-random_sum_jax(key)
-```
-
-```{code-cell} ipython3
-random_sum_jax(key)
-```
-
-```{code-cell} ipython3
-random_sum_jax(key)
-```
-
-Different keys give different results:
-
-```{code-cell} ipython3
-key1 = jax.random.PRNGKey(1)
-key2 = jax.random.PRNGKey(2)
-print(random_sum_jax(key1))
-print(random_sum_jax(key2))
-```
-
-This function is **pure** because:
-
-* It's deterministic: same key always produces same output
-* No side effects: no hidden state is modified
-
-Yes, the syntax is more verbose. But this explicitness brings major benefits:
-
-* **Reproducibility**: Easy to reproduce results by reusing keys
-* **Parallelization**: Each thread can have its own key without conflicts
-* **Debugging**: No hidden state makes code easier to reason about
-* **JIT compatibility**: The compiler can optimize pure functions more aggressively
-
-
 ### Compiling non-pure functions
+
+Now that we've seen how powerful JIT compilation can be, it's important to understand its relationship with pure functions.
 
 JAX will not usually throw errors when compiling impure functions but execution becomes unpredictable.
 
@@ -744,6 +715,8 @@ Moral of the story: write pure functions when using JAX!
 
 ### Summary
 
+Now we can see why both developers and compilers benefit from pure functions.
+
 We love pure functions because they
 
 * Help testing: each function can operate in isolation
@@ -752,7 +725,7 @@ We love pure functions because they
 
 The compiler loves pure functions and functional programming because
 
-* Data dependencies are explicit, which helps with optimizing complex computations 
+* Data dependencies are explicit, which helps with optimizing complex computations
 * Pure functions are easier to differentiate (autodiff)
 * Pure functions are easier to parallelize and optimize (don't depend on shared mutable state)
 
@@ -850,7 +823,7 @@ def compute_call_price_jax(β=β,
         s = s + μ + jnp.exp(h) * Z[0, :]
         h = ρ * h + ν * Z[1, :]
     expectation = jnp.mean(jnp.maximum(jnp.exp(s) - K, 0))
-        
+
     return β**n * expectation
 ```
 
