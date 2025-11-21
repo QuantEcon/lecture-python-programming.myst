@@ -1,7 +1,18 @@
+{# 
+   This template overrides the quantecon_book_theme layout to fix the Jupyter Book link
+   from https://jupyterbook.org/en/stable/ to https://jupyterbook.org/v1/
+   
+   Unfortunately, the theme doesn't provide a more granular block to override just the
+   footer link, so we need to override the entire 'content' block. This is the minimal
+   change required to fix the redirect issue reported by the link checker.
+   
+   The only modification from the parent template is on line 80:
+   - OLD: <a href="https://jupyterbook.org/en/stable/">Jupyter Book</a>
+   + NEW: <a href="https://jupyterbook.org/v1/">Jupyter Book</a>
+#}
 {%- extends "quantecon_book_theme/layout.html" %}
 
-{# Override the TOC navigation block to fix the Jupyter Book link #}
-{% block content %}
+{%- block content %}
 
 <!-- Override QuantEcon theme colors -->
 {%- if not theme_quantecon_project %}
@@ -74,6 +85,7 @@ a:visited {
                                 {% endif %}
                             </p>
 
+                            {# MODIFIED: Updated Jupyter Book link to /v1/ to avoid redirect #}
                             <p class="powered">Powered by <a href="https://jupyterbook.org/v1/">Jupyter Book</a></p>
 
                         </nav>
