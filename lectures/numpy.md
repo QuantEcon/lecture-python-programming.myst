@@ -919,9 +919,10 @@ Note that the change to `b` has not affected `a`.
 
 
 
-## Additional Functionality
+## Additional Features
 
-Let's look at some other useful things we can do with NumPy.
+Let's look at some other useful features of NumPy.
+
 
 ### Universal Functions
 
@@ -1079,6 +1080,42 @@ Much of this functionality is also available in [SciPy](https://scipy.org/), a c
 We'll cover the SciPy versions in more detail {doc}`soon <scipy>`.
 
 For a comprehensive list of what's available in NumPy see [this documentation](https://numpy.org/doc/stable/reference/routines.html).
+
+
+### Implicit Multithreading 
+
+[Previously](need_for_speed) we discussed the concept of parallelization via multithreading.
+
+NumPy tries to implement multithreading in much of its compiled code.
+
+Let's look at an example to see this in action.
+
+The next piece of code computes the eigenvalues of a large number of randomly
+generated matrices.
+
+It takes a few seconds to run.
+
+```{code-cell} python3
+n = 20
+m = 1000
+for i in range(n):
+    X = np.random.randn(m, m)
+    λ = np.linalg.eigvals(X)
+```
+
+Now, let's look at the output of the htop system monitor on our machine while
+this code is running:
+
+```{figure} /_static/lecture_specific/parallelization/htop_parallel_npmat.png
+:scale: 80
+```
+
+We can see that 4 of the 8 CPUs are running at full speed.
+
+This is because NumPy's `eigvals` routine neatly splits up the tasks and
+distributes them to different threads.
+
+
 
 
 

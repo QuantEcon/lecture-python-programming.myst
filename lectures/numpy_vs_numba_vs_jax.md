@@ -20,6 +20,25 @@ kernelspec:
 
 # NumPy vs Numba vs JAX
 
+In the preceding lectures, we've discussed three core libraries for scientific
+and numerical computing:
+
+* [NumPy](numpy)
+* [Numba](numba)
+* [JAX](jax_intro)
+
+Which one should we use in any given situation?
+
+This lecture addresses that question, at least partially, by discussing some use cases.
+
+Before getting started, we note that the first two are a natural pair: NumPy and
+Numba play well together.
+
+JAX, on the other hand, stands alone.
+
+When considering each approach, we will consider not just efficiency and memory
+footprint but also elegance and ease of use.
+
 In addition to what's in Anaconda, this lecture will need the following libraries:
 
 ```{code-cell} ipython
@@ -28,6 +47,8 @@ tags: [hide-output]
 ---
 !pip install quantecon jax
 ```
+
+We will use the following imports.
 
 ```{code-cell} ipython
 import random
@@ -42,72 +63,15 @@ import jax.numpy as jnp
 
 ## Vectorized operations
 
-### Speed
+Some operations can be perfectly vectorized --- all loops are easily eliminated
+and numerical operations are reduced to calculations on arrays.
 
-### Speed Comparisons
+In this case, which approach is best?
 
-```{index} single: Vectorization; Operations on Arrays
-```
+### Problem Statement
 
-We mentioned in an {doc}`previous lecture <need_for_speed>` that NumPy-based vectorization can
-accelerate scientific applications.
-
-In this section we try some speed comparisons to illustrate this fact.
-
-### Vectorization vs Loops
-
-Let's begin with some non-vectorized code, which uses a native Python loop to generate,
-square and then sum a large number of random variables:
-
-```{code-cell} python3
-n = 1_000_000
-```
-
-```{code-cell} python3
-with qe.Timer():
-    y = 0      # Will accumulate and store sum
-    for i in range(n):
-        x = random.uniform(0, 1)
-        y += x**2
-```
-
-The following vectorized code achieves the same thing.
-
-```{code-cell} ipython
-with qe.Timer():
-    x = np.random.uniform(0, 1, n)
-    y = np.sum(x**2)
-```
-
-As you can see, the second code block runs much faster.  Why?
-
-The second code block breaks the loop down into three basic operations
-
-1. draw `n` uniforms
-1. square them
-1. sum them
-
-These are sent as batch operators to optimized machine code.
-
-Apart from minor overheads associated with sending data back and forth, the result is C or Fortran-like speed.
-
-When we run batch operations on arrays like this, we say that the code is *vectorized*.
-
-The next section illustrates this point.
-
-(ufuncs)=
-### Universal Functions
-
-```{index} single: NumPy; Universal Functions
-```
-
-As discussed above, many functions provided by NumPy are universal functions (ufuncs).
-
-By exploiting ufuncs, many operations can be vectorized, leading to faster
-execution.
-
-For example, consider the problem of maximizing a function $f$ of two
-variables $(x,y)$ over the square $[-a, a] \times [-a, a]$.
+Consider the problem of maximizing a function $f$ of two variables $(x,y)$ over
+the square $[-a, a] \times [-a, a]$.
 
 For $f$ and $a$ let's choose
 
@@ -143,263 +107,173 @@ ax.set_ylabel('$y$', fontsize=14)
 plt.show()
 ```
 
-To maximize it, we're going to use a naive grid search:
+For the sake of this exercise, we're going to use brute force for the
+maximization.
 
 1. Evaluate $f$ for all $(x,y)$ in a grid on the square.
 1. Return the maximum of observed values.
 
-The grid will be
+Just to illustrate the idea, here's a non-vectorized version that uses Python loops.
+
+```{code-cell} python3
+grid = np.linspace(-3, 3, 50)
+m = -np.inf
+for x in grid:
+    for y in grid:
+        z = f(x, y)
+        if z > m:
+            m = z
+```
+
+
+### NumPy vectorization
+
+If we switch to NumPy style vectorization we can use a much larger grid and the
+code executes relatively quickly:
 
 ```{code-cell} python3
 grid = np.linspace(-3, 3, 1000)
-```
+x, y = np.meshgrid(grid, grid)
 
-Here's a non-vectorized version that uses Python loops.
-
-```{code-cell} python3
 with qe.Timer():
-    m = -np.inf
-
-    for x in grid:
-        for y in grid:
-            z = f(x, y)
-            if z > m:
-                m = z
-```
-
-And here's a vectorized version
-
-```{code-cell} python3
-with qe.Timer():
-    x, y = np.meshgrid(grid, grid)
     np.max(f(x, y))
 ```
 
 In the vectorized version, all the looping takes place in compiled code.
 
-As you can see, the second version is *much* faster.
+One of the reasons this is quick is that NumPy uses implicit multithreading,
+so that at least some parallelization occurs.
 
-
-### Implicit Multithreading in NumPy
-
-Actually, you have already been using multithreading in your Python code,
-although you might not have realized it.
-
-(We are, as usual, assuming that you are running the latest version of
-Anaconda Python.)
-
-This is because NumPy cleverly implements multithreading in a lot of its
-compiled code.
-
-Let's look at an example to see this in action.
-
-The next piece of code computes the eigenvalues of a large number of randomly
-generated matrices.
-
-It takes a few seconds to run.
-
-```{code-cell} python3
-n = 20
-m = 1000
-for i in range(n):
-    X = np.random.randn(m, m)
-    λ = np.linalg.eigvals(X)
-```
-
-Now, let's look at the output of the htop system monitor on our machine while
-this code is running:
-
-```{figure} /_static/lecture_specific/parallelization/htop_parallel_npmat.png
-:scale: 80
-```
-
-We can see that 4 of the 8 CPUs are running at full speed.
-
-This is because NumPy's `eigvals` routine neatly splits up the tasks and
-distributes them to different threads.
-
-
-#### A Multithreaded Ufunc
-
-Over the last few years, NumPy has managed to push this kind of multithreading
-out to more and more operations.
-
-For example, let's return to a maximization problem {ref}`discussed previously <ufuncs>`:
-
-```{code-cell} python3
-def f(x, y):
-    return np.cos(x**2 + y**2) / (1 + x**2 + y**2)
-
-grid = np.linspace(-3, 3, 5000)
-x, y = np.meshgrid(grid, grid)
-```
-
-```{code-cell} ipython3
-with qe.Timer():
-    np.max(f(x, y))
-```
-
+```{note}
 If you have a system monitor such as htop (Linux/Mac) or perfmon
 (Windows), then try running this and then observing the load on your CPUs.
 
 (You will probably need to bump up the grid size to see large effects.)
 
-At least on our machine, the output shows that the operation is successfully
-distributed across multiple threads.
-
-This is one of the reasons why the vectorized code above is fast.
-
-#### A Comparison with Numba
-
-To get some basis for comparison for the last example, let's try the same
-thing with Numba.
-
-In fact there is an easy way to do this, since Numba can also be used to
-create custom {ref}`ufuncs <ufuncs>` with the [@vectorize](https://numba.pydata.org/numba-doc/dev/user/vectorize.html) decorator.
-
-```{code-cell} python3
-from numba import vectorize
-
-@vectorize
-def f_vec(x, y):
-    return np.cos(x**2 + y**2) / (1 + x**2 + y**2)
-
-np.max(f_vec(x, y))  # Run once to compile
+The output typically shows that the operation is successfully distributed across multiple threads.
 ```
+
+
+### A Comparison with Numba
+
+Now let's see if we can achieve better performance using Numba with a simple loop.
 
 ```{code-cell} ipython3
+import numba
+
+@numba.jit
+def compute_max_numba(grid):
+    m = -np.inf
+    for x in grid:
+        for y in grid:
+            z = np.cos(x**2 + y**2) / (1 + x**2 + y**2)
+            if z > m:
+                m = z
+    return m
+
+grid = np.linspace(-3, 3, 1000)
+
 with qe.Timer():
-    np.max(f_vec(x, y))
+    compute_max_numba(grid)
 ```
 
-At least on our machine, the difference in the speed between the
-Numba version and the vectorized NumPy version shown above is not large.
+This Numba version is competitive with the vectorized NumPy code, but uses less memory since we don't create mesh grids.
 
-But there's quite a bit going on here so let's try to break down what is
-happening.
+Note that this timing includes JIT compilation overhead.
 
-Both Numba and NumPy use efficient machine code that's specialized to these
-floating point operations.
+Once the function is compiled, subsequent calls will be faster.
 
-However, the code NumPy uses is, in some ways, less efficient.
+### Parallelized Numba
 
-The reason is that, in NumPy, the operation `np.cos(x**2 + y**2) / (1 +
-x**2 + y**2)` generates several intermediate arrays.
-
-For example, a new array is created when `x**2` is calculated.
-
-The same is true when `y**2` is calculated, and then `x**2 + y**2` and so on.
-
-Numba avoids creating all these intermediate arrays by compiling one
-function that is specialized to the entire operation.
-
-But if this is true, then why isn't the Numba code faster?
-
-The reason is that NumPy makes up for its disadvantages with implicit
-multithreading, as we've just discussed.
-
-#### Multithreading a Numba Ufunc
-
-Can we get both of these advantages at once?
-
-In other words, can we pair
-
-* the efficiency of Numba's highly specialized JIT compiled function and
-* the speed gains from parallelization obtained by NumPy's implicit
-  multithreading?
-
-It turns out that we can, by adding some type information plus `target='parallel'`.
-
-```{code-cell} python3
-@vectorize('float64(float64, float64)', target='parallel')
-def f_vec(x, y):
-    return np.cos(x**2 + y**2) / (1 + x**2 + y**2)
-
-np.max(f_vec(x, y))  # Run once to compile
-```
+Now let's try parallelization with Numba using `prange`:
 
 ```{code-cell} ipython3
+@numba.jit(parallel=True)
+def compute_max_numba_parallel(grid):
+    n = len(grid)
+    m = -np.inf
+    for i in numba.prange(n):
+        for j in range(n):
+            x = grid[i]
+            y = grid[j]
+            z = np.cos(x**2 + y**2) / (1 + x**2 + y**2)
+            if z > m:
+                m = z
+    return m
+
 with qe.Timer():
-    np.max(f_vec(x, y))
+    compute_max_numba_parallel(grid)
 ```
 
-Now our code runs significantly faster than the NumPy version.
+The parallelized version's performance depends on several factors.
 
-#### Writing vectorized code
+Parallelization introduces overhead for thread management and synchronization.
 
-Writing fast JAX code requires shifting repetitive tasks from loops to array processing operations, so that the JAX compiler can easily understand the whole operation and generate more efficient machine code.
+For some problem sizes and configurations, this overhead can outweigh the benefits of parallel execution.
 
-This procedure is called **vectorization** or **array programming**, and will be
-familiar to anyone who has used NumPy or MATLAB.
+Generally, parallel Numba shows its strength with larger computational workloads where the work per thread justifies the parallelization overhead.
+
+What if we try to parallelize both loops?
+
+```{code-cell} ipython3
+@numba.jit(parallel=True)
+def compute_max_numba_parallel_nested(grid):
+    n = len(grid)
+    m = -np.inf
+    for i in numba.prange(n):
+        for j in numba.prange(n):
+            x = grid[i]
+            y = grid[j]
+            z = np.cos(x**2 + y**2) / (1 + x**2 + y**2)
+            if z > m:
+                m = z
+    return m
+
+with qe.Timer():
+    compute_max_numba_parallel_nested(grid)
+```
+
+While Numba does support nested `prange` loops, the performance may not be what you expect.
+
+In this case, the nested parallel version performs slightly better than parallelizing only the outer loop, but still worse than the simple non-parallel version.
+
+This illustrates an important principle: more parallelization is not always better.
+
+The overhead of thread management and synchronization can easily overwhelm the benefits of parallel execution, especially for moderate-sized problems like this one.
+
+Another issue with parallelizing this particular example is that all threads need to update the shared variable `m` to track the current maximum.
+
+This creates contention, as threads must synchronize their access to `m` to avoid race conditions.
+
+For reduction operations like this (finding a maximum, sum, etc.), a more efficient approach is to have each thread maintain a local maximum.
+
+These local maxima can then be combined in a final reduction step.
+
+
+
+### Vectorized code with JAX
 
 In most ways, vectorization is the same in JAX as it is in NumPy.
 
 But there are also some differences, which we highlight here.
 
-As a running example, consider the function
+Let's start with the function.
 
-$$
-    f(x,y) = \frac{\cos(x^2 + y^2)}{1 + x^2 + y^2}
-$$
-
-Suppose that we want to evaluate this function on a square grid of $x$ and $y$ points and then plot it.
-
-To clarify, here is the slow `for` loop version.
 
 ```{code-cell} ipython3
 @jax.jit
 def f(x, y):
     return jnp.cos(x**2 + y**2) / (1 + x**2 + y**2)
 
-n = 80
-x = jnp.linspace(-2, 2, n)
-y = x
-
-z_loops = np.empty((n, n))
 ```
 
-```{code-cell} ipython3
-with qe.Timer():
-    for i in range(n):
-        for j in range(n):
-            z_loops[i, j] = f(x[i], y[j])
-```
-
-Even for this very small grid, the run time is extremely slow.
-
-(Notice that we used a NumPy array for `z_loops` because we wanted to write to it.)
-
-+++
-
-OK, so how can we do the same operation in vectorized form?
-
-If you are new to vectorization, you might guess that we can simply write
+As with NumPy, to get the right shape and the correct nested `for` loop
+calculation, we can use a `meshgrid` operation designed for this purpose:
 
 ```{code-cell} ipython3
-z_bad = f(x, y)
-```
+grid = jnp.linspace(-3, 3, 1000)
+x_mesh, y_mesh = np.meshgrid(grid, grid)
 
-But this gives us the wrong result because JAX doesn't understand the nested for loop.
-
-```{code-cell} ipython3
-z_bad.shape
-```
-
-Here is what we actually wanted:
-
-```{code-cell} ipython3
-z_loops.shape
-```
-
-To get the right shape and the correct nested for loop calculation, we can use a `meshgrid` operation designed for this purpose:
-
-```{code-cell} ipython3
-x_mesh, y_mesh = jnp.meshgrid(x, y)
-```
-
-Now we get what we want and the execution time is very fast.
-
-```{code-cell} ipython3
 with qe.Timer():
     z_mesh = f(x_mesh, y_mesh).block_until_ready()
 ```
@@ -411,43 +285,34 @@ with qe.Timer():
     z_mesh = f(x_mesh, y_mesh).block_until_ready()
 ```
 
-Let's confirm that we got the right answer.
+Notice the dramatic speedup on the second run after JIT compilation completes.
 
-```{code-cell} ipython3
-jnp.allclose(z_mesh, z_loops)
-```
+JAX's JIT compiler analyzes the computation and generates highly optimized machine code.
 
-Now we can set up a serious grid and run the same calculation (on the larger grid) in a short amount of time.
+Once compiled, JAX can be significantly faster than NumPy, especially on problems that can leverage GPU acceleration or other specialized hardware.
 
-```{code-cell} ipython3
-n = 6000
-x = jnp.linspace(-2, 2, n)
-y = x
-x_mesh, y_mesh = jnp.meshgrid(x, y)
-```
+The compilation overhead is a one-time cost that pays off when the function is called repeatedly.
 
-```{code-cell} ipython3
-with qe.Timer():
-    z_mesh = f(x_mesh, y_mesh).block_until_ready()
-```
 
-But there is one problem here: the mesh grids use a lot of memory.
+### JAX plus vmap
+
+There is one problem with both the NumPy code and the JAX code: the mesh grids use a lot of memory.
 
 ```{code-cell} ipython3
 x_mesh.nbytes + y_mesh.nbytes
 ```
 
-By comparison, the flat array `x` is just
+By comparison, the flat arrays are much smaller:
 
 ```{code-cell} ipython3
-x.nbytes  # and y is just a pointer to x
+x = grid
+y = grid
+x.nbytes + y.nbytes  # y is just a pointer to x, so minimal extra memory
 ```
 
 This extra memory usage can be a big problem in actual research calculations.
 
 So let's try a different approach using [jax.vmap](https://docs.jax.dev/en/latest/_autosummary/jax.vmap.html)
-
-+++
 
 First we vectorize `f` in `y`.
 
@@ -470,7 +335,18 @@ with qe.Timer():
     z_vmap = f_vec(x, y).block_until_ready()
 ```
 
+Let's run it again to eliminate compilation time:
+
+```{code-cell} ipython3
+with qe.Timer():
+    z_vmap = f_vec(x, y).block_until_ready()
+```
+
 The execution time is essentially the same as the mesh operation but we are using much less memory.
+
+This is an important advantage: `vmap` achieves the same performance as explicit mesh grids while using significantly less memory.
+
+For larger-scale problems, this memory efficiency can be the difference between a computation that fits in memory and one that doesn't.
 
 And we produce the correct answer:
 
@@ -478,10 +354,100 @@ And we produce the correct answer:
 jnp.allclose(z_vmap, z_mesh)
 ```
 
-### Syntax and Semantics
 
 ## Sequential operations
 
-### Speed
+Some operations are inherently sequential -- and hence difficult or impossible
+to vectorize.
 
-### Syntax and Semantics
+In this case NumPy is a poor option and we are left with the choice of Numba or
+JAX.
+
+### Numba Version
+
+
+```{code-cell} ipython3
+@numba.jit
+def qm(x0, n, α=4.0):
+    x = np.empty(n+1)
+    x[0] = x0
+    for t in range(n):
+      x[t+1] = α * x[t] * (1 - x[t])
+    return x
+```
+
+Let's generate a time series of length 10,000,000 and time the execution:
+
+```{code-cell} ipython3
+n = 10_000_000
+
+with qe.Timer():
+    x = qm(0.1, n)
+```
+
+Let's run it again to eliminate compilation time:
+
+```{code-cell} ipython3
+with qe.Timer():
+    x = qm(0.1, n)
+```
+
+Numba handles this sequential operation very efficiently.
+
+Notice that the second run is significantly faster after JIT compilation completes.
+
+Numba's compilation is typically quite fast, and the resulting code performance is excellent for sequential operations like this one.
+
+### JAX Version
+
+Now let's create a JAX version using `lax.scan`:
+
+```{code-cell} ipython3
+from jax import lax
+from functools import partial
+
+@partial(jax.jit, static_argnums=(1,))
+def qm_jax(x0, n, α=4.0):
+    def update(x, t):
+        x_new = α * x * (1 - x)
+        return x_new, x_new
+
+    _, x = lax.scan(update, x0, jnp.arange(n))
+    return jnp.concatenate([jnp.array([x0]), x])
+```
+
+Let's time it with the same parameters:
+
+```{code-cell} ipython3
+with qe.Timer():
+    x_jax = qm_jax(0.1, n).block_until_ready()
+```
+
+Let's run it again to eliminate compilation overhead:
+
+```{code-cell} ipython3
+with qe.Timer():
+    x_jax = qm_jax(0.1, n).block_until_ready()
+```
+
+JAX is also very efficient for this sequential operation.
+
+Both JAX and Numba deliver strong performance after compilation.
+
+While the raw speed is similar for this type of operation, there are notable differences in code complexity and ease of understanding, which we discuss in the next section.
+
+### Summary
+
+While both Numba and JAX deliver excellent performance for sequential operations, there are significant differences in code readability and ease of use.
+
+The Numba version is straightforward and natural to read: we simply allocate an array and fill it element by element using a standard Python loop.
+
+This is exactly how most programmers think about the algorithm.
+
+The JAX version, on the other hand, requires using `lax.scan`, which is less intuitive and has a steeper learning curve.
+
+Additionally, JAX's immutable arrays mean we cannot simply update array elements in place.
+
+Instead, we must use functional programming patterns with `lax.scan`, where we define an `update` function that returns both the new state and the value to accumulate.
+
+For this type of sequential operation, Numba is the clear winner in terms of code clarity and ease of implementation, while maintaining competitive performance.
