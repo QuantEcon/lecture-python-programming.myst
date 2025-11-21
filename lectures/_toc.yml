@@ -35,6 +35,7 @@ parts:
   - file: writing_good_code
   - file: python_advanced_features
   - file: debugging
+  - file: cake_eating_numerical
 - caption: Other
   numbered: true
   chapters:
