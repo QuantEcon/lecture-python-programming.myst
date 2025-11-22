@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>13. SciPy &#8212; Python Programming for Economics and Finance</title>
+    <title>12. SciPy &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
@@ -70,7 +70,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=3bd9fcddbe64f63e07c8604843d1cc622a07b430" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=15c2afa29682abb9326a76db12ed4f4c791e68c4" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
@@ -94,7 +94,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=30f7c850c5b005eca2ad6e48893cd350a6c6c4c2"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=06ebc90d5139b434c2742937a4ef3b185cb93e2f"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -123,8 +123,8 @@
     <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="14. Pandas" href="pandas.html" />
-    <link rel="prev" title="12. Matplotlib" href="matplotlib.html" />
+    <link rel="next" title="13. Numba" href="numba.html" />
+    <link rel="prev" title="11. Matplotlib" href="matplotlib.html" />
 
 <!-- Normal Meta Tags -->
 <meta name="author" context="Thomas J. Sargent &amp; John Stachurski" />
@@ -173,29 +173,29 @@
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">13.1. Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy-versus-numpy">13.2. SciPy versus NumPy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics">13.3. Statistics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-variables-and-distributions">13.3.1. Random Variables and Distributions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-syntax">13.3.2. Alternative Syntax</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-goodies-in-scipy-stats">13.3.3. Other Goodies in scipy.stats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">12.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy-versus-numpy">12.2. SciPy versus NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics">12.3. Statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-variables-and-distributions">12.3.1. Random Variables and Distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-syntax">12.3.2. Alternative Syntax</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-goodies-in-scipy-stats">12.3.3. Other Goodies in scipy.stats</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#roots-and-fixed-points">13.4. Roots and Fixed Points</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bisection">13.4.1. Bisection</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-newton-raphson-method">13.4.2. The Newton-Raphson Method</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hybrid-methods">13.4.3. Hybrid Methods</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariate-root-finding">13.4.4. Multivariate Root-Finding</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-points">13.4.5. Fixed Points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#roots-and-fixed-points">12.4. Roots and Fixed Points</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bisection">12.4.1. Bisection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-newton-raphson-method">12.4.2. The Newton-Raphson Method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hybrid-methods">12.4.3. Hybrid Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariate-root-finding">12.4.4. Multivariate Root-Finding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-points">12.4.5. Fixed Points</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization">13.5. Optimization</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariate-optimization">13.5.1. Multivariate Optimization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization">12.5. Optimization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariate-optimization">12.5.1. Multivariate Optimization</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration">13.6. Integration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-algebra">13.7. Linear Algebra</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">13.8. Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration">12.6. Integration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-algebra">12.7. Linear Algebra</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">12.8. Exercises</a></li>
 </ul>
                             <p class="logo">
                                 
@@ -255,7 +255,7 @@
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="scipy">
-<h1><span class="section-number">13. </span><span class="target" id="index-0"></span>SciPy<a class="headerlink" href="#scipy" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">12. </span><span class="target" id="index-0"></span>SciPy<a class="headerlink" href="#scipy" title="Link to this heading">#</a></h1>
 <p id="index-1">In addition to what’s in Anaconda, this lecture will need the following libraries:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
@@ -298,7 +298,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </div>
 <section id="overview">
-<h2><span class="section-number">13.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">12.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://scipy.org/">SciPy</a> builds on top of NumPy to provide common tools for scientific programming such as</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/linalg.html">linear algebra</a></p></li>
@@ -316,7 +316,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <p>In this lecture, we aim only to highlight some useful parts of the package.</p>
 </section>
 <section id="scipy-versus-numpy">
-<h2><span class="section-number">13.2. </span><span class="target" id="index-2"></span>SciPy versus <span class="target" id="index-3"></span>NumPy<a class="headerlink" href="#scipy-versus-numpy" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">12.2. </span><span class="target" id="index-2"></span>SciPy versus <span class="target" id="index-3"></span>NumPy<a class="headerlink" href="#scipy-versus-numpy" title="Link to this heading">#</a></h2>
 <p>SciPy is a package that contains various tools that are built on top of NumPy, using its array data type and related functionality.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -342,7 +342,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <p>Let’s explore some of the major sub-packages.</p>
 </section>
 <section id="statistics">
-<h2><span class="section-number">13.3. </span>Statistics<a class="headerlink" href="#statistics" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">12.3. </span>Statistics<a class="headerlink" href="#statistics" title="Link to this heading">#</a></h2>
 <p id="index-4">The <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> subpackage supplies</p>
 <ul class="simple">
 <li><p>numerous random variable objects (densities, cumulative distributions, random sampling, etc.)</p></li>
@@ -350,7 +350,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <li><p>some statistical tests</p></li>
 </ul>
 <section id="random-variables-and-distributions">
-<h3><span class="section-number">13.3.1. </span>Random Variables and Distributions<a class="headerlink" href="#random-variables-and-distributions" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.3.1. </span>Random Variables and Distributions<a class="headerlink" href="#random-variables-and-distributions" title="Link to this heading">#</a></h3>
 <p>Recall that <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> provides functions for generating random variables</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -359,14 +359,14 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.52158564, 0.70594384, 0.37885603])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.64172584, 0.6957363 , 0.61775511])
 </pre></div>
 </div>
 </div>
 </div>
 <p>This generates a draw from the distribution with the density function below when <code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">5,</span> <span class="pre">5</span></code></p>
 <div class="math notranslate nohighlight" id="equation-betadist2">
-<span class="eqno">(13.1)<a class="headerlink" href="#equation-betadist2" title="Link to this equation">#</a></span>\[f(x; a, b) = \frac{x^{(a - 1)} (1 - x)^{(b - 1)}}
+<span class="eqno">(12.1)<a class="headerlink" href="#equation-betadist2" title="Link to this equation">#</a></span>\[f(x; a, b) = \frac{x^{(a - 1)} (1 - x)^{(b - 1)}}
     {\int_0^1 u^{(a - 1)} (1 - u)^{(b - 1)} du}
     \qquad (0 \leq x \leq 1)\]</div>
 <p>Sometimes we need access to the density itself, or the cdf, the quantiles, etc.</p>
@@ -389,7 +389,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6902d9070ac42b62beeaf4933317f7eada0cde1906ece5fae3aa35b0b1746047.png" src="_images/6902d9070ac42b62beeaf4933317f7eada0cde1906ece5fae3aa35b0b1746047.png" />
+<img alt="_images/cf5ecb6a021d001ec6c5c5771118a9e17c1d83f9cb2d2ca5d9f47366f3c0b5ed.png" src="_images/cf5ecb6a021d001ec6c5c5771118a9e17c1d83f9cb2d2ca5d9f47366f3c0b5ed.png" />
 </div>
 </div>
 <p>The object <code class="docutils literal notranslate"><span class="pre">q</span></code> that represents the distribution has additional useful methods, including</p>
@@ -438,7 +438,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <span class="math notranslate nohighlight">\(X\)</span> into <span class="math notranslate nohighlight">\(Y = c + d X\)</span>.</p>
 </section>
 <section id="alternative-syntax">
-<h3><span class="section-number">13.3.2. </span>Alternative Syntax<a class="headerlink" href="#alternative-syntax" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.3.2. </span>Alternative Syntax<a class="headerlink" href="#alternative-syntax" title="Link to this heading">#</a></h3>
 <p>There is an alternative way of calling the methods described above.</p>
 <p>For example, the code that generates the figure above can be replaced by</p>
 <div class="cell docutils container">
@@ -454,12 +454,12 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/214e756ec350f40d6c5dccc26fc6f8f18a729da81f6f854640ea9c36382072a6.png" src="_images/214e756ec350f40d6c5dccc26fc6f8f18a729da81f6f854640ea9c36382072a6.png" />
+<img alt="_images/38160d5a51cad368a98590dacbdd8c531ed219a331425a5e8fc15a452fac1fac.png" src="_images/38160d5a51cad368a98590dacbdd8c531ed219a331425a5e8fc15a452fac1fac.png" />
 </div>
 </div>
 </section>
 <section id="other-goodies-in-scipy-stats">
-<h3><span class="section-number">13.3.3. </span>Other Goodies in scipy.stats<a class="headerlink" href="#other-goodies-in-scipy-stats" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.3.3. </span>Other Goodies in scipy.stats<a class="headerlink" href="#other-goodies-in-scipy-stats" title="Link to this heading">#</a></h3>
 <p>There are a variety of statistical functions in <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.</p>
 <p>For example, <code class="docutils literal notranslate"><span class="pre">scipy.stats.linregress</span></code> implements simple linear regression</p>
 <div class="cell docutils container">
@@ -474,7 +474,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(2.015232216155735), np.float64(-0.0036369936750349705))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(2.0002018867568765), np.float64(0.00327668094739178))
 </pre></div>
 </div>
 </div>
@@ -483,11 +483,11 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </section>
 </section>
 <section id="roots-and-fixed-points">
-<h2><span class="section-number">13.4. </span>Roots and Fixed Points<a class="headerlink" href="#roots-and-fixed-points" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">12.4. </span>Roots and Fixed Points<a class="headerlink" href="#roots-and-fixed-points" title="Link to this heading">#</a></h2>
 <p>A <strong>root</strong> or <strong>zero</strong> of a real function <span class="math notranslate nohighlight">\(f\)</span> on <span class="math notranslate nohighlight">\([a,b]\)</span> is an <span class="math notranslate nohighlight">\(x \in [a, b]\)</span> such that <span class="math notranslate nohighlight">\(f(x)=0\)</span>.</p>
 <p>For example, if we plot the function</p>
 <div class="math notranslate nohighlight" id="equation-root-f">
-<span class="eqno">(13.2)<a class="headerlink" href="#equation-root-f" title="Link to this equation">#</a></span>\[f(x) = \sin(4 (x - 1/4)) + x + x^{20} - 1\]</div>
+<span class="eqno">(12.2)<a class="headerlink" href="#equation-root-f" title="Link to this equation">#</a></span>\[f(x) = \sin(4 (x - 1/4)) + x + x^{20} - 1\]</div>
 <p>with <span class="math notranslate nohighlight">\(x \in [0,1]\)</span> we get</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -511,7 +511,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <p>The unique root is approximately 0.408.</p>
 <p>Let’s consider some numerical techniques for finding roots.</p>
 <section id="bisection">
-<h3><span class="section-number">13.4.1. </span><span class="target" id="index-5"></span>Bisection<a class="headerlink" href="#bisection" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.4.1. </span><span class="target" id="index-5"></span>Bisection<a class="headerlink" href="#bisection" title="Link to this heading">#</a></h3>
 <p id="index-6">One of the most common algorithms for numerical root-finding is <em>bisection</em>.</p>
 <p>To understand the idea, recall the well-known game where</p>
 <ul class="simple">
@@ -548,7 +548,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </div>
 </div>
-<p>Let’s test it using the function <span class="math notranslate nohighlight">\(f\)</span> defined in <a class="reference internal" href="#equation-root-f">(13.2)</a></p>
+<p>Let’s test it using the function <span class="math notranslate nohighlight">\(f\)</span> defined in <a class="reference internal" href="#equation-root-f">(12.2)</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bisect</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -562,7 +562,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </div>
 <p>Not surprisingly, SciPy provides its own bisection function.</p>
-<p>Let’s test it using the same function <span class="math notranslate nohighlight">\(f\)</span> defined in <a class="reference internal" href="#equation-root-f">(13.2)</a></p>
+<p>Let’s test it using the same function <span class="math notranslate nohighlight">\(f\)</span> defined in <a class="reference internal" href="#equation-root-f">(12.2)</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">bisect</span>
@@ -579,7 +579,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </section>
 <section id="the-newton-raphson-method">
-<h3><span class="section-number">13.4.2. </span>The <span class="target" id="index-7"></span>Newton-Raphson Method<a class="headerlink" href="#the-newton-raphson-method" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.4.2. </span>The <span class="target" id="index-7"></span>Newton-Raphson Method<a class="headerlink" href="#the-newton-raphson-method" title="Link to this heading">#</a></h3>
 <p id="index-8">Another very common root-finding algorithm is the <a class="reference external" href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton-Raphson method</a>.</p>
 <p>In SciPy this algorithm is implemented by <code class="docutils literal notranslate"><span class="pre">scipy.optimize.newton</span></code>.</p>
 <p>Unlike bisection, the Newton-Raphson method uses local slope information in an attempt to increase the speed of convergence.</p>
@@ -614,7 +614,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </section>
 <section id="hybrid-methods">
-<h3><span class="section-number">13.4.3. </span>Hybrid Methods<a class="headerlink" href="#hybrid-methods" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.4.3. </span>Hybrid Methods<a class="headerlink" href="#hybrid-methods" title="Link to this heading">#</a></h3>
 <p>A general principle of numerical methods is as follows:</p>
 <ul class="simple">
 <li><p>If you have specific knowledge about a given problem, you might be able to exploit it to generate efficiency.</p></li>
@@ -651,7 +651,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.05 ms elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.04 ms elapsed
 </pre></div>
 </div>
 </div>
@@ -671,12 +671,12 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </section>
 <section id="multivariate-root-finding">
-<h3><span class="section-number">13.4.4. </span>Multivariate Root-Finding<a class="headerlink" href="#multivariate-root-finding" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.4.4. </span>Multivariate Root-Finding<a class="headerlink" href="#multivariate-root-finding" title="Link to this heading">#</a></h3>
 <p id="index-9">Use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.fsolve</span></code>, a wrapper for a hybrid method in MINPACK.</p>
 <p>See the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fsolve.html">documentation</a> for details.</p>
 </section>
 <section id="fixed-points">
-<h3><span class="section-number">13.4.5. </span>Fixed Points<a class="headerlink" href="#fixed-points" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.4.5. </span>Fixed Points<a class="headerlink" href="#fixed-points" title="Link to this heading">#</a></h3>
 <p>A <strong>fixed point</strong> of a real function <span class="math notranslate nohighlight">\(f\)</span> on <span class="math notranslate nohighlight">\([a,b]\)</span> is an <span class="math notranslate nohighlight">\(x \in [a, b]\)</span> such that <span class="math notranslate nohighlight">\(f(x)=x\)</span>.</p>
 <p id="index-10">SciPy has a function for finding (scalar) fixed points too</p>
 <div class="cell docutils container">
@@ -698,7 +698,7 @@ the fixed point of a function <span class="math notranslate nohighlight">\(f\)</
 </section>
 </section>
 <section id="optimization">
-<h2><span class="section-number">13.5. </span><span class="target" id="index-11"></span>Optimization<a class="headerlink" href="#optimization" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">12.5. </span><span class="target" id="index-11"></span>Optimization<a class="headerlink" href="#optimization" title="Link to this heading">#</a></h2>
 <p id="index-12">Most numerical packages provide only functions for <em>minimization</em>.</p>
 <p>Maximization can be performed by recalling that the maximizer of a function <span class="math notranslate nohighlight">\(f\)</span> on domain <span class="math notranslate nohighlight">\(D\)</span> is
 the minimizer of <span class="math notranslate nohighlight">\(-f\)</span> on <span class="math notranslate nohighlight">\(D\)</span>.</p>
@@ -721,14 +721,14 @@ the minimizer of <span class="math notranslate nohighlight">\(-f\)</span> on <sp
 </div>
 </div>
 <section id="multivariate-optimization">
-<h3><span class="section-number">13.5.1. </span>Multivariate Optimization<a class="headerlink" href="#multivariate-optimization" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.5.1. </span>Multivariate Optimization<a class="headerlink" href="#multivariate-optimization" title="Link to this heading">#</a></h3>
 <p id="index-13">Multivariate local optimizers include <code class="docutils literal notranslate"><span class="pre">minimize</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin_powell</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin_cg</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin_bfgs</span></code>, and <code class="docutils literal notranslate"><span class="pre">fmin_ncg</span></code>.</p>
 <p>Constrained multivariate local optimizers include <code class="docutils literal notranslate"><span class="pre">fmin_l_bfgs_b</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin_tnc</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin_cobyla</span></code>.</p>
 <p>See the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.html">documentation</a> for details.</p>
 </section>
 </section>
 <section id="integration">
-<h2><span class="section-number">13.6. </span><span class="target" id="index-14"></span>Integration<a class="headerlink" href="#integration" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">12.6. </span><span class="target" id="index-14"></span>Integration<a class="headerlink" href="#integration" title="Link to this heading">#</a></h2>
 <p id="index-15">Most numerical integration methods work by computing the integral of an approximating polynomial.</p>
 <p>The resulting error depends on how well the polynomial fits the integrand, which in turn depends on how “regular” the integrand is.</p>
 <p>In SciPy, the relevant module for numerical integration is <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code>.</p>
@@ -755,14 +755,14 @@ the minimizer of <span class="math notranslate nohighlight">\(-f\)</span> on <sp
 <p>See the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/integrate.html">documentation</a> for more details.</p>
 </section>
 <section id="linear-algebra">
-<h2><span class="section-number">13.7. </span><span class="target" id="index-16"></span>Linear Algebra<a class="headerlink" href="#linear-algebra" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">12.7. </span><span class="target" id="index-16"></span>Linear Algebra<a class="headerlink" href="#linear-algebra" title="Link to this heading">#</a></h2>
 <p id="index-17">We saw that NumPy provides a module for linear algebra called <code class="docutils literal notranslate"><span class="pre">linalg</span></code>.</p>
 <p>SciPy also provides a module for linear algebra with the same name.</p>
 <p>The latter is not an exact superset of the former, but overall it has more functionality.</p>
 <p>We leave you to investigate the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/linalg.html">set of available routines</a>.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">13.8. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">12.8. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <p>The first few exercises concern pricing a European call option under the
 assumption of risk neutrality.  The price satisfies</p>
 <div class="math notranslate nohighlight">
@@ -781,7 +781,7 @@ P = \beta^n \mathbb E \max\{ S_n - K, 0 \}
 <p>The price is the expectation of the payoff, discounted to current value.</p>
 <div class="exercise admonition" id="sp_ex01">
 
-<p class="admonition-title"><span class="caption-number">Exercise 13.1 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 12.1 </span></p>
 <section id="exercise-content">
 <p>Suppose that <span class="math notranslate nohighlight">\(S_n\)</span> has the <a class="reference external" href="https://en.wikipedia.org/wiki/Log-normal_distribution">log-normal</a> distribution with parameters <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span>.  Let <span class="math notranslate nohighlight">\(f\)</span> denote the density of this distribution.  Then</p>
 <div class="math notranslate nohighlight">
@@ -802,7 +802,7 @@ g(x) = \beta^n  \max\{x - K, 0\} f(x)
 </div>
 <div class="solution dropdown admonition" id="scipy-solution-1">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#sp_ex01"> Exercise 13.1</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#sp_ex01"> Exercise 12.1</a></p>
 <section id="solution-content">
 <p>Here’s one possible solution</p>
 <div class="cell docutils container">
@@ -833,14 +833,14 @@ g(x) = \beta^n  \max\{x - K, 0\} f(x)
 </div>
 <div class="exercise admonition" id="sp_ex02">
 
-<p class="admonition-title"><span class="caption-number">Exercise 13.2 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 12.2 </span></p>
 <section id="exercise-content">
 <p>In order to get the option price, compute the integral of this function numerically using <code class="docutils literal notranslate"><span class="pre">quad</span></code> from <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code>.</p>
 </section>
 </div>
 <div class="solution dropdown admonition" id="scipy-solution-3">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#sp_ex02"> Exercise 13.2</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#sp_ex02"> Exercise 12.2</a></p>
 <section id="solution-content">
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -859,7 +859,7 @@ g(x) = \beta^n  \max\{x - K, 0\} f(x)
 </div>
 <div class="exercise admonition" id="sp_ex03">
 
-<p class="admonition-title"><span class="caption-number">Exercise 13.3 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 12.3 </span></p>
 <section id="exercise-content">
 <p>Try to get a similar result using Monte Carlo to compute the expectation term in the option price, rather than <code class="docutils literal notranslate"><span class="pre">quad</span></code>.</p>
 <p>In particular, use the fact that if <span class="math notranslate nohighlight">\(S_n^1, \ldots, S_n^M\)</span> are independent
@@ -875,7 +875,7 @@ large numbers,</p>
 </div>
 <div class="solution dropdown admonition" id="scipy-solution-5">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#sp_ex03"> Exercise 13.3</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#sp_ex03"> Exercise 12.3</a></p>
 <section id="solution-content">
 <p>Here is one solution:</p>
 <div class="cell docutils container">
@@ -889,7 +889,7 @@ large numbers,</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Monte Carlo option price is 15.186276
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Monte Carlo option price is 15.195530
 </pre></div>
 </div>
 </div>
@@ -898,16 +898,16 @@ large numbers,</p>
 </div>
 <div class="exercise admonition" id="sp_ex1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 13.4 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 12.4 </span></p>
 <section id="exercise-content">
 <p>In <a class="reference internal" href="functions.html#functions"><span class="std std-ref">this lecture</span></a>, we discussed the concept of <a class="reference internal" href="functions.html#recursive-functions"><span class="std std-ref">recursive function calls</span></a>.</p>
 <p>Try to write a recursive implementation of the homemade bisection function <a class="reference internal" href="#bisect-func"><span class="std std-ref">described above</span></a>.</p>
-<p>Test it on the function <a class="reference internal" href="#equation-root-f">(13.2)</a>.</p>
+<p>Test it on the function <a class="reference internal" href="#equation-root-f">(12.2)</a>.</p>
 </section>
 </div>
 <div class="solution dropdown admonition" id="scipy-solution-7">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#sp_ex1"> Exercise 13.4</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#sp_ex1"> Exercise 12.4</a></p>
 <section id="solution-content">
 <p>Here’s a reasonable solution:</p>
 <div class="cell docutils container">
@@ -1063,51 +1063,31 @@ Current mid point = 0.40826416015625
    8. OOP II: Building Classes
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="workspace.html">
-   9. Writing Longer Programs
-  </a>
- </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  The Scientific Libraries
+  Foundations of Scientific Computing
  </span>
 </p>
 <ul class="current nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="need_for_speed.html">
-   10. Python for Scientific Computing
+   9. Python for Scientific Computing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="numpy.html">
-   11. NumPy
+   10. NumPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matplotlib.html">
-   12. Matplotlib
+   11. Matplotlib
   </a>
  </li>
  <li class="toctree-l1 current active active">
   <a class="current reference internal" href="#">
-   13. SciPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="pandas.html">
-   14. Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="pandas_panel.html">
-   15. Pandas for Panel Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sympy.html">
-   16. SymPy
+   12. SciPy
   </a>
  </li>
 </ul>
@@ -1119,39 +1099,66 @@ Current mid point = 0.40826416015625
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="numba.html">
-   17. Numba
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="parallelization.html">
-   18. Parallelization
+   13. Numba
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   19. An Introduction to JAX
+   14. JAX
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_vs_numba_vs_jax.html">
+   15. NumPy vs Numba vs JAX
   </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Advanced Python Programming
+  Working with Data
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   16. Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas_panel.html">
+   17. Pandas for Panel Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  More Python Programming
  </span>
 </p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   20. Writing Good Code
+   18. Writing Good Code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="workspace.html">
+   19. Writing Longer Programs
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   21. More Language Features
+   20. More Language Features
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   22. Debugging and Handling Errors
+   21. Debugging and Handling Errors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sympy.html">
+   22. SymPy
   </a>
  </li>
 </ul>

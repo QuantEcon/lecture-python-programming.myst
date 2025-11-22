@@ -1,0 +1,1270 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>15. NumPy vs Numba vs JAX &#8212; Python Programming for Economics and Finance</title>
+    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    
+        <script>
+            MathJax = {
+            loader: {load: ['[tex]/boldsymbol', '[tex]/textmacros']},
+            tex: {
+                packages: {'[+]': ['boldsymbol', 'textmacros']},
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                processEscapes: true,
+                macros: {
+                    "argmax" : "arg\\,max",
+                    "argmin" : "arg\\,min",
+                    "col"    : "col",
+                    "Span"   :  "span",
+                    "epsilon": "\\varepsilon",
+                    "EE": "\\mathbb{E}",
+                    "PP": "\\mathbb{P}",
+                    "RR": "\\mathbb{R}",
+                    "NN": "\\mathbb{N}",
+                    "ZZ": "\\mathbb{Z}",
+                    "aA": "\\mathcal{A}",
+                    "bB": "\\mathcal{B}",
+                    "cC": "\\mathcal{C}",
+                    "dD": "\\mathcal{D}",
+                    "eE": "\\mathcal{E}",
+                    "fF": "\\mathcal{F}",
+                    "gG": "\\mathcal{G}",
+                    "hH": "\\mathcal{H}",
+                }
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 0.92,
+                displayAlign: "center",
+            },
+            };
+        </script>
+    
+    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=15c2afa29682abb9326a76db12ed4f4c791e68c4" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=06ebc90d5139b434c2742937a4ef3b185cb93e2f"></script>
+    <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
+    <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'numpy_vs_numba_vs_jax';</script>
+    <link rel="canonical" href="https://python-programming.quantecon.org/numpy_vs_numba_vs_jax.html" />
+    <link rel="icon" href="_static/lectures-favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="16. Pandas" href="pandas.html" />
+    <link rel="prev" title="14. JAX" href="jax_intro.html" />
+
+<!-- Normal Meta Tags -->
+<meta name="author" context="Thomas J. Sargent &amp; John Stachurski" />
+<meta name="keywords" content="Python, QuantEcon, Quantitative Economics, Economics, Sloan, Alfred P. Sloan Foundation, Tom J. Sargent, John Stachurski" />
+<meta name="description" content=This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski. />
+
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@quantecon" />
+<meta name="twitter:title" content="NumPy vs Numba vs JAX"/>
+<meta name="twitter:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.">
+<meta name="twitter:creator" content="@quantecon">
+<meta name="twitter:image" content="https://assets.quantecon.org/img/qe-twitter-logo.png">
+
+<!-- Opengraph tags -->
+<meta property="og:title" content="NumPy vs Numba vs JAX" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://python-programming.quantecon.org/numpy_vs_numba_vs_jax.html" />
+<meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
+<meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
+<meta property="og:site_name" content="Python Programming for Economics and Finance" />
+<meta name="theme-color" content="#ffffff" />
+
+  </head>
+<body>
+
+<!-- Override QuantEcon theme colors -->
+
+    <span id="top"></span>
+
+    <div class="qe-wrapper">
+
+        <div class="qe-main">
+
+            <div class="qe-page" id=numpy_vs_numba_vs_jax>
+
+                <div class="qe-page__toc">
+
+                    <div class="inner">
+
+                        
+                        <div class="qe-page__toc-header">
+                            On this page
+                        </div>
+
+
+                        <nav id="bd-toc-nav" class="qe-page__toc-nav">
+                            <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorized-operations">15.1. Vectorized operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-statement">15.1.1. Problem Statement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-vectorization">15.1.2. NumPy vectorization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-comparison-with-numba">15.1.3. A Comparison with Numba</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parallelized-numba">15.1.4. Parallelized Numba</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorized-code-with-jax">15.1.5. Vectorized code with JAX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jax-plus-vmap">15.1.6. JAX plus vmap</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#version-1">15.1.6.1. Version 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#version-2">15.1.6.2. Version 2</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">15.1.7. Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-operations">15.2. Sequential operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numba-version">15.2.1. Numba Version</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jax-version">15.2.2. JAX Version</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">15.2.3. Summary</a></li>
+</ul>
+</li>
+</ul>
+                            <p class="logo">
+                                
+                                    
+                                    <a href=https://quantecon.org><img src="_static/qe-logo.png" class="logo logo-img" alt="logo"></a>
+                                    
+                                    <a href=https://quantecon.org><img src="_static/quantecon-logo-transparent.png" class="dark-logo-img" alt="logo"></a>
+                                    
+                                    
+                                
+                            </p>
+
+                            <p class="powered">Powered by <a href="https://jupyterbook.org/en/stable/">Jupyter Book</a></p>
+
+                        </nav>
+
+                        <div class="qe-page__toc-footer">
+                            
+                            
+                            <p><a href="#top"><strong>Back to top</strong></a></p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="qe-page__header">
+
+                    <div class="qe-page__header-copy">
+
+                        <p class="qe-page__header-heading"><a href="intro.html">Python Programming for Economics and Finance</a></p>
+
+                        <p class="qe-page__header-subheading">NumPy vs Numba vs JAX</p>
+
+                    </div>
+                    <!-- length 2, since its a string and empty dict has length 2 - {} -->
+                        <p class="qe-page__header-authors" font-size="18">
+                            
+                                
+                                    <a href="http://www.tomsargent.com/" target="_blank"><span>Thomas J. Sargent</span></a>
+                                
+                            
+                                
+                                    and <a href="https://johnstachurski.net/" target="_blank"><span>John Stachurski</span></a>
+                                
+                            
+                        </p>
+
+
+                </div> <!-- .page__header -->
+
+
+
+                
+                <main class="qe-page__content" role="main">
+                    
+                    <div>
+                        
+  <section class="tex2jax_ignore mathjax_ignore" id="numpy-vs-numba-vs-jax">
+<h1><span class="section-number">15. </span>NumPy vs Numba vs JAX<a class="headerlink" href="#numpy-vs-numba-vs-jax" title="Link to this heading">#</a></h1>
+<p>In the preceding lectures, we’ve discussed three core libraries for scientific
+and numerical computing:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="numpy.html"><span class="doc std std-doc">NumPy</span></a></p></li>
+<li><p><a class="reference internal" href="numba.html"><span class="doc std std-doc">Numba</span></a></p></li>
+<li><p><a class="reference internal" href="jax_intro.html"><span class="doc std std-doc">JAX</span></a></p></li>
+</ul>
+<p>Which one should we use in any given situation?</p>
+<p>This lecture addresses that question, at least partially, by discussing some use cases.</p>
+<p>Before getting started, we note that the first two are a natural pair: NumPy and
+Numba play well together.</p>
+<p>JAX, on the other hand, stands alone.</p>
+<p>When considering each approach, we will consider not just efficiency and memory
+footprint but also clarity and ease of use.</p>
+<p>In addition to what’s in Anaconda, this lecture will need the following libraries:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>quantecon<span class="w"> </span>jax
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.10.1)
+Requirement already satisfied: jax in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.8.1)
+Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (0.61.0)
+Requirement already satisfied: numpy&gt;=1.17.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.1.3)
+Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.32.3)
+Requirement already satisfied: scipy&gt;=1.5.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (1.15.3)
+Requirement already satisfied: sympy in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (1.13.3)
+Requirement already satisfied: jaxlib&lt;=0.8.1,&gt;=0.8.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (0.8.1)
+Requirement already satisfied: ml_dtypes&gt;=0.5.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (0.5.4)
+Requirement already satisfied: opt_einsum in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (3.4.0)
+Requirement already satisfied: llvmlite&lt;0.45,&gt;=0.44.0dev0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from numba&gt;=0.49.0-&gt;quantecon) (0.44.0)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (3.3.2)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (3.7)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2.3.0)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2025.4.26)
+Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from sympy-&gt;quantecon) (1.3.0)
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>We will use the following imports.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">quantecon</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qe</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.mplot3d.axes3d</span><span class="w"> </span><span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">cm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jax</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="vectorized-operations">
+<h2><span class="section-number">15.1. </span>Vectorized operations<a class="headerlink" href="#vectorized-operations" title="Link to this heading">#</a></h2>
+<p>Some operations can be perfectly vectorized — all loops are easily eliminated
+and numerical operations are reduced to calculations on arrays.</p>
+<p>In this case, which approach is best?</p>
+<section id="problem-statement">
+<h3><span class="section-number">15.1.1. </span>Problem Statement<a class="headerlink" href="#problem-statement" title="Link to this heading">#</a></h3>
+<p>Consider the problem of maximizing a function <span class="math notranslate nohighlight">\(f\)</span> of two variables <span class="math notranslate nohighlight">\((x,y)\)</span> over
+the square <span class="math notranslate nohighlight">\([-a, a] \times [-a, a]\)</span>.</p>
+<p>For <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(a\)</span> let’s choose</p>
+<div class="math notranslate nohighlight">
+\[
+f(x,y) = \frac{\cos(x^2 + y^2)}{1 + x^2 + y^2}
+\quad \text{and} \quad
+a = 3
+\]</div>
+<p>Here’s a plot of <span class="math notranslate nohighlight">\(f\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">xgrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">ygrid</span> <span class="o">=</span> <span class="n">xgrid</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">xgrid</span><span class="p">,</span> <span class="n">ygrid</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>
+                <span class="n">y</span><span class="p">,</span>
+                <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span>
+                <span class="n">rstride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">,</span>
+                <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+                <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$y$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1705404365675bd611ef1c31d537c2b740954064ee32e1a3dcb9c165f9c749f1.png" src="_images/1705404365675bd611ef1c31d537c2b740954064ee32e1a3dcb9c165f9c749f1.png" />
+</div>
+</div>
+<p>For the sake of this exercise, we’re going to use brute force for the
+maximization.</p>
+<ol class="arabic simple">
+<li><p>Evaluate <span class="math notranslate nohighlight">\(f\)</span> for all <span class="math notranslate nohighlight">\((x,y)\)</span> in a grid on the square.</p></li>
+<li><p>Return the maximum of observed values.</p></li>
+</ol>
+<p>Just to illustrate the idea, here’s a non-vectorized version that uses Python loops.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">:</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">z</span> <span class="o">&gt;</span> <span class="n">m</span><span class="p">:</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">z</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="numpy-vectorization">
+<h3><span class="section-number">15.1.2. </span>NumPy vectorization<a class="headerlink" href="#numpy-vectorization" title="Link to this heading">#</a></h3>
+<p>If we switch to NumPy-style vectorization we can use a much larger grid and the
+code executes relatively quickly.</p>
+<p>Here we use <code class="docutils literal notranslate"><span class="pre">np.meshgrid</span></code> to create two-dimensional input grids <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> such
+that <code class="docutils literal notranslate"><span class="pre">f(x,</span> <span class="pre">y)</span></code> generates all evaluations on the product grid.</p>
+<p>(This strategy dates back to Matlab.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3_000</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">grid</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.16827178 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the vectorized version, all the looping takes place in compiled code.</p>
+<p>Moreover, NumPy uses implicit multithreading, so that at least some parallelization occurs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have a system monitor such as htop (Linux/Mac) or perfmon
+(Windows), then try running this and then observing the load on your CPUs.</p>
+<p>(You will probably need to bump up the grid size to see large effects.)</p>
+<p>The output typically shows that the operation is successfully distributed across multiple threads.</p>
+</div>
+<p>(The parallelization cannot be highly efficient because the binary is compiled
+before it sees the size of the arrays <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.)</p>
+</section>
+<section id="a-comparison-with-numba">
+<h3><span class="section-number">15.1.3. </span>A Comparison with Numba<a class="headerlink" href="#a-comparison-with-numba" title="Link to this heading">#</a></h3>
+<p>Now let’s see if we can achieve better performance using Numba with a simple loop.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numba</span>
+
+<span class="nd">@numba</span><span class="o">.</span><span class="n">jit</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_max_numba</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">:</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">z</span> <span class="o">&gt;</span> <span class="n">m</span><span class="p">:</span>
+                <span class="n">m</span> <span class="o">=</span> <span class="n">z</span>
+    <span class="k">return</span> <span class="n">m</span>
+
+<span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3_000</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">compute_max_numba</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.23649049 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">compute_max_numba</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10795808 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>Depending on your machine, the Numba version can be a bit slower or a bit faster than NumPy.</p>
+<p>On one hand, NumPy combines efficient arithmetic (like Numba) with some multithreading (unlike this Numba code), which provides an advantage.</p>
+<p>On the other hand, the Numba routine uses much less memory, since we are only
+working with a single one-dimensional grid.</p>
+</section>
+<section id="parallelized-numba">
+<h3><span class="section-number">15.1.4. </span>Parallelized Numba<a class="headerlink" href="#parallelized-numba" title="Link to this heading">#</a></h3>
+<p>Now let’s try parallelization with Numba using <code class="docutils literal notranslate"><span class="pre">prange</span></code>:</p>
+<p>First we parallelize just the outer loop.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@numba</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_max_numba_parallel</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numba</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">z</span> <span class="o">&gt;</span> <span class="n">m</span><span class="p">:</span>
+                <span class="n">m</span> <span class="o">=</span> <span class="n">z</span>
+    <span class="k">return</span> <span class="n">m</span>
+
+<span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">compute_max_numba_parallel</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.26112270 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">compute_max_numba_parallel</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00013709 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we parallelize both loops.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@numba</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_max_numba_parallel_nested</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numba</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">numba</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">z</span> <span class="o">&gt;</span> <span class="n">m</span><span class="p">:</span>
+                <span class="n">m</span> <span class="o">=</span> <span class="n">z</span>
+    <span class="k">return</span> <span class="n">m</span>
+
+<span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">compute_max_numba_parallel_nested</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.26212025 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">compute_max_numba_parallel_nested</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00011683 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>Depending on your machine, you might or might not see large benefits from parallelization here.</p>
+<p>If you have a small number of cores, the overhead of thread management and synchronization can
+overwhelm the benefits of parallel execution.</p>
+<p>For more powerful machines and larger grid sizes, parallelization can generate
+large speed gains.</p>
+</section>
+<section id="vectorized-code-with-jax">
+<h3><span class="section-number">15.1.5. </span>Vectorized code with JAX<a class="headerlink" href="#vectorized-code-with-jax" title="Link to this heading">#</a></h3>
+<p>In most ways, vectorization is the same in JAX as it is in NumPy.</p>
+<p>But there are also some differences, which we highlight here.</p>
+<p>Let’s start with the function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As with NumPy, to get the right shape and the correct nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loop
+calculation, we can use a <code class="docutils literal notranslate"><span class="pre">meshgrid</span></code> operation designed for this purpose:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3_000</span><span class="p">)</span>
+<span class="n">x_mesh</span><span class="p">,</span> <span class="n">y_mesh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">grid</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">z_mesh</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x_mesh</span><span class="p">,</span> <span class="n">y_mesh</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.07069302 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s run again to eliminate compile time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">z_mesh</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x_mesh</span><span class="p">,</span> <span class="n">y_mesh</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.03460550 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once compiled, JAX will be significantly faster than NumPy, especially if you are using a GPU.</p>
+<p>The compilation overhead is a one-time cost that pays off when the function is called repeatedly.</p>
+</section>
+<section id="jax-plus-vmap">
+<h3><span class="section-number">15.1.6. </span>JAX plus vmap<a class="headerlink" href="#jax-plus-vmap" title="Link to this heading">#</a></h3>
+<p>There is one problem with both the NumPy code and the JAX code:</p>
+<p>While the flat arrays are low-memory</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span><span class="o">.</span><span class="n">nbytes</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12000
+</pre></div>
+</div>
+</div>
+</div>
+<p>the mesh grids are memory intensive</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_mesh</span><span class="o">.</span><span class="n">nbytes</span> <span class="o">+</span> <span class="n">y_mesh</span><span class="o">.</span><span class="n">nbytes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>72000000
+</pre></div>
+</div>
+</div>
+</div>
+<p>This extra memory usage can be a big problem in actual research calculations.</p>
+<p>Fortunately, JAX admits a different approach
+using <a class="reference external" href="https://docs.jax.dev/en/latest/_autosummary/jax.vmap.html">jax.vmap</a>.</p>
+<section id="version-1">
+<h4><span class="section-number">15.1.6.1. </span>Version 1<a class="headerlink" href="#version-1" title="Link to this heading">#</a></h4>
+<p>Here’s one way we can apply <code class="docutils literal notranslate"><span class="pre">vmap</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up f to compute f(x, y) at every x for any given y</span>
+<span class="n">f_vec_x</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="c1"># Vectorize this operation over all y</span>
+<span class="n">f_vec</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="n">f_vec_x</span><span class="p">)</span>
+<span class="c1"># Compute result at all y</span>
+<span class="n">z_vmap</span> <span class="o">=</span> <span class="n">f_vec</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s see the timing:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">z_vmap</span> <span class="o">=</span> <span class="n">f_vec</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+    <span class="n">z_vmap</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.03802609 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s check we got the right result:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jnp</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">z_mesh</span><span class="p">,</span> <span class="n">z_vmap</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array(True, dtype=bool)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The execution time is similar to as the mesh operation but we are using much
+less memory.</p>
+<p>In addition, <code class="docutils literal notranslate"><span class="pre">vmap</span></code> allows us to break vectorization up into stages, which is
+often easier to comprehend than the traditional approach.</p>
+<p>This will become more obvious when we tackle larger problems.</p>
+</section>
+<section id="version-2">
+<h4><span class="section-number">15.1.6.2. </span>Version 2<a class="headerlink" href="#version-2" title="Link to this heading">#</a></h4>
+<p>Here’s a more generic approach to using <code class="docutils literal notranslate"><span class="pre">vmap</span></code> that we often use in the lectures.</p>
+<p>First we vectorize in <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_vec_y</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">in_axes</span><span class="o">=</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the line above, <code class="docutils literal notranslate"><span class="pre">(None,</span> <span class="pre">0)</span></code> indicates that we are vectorizing in the second argument, which is <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<p>Next, we vectorize in the first argument, which is <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_vec</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="n">f_vec_y</span><span class="p">,</span> <span class="n">in_axes</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With this construction, we can now call <span class="math notranslate nohighlight">\(f\)</span> directly on flat (low memory) arrays.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">grid</span><span class="p">,</span> <span class="n">grid</span>
+<span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">z_vmap</span> <span class="o">=</span> <span class="n">f_vec</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.05407190 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s run it again to eliminate compilation time:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">z_vmap</span> <span class="o">=</span> <span class="n">f_vec</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02737856 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s check we got the right result:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jnp</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">z_mesh</span><span class="p">,</span> <span class="n">z_vmap</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array(True, dtype=bool)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="summary">
+<h3><span class="section-number">15.1.7. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h3>
+<p>In our view, JAX is the winner for vectorized operations.</p>
+<p>It dominates NumPy both in terms of speed (via JIT-compilation and parallelization) and memory efficiency (via vmap).</p>
+<p>Moreover, the <code class="docutils literal notranslate"><span class="pre">vmap</span></code> approach can sometimes lead to significantly clearer code.</p>
+<p>While Numba is impressive, the beauty of JAX is that, with fully vectorized
+operations, we can run exactly the
+same code on machines with hardware accelerators and reap all the benefits
+without paying extra cost.</p>
+</section>
+</section>
+<section id="sequential-operations">
+<h2><span class="section-number">15.2. </span>Sequential operations<a class="headerlink" href="#sequential-operations" title="Link to this heading">#</a></h2>
+<p>Some operations are inherently sequential – and hence difficult or impossible
+to vectorize.</p>
+<p>In this case NumPy is a poor option and we are left with the choice of Numba or
+JAX.</p>
+<p>To compare these choices, we will revisit the problem of iterating on the
+quadratic map that we saw in our <a class="reference internal" href="numba.html"><span class="doc">Numba lecture</span></a>.</p>
+<section id="numba-version">
+<h3><span class="section-number">15.2.1. </span>Numba Version<a class="headerlink" href="#numba-version" title="Link to this heading">#</a></h3>
+<p>Here’s the Numba version.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@numba</span><span class="o">.</span><span class="n">jit</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">qm</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">α</span><span class="o">=</span><span class="mf">4.0</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+      <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">α</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s generate a time series of length 10,000,000 and time the execution:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">10_000_000</span>
+
+<span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">qm</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.14098239 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s run it again to eliminate compilation time:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">qm</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02677727 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>Numba handles this sequential operation very efficiently.</p>
+<p>Notice that the second run is significantly faster after JIT compilation completes.</p>
+<p>Numba’s compilation is typically quite fast, and the resulting code performance is excellent for sequential operations like this one.</p>
+</section>
+<section id="jax-version">
+<h3><span class="section-number">15.2.2. </span>JAX Version<a class="headerlink" href="#jax-version" title="Link to this heading">#</a></h3>
+<p>Now let’s create a JAX version using <code class="docutils literal notranslate"><span class="pre">lax.scan</span></code>:</p>
+<p>(We’ll hold <code class="docutils literal notranslate"><span class="pre">n</span></code> static because it affects array size and hence JAX wants to specialize on its value in the compiled code.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">lax</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">partial</span>
+
+<span class="nd">@partial</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">,</span> <span class="n">static_argnums</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">qm_jax</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">α</span><span class="o">=</span><span class="mf">4.0</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="n">x_new</span> <span class="o">=</span> <span class="n">α</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x_new</span><span class="p">,</span> <span class="n">x_new</span>
+
+    <span class="n">_</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">lax</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="n">update</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">jnp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x0</span><span class="p">]),</span> <span class="n">x</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This code is not easy to read but, in essence, <code class="docutils literal notranslate"><span class="pre">lax.scan</span></code> repeatedly calls <code class="docutils literal notranslate"><span class="pre">qm_jax</span></code> and accumulates the returns <code class="docutils literal notranslate"><span class="pre">x_new</span></code> into an array.</p>
+<p>Let’s time it with the same parameters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">x_jax</span> <span class="o">=</span> <span class="n">qm_jax</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10437250 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s run it again to eliminate compilation overhead:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">x_jax</span> <span class="o">=</span> <span class="n">qm_jax</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.05768394 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>JAX is also efficient for this sequential operation.</p>
+<p>Both JAX and Numba deliver strong performance after compilation, with Numba
+typically (but not always) offering slightly better speeds on purely sequential
+operations.</p>
+</section>
+<section id="id1">
+<h3><span class="section-number">15.2.3. </span>Summary<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>While both Numba and JAX deliver strong performance for sequential operations,
+there are significant differences in code readability and ease of use.</p>
+<p>The Numba version is straightforward and natural to read: we simply allocate an
+array and fill it element by element using a standard Python loop.</p>
+<p>This is exactly how most programmers think about the algorithm.</p>
+<p>The JAX version, on the other hand, requires using <code class="docutils literal notranslate"><span class="pre">lax.scan</span></code>, which is significantly less intuitive.</p>
+<p>Additionally, JAX’s immutable arrays mean we cannot simply update array elements in place, making it hard to directly replicate the algorithm used by Numba.</p>
+<p>For this type of sequential operation, Numba is the clear winner in terms of
+code clarity and ease of implementation, as well as high performance.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                    </div>
+                    
+                </main> <!-- .page__content -->
+                
+
+
+                <footer class="qe-page__footer">
+
+                    <p><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"></a></p>
+
+                    <p>Creative Commons License &ndash; This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International.</p>
+
+                    <p>A theme by <a href="https://quantecon.org">QuantEcon</a></p>
+
+                </footer> <!-- .page__footer -->
+
+            </div> <!-- .page -->
+
+            
+
+            
+            <div class="qe-sidebar bd-sidebar inactive" id="site-navigation">
+
+                <div class="qe-sidebar__header">
+
+
+                    Contents
+
+                </div>
+
+                <nav class="qe-sidebar__nav" id="qe-sidebar-nav" aria-label="Main navigation">
+                    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_py.html">
+   1. About These Lectures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started.html">
+   2. Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_by_example.html">
+   3. An Introductory Example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   4. Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_essentials.html">
+   5. Python Essentials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="oop_intro.html">
+   6. OOP I: Objects and Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="names.html">
+   7. Names and Namespaces
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_oop.html">
+   8. OOP II: Building Classes
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Foundations of Scientific Computing
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="need_for_speed.html">
+   9. Python for Scientific Computing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy.html">
+   10. NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matplotlib.html">
+   11. Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scipy.html">
+   12. SciPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  High Performance Computing
+ </span>
+</p>
+<ul class="current nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="numba.html">
+   13. Numba
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jax_intro.html">
+   14. JAX
+  </a>
+ </li>
+ <li class="toctree-l1 current active active">
+  <a class="current reference internal" href="#">
+   15. NumPy vs Numba vs JAX
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Working with Data
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   16. Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas_panel.html">
+   17. Pandas for Panel Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  More Python Programming
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="writing_good_code.html">
+   18. Writing Good Code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="workspace.html">
+   19. Writing Longer Programs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_advanced_features.html">
+   20. More Language Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="debugging.html">
+   21. Debugging and Handling Errors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sympy.html">
+   22. SymPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   23. Troubleshooting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="status.html">
+   24. Execution Statistics
+  </a>
+ </li>
+</ul>
+
+                </nav>
+
+                <div class="qe-sidebar__footer">
+
+                </div>
+
+            </div> <!-- .sidebar -->
+            
+        </div> <!-- .main -->
+
+        <div class="qe-toolbar">
+
+            <div class="qe-toolbar__inner">
+
+                <ul class="qe-toolbar__main">
+                    <li data-tippy-content="Table of Contents" class="btn__sidebar"><i data-feather="menu"></i></li>
+                    <li data-tippy-content="Home"><a href="intro.html"><i data-feather="home"></i></a></li>
+                    <li class="btn__qelogo"><a href="https://quantecon.org" title=""><span class="show-for-sr">QuantEcon</span></a></li>
+                </ul>
+
+                <ul class="qe-toolbar__links">
+                    <li class="btn__search">
+                        <form action="search.html" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search..." aria-label="Search..." autocomplete="off" accesskey="k">
+                            <i data-feather="search" id="search-icon"></i>
+                        </form>
+                    </li>
+                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
+                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
+                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
+                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                    <li data-tippy-content="Download Notebook"><a href="/_notebooks/numpy_vs_numba_vs_jax.ipynb" download><i data-feather="download-cloud"></i></a></li>
+                    <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
+                        <li class="download-pdf" id="downloadButton"><i data-feather="file"></i></li>
+                    <!--
+                    # Enable if looking for link to specific document hosted on GitHub
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst/blob/main/lectures/numpy_vs_numba_vs_jax.md" download><i data-feather="github"></i></a></li>
+                    -->
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.myst" download><i data-feather="github"></i></a></li>
+                </ul>
+
+            </div>
+
+        </div> <!-- .toolbar -->
+        <div id="downloadPDFModal" style="display: none;">
+            <ul class="pdf-options" style="display: block;">
+                <li class="download-pdf-book" onClick="window.print()">
+                    <p>Lecture (PDF)</p>
+                </li>
+                <li class="download-pdf-file">
+                    <a href="/_pdf/quantecon-python-programming.pdf" download><p>Book (PDF)</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="settingsModal" style="display: none;">
+            <p class="modal-title"> Notebook Launcher </p>
+            <div class="modal-desc">
+            <p>
+                Choose public or private cloud service for "Launch" button.
+            </p>
+            </div>
+            <p class="modal-subtitle">Select a server</p>
+            <ul class="modal-servers">
+            <li class="active launcher-public">
+                <span class="label">Public</span>
+                <select id="launcher-public-input">
+                
+                    <option value="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.notebooks/blob/main/numpy_vs_numba_vs_jax.ipynb">Colab</option>
+                
+                </select>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            <li class="launcher-private">
+                <span class="label">Private</span>
+                <input type="text" id="launcher-private-input" data-repourl="https://github.com/QuantEcon/lecture-python-programming.notebooks" data-urlpath="tree/lecture-python-programming.notebooks/numpy_vs_numba_vs_jax.ipynb" data-branch=main>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            </ul>
+            <p class="launch"><a href="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.notebooks/blob/main/numpy_vs_numba_vs_jax.ipynb" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
+            <script>
+                // QuantEcon Notebook Launcher
+                const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');
+                // Highlight the server type if previous selection exists
+                if (typeof localStorage.launcherType !== 'undefined') {
+                  for (var i = 0; i < launcherTypeElements.length; i++) {
+                    launcherTypeElements[i].classList.remove('active');
+                    if ( launcherTypeElements[i].classList.contains(localStorage.launcherType) ) {
+                      launcherTypeElements[i].classList.add('active');
+                    }
+                  }
+                }
+                // Highlight server type on click and set local storage value
+                for (var i = 0; i < launcherTypeElements.length; i++) {
+                  launcherTypeElements[i].addEventListener('click', function() {
+                    for (var j = 0; j < launcherTypeElements.length; j++) {
+                      launcherTypeElements[j].classList.remove('active');
+                    }
+                    this.classList.add('active');
+                    if ( this.classList.contains('launcher-private') ) {
+                      localStorage.launcherType = 'launcher-private';
+                    } else if ( this.classList.contains('launcher-public') ) {
+                      localStorage.launcherType = 'launcher-public';
+                    }
+                    setLaunchServer();
+                  })
+                }
+                const launcherPublic = document.getElementById('launcher-public-input');
+                const launcherPrivate = document.getElementById('launcher-private-input');
+                const pageName = "numpy_vs_numba_vs_jax";
+                const repoURL = "https://github.com/QuantEcon/lecture-python-programming.notebooks";
+                const urlPath = "tree/lecture-python-programming.notebooks/numpy_vs_numba_vs_jax.ipynb";
+                const branch = "main"
+                const launchNotebookLink = document.getElementById('advancedLaunchButton');
+
+                // Highlight public server option if previous selection exists
+                if (typeof localStorage.launcherPublic !== 'undefined') {
+                  launcherPublic.value = localStorage.launcherPublic;
+                }
+                // Update local storage upon public server selection
+                launcherPublic.addEventListener('change', (event) => {
+                  setLaunchServer();
+                });
+                // Populate private server input if previous entry exists
+                if (typeof localStorage.launcherPrivate !== 'undefined') {
+                  launcherPrivate.value = localStorage.launcherPrivate;
+                }
+                // Update local storage when a private server is entered
+                launcherPrivate.addEventListener('input', (event) => {
+                  setLaunchServer();
+                });
+
+                // Function to update the "Launch Notebook" link href
+                function setLaunchServer() {
+                  launchNotebookLink.removeAttribute("style")
+                  if ( localStorage.launcherType == 'launcher-private' ) {
+                    let repoPrefix = "/user-redirect/git-pull?repo=" + repoURL + "&branch=" + branch + "&urlpath=" + urlPath;
+                    launcherPrivateValue = launcherPrivate.value
+                    if (!launcherPrivateValue) {
+                        launchNotebookLink.removeAttribute("href")
+                        launchNotebookLink.style.background = "grey"
+                        return
+                    }
+                    localStorage.launcherPrivate = launcherPrivateValue;
+                    privateServer = localStorage.launcherPrivate.replace(/\/$/, "")
+                    if (!privateServer.includes("http")) {
+                        privateServer = "http://" + privateServer
+                    }
+                    launchNotebookLinkURL = privateServer + repoPrefix;
+                  } else if ( localStorage.launcherType == 'launcher-public' ) {
+                    launcherPublicValue = launcherPublic.options[launcherPublic.selectedIndex].value;
+                    localStorage.launcherPublic = launcherPublicValue;
+                    launchNotebookLinkURL = localStorage.launcherPublic;
+                  }
+                  if (launchNotebookLinkURL) launchNotebookLink.href = launchNotebookLinkURL;
+                }
+                // Check if user has previously selected a server
+                if ( (typeof localStorage.launcherPrivate !== 'undefined') || (typeof localStorage.launcherPublic !== 'undefined') ) {
+                  setLaunchServer();
+                }
+                </script>
+
+        </div>
+
+    </div> <!-- .wrapper-->
+  </body>
+</html>

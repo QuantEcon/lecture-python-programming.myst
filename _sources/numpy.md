@@ -78,6 +78,8 @@ called a [numpy.ndarray](https://numpy.org/doc/stable/reference/arrays.ndarray.h
 
 NumPy arrays power a very large proportion of the scientific Python ecosystem.
 
+### Basics
+
 To create a NumPy array containing only zeros we use  [np.zeros](https://numpy.org/doc/stable/reference/generated/numpy.zeros.html#numpy.zeros)
 
 ```{code-cell} python3
@@ -128,31 +130,32 @@ Consider the following assignment
 z = np.zeros(10)
 ```
 
-Here `z` is a *flat* array with no dimension --- neither row nor column vector.
-
-The dimension is recorded in the `shape` attribute, which is a tuple
+Here `z` is a **flat** array --- neither row nor column vector.
 
 ```{code-cell} python3
 z.shape
 ```
 
-Here the shape tuple has only one element, which is the length of the array (tuples with one element end with a comma).
+Here the shape tuple has only one element, which is the length of the array
+(tuples with one element end with a comma).
 
-To give it dimension, we can change the `shape` attribute
+To give it an additional dimension, we can change the `shape` attribute
 
 ```{code-cell} python3
-z.shape = (10, 1)
+z.shape = (10, 1)   # Convert flat array to column vector (two-dimensional)
 z
 ```
 
 ```{code-cell} python3
-z = np.zeros(4)
-z.shape = (2, 2)
+z = np.zeros(4)     # Flat array
+z.shape = (2, 2)    # Two-dimensional array
 z
 ```
 
-In the last case, to make the 2 by 2 array, we could also pass a tuple to the `zeros()` function, as
+In the last case, to make the 2x2 array, we could also pass a tuple to the `zeros()` function, as
 in `z = np.zeros((2, 2))`.
+
+
 
 (creating_arrays)=
 ### Creating Arrays
@@ -212,17 +215,9 @@ z
 See also `np.asarray`, which performs a similar function, but does not make
 a distinct copy of data already in a NumPy array.
 
-```{code-cell} python3
-na = np.linspace(10, 20, 2)
-na is np.asarray(na)   # Does not copy NumPy arrays
-```
+To read in the array data from a text file containing numeric data use `np.loadtxt` ---see [the documentation](https://numpy.org/doc/stable/reference/routines.io.html) for details.
 
-```{code-cell} python3
-na is np.array(na)     # Does make a new copy --- perhaps unnecessarily
-```
 
-To read in the array data from a text file containing numeric data use `np.loadtxt`
-or `np.genfromtxt`---see [the documentation](https://numpy.org/doc/stable/reference/routines.io.html) for details.
 
 ### Array Indexing
 
@@ -264,8 +259,6 @@ z[0, 1]
 ```
 
 And so on.
-
-Note that indices are still zero-based, to maintain compatibility with Python sequences.
 
 Columns and rows can be extracted as follows
 
@@ -374,7 +367,8 @@ a.T                   # Equivalent to a.transpose()
 
 Another method worth knowing is `searchsorted()`.
 
-If `z` is a nondecreasing array, then `z.searchsorted(a)` returns the index of the first element of `z` that is `>= a`
+If `z` is a nondecreasing array, then `z.searchsorted(a)` returns the index of
+the first element of `z` that is `>= a`
 
 ```{code-cell} python3
 z = np.linspace(2, 4, 5)
@@ -383,20 +377,6 @@ z
 
 ```{code-cell} python3
 z.searchsorted(2.2)
-```
-
-Many of the methods discussed above have equivalent functions in the NumPy namespace
-
-```{code-cell} python3
-a = np.array((4, 3, 2, 1))
-```
-
-```{code-cell} python3
-np.sum(a)
-```
-
-```{code-cell} python3
-np.mean(a)
 ```
 
 
@@ -457,8 +437,7 @@ In particular, `A * B` is *not* the matrix product, it is an element-wise produc
 ```{index} single: NumPy; Matrix Multiplication
 ```
 
-With Anaconda's scientific Python package based around Python 3.5 and above,
-one can use the `@` symbol for matrix multiplication, as follows:
+We use the `@` symbol for matrix multiplication, as follows:
 
 ```{code-cell} python3
 A = np.ones((2, 2))
@@ -466,28 +445,16 @@ B = np.ones((2, 2))
 A @ B
 ```
 
-(For older versions of Python and NumPy you need to use the [np.dot](https://numpy.org/doc/stable/reference/generated/numpy.dot.html) function)
-
-We can also use `@` to take the inner product of two flat arrays
-
-```{code-cell} python3
-A = np.array((1, 2))
-B = np.array((10, 20))
-A @ B
-```
-
-In fact, we can use `@` when one element is a Python list or tuple
-
-```{code-cell} python3
-A = np.array(((1, 2), (3, 4)))
-A
-```
+The syntax works with flat arrays --- NumPy makes an educated guess of what you
+want:
 
 ```{code-cell} python3
 A @ (0, 1)
 ```
 
 Since we are post-multiplying, the tuple is treated as a column vector.
+
+
 
 (broadcasting)=
 ## Broadcasting
@@ -713,19 +680,6 @@ ax.text(10.5, 7.0, '=', size=12, ha='center', va='center');
 
 ```
 
-The previous broadcasting operation is equivalent to the following `for` loop
-
-```{code-cell} python3
-
-row, column = a.shape
-result = np.empty((3, 3))
-for i in range(row):
-    for j in range(column):
-        result[i, j] = a[i, j] + b[i,0]
-
-result
-```
-
 In some cases, both operands will be expanded.
 
 When we have `a -> (3,)` and `b -> (3, 1)`, `a` will be expanded to `a -> (3, 3)`, and `b` will be expanded to `b -> (3, 3)`.
@@ -872,71 +826,12 @@ To help us, we can use the following list of rules:
     - If `a -> (2, 2, 2)` and  `b -> (1, 2, 2)`, then broadcasting will expand the first dimension of `b` so that `b -> (2, 2, 2)`;
     - If `a -> (3, 2, 2)` and `b -> (1, 1, 2)`, then broadcasting will expand `b` on all dimensions with shape 1 so that `b -> (3, 2, 2)`.
 
-Here are code examples for broadcasting higher dimensional arrays
-
-```{code-cell} python3
-# a -> (2, 2, 2) and  b -> (1, 2, 2)
-
-a = np.array(
-    [[[1, 2], 
-      [2, 3]], 
-
-     [[2, 3], 
-      [3, 4]]])
-print(f'the shape of array a is {a.shape}')
-
-b = np.array(
-    [[1,7],
-     [7,1]])
-print(f'the shape of array b is {b.shape}')
-
-a + b
-```
-
-```{code-cell} python3
-# a -> (3, 2, 2) and b -> (2,)
-
-a = np.array(
-    [[[1, 2], 
-      [3, 4]],
-
-     [[4, 5], 
-      [6, 7]],
-
-     [[7, 8], 
-      [9, 10]]])
-print(f'the shape of array a is {a.shape}')
-
-b = np.array([3, 6])
-print(f'the shape of array b is {b.shape}')
-
-a + b
-```
-
 * *Step 3:* After Step 1 and 2, if the two arrays still do not match, a `ValueError` will be raised. For example, suppose `a -> (2, 2, 3)` and `b -> (2, 2)`
     - By *Step 1*, `b` will be expanded to `b -> (1, 2, 2)`;
     - By *Step 2*, `b` will be expanded to `b -> (2, 2, 2)`;
     - We can see that they do not match each other after the first two steps. Thus, a `ValueError` will be raised
 
-```{code-cell} python3
----
-tags: [raises-exception]
----
-a = np.array(
-    [[[1, 2, 3], 
-      [2, 3, 4]], 
-     
-     [[2, 3, 4], 
-      [3, 4, 5]]])
-print(f'the shape of array a is {a.shape}')
 
-b = np.array(
-    [[1,7], 
-     [7,1]])
-print(f'the shape of array b is {b.shape}')
-
-a + b
-```
 
 ## Mutability and Copying Arrays
 
@@ -944,9 +839,17 @@ NumPy arrays are mutable data types, like Python lists.
 
 In other words, their contents can be altered (mutated) in memory after initialization.
 
-We already saw examples above.
+This is convenient but, when combined with Python's naming and reference model,
+can lead to mistakes by NumPy beginners.
 
-Here's another example:
+In this section we review some key issues.
+
+
+### Mutability
+
+We already saw examples of multability above.
+
+Here's another example of mutation of a NumPy array
 
 ```{code-cell} python3
 a = np.array([42, 44])
@@ -1013,11 +916,15 @@ a
 
 Note that the change to `b` has not affected `a`.
 
-## Additional Functionality
 
-Let's look at some other useful things we can do with NumPy.
 
-### Vectorized Functions
+
+## Additional Features
+
+Let's look at some other useful features of NumPy.
+
+
+### Universal Functions
 
 ```{index} single: NumPy; Vectorized Functions
 ```
@@ -1038,9 +945,9 @@ for i in range(n):
     y[i] = np.sin(z[i])
 ```
 
-Because they act element-wise on arrays, these functions are called *vectorized functions*.
+Because they act element-wise on arrays, these functions are sometimes called **vectorized functions**.
 
-In NumPy-speak, they are also called *ufuncs*, which stands for "universal functions".
+In NumPy-speak, they are also called **ufuncs**, or **universal functions**.
 
 As we saw above, the usual arithmetic operations (`+`, `*`, etc.) also
 work element-wise, and combining these with the ufuncs gives a very large set of fast element-wise functions.
@@ -1081,6 +988,9 @@ f(x)                # Passing the same vector x as in the previous example
 ```
 
 However, this approach doesn't always obtain the same speed as a more carefully crafted vectorized function.
+
+(Later we'll see that JAX has a powerful version of `np.vectorize` that can and usually does generate highly efficient code.)
+
 
 ### Comparisons
 
@@ -1172,140 +1082,41 @@ We'll cover the SciPy versions in more detail {doc}`soon <scipy>`.
 For a comprehensive list of what's available in NumPy see [this documentation](https://numpy.org/doc/stable/reference/routines.html).
 
 
-## Speed Comparisons
+### Implicit Multithreading 
 
-```{index} single: Vectorization; Operations on Arrays
-```
+[Previously](need_for_speed) we discussed the concept of parallelization via multithreading.
 
-We mentioned in an {doc}`previous lecture <need_for_speed>` that NumPy-based vectorization can
-accelerate scientific applications.
+NumPy tries to implement multithreading in much of its compiled code.
 
-In this section we try some speed comparisons to illustrate this fact.
+Let's look at an example to see this in action.
 
-### Vectorization vs Loops
+The next piece of code computes the eigenvalues of a large number of randomly
+generated matrices.
 
-Let's begin with some non-vectorized code, which uses a native Python loop to generate,
-square and then sum a large number of random variables:
+It takes a few seconds to run.
 
 ```{code-cell} python3
-n = 1_000_000
+n = 20
+m = 1000
+for i in range(n):
+    X = np.random.randn(m, m)
+    λ = np.linalg.eigvals(X)
 ```
 
-```{code-cell} python3
-with qe.Timer():
-    y = 0      # Will accumulate and store sum
-    for i in range(n):
-        x = random.uniform(0, 1)
-        y += x**2
+Now, let's look at the output of the htop system monitor on our machine while
+this code is running:
+
+```{figure} /_static/lecture_specific/parallelization/htop_parallel_npmat.png
+:scale: 80
 ```
 
-The following vectorized code achieves the same thing.
+We can see that 4 of the 8 CPUs are running at full speed.
 
-```{code-cell} ipython
-with qe.Timer():
-    x = np.random.uniform(0, 1, n)
-    y = np.sum(x**2)
-```
+This is because NumPy's `eigvals` routine neatly splits up the tasks and
+distributes them to different threads.
 
-As you can see, the second code block runs much faster.  Why?
 
-The second code block breaks the loop down into three basic operations
 
-1. draw `n` uniforms
-1. square them
-1. sum them
-
-These are sent as batch operators to optimized machine code.
-
-Apart from minor overheads associated with sending data back and forth, the result is C or Fortran-like speed.
-
-When we run batch operations on arrays like this, we say that the code is *vectorized*.
-
-The next section illustrates this point.
-
-(ufuncs)=
-### Universal Functions
-
-```{index} single: NumPy; Universal Functions
-```
-
-As discussed above, many functions provided by NumPy are universal functions (ufuncs).
-
-By exploiting ufuncs, many operations can be vectorized, leading to faster
-execution.
-
-For example, consider the problem of maximizing a function $f$ of two
-variables $(x,y)$ over the square $[-a, a] \times [-a, a]$.
-
-For $f$ and $a$ let's choose
-
-$$
-f(x,y) = \frac{\cos(x^2 + y^2)}{1 + x^2 + y^2}
-\quad \text{and} \quad
-a = 3
-$$
-
-Here's a plot of $f$
-
-```{code-cell} ipython
-
-def f(x, y):
-    return np.cos(x**2 + y**2) / (1 + x**2 + y**2)
-
-xgrid = np.linspace(-3, 3, 50)
-ygrid = xgrid
-x, y = np.meshgrid(xgrid, ygrid)
-
-fig = plt.figure(figsize=(10, 8))
-ax = fig.add_subplot(111, projection='3d')
-ax.plot_surface(x,
-                y,
-                f(x, y),
-                rstride=2, cstride=2,
-                cmap=cm.jet,
-                alpha=0.7,
-                linewidth=0.25)
-ax.set_zlim(-0.5, 1.0)
-ax.set_xlabel('$x$', fontsize=14)
-ax.set_ylabel('$y$', fontsize=14)
-plt.show()
-```
-
-To maximize it, we're going to use a naive grid search:
-
-1. Evaluate $f$ for all $(x,y)$ in a grid on the square.
-1. Return the maximum of observed values.
-
-The grid will be
-
-```{code-cell} python3
-grid = np.linspace(-3, 3, 1000)
-```
-
-Here's a non-vectorized version that uses Python loops.
-
-```{code-cell} python3
-with qe.Timer():
-    m = -np.inf
-
-    for x in grid:
-        for y in grid:
-            z = f(x, y)
-            if z > m:
-                m = z
-```
-
-And here's a vectorized version
-
-```{code-cell} python3
-with qe.Timer():
-    x, y = np.meshgrid(grid, grid)
-    np.max(f(x, y))
-```
-
-In the vectorized version, all the looping takes place in compiled code.
-
-As you can see, the second version is *much* faster.
 
 
 ## Exercises

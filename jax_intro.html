@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>19. An Introduction to JAX &#8212; Python Programming for Economics and Finance</title>
+    <title>14. JAX &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
@@ -70,7 +70,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=3bd9fcddbe64f63e07c8604843d1cc622a07b430" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=15c2afa29682abb9326a76db12ed4f4c791e68c4" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
@@ -94,7 +94,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=30f7c850c5b005eca2ad6e48893cd350a6c6c4c2"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=06ebc90d5139b434c2742937a4ef3b185cb93e2f"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -123,8 +123,8 @@
     <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="20. Writing Good Code" href="writing_good_code.html" />
-    <link rel="prev" title="18. Parallelization" href="parallelization.html" />
+    <link rel="next" title="15. NumPy vs Numba vs JAX" href="numpy_vs_numba_vs_jax.html" />
+    <link rel="prev" title="13. Numba" href="numba.html" />
 
 <!-- Normal Meta Tags -->
 <meta name="author" context="Thomas J. Sargent &amp; John Stachurski" />
@@ -134,13 +134,13 @@
 <!-- Twitter tags -->
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@quantecon" />
-<meta name="twitter:title" content="An Introduction to JAX"/>
+<meta name="twitter:title" content="JAX"/>
 <meta name="twitter:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.">
 <meta name="twitter:creator" content="@quantecon">
 <meta name="twitter:image" content="https://assets.quantecon.org/img/qe-twitter-logo.png">
 
 <!-- Opengraph tags -->
-<meta property="og:title" content="An Introduction to JAX" />
+<meta property="og:title" content="JAX" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://python-programming.quantecon.org/jax_intro.html" />
 <meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
@@ -173,21 +173,49 @@
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jax-as-a-numpy-replacement">19.1. JAX as a NumPy Replacement</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#similarities">19.1.1. Similarities</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differences">19.1.2. Differences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jax-as-a-numpy-replacement">14.1. JAX as a NumPy Replacement</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#similarities">14.1.1. Similarities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differences">14.1.2. Differences</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#precision">14.1.2.1. Precision</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#immutability">14.1.2.2. Immutability</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-workaround">14.1.2.3. A workaround</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-numbers">19.2. Random Numbers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jit-compilation">19.3. JIT compilation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-first-example">19.3.1. A first example</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-the-outer-function">19.3.2. Compiling the outer function</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-programming">19.4. Functional Programming</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradients">19.5. Gradients</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-vectorized-code">19.6. Writing vectorized code</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">19.7. Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-programming">14.2. Functional Programming</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pure-functions">14.2.1. Pure functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">14.2.2. Examples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-numbers">14.3. Random numbers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-number-generation">14.3.1. Random number generation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-explicit-random-state">14.3.2. Why explicit random state?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-s-approach">14.3.2.1. NumPy’s approach</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jax-s-approach">14.3.2.2. JAX’s approach</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jit-compilation">14.4. JIT compilation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-example">14.4.1. A simple example</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#with-numpy">14.4.1.1. With NumPy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#with-jax">14.4.1.2. With JAX</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-array-sizes">14.4.1.3. Changing array sizes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-a-more-complicated-function">14.4.2. Evaluating a more complicated function</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">14.4.2.1. With NumPy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">14.4.2.2. With JAX</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-the-whole-function">14.4.3. Compiling the Whole Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-non-pure-functions">14.4.4. Compiling non-pure functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">14.4.5. Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradients">14.5. Gradients</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">14.6. Exercises</a></li>
 </ul>
                             <p class="logo">
                                 
@@ -220,7 +248,7 @@
 
                         <p class="qe-page__header-heading"><a href="intro.html">Python Programming for Economics and Finance</a></p>
 
-                        <p class="qe-page__header-subheading">An Introduction to JAX</p>
+                        <p class="qe-page__header-subheading">JAX</p>
 
                     </div>
                     <!-- length 2, since its a string and empty dict has length 2 - {} -->
@@ -246,8 +274,8 @@
                     
                     <div>
                         
-  <section class="tex2jax_ignore mathjax_ignore" id="an-introduction-to-jax">
-<h1><span class="section-number">19. </span>An Introduction to JAX<a class="headerlink" href="#an-introduction-to-jax" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="jax">
+<h1><span class="section-number">14. </span>JAX<a class="headerlink" href="#jax" title="Link to this heading">#</a></h1>
 <p>In addition to what’s in Anaconda, this lecture will need the following libraries:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
@@ -264,17 +292,17 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting jax
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading jax-0.8.0-py3-none-any.whl.metadata (13 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading jax-0.8.1-py3-none-any.whl.metadata (13 kB)
 Collecting quantecon
   Downloading quantecon-0.10.1-py3-none-any.whl.metadata (5.3 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting jaxlib&lt;=0.8.0,&gt;=0.8.0 (from jax)
-  Downloading jaxlib-0.8.0-cp313-cp313-manylinux_2_27_x86_64.whl.metadata (1.3 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting jaxlib&lt;=0.8.1,&gt;=0.8.1 (from jax)
+  Downloading jaxlib-0.8.1-cp313-cp313-manylinux_2_27_x86_64.whl.metadata (1.3 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting ml_dtypes&gt;=0.5.0 (from jax)
-  Downloading ml_dtypes-0.5.3-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.9 kB)
+  Downloading ml_dtypes-0.5.4-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.9 kB)
 Requirement already satisfied: numpy&gt;=2.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (2.1.3)
 Collecting opt_einsum (from jax)
   Downloading opt_einsum-3.4.0-py3-none-any.whl.metadata (6.3 kB)
@@ -288,30 +316,35 @@ Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/env
 Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2.3.0)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2025.4.26)
 Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from sympy-&gt;quantecon) (1.3.0)
-Downloading jax-0.8.0-py3-none-any.whl (2.9 MB)
+Downloading jax-0.8.1-py3-none-any.whl (2.9 MB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/2.9 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.9/2.9 MB</span> <span class=" -Color -Color-Red">67.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hDownloading jaxlib-0.8.0-cp313-cp313-manylinux_2_27_x86_64.whl (79.7 MB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.9/2.9 MB</span> <span class=" -Color -Color-Red">167.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/79.7 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading jaxlib-0.8.1-cp313-cp313-manylinux_2_27_x86_64.whl (80.3 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/80.3 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">49.3/79.7 MB</span> <span class=" -Color -Color-Red">252.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">33.6/80.3 MB</span> <span class=" -Color -Color-Red">173.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">79.7/79.7 MB</span> <span class=" -Color -Color-Red">244.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">48.2/80.3 MB</span> <span class=" -Color -Color-Red">128.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">79.7/79.7 MB</span> <span class=" -Color -Color-Red">189.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hDownloading quantecon-0.10.1-py3-none-any.whl (325 kB)
-Downloading ml_dtypes-0.5.3-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (4.9 MB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/4.9 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺ <span class=" -Color -Color-Green">78.6/80.3 MB</span> <span class=" -Color -Color-Red">131.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.9/4.9 MB</span> <span class=" -Color -Color-Red">202.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">80.3/80.3 MB</span> <span class=" -Color -Color-Red">113.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading quantecon-0.10.1-py3-none-any.whl (325 kB)
+Downloading ml_dtypes-0.5.4-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (5.0 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/5.0 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.0/5.0 MB</span> <span class=" -Color -Color-Red">202.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25hDownloading opt_einsum-3.4.0-py3-none-any.whl (71 kB)
 </pre></div>
 </div>
@@ -378,10 +411,7 @@ Downloading ml_dtypes-0.5.3-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5/5</span> [jax]
 ?25h
-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed jax-0.8.0 jaxlib-0.8.0 ml_dtypes-0.5.3 opt_einsum-3.4.0 quantecon-0.10.1
+Successfully installed jax-0.8.1 jaxlib-0.8.1 ml_dtypes-0.5.4 opt_einsum-3.4.0 quantecon-0.10.1
 </pre></div>
 </div>
 </div>
@@ -390,26 +420,33 @@ Downloading ml_dtypes-0.5.3-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86
 <p>This lecture provides a short introduction to <a class="reference external" href="https://github.com/jax-ml/jax">Google JAX</a>.</p>
 <p>Here we are focused on using JAX on the CPU, rather than on accelerators such as
 GPUs or TPUs.</p>
-<p>This means we will only see a small amount of the possible benefits from using
-JAX.</p>
-<p>At the same time, JAX computing on the CPU is a good place to start, since the
-JAX just-in-time compiler seamlessly handles transitions across different
-hardware platforms.</p>
-<p>(In other words, if you do want to shift to using GPUs, you will almost never
-need to modify your code.)</p>
-<p>For a discusson of JAX on GPUs, see <a class="reference external" href="https://jax.quantecon.org/intro.html">our JAX lecture series</a>.</p>
+<p>This means we will only see a small amount of the possible benefits from using JAX.</p>
+<p>However, JAX seamlessly handles transitions across different hardware platforms.</p>
+<p>As a result, if you run this code on a machine with a GPU and a GPU-aware
+version of JAX installed, your code will be automatically accelerated and you
+will receive the full benefits.</p>
+<p>For a discussion of JAX on GPUs, see <a class="reference external" href="https://jax.quantecon.org/intro.html">our JAX lecture series</a>.</p>
 <section id="jax-as-a-numpy-replacement">
-<h2><span class="section-number">19.1. </span>JAX as a NumPy Replacement<a class="headerlink" href="#jax-as-a-numpy-replacement" title="Link to this heading">#</a></h2>
-<p>One way to use JAX is as a plug-in NumPy replacement. Let’s look at the
-similarities and differences.</p>
+<h2><span class="section-number">14.1. </span>JAX as a NumPy Replacement<a class="headerlink" href="#jax-as-a-numpy-replacement" title="Link to this heading">#</a></h2>
+<p>One of the attractive features of JAX is that, whenever possible, it conforms to
+the NumPy API for array operations.</p>
+<p>This means that, to a large extent, we can use JAX is as a drop-in NumPy replacement.</p>
+<p>Let’s look at the similarities and differences between JAX and NumPy.</p>
 <section id="similarities">
-<h3><span class="section-number">19.1.1. </span>Similarities<a class="headerlink" href="#similarities" title="Link to this heading">#</a></h3>
-<p>The following import is standard, replacing <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code>:</p>
+<h3><span class="section-number">14.1.1. </span>Similarities<a class="headerlink" href="#similarities" title="Link to this heading">#</a></h3>
+<p>We’ll use the following imports</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">jax</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">quantecon</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qe</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In addition, we replace <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code> with</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
 </pre></div>
 </div>
 </div>
@@ -524,16 +561,10 @@ similarities and differences.</p>
 </div>
 </div>
 </div>
+<p>JAX’s array interface also provides the <code class="docutils literal notranslate"><span class="pre">linalg</span></code> subpackage:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">jax.numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">linalg</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>   <span class="c1"># Inverse of identity is identity</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jnp</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>   <span class="c1"># Inverse of identity is identity</span>
 </pre></div>
 </div>
 </div>
@@ -546,7 +577,7 @@ similarities and differences.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>  <span class="c1"># Computes eigenvalues and eigenvectors</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jnp</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>  <span class="c1"># Computes eigenvalues and eigenvectors</span>
 </pre></div>
 </div>
 </div>
@@ -559,7 +590,10 @@ similarities and differences.</p>
 </div>
 </section>
 <section id="differences">
-<h3><span class="section-number">19.1.2. </span>Differences<a class="headerlink" href="#differences" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.1.2. </span>Differences<a class="headerlink" href="#differences" title="Link to this heading">#</a></h3>
+<p>Let’s now look at some differences between JAX and NumPy array operations.</p>
+<section id="precision">
+<h4><span class="section-number">14.1.2.1. </span>Precision<a class="headerlink" href="#precision" title="Link to this heading">#</a></h4>
 <p>One difference between NumPy and JAX is that JAX uses 32 bit floats by default.</p>
 <p>This is because JAX is often used for GPU computing, and most GPU computations use 32 bit floats.</p>
 <p>Using 32 bit floats can lead to significant speed gains with small loss of precision.</p>
@@ -585,6 +619,9 @@ similarities and differences.</p>
 </div>
 </div>
 </div>
+</section>
+<section id="immutability">
+<h4><span class="section-number">14.1.2.2. </span>Immutability<a class="headerlink" href="#immutability" title="Link to this heading">#</a></h4>
 <p>As a NumPy replacement, a more significant difference is that arrays are treated as <strong>immutable</strong>.</p>
 <p>For example, with NumPy we can write</p>
 <div class="cell docutils container">
@@ -641,12 +678,12 @@ similarities and differences.</p>
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="nn">File ~/miniconda3/envs/quantecon/lib/python3.13/site-packages/jax/_src/numpy/array_methods.py:617,</span> in <span class="ni">_unimplemented_setitem</span><span class="nt">(self, i, x)</span>
-<span class="g g-Whitespace">    </span><span class="mi">613</span> <span class="k">def</span><span class="w"> </span><span class="nf">_unimplemented_setitem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">614</span>   <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;JAX arrays are immutable and do not support in-place item assignment.&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">615</span>          <span class="s2">&quot; Instead of x[idx] = y, use x = x.at[idx].set(y) or another .at[] method:&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">616</span>          <span class="s2">&quot; https://docs.jax.dev/en/latest/_autosummary/jax.numpy.ndarray.at.html&quot;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">617</span>   <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
+<span class="nn">File ~/miniconda3/envs/quantecon/lib/python3.13/site-packages/jax/_src/numpy/array_methods.py:621,</span> in <span class="ni">_unimplemented_setitem</span><span class="nt">(self, i, x)</span>
+<span class="g g-Whitespace">    </span><span class="mi">617</span> <span class="k">def</span><span class="w"> </span><span class="nf">_unimplemented_setitem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">618</span>   <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;JAX arrays are immutable and do not support in-place item assignment.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">619</span>          <span class="s2">&quot; Instead of x[idx] = y, use x = x.at[idx].set(y) or another .at[] method:&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">620</span>          <span class="s2">&quot; https://docs.jax.dev/en/latest/_autosummary/jax.numpy.ndarray.at.html&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">621</span>   <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
 
 <span class="ne">TypeError</span>: JAX arrays are immutable and do not support in-place item assignment. Instead of x[idx] = y, use x = x.at[idx].set(y) or another .at[] method: https://docs.jax.dev/en/latest/_autosummary/jax.numpy.ndarray.at.html
 </pre></div>
@@ -657,7 +694,7 @@ similarities and differences.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>    <span class="c1"># Unlike NumPy, does not mutate a</span>
 <span class="n">a</span>
 </pre></div>
 </div>
@@ -671,7 +708,7 @@ similarities and differences.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">a_new</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">a_new</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>   <span class="c1"># Instead, the sort method returns a new sorted array</span>
 <span class="n">a</span><span class="p">,</span> <span class="n">a_new</span>
 </pre></div>
 </div>
@@ -683,30 +720,16 @@ similarities and differences.</p>
 </div>
 </div>
 <p>The designers of JAX chose to make arrays immutable because JAX uses a
-functional programming style.  More on this below.</p>
-<p>However, JAX provides a functionally pure equivalent of in-place array modification
+<em>functional programming style</em>.</p>
+<p>This design choice has important implications, which we explore next!</p>
+</section>
+<section id="a-workaround">
+<h4><span class="section-number">14.1.2.3. </span>A workaround<a class="headerlink" href="#a-workaround" title="Link to this heading">#</a></h4>
+<p>We note that JAX does provide a version of in-place array modification
 using the <a class="reference external" href="https://docs.jax.dev/en/latest/_autosummary/jax.numpy.ndarray.at.html"><code class="docutils literal notranslate"><span class="pre">at</span></code> method</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>928054640
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([0. , 0.5, 1. ], dtype=float64)
 </pre></div>
 </div>
 </div>
@@ -725,59 +748,98 @@ using the <a class="reference external" href="https://docs.jax.dev/en/latest/_au
 </div>
 </div>
 </div>
-<p>Inspecting the identifier of <code class="docutils literal notranslate"><span class="pre">a</span></code> shows that it has been reassigned</p>
+<p>Obviously, there are downsides to using <code class="docutils literal notranslate"><span class="pre">at</span></code>:</p>
+<ul class="simple">
+<li><p>The syntax is cumbersome and</p></li>
+<li><p>we want to avoid creating fresh arrays in memory every time we change a single value!</p></li>
+</ul>
+<p>Hence, for the most part, we try to avoid this syntax.</p>
+<p>(Although it can in fact be efficient inside JIT-compiled functions – but let’s put this aside for now.)</p>
+</section>
+</section>
+</section>
+<section id="functional-programming">
+<h2><span class="section-number">14.2. </span>Functional Programming<a class="headerlink" href="#functional-programming" title="Link to this heading">#</a></h2>
+<p>From JAX’s documentation:</p>
+<p><em>When walking about the countryside of Italy, the people will not hesitate to tell you that JAX has “una anima di pura programmazione funzionale”.</em></p>
+<p>In other words, JAX assumes a functional programming style.</p>
+<section id="pure-functions">
+<h3><span class="section-number">14.2.1. </span>Pure functions<a class="headerlink" href="#pure-functions" title="Link to this heading">#</a></h3>
+<p>The major implication is that JAX functions should be pure.</p>
+<p><strong>Pure functions</strong> have the following characteristics:</p>
+<ol class="arabic simple">
+<li><p><em>Deterministic</em></p></li>
+<li><p><em>No side effects</em></p></li>
+</ol>
+<p><strong>Deterministic</strong> means</p>
+<ul class="simple">
+<li><p>Same input <span class="math notranslate nohighlight">\(\implies\)</span> same output</p></li>
+<li><p>Outputs do not depend on global state</p></li>
+</ul>
+<p>In particular, pure functions will always return the same result if invoked with the same inputs.</p>
+<p><strong>No side effects</strong> means that the function</p>
+<ul class="simple">
+<li><p>Won’t change global state</p></li>
+<li><p>Won’t modify data passed to the function (immutable data)</p></li>
+</ul>
+</section>
+<section id="examples">
+<h3><span class="section-number">14.2.2. </span>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h3>
+<p>Here’s an example of a <em>non-pure</em> function</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tax_rate</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">prices</span> <span class="o">=</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">add_tax</span><span class="p">(</span><span class="n">prices</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">price</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">prices</span><span class="p">):</span>
+        <span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">price</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">tax_rate</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Post-tax prices: &#39;</span><span class="p">,</span> <span class="n">prices</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">prices</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>942171472
+</div>
+<p>This function fails to be pure because</p>
+<ul class="simple">
+<li><p>side effects — it modifies the global variable <code class="docutils literal notranslate"><span class="pre">prices</span></code></p></li>
+<li><p>non-deterministic — a change to the global variable <code class="docutils literal notranslate"><span class="pre">tax_rate</span></code> will modify
+function outputs, even with the same input array <code class="docutils literal notranslate"><span class="pre">prices</span></code>.</p></li>
+</ul>
+<p>Here’s a <em>pure</em> version</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tax_rate</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">prices</span> <span class="o">=</span> <span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">add_tax_pure</span><span class="p">(</span><span class="n">prices</span><span class="p">,</span> <span class="n">tax_rate</span><span class="p">):</span>
+    <span class="n">new_prices</span> <span class="o">=</span> <span class="p">[</span><span class="n">price</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">tax_rate</span><span class="p">)</span> <span class="k">for</span> <span class="n">price</span> <span class="ow">in</span> <span class="n">prices</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">new_prices</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>This pure version makes all dependencies explicit through function arguments, and doesn’t modify any external state.</p>
+<p>Now that we understand what pure functions are, let’s explore how JAX’s approach to random numbers maintains this purity.</p>
 </section>
 </section>
 <section id="random-numbers">
-<h2><span class="section-number">19.2. </span>Random Numbers<a class="headerlink" href="#random-numbers" title="Link to this heading">#</a></h2>
-<p>Random numbers are also a bit different in JAX, relative to NumPy.  Typically, in JAX, the state of the random number generator needs to be controlled explicitly.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">jax.random</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">random</span>
-</pre></div>
-</div>
-</div>
-</div>
+<h2><span class="section-number">14.3. </span>Random numbers<a class="headerlink" href="#random-numbers" title="Link to this heading">#</a></h2>
+<p>Random numbers are rather different in JAX, compared to what you find in NumPy
+or Matlab.</p>
+<p>At first you might find the syntax rather verbose.</p>
+<p>But you will soon realize that the syntax and semantics are necessary in order
+to maintain the functional programming style we just discussed.</p>
+<p>Moreover, full control of random state
+essential for parallel programming, such as when we want to run independent experiments along multiple threads.</p>
+<section id="random-number-generation">
+<h3><span class="section-number">14.3.1. </span>Random number generation<a class="headerlink" href="#random-number-generation" title="Link to this heading">#</a></h3>
+<p>In JAX, the state of the random number generator is controlled explicitly.</p>
 <p>First we produce a key, which seeds the random number generator.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">key</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jaxlib._jax.ArrayImpl
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 1]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seed</span> <span class="o">=</span> <span class="mi">1234</span>
+<span class="n">key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -785,15 +847,15 @@ using the <a class="reference external" href="https://docs.jax.dev/en/latest/_au
 <p>Now we can use the key to generate some random numbers:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">x</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([[-1.18428442, -0.11617041,  0.17269028],
-       [ 0.95730718, -0.83295415,  0.69080517],
-       [ 0.07545021, -0.7645271 , -0.05064539]], dtype=float64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([[-0.54019824,  0.43957585, -0.01978102],
+       [ 0.90665474, -0.90831359,  1.32846635],
+       [ 0.20408174,  0.93096529,  3.30373914]], dtype=float64)
 </pre></div>
 </div>
 </div>
@@ -801,62 +863,66 @@ using the <a class="reference external" href="https://docs.jax.dev/en/latest/_au
 <p>If we use the same key again, we initialize at the same seed, so the random numbers are the same:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([[-1.18428442, -0.11617041,  0.17269028],
-       [ 0.95730718, -0.83295415,  0.69080517],
-       [ 0.07545021, -0.7645271 , -0.05064539]], dtype=float64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([[-0.54019824,  0.43957585, -0.01978102],
+       [ 0.90665474, -0.90831359,  1.32846635],
+       [ 0.20408174,  0.93096529,  3.30373914]], dtype=float64)
 </pre></div>
 </div>
 </div>
 </div>
-<p>To produce a (quasi-) independent draw, best practice is to “split” the existing key:</p>
+<p>To produce a (quasi-) independent draw, one option is to “split” the existing key:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">key</span><span class="p">,</span> <span class="n">subkey</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">key</span><span class="p">,</span> <span class="n">subkey</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([[ 1.09221959,  0.33192176, -0.90184197],
-       [-1.37815779,  0.43052577,  1.6068202 ],
-       [ 0.04053753, -0.78732842,  1.75917181]], dtype=float64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([[ 1.24104247,  0.12018902, -2.23990047],
+       [ 0.70507261, -0.85702845, -1.24582014],
+       [ 0.38454486,  1.32117717,  0.56866901]], dtype=float64)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">subkey</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">subkey</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([[ 0.7158846 ,  0.03955972,  0.71127682],
-       [-0.40080158, -0.91609481,  0.23713062],
-       [ 0.85253995, -0.80972695,  1.79431941]], dtype=float64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([[ 0.07627173, -1.30349831,  0.86524323],
+       [-0.75550773,  0.63958052,  0.47052126],
+       [-1.72866044, -1.14696564, -1.23328892]], dtype=float64)
 </pre></div>
 </div>
 </div>
 </div>
-<p>The function below produces <code class="docutils literal notranslate"><span class="pre">k</span></code> (quasi-) independent random <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">n</span></code> matrices using this procedure.</p>
+<p>This syntax will seem unusual for a NumPy or Matlab user — but will make a lot
+of sense when we progress to parallel programming.</p>
+<p>The function below produces <code class="docutils literal notranslate"><span class="pre">k</span></code> (quasi-) independent random <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">n</span></code> matrices using <code class="docutils literal notranslate"><span class="pre">split</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">gen_random_matrices</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">gen_random_matrices</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
     <span class="n">matrices</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
-        <span class="n">key</span><span class="p">,</span> <span class="n">subkey</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-        <span class="n">matrices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">subkey</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)))</span>
+        <span class="n">key</span><span class="p">,</span> <span class="n">subkey</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">subkey</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+        <span class="n">matrices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">matrices</span>
 </pre></div>
 </div>
@@ -864,121 +930,281 @@ using the <a class="reference external" href="https://docs.jax.dev/en/latest/_au
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrices</span> <span class="o">=</span> <span class="n">gen_random_matrices</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">A</span> <span class="ow">in</span> <span class="n">matrices</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seed</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+<span class="n">matrices</span> <span class="o">=</span> <span class="n">gen_random_matrices</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.29202993 0.43545993]
- [0.73730956 0.3796823 ]]
-[[0.08823494 0.3358791 ]
- [0.72669531 0.82647633]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.74211901 0.54715578]
+ [0.05988742 0.32206803]]
+[[0.65877976 0.57087415]
+ [0.97301903 0.10138266]]
+[[0.68745522 0.25974132]
+ [0.06595873 0.83589118]]
 </pre></div>
 </div>
 </div>
 </div>
-<p>To get a one-dimensional array of normal random draws, we can either use <code class="docutils literal notranslate"><span class="pre">(len,</span> <span class="pre">)</span></code> for the shape, as in</p>
+<p>We can also use <code class="docutils literal notranslate"><span class="pre">fold_in</span></code> when iterating in a loop:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">gen_random_matrices</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">matrices</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+        <span class="n">step_key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">fold_in</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">step_key</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+        <span class="n">matrices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">matrices</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([ 1.09221959,  0.33192176, -0.90184197, -1.37815779,  0.43052577],      dtype=float64)
-</pre></div>
 </div>
-</div>
-</div>
-<p>or simply use <code class="docutils literal notranslate"><span class="pre">5</span></code> as the shape argument:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+<span class="n">matrices</span> <span class="o">=</span> <span class="n">gen_random_matrices</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([ 1.09221959,  0.33192176, -0.90184197, -1.37815779,  0.43052577],      dtype=float64)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.23566993 0.39719189]
+ [0.95367373 0.42397776]]
+[[0.74211901 0.54715578]
+ [0.05988742 0.32206803]]
+[[0.37386727 0.66444882]
+ [0.80253222 0.42934555]]
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="jit-compilation">
-<h2><span class="section-number">19.3. </span>JIT compilation<a class="headerlink" href="#jit-compilation" title="Link to this heading">#</a></h2>
-<p>The JAX just-in-time (JIT) compiler accelerates logic within functions by fusing linear
-algebra operations into a single optimized kernel.</p>
-<section id="a-first-example">
-<h3><span class="section-number">19.3.1. </span>A first example<a class="headerlink" href="#a-first-example" title="Link to this heading">#</a></h3>
-<p>To see the JIT compiler in action, consider the following function.</p>
+<section id="why-explicit-random-state">
+<h3><span class="section-number">14.3.2. </span>Why explicit random state?<a class="headerlink" href="#why-explicit-random-state" title="Link to this heading">#</a></h3>
+<p>Why does JAX require this somewhat verbose approach to random number generation?</p>
+<p>One reason is to maintain pure functions.</p>
+<p>Let’s see how random number generation relates to pure functions by comparing NumPy and JAX.</p>
+<section id="numpy-s-approach">
+<h4><span class="section-number">14.3.2.1. </span>NumPy’s approach<a class="headerlink" href="#numpy-s-approach" title="Link to this heading">#</a></h4>
+<p>In NumPy, random number generation works by maintaining hidden global state.</p>
+<p>Each time we call a random function, this state is updated:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="mf">0.4</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mf">1.5</span>
-    <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Let’s build an array to call the function on.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">50_000_000</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>How long does the function take to execute?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">())</span>   <span class="c1"># Updates state of random number generator</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">())</span>   <span class="c1"># Updates state of random number generator</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.58 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4967141530112327
+-0.13826430117118466
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each call returns a different value, even though we’re calling the same function with the same inputs (no arguments).</p>
+<p>This function is <em>not pure</em> because:</p>
+<ul class="simple">
+<li><p>It’s non-deterministic: same inputs (none, in this case) give different outputs</p></li>
+<li><p>It has side effects: it modifies the global random number generator state</p></li>
+</ul>
+</section>
+<section id="jax-s-approach">
+<h4><span class="section-number">14.3.2.2. </span>JAX’s approach<a class="headerlink" href="#jax-s-approach" title="Link to this heading">#</a></h4>
+<p>As we saw above, JAX takes a different approach, making randomness explicit through keys.</p>
+<p>For example,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">random_sum_jax</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+    <span class="n">key1</span><span class="p">,</span> <span class="n">key2</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">key1</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">key2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With the same key, we always get the same result:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">random_sum_jax</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array(-0.07040872, dtype=float64)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random_sum_jax</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array(-0.07040872, dtype=float64)
+</pre></div>
+</div>
+</div>
+</div>
+<p>To get new draws we need to supply a new key.</p>
+<p>The  function <code class="docutils literal notranslate"><span class="pre">random_sum_jax</span></code> is pure because:</p>
+<ul class="simple">
+<li><p>It’s deterministic: same key always produces same output</p></li>
+<li><p>No side effects: no hidden state is modified</p></li>
+</ul>
+<p>The explicitness of JAX brings significant benefits:</p>
+<ul class="simple">
+<li><p>Reproducibility: Easy to reproduce results by reusing keys</p></li>
+<li><p>Parallelization: Each thread can have its own key without conflicts</p></li>
+<li><p>Debugging: No hidden state makes code easier to reason about</p></li>
+<li><p>JIT compatibility: The compiler can optimize pure functions more aggressively</p></li>
+</ul>
+<p>The last point is expanded on in the next section.</p>
+</section>
+</section>
+</section>
+<section id="jit-compilation">
+<h2><span class="section-number">14.4. </span>JIT compilation<a class="headerlink" href="#jit-compilation" title="Link to this heading">#</a></h2>
+<p>The JAX just-in-time (JIT) compiler accelerates execution by generating
+efficient machine code that varies with both task size and hardware.</p>
+<section id="a-simple-example">
+<h3><span class="section-number">14.4.1. </span>A simple example<a class="headerlink" href="#a-simple-example" title="Link to this heading">#</a></h3>
+<p>Let’s say we want to evaluate the cosine function at many points.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">50_000_000</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="with-numpy">
+<h4><span class="section-number">14.4.1.1. </span>With NumPy<a class="headerlink" href="#with-numpy" title="Link to this heading">#</a></h4>
+<p>Let’s try with NumPy</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.83 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>And one more time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.81 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here NumPy uses a pre-built binary file, compiled from carefully written
+low-level code, for applying cosine to an array of floats.</p>
+<p>This binary file ships with NumPy.</p>
+</section>
+<section id="with-jax">
+<h4><span class="section-number">14.4.1.2. </span>With JAX<a class="headerlink" href="#with-jax" title="Link to this heading">#</a></h4>
+<p>Now let’s try with JAX.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s time the same procedure.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.38 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Here, in order to measure actual speed, we use the <code class="docutils literal notranslate"><span class="pre">block_until_ready()</span></code> method
-to hold the interpreter until the results of the computation are returned.
-This is necessary because JAX uses asynchronous dispatch, which
+<p>Here, in order to measure actual speed, we use the <code class="docutils literal notranslate"><span class="pre">block_until_ready</span></code> method
+to hold the interpreter until the results of the computation are returned.</p>
+<p>This is necessary because JAX uses asynchronous dispatch, which
 allows the Python interpreter to run ahead of numerical computations.</p>
+<p>For non-timed code, you can drop the line containing <code class="docutils literal notranslate"><span class="pre">block_until_ready</span></code>.</p>
 </div>
-<p>If we run it a second time it becomes faster again:</p>
+<p>And let’s time it again.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.45 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.33 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<p>This is because the built in functions like <code class="docutils literal notranslate"><span class="pre">jnp.cos</span></code> are JIT compiled and the
+<p>If you are running this on a GPU the code will run much faster than its NumPy
+equivalent, which ran on the CPU.</p>
+<p>Even if you are running on a machine with many CPUs, the second JAX run should
+be substantially faster with JAX.</p>
+<p>Also, typically, the second run is faster than the first.</p>
+<p>(This might not be noticable on the CPU but it should definitely be noticable on
+the GPU.)</p>
+<p>This is because even built in functions like <code class="docutils literal notranslate"><span class="pre">jnp.cos</span></code> are JIT-compiled — and the
 first run includes compile time.</p>
 <p>Why would JAX want to JIT-compile built in functions like <code class="docutils literal notranslate"><span class="pre">jnp.cos</span></code> instead of
 just providing pre-compiled versions, like NumPy?</p>
-<p>The reason is that the JIT compiler can specialize on the <em>size</em> of the array
-being used, which is helpful for parallelization.</p>
-<p>For example, in running the code above, the JIT compiler produced a version of <code class="docutils literal notranslate"><span class="pre">jnp.cos</span></code> that is
-specialized to floating point arrays of size <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">50_000_000</span></code>.</p>
-<p>We can check this by calling <code class="docutils literal notranslate"><span class="pre">f</span></code> with a new array of different size.</p>
+<p>The reason is that the JIT compiler wants to specialize on the <em>size</em> of the array
+being used (as well as the data type).</p>
+<p>The size matters for generating optimized code because efficient parallelization
+requires matching the size of the task to the available hardware.</p>
+<p>That’s why JAX waits to see the size of the array before compiling — which
+requires a JIT-compiled approach instead of supplying precompiled binaries.</p>
+</section>
+<section id="changing-array-sizes">
+<h4><span class="section-number">14.4.1.3. </span>Changing array sizes<a class="headerlink" href="#changing-array-sizes" title="Link to this heading">#</a></h4>
+<p>Here we change the input size and watch the runtimes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="mi">50_000_001</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.40 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -986,116 +1212,174 @@ specialized to floating point arrays of size <code class="docutils literal notra
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.60 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.33 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<p>Notice that the execution time increases, because now new versions of
-the built-ins like <code class="docutils literal notranslate"><span class="pre">jnp.cos</span></code> are being compiled, specialized to the new array
-size.</p>
-<p>If we run again, the code is dispatched to the correct compiled version and we
-get faster execution.</p>
+<p>Typically, the run time increases and then falls again (this will be more obvious on the GPU).</p>
+<p>This is because the JIT compiler specializes on array size to exploit
+parallelization — and hence generates fresh compiled code when the array size
+changes.</p>
+</section>
+</section>
+<section id="evaluating-a-more-complicated-function">
+<h3><span class="section-number">14.4.2. </span>Evaluating a more complicated function<a class="headerlink" href="#evaluating-a-more-complicated-function" title="Link to this heading">#</a></h3>
+<p>Let’s try the same thing with a more complex function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h4><span class="section-number">14.4.2.1. </span>With NumPy<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>We’ll try first with NumPy</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">50_000_000</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.44 seconds elapsed
-</pre></div>
-</div>
-</div>
-</div>
-<p>The compiled versions for the previous array size are still available in memory
-too, and the following call is dispatched to the correct compiled code.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.43 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.72 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="compiling-the-outer-function">
-<h3><span class="section-number">19.3.2. </span>Compiling the outer function<a class="headerlink" href="#compiling-the-outer-function" title="Link to this heading">#</a></h3>
-<p>We can do even better if we manually JIT-compile the outer function.</p>
+<section id="id2">
+<h4><span class="section-number">14.4.2.2. </span>With JAX<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<p>Now let’s try again with JAX.</p>
+<p>As a first pass, we replace <code class="docutils literal notranslate"><span class="pre">np</span></code> with <code class="docutils literal notranslate"><span class="pre">jnp</span></code> throughout:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_jit</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>   <span class="c1"># target for JIT compilation</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">y</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Let’s run once to compile it:</p>
+<p>Now let’s time it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_jit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array(2.19896006e+08, dtype=float64)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>And now let’s time it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">f_jit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.05 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.00 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<p>Note the speed gain.</p>
-<p>This is because the array operations are fused and no intermediate arrays are created.</p>
-<p>Incidentally, a more common syntax when targetting a function for the JIT
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.95 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>The outcome is similar to the <code class="docutils literal notranslate"><span class="pre">cos</span></code> example — JAX is faster, especially if you
+use a GPU and especially on the second run.</p>
+<p>Moreover, with JAX, we have another trick up our sleeve:</p>
+</section>
+</section>
+<section id="compiling-the-whole-function">
+<h3><span class="section-number">14.4.3. </span>Compiling the Whole Function<a class="headerlink" href="#compiling-the-whole-function" title="Link to this heading">#</a></h3>
+<p>The JAX just-in-time (JIT) compiler can accelerate execution within functions by fusing linear
+algebra operations into a single optimized kernel.</p>
+<p>Let’s try this with the function <code class="docutils literal notranslate"><span class="pre">f</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_jax</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f_jax</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.58 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f_jax</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.55 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>The runtime has improved again — now because we fused all the operations,
+allowing the compiler to optimize more aggressively.</p>
+<p>For example, the compiler can eliminate multiple calls to the hardware
+accelerator and the creation of a number of intermediate arrays.</p>
+<p>Incidentally, a more common syntax when targeting a function for the JIT
 compiler is</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="mf">0.4</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mf">1.5</span>
-    <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">pass</span> <span class="c1"># put function body here</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-</section>
-<section id="functional-programming">
-<h2><span class="section-number">19.4. </span>Functional Programming<a class="headerlink" href="#functional-programming" title="Link to this heading">#</a></h2>
-<p>From JAX’s documentation:</p>
-<p><em>When walking about the countryside of Italy, the people will not hesitate to tell you that JAX has “una anima di pura programmazione funzionale”.</em></p>
-<p>In other words, JAX assumes a functional programming style.</p>
-<p>The major implication is that JAX functions should be pure.</p>
-<p>A pure function will always return the same result if invoked with the same inputs.</p>
-<p>In particular, a pure function has</p>
-<ul class="simple">
-<li><p>no dependence on global variables and</p></li>
-<li><p>no side effects</p></li>
-</ul>
-<p>JAX will not usually throw errors when compiling impure functions but execution becomes unpredictable.</p>
+<section id="compiling-non-pure-functions">
+<h3><span class="section-number">14.4.4. </span>Compiling non-pure functions<a class="headerlink" href="#compiling-non-pure-functions" title="Link to this heading">#</a></h3>
+<p>Now that we’ve seen how powerful JIT compilation can be, it’s important to understand its relationship with pure functions.</p>
+<p>While JAX will not usually throw errors when compiling impure functions, execution becomes unpredictable.</p>
 <p>Here’s an illustration of this fact, using global variables:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1170,8 +1454,25 @@ compiler is</p>
 </div>
 <p>Moral of the story: write pure functions when using JAX!</p>
 </section>
+<section id="summary">
+<h3><span class="section-number">14.4.5. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h3>
+<p>Now we can see why both developers and compilers benefit from pure functions.</p>
+<p>We love pure functions because they</p>
+<ul class="simple">
+<li><p>Help testing: each function can operate in isolation</p></li>
+<li><p>Promote deterministic behavior and hence reproducibility</p></li>
+<li><p>Prevent bugs that arise from mutating shared state</p></li>
+</ul>
+<p>The compiler loves pure functions and functional programming because</p>
+<ul class="simple">
+<li><p>Data dependencies are explicit, which helps with optimizing complex computations</p></li>
+<li><p>Pure functions are easier to differentiate (autodiff)</p></li>
+<li><p>Pure functions are easier to parallelize and optimize (don’t depend on shared mutable state)</p></li>
+</ul>
+</section>
+</section>
 <section id="gradients">
-<h2><span class="section-number">19.5. </span>Gradients<a class="headerlink" href="#gradients" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.5. </span>Gradients<a class="headerlink" href="#gradients" title="Link to this heading">#</a></h2>
 <p>JAX can use automatic differentiation to compute gradients.</p>
 <p>This can be extremely useful for optimization and solving nonlinear systems.</p>
 <p>We will see significant applications later in this lecture series.</p>
@@ -1224,241 +1525,14 @@ compiler is</p>
 </div>
 <p>We defer further exploration of automatic differentiation with JAX until <a class="reference external" href="https://jax.quantecon.org/autodiff.html" title="(in Project name not set)"><span>Adventures with Autodiff</span></a>.</p>
 </section>
-<section id="writing-vectorized-code">
-<h2><span class="section-number">19.6. </span>Writing vectorized code<a class="headerlink" href="#writing-vectorized-code" title="Link to this heading">#</a></h2>
-<p>Writing fast JAX code requires shifting repetitive tasks from loops to array processing operations, so that the JAX compiler can easily understand the whole operation and generate more efficient machine code.</p>
-<p>This procedure is called <strong>vectorization</strong> or <strong>array programming</strong>, and will be
-familiar to anyone who has used NumPy or MATLAB.</p>
-<p>In most ways, vectorization is the same in JAX as it is in NumPy.</p>
-<p>But there are also some differences, which we highlight here.</p>
-<p>As a running example, consider the function</p>
-<div class="math notranslate nohighlight">
-\[
-    f(x,y) = \frac{\cos(x^2 + y^2)}{1 + x^2 + y^2}
-\]</div>
-<p>Suppose that we want to evaluate this function on a square grid of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> points and then plot it.</p>
-<p>To clarify, here is the slow <code class="docutils literal notranslate"><span class="pre">for</span></code> loop version.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="n">n</span> <span class="o">=</span> <span class="mi">80</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
-
-<span class="n">z_loops</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-            <span class="n">z_loops</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.45 seconds elapsed
-</pre></div>
-</div>
-</div>
-</div>
-<p>Even for this very small grid, the run time is extremely slow.</p>
-<p>(Notice that we used a NumPy array for <code class="docutils literal notranslate"><span class="pre">z_loops</span></code> because we wanted to write to it.)</p>
-<p>OK, so how can we do the same operation in vectorized form?</p>
-<p>If you are new to vectorization, you might guess that we can simply write</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z_bad</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>But this gives us the wrong result because JAX doesn’t understand the nested for loop.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z_bad</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(80,)
-</pre></div>
-</div>
-</div>
-</div>
-<p>Here is what we actually wanted:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z_loops</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(80, 80)
-</pre></div>
-</div>
-</div>
-</div>
-<p>To get the right shape and the correct nested for loop calculation, we can use a <code class="docutils literal notranslate"><span class="pre">meshgrid</span></code> operation designed for this purpose:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_mesh</span><span class="p">,</span> <span class="n">y_mesh</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now we get what we want and the execution time is very fast.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">z_mesh</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x_mesh</span><span class="p">,</span> <span class="n">y_mesh</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.03 seconds elapsed
-</pre></div>
-</div>
-</div>
-</div>
-<p>Let’s run again to eliminate compile time.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">z_mesh</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x_mesh</span><span class="p">,</span> <span class="n">y_mesh</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00 seconds elapsed
-</pre></div>
-</div>
-</div>
-</div>
-<p>Let’s confirm that we got the right answer.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jnp</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">z_mesh</span><span class="p">,</span> <span class="n">z_loops</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array(True, dtype=bool)
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now we can set up a serious grid and run the same calculation (on the larger grid) in a short amount of time.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">6000</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
-<span class="n">x_mesh</span><span class="p">,</span> <span class="n">y_mesh</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">z_mesh</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x_mesh</span><span class="p">,</span> <span class="n">y_mesh</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.24 seconds elapsed
-</pre></div>
-</div>
-</div>
-</div>
-<p>But there is one problem here: the mesh grids use a lot of memory.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_mesh</span><span class="o">.</span><span class="n">nbytes</span> <span class="o">+</span> <span class="n">y_mesh</span><span class="o">.</span><span class="n">nbytes</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>576000000
-</pre></div>
-</div>
-</div>
-</div>
-<p>By comparison, the flat array <code class="docutils literal notranslate"><span class="pre">x</span></code> is just</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">nbytes</span>  <span class="c1"># and y is just a pointer to x</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>48000
-</pre></div>
-</div>
-</div>
-</div>
-<p>This extra memory usage can be a big problem in actual research calculations.</p>
-<p>So let’s try a different approach using <a class="reference external" href="https://docs.jax.dev/en/latest/_autosummary/jax.vmap.html">jax.vmap</a></p>
-<p>First we vectorize <code class="docutils literal notranslate"><span class="pre">f</span></code> in <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_vec_y</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">in_axes</span><span class="o">=</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>  
-</pre></div>
-</div>
-</div>
-</div>
-<p>In the line above, <code class="docutils literal notranslate"><span class="pre">(None,</span> <span class="pre">0)</span></code> indicates that we are vectorizing in the second argument, which is <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
-<p>Next, we vectorize in the first argument, which is <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_vec</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="n">f_vec_y</span><span class="p">,</span> <span class="n">in_axes</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>With this construction, we can now call the function <span class="math notranslate nohighlight">\(f\)</span> on flat (low memory) arrays.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">z_vmap</span> <span class="o">=</span> <span class="n">f_vec</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.25 seconds elapsed
-</pre></div>
-</div>
-</div>
-</div>
-<p>The execution time is essentially the same as the mesh operation but we are using much less memory.</p>
-<p>And we produce the correct answer:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jnp</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">z_vmap</span><span class="p">,</span> <span class="n">z_mesh</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array(True, dtype=bool)
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 <section id="exercises">
-<h2><span class="section-number">19.7. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.6. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <div class="exercise admonition" id="jax_intro_ex2">
 
-<p class="admonition-title"><span class="caption-number">Exercise 19.1 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 14.1 </span></p>
 <section id="exercise-content">
-<p>In the Exercise section of <a class="reference external" href="https://python-programming.quantecon.org/parallelization.html">a lecture on Numba and parallelization</a>, we used Monte Carlo to price a European call option.</p>
+<p>In the Exercise section of <a class="reference internal" href="numba.html"><span class="doc">our lecture on Numba</span></a>, we used Monte
+Carlo to price a European call option.</p>
 <p>The code was accelerated by Numba-based multithreading.</p>
 <p>Try writing a version of this operation for JAX, using all the same
 parameters.</p>
@@ -1466,7 +1540,7 @@ parameters.</p>
 </div>
 <div class="solution dropdown admonition" id="jax_intro-solution-1">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#jax_intro_ex2"> Exercise 19.1</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#jax_intro_ex2"> Exercise 14.1</a></p>
 <section id="solution-content">
 <p>Here is one solution:</p>
 <div class="cell docutils container">
@@ -1496,7 +1570,7 @@ parameters.</p>
         <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">μ</span> <span class="o">+</span> <span class="n">jnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">*</span> <span class="n">Z</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
         <span class="n">h</span> <span class="o">=</span> <span class="n">ρ</span> <span class="o">*</span> <span class="n">h</span> <span class="o">+</span> <span class="n">ν</span> <span class="o">*</span> <span class="n">Z</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
     <span class="n">expectation</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">-</span> <span class="n">K</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-        
+
     <span class="k">return</span> <span class="n">β</span><span class="o">**</span><span class="n">n</span> <span class="o">*</span> <span class="n">expectation</span>
 </pre></div>
 </div>
@@ -1511,7 +1585,7 @@ parameters.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16.87 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16.71 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -1525,7 +1599,7 @@ parameters.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15.04 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.76 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -1632,51 +1706,31 @@ parameters.</p>
    8. OOP II: Building Classes
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="workspace.html">
-   9. Writing Longer Programs
-  </a>
- </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  The Scientific Libraries
+  Foundations of Scientific Computing
  </span>
 </p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="need_for_speed.html">
-   10. Python for Scientific Computing
+   9. Python for Scientific Computing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="numpy.html">
-   11. NumPy
+   10. NumPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matplotlib.html">
-   12. Matplotlib
+   11. Matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="scipy.html">
-   13. SciPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="pandas.html">
-   14. Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="pandas_panel.html">
-   15. Pandas for Panel Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sympy.html">
-   16. SymPy
+   12. SciPy
   </a>
  </li>
 </ul>
@@ -1688,39 +1742,66 @@ parameters.</p>
 <ul class="current nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="numba.html">
-   17. Numba
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="parallelization.html">
-   18. Parallelization
+   13. Numba
   </a>
  </li>
  <li class="toctree-l1 current active active">
   <a class="current reference internal" href="#">
-   19. An Introduction to JAX
+   14. JAX
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_vs_numba_vs_jax.html">
+   15. NumPy vs Numba vs JAX
   </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Advanced Python Programming
+  Working with Data
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   16. Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas_panel.html">
+   17. Pandas for Panel Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  More Python Programming
  </span>
 </p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   20. Writing Good Code
+   18. Writing Good Code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="workspace.html">
+   19. Writing Longer Programs
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   21. More Language Features
+   20. More Language Features
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   22. Debugging and Handling Errors
+   21. Debugging and Handling Errors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sympy.html">
+   22. SymPy
   </a>
  </li>
 </ul>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>15. Pandas for Panel Data &#8212; Python Programming for Economics and Finance</title>
+    <title>17. Pandas for Panel Data &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
@@ -70,7 +70,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=3bd9fcddbe64f63e07c8604843d1cc622a07b430" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=15c2afa29682abb9326a76db12ed4f4c791e68c4" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
@@ -94,7 +94,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=30f7c850c5b005eca2ad6e48893cd350a6c6c4c2"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=06ebc90d5139b434c2742937a4ef3b185cb93e2f"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -121,8 +121,8 @@
     <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="16. SymPy" href="sympy.html" />
-    <link rel="prev" title="14. Pandas" href="pandas.html" />
+    <link rel="next" title="18. Writing Good Code" href="writing_good_code.html" />
+    <link rel="prev" title="16. Pandas" href="pandas.html" />
 
 <!-- Normal Meta Tags -->
 <meta name="author" context="Thomas J. Sargent &amp; John Stachurski" />
@@ -171,12 +171,12 @@
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">15.1. Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-and-reshaping-data">15.2. Slicing and Reshaping Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merging-dataframes-and-filling-nans">15.3. Merging Dataframes and Filling NaNs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-and-summarizing-data">15.4. Grouping and Summarizing Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-remarks">15.5. Final Remarks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">15.6. Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">17.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-and-reshaping-data">17.2. Slicing and Reshaping Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merging-dataframes-and-filling-nans">17.3. Merging Dataframes and Filling NaNs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-and-summarizing-data">17.4. Grouping and Summarizing Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-remarks">17.5. Final Remarks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">17.6. Exercises</a></li>
 </ul>
                             <p class="logo">
                                 
@@ -236,7 +236,7 @@
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="pandas-for-panel-data">
-<span id="ppd"></span><h1><span class="section-number">15. </span><span class="target" id="index-0"></span>Pandas for Panel Data<a class="headerlink" href="#pandas-for-panel-data" title="Link to this heading">#</a></h1>
+<span id="ppd"></span><h1><span class="section-number">17. </span><span class="target" id="index-0"></span>Pandas for Panel Data<a class="headerlink" href="#pandas-for-panel-data" title="Link to this heading">#</a></h1>
 <p id="index-1">In addition to what’s in Anaconda, this lecture will need the following libraries:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
@@ -266,7 +266,9 @@ Requirement already satisfied: pyparsing&gt;=2.3.1 in /home/runner/miniconda3/en
 Requirement already satisfied: python-dateutil&gt;=2.7 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (2.9.0.post0)
 Requirement already satisfied: pytz&gt;=2020.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from pandas&gt;=1.2-&gt;seaborn) (2024.1)
 Requirement already satisfied: tzdata&gt;=2022.7 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from pandas&gt;=1.2-&gt;seaborn) (2025.2)
-Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (1.17.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (1.17.0)
 </pre></div>
 </div>
 </div>
@@ -283,7 +285,7 @@ Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/quant
 </div>
 </div>
 <section id="overview">
-<h2><span class="section-number">15.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>In an <a class="reference internal" href="pandas.html"><span class="doc">earlier lecture on pandas</span></a>, we looked at working with simple data sets.</p>
 <p>Econometricians often need to work with more complex data sets, such as panels.</p>
 <p>Common tasks include</p>
@@ -307,7 +309,7 @@ reshaping the resulting <code class="docutils literal notranslate"><span class="
 function.</p>
 </section>
 <section id="slicing-and-reshaping-data">
-<h2><span class="section-number">15.2. </span>Slicing and Reshaping Data<a class="headerlink" href="#slicing-and-reshaping-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.2. </span>Slicing and Reshaping Data<a class="headerlink" href="#slicing-and-reshaping-data" title="Link to this heading">#</a></h2>
 <p>We will read in a dataset from the OECD of real minimum wages in 32
 countries and assign it to <code class="docutils literal notranslate"><span class="pre">realwage</span></code>.</p>
 <p>The dataset can be accessed with the following link:</p>
@@ -1095,7 +1097,7 @@ the higher levels (countries in this case)</p>
 </div>
 </section>
 <section id="merging-dataframes-and-filling-nans">
-<h2><span class="section-number">15.3. </span>Merging Dataframes and Filling NaNs<a class="headerlink" href="#merging-dataframes-and-filling-nans" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.3. </span>Merging Dataframes and Filling NaNs<a class="headerlink" href="#merging-dataframes-and-filling-nans" title="Link to this heading">#</a></h2>
 <p>Similar to relational databases like SQL, pandas has built in methods to
 merge datasets together.</p>
 <p>Using country information from
@@ -1941,7 +1943,7 @@ will go ahead and transpose <code class="docutils literal notranslate"><span cla
 </div>
 </section>
 <section id="grouping-and-summarizing-data">
-<h2><span class="section-number">15.4. </span>Grouping and Summarizing Data<a class="headerlink" href="#grouping-and-summarizing-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.4. </span>Grouping and Summarizing Data<a class="headerlink" href="#grouping-and-summarizing-data" title="Link to this heading">#</a></h2>
 <p>Grouping and summarizing data can be particularly useful for
 understanding large panel datasets.</p>
 <p>A simple way to summarize data is to call an <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/06_calculate_statistics.html">aggregation
@@ -2256,7 +2258,7 @@ a new <code class="docutils literal notranslate"><span class="pre">DataFrameGrou
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f30af24f820&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7fc93c85b820&gt;
 </pre></div>
 </div>
 </div>
@@ -2307,7 +2309,7 @@ object</p>
 </div>
 </section>
 <section id="final-remarks">
-<h2><span class="section-number">15.5. </span>Final Remarks<a class="headerlink" href="#final-remarks" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.5. </span>Final Remarks<a class="headerlink" href="#final-remarks" title="Link to this heading">#</a></h2>
 <p>This lecture has provided an introduction to some of pandas’ more
 advanced features, including multiindices, merging, grouping and
 plotting.</p>
@@ -2315,10 +2317,10 @@ plotting.</p>
 extends pandas to N-dimensional data structures.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">15.6. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.6. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <div class="exercise admonition" id="pp_ex1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 15.1 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 17.1 </span></p>
 <section id="exercise-content">
 <p>In these exercises, you’ll work with a dataset of employment rates
 in Europe by age and sex from <a class="reference external" href="https://ec.europa.eu/eurostat/data/database">Eurostat</a>.</p>
@@ -2339,7 +2341,7 @@ a wide format dataframe with a <code class="docutils literal notranslate"><span 
 </div>
 <div class="solution dropdown admonition" id="pandas_panel-solution-1">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#pp_ex1"> Exercise 15.1</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#pp_ex1"> Exercise 17.1</a></p>
 <section id="solution-content">
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2522,7 +2524,7 @@ GEO Index([&#39;Austria&#39;, &#39;Belgium&#39;, &#39;Bulgaria&#39;, &#39;Croati
 </div>
 <div class="exercise admonition" id="pp_ex2">
 
-<p class="admonition-title"><span class="caption-number">Exercise 15.2 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 17.2 </span></p>
 <section id="exercise-content">
 <p>Filter the above dataframe to only include employment as a percentage of
 ‘active population’.</p>
@@ -2536,7 +2538,7 @@ by age group and sex.</p>
 </div>
 <div class="solution dropdown admonition" id="pandas_panel-solution-3">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#pp_ex2"> Exercise 15.2</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#pp_ex2"> Exercise 17.2</a></p>
 <section id="solution-content">
 <p>To easily filter by country, swap <code class="docutils literal notranslate"><span class="pre">GEO</span></code> to the top level and sort the
 <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code></p>
@@ -2823,51 +2825,31 @@ dataframe</p>
    8. OOP II: Building Classes
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="workspace.html">
-   9. Writing Longer Programs
-  </a>
- </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  The Scientific Libraries
+  Foundations of Scientific Computing
  </span>
 </p>
-<ul class="current nav bd-sidenav nav sidenav_l1">
+<ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="need_for_speed.html">
-   10. Python for Scientific Computing
+   9. Python for Scientific Computing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="numpy.html">
-   11. NumPy
+   10. NumPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matplotlib.html">
-   12. Matplotlib
+   11. Matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="scipy.html">
-   13. SciPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="pandas.html">
-   14. Pandas
-  </a>
- </li>
- <li class="toctree-l1 current active active">
-  <a class="current reference internal" href="#">
-   15. Pandas for Panel Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sympy.html">
-   16. SymPy
+   12. SciPy
   </a>
  </li>
 </ul>
@@ -2879,39 +2861,66 @@ dataframe</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="numba.html">
-   17. Numba
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="parallelization.html">
-   18. Parallelization
+   13. Numba
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   19. An Introduction to JAX
+   14. JAX
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_vs_numba_vs_jax.html">
+   15. NumPy vs Numba vs JAX
   </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Advanced Python Programming
+  Working with Data
+ </span>
+</p>
+<ul class="current nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   16. Pandas
+  </a>
+ </li>
+ <li class="toctree-l1 current active active">
+  <a class="current reference internal" href="#">
+   17. Pandas for Panel Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  More Python Programming
  </span>
 </p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   20. Writing Good Code
+   18. Writing Good Code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="workspace.html">
+   19. Writing Longer Programs
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   21. More Language Features
+   20. More Language Features
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   22. Debugging and Handling Errors
+   21. Debugging and Handling Errors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sympy.html">
+   22. SymPy
   </a>
  </li>
 </ul>

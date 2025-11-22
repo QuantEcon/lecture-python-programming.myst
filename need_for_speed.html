@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>10. Python for Scientific Computing &#8212; Python Programming for Economics and Finance</title>
+    <title>9. Python for Scientific Computing &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
@@ -70,7 +70,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=3bd9fcddbe64f63e07c8604843d1cc622a07b430" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=15c2afa29682abb9326a76db12ed4f4c791e68c4" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
@@ -94,7 +94,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=30f7c850c5b005eca2ad6e48893cd350a6c6c4c2"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=06ebc90d5139b434c2742937a4ef3b185cb93e2f"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -123,8 +123,8 @@
     <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="11. NumPy" href="numpy.html" />
-    <link rel="prev" title="9. Writing Longer Programs" href="workspace.html" />
+    <link rel="next" title="10. NumPy" href="numpy.html" />
+    <link rel="prev" title="8. OOP II: Building Classes" href="python_oop.html" />
 
 <!-- Normal Meta Tags -->
 <meta name="author" context="Thomas J. Sargent &amp; John Stachurski" />
@@ -173,27 +173,53 @@
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">10.1. Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-libraries">10.2. Scientific Libraries</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-role-of-scientific-libraries">10.2.1. The Role of Scientific Libraries</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-s-scientific-ecosystem">10.2.2. Python’s Scientific Ecosystem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">9.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#major-scientific-libraries">9.2. Major Scientific Libraries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-them">9.2.1. Why do we need them?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-s-scientific-ecosystem">9.2.2. Python’s Scientific Ecosystem</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-need-for-speed">10.3. The Need for Speed</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where-are-the-bottlenecks">10.3.1. Where are the Bottlenecks?</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-typing">10.3.1.1. Dynamic Typing</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#static-types">10.3.1.2. Static Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pure-python-is-slow">9.3. Pure Python is slow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#high-vs-low-level-code">9.3.1. High vs low level code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where-are-the-bottlenecks">9.3.2. Where are the bottlenecks?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-typing">9.3.2.1. Dynamic typing</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#static-types">9.3.2.2. Static types</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-access">10.3.2. Data Access</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summing-with-compiled-code">10.3.2.1. Summing with Compiled Code</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summing-in-pure-python">10.3.2.2. Summing in Pure Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-access">9.3.3. Data Access</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summing-with-compiled-code">9.3.3.1. Summing with Compiled Code</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summing-in-pure-python">9.3.3.2. Summing in Pure Python</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">9.3.4. Summary</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorization">10.4. Vectorization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beyond-vectorization">10.5. Beyond Vectorization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accelerating-python">9.4. Accelerating Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorization">9.4.1. Vectorization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorization-vs-for-pure-python-loops">9.4.2. Vectorization vs for pure Python loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jit-compilers">9.4.3. JIT compilers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallelization">9.5. Parallelization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parallelization-on-cpus">9.5.1. Parallelization on CPUs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#multiprocessing">9.5.1.1. Multiprocessing</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#multithreading">9.5.1.2. Multithreading</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-and-disadvantages">9.5.1.3. Advantages and Disadvantages</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-accelerators">9.5.2. Hardware Accelerators</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gpus-and-tpus">9.5.2.1. GPUs and TPUs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-tpus-gpus-matter">9.5.2.2. Why TPUs/GPUs Matter</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-gpus-vs-gpu-servers">9.5.3. Single GPUs vs GPU Servers</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#single-gpu-systems">9.5.3.1. Single GPU Systems</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-gpu-servers">9.5.3.2. Multi-GPU Servers</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">9.5.4. Summary</a></li>
+</ul>
+</li>
 </ul>
                             <p class="logo">
                                 
@@ -253,30 +279,30 @@
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="python-for-scientific-computing">
-<h1><span class="section-number">10. </span>Python for Scientific Computing<a class="headerlink" href="#python-for-scientific-computing" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">9. </span>Python for Scientific Computing<a class="headerlink" href="#python-for-scientific-computing" title="Link to this heading">#</a></h1>
 <blockquote class="epigraph">
 <div><p>“We should forget about small efficiencies, say about 97% of the time:
 premature optimization is the root of all evil.” – Donald Knuth</p>
 </div></blockquote>
 <section id="overview">
-<h2><span class="section-number">10.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>Python is popular for scientific computing due to factors such as</p>
+<h2><span class="section-number">9.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>It’s probably safe to say that Python is the most popular language for scientific computing.</p>
+<p>This is due to</p>
 <ul class="simple">
 <li><p>the accessible and expressive nature of the language itself,</p></li>
 <li><p>the huge range of high quality scientific libraries,</p></li>
 <li><p>the fact that the language and libraries are open source,</p></li>
-<li><p>the popular <a class="reference external" href="https://www.anaconda.com/download">Anaconda Python distribution</a>, which simplifies installation and management of scientific libraries, and</p></li>
-<li><p>the key role that Python plays in data science, machine learning and artificial intelligence.</p></li>
+<li><p>the central role that Python plays in data science, machine learning and AI.</p></li>
 </ul>
-<p>In previous lectures, we looked at some scientific Python libraries such as NumPy and Matplotlib.</p>
+<p>In previous lectures, we used some scientific Python libraries, including NumPy and Matplotlib.</p>
 <p>However, our main focus was the core Python language, rather than the libraries.</p>
 <p>Now we turn to the scientific libraries and give them our full attention.</p>
-<p>We’ll also discuss the following topics:</p>
-<ul class="simple">
-<li><p>What are the relative strengths and weaknesses of Python for scientific work?</p></li>
+<p>In this introductory lecture, we’ll discuss the following topics:</p>
+<ol class="arabic simple">
 <li><p>What are the main elements of the scientific Python ecosystem?</p></li>
+<li><p>How do they fit together?</p></li>
 <li><p>How is the situation changing over time?</p></li>
-</ul>
+</ol>
 <p>In addition to what’s in Anaconda, this lecture will need</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
@@ -307,32 +333,44 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </details>
 </div>
+<p>Let’s start with some imports:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">quantecon</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qe</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="scientific-libraries">
-<h2><span class="section-number">10.2. </span>Scientific Libraries<a class="headerlink" href="#scientific-libraries" title="Link to this heading">#</a></h2>
-<p>Let’s briefly review Python’s scientific libraries, starting with why we need them.</p>
-<section id="the-role-of-scientific-libraries">
-<h3><span class="section-number">10.2.1. </span>The Role of Scientific Libraries<a class="headerlink" href="#the-role-of-scientific-libraries" title="Link to this heading">#</a></h3>
+<section id="major-scientific-libraries">
+<h2><span class="section-number">9.2. </span>Major Scientific Libraries<a class="headerlink" href="#major-scientific-libraries" title="Link to this heading">#</a></h2>
+<p>Let’s briefly review Python’s scientific libraries.</p>
+<section id="why-do-we-need-them">
+<h3><span class="section-number">9.2.1. </span>Why do we need them?<a class="headerlink" href="#why-do-we-need-them" title="Link to this heading">#</a></h3>
 <p>One reason we use scientific libraries is because they implement routines we want to use.</p>
 <ul class="simple">
 <li><p>numerical integration, interpolation, linear algebra, root finding, etc.</p></li>
 </ul>
-<p>For example, it’s almost always better to use an existing routine for root finding than to write a new one from scratch.</p>
+<p>For example, it’s usually better to use an existing routine for root finding than to write a new one from scratch.</p>
 <p>(For standard algorithms, efficiency is maximized if the community can
 coordinate on a common set of implementations, written by experts and tuned by
-users to be as fast and robust as possible.)</p>
+users to be as fast and robust as possible!)</p>
 <p>But this is not the only reason that we use Python’s scientific libraries.</p>
-<p>Another is that pure Python, while flexible and elegant, is not fast.</p>
+<p>Another is that pure Python is not fast.</p>
 <p>So we need libraries that are designed to accelerate execution of Python code.</p>
 <p>They do this using two strategies:</p>
 <ol class="arabic simple">
 <li><p>using compilers that convert Python-like statements into fast machine code for individual threads of logic and</p></li>
 <li><p>parallelizing tasks across multiple “workers” (e.g., CPUs, individual threads inside GPUs).</p></li>
 </ol>
-<p>There are several Python libraries that can do this extremely well.</p>
+<p>We will discuss these ideas extensively in this and the remaining lectures from
+this series.</p>
 </section>
 <section id="python-s-scientific-ecosystem">
-<h3><span class="section-number">10.2.2. </span>Python’s Scientific Ecosystem<a class="headerlink" href="#python-s-scientific-ecosystem" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.2.2. </span>Python’s Scientific Ecosystem<a class="headerlink" href="#python-s-scientific-ecosystem" title="Link to this heading">#</a></h3>
 <p>At QuantEcon, the scientific libraries we use most often are</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://numpy.org/">NumPy</a></p></li>
@@ -340,7 +378,7 @@ users to be as fast and robust as possible.)</p>
 <li><p><a class="reference external" href="https://matplotlib.org/">Matplotlib</a></p></li>
 <li><p><a class="reference external" href="https://github.com/jax-ml/jax">JAX</a></p></li>
 <li><p><a class="reference external" href="https://pandas.pydata.org/">Pandas</a></p></li>
-<li><p><a class="reference external" href="https://numba.pydata.org/">Numba</a> and</p></li>
+<li><p><a class="reference external" href="https://numba.pydata.org/">Numba</a></p></li>
 </ul>
 <p>Here’s how they fit together:</p>
 <ul class="simple">
@@ -355,38 +393,33 @@ GPUs.</p></li>
 <li><p>Pandas provides types and functions for manipulating data.</p></li>
 <li><p>Numba provides a just-in-time compiler that plays well with NumPy and helps accelerate Python code.</p></li>
 </ul>
+<p>We will discuss all of these libraries extensively in this lecture series.</p>
 </section>
 </section>
-<section id="the-need-for-speed">
-<h2><span class="section-number">10.3. </span>The Need for Speed<a class="headerlink" href="#the-need-for-speed" title="Link to this heading">#</a></h2>
-<p>Let’s discuss execution speed and how scientific libraries can help us accelerate code.</p>
-<p>Higher-level languages like Python  are optimized for humans.</p>
+<section id="pure-python-is-slow">
+<h2><span class="section-number">9.3. </span>Pure Python is slow<a class="headerlink" href="#pure-python-is-slow" title="Link to this heading">#</a></h2>
+<p>As mentioned above, one major attraction of the scientific libraries is greater execution speeds.</p>
+<p>We will discuss how scientific libraries can help us accelerate code.</p>
+<p>For this topic, it will be helpful if we understand what’s driving slow execution speeds.</p>
+<section id="high-vs-low-level-code">
+<h3><span class="section-number">9.3.1. </span>High vs low level code<a class="headerlink" href="#high-vs-low-level-code" title="Link to this heading">#</a></h3>
+<p>Higher-level languages like Python are optimized for humans.</p>
 <p>This means that the programmer can leave many details to the runtime environment</p>
 <ul class="simple">
 <li><p>specifying variable types</p></li>
-<li><p>memory allocation/deallocation, etc.</p></li>
+<li><p>memory allocation/deallocation</p></li>
+<li><p>etc.</p></li>
 </ul>
-<p>On one hand, compared to low-level languages, high-level languages are typically faster to write, less error-prone and  easier to debug.</p>
-<p>On the other hand, high-level languages are harder to optimize — that is, to turn into fast machine code — than languages like C or Fortran.</p>
-<p>Indeed, the standard implementation of Python (called CPython) cannot match the speed of compiled languages such as C or Fortran.</p>
-<p>Does that mean that we should just switch to C or Fortran for everything?</p>
-<p>The answer is: No!</p>
-<p>There are three reasons why:</p>
-<p>First, for any given program, relatively few lines are ever going to be time-critical.</p>
-<p>Hence it is far more efficient to write most of our code in a high productivity language like Python.</p>
-<p>Second, even for those lines of code that <em>are</em> time-critical, we can now achieve the same speed as C or Fortran using Python’s scientific libraries.</p>
-<p>Third, in the last few years, accelerating code has become essentially
-synonymous with parallelizing execution, and this task is best left to
-specialized compilers.</p>
-<p>Certain Python libraries have outstanding capabilities for parallelizing
-scientific code – we’ll discuss this more as we go along.</p>
+<p>In addition, pure Python is run by an <a class="reference external" href="https://en.wikipedia.org/wiki/Interpreter_(computing)">interpreter</a>, which executes code statement-by-statement.</p>
+<p>This makes Python flexible, interactive, easy to write, easy to read, and relatively easy to debug.</p>
+<p>On the other hand, the standard implementation of Python (called CPython) cannot
+match the speed of compiled languages such as C or Fortran.</p>
+</section>
 <section id="where-are-the-bottlenecks">
-<h3><span class="section-number">10.3.1. </span>Where are the Bottlenecks?<a class="headerlink" href="#where-are-the-bottlenecks" title="Link to this heading">#</a></h3>
-<p>Before we do so, let’s try to understand why plain vanilla Python is slower than C or Fortran.</p>
-<p>This will, in turn, help us figure out how to speed things up.</p>
-<p>In reading the following, remember that the Python interpreter executes code line-by-line.</p>
+<h3><span class="section-number">9.3.2. </span>Where are the bottlenecks?<a class="headerlink" href="#where-are-the-bottlenecks" title="Link to this heading">#</a></h3>
+<p>Why is this the case?</p>
 <section id="dynamic-typing">
-<h4><span class="section-number">10.3.1.1. </span>Dynamic Typing<a class="headerlink" href="#dynamic-typing" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">9.3.2.1. </span>Dynamic typing<a class="headerlink" href="#dynamic-typing" title="Link to this heading">#</a></h4>
 <p id="index-0">Consider this Python operation</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -435,10 +468,12 @@ operation to invoke.</p>
 <p>(We say that the operator <code class="docutils literal notranslate"><span class="pre">+</span></code> is <em>overloaded</em> — its action depends on the
 type of the objects on which it acts)</p>
 <p>As a result, when executing <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>, Python must first check the type of the objects and then call the correct operation.</p>
-<p>This involves substantial overheads.</p>
+<p>This involves a nontrivial overhead.</p>
+<p>If we repeatedly execute this expression in a tight loop, the nontrivial
+overhead becomes a large overhead.</p>
 </section>
 <section id="static-types">
-<h4><span class="section-number">10.3.1.2. </span>Static Types<a class="headerlink" href="#static-types" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">9.3.2.2. </span>Static types<a class="headerlink" href="#static-types" title="Link to this heading">#</a></h4>
 <p id="index-1">Compiled languages avoid these overheads with explicit, static types.</p>
 <p>For example, consider the following C code, which sums the integers from 1 to 10</p>
 <div class="no-execute highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
@@ -455,22 +490,25 @@ type of the objects on which it acts)</p>
 </pre></div>
 </div>
 <p>The variables <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">sum</span></code> are explicitly declared to be integers.</p>
-<p>Hence, the meaning of addition here is completely unambiguous.</p>
+<p>Moreover, when we make a statement such as <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">i</span></code>, we are making a promise to the compiler
+that <code class="docutils literal notranslate"><span class="pre">i</span></code> will <em>always</em> be an integer, throughout execution of the program.</p>
+<p>As such, the meaning of addition in the expression <code class="docutils literal notranslate"><span class="pre">sum</span> <span class="pre">+</span> <span class="pre">i</span></code> is completely unambiguous.</p>
+<p>There is no need for type-checking and hence no overhead.</p>
 </section>
 </section>
 <section id="data-access">
-<h3><span class="section-number">10.3.2. </span>Data Access<a class="headerlink" href="#data-access" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.3.3. </span>Data Access<a class="headerlink" href="#data-access" title="Link to this heading">#</a></h3>
 <p>Another drag on speed for high-level languages is data access.</p>
 <p>To illustrate, let’s consider the problem of summing some data — say, a collection of integers.</p>
 <section id="summing-with-compiled-code">
-<h4><span class="section-number">10.3.2.1. </span>Summing with Compiled Code<a class="headerlink" href="#summing-with-compiled-code" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">9.3.3.1. </span>Summing with Compiled Code<a class="headerlink" href="#summing-with-compiled-code" title="Link to this heading">#</a></h4>
 <p>In C or Fortran, these integers would typically be stored in an array, which
 is a simple data structure for storing homogeneous data.</p>
 <p>Such an array is stored in a single contiguous block of memory</p>
 <ul class="simple">
 <li><p>In modern computers, memory addresses are allocated to each byte (one byte = 8 bits).</p></li>
 <li><p>For example, a 64 bit integer is stored in 8 bytes of memory.</p></li>
-<li><p>An array of <span class="math notranslate nohighlight">\(n\)</span> such integers occupies <span class="math notranslate nohighlight">\(8n\)</span> <strong>consecutive</strong> memory slots.</p></li>
+<li><p>An array of <span class="math notranslate nohighlight">\(n\)</span> such integers occupies <span class="math notranslate nohighlight">\(8n\)</span> <em>consecutive</em> memory slots.</p></li>
 </ul>
 <p>Moreover, the compiler is made aware of the data type by the programmer.</p>
 <ul class="simple">
@@ -483,37 +521,117 @@ space by a known and fixed amount.</p>
 </ul>
 </section>
 <section id="summing-in-pure-python">
-<h4><span class="section-number">10.3.2.2. </span>Summing in Pure Python<a class="headerlink" href="#summing-in-pure-python" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">9.3.3.2. </span>Summing in Pure Python<a class="headerlink" href="#summing-in-pure-python" title="Link to this heading">#</a></h4>
 <p>Python tries to replicate these ideas to some degree.</p>
 <p>For example, in the standard Python implementation (CPython), list elements are placed in memory locations that are in a sense contiguous.</p>
 <p>However, these list elements are more like pointers to data rather than actual data.</p>
 <p>Hence, there is still overhead involved in accessing the data values themselves.</p>
 <p>This is a considerable drag on speed.</p>
 <p>In fact, it’s generally true that memory traffic is a major culprit when it comes to slow execution.</p>
-<p>Let’s look at some ways around these problems.</p>
 </section>
 </section>
+<section id="summary">
+<h3><span class="section-number">9.3.4. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h3>
+<p>Does the discussion above mean that we should just switch to C or Fortran for everything?</p>
+<p>The answer is: Definitely not!</p>
+<p>For any given program, relatively few lines are ever going to be time-critical.</p>
+<p>Hence it is far more efficient to write most of our code in a high productivity language like Python.</p>
+<p>Moreover, even for those lines of code that <em>are</em> time-critical, we can now
+equal or outpace binaries compiled from C or Fortran by using Python’s scientific libraries.</p>
+<p>On that note, we emphasize that, in the last few years, accelerating code has become essentially
+synonymous with parallelization.</p>
+<p>This task is best left to specialized compilers!</p>
+<p>Certain Python libraries have outstanding capabilities for parallelizing scientific code – we’ll discuss this more as we go along.</p>
 </section>
+</section>
+<section id="accelerating-python">
+<h2><span class="section-number">9.4. </span>Accelerating Python<a class="headerlink" href="#accelerating-python" title="Link to this heading">#</a></h2>
+<p>In this section we look at three related techniques for accelerating Python
+code.</p>
+<p>Here we’ll focus on the fundamental ideas.</p>
+<p>Later we’ll look at specific libraries and how they implement these ideas.</p>
 <section id="vectorization">
-<h2><span class="section-number">10.4. </span><span class="target" id="index-2"></span>Vectorization<a class="headerlink" href="#vectorization" title="Link to this heading">#</a></h2>
-<p id="index-3">One method for avoiding memory traffic and type checking is <a class="reference external" href="https://en.wikipedia.org/wiki/Array_programming">array programming</a>.</p>
-<p>Economists usually refer to array programming as ``vectorization.’’</p>
-<p>(In computer science, this term has <a class="reference external" href="https://en.wikipedia.org/wiki/Automatic_vectorization">a slightly different meaning</a>.)</p>
+<h3><span class="section-number">9.4.1. </span><span class="target" id="index-2"></span>Vectorization<a class="headerlink" href="#vectorization" title="Link to this heading">#</a></h3>
+<p id="index-3">One method for avoiding memory traffic and type checking is <a class="reference external" href="https://en.wikipedia.org/wiki/Array_programming">array
+programming</a>.</p>
+<p>Many economists usually refer to array programming as “vectorization.”</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In computer science, this term has <a class="reference external" href="https://en.wikipedia.org/wiki/Automatic_vectorization">a slightly different meaning</a>.</p>
+</div>
 <p>The key idea is to send array processing operations in batch to pre-compiled
 and efficient native machine code.</p>
 <p>The machine code itself is typically compiled from carefully optimized C or Fortran.</p>
 <p>For example, when working in a high level language, the operation of inverting a
 large matrix can be subcontracted to efficient machine code that is pre-compiled
 for this purpose and supplied to users as part of a package.</p>
-<p>This idea dates back to MATLAB, which uses vectorization extensively.</p>
+<p>The core benefits are</p>
+<ol class="arabic simple">
+<li><p>type-checking is paid <em>per array</em>, rather than per element, and</p></li>
+<li><p>arrays containing elements with the same data type are efficient in terms of
+memory access.</p></li>
+</ol>
+<p>The idea of vectorization dates back to MATLAB, which uses vectorization extensively.</p>
 <figure class="align-default">
 <img alt="_images/matlab.png" src="_images/matlab.png" />
 </figure>
-<p>Vectorization can greatly accelerate many numerical computations, as we will see
-in later lectures.</p>
 </section>
-<section id="beyond-vectorization">
-<span id="numba-p-c-vectorization"></span><h2><span class="section-number">10.5. </span>Beyond Vectorization<a class="headerlink" href="#beyond-vectorization" title="Link to this heading">#</a></h2>
+<section id="vectorization-vs-for-pure-python-loops">
+<h3><span class="section-number">9.4.2. </span>Vectorization vs for pure Python loops<a class="headerlink" href="#vectorization-vs-for-pure-python-loops" title="Link to this heading">#</a></h3>
+<p>Let’s try a quick speed comparison to illustrate how vectorization can
+accelerate code.</p>
+<p>Here’s some non-vectorized code, which uses a native Python loop to generate,
+square and then sum a large number of random variables:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1_000_000</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>      <span class="c1"># Will accumulate and store sum</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">+=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.27 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following vectorized code uses NumPy, which we’ll soon investigate in depth,
+to achieve the same thing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.01 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, the second code block runs much faster.</p>
+<p>It breaks the loop down into three basic operations</p>
+<ol class="arabic simple">
+<li><p>draw <code class="docutils literal notranslate"><span class="pre">n</span></code> uniforms</p></li>
+<li><p>square them</p></li>
+<li><p>sum them</p></li>
+</ol>
+<p>These are sent as batch operators to optimized machine code.</p>
+</section>
+<section id="jit-compilers">
+<span id="numba-p-c-vectorization"></span><h3><span class="section-number">9.4.3. </span>JIT compilers<a class="headerlink" href="#jit-compilers" title="Link to this heading">#</a></h3>
 <p>At best, vectorization yields fast, simple code.</p>
 <p>However, it’s not without disadvantages.</p>
 <p>One issue is that it can be highly memory-intensive.</p>
@@ -521,9 +639,134 @@ in later lectures.</p>
 producing the final calculation.</p>
 <p>Another issue is that not all algorithms can be vectorized.</p>
 <p>Because of these issues, most high performance computing is moving away from
-traditional vectorization and towards the use of <a class="reference external" href="https://en.wikipedia.org/wiki/Just-in-time_compilation">just-in-time compilers</a>.</p>
-<p>In later lectures in this series, we will learn about how modern Python libraries exploit
-just-in-time compilers to generate fast, efficient, parallelized machine code.</p>
+traditional vectorization and towards the use of <a class="reference external" href="https://en.wikipedia.org/wiki/Just-in-time_compilation">just-in-time
+compilers</a>.</p>
+<p>In later lectures in this series, we will learn about how modern Python
+libraries exploit just-in-time compilers to generate fast, efficient,
+parallelized machine code.</p>
+</section>
+</section>
+<section id="parallelization">
+<h2><span class="section-number">9.5. </span>Parallelization<a class="headerlink" href="#parallelization" title="Link to this heading">#</a></h2>
+<p>The growth of CPU clock speed (i.e., the speed at which a single chain of logic
+can be run) has slowed dramatically in recent years.</p>
+<p>Chip designers and computer programmers have responded to the slowdown by
+seeking a different path to fast execution: parallelization.</p>
+<p>Hardware makers have increased the number of cores (physical CPUs) embedded in each machine.</p>
+<p>For programmers, the challenge has been to exploit these multiple CPUs by
+running many processes in parallel (i.e., simultaneously).</p>
+<p>This is particularly important in scientific programming, which requires handling</p>
+<ul class="simple">
+<li><p>large amounts of data and</p></li>
+<li><p>CPU intensive simulations and other calculations.</p></li>
+</ul>
+<p>Below we discuss parallelization for scientific computing, with a focus on</p>
+<ol class="arabic simple">
+<li><p>the best tools for parallelization in Python and</p></li>
+<li><p>how these tools can be applied to quantitative economic problems.</p></li>
+</ol>
+<section id="parallelization-on-cpus">
+<h3><span class="section-number">9.5.1. </span>Parallelization on CPUs<a class="headerlink" href="#parallelization-on-cpus" title="Link to this heading">#</a></h3>
+<p>Let’s review the two main kinds of CPU-based parallelization commonly used in
+scientific computing and discuss their pros and cons.</p>
+<section id="multiprocessing">
+<h4><span class="section-number">9.5.1.1. </span>Multiprocessing<a class="headerlink" href="#multiprocessing" title="Link to this heading">#</a></h4>
+<p>Multiprocessing means concurrent execution of multiple processes using more than one processor.</p>
+<p>In this context, a <strong>process</strong> is a chain of instructions (i.e., a program).</p>
+<p>Multiprocessing can be carried out on one machine with multiple CPUs or on a
+collection of machines connected by a network.</p>
+<p>In the latter case, the collection of machines is usually called a
+<strong>cluster</strong>.</p>
+<p>With multiprocessing, each process has its own memory space, although the
+physical memory chip might be shared.</p>
+</section>
+<section id="multithreading">
+<h4><span class="section-number">9.5.1.2. </span>Multithreading<a class="headerlink" href="#multithreading" title="Link to this heading">#</a></h4>
+<p>Multithreading is similar to multiprocessing, except that, during execution, the threads all share the same memory space.</p>
+<p>Native Python struggles to implement multithreading due to some <a class="reference external" href="https://wiki.python.org/moin/GlobalInterpreterLock">legacy design
+features</a>.</p>
+<p>But this is not a restriction for scientific libraries like NumPy and Numba.</p>
+<p>Functions imported from these libraries and JIT-compiled code run in low level
+execution environments where Python’s legacy restrictions don’t apply.</p>
+</section>
+<section id="advantages-and-disadvantages">
+<h4><span class="section-number">9.5.1.3. </span>Advantages and Disadvantages<a class="headerlink" href="#advantages-and-disadvantages" title="Link to this heading">#</a></h4>
+<p>Multithreading is more lightweight because most system and memory resources
+are shared by the threads.</p>
+<p>In addition, the fact that multiple threads all access a shared pool of memory
+is extremely convenient for numerical programming.</p>
+<p>On the other hand, multiprocessing is more flexible and can be distributed
+across clusters.</p>
+<p>For the great majority of what we do in these lectures, multithreading will
+suffice.</p>
+</section>
+</section>
+<section id="hardware-accelerators">
+<h3><span class="section-number">9.5.2. </span>Hardware Accelerators<a class="headerlink" href="#hardware-accelerators" title="Link to this heading">#</a></h3>
+<p>While CPUs with multiple cores have become standard for parallel computing, a
+more dramatic shift has occurred with the rise of specialized hardware
+accelerators.</p>
+<p>These accelerators are designed specifically for the kinds of highly parallel
+computations that arise in scientific computing, machine learning, and data
+science.</p>
+<section id="gpus-and-tpus">
+<h4><span class="section-number">9.5.2.1. </span>GPUs and TPUs<a class="headerlink" href="#gpus-and-tpus" title="Link to this heading">#</a></h4>
+<p>The two most important types of hardware accelerators are</p>
+<ul class="simple">
+<li><p><strong>GPUs</strong> (Graphics Processing Units) and</p></li>
+<li><p><strong>TPUs</strong> (Tensor Processing Units).</p></li>
+</ul>
+<p>GPUs were originally designed for rendering graphics, which requires performing
+the same operation on many pixels simultaneously.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/geforce.png"><img alt="_images/geforce.png" src="_images/geforce.png" style="width: 486.40000000000003px; height: 277.2px;" />
+</a>
+</figure>
+<p>Scientists and engineers realized that this same architecture — many simple
+processors working in parallel — is ideal for scientific computing tasks</p>
+<p>TPUs are a more recent development, designed by Google specifically for machine learning workloads.</p>
+<p>Like GPUs, TPUs excel at performing massive numbers of matrix operations in parallel.</p>
+</section>
+<section id="why-tpus-gpus-matter">
+<h4><span class="section-number">9.5.2.2. </span>Why TPUs/GPUs Matter<a class="headerlink" href="#why-tpus-gpus-matter" title="Link to this heading">#</a></h4>
+<p>The performance gains from using hardware accelerators can be dramatic.</p>
+<p>For example, a modern GPU can contain thousands of small processing cores,
+compared to the 8-64 cores typically found in CPUs.</p>
+<p>When a problem can be expressed as many independent operations on arrays of
+data, GPUs can be orders of magnitude faster than CPUs.</p>
+<p>This is particularly relevant for scientific computing because many algorithms
+naturally map onto the parallel architecture of GPUs.</p>
+</section>
+</section>
+<section id="single-gpus-vs-gpu-servers">
+<h3><span class="section-number">9.5.3. </span>Single GPUs vs GPU Servers<a class="headerlink" href="#single-gpus-vs-gpu-servers" title="Link to this heading">#</a></h3>
+<p>There are two common ways to access GPU resources:</p>
+<section id="single-gpu-systems">
+<h4><span class="section-number">9.5.3.1. </span>Single GPU Systems<a class="headerlink" href="#single-gpu-systems" title="Link to this heading">#</a></h4>
+<p>Many workstations and laptops now come with capable GPUs, or can be equipped with them.</p>
+<p>A single modern GPU can dramatically accelerate many scientific computing tasks.</p>
+<p>For individual researchers and small projects, a single GPU is often sufficient.</p>
+<p>Modern Python libraries like JAX, discussed extensively in this lecture series,
+automatically detect and use available GPUs with minimal code changes.</p>
+</section>
+<section id="multi-gpu-servers">
+<h4><span class="section-number">9.5.3.2. </span>Multi-GPU Servers<a class="headerlink" href="#multi-gpu-servers" title="Link to this heading">#</a></h4>
+<p>For larger-scale problems, servers containing multiple GPUs (often 4-8 GPUs per server) are increasingly common.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/dgx.png"><img alt="_images/dgx.png" src="_images/dgx.png" style="width: 512.0px; height: 272.0px;" />
+</a>
+</figure>
+<p>With appropriate software, computations can be distributed across multiple GPUs, either within a single server or across multiple servers.</p>
+<p>This enables researchers to tackle problems that would be infeasible on a single GPU or CPU.</p>
+</section>
+</section>
+<section id="id1">
+<h3><span class="section-number">9.5.4. </span>Summary<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>GPU computing is becoming far more accessible, particularly from within Python.</p>
+<p>Some Python scientific libraries, like JAX, now support GPU acceleration with minimal changes to existing code.</p>
+<p>We will explore GPU computing in more detail in later lectures, applying it to a
+range of economic applications.</p>
+</section>
 </section>
 </section>
 
@@ -624,51 +867,31 @@ just-in-time compilers to generate fast, efficient, parallelized machine code.</
    8. OOP II: Building Classes
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="workspace.html">
-   9. Writing Longer Programs
-  </a>
- </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  The Scientific Libraries
+  Foundations of Scientific Computing
  </span>
 </p>
 <ul class="current nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1 current active active">
   <a class="current reference internal" href="#">
-   10. Python for Scientific Computing
+   9. Python for Scientific Computing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="numpy.html">
-   11. NumPy
+   10. NumPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matplotlib.html">
-   12. Matplotlib
+   11. Matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="scipy.html">
-   13. SciPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="pandas.html">
-   14. Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="pandas_panel.html">
-   15. Pandas for Panel Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sympy.html">
-   16. SymPy
+   12. SciPy
   </a>
  </li>
 </ul>
@@ -680,39 +903,66 @@ just-in-time compilers to generate fast, efficient, parallelized machine code.</
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="numba.html">
-   17. Numba
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="parallelization.html">
-   18. Parallelization
+   13. Numba
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   19. An Introduction to JAX
+   14. JAX
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_vs_numba_vs_jax.html">
+   15. NumPy vs Numba vs JAX
   </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Advanced Python Programming
+  Working with Data
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   16. Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas_panel.html">
+   17. Pandas for Panel Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  More Python Programming
  </span>
 </p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   20. Writing Good Code
+   18. Writing Good Code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="workspace.html">
+   19. Writing Longer Programs
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   21. More Language Features
+   20. More Language Features
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   22. Debugging and Handling Errors
+   21. Debugging and Handling Errors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sympy.html">
+   22. SymPy
   </a>
  </li>
 </ul>

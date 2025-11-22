@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>9. Writing Longer Programs &#8212; Python Programming for Economics and Finance</title>
+    <title>19. Writing Longer Programs &#8212; Python Programming for Economics and Finance</title>
     <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
@@ -70,7 +70,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=3bd9fcddbe64f63e07c8604843d1cc622a07b430" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=15c2afa29682abb9326a76db12ed4f4c791e68c4" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
@@ -94,7 +94,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=30f7c850c5b005eca2ad6e48893cd350a6c6c4c2"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=06ebc90d5139b434c2742937a4ef3b185cb93e2f"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -121,8 +121,8 @@
     <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="10. Python for Scientific Computing" href="need_for_speed.html" />
-    <link rel="prev" title="8. OOP II: Building Classes" href="python_oop.html" />
+    <link rel="next" title="20. More Language Features" href="python_advanced_features.html" />
+    <link rel="prev" title="18. Writing Good Code" href="writing_good_code.html" />
 
 <!-- Normal Meta Tags -->
 <meta name="author" context="Thomas J. Sargent &amp; John Stachurski" />
@@ -171,20 +171,20 @@
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">9.1. Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-python-files">9.2. Working with Python files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development-environments">9.3. Development environments</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-step-forward-from-jupyter-notebooks-jupyterlab">9.4. A step forward from Jupyter Notebooks: JupyterLab</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-magic-commands">9.4.1. Using magic commands</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-terminal">9.4.2. Using the terminal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">19.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-python-files">19.2. Working with Python files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development-environments">19.3. Development environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-step-forward-from-jupyter-notebooks-jupyterlab">19.4. A step forward from Jupyter Notebooks: JupyterLab</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-magic-commands">19.4.1. Using magic commands</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-terminal">19.4.2. Using the terminal</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-walk-through-visual-studio-code">9.5. A walk through Visual Studio Code</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-run-button">9.5.1. Using the run button</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">9.5.2. Using the terminal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-walk-through-visual-studio-code">19.5. A walk through Visual Studio Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-run-button">19.5.1. Using the run button</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">19.5.2. Using the terminal</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-your-hands-dirty">9.6. Git your hands dirty</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-your-hands-dirty">19.6. Git your hands dirty</a></li>
 </ul>
                             <p class="logo">
                                 
@@ -244,9 +244,9 @@
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="writing-longer-programs">
-<h1><span class="section-number">9. </span>Writing Longer Programs<a class="headerlink" href="#writing-longer-programs" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">19. </span>Writing Longer Programs<a class="headerlink" href="#writing-longer-programs" title="Link to this heading">#</a></h1>
 <section id="overview">
-<h2><span class="section-number">9.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>So far, we have explored the use of Jupyter Notebooks in writing and executing Python code.</p>
 <p>While they are efficient and adaptable when working with short pieces of code, Notebooks are not the best choice for longer programs and scripts.</p>
 <p>Jupyter Notebooks are well suited to interactive computing (i.e. data science workflows) and can help execute chunks of code one at a time.</p>
@@ -266,7 +266,7 @@
 </div>
 </section>
 <section id="working-with-python-files">
-<h2><span class="section-number">9.2. </span>Working with Python files<a class="headerlink" href="#working-with-python-files" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.2. </span>Working with Python files<a class="headerlink" href="#working-with-python-files" title="Link to this heading">#</a></h2>
 <p>Python files are used when writing long, reusable blocks of code - by convention, they have a <code class="docutils literal notranslate"><span class="pre">.py</span></code> suffix.</p>
 <p>Let us begin by working with the following example.</p>
 <div class="cell docutils container">
@@ -335,7 +335,7 @@
 <p>Look into the use of <a class="reference external" href="https://docs.python.org/3/tutorial/modules.html">modules</a> and <a class="reference external" href="https://docs.python.org/3/tutorial/modules.html#packages">packages</a> for more information on importing functionality.</p>
 </section>
 <section id="development-environments">
-<h2><span class="section-number">9.3. </span>Development environments<a class="headerlink" href="#development-environments" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.3. </span>Development environments<a class="headerlink" href="#development-environments" title="Link to this heading">#</a></h2>
 <p>A development environment is a one stop workspace where you can</p>
 <ul class="simple">
 <li><p>edit and run your code</p></li>
@@ -345,7 +345,7 @@
 <p>This lecture takes you through the workings of two development environments.</p>
 </section>
 <section id="a-step-forward-from-jupyter-notebooks-jupyterlab">
-<h2><span class="section-number">9.4. </span>A step forward from Jupyter Notebooks: JupyterLab<a class="headerlink" href="#a-step-forward-from-jupyter-notebooks-jupyterlab" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.4. </span>A step forward from Jupyter Notebooks: JupyterLab<a class="headerlink" href="#a-step-forward-from-jupyter-notebooks-jupyterlab" title="Link to this heading">#</a></h2>
 <p>JupyterLab is a browser based development environment for Jupyter Notebooks, code scripts, and data files.</p>
 <p>You can <a class="reference external" href="https://jupyter.org/try-jupyter/lab/">try JupyterLab in the browser</a> if you want to test it out before installing it locally.</p>
 <p>You can install JupyterLab using pip</p>
@@ -385,7 +385,7 @@
 <li><p>Using the terminal</p></li>
 </ul>
 <section id="using-magic-commands">
-<h3><span class="section-number">9.4.1. </span>Using magic commands<a class="headerlink" href="#using-magic-commands" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">19.4.1. </span>Using magic commands<a class="headerlink" href="#using-magic-commands" title="Link to this heading">#</a></h3>
 <p>Jupyter Notebooks and JupyterLab support the use of <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">magic commands</a> - commands that extend the capabilities of a standard Jupyter Notebook.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">%run</span></code> magic command allows you to run a Python script from within a Notebook.</p>
 <p>This is a convenient way to run scripts that you are working on in the same directory as your Notebook and present the outputs within the Notebook.</p>
@@ -394,7 +394,7 @@
 </figure>
 </section>
 <section id="using-the-terminal">
-<h3><span class="section-number">9.4.2. </span>Using the terminal<a class="headerlink" href="#using-the-terminal" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">19.4.2. </span>Using the terminal<a class="headerlink" href="#using-the-terminal" title="Link to this heading">#</a></h3>
 <p>However, if you are looking into just running the <code class="docutils literal notranslate"><span class="pre">.py</span></code> file, it is sometimes easier to use the terminal.</p>
 <p>Open a terminal from the launcher and run the following command.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">python</span> <span class="o">&lt;</span><span class="n">path</span> <span class="n">to</span> <span class="n">file</span><span class="o">.</span><span class="n">py</span><span class="o">&gt;</span>
@@ -415,7 +415,7 @@
 </section>
 </section>
 <section id="a-walk-through-visual-studio-code">
-<h2><span class="section-number">9.5. </span>A walk through Visual Studio Code<a class="headerlink" href="#a-walk-through-visual-studio-code" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.5. </span>A walk through Visual Studio Code<a class="headerlink" href="#a-walk-through-visual-studio-code" title="Link to this heading">#</a></h2>
 <p>Visual Studio Code (VS Code) is a code editor and development workspace that can run</p>
 <ul class="simple">
 <li><p>in the <a class="reference external" href="https://vscode.dev/">browser</a>.</p></li>
@@ -468,7 +468,7 @@
 <li><p>Using the terminal</p></li>
 </ul>
 <section id="using-the-run-button">
-<h3><span class="section-number">9.5.1. </span>Using the run button<a class="headerlink" href="#using-the-run-button" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">19.5.1. </span>Using the run button<a class="headerlink" href="#using-the-run-button" title="Link to this heading">#</a></h3>
 <p>You can run the script by clicking on the run button on the top right corner of the editor.</p>
 <figure class="auto align-default">
 <img alt="_images/vs_code_run.png" src="_images/vs_code_run.png" />
@@ -480,7 +480,7 @@
 <p>This creates an ipykernel console and runs the script.</p>
 </section>
 <section id="id1">
-<h3><span class="section-number">9.5.2. </span>Using the terminal<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">19.5.2. </span>Using the terminal<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>The command <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">&lt;path</span> <span class="pre">to</span> <span class="pre">file.py&gt;</span></code> is executed on the console of your choice.</p>
 <p>If you are using a Windows machine, you can either use the Anaconda Prompt or the Command Prompt - but, generally not the PowerShell.</p>
 <p>Here’s an execution of the earlier code.</p>
@@ -495,7 +495,7 @@
 </section>
 </section>
 <section id="git-your-hands-dirty">
-<h2><span class="section-number">9.6. </span>Git your hands dirty<a class="headerlink" href="#git-your-hands-dirty" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.6. </span>Git your hands dirty<a class="headerlink" href="#git-your-hands-dirty" title="Link to this heading">#</a></h2>
 <p>This section will familiarize you with git and GitHub.</p>
 <p><a class="reference external" href="https://git-scm.com/">Git</a> is a <em>version control system</em> — a piece of software used to manage digital projects such as code libraries.</p>
 <p>In many cases, the associated collections of files — called <em>repositories</em> — are stored on <a class="reference external" href="https://github.com/">GitHub</a>.</p>
@@ -600,7 +600,7 @@ lectures.</p>
   Introduction to Python
  </span>
 </p>
-<ul class="current nav bd-sidenav nav sidenav_l1">
+<ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="about_py.html">
    1. About These Lectures
@@ -641,51 +641,31 @@ lectures.</p>
    8. OOP II: Building Classes
   </a>
  </li>
- <li class="toctree-l1 current active active">
-  <a class="current reference internal" href="#">
-   9. Writing Longer Programs
-  </a>
- </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  The Scientific Libraries
+  Foundations of Scientific Computing
  </span>
 </p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="need_for_speed.html">
-   10. Python for Scientific Computing
+   9. Python for Scientific Computing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="numpy.html">
-   11. NumPy
+   10. NumPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matplotlib.html">
-   12. Matplotlib
+   11. Matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="scipy.html">
-   13. SciPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="pandas.html">
-   14. Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="pandas_panel.html">
-   15. Pandas for Panel Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sympy.html">
-   16. SymPy
+   12. SciPy
   </a>
  </li>
 </ul>
@@ -697,39 +677,66 @@ lectures.</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="numba.html">
-   17. Numba
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="parallelization.html">
-   18. Parallelization
+   13. Numba
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jax_intro.html">
-   19. An Introduction to JAX
+   14. JAX
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_vs_numba_vs_jax.html">
+   15. NumPy vs Numba vs JAX
   </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Advanced Python Programming
+  Working with Data
  </span>
 </p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   16. Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas_panel.html">
+   17. Pandas for Panel Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  More Python Programming
+ </span>
+</p>
+<ul class="current nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   20. Writing Good Code
+   18. Writing Good Code
+  </a>
+ </li>
+ <li class="toctree-l1 current active active">
+  <a class="current reference internal" href="#">
+   19. Writing Longer Programs
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   21. More Language Features
+   20. More Language Features
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   22. Debugging and Handling Errors
+   21. Debugging and Handling Errors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sympy.html">
+   22. SymPy
   </a>
  </li>
 </ul>
