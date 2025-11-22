@@ -554,7 +554,7 @@ automatically detect and use available GPUs with minimal code changes.
 For larger-scale problems, servers containing multiple GPUs (often 4-8 GPUs per server) are increasingly common.
 
 ```{figure} /_static/lecture_specific/need_for_speed/dgx.png
-:scale: 23
+:scale: 40
 ```
 
 
