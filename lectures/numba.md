@@ -475,7 +475,7 @@ distribution.
 
 Here's the code:
 
-```{code-cell} ipython
+```{code-cell} ipython3
 from numpy.random import randn
 from numba import njit
 
@@ -496,7 +496,7 @@ def h(w, r=0.1, s=0.3, v1=0.1, v2=1.0):
 
 Let's have a look at how wealth evolves under this rule.
 
-```{code-cell} ipython
+```{code-cell} ipython3
 fig, ax = plt.subplots()
 
 T = 100
@@ -540,7 +540,7 @@ Then we'll calculate median wealth at the end period.
 
 Here's the code:
 
-```{code-cell} ipython
+```{code-cell} ipython3
 @njit
 def compute_long_run_median(w0=1, T=1000, num_reps=50_000):
 
@@ -556,7 +556,7 @@ def compute_long_run_median(w0=1, T=1000, num_reps=50_000):
 
 Let's see how fast this runs:
 
-```{code-cell} ipython
+```{code-cell} ipython3
 with qe.Timer():
     compute_long_run_median()
 ```
@@ -565,7 +565,7 @@ To speed this up, we're going to parallelize it via multithreading.
 
 To do so, we add the `parallel=True` flag and change `range` to `prange`:
 
-```{code-cell} ipython
+```{code-cell} ipython3
 from numba import prange
 
 @njit(parallel=True)
@@ -583,26 +583,13 @@ def compute_long_run_median_parallel(w0=1, T=1000, num_reps=50_000):
 
 Let's look at the timing:
 
-```{code-cell} ipython
+```{code-cell} ipython3
 with qe.Timer():
     compute_long_run_median_parallel()
 ```
 
 The speed-up is significant.
 
-### A Warning
-
-Parallelization works well in the outer loop of the last example because the individual tasks inside the loop are independent of each other.
-
-If this independence fails then parallelization is often problematic.
-
-For example, each step inside the inner loop depends on the last step, so
-independence fails, and this is why we use ordinary `range` instead of `prange`.
-
-When you see us using `prange` in later lectures, it is because the
-independence of tasks holds true.
-
-Conversely, when you see us using ordinary `range` in a jitted function, it is either because the speed gain from parallelization is small or because independence fails.
 
 ## Exercises
 
@@ -807,7 +794,7 @@ For the size of the Monte Carlo simulation, use something substantial, such as
 
 Here is one solution:
 
-```{code-cell} python3
+```{code-cell} ipython3
 from random import uniform
 
 @njit(parallel=True)

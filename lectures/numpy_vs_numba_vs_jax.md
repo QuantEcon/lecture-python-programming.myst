@@ -321,11 +321,12 @@ x_mesh.nbytes + y_mesh.nbytes
 
 This extra memory usage can be a big problem in actual research calculations.
 
-Fortunately, JAX admits a different approach using [jax.vmap](https://docs.jax.dev/en/latest/_autosummary/jax.vmap.html)
+Fortunately, JAX admits a different approach 
+using [jax.vmap](https://docs.jax.dev/en/latest/_autosummary/jax.vmap.html).
 
 #### Version 1
 
-Here's one way we can do this
+Here's one way we can apply `vmap`.
 
 ```{code-cell} ipython3
 # Set up f to compute f(x, y) at every x for any given y
@@ -340,8 +341,8 @@ Let's see the timing:
 
 ```{code-cell} ipython3
 with qe.Timer(precision=8):
-    z_vmap_1 = f_vec(grid)
-    z_vmap_1.block_until_ready()
+    z_vmap = f_vec(grid)
+    z_vmap.block_until_ready()
 ```
 
 Let's check we got the right result:
@@ -391,6 +392,13 @@ Let's run it again to eliminate compilation time:
 ```{code-cell} ipython3
 with qe.Timer(precision=8):
     z_vmap = f_vec(x, y).block_until_ready()
+```
+
+Let's check we got the right result:
+
+
+```{code-cell} ipython3
+jnp.allclose(z_mesh, z_vmap)
 ```
 
 
@@ -461,6 +469,8 @@ Numba's compilation is typically quite fast, and the resulting code performance 
 
 Now let's create a JAX version using `lax.scan`:
 
+(We'll hold `n` static because it affects array size and hence JAX wants to specialize on its value in the compiled code.)
+
 ```{code-cell} ipython3
 from jax import lax
 from functools import partial
@@ -474,6 +484,8 @@ def qm_jax(x0, n, α=4.0):
     _, x = lax.scan(update, x0, jnp.arange(n))
     return jnp.concatenate([jnp.array([x0]), x])
 ```
+
+This code is not easy to read but, in essence, `lax.scan` repeatedly calls `qm_jax` and accumulates the returns `x_new` into an array.
 
 Let's time it with the same parameters:
 
@@ -489,24 +501,25 @@ with qe.Timer(precision=8):
     x_jax = qm_jax(0.1, n).block_until_ready()
 ```
 
-JAX is also very efficient for this sequential operation.
+JAX is also efficient for this sequential operation.
 
-Both JAX and Numba deliver strong performance after compilation.
-
-While the raw speed is similar for this type of operation, there are notable differences in code complexity and ease of understanding, which we discuss in the next section.
+Both JAX and Numba deliver strong performance after compilation, with Numba
+typically (but not always) offering slightly better speeds on purely sequential
+operations.
 
 ### Summary
 
-While both Numba and JAX deliver excellent performance for sequential operations, there are significant differences in code readability and ease of use.
+While both Numba and JAX deliver strong performance for sequential operations,
+there are significant differences in code readability and ease of use.
 
-The Numba version is straightforward and natural to read: we simply allocate an array and fill it element by element using a standard Python loop.
+The Numba version is straightforward and natural to read: we simply allocate an
+array and fill it element by element using a standard Python loop.
 
 This is exactly how most programmers think about the algorithm.
 
-The JAX version, on the other hand, requires using `lax.scan`, which is less intuitive and has a steeper learning curve.
+The JAX version, on the other hand, requires using `lax.scan`, which is significantly less intuitive.
 
-Additionally, JAX's immutable arrays mean we cannot simply update array elements in place.
+Additionally, JAX's immutable arrays mean we cannot simply update array elements in place, making it hard to directly replicate the algorithm used by Numba.
 
-Instead, we must use functional programming patterns with `lax.scan`, where we define an `update` function that returns both the new state and the value to accumulate.
-
-For this type of sequential operation, Numba is the clear winner in terms of code clarity and ease of implementation, while maintaining competitive performance.
+For this type of sequential operation, Numba is the clear winner in terms of
+code clarity and ease of implementation, as well as high performance.

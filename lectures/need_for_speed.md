@@ -153,12 +153,12 @@ On the other hand, the standard implementation of Python (called CPython) cannot
 match the speed of compiled languages such as C or Fortran.
 
 
-### Where are the Bottlenecks?
+### Where are the bottlenecks?
 
 Why is this the case?
 
 
-#### Dynamic Typing
+#### Dynamic typing
 
 ```{index} single: Dynamic Typing
 ```
@@ -200,7 +200,7 @@ If we repeatedly execute this expression in a tight loop, the nontrivial
 overhead becomes a large overhead.
 
 
-#### Static Types
+#### Static types
 
 ```{index} single: Static Types
 ```
@@ -250,7 +250,7 @@ Such an array is stored in a single contiguous block of memory
 
 * In modern computers, memory addresses are allocated to each byte (one byte = 8 bits).
 * For example, a 64 bit integer is stored in 8 bytes of memory.
-* An array of $n$ such integers occupies $8n$ **consecutive** memory slots.
+* An array of $n$ such integers occupies $8n$ *consecutive* memory slots.
 
 Moreover, the compiler is made aware of the data type by the programmer.
 
@@ -336,7 +336,7 @@ for this purpose and supplied to users as part of a package.
 
 The core benefits are
 
-1. type-checking is paid per array, rather than per element, and
+1. type-checking is paid *per array*, rather than per element, and
 1. arrays containing elements with the same data type are efficient in terms of
    memory access.
 
