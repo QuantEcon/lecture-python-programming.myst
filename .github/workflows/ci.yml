@@ -5,6 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0  # Fetch full git history for changelog feature
       - name: Setup Anaconda
         uses: conda-incubator/setup-miniconda@v3
         with:
