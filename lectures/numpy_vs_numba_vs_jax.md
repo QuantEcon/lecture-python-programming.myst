@@ -270,12 +270,12 @@ Here's the timings.
 
 ```{code-cell} ipython3
 with qe.Timer(precision=8):
-    compute_max_numba_parallel_nested(grid)
+    compute_max_numba_parallel(grid)
 ```
 
 ```{code-cell} ipython3
 with qe.Timer(precision=8):
-    compute_max_numba_parallel_nested(grid)
+    compute_max_numba_parallel(grid)
 ```
 
 If you have multiple cores, you should see at least some benefits from parallelization here.
@@ -361,16 +361,16 @@ Let's see the timing:
 ```{code-cell} ipython3
 with qe.Timer(precision=8):
     z_max = jnp.max(f_vec(grid))
-    z_vmap.block_until_ready()
+    z_max.block_until_ready()
 ```
 
 ```{code-cell} ipython3
 with qe.Timer(precision=8):
     z_max = jnp.max(f_vec(grid))
-    z_vmap.block_until_ready()
+    z_max.block_until_ready()
 ```
 
-The execution time is similar to as the mesh operation but, by avoiding the large input arrays `x_mesh` and `y_mesh`,
+The execution time is similar to the mesh operation but, by avoiding the large input arrays `x_mesh` and `y_mesh`,
 we are using far less memory.
 
 In addition, `vmap` allows us to break vectorization up into stages, which is
@@ -507,7 +507,7 @@ def qm_jax(x0, n, α=4.0):
     return jnp.concatenate([jnp.array([x0]), x])
 ```
 
-This code is not easy to read but, in essence, `lax.scan` repeatedly calls `qm_jax` and accumulates the returns `x_new` into an array.
+This code is not easy to read but, in essence, `lax.scan` repeatedly calls `update` and accumulates the returns `x_new` into an array.
 
 Let's time it with the same parameters:
 
