@@ -1,4 +1,5 @@
-"""Hardware benchmark script for CI runners.
+"""
+Hardware benchmark script for CI runners.
 Compares CPU and GPU performance to diagnose slowdowns.
 Works on both CPU-only (GitHub Actions) and GPU (RunsOn) runners.
 """
@@ -8,10 +9,10 @@ import os
 import json
 from datetime import datetime
 
-# Global results dictionary for JSON output
+# Global results dictionary
 RESULTS = {
+    "pathway": "bare_metal",
     "timestamp": datetime.now().isoformat(),
-    "execution_method": "bare_metal",
     "system": {},
     "benchmarks": {}
 }
@@ -27,14 +28,18 @@ def get_cpu_info():
     
     RESULTS["system"]["platform"] = platform.platform()
     RESULTS["system"]["processor"] = platform.processor()
-    RESULTS["system"]["python_version"] = platform.python_version()
+    RESULTS["system"]["python"] = platform.python_version()
+    RESULTS["system"]["cpu_count"] = os.cpu_count()
     
-    # Try to get CPU frequency
+    # Try to get CPU model
+    cpu_model = None
+    cpu_mhz = None
     try:
         with open('/proc/cpuinfo', 'r') as f:
             for line in f:
                 if 'model name' in line:
-                    print(f"CPU Model: {line.split(':')[1].strip()}")
+                    cpu_model = line.split(':')[1].strip()
+                    print(f"CPU Model: {cpu_model}")
                     break
     except:
         pass
@@ -44,16 +49,20 @@ def get_cpu_info():
         with open('/proc/cpuinfo', 'r') as f:
             for line in f:
                 if 'cpu MHz' in line:
-                    print(f"CPU MHz: {line.split(':')[1].strip()}")
+                    cpu_mhz = line.split(':')[1].strip()
+                    print(f"CPU MHz: {cpu_mhz}")
                     break
     except:
         pass
     
+    RESULTS["system"]["cpu_model"] = cpu_model
+    RESULTS["system"]["cpu_mhz"] = cpu_mhz
+    
     # CPU count
     print(f"CPU Count: {os.cpu_count()}")
-    RESULTS["system"]["cpu_count"] = os.cpu_count()
     
     # Check for GPU
+    gpu_info = None
     try:
         import subprocess
         result = subprocess.run(['nvidia-smi', '--query-gpu=name,memory.total', '--format=csv,noheader'], 
@@ -61,14 +70,12 @@ def get_cpu_info():
         if result.returncode == 0:
             gpu_info = result.stdout.strip()
             print(f"GPU: {gpu_info}")
-            RESULTS["system"]["gpu"] = gpu_info
         else:
             print("GPU: None detected")
-            RESULTS["system"]["gpu"] = None
     except:
         print("GPU: None detected (nvidia-smi not available)")
-        RESULTS["system"]["gpu"] = None
     
+    RESULTS["system"]["gpu"] = gpu_info
     print()
 
 def benchmark_cpu_pure_python():
@@ -84,7 +91,7 @@ def benchmark_cpu_pure_python():
     total = sum(i * i for i in range(10_000_000))
     elapsed = time.perf_counter() - start
     print(f"Integer sum (10M iterations): {elapsed:.3f} seconds")
-    results["integer_sum_10M"] = elapsed
+    results["integer_sum_10m"] = elapsed
     
     # Float computation
     start = time.perf_counter()
@@ -93,10 +100,10 @@ def benchmark_cpu_pure_python():
         total += (i * 0.1) ** 0.5
     elapsed = time.perf_counter() - start
     print(f"Float sqrt (1M iterations): {elapsed:.3f} seconds")
-    results["float_sqrt_1M"] = elapsed
+    results["float_sqrt_1m"] = elapsed
+    print()
     
     RESULTS["benchmarks"]["pure_python"] = results
-    print()
 
 def benchmark_cpu_numpy():
     """NumPy CPU benchmark."""
@@ -126,10 +133,10 @@ def benchmark_cpu_numpy():
     y = np.cos(x**2) + np.sin(x)
     elapsed = time.perf_counter() - start
     print(f"Element-wise ops (50M elements): {elapsed:.3f} seconds")
-    results["elementwise_50M"] = elapsed
+    results["elementwise_50m"] = elapsed
+    print()
     
     RESULTS["benchmarks"]["numpy"] = results
-    print()
 
 def benchmark_gpu_jax():
     """JAX benchmark (GPU if available, otherwise CPU)."""
@@ -137,17 +144,11 @@ def benchmark_gpu_jax():
         import jax
         import jax.numpy as jnp
         
-        results = {}
-        
         devices = jax.devices()
         default_backend = jax.default_backend()
         
         # Check if GPU is available
         has_gpu = any('cuda' in str(d).lower() or 'gpu' in str(d).lower() for d in devices)
-        
-        results["has_gpu"] = has_gpu
-        results["default_backend"] = default_backend
-        results["devices"] = [str(d) for d in devices]
         
         print("=" * 60)
         if has_gpu:
@@ -160,6 +161,12 @@ def benchmark_gpu_jax():
         print(f"Default backend: {default_backend}")
         print(f"GPU Available: {has_gpu}")
         print()
+        
+        results = {
+            "backend": default_backend,
+            "has_gpu": has_gpu,
+            "devices": str(devices)
+        }
         
         # Warm-up JIT compilation
         print("Warming up JIT compilation...")
@@ -217,17 +224,17 @@ def benchmark_gpu_jax():
         y = elementwise_ops(x).block_until_ready()
         warmup_time = time.perf_counter() - start
         print(f"Element-wise warm-up (50M): {warmup_time:.3f} seconds")
-        results["elementwise_50M_warmup"] = warmup_time
+        results["elementwise_50m_warmup"] = warmup_time
         
         # Compiled
         start = time.perf_counter()
         y = elementwise_ops(x).block_until_ready()
         elapsed = time.perf_counter() - start
         print(f"Element-wise compiled (50M): {elapsed:.3f} seconds")
-        results["elementwise_50M_compiled"] = elapsed
+        results["elementwise_50m_compiled"] = elapsed
         
-        RESULTS["benchmarks"]["jax"] = results
         print()
+        RESULTS["benchmarks"]["jax"] = results
         
     except ImportError as e:
         print(f"JAX not available: {e}")
@@ -242,11 +249,11 @@ def benchmark_numba():
         import numba
         import numpy as np
         
-        results = {}
-        
         print("=" * 60)
         print("CPU BENCHMARK: Numba")
         print("=" * 60)
+        
+        results = {}
         
         @numba.jit(nopython=True)
         def numba_sum(n):
@@ -260,14 +267,14 @@ def benchmark_numba():
         result = numba_sum(10_000_000)
         warmup_time = time.perf_counter() - start
         print(f"Integer sum warm-up (includes compile): {warmup_time:.3f} seconds")
-        results["integer_sum_10M_warmup"] = warmup_time
+        results["integer_sum_10m_warmup"] = warmup_time
         
         # Compiled run
         start = time.perf_counter()
         result = numba_sum(10_000_000)
         elapsed = time.perf_counter() - start
         print(f"Integer sum compiled (10M): {elapsed:.3f} seconds")
-        results["integer_sum_10M_compiled"] = elapsed
+        results["integer_sum_10m_compiled"] = elapsed
         
         @numba.jit(nopython=True, parallel=True)
         def numba_parallel_sum(arr):
@@ -283,17 +290,17 @@ def benchmark_numba():
         result = numba_parallel_sum(arr)
         warmup_time = time.perf_counter() - start
         print(f"Parallel sum warm-up (50M): {warmup_time:.3f} seconds")
-        results["parallel_sum_50M_warmup"] = warmup_time
+        results["parallel_sum_50m_warmup"] = warmup_time
         
         # Compiled
         start = time.perf_counter()
         result = numba_parallel_sum(arr)
         elapsed = time.perf_counter() - start
         print(f"Parallel sum compiled (50M): {elapsed:.3f} seconds")
-        results["parallel_sum_50M_compiled"] = elapsed
+        results["parallel_sum_50m_compiled"] = elapsed
         
-        RESULTS["benchmarks"]["numba"] = results
         print()
+        RESULTS["benchmarks"]["numba"] = results
         
     except ImportError as e:
         print(f"Numba not available: {e}")
@@ -301,6 +308,14 @@ def benchmark_numba():
     except Exception as e:
         print(f"Numba benchmark failed: {e}")
         RESULTS["benchmarks"]["numba"] = {"error": str(e)}
+
+
+def save_results(output_path="benchmark_results_bare_metal.json"):
+    """Save benchmark results to JSON file."""
+    with open(output_path, 'w') as f:
+        json.dump(RESULTS, f, indent=2)
+    print(f"\nResults saved to: {output_path}")
+
 
 if __name__ == "__main__":
     print("\n" + "=" * 60)
@@ -313,12 +328,9 @@ if __name__ == "__main__":
     benchmark_numba()
     benchmark_gpu_jax()
     
+    # Save results to JSON
+    save_results("benchmark_results_bare_metal.json")
+    
     print("=" * 60)
     print("BENCHMARK COMPLETE")
     print("=" * 60)
-    
-    # Save results to JSON
-    output_file = "benchmark_results_baremetal.json"
-    with open(output_file, 'w') as f:
-        json.dump(RESULTS, f, indent=2)
-    print(f"\nResults saved to {output_file}")
