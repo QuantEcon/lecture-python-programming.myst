@@ -31,12 +31,17 @@ jobs:
         run: |
           echo "=== Bare Metal Python Script Execution ==="
           python scripts/benchmark-hardware.py
+          mkdir -p benchmark_results
+          mv benchmark_results_baremetal.json benchmark_results/
       - name: Run Jupyter Notebook Benchmark (via nbconvert)
         shell: bash -l {0}
         run: |
           echo "=== Jupyter Kernel Execution ==="
-          jupyter nbconvert --to notebook --execute scripts/benchmark-jupyter.ipynb --output benchmark-jupyter-executed.ipynb
+          cd scripts
+          jupyter nbconvert --to notebook --execute benchmark-jupyter.ipynb --output benchmark-jupyter-executed.ipynb
           echo "Notebook executed successfully"
+          cd ..
+          mv scripts/benchmark_results_jupyter.json benchmark_results/
       - name: Run Jupyter-Book Benchmark
         shell: bash -l {0}
         run: |
@@ -54,6 +59,26 @@ jobs:
           # Build
           jb build benchmark_test --path-output benchmark_build/
           echo "Jupyter-Book build completed successfully"
+          # Move JSON results if generated
+          if [ -f benchmark_test/benchmark_results_jupyterbook.json ]; then
+            mv benchmark_test/benchmark_results_jupyterbook.json benchmark_results/
+          elif [ -f benchmark_results_jupyterbook.json ]; then
+            mv benchmark_results_jupyterbook.json benchmark_results/
+          fi
+      - name: Collect and Upload Benchmark Results
+        uses: actions/upload-artifact@v5
+        with:
+          name: benchmark-results
+          path: benchmark_results/
+      - name: Display Benchmark Results
+        shell: bash -l {0}
+        run: |
+          echo "=== Benchmark Results Summary ==="
+          for f in benchmark_results/*.json; do
+            echo "--- $f ---"
+            cat "$f"
+            echo ""
+          done
       - name: Install latex dependencies
         run: |
           sudo apt-get -qq update
