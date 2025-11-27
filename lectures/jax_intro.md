@@ -37,8 +37,6 @@ This lecture provides a short introduction to [Google JAX](https://github.com/ja
 
 JAX provides a NumPy-like interface that can leverage GPU acceleration for high-performance numerical computing.
 
-For a more comprehensive discussion of JAX, see [our JAX lecture series](https://jax.quantecon.org/intro.html).
-
 
 ## JAX as a NumPy Replacement
 
