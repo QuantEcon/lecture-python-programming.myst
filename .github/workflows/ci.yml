@@ -36,6 +36,34 @@ jobs:
           echo ""
           echo "The diagnostic shows if time scales linearly with iterations,"
           echo "which indicates constant per-iteration CPU-GPU sync overhead."
+      - name: Nsight Systems Profile (if available)
+        shell: bash -l {0}
+        continue-on-error: true
+        run: |
+          echo "=== NVIDIA Nsight Systems Profiling ==="
+          if command -v nsys &> /dev/null; then
+            echo "nsys found, running profile with 1000 iterations..."
+            mkdir -p nsight_profiles
+            nsys profile -o nsight_profiles/lax_scan_trace \
+              --trace=cuda,nvtx,osrt \
+              --cuda-memory-usage=true \
+              --stats=true \
+              python scripts/profile_lax_scan.py --nsys -n 1000
+            echo ""
+            echo "Profile saved to nsight_profiles/lax_scan_trace.nsys-rep"
+            echo "Download artifact and open in Nsight Systems UI to see CPU-GPU sync pattern"
+          else
+            echo "nsys not found, skipping Nsight profiling"
+            echo "Install NVIDIA Nsight Systems to enable this profiling"
+          fi
+      - name: Upload Nsight Profile
+        uses: actions/upload-artifact@v5
+        if: success() || failure()
+        continue-on-error: true
+        with:
+          name: nsight-profile
+          path: nsight_profiles/
+          if-no-files-found: ignore
       # === Benchmark Tests (Bare Metal, Jupyter, Jupyter-Book) ===
       - name: Run Hardware Benchmarks (Bare Metal)
         shell: bash -l {0}
