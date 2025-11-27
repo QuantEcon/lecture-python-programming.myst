@@ -1,4 +1,3 @@
-"""
 """Hardware benchmark script for CI runners.
 Compares CPU and GPU performance to diagnose slowdowns.
 Works on both CPU-only (GitHub Actions) and GPU (RunsOn) runners.
@@ -204,7 +203,7 @@ def benchmark_gpu_jax():
         C = matmul(A, B).block_until_ready()
         elapsed = time.perf_counter() - start
         print(f"Matrix multiply compiled ({n}x{n}): {elapsed:.3f} seconds")
-        results["matmul_3000x3000_compiled"] = elapsed)
+        results["matmul_3000x3000_compiled"] = elapsed
         
         # Element-wise GPU benchmark
         x = jax.random.normal(key, (50_000_000,))
@@ -235,7 +234,7 @@ def benchmark_gpu_jax():
         RESULTS["benchmarks"]["jax"] = {"error": str(e)}
     except Exception as e:
         print(f"JAX benchmark failed: {e}")
-        RESULTS["benchmarks"]["jax"] = {"error": str(e)})
+        RESULTS["benchmarks"]["jax"] = {"error": str(e)}
 
 def benchmark_numba():
     """Numba CPU benchmark."""
@@ -268,7 +267,7 @@ def benchmark_numba():
         result = numba_sum(10_000_000)
         elapsed = time.perf_counter() - start
         print(f"Integer sum compiled (10M): {elapsed:.3f} seconds")
-        results["integer_sum_10M_compiled"] = elapsed)
+        results["integer_sum_10M_compiled"] = elapsed
         
         @numba.jit(nopython=True, parallel=True)
         def numba_parallel_sum(arr):
@@ -301,7 +300,7 @@ def benchmark_numba():
         RESULTS["benchmarks"]["numba"] = {"error": str(e)}
     except Exception as e:
         print(f"Numba benchmark failed: {e}")
-        RESULTS["benchmarks"]["numba"] = {"error": str(e)})
+        RESULTS["benchmarks"]["numba"] = {"error": str(e)}
 
 if __name__ == "__main__":
     print("\n" + "=" * 60)
