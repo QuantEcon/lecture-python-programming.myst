@@ -1,0 +1,6 @@
+images:
+  quantecon_ubuntu2404:
+    platform: "linux"
+    arch: "x64"
+    ami: "ami-0edec81935264b6d3"
+    region: "us-west-2"

@@ -6,7 +6,7 @@ on:
 jobs:
   publish:
     if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
-    runs-on: ubuntu-latest
+    runs-on: "runs-on=${{ github.run_id }}/family=g4dn.2xlarge/image=quantecon_ubuntu2404/disk=large"
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -21,6 +21,16 @@ jobs:
           python-version: "3.13"
           environment-file: environment.yml
           activate-environment: quantecon
+      - name: Install JAX and Numpyro
+        shell: bash -l {0}
+        run: |
+          pip install -U "jax[cuda13]"
+          pip install numpyro
+          python scripts/test-jax-install.py
+      - name: Check nvidia drivers
+        shell: bash -l {0}
+        run: |
+          nvidia-smi
       - name: Install latex dependencies
         run: |
           sudo apt-get -qq update
