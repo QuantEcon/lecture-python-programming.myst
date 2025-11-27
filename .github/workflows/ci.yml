@@ -25,6 +25,16 @@ jobs:
           pip install -U "jax[cuda13]"
           pip install numpyro
           python scripts/test-jax-install.py
+      # === lax.scan GPU Performance Profiling ===
+      - name: Profile lax.scan (GPU vs CPU)
+        shell: bash -l {0}
+        run: |
+          echo "=== lax.scan Performance Profiling ==="
+          echo "This profiles the known issue with lax.scan on GPU (JAX Issue #2491)"
+          echo ""
+          python scripts/profile_lax_scan.py --iterations 100000
+          echo ""
+          echo "Note: GPU is expected to be much slower due to CPU-GPU sync per iteration"
       # === Benchmark Tests (Bare Metal, Jupyter, Jupyter-Book) ===
       - name: Run Hardware Benchmarks (Bare Metal)
         shell: bash -l {0}
