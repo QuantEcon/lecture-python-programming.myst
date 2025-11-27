@@ -842,8 +842,8 @@ def compute_call_price_jax(β=β,
         new_loop_state = s, h, key
         return new_loop_state
 
-    loop_state = s, h, key
-    final_loop_state = jax.lax.fori_loop(0, n, update, loop_state)
+    initial_loop_state = s, h, key
+    final_loop_state = jax.lax.fori_loop(0, n, update, initial_loop_state)
     s, h, key = final_loop_state
 
     expectation = jnp.mean(jnp.maximum(jnp.exp(s) - K, 0))
