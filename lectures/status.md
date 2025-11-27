@@ -32,3 +32,17 @@ and the following package versions
 :tags: [hide-output]
 !conda list
 ```
+
+This lecture series has access to the following GPU
+
+```{code-cell} ipython
+!nvidia-smi
+```
+
+You can check the backend used by JAX using:
+
+```{code-cell} ipython3
+import jax
+# Check if JAX is using GPU
+print(f"JAX backend: {jax.devices()[0].platform}")
+```
