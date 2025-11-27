@@ -32,9 +32,10 @@ jobs:
           echo "=== lax.scan Performance Profiling ==="
           echo "This profiles the known issue with lax.scan on GPU (JAX Issue #2491)"
           echo ""
-          python scripts/profile_lax_scan.py --iterations 100000
+          python scripts/profile_lax_scan.py --iterations 100000 --diagnose
           echo ""
-          echo "Note: GPU is expected to be much slower due to CPU-GPU sync per iteration"
+          echo "The diagnostic shows if time scales linearly with iterations,"
+          echo "which indicates constant per-iteration CPU-GPU sync overhead."
       # === Benchmark Tests (Bare Metal, Jupyter, Jupyter-Book) ===
       - name: Run Hardware Benchmarks (Bare Metal)
         shell: bash -l {0}
