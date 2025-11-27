@@ -19,6 +19,20 @@ Compare results with direct script and nbconvert execution.
 import time
 import platform
 import os
+import json
+from datetime import datetime
+
+# Initialize results dictionary
+RESULTS = {
+    "pathway": "jupyter_book",
+    "timestamp": datetime.now().isoformat(),
+    "system": {
+        "platform": platform.platform(),
+        "python": platform.python_version(),
+        "cpu_count": os.cpu_count()
+    },
+    "benchmarks": {}
+}
 
 print("=" * 60)
 print("JUPYTER BOOK EXECUTION BENCHMARK")
@@ -40,6 +54,10 @@ has_gpu = any('cuda' in str(d).lower() or 'gpu' in str(d).lower() for d in devic
 print(f"JAX devices: {devices}")
 print(f"Default backend: {default_backend}")
 print(f"GPU Available: {has_gpu}")
+
+RESULTS["system"]["jax_backend"] = default_backend
+RESULTS["system"]["has_gpu"] = has_gpu
+RESULTS["system"]["jax_devices"] = str(devices)
 ```
 
 ```{code-cell} ipython3
@@ -73,6 +91,9 @@ start = time.perf_counter()
 C = matmul(A, B).block_until_ready()
 compiled_time = time.perf_counter() - start
 print(f"Compiled execution: {compiled_time:.3f} seconds")
+
+RESULTS["benchmarks"]["matmul_1000x1000_warmup"] = warmup_time
+RESULTS["benchmarks"]["matmul_1000x1000_compiled"] = compiled_time
 ```
 
 ```{code-cell} ipython3
@@ -96,6 +117,9 @@ start = time.perf_counter()
 C = matmul(A, B).block_until_ready()
 compiled_time = time.perf_counter() - start
 print(f"Compiled execution: {compiled_time:.3f} seconds")
+
+RESULTS["benchmarks"]["matmul_3000x3000_warmup"] = warmup_time
+RESULTS["benchmarks"]["matmul_3000x3000_compiled"] = compiled_time
 ```
 
 ```{code-cell} ipython3
@@ -121,6 +145,9 @@ start = time.perf_counter()
 y = elementwise_ops(x).block_until_ready()
 compiled_time = time.perf_counter() - start
 print(f"Compiled execution: {compiled_time:.3f} seconds")
+
+RESULTS["benchmarks"]["elementwise_50m_warmup"] = warmup_time
+RESULTS["benchmarks"]["elementwise_50m_compiled"] = compiled_time
 ```
 
 ```{code-cell} ipython3
@@ -130,6 +157,7 @@ print("BENCHMARK 4: Multiple Small Operations (lecture simulation)")
 print("=" * 60)
 
 total_start = time.perf_counter()
+multi_results = {}
 
 # Simulate multiple cell executions with different operations
 for i, size in enumerate([100, 500, 1000, 2000, 3000]):
@@ -144,13 +172,25 @@ for i, size in enumerate([100, 500, 1000, 2000, 3000]):
     result = compute(A, B).block_until_ready()
     elapsed = time.perf_counter() - start
     print(f"  Size {size}x{size}: {elapsed:.3f} seconds")
+    multi_results[f"size_{size}x{size}"] = elapsed
 
 total_time = time.perf_counter() - total_start
 print(f"\nTotal time for all operations: {total_time:.3f} seconds")
+
+RESULTS["benchmarks"]["multi_ops"] = multi_results
+RESULTS["benchmarks"]["multi_ops_total"] = total_time
 ```
 
 ```{code-cell} ipython3
+# Save results to JSON file
+output_path = "benchmark_results_jupyterbook.json"
+with open(output_path, 'w') as f:
+    json.dump(RESULTS, f, indent=2)
+
 print("\n" + "=" * 60)
 print("JUPYTER BOOK EXECUTION BENCHMARK COMPLETE")
 print("=" * 60)
+print(f"\nResults saved to: {output_path}")
+print("\nJSON Results:")
+print(json.dumps(RESULTS, indent=2))
 ```

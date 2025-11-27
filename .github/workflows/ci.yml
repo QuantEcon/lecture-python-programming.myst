@@ -45,8 +45,10 @@ jobs:
         shell: bash -l {0}
         run: |
           echo "=== Jupyter Kernel Execution ==="
-          jupyter nbconvert --to notebook --execute scripts/benchmark-jupyter.ipynb --output benchmark-jupyter-executed.ipynb
+          cd scripts
+          jupyter nbconvert --to notebook --execute benchmark-jupyter.ipynb --output benchmark-jupyter-executed.ipynb
           echo "Notebook executed successfully"
+          cd ..
       - name: Run Jupyter-Book Benchmark
         shell: bash -l {0}
         run: |
@@ -61,9 +63,40 @@ jobs:
           # Create minimal _toc.yml
           echo "format: jb-book" > benchmark_test/_toc.yml
           echo "root: benchmark-jupyterbook" >> benchmark_test/_toc.yml
-          # Build
-          jb build benchmark_test --path-output benchmark_build/
+          # Build (run from benchmark_test so JSON is written there)
+          cd benchmark_test
+          jb build . --path-output ../benchmark_build/
+          cd ..
           echo "Jupyter-Book build completed successfully"
+      - name: Collect and Display Benchmark Results
+        shell: bash -l {0}
+        run: |
+          echo "=== Collecting Benchmark Results ==="
+          mkdir -p benchmark_results
+          
+          # Copy results from each pathway
+          cp benchmark_results_bare_metal.json benchmark_results/ 2>/dev/null || echo "No bare metal results"
+          cp scripts/benchmark_results_jupyter.json benchmark_results/ 2>/dev/null || echo "No jupyter results"
+          cp benchmark_test/benchmark_results_jupyterbook.json benchmark_results/ 2>/dev/null || echo "No jupyterbook results"
+          
+          # Display summary
+          echo ""
+          echo "============================================================"
+          echo "BENCHMARK RESULTS SUMMARY"
+          echo "============================================================"
+          for f in benchmark_results/*.json; do
+            if [ -f "$f" ]; then
+              echo ""
+              echo "--- $(basename $f) ---"
+              cat "$f"
+            fi
+          done
+      - name: Upload Benchmark Results
+        uses: actions/upload-artifact@v5
+        with:
+          name: benchmark-results
+          path: benchmark_results/
+          if-no-files-found: warn
       - name: Download "build" folder (cache)
         uses: dawidd6/action-download-artifact@v11
         with:
