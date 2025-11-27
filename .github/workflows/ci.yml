@@ -35,6 +35,11 @@ jobs:
       - name: Display Pip Versions
         shell: bash -l {0}
         run: pip list
+      - name: Run Hardware Benchmarks
+        shell: bash -l {0}
+        run: |
+          pip install jax  # Install JAX for CPU
+          python scripts/benchmark-hardware.py
       - name: Download "build" folder (cache)
         uses: dawidd6/action-download-artifact@v11
         with:
