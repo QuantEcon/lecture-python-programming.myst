@@ -181,10 +181,10 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorized-code-with-jax">15.1.5. Vectorized code with JAX</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jax-plus-vmap">15.1.6. JAX plus vmap</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#version-1">15.1.6.1. Version 1</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#version-2">15.1.6.2. Version 2</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">15.1.7. Summary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmap-version-2">15.1.7. vmap version 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">15.1.8. Summary</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-operations">15.2. Sequential operations</a><ul class="nav section-nav flex-column">
@@ -242,7 +242,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Nov 22, 2025
+                            Last changed: Nov 26, 2025
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -253,10 +253,19 @@
                             
                             <li class="changelog-entry">
                                 
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.myst/commit/ce3de00" class="changelog-hash">ce3de00</a>
+                                
+                                <span class="changelog-author">John Stachurski</span>
+                                <span class="changelog-time">13 hours ago</span>
+                                <span class="changelog-message">Improve parallel Numba examples with race condition explanation (#436)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.myst/commit/cc9c325" class="changelog-hash">cc9c325</a>
                                 
                                 <span class="changelog-author">John Stachurski</span>
-                                <span class="changelog-time">1 day ago</span>
+                                <span class="changelog-time">4 days ago</span>
                                 <span class="changelog-message">Reorganize parallel programming lectures and improve content flow (#429)</span>
                             </li>
                             
@@ -301,22 +310,125 @@ footprint but also clarity and ease of use.</p>
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.10.1)
-Requirement already satisfied: jax in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.8.1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting quantecon
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading quantecon-0.10.1-py3-none-any.whl.metadata (5.3 kB)
+Collecting jax
+  Downloading jax-0.8.1-py3-none-any.whl.metadata (13 kB)
 Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (0.61.0)
 Requirement already satisfied: numpy&gt;=1.17.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.1.3)
 Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.32.3)
 Requirement already satisfied: scipy&gt;=1.5.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (1.15.3)
 Requirement already satisfied: sympy in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (1.13.3)
-Requirement already satisfied: jaxlib&lt;=0.8.1,&gt;=0.8.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (0.8.1)
-Requirement already satisfied: ml_dtypes&gt;=0.5.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (0.5.4)
-Requirement already satisfied: opt_einsum in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (3.4.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting jaxlib&lt;=0.8.1,&gt;=0.8.1 (from jax)
+  Downloading jaxlib-0.8.1-cp313-cp313-manylinux_2_27_x86_64.whl.metadata (1.3 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting ml_dtypes&gt;=0.5.0 (from jax)
+  Downloading ml_dtypes-0.5.4-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.9 kB)
+Collecting opt_einsum (from jax)
+  Downloading opt_einsum-3.4.0-py3-none-any.whl.metadata (6.3 kB)
 Requirement already satisfied: llvmlite&lt;0.45,&gt;=0.44.0dev0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from numba&gt;=0.49.0-&gt;quantecon) (0.44.0)
 Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (3.3.2)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (3.7)
 Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2.3.0)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2025.4.26)
 Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from sympy-&gt;quantecon) (1.3.0)
+Downloading quantecon-0.10.1-py3-none-any.whl (325 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading jax-0.8.1-py3-none-any.whl (2.9 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/2.9 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.9/2.9 MB</span> <span class=" -Color -Color-Red">89.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading jaxlib-0.8.1-cp313-cp313-manylinux_2_27_x86_64.whl (80.3 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/80.3 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">32.8/80.3 MB</span> <span class=" -Color -Color-Red">177.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ <span class=" -Color -Color-Green">65.8/80.3 MB</span> <span class=" -Color -Color-Red">164.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">80.3/80.3 MB</span> <span class=" -Color -Color-Red">135.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading ml_dtypes-0.5.4-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (5.0 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/5.0 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.0/5.0 MB</span> <span class=" -Color -Color-Red">133.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading opt_einsum-3.4.0-py3-none-any.whl (71 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: opt_einsum, ml_dtypes, quantecon, jaxlib, jax
+?25l
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2/5</span> [quantecon]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5/5</span> [jax]
+?25h
+Successfully installed jax-0.8.1 jaxlib-0.8.1 ml_dtypes-0.5.4 opt_einsum-3.4.0 quantecon-0.10.1
 </pre></div>
 </div>
 </div>
@@ -417,12 +529,15 @@ that <code class="docutils literal notranslate"><span class="pre">f(x,</span> <s
 <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">grid</span><span class="p">)</span>
 
 <span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+    <span class="n">z_max_numpy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;NumPy result: </span><span class="si">{</span><span class="n">z_max_numpy</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.16600490 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.33050466 seconds elapsed
+NumPy result: 0.9999979986680024
 </pre></div>
 </div>
 </div>
@@ -464,7 +579,7 @@ before it sees the size of the arrays <code class="docutils literal notranslate"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.23668504 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.23576260 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -477,20 +592,22 @@ before it sees the size of the arrays <code class="docutils literal notranslate"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10759234 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10783458 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<p>Depending on your machine, the Numba version can be a bit slower or a bit faster than NumPy.</p>
-<p>On one hand, NumPy combines efficient arithmetic (like Numba) with some multithreading (unlike this Numba code), which provides an advantage.</p>
+<p>Depending on your machine, the Numba version can be a bit slower or a bit faster
+than NumPy.</p>
+<p>On one hand, NumPy combines efficient arithmetic (like Numba) with some
+multithreading (unlike this Numba code), which provides an advantage.</p>
 <p>On the other hand, the Numba routine uses much less memory, since we are only
 working with a single one-dimensional grid.</p>
 </section>
 <section id="parallelized-numba">
 <h3><span class="section-number">15.1.4. </span>Parallelized Numba<a class="headerlink" href="#parallelized-numba" title="Link to this heading">#</a></h3>
 <p>Now let’s try parallelization with Numba using <code class="docutils literal notranslate"><span class="pre">prange</span></code>:</p>
-<p>First we parallelize just the outer loop.</p>
+<p>Here’s a naive and <em>incorrect</em> attempt.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@numba</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -505,54 +622,65 @@ working with a single one-dimensional grid.</p>
             <span class="k">if</span> <span class="n">z</span> <span class="o">&gt;</span> <span class="n">m</span><span class="p">:</span>
                 <span class="n">m</span> <span class="o">=</span> <span class="n">z</span>
     <span class="k">return</span> <span class="n">m</span>
-
-<span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
-    <span class="n">compute_max_numba_parallel</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.26333547 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
+<p>Usually this returns an incorrect result:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
-    <span class="n">compute_max_numba_parallel</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z_max_parallel_incorrect</span> <span class="o">=</span> <span class="n">compute_max_numba_parallel</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Incorrect parallel Numba result: </span><span class="si">{</span><span class="n">z_max_parallel_incorrect</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;NumPy result: </span><span class="si">{</span><span class="n">z_max_numpy</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00009918 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Incorrect parallel Numba result: -inf
+NumPy result: 0.9999979986680024
 </pre></div>
 </div>
 </div>
 </div>
-<p>Next we parallelize both loops.</p>
+<p>The incorrect parallel implementation typically returns <code class="docutils literal notranslate"><span class="pre">-inf</span></code> (the initial value of <code class="docutils literal notranslate"><span class="pre">m</span></code>) instead of the correct maximum value of approximately <code class="docutils literal notranslate"><span class="pre">0.9999979986680024</span></code>.</p>
+<p>The reason is that the variable <span class="math notranslate nohighlight">\(m\)</span> is shared across threads and not properly controlled.</p>
+<p>When multiple threads try to read and write <code class="docutils literal notranslate"><span class="pre">m</span></code> simultaneously, they interfere with each other, causing a race condition.</p>
+<p>This results in lost updates—threads read stale values of <code class="docutils literal notranslate"><span class="pre">m</span></code> or overwrite each other’s updates—and the variable often never gets updated from its initial value of <code class="docutils literal notranslate"><span class="pre">-inf</span></code>.</p>
+<p>Here’s a more carefully written version.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@numba</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">compute_max_numba_parallel_nested</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_max_numba_parallel</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+    <span class="n">row_maxes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numba</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">numba</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">row_max</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
             <span class="n">y</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
             <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">z</span> <span class="o">&gt;</span> <span class="n">m</span><span class="p">:</span>
-                <span class="n">m</span> <span class="o">=</span> <span class="n">z</span>
-    <span class="k">return</span> <span class="n">m</span>
-
-<span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
-    <span class="n">compute_max_numba_parallel_nested</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">z</span> <span class="o">&gt;</span> <span class="n">row_max</span><span class="p">:</span>
+                <span class="n">row_max</span> <span class="o">=</span> <span class="n">z</span>
+        <span class="n">row_maxes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">row_max</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">row_maxes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now the code block that <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">numba.prange(n)</span></code> acts over is independent
+across <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p>
+<p>Each thread writes to a separate element of the array <code class="docutils literal notranslate"><span class="pre">row_maxes</span></code>.</p>
+<p>Hence the parallelization is safe.</p>
+<p>Here’s the timings.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">compute_max_numba_parallel</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.26542783 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.42747474 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -560,21 +688,18 @@ working with a single one-dimensional grid.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
-    <span class="n">compute_max_numba_parallel_nested</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+    <span class="n">compute_max_numba_parallel</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00040007 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.04438996 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<p>Depending on your machine, you might or might not see large benefits from parallelization here.</p>
-<p>If you have a small number of cores, the overhead of thread management and synchronization can
-overwhelm the benefits of parallel execution.</p>
-<p>For more powerful machines and larger grid sizes, parallelization can generate
-large speed gains.</p>
+<p>If you have multiple cores, you should see at least some benefits from parallelization here.</p>
+<p>For more powerful machines and larger grid sizes, parallelization can generate major speed gains, even on the CPU.</p>
 </section>
 <section id="vectorized-code-with-jax">
 <h3><span class="section-number">15.1.5. </span>Vectorized code with JAX<a class="headerlink" href="#vectorized-code-with-jax" title="Link to this heading">#</a></h3>
@@ -598,12 +723,12 @@ calculation, we can use a <code class="docutils literal notranslate"><span class
 <span class="n">x_mesh</span><span class="p">,</span> <span class="n">y_mesh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">grid</span><span class="p">)</span>
 
 <span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
-    <span class="n">z_mesh</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x_mesh</span><span class="p">,</span> <span class="n">y_mesh</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+    <span class="n">z_max</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x_mesh</span><span class="p">,</span> <span class="n">y_mesh</span><span class="p">))</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.07708836 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10685372 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -612,12 +737,12 @@ calculation, we can use a <code class="docutils literal notranslate"><span class
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
-    <span class="n">z_mesh</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x_mesh</span><span class="p">,</span> <span class="n">y_mesh</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+    <span class="n">z_max</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x_mesh</span><span class="p">,</span> <span class="n">y_mesh</span><span class="p">))</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.03831005 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.04527736 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -664,79 +789,79 @@ using <a class="reference external" href="https://docs.jax.dev/en/latest/_autosu
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up f to compute f(x, y) at every x for any given y</span>
 <span class="n">f_vec_x</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="c1"># Vectorize this operation over all y</span>
+<span class="c1"># Create a second function that vectorizes this operation over all y</span>
 <span class="n">f_vec</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="n">f_vec_x</span><span class="p">)</span>
-<span class="c1"># Compute result at all y</span>
-<span class="n">z_vmap</span> <span class="o">=</span> <span class="n">f_vec</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Now <code class="docutils literal notranslate"><span class="pre">f_vec</span></code> will compute <code class="docutils literal notranslate"><span class="pre">f(x,y)</span></code> at every <code class="docutils literal notranslate"><span class="pre">x,y</span></code> when called with the flat array <code class="docutils literal notranslate"><span class="pre">grid</span></code>.</p>
 <p>Let’s see the timing:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
-    <span class="n">z_vmap</span> <span class="o">=</span> <span class="n">f_vec</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
-    <span class="n">z_vmap</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+    <span class="n">z_max</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">f_vec</span><span class="p">(</span><span class="n">grid</span><span class="p">))</span>
+    <span class="n">z_max</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.03882742 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06505275 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<p>Let’s check we got the right result:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jnp</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">z_mesh</span><span class="p">,</span> <span class="n">z_vmap</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">z_max</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">f_vec</span><span class="p">(</span><span class="n">grid</span><span class="p">))</span>
+    <span class="n">z_max</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array(True, dtype=bool)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02242613 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<p>The execution time is similar to as the mesh operation but we are using much
-less memory.</p>
+<p>The execution time is similar to the mesh operation but, by avoiding the large input arrays <code class="docutils literal notranslate"><span class="pre">x_mesh</span></code> and <code class="docutils literal notranslate"><span class="pre">y_mesh</span></code>,
+we are using far less memory.</p>
 <p>In addition, <code class="docutils literal notranslate"><span class="pre">vmap</span></code> allows us to break vectorization up into stages, which is
 often easier to comprehend than the traditional approach.</p>
 <p>This will become more obvious when we tackle larger problems.</p>
 </section>
-<section id="version-2">
-<h4><span class="section-number">15.1.6.2. </span>Version 2<a class="headerlink" href="#version-2" title="Link to this heading">#</a></h4>
-<p>Here’s a more generic approach to using <code class="docutils literal notranslate"><span class="pre">vmap</span></code> that we often use in the lectures.</p>
-<p>First we vectorize in <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+</section>
+<section id="vmap-version-2">
+<h3><span class="section-number">15.1.7. </span>vmap version 2<a class="headerlink" href="#vmap-version-2" title="Link to this heading">#</a></h3>
+<p>We can be still more memory efficient using vmap.</p>
+<p>While we avoided large input arrays in the preceding version,
+we still create the large output array <code class="docutils literal notranslate"><span class="pre">f(x,y)</span></code> before we compute the max.</p>
+<p>Let’s use a slightly different approach that takes the max to the inside.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_vec_y</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">in_axes</span><span class="o">=</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_max_vmap_v2</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
+    <span class="c1"># Construct a function that takes the max along each row</span>
+    <span class="n">f_vec_x_max</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+    <span class="c1"># Vectorize the function so we can call on all rows simultaneously</span>
+    <span class="n">f_vec_max</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="n">f_vec_x_max</span><span class="p">)</span>
+    <span class="c1"># Call the vectorized function and take the max</span>
+    <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">f_vec_max</span><span class="p">(</span><span class="n">grid</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>In the line above, <code class="docutils literal notranslate"><span class="pre">(None,</span> <span class="pre">0)</span></code> indicates that we are vectorizing in the second argument, which is <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
-<p>Next, we vectorize in the first argument, which is <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>Let’s try it</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_vec</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="n">f_vec_y</span><span class="p">,</span> <span class="n">in_axes</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>With this construction, we can now call <span class="math notranslate nohighlight">\(f\)</span> directly on flat (low memory) arrays.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">grid</span><span class="p">,</span> <span class="n">grid</span>
-<span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
-    <span class="n">z_vmap</span> <span class="o">=</span> <span class="n">f_vec</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">z_max</span> <span class="o">=</span> <span class="n">compute_max_vmap_v2</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.05984712 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.08982015 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -745,40 +870,32 @@ often easier to comprehend than the traditional approach.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
-    <span class="n">z_vmap</span> <span class="o">=</span> <span class="n">f_vec</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+    <span class="n">z_max</span> <span class="o">=</span> <span class="n">compute_max_vmap_v2</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02453947 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02227569 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<p>Let’s check we got the right result:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jnp</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">z_mesh</span><span class="p">,</span> <span class="n">z_vmap</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array(True, dtype=bool)
-</pre></div>
-</div>
-</div>
-</div>
-</section>
+<p>We don’t get much speed gain but we do save some memory.</p>
 </section>
 <section id="summary">
-<h3><span class="section-number">15.1.7. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.1.8. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h3>
 <p>In our view, JAX is the winner for vectorized operations.</p>
 <p>It dominates NumPy both in terms of speed (via JIT-compilation and parallelization) and memory efficiency (via vmap).</p>
 <p>Moreover, the <code class="docutils literal notranslate"><span class="pre">vmap</span></code> approach can sometimes lead to significantly clearer code.</p>
 <p>While Numba is impressive, the beauty of JAX is that, with fully vectorized
 operations, we can run exactly the
 same code on machines with hardware accelerators and reap all the benefits
-without paying extra cost.</p>
+without extra effort.</p>
+<p>Moreover, JAX already knows how to effectively parallelize many common array
+operations, which is key to fast execution.</p>
+<p>For almost all cases encountered in economics, econometrics, and finance, it is
+far better to hand over to the JAX compiler for efficient parallelization than to
+try to hand code these routines ourselves.</p>
 </section>
 </section>
 <section id="sequential-operations">
@@ -816,7 +933,7 @@ quadratic map that we saw in our <a class="reference internal" href="numba.html"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.13861132 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10632396 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -830,7 +947,7 @@ quadratic map that we saw in our <a class="reference internal" href="numba.html"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02678227 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02693987 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -860,7 +977,7 @@ quadratic map that we saw in our <a class="reference internal" href="numba.html"
 </div>
 </div>
 </div>
-<p>This code is not easy to read but, in essence, <code class="docutils literal notranslate"><span class="pre">lax.scan</span></code> repeatedly calls <code class="docutils literal notranslate"><span class="pre">qm_jax</span></code> and accumulates the returns <code class="docutils literal notranslate"><span class="pre">x_new</span></code> into an array.</p>
+<p>This code is not easy to read but, in essence, <code class="docutils literal notranslate"><span class="pre">lax.scan</span></code> repeatedly calls <code class="docutils literal notranslate"><span class="pre">update</span></code> and accumulates the returns <code class="docutils literal notranslate"><span class="pre">x_new</span></code> into an array.</p>
 <p>Let’s time it with the same parameters:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -870,7 +987,7 @@ quadratic map that we saw in our <a class="reference internal" href="numba.html"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10430741 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10495639 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -884,7 +1001,7 @@ quadratic map that we saw in our <a class="reference internal" href="numba.html"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.05714989 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06085014 seconds elapsed
 </pre></div>
 </div>
 </div>
