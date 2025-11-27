@@ -21,20 +21,23 @@ In addition to what's in Anaconda, this lecture will need the following librarie
 !pip install jax quantecon
 ```
 
+```{admonition} GPU
+:class: warning
+
+This lecture is accelerated via [hardware](status:machine-details) that has access to a GPU and target JAX for GPU programming.
+
+Free GPUs are available on Google Colab.
+To use this option, please click on the play icon top right, select Colab, and set the runtime environment to include a GPU.
+
+Alternatively, if you have your own GPU, you can follow the [instructions](https://github.com/google/jax) for installing JAX with GPU support.
+If you would like to install JAX running on the `cpu` only you can use `pip install jax[cpu]`
+```
+
 This lecture provides a short introduction to [Google JAX](https://github.com/jax-ml/jax).
 
-Here we are focused on using JAX on the CPU, rather than on accelerators such as
-GPUs or TPUs.
+JAX provides a NumPy-like interface that can leverage GPU acceleration for high-performance numerical computing.
 
-This means we will only see a small amount of the possible benefits from using JAX.
-
-However, JAX seamlessly handles transitions across different hardware platforms.
-
-As a result, if you run this code on a machine with a GPU and a GPU-aware
-version of JAX installed, your code will be automatically accelerated and you
-will receive the full benefits.
-
-For a discussion of JAX on GPUs, see [our JAX lecture series](https://jax.quantecon.org/intro.html).
+For a more comprehensive discussion of JAX, see [our JAX lecture series](https://jax.quantecon.org/intro.html).
 
 
 ## JAX as a NumPy Replacement
@@ -523,16 +526,9 @@ with qe.Timer():
     jax.block_until_ready(y);
 ```
 
-If you are running this on a GPU the code will run much faster than its NumPy
-equivalent, which ran on the CPU.
+On a GPU, this code runs much faster than its NumPy equivalent.
 
-Even if you are running on a machine with many CPUs, the second JAX run should
-be substantially faster with JAX.
-
-Also, typically, the second run is faster than the first.
-
-(This might not be noticable on the CPU but it should definitely be noticable on
-the GPU.)
+Also, typically, the second run is faster than the first due to JIT compilation.
 
 This is because even built in functions like `jnp.cos` are JIT-compiled --- and the
 first run includes compile time.
@@ -634,8 +630,7 @@ with qe.Timer():
     jax.block_until_ready(y);
 ```
 
-The outcome is similar to the `cos` example --- JAX is faster, especially if you
-use a GPU and especially on the second run.
+The outcome is similar to the `cos` example --- JAX is faster, especially on the second run after JIT compilation.
 
 Moreover, with JAX, we have another trick up our sleeve:
 

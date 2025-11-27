@@ -48,6 +48,18 @@ tags: [hide-output]
 !pip install quantecon jax
 ```
 
+```{admonition} GPU
+:class: warning
+
+This lecture is accelerated via [hardware](status:machine-details) that has access to a GPU and target JAX for GPU programming.
+
+Free GPUs are available on Google Colab.
+To use this option, please click on the play icon top right, select Colab, and set the runtime environment to include a GPU.
+
+Alternatively, if you have your own GPU, you can follow the [instructions](https://github.com/google/jax) for installing JAX with GPU support.
+If you would like to install JAX running on the `cpu` only you can use `pip install jax[cpu]`
+```
+
 We will use the following imports.
 
 ```{code-cell} ipython3
@@ -317,7 +329,7 @@ with qe.Timer(precision=8):
     z_max = jnp.max(f(x_mesh, y_mesh)).block_until_ready()
 ```
 
-Once compiled, JAX will be significantly faster than NumPy, especially if you are using a GPU.
+Once compiled, JAX is significantly faster than NumPy due to GPU acceleration.
 
 The compilation overhead is a one-time cost that pays off when the function is called repeatedly.
 
