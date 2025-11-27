@@ -25,9 +25,35 @@ jobs:
           pip install -U "jax[cuda13]"
           pip install numpyro
           python scripts/test-jax-install.py
-      - name: Run Hardware Benchmarks
+      # === Benchmark Tests (Bare Metal, Jupyter, Jupyter-Book) ===
+      - name: Run Hardware Benchmarks (Bare Metal)
         shell: bash -l {0}
-        run: python scripts/benchmark-hardware.py
+        run: |
+          echo "=== Bare Metal Python Script Execution ==="
+          python scripts/benchmark-hardware.py
+      - name: Run Jupyter Notebook Benchmark (via nbconvert)
+        shell: bash -l {0}
+        run: |
+          echo "=== Jupyter Kernel Execution ==="
+          jupyter nbconvert --to notebook --execute scripts/benchmark-jupyter.ipynb --output benchmark-jupyter-executed.ipynb
+          echo "Notebook executed successfully"
+      - name: Run Jupyter-Book Benchmark
+        shell: bash -l {0}
+        run: |
+          echo "=== Jupyter-Book Execution ==="
+          # Build just the benchmark file using jupyter-book
+          mkdir -p benchmark_test
+          cp scripts/benchmark-jupyterbook.md benchmark_test/
+          # Create minimal _config.yml
+          echo "title: Benchmark Test" > benchmark_test/_config.yml
+          echo "execute:" >> benchmark_test/_config.yml
+          echo "  execute_notebooks: force" >> benchmark_test/_config.yml
+          # Create minimal _toc.yml
+          echo "format: jb-book" > benchmark_test/_toc.yml
+          echo "root: benchmark-jupyterbook" >> benchmark_test/_toc.yml
+          # Build
+          jb build benchmark_test --path-output benchmark_build/
+          echo "Jupyter-Book build completed successfully"
       - name: Install latex dependencies
         run: |
           sudo apt-get -qq update
