@@ -832,14 +832,26 @@ def compute_call_price_jax(β=β,
 
     s = jnp.full(M, np.log(S0))
     h = jnp.full(M, h0)
-    for t in range(n):
+
+    def loop_body(i, state):
+        s, h, key = state
         key, subkey = jax.random.split(key)
         Z = jax.random.normal(subkey, (2, M))
         s = s + μ + jnp.exp(h) * Z[0, :]
         h = ρ * h + ν * Z[1, :]
+        return s, h, key
+
+    s, h, key = jax.lax.fori_loop(0, n, loop_body, (s, h, key))
+
     expectation = jnp.mean(jnp.maximum(jnp.exp(s) - K, 0))
 
     return β**n * expectation
+```
+
+```{note}
+We use `jax.lax.fori_loop` instead of a Python `for` loop.
+This allows JAX to compile the loop efficiently without unrolling it,
+which significantly reduces compilation time for large arrays.
 ```
 
 Let's run it once to compile it:
