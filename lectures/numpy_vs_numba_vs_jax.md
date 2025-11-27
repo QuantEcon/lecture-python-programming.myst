@@ -524,8 +524,13 @@ def qm_jax(x0, n, α=4.0):
 This code is not easy to read but, in essence, `lax.scan` repeatedly calls `update` and accumulates the returns `x_new` into an array.
 
 ```{note}
-We explicitly target the CPU using `device=cpu` because `lax.scan` with many
-lightweight iterations performs poorly on GPU due to synchronization overhead.
+Sharp readers will notice that we specify `device=cpu` in the `jax.jit` decorator.
+
+The computation consists of many very small `lax.scan` iterations that must run sequentially, leaving little opportunity for the GPU to exploit parallelism.
+
+As a result, kernel-launch overhead tends to dominate on the GPU, making the CPU a better fit for this workload.
+
+Curious readers can try removing this option to see how performance changes.
 ```
 
 Let's time it with the same parameters:
