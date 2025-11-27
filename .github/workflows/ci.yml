@@ -25,6 +25,9 @@ jobs:
           pip install -U "jax[cuda13]"
           pip install numpyro
           python scripts/test-jax-install.py
+      - name: Run Hardware Benchmarks
+        shell: bash -l {0}
+        run: python scripts/benchmark-hardware.py
       - name: Install latex dependencies
         run: |
           sudo apt-get -qq update
