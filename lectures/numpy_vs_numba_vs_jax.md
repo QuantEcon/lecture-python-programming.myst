@@ -509,7 +509,9 @@ Now let's create a JAX version using `lax.scan`:
 from jax import lax
 from functools import partial
 
-@partial(jax.jit, static_argnums=(1,))
+cpu = jax.devices("cpu")[0]
+
+@partial(jax.jit, static_argnums=(1,), device=cpu)
 def qm_jax(x0, n, α=4.0):
     def update(x, t):
         x_new = α * x * (1 - x)
@@ -520,6 +522,11 @@ def qm_jax(x0, n, α=4.0):
 ```
 
 This code is not easy to read but, in essence, `lax.scan` repeatedly calls `update` and accumulates the returns `x_new` into an array.
+
+```{note}
+We explicitly target the CPU using `device=cpu` because `lax.scan` with many
+lightweight iterations performs poorly on GPU due to synchronization overhead.
+```
 
 Let's time it with the same parameters:
 
