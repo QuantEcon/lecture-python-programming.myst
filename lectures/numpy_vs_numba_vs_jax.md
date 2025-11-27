@@ -438,7 +438,7 @@ with qe.Timer(precision=8):
     z_max = compute_max_vmap_v2(grid).block_until_ready()
 ```
 
-If you are running this on a GPU, as well are, you should see another nontrivial speed gain.
+If you are running this on a GPU, as we are, you should see another nontrivial speed gain.
 
 
 ### Summary
