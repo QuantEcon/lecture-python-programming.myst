@@ -382,23 +382,29 @@ with qe.Timer(precision=8):
     z_max.block_until_ready()
 ```
 
-The execution time is similar to the mesh operation but, by avoiding the large input arrays `x_mesh` and `y_mesh`,
-we are using far less memory.
+By avoiding the large input arrays `x_mesh` and `y_mesh`, this `vmap` version uses far less memory.
 
-In addition, `vmap` allows us to break vectorization up into stages, which is
-often easier to comprehend than the traditional approach.
+When run on a CPU, its runtime is similar to that of the meshgrid version.
 
-This will become more obvious when we tackle larger problems.
+When run on a GPU, it is usually significantly faster.
+
+In fact, using `vmap` has another advantage: It allows us to break vectorization up into stages.
+
+This leads to code that is often easier to comprehend than traditional vectorized code.
+
+We will investigate these ideas more when we tackle larger problems.
 
 
 ### vmap version 2
 
 We can be still more memory efficient using vmap.
 
-While we avoided large input arrays in the preceding version, 
+While we avoid large input arrays in the preceding version, 
 we still create the large output array `f(x,y)` before we compute the max.
 
-Let's use a slightly different approach that takes the max to the inside.
+Let's try a slightly different approach that takes the max to the inside.
+
+Because of this change, we never compute the two-dimensional array `f(x,y)`.
 
 ```{code-cell} ipython3
 @jax.jit
@@ -411,13 +417,19 @@ def compute_max_vmap_v2(grid):
     return jnp.max(f_vec_max(grid))
 ```
 
-Let's try it
+Here 
+
+* `f_vec_x_max` computes the max along any given row
+* `f_vec_max` is a vectorized version that can compute the max of all rows in parallel.
+
+We apply this function to all rows and then take the max of the row maxes.
+
+Let's try it.
 
 ```{code-cell} ipython3
 with qe.Timer(precision=8):
     z_max = compute_max_vmap_v2(grid).block_until_ready()
 ```
-
 
 Let's run it again to eliminate compilation time:
 
@@ -426,8 +438,7 @@ with qe.Timer(precision=8):
     z_max = compute_max_vmap_v2(grid).block_until_ready()
 ```
 
-We don't get much speed gain but we do save some memory.
-
+If you are running this on a GPU, as well are, you should see another nontrivial speed gain.
 
 
 ### Summary

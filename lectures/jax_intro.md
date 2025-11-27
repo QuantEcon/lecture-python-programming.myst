@@ -13,6 +13,18 @@ kernelspec:
 
 # JAX
 
+This lecture provides a short introduction to [Google JAX](https://github.com/jax-ml/jax).
+
+JAX is a high-performance scientific computing library that provides 
+
+* a NumPy-like interface that can automatically parallize across CPUs and GPUs,
+* a just-in-time compiler for accelerating a large range of numerical
+  operations, and
+* automatic differentiation.
+
+Increasingly, JAX also maintains and provides more specialized scientific
+computing routines, such as those originally found in SciPy.
+
 In addition to what's in Anaconda, this lecture will need the following libraries:
 
 ```{code-cell} ipython3
@@ -33,17 +45,12 @@ Alternatively, if you have your own GPU, you can follow the [instructions](https
 If you would like to install JAX running on the `cpu` only you can use `pip install jax[cpu]`
 ```
 
-This lecture provides a short introduction to [Google JAX](https://github.com/jax-ml/jax).
-
-JAX provides a NumPy-like interface that can leverage GPU acceleration for high-performance numerical computing.
-
-
 ## JAX as a NumPy Replacement
 
-One of the attractive features of JAX is that, whenever possible, it conforms to
-the NumPy API for array operations.
+One of the attractive features of JAX is that, whenever possible, its array
+processing operations conform to the NumPy API.
 
-This means that, to a large extent, we can use JAX is as a drop-in NumPy replacement.
+This means that, in many cases, we can use JAX is as a drop-in NumPy replacement.
 
 Let's look at the similarities and differences between JAX and NumPy.
 
