@@ -70,7 +70,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=3d32f4ec5c55bbd96dbde5c8507c26db016c3d6a" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=10af625e9e6eb695015491be7f888e42a03bc430" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
@@ -94,7 +94,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=14c25eb8210b9697743fa54cadcbbf6b0ef0e5bb"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=ceefa0362b71a389a50c4058a117a949b54259bd"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -205,7 +205,7 @@
                                 
                             </p>
 
-                            <p class="powered">Powered by <a href="https://jupyterbook.org/en/stable/">Jupyter Book</a></p>
+                            <p class="powered">Powered by <a href="https://jupyterbook.org/v1/">Jupyter Book</a></p>
 
                         </nav>
 
@@ -242,7 +242,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Nov 26, 2025
+                            Last changed: Nov 27, 2025
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -253,10 +253,19 @@
                             
                             <li class="changelog-entry">
                                 
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.myst/commit/9045b9f" class="changelog-hash">9045b9f</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">2 hours ago</span>
+                                <span class="changelog-message">ENH: Enable RunsOn GPU support for lecture builds (#437)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.myst/commit/ce3de00" class="changelog-hash">ce3de00</a>
                                 
                                 <span class="changelog-author">John Stachurski</span>
-                                <span class="changelog-time">13 hours ago</span>
+                                <span class="changelog-time">1 day ago</span>
                                 <span class="changelog-message">Improve parallel Numba examples with race condition explanation (#436)</span>
                             </li>
                             
@@ -265,7 +274,7 @@
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.myst/commit/cc9c325" class="changelog-hash">cc9c325</a>
                                 
                                 <span class="changelog-author">John Stachurski</span>
-                                <span class="changelog-time">4 days ago</span>
+                                <span class="changelog-time">5 days ago</span>
                                 <span class="changelog-message">Reorganize parallel programming lectures and improve content flow (#429)</span>
                             </li>
                             
@@ -310,129 +319,36 @@ footprint but also clarity and ease of use.</p>
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting quantecon
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading quantecon-0.10.1-py3-none-any.whl.metadata (5.3 kB)
-Collecting jax
-  Downloading jax-0.8.1-py3-none-any.whl.metadata (13 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.10.1)
+Requirement already satisfied: jax in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.8.1)
 Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (0.61.0)
 Requirement already satisfied: numpy&gt;=1.17.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.1.3)
 Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.32.3)
 Requirement already satisfied: scipy&gt;=1.5.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (1.15.3)
 Requirement already satisfied: sympy in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (1.13.3)
+Requirement already satisfied: jaxlib&lt;=0.8.1,&gt;=0.8.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (0.8.1)
+Requirement already satisfied: ml_dtypes&gt;=0.5.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (0.5.4)
+Requirement already satisfied: opt_einsum in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (3.4.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting jaxlib&lt;=0.8.1,&gt;=0.8.1 (from jax)
-  Downloading jaxlib-0.8.1-cp313-cp313-manylinux_2_27_x86_64.whl.metadata (1.3 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting ml_dtypes&gt;=0.5.0 (from jax)
-  Downloading ml_dtypes-0.5.4-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.9 kB)
-Collecting opt_einsum (from jax)
-  Downloading opt_einsum-3.4.0-py3-none-any.whl.metadata (6.3 kB)
-Requirement already satisfied: llvmlite&lt;0.45,&gt;=0.44.0dev0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from numba&gt;=0.49.0-&gt;quantecon) (0.44.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: llvmlite&lt;0.45,&gt;=0.44.0dev0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from numba&gt;=0.49.0-&gt;quantecon) (0.44.0)
 Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (3.3.2)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (3.7)
 Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2.3.0)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2025.4.26)
 Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from sympy-&gt;quantecon) (1.3.0)
-Downloading quantecon-0.10.1-py3-none-any.whl (325 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading jax-0.8.1-py3-none-any.whl (2.9 MB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/2.9 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.9/2.9 MB</span> <span class=" -Color -Color-Red">89.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hDownloading jaxlib-0.8.1-cp313-cp313-manylinux_2_27_x86_64.whl (80.3 MB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/80.3 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">32.8/80.3 MB</span> <span class=" -Color -Color-Red">177.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ <span class=" -Color -Color-Green">65.8/80.3 MB</span> <span class=" -Color -Color-Red">164.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">80.3/80.3 MB</span> <span class=" -Color -Color-Red">135.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading ml_dtypes-0.5.4-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (5.0 MB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/5.0 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.0/5.0 MB</span> <span class=" -Color -Color-Red">133.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hDownloading opt_einsum-3.4.0-py3-none-any.whl (71 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: opt_einsum, ml_dtypes, quantecon, jaxlib, jax
-?25l
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2/5</span> [quantecon]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5/5</span> [jax]
-?25h
-Successfully installed jax-0.8.1 jaxlib-0.8.1 ml_dtypes-0.5.4 opt_einsum-3.4.0 quantecon-0.10.1
 </pre></div>
 </div>
 </div>
 </details>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">GPU</p>
+<p>This lecture is accelerated via <a class="reference internal" href="status.html#status-machine-details"><span class="std std-ref">hardware</span></a> that has access to a GPU and target JAX for GPU programming.</p>
+<p>Free GPUs are available on Google Colab.
+To use this option, please click on the play icon top right, select Colab, and set the runtime environment to include a GPU.</p>
+<p>Alternatively, if you have your own GPU, you can follow the <a class="reference external" href="https://github.com/google/jax">instructions</a> for installing JAX with GPU support.
+If you would like to install JAX running on the <code class="docutils literal notranslate"><span class="pre">cpu</span></code> only you can use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jax[cpu]</span></code></p>
 </div>
 <p>We will use the following imports.</p>
 <div class="cell docutils container">
@@ -536,7 +452,7 @@ that <code class="docutils literal notranslate"><span class="pre">f(x,</span> <s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.33050466 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.25463414 seconds elapsed
 NumPy result: 0.9999979986680024
 </pre></div>
 </div>
@@ -579,7 +495,7 @@ before it sees the size of the arrays <code class="docutils literal notranslate"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.23576260 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.28494620 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -592,7 +508,7 @@ before it sees the size of the arrays <code class="docutils literal notranslate"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10783458 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.13257146 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -680,7 +596,7 @@ across <code class="docutils literal notranslate"><span class="pre">i</span></co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.42747474 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.18451452 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -693,7 +609,7 @@ across <code class="docutils literal notranslate"><span class="pre">i</span></co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.04438996 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.03486371 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -728,7 +644,11 @@ calculation, we can use a <code class="docutils literal notranslate"><span class
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10685372 seconds elapsed
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>W1128 00:32:50.770457    2510 cuda_executor.cc:1802] GPU interconnect information not available: INTERNAL: NVML doesn&#39;t support extracting fabric info or NVLink is not used by the device.
+W1128 00:32:50.773907    2440 cuda_executor.cc:1802] GPU interconnect information not available: INTERNAL: NVML doesn&#39;t support extracting fabric info or NVLink is not used by the device.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.36362576 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -742,12 +662,12 @@ calculation, we can use a <code class="docutils literal notranslate"><span class
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.04527736 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.01939678 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<p>Once compiled, JAX will be significantly faster than NumPy, especially if you are using a GPU.</p>
+<p>Once compiled, JAX is significantly faster than NumPy due to GPU acceleration.</p>
 <p>The compilation overhead is a one-time cost that pays off when the function is called repeatedly.</p>
 </section>
 <section id="jax-plus-vmap">
@@ -806,7 +726,7 @@ using <a class="reference external" href="https://docs.jax.dev/en/latest/_autosu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06505275 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10907602 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -820,24 +740,26 @@ using <a class="reference external" href="https://docs.jax.dev/en/latest/_autosu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02242613 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00109720 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<p>The execution time is similar to the mesh operation but, by avoiding the large input arrays <code class="docutils literal notranslate"><span class="pre">x_mesh</span></code> and <code class="docutils literal notranslate"><span class="pre">y_mesh</span></code>,
-we are using far less memory.</p>
-<p>In addition, <code class="docutils literal notranslate"><span class="pre">vmap</span></code> allows us to break vectorization up into stages, which is
-often easier to comprehend than the traditional approach.</p>
-<p>This will become more obvious when we tackle larger problems.</p>
+<p>By avoiding the large input arrays <code class="docutils literal notranslate"><span class="pre">x_mesh</span></code> and <code class="docutils literal notranslate"><span class="pre">y_mesh</span></code>, this <code class="docutils literal notranslate"><span class="pre">vmap</span></code> version uses far less memory.</p>
+<p>When run on a CPU, its runtime is similar to that of the meshgrid version.</p>
+<p>When run on a GPU, it is usually significantly faster.</p>
+<p>In fact, using <code class="docutils literal notranslate"><span class="pre">vmap</span></code> has another advantage: It allows us to break vectorization up into stages.</p>
+<p>This leads to code that is often easier to comprehend than traditional vectorized code.</p>
+<p>We will investigate these ideas more when we tackle larger problems.</p>
 </section>
 </section>
 <section id="vmap-version-2">
 <h3><span class="section-number">15.1.7. </span>vmap version 2<a class="headerlink" href="#vmap-version-2" title="Link to this heading">#</a></h3>
 <p>We can be still more memory efficient using vmap.</p>
-<p>While we avoided large input arrays in the preceding version,
+<p>While we avoid large input arrays in the preceding version,
 we still create the large output array <code class="docutils literal notranslate"><span class="pre">f(x,y)</span></code> before we compute the max.</p>
-<p>Let’s use a slightly different approach that takes the max to the inside.</p>
+<p>Let’s try a slightly different approach that takes the max to the inside.</p>
+<p>Because of this change, we never compute the two-dimensional array <code class="docutils literal notranslate"><span class="pre">f(x,y)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
@@ -852,7 +774,13 @@ we still create the large output array <code class="docutils literal notranslate
 </div>
 </div>
 </div>
-<p>Let’s try it</p>
+<p>Here</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">f_vec_x_max</span></code> computes the max along any given row</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f_vec_max</span></code> is a vectorized version that can compute the max of all rows in parallel.</p></li>
+</ul>
+<p>We apply this function to all rows and then take the max of the row maxes.</p>
+<p>Let’s try it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
@@ -861,7 +789,7 @@ we still create the large output array <code class="docutils literal notranslate
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.08982015 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.24891353 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -875,12 +803,12 @@ we still create the large output array <code class="docutils literal notranslate
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02227569 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00040984 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<p>We don’t get much speed gain but we do save some memory.</p>
+<p>If you are running this on a GPU, as we are, you should see another nontrivial speed gain.</p>
 </section>
 <section id="summary">
 <h3><span class="section-number">15.1.8. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h3>
@@ -933,7 +861,7 @@ quadratic map that we saw in our <a class="reference internal" href="numba.html"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10632396 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.16079402 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -947,7 +875,7 @@ quadratic map that we saw in our <a class="reference internal" href="numba.html"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02693987 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.07165647 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -965,7 +893,9 @@ quadratic map that we saw in our <a class="reference internal" href="numba.html"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">lax</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">partial</span>
 
-<span class="nd">@partial</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">,</span> <span class="n">static_argnums</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
+<span class="n">cpu</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">devices</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nd">@partial</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">,</span> <span class="n">static_argnums</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span> <span class="n">device</span><span class="o">=</span><span class="n">cpu</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">qm_jax</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">α</span><span class="o">=</span><span class="mf">4.0</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
         <span class="n">x_new</span> <span class="o">=</span> <span class="n">α</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
@@ -978,6 +908,13 @@ quadratic map that we saw in our <a class="reference internal" href="numba.html"
 </div>
 </div>
 <p>This code is not easy to read but, in essence, <code class="docutils literal notranslate"><span class="pre">lax.scan</span></code> repeatedly calls <code class="docutils literal notranslate"><span class="pre">update</span></code> and accumulates the returns <code class="docutils literal notranslate"><span class="pre">x_new</span></code> into an array.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sharp readers will notice that we specify <code class="docutils literal notranslate"><span class="pre">device=cpu</span></code> in the <code class="docutils literal notranslate"><span class="pre">jax.jit</span></code> decorator.</p>
+<p>The computation consists of many very small <code class="docutils literal notranslate"><span class="pre">lax.scan</span></code> iterations that must run sequentially, leaving little opportunity for the GPU to exploit parallelism.</p>
+<p>As a result, kernel-launch overhead tends to dominate on the GPU, making the CPU a better fit for this workload.</p>
+<p>Curious readers can try removing this option to see how performance changes.</p>
+</div>
 <p>Let’s time it with the same parameters:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -987,7 +924,7 @@ quadratic map that we saw in our <a class="reference internal" href="numba.html"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10495639 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.12644219 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -1001,7 +938,7 @@ quadratic map that we saw in our <a class="reference internal" href="numba.html"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06085014 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06671596 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -1307,18 +1244,18 @@ code clarity and ease of implementation, as well as high performance.</p>
                 <span class="label">Public</span>
                 <select id="launcher-public-input">
                 
-                    <option value="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.notebooks/blob/main/lectures/numpy_vs_numba_vs_jax.ipynb">Colab</option>
+                    <option value="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.notebooks/blob/main/numpy_vs_numba_vs_jax.ipynb">Colab</option>
                 
                 </select>
                 <i class="fas fa-check-circle"></i>
             </li>
             <li class="launcher-private">
                 <span class="label">Private</span>
-                <input type="text" id="launcher-private-input" data-repourl="https://github.com/QuantEcon/lecture-python-programming.notebooks" data-urlpath="tree/lecture-python-programming.notebooks/lectures/numpy_vs_numba_vs_jax.ipynb" data-branch=main>
+                <input type="text" id="launcher-private-input" data-repourl="https://github.com/QuantEcon/lecture-python-programming.notebooks" data-urlpath="tree/lecture-python-programming.notebooks/numpy_vs_numba_vs_jax.ipynb" data-branch=main>
                 <i class="fas fa-check-circle"></i>
             </li>
             </ul>
-            <p class="launch"><a href="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.notebooks/blob/main/lectures/numpy_vs_numba_vs_jax.ipynb" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
+            <p class="launch"><a href="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.notebooks/blob/main/numpy_vs_numba_vs_jax.ipynb" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
             <script>
                 // QuantEcon Notebook Launcher
                 const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');
@@ -1350,7 +1287,7 @@ code clarity and ease of implementation, as well as high performance.</p>
                 const launcherPrivate = document.getElementById('launcher-private-input');
                 const pageName = "numpy_vs_numba_vs_jax";
                 const repoURL = "https://github.com/QuantEcon/lecture-python-programming.notebooks";
-                const urlPath = "tree/lecture-python-programming.notebooks/lectures/numpy_vs_numba_vs_jax.ipynb";
+                const urlPath = "tree/lecture-python-programming.notebooks/numpy_vs_numba_vs_jax.ipynb";
                 const branch = "main"
                 const launchNotebookLink = document.getElementById('advancedLaunchButton');
 

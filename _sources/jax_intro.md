@@ -13,6 +13,18 @@ kernelspec:
 
 # JAX
 
+This lecture provides a short introduction to [Google JAX](https://github.com/jax-ml/jax).
+
+JAX is a high-performance scientific computing library that provides 
+
+* a NumPy-like interface that can automatically parallize across CPUs and GPUs,
+* a just-in-time compiler for accelerating a large range of numerical
+  operations, and
+* automatic differentiation.
+
+Increasingly, JAX also maintains and provides more specialized scientific
+computing routines, such as those originally found in SciPy.
+
 In addition to what's in Anaconda, this lecture will need the following libraries:
 
 ```{code-cell} ipython3
@@ -21,28 +33,24 @@ In addition to what's in Anaconda, this lecture will need the following librarie
 !pip install jax quantecon
 ```
 
-This lecture provides a short introduction to [Google JAX](https://github.com/jax-ml/jax).
+```{admonition} GPU
+:class: warning
 
-Here we are focused on using JAX on the CPU, rather than on accelerators such as
-GPUs or TPUs.
+This lecture is accelerated via [hardware](status:machine-details) that has access to a GPU and target JAX for GPU programming.
 
-This means we will only see a small amount of the possible benefits from using JAX.
+Free GPUs are available on Google Colab.
+To use this option, please click on the play icon top right, select Colab, and set the runtime environment to include a GPU.
 
-However, JAX seamlessly handles transitions across different hardware platforms.
-
-As a result, if you run this code on a machine with a GPU and a GPU-aware
-version of JAX installed, your code will be automatically accelerated and you
-will receive the full benefits.
-
-For a discussion of JAX on GPUs, see [our JAX lecture series](https://jax.quantecon.org/intro.html).
-
+Alternatively, if you have your own GPU, you can follow the [instructions](https://github.com/google/jax) for installing JAX with GPU support.
+If you would like to install JAX running on the `cpu` only you can use `pip install jax[cpu]`
+```
 
 ## JAX as a NumPy Replacement
 
-One of the attractive features of JAX is that, whenever possible, it conforms to
-the NumPy API for array operations.
+One of the attractive features of JAX is that, whenever possible, its array
+processing operations conform to the NumPy API.
 
-This means that, to a large extent, we can use JAX is as a drop-in NumPy replacement.
+This means that, in many cases, we can use JAX is as a drop-in NumPy replacement.
 
 Let's look at the similarities and differences between JAX and NumPy.
 
@@ -523,16 +531,9 @@ with qe.Timer():
     jax.block_until_ready(y);
 ```
 
-If you are running this on a GPU the code will run much faster than its NumPy
-equivalent, which ran on the CPU.
+On a GPU, this code runs much faster than its NumPy equivalent.
 
-Even if you are running on a machine with many CPUs, the second JAX run should
-be substantially faster with JAX.
-
-Also, typically, the second run is faster than the first.
-
-(This might not be noticable on the CPU but it should definitely be noticable on
-the GPU.)
+Also, typically, the second run is faster than the first due to JIT compilation.
 
 This is because even built in functions like `jnp.cos` are JIT-compiled --- and the
 first run includes compile time.
@@ -634,8 +635,7 @@ with qe.Timer():
     jax.block_until_ready(y);
 ```
 
-The outcome is similar to the `cos` example --- JAX is faster, especially if you
-use a GPU and especially on the second run.
+The outcome is similar to the `cos` example --- JAX is faster, especially on the second run after JIT compilation.
 
 Moreover, with JAX, we have another trick up our sleeve:
 
@@ -832,14 +832,29 @@ def compute_call_price_jax(β=β,
 
     s = jnp.full(M, np.log(S0))
     h = jnp.full(M, h0)
-    for t in range(n):
+
+    def update(i, loop_state):
+        s, h, key = loop_state
         key, subkey = jax.random.split(key)
         Z = jax.random.normal(subkey, (2, M))
         s = s + μ + jnp.exp(h) * Z[0, :]
         h = ρ * h + ν * Z[1, :]
+        new_loop_state = s, h, key
+        return new_loop_state
+
+    initial_loop_state = s, h, key
+    final_loop_state = jax.lax.fori_loop(0, n, update, initial_loop_state)
+    s, h, key = final_loop_state
+
     expectation = jnp.mean(jnp.maximum(jnp.exp(s) - K, 0))
 
     return β**n * expectation
+```
+
+```{note}
+We use `jax.lax.fori_loop` instead of a Python `for` loop.
+This allows JAX to compile the loop efficiently without unrolling it,
+which significantly reduces compilation time for large arrays.
 ```
 
 Let's run it once to compile it:

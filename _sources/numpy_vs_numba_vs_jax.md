@@ -48,6 +48,18 @@ tags: [hide-output]
 !pip install quantecon jax
 ```
 
+```{admonition} GPU
+:class: warning
+
+This lecture is accelerated via [hardware](status:machine-details) that has access to a GPU and target JAX for GPU programming.
+
+Free GPUs are available on Google Colab.
+To use this option, please click on the play icon top right, select Colab, and set the runtime environment to include a GPU.
+
+Alternatively, if you have your own GPU, you can follow the [instructions](https://github.com/google/jax) for installing JAX with GPU support.
+If you would like to install JAX running on the `cpu` only you can use `pip install jax[cpu]`
+```
+
 We will use the following imports.
 
 ```{code-cell} ipython3
@@ -317,7 +329,7 @@ with qe.Timer(precision=8):
     z_max = jnp.max(f(x_mesh, y_mesh)).block_until_ready()
 ```
 
-Once compiled, JAX will be significantly faster than NumPy, especially if you are using a GPU.
+Once compiled, JAX is significantly faster than NumPy due to GPU acceleration.
 
 The compilation overhead is a one-time cost that pays off when the function is called repeatedly.
 
@@ -370,23 +382,29 @@ with qe.Timer(precision=8):
     z_max.block_until_ready()
 ```
 
-The execution time is similar to the mesh operation but, by avoiding the large input arrays `x_mesh` and `y_mesh`,
-we are using far less memory.
+By avoiding the large input arrays `x_mesh` and `y_mesh`, this `vmap` version uses far less memory.
 
-In addition, `vmap` allows us to break vectorization up into stages, which is
-often easier to comprehend than the traditional approach.
+When run on a CPU, its runtime is similar to that of the meshgrid version.
 
-This will become more obvious when we tackle larger problems.
+When run on a GPU, it is usually significantly faster.
+
+In fact, using `vmap` has another advantage: It allows us to break vectorization up into stages.
+
+This leads to code that is often easier to comprehend than traditional vectorized code.
+
+We will investigate these ideas more when we tackle larger problems.
 
 
 ### vmap version 2
 
 We can be still more memory efficient using vmap.
 
-While we avoided large input arrays in the preceding version, 
+While we avoid large input arrays in the preceding version, 
 we still create the large output array `f(x,y)` before we compute the max.
 
-Let's use a slightly different approach that takes the max to the inside.
+Let's try a slightly different approach that takes the max to the inside.
+
+Because of this change, we never compute the two-dimensional array `f(x,y)`.
 
 ```{code-cell} ipython3
 @jax.jit
@@ -399,13 +417,19 @@ def compute_max_vmap_v2(grid):
     return jnp.max(f_vec_max(grid))
 ```
 
-Let's try it
+Here 
+
+* `f_vec_x_max` computes the max along any given row
+* `f_vec_max` is a vectorized version that can compute the max of all rows in parallel.
+
+We apply this function to all rows and then take the max of the row maxes.
+
+Let's try it.
 
 ```{code-cell} ipython3
 with qe.Timer(precision=8):
     z_max = compute_max_vmap_v2(grid).block_until_ready()
 ```
-
 
 Let's run it again to eliminate compilation time:
 
@@ -414,8 +438,7 @@ with qe.Timer(precision=8):
     z_max = compute_max_vmap_v2(grid).block_until_ready()
 ```
 
-We don't get much speed gain but we do save some memory.
-
+If you are running this on a GPU, as we are, you should see another nontrivial speed gain.
 
 
 ### Summary
@@ -497,7 +520,9 @@ Now let's create a JAX version using `lax.scan`:
 from jax import lax
 from functools import partial
 
-@partial(jax.jit, static_argnums=(1,))
+cpu = jax.devices("cpu")[0]
+
+@partial(jax.jit, static_argnums=(1,), device=cpu)
 def qm_jax(x0, n, α=4.0):
     def update(x, t):
         x_new = α * x * (1 - x)
@@ -508,6 +533,16 @@ def qm_jax(x0, n, α=4.0):
 ```
 
 This code is not easy to read but, in essence, `lax.scan` repeatedly calls `update` and accumulates the returns `x_new` into an array.
+
+```{note}
+Sharp readers will notice that we specify `device=cpu` in the `jax.jit` decorator.
+
+The computation consists of many very small `lax.scan` iterations that must run sequentially, leaving little opportunity for the GPU to exploit parallelism.
+
+As a result, kernel-launch overhead tends to dominate on the GPU, making the CPU a better fit for this workload.
+
+Curious readers can try removing this option to see how performance changes.
+```
 
 Let's time it with the same parameters:
 
