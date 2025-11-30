@@ -1,7 +1,7 @@
 ```{admonition} GPU
 :class: warning
 
-This lecture is accelerated via [hardware](status:machine-details) that has access to a GPU and target JAX for GPU programming.
+This lecture is accelerated via [hardware](status:machine-details) that has access to a GPU and targets JAX for GPU programming.
 
 Free GPUs are available on Google Colab.
 To use this option, please click on the play icon top right, select Colab, and set the runtime environment to include a GPU.
