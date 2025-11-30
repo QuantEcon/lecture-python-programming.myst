@@ -265,7 +265,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Nov 28, 2025
+                            Last changed: Nov 30, 2025
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -276,10 +276,28 @@
                             
                             <li class="changelog-entry">
                                 
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.myst/commit/c4c03c8" class="changelog-hash">c4c03c8</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">7 minutes ago</span>
+                                <span class="changelog-message">Add centralized GPU admonition for JAX lectures (#447)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.myst/commit/594aeac" class="changelog-hash">594aeac</a>
+                                
+                                <span class="changelog-author">John Stachurski</span>
+                                <span class="changelog-time">47 minutes ago</span>
+                                <span class="changelog-message">Fix grammar and add Wikipedia links to jax_intro.md (#445)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.myst/commit/2f103af" class="changelog-hash">2f103af</a>
                                 
                                 <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">25 minutes ago</span>
+                                <span class="changelog-time">2 days ago</span>
                                 <span class="changelog-message">FIX: jax_intro timeout: use lax.fori_loop instead of Python for loop (#442)</span>
                             </li>
                             
@@ -288,7 +306,7 @@
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.myst/commit/9045b9f" class="changelog-hash">9045b9f</a>
                                 
                                 <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">2 hours ago</span>
+                                <span class="changelog-time">3 days ago</span>
                                 <span class="changelog-message">ENH: Enable RunsOn GPU support for lecture builds (#437)</span>
                             </li>
                             
@@ -297,7 +315,7 @@
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.myst/commit/cc9c325" class="changelog-hash">cc9c325</a>
                                 
                                 <span class="changelog-author">John Stachurski</span>
-                                <span class="changelog-time">5 days ago</span>
+                                <span class="changelog-time">1 week ago</span>
                                 <span class="changelog-message">Reorganize parallel programming lectures and improve content flow (#429)</span>
                             </li>
                             
@@ -333,7 +351,7 @@
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.myst/commit/9e0844e" class="changelog-hash">9e0844e</a>
                                 
                                 <span class="changelog-author">John Stachurski</span>
-                                <span class="changelog-time">3 months ago</span>
+                                <span class="changelog-time">4 months ago</span>
                                 <span class="changelog-message">Adding a discussion of JAX (#366)</span>
                             </li>
                             
@@ -344,24 +362,6 @@
                                 <span class="changelog-author">mmcky</span>
                                 <span class="changelog-time">2 years ago</span>
                                 <span class="changelog-message">update wording from @jstac email</span>
-                            </li>
-                            
-                            <li class="changelog-entry">
-                                
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.myst/commit/56a08f0" class="changelog-hash">56a08f0</a>
-                                
-                                <span class="changelog-author">mmcky</span>
-                                <span class="changelog-time">2 years ago</span>
-                                <span class="changelog-message">fix typo</span>
-                            </li>
-                            
-                            <li class="changelog-entry">
-                                
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.myst/commit/3a32768" class="changelog-hash">3a32768</a>
-                                
-                                <span class="changelog-author">mmcky</span>
-                                <span class="changelog-time">2 years ago</span>
-                                <span class="changelog-message">MAINT: Migration notice and link to new JAX site</span>
                             </li>
                             
                         </ul>
@@ -381,13 +381,13 @@
 <p>This lecture provides a short introduction to <a class="reference external" href="https://github.com/jax-ml/jax">Google JAX</a>.</p>
 <p>JAX is a high-performance scientific computing library that provides</p>
 <ul class="simple">
-<li><p>a NumPy-like interface that can automatically parallize across CPUs and GPUs,</p></li>
+<li><p>a <a class="reference external" href="https://en.wikipedia.org/wiki/NumPy">NumPy</a>-like interface that can automatically parallelize across CPUs and GPUs,</p></li>
 <li><p>a just-in-time compiler for accelerating a large range of numerical
 operations, and</p></li>
-<li><p>automatic differentiation.</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Automatic_differentiation">automatic differentiation</a>.</p></li>
 </ul>
-<p>Increasingly, JAX also maintains and provides more specialized scientific
-computing routines, such as those originally found in SciPy.</p>
+<p>Increasingly, JAX also maintains and provides <a class="reference external" href="https://docs.jax.dev/en/latest/jax.scipy.html">more specialized scientific
+computing routines</a>, such as those originally found in <a class="reference external" href="https://en.wikipedia.org/wiki/SciPy">SciPy</a>.</p>
 <p>In addition to what’s in Anaconda, this lecture will need the following libraries:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
@@ -438,17 +438,13 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 <div class="warning admonition">
 <p class="admonition-title">GPU</p>
-<p>This lecture is accelerated via <a class="reference internal" href="status.html#status-machine-details"><span class="std std-ref">hardware</span></a> that has access to a GPU and target JAX for GPU programming.</p>
-<p>Free GPUs are available on Google Colab.
-To use this option, please click on the play icon top right, select Colab, and set the runtime environment to include a GPU.</p>
-<p>Alternatively, if you have your own GPU, you can follow the <a class="reference external" href="https://github.com/google/jax">instructions</a> for installing JAX with GPU support.
-If you would like to install JAX running on the <code class="docutils literal notranslate"><span class="pre">cpu</span></code> only you can use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jax[cpu]</span></code></p>
+<p>This lecture is designed to run on a GPU. To use Google Colab’s free GPUs, click the play icon top right, select Colab, and set the runtime to include a GPU. For local GPU setup, see the <a class="reference external" href="https://github.com/google/jax">JAX installation guide</a>.</p>
 </div>
 <section id="jax-as-a-numpy-replacement">
 <h2><span class="section-number">14.1. </span>JAX as a NumPy Replacement<a class="headerlink" href="#jax-as-a-numpy-replacement" title="Link to this heading">#</a></h2>
 <p>One of the attractive features of JAX is that, whenever possible, its array
 processing operations conform to the NumPy API.</p>
-<p>This means that, in many cases, we can use JAX is as a drop-in NumPy replacement.</p>
+<p>This means that, in many cases, we can use JAX as a drop-in NumPy replacement.</p>
 <p>Let’s look at the similarities and differences between JAX and NumPy.</p>
 <section id="similarities">
 <h3><span class="section-number">14.1.1. </span>Similarities<a class="headerlink" href="#similarities" title="Link to this heading">#</a></h3>
@@ -744,7 +740,7 @@ W1128 00:31:34.028558    2042 cuda_executor.cc:1802] GPU interconnect informatio
 </div>
 </div>
 <p>The designers of JAX chose to make arrays immutable because JAX uses a
-<em>functional programming style</em>.</p>
+<a class="reference external" href="https://en.wikipedia.org/wiki/Functional_programming">functional programming</a> style.</p>
 <p>This design choice has important implications, which we explore next!</p>
 </section>
 <section id="a-workaround">
@@ -790,18 +786,18 @@ using the <a class="reference external" href="https://docs.jax.dev/en/latest/_au
 <section id="pure-functions">
 <h3><span class="section-number">14.2.1. </span>Pure functions<a class="headerlink" href="#pure-functions" title="Link to this heading">#</a></h3>
 <p>The major implication is that JAX functions should be pure.</p>
-<p><strong>Pure functions</strong> have the following characteristics:</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Pure_function">Pure functions</a> have the following characteristics:</p>
 <ol class="arabic simple">
 <li><p><em>Deterministic</em></p></li>
 <li><p><em>No side effects</em></p></li>
 </ol>
-<p><strong>Deterministic</strong> means</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Deterministic_algorithm">Deterministic</a> means</p>
 <ul class="simple">
 <li><p>Same input <span class="math notranslate nohighlight">\(\implies\)</span> same output</p></li>
 <li><p>Outputs do not depend on global state</p></li>
 </ul>
 <p>In particular, pure functions will always return the same result if invoked with the same inputs.</p>
-<p><strong>No side effects</strong> means that the function</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Side_effect_(computer_science)">No side effects</a> means that the function</p>
 <ul class="simple">
 <li><p>Won’t change global state</p></li>
 <li><p>Won’t modify data passed to the function (immutable data)</p></li>
@@ -854,7 +850,7 @@ or Matlab.</p>
 <p>At first you might find the syntax rather verbose.</p>
 <p>But you will soon realize that the syntax and semantics are necessary in order
 to maintain the functional programming style we just discussed.</p>
-<p>Moreover, full control of random state
+<p>Moreover, full control of random state is
 essential for parallel programming, such as when we want to run independent experiments along multiple threads.</p>
 <section id="random-number-generation">
 <h3><span class="section-number">14.3.1. </span>Random number generation<a class="headerlink" href="#random-number-generation" title="Link to this heading">#</a></h3>
@@ -1549,8 +1545,7 @@ compiler is</p>
 
 <p class="admonition-title"><span class="caption-number">Exercise 14.1 </span></p>
 <section id="exercise-content">
-<p>In the Exercise section of <a class="reference internal" href="numba.html"><span class="doc">our lecture on Numba</span></a>, we used Monte
-Carlo to price a European call option.</p>
+<p>In the Exercise section of <a class="reference internal" href="numba.html"><span class="doc">our lecture on Numba</span></a>, we <a class="reference internal" href="numba.html#numba_ex4"><span class="std std-ref">used Monte Carlo to price a European call option</span></a>.</p>
 <p>The code was accelerated by Numba-based multithreading.</p>
 <p>Try writing a version of this operation for JAX, using all the same
 parameters.</p>
