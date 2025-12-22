@@ -27,6 +27,7 @@ sphinx:
                        'https://www.reddit.com/',
                        'https://openai.com',
                        'https://chatgpt.com/']
+    nb_merge_streams: true
     html_favicon: _static/lectures-favicon.ico
     html_theme: quantecon_book_theme
     html_static_path: ['_static']
