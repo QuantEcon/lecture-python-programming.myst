@@ -2,7 +2,7 @@ name: quantecon
 channels:
   - default
 dependencies:
-  - python=3.13
+  - python=3.14.2
   - anaconda=2025.12
   - pip
   - pip:
