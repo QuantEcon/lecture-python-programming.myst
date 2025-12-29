@@ -337,7 +337,7 @@ lectures.
 
 There are two main flavors of Git
 
-1. the plain vanilla [command line Git](https://git-scm.com/downloads) version
+1. the plain vanilla [command line Git](https://git-scm.com/downloads/) version
 2. the various point-and-click GUI versions
     * See, for example, the [GitHub version](https://github.com/apps/desktop) or Git GUI integrated into your IDE.
 
