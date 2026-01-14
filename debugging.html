@@ -260,7 +260,7 @@
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.myst/commit/678d8ff" class="changelog-hash">678d8ff</a>
                                 
                                 <span class="changelog-author">Copilot</span>
-                                <span class="changelog-time">4 months ago</span>
+                                <span class="changelog-time">5 months ago</span>
                                 <span class="changelog-message">Fix broken and deprecated URLs causing link checker failures (#380)</span>
                             </li>
                             
@@ -408,7 +408,7 @@ not smart enough to debug it.” – Brian Kernighan</p>
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">plot_log</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">plot_log</span><span class="p">()</span>  <span class="c1"># Call the function, generate plot</span>
 
 <span class="nn">Cell In[2], line 4,</span> in <span class="ni">plot_log</span><span class="nt">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -419,7 +419,7 @@ not smart enough to debug it.” – Brian Kernighan</p>
 <span class="ne">AttributeError</span>: &#39;numpy.ndarray&#39; object has no attribute &#39;plot&#39;
 </pre></div>
 </div>
-<img alt="_images/b7d3e9f1040e7b1f7cf8208a4934d419b9ed5bab9ea746b5895c201916edf290.png" src="_images/b7d3e9f1040e7b1f7cf8208a4934d419b9ed5bab9ea746b5895c201916edf290.png" />
+<img alt="_images/acb5bc2eea1be6e79d5dd88279ba9b4ccbde7d0084c3b97e2dae335a71844b62.png" src="_images/acb5bc2eea1be6e79d5dd88279ba9b4ccbde7d0084c3b97e2dae335a71844b62.png" />
 </div>
 </div>
 <p>This code is intended to plot the <code class="docutils literal notranslate"><span class="pre">log</span></code> function over the interval <span class="math notranslate nohighlight">\([1, 2]\)</span>.</p>
@@ -468,7 +468,7 @@ lost once that function terminates.</p>
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">plot_log</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">plot_log</span><span class="p">()</span>  <span class="c1"># Call the function, generate plot</span>
 
 <span class="nn">Cell In[4], line 4,</span> in <span class="ni">plot_log</span><span class="nt">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -479,7 +479,7 @@ lost once that function terminates.</p>
 <span class="ne">AttributeError</span>: &#39;numpy.ndarray&#39; object has no attribute &#39;plot&#39;
 </pre></div>
 </div>
-<img alt="_images/b7d3e9f1040e7b1f7cf8208a4934d419b9ed5bab9ea746b5895c201916edf290.png" src="_images/b7d3e9f1040e7b1f7cf8208a4934d419b9ed5bab9ea746b5895c201916edf290.png" />
+<img alt="_images/acb5bc2eea1be6e79d5dd88279ba9b4ccbde7d0084c3b97e2dae335a71844b62.png" src="_images/acb5bc2eea1be6e79d5dd88279ba9b4ccbde7d0084c3b97e2dae335a71844b62.png" />
 </div>
 </div>
 <p>But this time we type in the following cell block</p>
@@ -545,7 +545,7 @@ online help</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/78e5db6a6565f5ab3b5e5d68d46915ca9ee128572daeff98adad36ed36928d47.png" src="_images/78e5db6a6565f5ab3b5e5d68d46915ca9ee128572daeff98adad36ed36928d47.png" />
+<img alt="_images/2566e06b2722891d663565dc905354361e1c3abdcd36b040a8a32159199ebfcb.png" src="_images/2566e06b2722891d663565dc905354361e1c3abdcd36b040a8a32159199ebfcb.png" />
 </div>
 </div>
 <p>Here the original problem is fixed, but we’ve accidentally written
