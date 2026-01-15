@@ -12,6 +12,6 @@ dependencies:
     - sphinxext-rediraffe==0.3.0
     - sphinx-exercise==1.2.1
     - sphinxcontrib-youtube==1.4.1
-    - sphinx-togglebutton==0.3.2
+    - sphinx-togglebutton==0.4.4
 
 
