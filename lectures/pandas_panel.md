@@ -150,14 +150,14 @@ the row index (`.unstack()` works in the opposite direction - try it
 out)
 
 ```{code-cell} ipython3
-realwage.stack(future_stack=True).head()
+realwage.stack().head()
 ```
 
 We can also pass in an argument to select the level we would like to
 stack
 
 ```{code-cell} ipython3
-realwage.stack(level='Country', future_stack=True).head()  # future_stack=True is required until pandas>3.0
+realwage.stack(level='Country').head()
 ```
 
 Using a `DatetimeIndex` makes it easy to select a particular time
@@ -167,7 +167,7 @@ Selecting one year and stacking the two lower levels of the
 `MultiIndex` creates a cross-section of our panel data
 
 ```{code-cell} ipython3
-realwage.loc['2015'].stack(level=(1, 2), future_stack=True).transpose().head() # future_stack=True is required until pandas>3.0
+realwage.loc['2015'].stack(level=(1, 2)).transpose().head()
 ```
 
 For the rest of lecture, we will work with a dataframe of the hourly
@@ -401,7 +401,7 @@ plt.show()
 We can also specify a level of the `MultiIndex` (in the column axis)
 to aggregate over. 
 
-In the case of `groupby` we need to use `.T` to transpose the columns into rows as `pandas` has deprecated the use of `axis=1` in the `groupby` method.
+In the case of `groupby` we need to use `.T` to transpose the columns into rows as `pandas` has removed support for `axis=1` in the `groupby` method.
 
 ```{code-cell} ipython3
 merged.T.groupby(level='Continent').mean().head()
@@ -432,7 +432,7 @@ plt.show()
 summary statistics
 
 ```{code-cell} ipython3
-merged.stack(future_stack=True).describe()
+merged.stack().describe()
 ```
 
 This is a simplified way to use `groupby`.
