@@ -31,31 +31,22 @@ sphinx:
     # sphinx-exercise
     exercise_style: "solution_follow_exercise"
     html_favicon: _static/lectures-favicon.ico
-    html_theme: quantecon_book_theme
+    html_theme: quantecon_sphinx_theme
     html_static_path: ['_static']
     html_theme_options:
-      authors:
-        - name: Thomas J. Sargent
-          url: http://www.tomsargent.com/
-        - name: John Stachurski
-          url: https://johnstachurski.net/      
+      color_scheme: default
+      dark_mode: auto
+      toc_sticky: true
+      toc_autoexpand: true
       dark_logo: quantecon-logo-transparent.png
-      header_organisation_url: https://quantecon.org
-      header_organisation: QuantEcon
       repository_url: https://github.com/QuantEcon/lecture-python-programming.myst
-      nb_repository_url: https://github.com/QuantEcon/lecture-python-programming.notebooks
+      repository_branch: main
       path_to_docs: lectures
-      twitter: quantecon
-      twitter_logo_url: https://assets.quantecon.org/img/qe-twitter-logo.png
-      og_logo_url: https://assets.quantecon.org/img/qe-og-logo.png
+      use_repository_button: true
       description: This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.
       keywords: Python, QuantEcon, Quantitative Economics, Economics, Sloan, Alfred P. Sloan Foundation, Tom J. Sargent, John Stachurski
-      analytics:
-        google_analytics_id: G-X7DH1M2DPY
-      launch_buttons:
-        notebook_interface        : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
-        colab_url                 : https://colab.research.google.com
-        thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
+      og_image: https://assets.quantecon.org/img/qe-og-logo.png
+      twitter_handle: quantecon
     intersphinx_mapping: 
       jax: 
         - "https://jax.quantecon.org/"
