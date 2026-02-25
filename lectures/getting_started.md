@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 exports:
   - format: ipynb
+    markdown: commonmark
     output: exports/getting_started.ipynb
 downloads:
   - file: ./getting_started.md

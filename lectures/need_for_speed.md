@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 exports:
   - format: ipynb
+    markdown: commonmark
     output: exports/need_for_speed.ipynb
 downloads:
   - file: ./need_for_speed.md

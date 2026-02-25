@@ -11,6 +11,7 @@ kernelspec:
   name: python3
 exports:
   - format: ipynb
+    markdown: commonmark
     output: exports/numba.ipynb
 downloads:
   - file: ./numba.md

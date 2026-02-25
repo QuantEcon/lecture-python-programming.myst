@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 exports:
   - format: ipynb
+    markdown: commonmark
     output: exports/scipy.ipynb
 downloads:
   - file: ./scipy.md

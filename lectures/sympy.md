@@ -11,6 +11,7 @@ kernelspec:
   name: python3
 exports:
   - format: ipynb
+    markdown: commonmark
     output: exports/sympy.ipynb
 downloads:
   - file: ./sympy.md

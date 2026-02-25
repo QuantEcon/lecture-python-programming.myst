@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 exports:
   - format: ipynb
+    markdown: commonmark
     output: exports/troubleshooting.ipynb
 downloads:
   - file: ./troubleshooting.md

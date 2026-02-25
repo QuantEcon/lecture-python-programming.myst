@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 exports:
   - format: ipynb
+    markdown: commonmark
     output: exports/matplotlib.ipynb
 downloads:
   - file: ./matplotlib.md

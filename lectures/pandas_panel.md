@@ -11,6 +11,7 @@ kernelspec:
   name: python3
 exports:
   - format: ipynb
+    markdown: commonmark
     output: exports/pandas_panel.ipynb
 downloads:
   - file: ./pandas_panel.md

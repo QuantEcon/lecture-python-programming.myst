@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 exports:
   - format: ipynb
+    markdown: commonmark
     output: exports/about_py.ipynb
 downloads:
   - file: ./about_py.md

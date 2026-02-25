@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 exports:
   - format: ipynb
+    markdown: commonmark
     output: exports/workspace.ipynb
 downloads:
   - file: ./workspace.md

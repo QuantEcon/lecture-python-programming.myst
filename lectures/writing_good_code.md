@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 exports:
   - format: ipynb
+    markdown: commonmark
     output: exports/writing_good_code.ipynb
 downloads:
   - file: ./writing_good_code.md

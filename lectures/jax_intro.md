@@ -11,6 +11,7 @@ kernelspec:
   name: python3
 exports:
   - format: ipynb
+    markdown: commonmark
     output: exports/jax_intro.ipynb
 downloads:
   - file: ./jax_intro.md
