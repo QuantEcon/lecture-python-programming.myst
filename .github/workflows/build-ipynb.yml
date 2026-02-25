@@ -31,7 +31,7 @@ jobs:
       - name: Build mystmd from source
         working-directory: /tmp/mystmd
         run: |
-          npm ci
+          npm install
           npx turbo run build
 
       - name: Build HTML with custom mystmd
