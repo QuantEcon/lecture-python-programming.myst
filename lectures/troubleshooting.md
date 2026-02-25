@@ -10,6 +10,7 @@ kernelspec:
 exports:
   - format: ipynb
     markdown: commonmark
+    images: attachment
     output: exports/troubleshooting.ipynb
 downloads:
   - file: ./troubleshooting.md

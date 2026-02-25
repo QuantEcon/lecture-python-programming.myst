@@ -12,6 +12,7 @@ kernelspec:
 exports:
   - format: ipynb
     markdown: commonmark
+    images: attachment
     output: exports/sympy.ipynb
 downloads:
   - file: ./sympy.md

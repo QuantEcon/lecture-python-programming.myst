@@ -10,6 +10,7 @@ kernelspec:
 exports:
   - format: ipynb
     markdown: commonmark
+    images: attachment
     output: exports/oop_intro.ipynb
 downloads:
   - file: ./oop_intro.md

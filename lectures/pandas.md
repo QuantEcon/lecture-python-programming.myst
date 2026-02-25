@@ -12,6 +12,7 @@ kernelspec:
 exports:
   - format: ipynb
     markdown: commonmark
+    images: attachment
     output: exports/pandas.ipynb
 downloads:
   - file: ./pandas.md

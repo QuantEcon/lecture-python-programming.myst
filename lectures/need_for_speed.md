@@ -10,6 +10,7 @@ kernelspec:
 exports:
   - format: ipynb
     markdown: commonmark
+    images: attachment
     output: exports/need_for_speed.ipynb
 downloads:
   - file: ./need_for_speed.md

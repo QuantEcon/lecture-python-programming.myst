@@ -10,6 +10,7 @@ kernelspec:
 exports:
   - format: ipynb
     markdown: commonmark
+    images: attachment
     output: exports/python_essentials.ipynb
 downloads:
   - file: ./python_essentials.md

@@ -10,6 +10,7 @@ kernelspec:
 exports:
   - format: ipynb
     markdown: commonmark
+    images: attachment
     output: exports/python_advanced_features.ipynb
 downloads:
   - file: ./python_advanced_features.md

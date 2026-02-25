@@ -10,6 +10,7 @@ kernelspec:
 exports:
   - format: ipynb
     markdown: commonmark
+    images: attachment
     output: exports/getting_started.ipynb
 downloads:
   - file: ./getting_started.md

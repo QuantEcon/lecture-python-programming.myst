@@ -12,6 +12,7 @@ kernelspec:
 exports:
   - format: ipynb
     markdown: commonmark
+    images: attachment
     output: exports/numba.ipynb
 downloads:
   - file: ./numba.md

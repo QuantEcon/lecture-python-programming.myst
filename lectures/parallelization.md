@@ -10,6 +10,7 @@ kernelspec:
 exports:
   - format: ipynb
     markdown: commonmark
+    images: attachment
     output: exports/parallelization.ipynb
 downloads:
   - file: ./parallelization.md

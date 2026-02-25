@@ -10,6 +10,7 @@ kernelspec:
 exports:
   - format: ipynb
     markdown: commonmark
+    images: attachment
     output: exports/writing_good_code.ipynb
 downloads:
   - file: ./writing_good_code.md

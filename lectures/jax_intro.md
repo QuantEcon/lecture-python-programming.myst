@@ -12,6 +12,7 @@ kernelspec:
 exports:
   - format: ipynb
     markdown: commonmark
+    images: attachment
     output: exports/jax_intro.ipynb
 downloads:
   - file: ./jax_intro.md

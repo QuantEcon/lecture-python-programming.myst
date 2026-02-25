@@ -10,6 +10,7 @@ kernelspec:
 exports:
   - format: ipynb
     markdown: commonmark
+    images: attachment
     output: exports/numpy.ipynb
 downloads:
   - file: ./numpy.md
