@@ -1,5 +1,9 @@
 name: Build ipynb [using QuantEcon/mystmd]
-on: [pull_request]
+on:
+  push:
+    branches: [jb2]
+  pull_request:
+  workflow_dispatch:
 jobs:
   build-ipynb:
     runs-on: ubuntu-latest
