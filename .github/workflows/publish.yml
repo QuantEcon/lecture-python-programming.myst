@@ -6,19 +6,31 @@ on:
 jobs:
   publish:
     if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
-    runs-on: ubuntu-latest
+    runs-on: "runs-on=${{ github.run_id }}/family=g4dn.2xlarge/image=quantecon_ubuntu2404/disk=large"
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0  # Fetch full git history for changelog feature
       - name: Setup Anaconda
         uses: conda-incubator/setup-miniconda@v3
         with:
           auto-update-conda: true
           auto-activate-base: true
           miniconda-version: 'latest'
-          python-version: "3.12"
+          python-version: "3.13"
           environment-file: environment.yml
           activate-environment: quantecon
+      - name: Install JAX and Numpyro
+        shell: bash -l {0}
+        run: |
+          pip install -U "jax[cuda13]"
+          pip install numpyro
+          python scripts/test-jax-install.py
+      - name: Check nvidia drivers
+        shell: bash -l {0}
+        run: |
+          nvidia-smi
       - name: Install latex dependencies
         run: |
           sudo apt-get -qq update
@@ -40,7 +52,7 @@ jobs:
         run: pip list
       # Download Build Cache from cache.yml
       - name: Download "build" folder (cache)
-        uses: dawidd6/action-download-artifact@v11
+        uses: dawidd6/action-download-artifact@v12
         with:
           workflow: cache.yml
           branch: main
@@ -61,7 +73,7 @@ jobs:
         run: |
           jb build lectures --path-output ./ --builder=custom --custom-builder=jupyter -n -W --keep-going
           zip -r download-notebooks.zip _build/jupyter
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: download-notebooks
           path: download-notebooks.zip
@@ -75,6 +87,32 @@ jobs:
         shell: bash -l {0}
         run: |
           jb build lectures --path-output ./ -n -W --keep-going
+      # Create HTML archive for release assets
+      - name: Create HTML archive
+        shell: bash -l {0}
+        run: |
+          tar -czf lecture-python-programming-html-${{ github.ref_name }}.tar.gz -C _build/html .
+          sha256sum lecture-python-programming-html-${{ github.ref_name }}.tar.gz > html-checksum.txt
+
+          # Create metadata manifest
+          cat > html-manifest.json << EOF
+          {
+            "tag": "${{ github.ref_name }}",
+            "commit": "${{ github.sha }}",
+            "timestamp": "$(date -Iseconds)",
+            "size_mb": $(du -sm _build/html | cut -f1),
+            "file_count": $(find _build/html -type f | wc -l)
+          }
+          EOF
+      - name: Upload archives to release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            lecture-python-programming-html-${{ github.ref_name }}.tar.gz
+            html-checksum.txt
+            html-manifest.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Deploy website to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:

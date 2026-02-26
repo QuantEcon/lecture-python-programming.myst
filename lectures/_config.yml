@@ -15,7 +15,7 @@ latex:
      targetname: quantecon-python-programming.tex
 
 sphinx:
-  extra_extensions: [sphinx_multitoc_numbering, sphinxext.rediraffe, sphinx_tojupyter, sphinx_exercise, sphinx_togglebutton]
+  extra_extensions: [sphinx_multitoc_numbering, sphinxext.rediraffe, sphinx_tojupyter, sphinx_exercise, sphinx_togglebutton, sphinx.ext.intersphinx]
   config:
     # bibtex_reference_style: author_year #TODO: enable if bibtex bibliography is used in series
     # false-positive links
@@ -27,6 +27,9 @@ sphinx:
                        'https://www.reddit.com/',
                        'https://openai.com',
                        'https://chatgpt.com/']
+    nb_merge_streams: true
+    # sphinx-exercise
+    exercise_style: "solution_follow_exercise"
     html_favicon: _static/lectures-favicon.ico
     html_theme: quantecon_book_theme
     html_static_path: ['_static']
@@ -41,6 +44,7 @@ sphinx:
       header_organisation: QuantEcon
       repository_url: https://github.com/QuantEcon/lecture-python-programming.myst
       nb_repository_url: https://github.com/QuantEcon/lecture-python-programming.notebooks
+      path_to_docs: lectures
       twitter: quantecon
       twitter_logo_url: https://assets.quantecon.org/img/qe-twitter-logo.png
       og_logo_url: https://assets.quantecon.org/img/qe-og-logo.png
@@ -52,6 +56,10 @@ sphinx:
         notebook_interface        : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
         colab_url                 : https://colab.research.google.com
         thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
+    intersphinx_mapping: 
+      jax: 
+        - "https://jax.quantecon.org/"
+        - null
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
     rediraffe_redirects:
       index_toc.md: intro.md

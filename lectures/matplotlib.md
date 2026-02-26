@@ -24,7 +24,7 @@ downloads:
 
 ## Overview
 
-We've already generated quite a few figures in these lectures using [Matplotlib](http://matplotlib.org/).
+We've already generated quite a few figures in these lectures using [Matplotlib](https://matplotlib.org/).
 
 Matplotlib is an outstanding graphics library, designed for scientific computing, with
 
@@ -119,7 +119,7 @@ If everything is properly configured, then adding LaTeX is trivial
 
 ```{code-cell} python3
 fig, ax = plt.subplots()
-ax.plot(x, y, 'r-', linewidth=2, label='$y=\sin(x)$', alpha=0.6)
+ax.plot(x, y, 'r-', linewidth=2, label=r'$y=\sin(x)$', alpha=0.6)
 ax.legend(loc='upper center')
 plt.show()
 ```
@@ -128,7 +128,7 @@ Controlling the ticks, adding titles and so on is also straightforward
 
 ```{code-cell} python3
 fig, ax = plt.subplots()
-ax.plot(x, y, 'r-', linewidth=2, label='$y=\sin(x)$', alpha=0.6)
+ax.plot(x, y, 'r-', linewidth=2, label=r'$y=\sin(x)$', alpha=0.6)
 ax.legend(loc='upper center')
 ax.set_yticks([-1, 0, 1])
 ax.set_title('Test plot')
@@ -158,7 +158,7 @@ x = np.linspace(-4, 4, 150)
 for i in range(3):
     m, s = uniform(-1, 1), uniform(1, 2)
     y = norm.pdf(x, loc=m, scale=s)
-    current_label = f'$\mu = {m:.2}$'
+    current_label = rf'$\mu = {m:.2}$'
     ax.plot(x, y, linewidth=2, alpha=0.6, label=current_label)
 ax.legend()
 plt.show()
@@ -178,7 +178,7 @@ for i in range(num_rows):
         m, s = uniform(-1, 1), uniform(1, 2)
         x = norm.rvs(loc=m, scale=s, size=100)
         axes[i, j].hist(x, alpha=0.6, bins=20)
-        t = f'$\mu = {m:.2}, \quad \sigma = {s:.2}$'
+        t = rf'$\mu = {m:.2}, \quad \sigma = {s:.2}$'
         axes[i, j].set(title=t, xticks=[-4, 0, 4], yticks=[])
 plt.show()
 ```
@@ -406,7 +406,7 @@ x = np.linspace(-4, 4, 150)
 for i in range(3):
     m, s = uniform(-1, 1), uniform(1, 2)
     y = norm.pdf(x, loc=m, scale=s)
-    current_label = f'$\mu = {m:.2}$'
+    current_label = rf'$\mu = {m:.2}$'
     ax.plot(x, y, linewidth=2, alpha=0.6, label=current_label)
 ax.legend()
 plt.show()
@@ -425,9 +425,9 @@ plt.rcParams['figure.figsize'] = (10, 6)
 
 ## Further Reading
 
-* The [Matplotlib gallery](http://matplotlib.org/gallery.html) provides many examples.
-* A nice [Matplotlib tutorial](http://scipy-lectures.org/intro/matplotlib/index.html) by Nicolas Rougier, Mike Muller and Gael Varoquaux.
-* [mpltools](http://tonysyu.github.io/mpltools/index.html) allows easy
+* The [Matplotlib gallery](https://matplotlib.org/stable/gallery/index.html) provides many examples.
+* A nice [Matplotlib tutorial](https://scipy-lectures.org/intro/matplotlib/index.html) by Nicolas Rougier, Mike Muller and Gael Varoquaux.
+* [mpltools](https://tonysyu.github.io/mpltools/index.html) allows easy
   switching between plot styles.
 * [Seaborn](https://github.com/mwaskom/seaborn) facilitates common statistics plots in Matplotlib.
 
@@ -450,7 +450,7 @@ Place all the curves in the same figure.
 The output should look like this
 
 ```{figure} /_static/lecture_specific/matplotlib/matplotlib_ex1.png
-:width: 130%
+:width: 100%
 ```
 
 ```{exercise-end}

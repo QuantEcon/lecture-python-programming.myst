@@ -3,10 +3,12 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.17.2
 kernelspec:
-  display_name: Python 3
-  language: python
   name: python3
+  display_name: Python 3 (ipykernel)
+  language: python
 exports:
   - format: ipynb
     markdown: commonmark
@@ -43,7 +45,7 @@ In this lecture, you will learn to
 ```{note}
 Going forward, it is assumed that you have an Anaconda environment up and running.
 
-You may want to [create a new conda environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands) if you haven't done so already.
+You may want to [create a new conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands) if you haven't done so already.
 ```
 
 ## Working with Python files 
@@ -52,7 +54,7 @@ Python files are used when writing long, reusable blocks of code - by convention
 
 Let us begin by working with the following example.
 
-```{code-block} python
+```{code-cell} ipython3
 :caption: sine_wave.py
 :lineno-start: 1
 
@@ -69,17 +71,18 @@ plt.title('Sine Wave')
 plt.show()
 ```
 
-The code is first saved locally on the computer before it is executed. 
-
 As there are various ways to execute the code, we will explore them in the context of different development environments.
 
 One major advantage of using Python scripts lies in the fact that you can "import" functionality from other scripts into your current script or Jupyter Notebook. 
 
-Let's rewrite the earlier code into a function.
+Let's rewrite the earlier code into a function and write to to a file called `sine_wave.py`.
 
-```{code-block} python
+```{code-cell} ipython3
 :caption: sine_wave.py
 :lineno-start: 1
+
+%%writefile sine_wave.py
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -95,7 +98,7 @@ def plot_wave(title : str = 'Sine Wave'):
   plt.show()
 ```
 
-```{code-block} python
+```{code-cell} ipython3
 :caption: second_script.py
 :lineno-start: 1
 
@@ -318,14 +321,14 @@ However, this is outside the focus of these lectures.
 
 This section will familiarize you with git and GitHub.
 
-[Git](http://git-scm.com/) is a *version control system* --- a piece of software used to manage digital projects such as code libraries.
+[Git](https://git-scm.com/) is a *version control system* --- a piece of software used to manage digital projects such as code libraries.
 
 In many cases, the associated collections of files --- called *repositories* --- are stored on [GitHub](https://github.com/).
 
 GitHub is a wonderland of collaborative coding projects.
 
 For example, it hosts many of the scientific libraries we'll be using later
-on, such as [this one](https://github.com/pydata/pandas).
+on, such as [this one](https://github.com/pandas-dev/pandas).
 
 Git is the underlying software used to manage these projects.
 
@@ -335,9 +338,9 @@ lectures.
 
 There are two main flavors of Git
 
-1. the plain vanilla [command line Git](http://git-scm.com/downloads) version
+1. the plain vanilla [command line Git](https://git-scm.com/downloads/) version
 2. the various point-and-click GUI versions
-    * See, for example, the [GitHub version](https://desktop.github.com/) or Git GUI integrated into your IDE.
+    * See, for example, the [GitHub version](https://github.com/apps/desktop) or Git GUI integrated into your IDE.
 
 In case you already haven't, try
 
@@ -346,9 +349,7 @@ In case you already haven't, try
 
 For example, if you've installed the command line version, open up a terminal and enter.
 
-```{code-block} bash
-:class: no-execute
-
+```bash
 git clone https://github.com/QuantEcon/QuantEcon.py
 ```
 (This is just `git clone` in front of the URL for the repository)
@@ -361,11 +362,11 @@ As the 2nd task,
 1. Look into 'forking' GitHub repositories (forking means making your own copy of a GitHub repository, stored on GitHub).
 1. Fork [QuantEcon.py](https://github.com/QuantEcon/QuantEcon.py).
 1. Clone your fork to some local directory, make edits, commit them, and push them back up to your forked GitHub repo.
-1. If you made a valuable improvement, send us a [pull request](https://help.github.com/articles/about-pull-requests/)!
+1. If you made a valuable improvement, send us a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)!
 
 For reading on these and other topics, try
 
-* [The official Git documentation](http://git-scm.com/doc).
+* [The official Git documentation](https://git-scm.com/doc).
 * Reading through the docs on [GitHub](https://docs.github.com/en).
-* [Pro Git Book](http://git-scm.com/book) by Scott Chacon and Ben Straub.
+* [Pro Git Book](https://git-scm.com/book) by Scott Chacon and Ben Straub.
 * One of the thousands of Git tutorials on the Net.

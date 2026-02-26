@@ -1,34 +1,45 @@
 name: Build Cache [using jupyter-book]
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    # Execute cache weekly at 3am on Monday
+    - cron:  '0 3 * * 1'
+  workflow_dispatch:
 jobs:
   cache:
-    runs-on: ubuntu-latest
+    runs-on: "runs-on=${{ github.run_id }}/family=g4dn.2xlarge/image=quantecon_ubuntu2404/disk=large"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Setup Anaconda
         uses: conda-incubator/setup-miniconda@v3
         with:
           auto-update-conda: true
           auto-activate-base: true
           miniconda-version: 'latest'
-          python-version: "3.12"
+          python-version: "3.13"
           environment-file: environment.yml
           activate-environment: quantecon
+      - name: Install JAX and Numpyro
+        shell: bash -l {0}
+        run: |
+          pip install -U "jax[cuda13]"
+          pip install numpyro
+          python scripts/test-jax-install.py
+      - name: Check nvidia drivers
+        shell: bash -l {0}
+        run: |
+          nvidia-smi
       - name: Build HTML
         shell: bash -l {0}
         run: |
           jb build lectures --path-output ./ -W --keep-going
       - name: Upload Execution Reports
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         if: failure()
         with:
           name: execution-reports
           path: _build/html/reports
       - name: Upload "_build" folder (cache)
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: build-cache
           path: _build
