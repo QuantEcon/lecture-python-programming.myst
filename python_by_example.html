@@ -77,8 +77,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=22b71a9b445b7b2b6a277c0a48ea72bf6e7c90d9" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=ca16d73eb23eeca4aff446ccb0673818c18f9cfc" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
@@ -100,8 +100,8 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=65b86b9423025043228643fcfb616ce846cb91c1"></script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=239405dfbfda750f9038d3ea275d1490a4be841e"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -160,6 +160,8 @@
 
 <!-- Override QuantEcon theme colors -->
 
+<!-- Color scheme: applies scheme-specific body class -->
+
     <span id="top"></span>
 
     <div class="qe-wrapper">
@@ -170,6 +172,11 @@
 
                 <div class="qe-page__toc">
 
+                    
+                    
+                    
+
+                    
                     <div class="inner">
 
                         
@@ -222,10 +229,14 @@
                         <div class="qe-page__toc-footer">
                             
                             
+                            
                             <p><a href="#top"><strong>Back to top</strong></a></p>
+                            
                         </div>
 
                     </div>
+
+                    
 
                 </div>
 
@@ -402,7 +413,7 @@ about Python.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a76112956d40245f1d35e409dd384989b2a9ab6f6dc685fa400cac53245070dd.png" src="_images/a76112956d40245f1d35e409dd384989b2a9ab6f6dc685fa400cac53245070dd.png" />
+<img alt="_images/9b4e2b8057c807fd63d1416aa62ef81154a13f41804f4fec718e26b4ce5969db.png" src="_images/9b4e2b8057c807fd63d1416aa62ef81154a13f41804f4fec718e26b4ce5969db.png" />
 </div>
 </div>
 <p>Let’s break this program down and see how it works.</p>
@@ -526,7 +537,7 @@ after the import statements are</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6e624d91cc64c1eef4391eea2b1f8ebc22626d583a5b626859014b9567d4bd2c.png" src="_images/6e624d91cc64c1eef4391eea2b1f8ebc22626d583a5b626859014b9567d4bd2c.png" />
+<img alt="_images/1e04961a6180982518336b048cd96571ed6bc49ce24084fa09ddfd6cdf9cc681.png" src="_images/1e04961a6180982518336b048cd96571ed6bc49ce24084fa09ddfd6cdf9cc681.png" />
 </div>
 </div>
 <p>The first line generates 100 (quasi) independent standard normals and stores
@@ -559,7 +570,7 @@ somewhat artificial.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b7d23e1ae49b2bc5b0da10def24b3a256029f98202a3687b737bdc01c5509a25.png" src="_images/b7d23e1ae49b2bc5b0da10def24b3a256029f98202a3687b737bdc01c5509a25.png" />
+<img alt="_images/1b5b7686ec1248de2e6cfd93c7987d593c5b231866745441a85c4af4a80fe978.png" src="_images/1b5b7686ec1248de2e6cfd93c7987d593c5b231866745441a85c4af4a80fe978.png" />
 </div>
 </div>
 <p>In brief,</p>
@@ -774,7 +785,7 @@ loop of the form</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ee697aab96b1e6a61a8217640151d9fb9c39a69ac5ba0e04badd4e9531bc1160.png" src="_images/ee697aab96b1e6a61a8217640151d9fb9c39a69ac5ba0e04badd4e9531bc1160.png" />
+<img alt="_images/42def44dd088d4e6dfc0b53ffd0ffbf0451f0acaa292b4b2db3c9773c9c9eb48.png" src="_images/42def44dd088d4e6dfc0b53ffd0ffbf0451f0acaa292b4b2db3c9773c9c9eb48.png" />
 </div>
 </div>
 <p>A while loop will keep executing the code block delimited by indentation until the condition (<code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">ts_length</span></code>) is satisfied.</p>
@@ -888,7 +899,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6db4fc0d43300aa6f005b5df02686389c744d3f2db66abb52d662543a842a5e5.png" src="_images/6db4fc0d43300aa6f005b5df02686389c744d3f2db66abb52d662543a842a5e5.png" />
+<img alt="_images/cd8ca0606072aa33c0e07870aac21c6b197766bfe94c89451562f5bef4539f78.png" src="_images/cd8ca0606072aa33c0e07870aac21c6b197766bfe94c89451562f5bef4539f78.png" />
 </div>
 </div>
 </section>
@@ -932,7 +943,7 @@ one for each of the cases <span class="math notranslate nohighlight">\(\alpha=0\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e75a437004b2c02fdd68172da364127370c57c3f6d9eac0f33fe526109bb385d.png" src="_images/e75a437004b2c02fdd68172da364127370c57c3f6d9eac0f33fe526109bb385d.png" />
+<img alt="_images/5a56fffc631fc1dd5eb9f951374c9a036713be6acca8e61bc037fd050d764943.png" src="_images/5a56fffc631fc1dd5eb9f951374c9a036713be6acca8e61bc037fd050d764943.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -979,7 +990,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7b16e93d4ad82d9f38fe5756dca6d5b4476b51f11f4b80a3ff0214b2dab31393.png" src="_images/7b16e93d4ad82d9f38fe5756dca6d5b4476b51f11f4b80a3ff0214b2dab31393.png" />
+<img alt="_images/0857c380e9d7437a1ec9372146951134a500b8d731dd0d14212399d76d6bfac6.png" src="_images/0857c380e9d7437a1ec9372146951134a500b8d731dd0d14212399d76d6bfac6.png" />
 </div>
 </div>
 </section>
@@ -1049,7 +1060,7 @@ to compute the absolute value.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/55e94d51291af63191748d885e116be3ba6c3212182a92e46a545760900bb0f3.png" src="_images/55e94d51291af63191748d885e116be3ba6c3212182a92e46a545760900bb0f3.png" />
+<img alt="_images/a62762e1b7bda67e4d31a4eb7f7aa9fd926f1ff00485c7a7b8bd96f75e3d1502.png" src="_images/a62762e1b7bda67e4d31a4eb7f7aa9fd926f1ff00485c7a7b8bd96f75e3d1502.png" />
 </div>
 </div>
 <p>Here’s a shorter way to write the same thing:</p>
@@ -1070,7 +1081,7 @@ to compute the absolute value.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/29ecdcc83faa0197aec712a560809f551baf26f4ff7e3bdc7e4d0e30614e8cd4.png" src="_images/29ecdcc83faa0197aec712a560809f551baf26f4ff7e3bdc7e4d0e30614e8cd4.png" />
+<img alt="_images/aff44983add59107f5504ddd0de30de4d6d010d06980dd9142efa70933a58efa.png" src="_images/aff44983add59107f5504ddd0de30de4d6d010d06980dd9142efa70933a58efa.png" />
 </div>
 </div>
 </section>
@@ -1140,7 +1151,7 @@ fraction that falls into the circle.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.142028
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14244
 </pre></div>
 </div>
 </div>
