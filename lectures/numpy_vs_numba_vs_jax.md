@@ -7,6 +7,16 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+exports:
+  - format: ipynb
+    markdown: commonmark
+    images: attachment
+    output: exports/numpy_vs_numba_vs_jax.ipynb
+downloads:
+  - file: ./numpy_vs_numba_vs_jax.md
+    title: Markdown (md)
+  - file: exports/numpy_vs_numba_vs_jax.ipynb
+    title: IPython (.ipynb)
 ---
 
 (parallel)=

@@ -33,19 +33,22 @@ project:
         - file: numpy.md
         - file: matplotlib.md
         - file: scipy.md
+    - title: Working with Data
+      children:
         - file: pandas.md
         - file: pandas_panel.md
-        - file: sympy.md
     - title: High Performance Computing
       children:
         - file: numba.md
-        - file: parallelization.md
         - file: jax_intro.md
-    - title: Advanced Python Programming
+        - file: numpy_vs_numba_vs_jax.md
+    - title: More Python Programming
       children:
         - file: writing_good_code.md
+        - file: workspace.md
         - file: python_advanced_features.md
         - file: debugging.md
+        - file: sympy.md
     - title: Other
       children:
         - file: troubleshooting.md
