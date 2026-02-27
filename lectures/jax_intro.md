@@ -794,8 +794,7 @@ We defer further exploration of automatic differentiation with JAX until {doc}`j
 :label: jax_intro_ex2
 ```
 
-In the Exercise section of {doc}`our lecture on Numba <numba>`, we {ref}`used Monte
-Carlo to price a European call option <numba_ex4>`.
+In the Exercise section of {doc}`our lecture on Numba <numba>`, we {ref}`used Monte Carlo to price a European call option <numba_ex4>`.
 
 The code was accelerated by Numba-based multithreading.
 
