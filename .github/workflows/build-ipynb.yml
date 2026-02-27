@@ -40,7 +40,7 @@ jobs:
 
       - name: Build ipynb exports with custom mystmd
         working-directory: ./lectures
-        run: /tmp/mystmd/packages/mystmd/dist/myst.cjs build --ipynb
+        run: MYST_DEBUG_XREF=1 /tmp/mystmd/packages/mystmd/dist/myst.cjs build --ipynb 2>xref-debug.log
 
       - name: Audit notebooks for MyST syntax leaks
         working-directory: ./lectures
@@ -81,3 +81,10 @@ jobs:
         with:
           name: ipynb-exports
           path: './lectures/exports/'
+
+      - name: Upload xref debug log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xref-debug-log
+          path: './lectures/xref-debug.log'
