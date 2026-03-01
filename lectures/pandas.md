@@ -349,10 +349,10 @@ df.loc[complexCondition]
 The ability to make changes in dataframes is important to generate a clean dataset for future analysis.
 
 
-**1.** We can use `df.where()` conveniently to "keep" the rows we have selected and replace the rest rows with any other values
+**1.** We can use `df.where()` conveniently to "keep" the rows we have selected and replace the rest rows with `NaN`
 
 ```{code-cell} ipython3
-df.where(df.POP >= 20000, False)
+df.where(df.POP >= 20000)
 ```
 
 **2.** We can simply use `.loc[]` to specify the column that we want to modify, and assign values
